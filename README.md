@@ -4,7 +4,6 @@
 ![Modelo](https://img.shields.io/badge/detector-YOLOv8n-blue)
 ![Segurança](https://img.shields.io/badge/análise-STRIDE-8a2be2)
 ![Testes](https://img.shields.io/badge/testes-350%20aprovados-success)
-![Licença](https://img.shields.io/badge/licença-não%20definida-lightgrey)
 
 > Modelagem automática de ameaças STRIDE a partir de diagramas de arquitetura de software.
 
