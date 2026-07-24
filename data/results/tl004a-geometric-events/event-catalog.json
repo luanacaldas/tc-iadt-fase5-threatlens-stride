@@ -1,0 +1,4664 @@
+{
+  "schemaVersion": "1.0",
+  "generatedAt": "2026-07-21T18:11:33.102550+00:00",
+  "split": "synthetic_fixtures_only",
+  "pipelineIntegration": "none_shadow_only",
+  "sourceFixtures": "tests/fixtures/tl004a_geometric_events.json",
+  "fixtureCount": 15,
+  "catalogs": [
+    {
+      "fixtureId": "straight_line",
+      "title": "Linha reta fragmentada em dois segmentos",
+      "topologyRole": null,
+      "catalog": {
+        "schemaVersion": "1.0",
+        "extractorRevision": "tl004a-geometric-events-v1",
+        "mode": "shadow_only",
+        "strategyDependency": "none",
+        "producesFlows": false,
+        "parameters": {
+          "configured": {
+            "endpoint_cluster_tolerance": 2.5,
+            "intersection_tolerance": 1.25,
+            "component_contact_tolerance": 1.0,
+            "nearby_component_distance": 8.0,
+            "collinear_tolerance_degrees": 12.0,
+            "marker_tolerance": 1.0,
+            "line_width_tolerance_factor": 0.5,
+            "coordinate_precision": 3
+          },
+          "effective": {
+            "endpointClusterTolerance": 3.0,
+            "intersectionTolerance": 1.5,
+            "componentContactTolerance": 1.25,
+            "nearbyComponentDistance": 8.5,
+            "collinearToleranceDegrees": 12.0,
+            "markerTolerance": 1.25,
+            "coordinatePrecision": 3,
+            "scale": 1.0,
+            "lineWidth": 1.0
+          }
+        },
+        "segments": [
+          {
+            "id": "seg-b8ce5a2a7fe8714e",
+            "start": [
+              0.0,
+              10.0
+            ],
+            "end": [
+              10.0,
+              10.0
+            ],
+            "provenance": [
+              "input"
+            ],
+            "inputIds": [],
+            "duplicateCount": 1
+          },
+          {
+            "id": "seg-d01398af8f0ddb9d",
+            "start": [
+              10.0,
+              10.0
+            ],
+            "end": [
+              20.0,
+              10.0
+            ],
+            "provenance": [
+              "input"
+            ],
+            "inputIds": [],
+            "duplicateCount": 1
+          }
+        ],
+        "events": [
+          {
+            "id": "gev-eb2a4b0a76190a80",
+            "type": "endpoint",
+            "coordinates": [
+              0.0,
+              10.0
+            ],
+            "sourceSegments": [
+              "seg-b8ce5a2a7fe8714e"
+            ],
+            "armAngles": [
+              0.0
+            ],
+            "provenance": {
+              "extractor": "tl004a-geometric-events-v1",
+              "shadowOnly": true,
+              "inputs": [
+                "input"
+              ]
+            },
+            "nearbyComponents": [],
+            "classification": "terminal",
+            "confidence": "high",
+            "parameters": {
+              "endpointClusterTolerance": 3.0,
+              "intersectionTolerance": 1.5,
+              "componentContactTolerance": 1.25,
+              "nearbyComponentDistance": 8.5,
+              "collinearToleranceDegrees": 12.0,
+              "markerTolerance": 1.25,
+              "coordinatePrecision": 3,
+              "scale": 1.0,
+              "lineWidth": 1.0
+            },
+            "geometricEvidence": {
+              "armCount": 1,
+              "arms": [
+                {
+                  "segmentId": "seg-b8ce5a2a7fe8714e",
+                  "role": "start",
+                  "angle": 0.0
+                }
+              ],
+              "properIntersection": false,
+              "explicitMarker": false,
+              "markerProvenance": [],
+              "transverseConnectivityAllowed": false
+            }
+          },
+          {
+            "id": "gev-e2799434f60651cc",
+            "type": "continuation",
+            "coordinates": [
+              10.0,
+              10.0
+            ],
+            "sourceSegments": [
+              "seg-b8ce5a2a7fe8714e",
+              "seg-d01398af8f0ddb9d"
+            ],
+            "armAngles": [
+              0.0,
+              180.0
+            ],
+            "provenance": {
+              "extractor": "tl004a-geometric-events-v1",
+              "shadowOnly": true,
+              "inputs": [
+                "input"
+              ]
+            },
+            "nearbyComponents": [],
+            "classification": "collinear",
+            "confidence": "high",
+            "parameters": {
+              "endpointClusterTolerance": 3.0,
+              "intersectionTolerance": 1.5,
+              "componentContactTolerance": 1.25,
+              "nearbyComponentDistance": 8.5,
+              "collinearToleranceDegrees": 12.0,
+              "markerTolerance": 1.25,
+              "coordinatePrecision": 3,
+              "scale": 1.0,
+              "lineWidth": 1.0
+            },
+            "geometricEvidence": {
+              "armCount": 2,
+              "arms": [
+                {
+                  "segmentId": "seg-d01398af8f0ddb9d",
+                  "role": "start",
+                  "angle": 0.0
+                },
+                {
+                  "segmentId": "seg-b8ce5a2a7fe8714e",
+                  "role": "end",
+                  "angle": 180.0
+                }
+              ],
+              "properIntersection": false,
+              "explicitMarker": false,
+              "markerProvenance": [],
+              "transverseConnectivityAllowed": false
+            }
+          },
+          {
+            "id": "gev-681f8e225945a95f",
+            "type": "endpoint",
+            "coordinates": [
+              20.0,
+              10.0
+            ],
+            "sourceSegments": [
+              "seg-d01398af8f0ddb9d"
+            ],
+            "armAngles": [
+              180.0
+            ],
+            "provenance": {
+              "extractor": "tl004a-geometric-events-v1",
+              "shadowOnly": true,
+              "inputs": [
+                "input"
+              ]
+            },
+            "nearbyComponents": [],
+            "classification": "terminal",
+            "confidence": "high",
+            "parameters": {
+              "endpointClusterTolerance": 3.0,
+              "intersectionTolerance": 1.5,
+              "componentContactTolerance": 1.25,
+              "nearbyComponentDistance": 8.5,
+              "collinearToleranceDegrees": 12.0,
+              "markerTolerance": 1.25,
+              "coordinatePrecision": 3,
+              "scale": 1.0,
+              "lineWidth": 1.0
+            },
+            "geometricEvidence": {
+              "armCount": 1,
+              "arms": [
+                {
+                  "segmentId": "seg-d01398af8f0ddb9d",
+                  "role": "end",
+                  "angle": 180.0
+                }
+              ],
+              "properIntersection": false,
+              "explicitMarker": false,
+              "markerProvenance": [],
+              "transverseConnectivityAllowed": false
+            }
+          }
+        ],
+        "summary": {
+          "inputSegmentCount": 2,
+          "canonicalSegmentCount": 2,
+          "eventCount": 3,
+          "eventCountByType": {
+            "endpoint": 2,
+            "continuation": 1,
+            "elbow": 0,
+            "crossing": 0,
+            "explicit_junction": 0,
+            "bifurcation": 0,
+            "component_port": 0,
+            "component_boundary_intersection": 0
+          }
+        },
+        "invariants": {
+          "deterministicIds": true,
+          "segmentOrderIndependent": true,
+          "inputMutation": false,
+          "flowDecisionInfluence": false
+        }
+      }
+    },
+    {
+      "fixtureId": "elbow",
+      "title": "Cotovelo ortogonal",
+      "topologyRole": null,
+      "catalog": {
+        "schemaVersion": "1.0",
+        "extractorRevision": "tl004a-geometric-events-v1",
+        "mode": "shadow_only",
+        "strategyDependency": "none",
+        "producesFlows": false,
+        "parameters": {
+          "configured": {
+            "endpoint_cluster_tolerance": 2.5,
+            "intersection_tolerance": 1.25,
+            "component_contact_tolerance": 1.0,
+            "nearby_component_distance": 8.0,
+            "collinear_tolerance_degrees": 12.0,
+            "marker_tolerance": 1.0,
+            "line_width_tolerance_factor": 0.5,
+            "coordinate_precision": 3
+          },
+          "effective": {
+            "endpointClusterTolerance": 3.0,
+            "intersectionTolerance": 1.5,
+            "componentContactTolerance": 1.25,
+            "nearbyComponentDistance": 8.5,
+            "collinearToleranceDegrees": 12.0,
+            "markerTolerance": 1.25,
+            "coordinatePrecision": 3,
+            "scale": 1.0,
+            "lineWidth": 1.0
+          }
+        },
+        "segments": [
+          {
+            "id": "seg-1ee3f6de4a8a78a6",
+            "start": [
+              10.0,
+              10.0
+            ],
+            "end": [
+              10.0,
+              20.0
+            ],
+            "provenance": [
+              "input"
+            ],
+            "inputIds": [],
+            "duplicateCount": 1
+          },
+          {
+            "id": "seg-b8ce5a2a7fe8714e",
+            "start": [
+              0.0,
+              10.0
+            ],
+            "end": [
+              10.0,
+              10.0
+            ],
+            "provenance": [
+              "input"
+            ],
+            "inputIds": [],
+            "duplicateCount": 1
+          }
+        ],
+        "events": [
+          {
+            "id": "gev-eb2a4b0a76190a80",
+            "type": "endpoint",
+            "coordinates": [
+              0.0,
+              10.0
+            ],
+            "sourceSegments": [
+              "seg-b8ce5a2a7fe8714e"
+            ],
+            "armAngles": [
+              0.0
+            ],
+            "provenance": {
+              "extractor": "tl004a-geometric-events-v1",
+              "shadowOnly": true,
+              "inputs": [
+                "input"
+              ]
+            },
+            "nearbyComponents": [],
+            "classification": "terminal",
+            "confidence": "high",
+            "parameters": {
+              "endpointClusterTolerance": 3.0,
+              "intersectionTolerance": 1.5,
+              "componentContactTolerance": 1.25,
+              "nearbyComponentDistance": 8.5,
+              "collinearToleranceDegrees": 12.0,
+              "markerTolerance": 1.25,
+              "coordinatePrecision": 3,
+              "scale": 1.0,
+              "lineWidth": 1.0
+            },
+            "geometricEvidence": {
+              "armCount": 1,
+              "arms": [
+                {
+                  "segmentId": "seg-b8ce5a2a7fe8714e",
+                  "role": "start",
+                  "angle": 0.0
+                }
+              ],
+              "properIntersection": false,
+              "explicitMarker": false,
+              "markerProvenance": [],
+              "transverseConnectivityAllowed": false
+            }
+          },
+          {
+            "id": "gev-c76408e3d00425b0",
+            "type": "elbow",
+            "coordinates": [
+              10.0,
+              10.0
+            ],
+            "sourceSegments": [
+              "seg-1ee3f6de4a8a78a6",
+              "seg-b8ce5a2a7fe8714e"
+            ],
+            "armAngles": [
+              90.0,
+              180.0
+            ],
+            "provenance": {
+              "extractor": "tl004a-geometric-events-v1",
+              "shadowOnly": true,
+              "inputs": [
+                "input"
+              ]
+            },
+            "nearbyComponents": [],
+            "classification": "direction_change",
+            "confidence": "high",
+            "parameters": {
+              "endpointClusterTolerance": 3.0,
+              "intersectionTolerance": 1.5,
+              "componentContactTolerance": 1.25,
+              "nearbyComponentDistance": 8.5,
+              "collinearToleranceDegrees": 12.0,
+              "markerTolerance": 1.25,
+              "coordinatePrecision": 3,
+              "scale": 1.0,
+              "lineWidth": 1.0
+            },
+            "geometricEvidence": {
+              "armCount": 2,
+              "arms": [
+                {
+                  "segmentId": "seg-1ee3f6de4a8a78a6",
+                  "role": "start",
+                  "angle": 90.0
+                },
+                {
+                  "segmentId": "seg-b8ce5a2a7fe8714e",
+                  "role": "end",
+                  "angle": 180.0
+                }
+              ],
+              "properIntersection": false,
+              "explicitMarker": false,
+              "markerProvenance": [],
+              "transverseConnectivityAllowed": false
+            }
+          },
+          {
+            "id": "gev-92ffae6f5dfe82ed",
+            "type": "endpoint",
+            "coordinates": [
+              10.0,
+              20.0
+            ],
+            "sourceSegments": [
+              "seg-1ee3f6de4a8a78a6"
+            ],
+            "armAngles": [
+              270.0
+            ],
+            "provenance": {
+              "extractor": "tl004a-geometric-events-v1",
+              "shadowOnly": true,
+              "inputs": [
+                "input"
+              ]
+            },
+            "nearbyComponents": [],
+            "classification": "terminal",
+            "confidence": "high",
+            "parameters": {
+              "endpointClusterTolerance": 3.0,
+              "intersectionTolerance": 1.5,
+              "componentContactTolerance": 1.25,
+              "nearbyComponentDistance": 8.5,
+              "collinearToleranceDegrees": 12.0,
+              "markerTolerance": 1.25,
+              "coordinatePrecision": 3,
+              "scale": 1.0,
+              "lineWidth": 1.0
+            },
+            "geometricEvidence": {
+              "armCount": 1,
+              "arms": [
+                {
+                  "segmentId": "seg-1ee3f6de4a8a78a6",
+                  "role": "end",
+                  "angle": 270.0
+                }
+              ],
+              "properIntersection": false,
+              "explicitMarker": false,
+              "markerProvenance": [],
+              "transverseConnectivityAllowed": false
+            }
+          }
+        ],
+        "summary": {
+          "inputSegmentCount": 2,
+          "canonicalSegmentCount": 2,
+          "eventCount": 3,
+          "eventCountByType": {
+            "endpoint": 2,
+            "continuation": 0,
+            "elbow": 1,
+            "crossing": 0,
+            "explicit_junction": 0,
+            "bifurcation": 0,
+            "component_port": 0,
+            "component_boundary_intersection": 0
+          }
+        },
+        "invariants": {
+          "deterministicIds": true,
+          "segmentOrderIndependent": true,
+          "inputMutation": false,
+          "flowDecisionInfluence": false
+        }
+      }
+    },
+    {
+      "fixtureId": "x_without_junction",
+      "title": "Cruzamento em X sem marcador de junção",
+      "topologyRole": null,
+      "catalog": {
+        "schemaVersion": "1.0",
+        "extractorRevision": "tl004a-geometric-events-v1",
+        "mode": "shadow_only",
+        "strategyDependency": "none",
+        "producesFlows": false,
+        "parameters": {
+          "configured": {
+            "endpoint_cluster_tolerance": 2.5,
+            "intersection_tolerance": 1.25,
+            "component_contact_tolerance": 1.0,
+            "nearby_component_distance": 8.0,
+            "collinear_tolerance_degrees": 12.0,
+            "marker_tolerance": 1.0,
+            "line_width_tolerance_factor": 0.5,
+            "coordinate_precision": 3
+          },
+          "effective": {
+            "endpointClusterTolerance": 3.0,
+            "intersectionTolerance": 1.5,
+            "componentContactTolerance": 1.25,
+            "nearbyComponentDistance": 8.5,
+            "collinearToleranceDegrees": 12.0,
+            "markerTolerance": 1.25,
+            "coordinatePrecision": 3,
+            "scale": 1.0,
+            "lineWidth": 1.0
+          }
+        },
+        "segments": [
+          {
+            "id": "seg-60929a4e0a7d0ee7",
+            "start": [
+              0.0,
+              20.0
+            ],
+            "end": [
+              20.0,
+              0.0
+            ],
+            "provenance": [
+              "input"
+            ],
+            "inputIds": [],
+            "duplicateCount": 1
+          },
+          {
+            "id": "seg-ed703594845a039f",
+            "start": [
+              0.0,
+              0.0
+            ],
+            "end": [
+              20.0,
+              20.0
+            ],
+            "provenance": [
+              "input"
+            ],
+            "inputIds": [],
+            "duplicateCount": 1
+          }
+        ],
+        "events": [
+          {
+            "id": "gev-fb92c2e35f3e07b9",
+            "type": "endpoint",
+            "coordinates": [
+              0.0,
+              0.0
+            ],
+            "sourceSegments": [
+              "seg-ed703594845a039f"
+            ],
+            "armAngles": [
+              45.0
+            ],
+            "provenance": {
+              "extractor": "tl004a-geometric-events-v1",
+              "shadowOnly": true,
+              "inputs": [
+                "input"
+              ]
+            },
+            "nearbyComponents": [],
+            "classification": "terminal",
+            "confidence": "high",
+            "parameters": {
+              "endpointClusterTolerance": 3.0,
+              "intersectionTolerance": 1.5,
+              "componentContactTolerance": 1.25,
+              "nearbyComponentDistance": 8.5,
+              "collinearToleranceDegrees": 12.0,
+              "markerTolerance": 1.25,
+              "coordinatePrecision": 3,
+              "scale": 1.0,
+              "lineWidth": 1.0
+            },
+            "geometricEvidence": {
+              "armCount": 1,
+              "arms": [
+                {
+                  "segmentId": "seg-ed703594845a039f",
+                  "role": "start",
+                  "angle": 45.0
+                }
+              ],
+              "properIntersection": false,
+              "explicitMarker": false,
+              "markerProvenance": [],
+              "transverseConnectivityAllowed": false
+            }
+          },
+          {
+            "id": "gev-b627f12bc846dec6",
+            "type": "endpoint",
+            "coordinates": [
+              0.0,
+              20.0
+            ],
+            "sourceSegments": [
+              "seg-60929a4e0a7d0ee7"
+            ],
+            "armAngles": [
+              315.0
+            ],
+            "provenance": {
+              "extractor": "tl004a-geometric-events-v1",
+              "shadowOnly": true,
+              "inputs": [
+                "input"
+              ]
+            },
+            "nearbyComponents": [],
+            "classification": "terminal",
+            "confidence": "high",
+            "parameters": {
+              "endpointClusterTolerance": 3.0,
+              "intersectionTolerance": 1.5,
+              "componentContactTolerance": 1.25,
+              "nearbyComponentDistance": 8.5,
+              "collinearToleranceDegrees": 12.0,
+              "markerTolerance": 1.25,
+              "coordinatePrecision": 3,
+              "scale": 1.0,
+              "lineWidth": 1.0
+            },
+            "geometricEvidence": {
+              "armCount": 1,
+              "arms": [
+                {
+                  "segmentId": "seg-60929a4e0a7d0ee7",
+                  "role": "start",
+                  "angle": 315.0
+                }
+              ],
+              "properIntersection": false,
+              "explicitMarker": false,
+              "markerProvenance": [],
+              "transverseConnectivityAllowed": false
+            }
+          },
+          {
+            "id": "gev-2edac3101dd63499",
+            "type": "crossing",
+            "coordinates": [
+              10.0,
+              10.0
+            ],
+            "sourceSegments": [
+              "seg-60929a4e0a7d0ee7",
+              "seg-ed703594845a039f"
+            ],
+            "armAngles": [
+              45.0,
+              135.0,
+              225.0,
+              315.0
+            ],
+            "provenance": {
+              "extractor": "tl004a-geometric-events-v1",
+              "shadowOnly": true,
+              "inputs": [
+                "input"
+              ]
+            },
+            "nearbyComponents": [],
+            "classification": "non_connecting_crossing",
+            "confidence": "high",
+            "parameters": {
+              "endpointClusterTolerance": 3.0,
+              "intersectionTolerance": 1.5,
+              "componentContactTolerance": 1.25,
+              "nearbyComponentDistance": 8.5,
+              "collinearToleranceDegrees": 12.0,
+              "markerTolerance": 1.25,
+              "coordinatePrecision": 3,
+              "scale": 1.0,
+              "lineWidth": 1.0
+            },
+            "geometricEvidence": {
+              "armCount": 4,
+              "arms": [
+                {
+                  "segmentId": "seg-ed703594845a039f",
+                  "role": "interior_end",
+                  "angle": 45.0
+                },
+                {
+                  "segmentId": "seg-60929a4e0a7d0ee7",
+                  "role": "interior_start",
+                  "angle": 135.0
+                },
+                {
+                  "segmentId": "seg-ed703594845a039f",
+                  "role": "interior_start",
+                  "angle": 225.0
+                },
+                {
+                  "segmentId": "seg-60929a4e0a7d0ee7",
+                  "role": "interior_end",
+                  "angle": 315.0
+                }
+              ],
+              "properIntersection": true,
+              "explicitMarker": false,
+              "markerProvenance": [],
+              "transverseConnectivityAllowed": false
+            }
+          },
+          {
+            "id": "gev-658d3550d4cd845f",
+            "type": "endpoint",
+            "coordinates": [
+              20.0,
+              0.0
+            ],
+            "sourceSegments": [
+              "seg-60929a4e0a7d0ee7"
+            ],
+            "armAngles": [
+              135.0
+            ],
+            "provenance": {
+              "extractor": "tl004a-geometric-events-v1",
+              "shadowOnly": true,
+              "inputs": [
+                "input"
+              ]
+            },
+            "nearbyComponents": [],
+            "classification": "terminal",
+            "confidence": "high",
+            "parameters": {
+              "endpointClusterTolerance": 3.0,
+              "intersectionTolerance": 1.5,
+              "componentContactTolerance": 1.25,
+              "nearbyComponentDistance": 8.5,
+              "collinearToleranceDegrees": 12.0,
+              "markerTolerance": 1.25,
+              "coordinatePrecision": 3,
+              "scale": 1.0,
+              "lineWidth": 1.0
+            },
+            "geometricEvidence": {
+              "armCount": 1,
+              "arms": [
+                {
+                  "segmentId": "seg-60929a4e0a7d0ee7",
+                  "role": "end",
+                  "angle": 135.0
+                }
+              ],
+              "properIntersection": false,
+              "explicitMarker": false,
+              "markerProvenance": [],
+              "transverseConnectivityAllowed": false
+            }
+          },
+          {
+            "id": "gev-16ed1bab3de517a8",
+            "type": "endpoint",
+            "coordinates": [
+              20.0,
+              20.0
+            ],
+            "sourceSegments": [
+              "seg-ed703594845a039f"
+            ],
+            "armAngles": [
+              225.0
+            ],
+            "provenance": {
+              "extractor": "tl004a-geometric-events-v1",
+              "shadowOnly": true,
+              "inputs": [
+                "input"
+              ]
+            },
+            "nearbyComponents": [],
+            "classification": "terminal",
+            "confidence": "high",
+            "parameters": {
+              "endpointClusterTolerance": 3.0,
+              "intersectionTolerance": 1.5,
+              "componentContactTolerance": 1.25,
+              "nearbyComponentDistance": 8.5,
+              "collinearToleranceDegrees": 12.0,
+              "markerTolerance": 1.25,
+              "coordinatePrecision": 3,
+              "scale": 1.0,
+              "lineWidth": 1.0
+            },
+            "geometricEvidence": {
+              "armCount": 1,
+              "arms": [
+                {
+                  "segmentId": "seg-ed703594845a039f",
+                  "role": "end",
+                  "angle": 225.0
+                }
+              ],
+              "properIntersection": false,
+              "explicitMarker": false,
+              "markerProvenance": [],
+              "transverseConnectivityAllowed": false
+            }
+          }
+        ],
+        "summary": {
+          "inputSegmentCount": 2,
+          "canonicalSegmentCount": 2,
+          "eventCount": 5,
+          "eventCountByType": {
+            "endpoint": 4,
+            "continuation": 0,
+            "elbow": 0,
+            "crossing": 1,
+            "explicit_junction": 0,
+            "bifurcation": 0,
+            "component_port": 0,
+            "component_boundary_intersection": 0
+          }
+        },
+        "invariants": {
+          "deterministicIds": true,
+          "segmentOrderIndependent": true,
+          "inputMutation": false,
+          "flowDecisionInfluence": false
+        }
+      }
+    },
+    {
+      "fixtureId": "x_with_explicit_junction",
+      "title": "Cruzamento em X com marcador explícito",
+      "topologyRole": null,
+      "catalog": {
+        "schemaVersion": "1.0",
+        "extractorRevision": "tl004a-geometric-events-v1",
+        "mode": "shadow_only",
+        "strategyDependency": "none",
+        "producesFlows": false,
+        "parameters": {
+          "configured": {
+            "endpoint_cluster_tolerance": 2.5,
+            "intersection_tolerance": 1.25,
+            "component_contact_tolerance": 1.0,
+            "nearby_component_distance": 8.0,
+            "collinear_tolerance_degrees": 12.0,
+            "marker_tolerance": 1.0,
+            "line_width_tolerance_factor": 0.5,
+            "coordinate_precision": 3
+          },
+          "effective": {
+            "endpointClusterTolerance": 3.0,
+            "intersectionTolerance": 1.5,
+            "componentContactTolerance": 1.25,
+            "nearbyComponentDistance": 8.5,
+            "collinearToleranceDegrees": 12.0,
+            "markerTolerance": 1.25,
+            "coordinatePrecision": 3,
+            "scale": 1.0,
+            "lineWidth": 1.0
+          }
+        },
+        "segments": [
+          {
+            "id": "seg-60929a4e0a7d0ee7",
+            "start": [
+              0.0,
+              20.0
+            ],
+            "end": [
+              20.0,
+              0.0
+            ],
+            "provenance": [
+              "input"
+            ],
+            "inputIds": [],
+            "duplicateCount": 1
+          },
+          {
+            "id": "seg-ed703594845a039f",
+            "start": [
+              0.0,
+              0.0
+            ],
+            "end": [
+              20.0,
+              20.0
+            ],
+            "provenance": [
+              "input"
+            ],
+            "inputIds": [],
+            "duplicateCount": 1
+          }
+        ],
+        "events": [
+          {
+            "id": "gev-fb92c2e35f3e07b9",
+            "type": "endpoint",
+            "coordinates": [
+              0.0,
+              0.0
+            ],
+            "sourceSegments": [
+              "seg-ed703594845a039f"
+            ],
+            "armAngles": [
+              45.0
+            ],
+            "provenance": {
+              "extractor": "tl004a-geometric-events-v1",
+              "shadowOnly": true,
+              "inputs": [
+                "input"
+              ]
+            },
+            "nearbyComponents": [],
+            "classification": "terminal",
+            "confidence": "high",
+            "parameters": {
+              "endpointClusterTolerance": 3.0,
+              "intersectionTolerance": 1.5,
+              "componentContactTolerance": 1.25,
+              "nearbyComponentDistance": 8.5,
+              "collinearToleranceDegrees": 12.0,
+              "markerTolerance": 1.25,
+              "coordinatePrecision": 3,
+              "scale": 1.0,
+              "lineWidth": 1.0
+            },
+            "geometricEvidence": {
+              "armCount": 1,
+              "arms": [
+                {
+                  "segmentId": "seg-ed703594845a039f",
+                  "role": "start",
+                  "angle": 45.0
+                }
+              ],
+              "properIntersection": false,
+              "explicitMarker": false,
+              "markerProvenance": [],
+              "transverseConnectivityAllowed": false
+            }
+          },
+          {
+            "id": "gev-b627f12bc846dec6",
+            "type": "endpoint",
+            "coordinates": [
+              0.0,
+              20.0
+            ],
+            "sourceSegments": [
+              "seg-60929a4e0a7d0ee7"
+            ],
+            "armAngles": [
+              315.0
+            ],
+            "provenance": {
+              "extractor": "tl004a-geometric-events-v1",
+              "shadowOnly": true,
+              "inputs": [
+                "input"
+              ]
+            },
+            "nearbyComponents": [],
+            "classification": "terminal",
+            "confidence": "high",
+            "parameters": {
+              "endpointClusterTolerance": 3.0,
+              "intersectionTolerance": 1.5,
+              "componentContactTolerance": 1.25,
+              "nearbyComponentDistance": 8.5,
+              "collinearToleranceDegrees": 12.0,
+              "markerTolerance": 1.25,
+              "coordinatePrecision": 3,
+              "scale": 1.0,
+              "lineWidth": 1.0
+            },
+            "geometricEvidence": {
+              "armCount": 1,
+              "arms": [
+                {
+                  "segmentId": "seg-60929a4e0a7d0ee7",
+                  "role": "start",
+                  "angle": 315.0
+                }
+              ],
+              "properIntersection": false,
+              "explicitMarker": false,
+              "markerProvenance": [],
+              "transverseConnectivityAllowed": false
+            }
+          },
+          {
+            "id": "gev-2f0ddae33d82a3ec",
+            "type": "explicit_junction",
+            "coordinates": [
+              10.0,
+              10.0
+            ],
+            "sourceSegments": [
+              "seg-60929a4e0a7d0ee7",
+              "seg-ed703594845a039f"
+            ],
+            "armAngles": [
+              45.0,
+              135.0,
+              225.0,
+              315.0
+            ],
+            "provenance": {
+              "extractor": "tl004a-geometric-events-v1",
+              "shadowOnly": true,
+              "inputs": [
+                "input"
+              ]
+            },
+            "nearbyComponents": [],
+            "classification": "connecting_junction",
+            "confidence": "high",
+            "parameters": {
+              "endpointClusterTolerance": 3.0,
+              "intersectionTolerance": 1.5,
+              "componentContactTolerance": 1.25,
+              "nearbyComponentDistance": 8.5,
+              "collinearToleranceDegrees": 12.0,
+              "markerTolerance": 1.25,
+              "coordinatePrecision": 3,
+              "scale": 1.0,
+              "lineWidth": 1.0
+            },
+            "geometricEvidence": {
+              "armCount": 4,
+              "arms": [
+                {
+                  "segmentId": "seg-ed703594845a039f",
+                  "role": "interior_end",
+                  "angle": 45.0
+                },
+                {
+                  "segmentId": "seg-60929a4e0a7d0ee7",
+                  "role": "interior_start",
+                  "angle": 135.0
+                },
+                {
+                  "segmentId": "seg-ed703594845a039f",
+                  "role": "interior_start",
+                  "angle": 225.0
+                },
+                {
+                  "segmentId": "seg-60929a4e0a7d0ee7",
+                  "role": "interior_end",
+                  "angle": 315.0
+                }
+              ],
+              "properIntersection": true,
+              "explicitMarker": true,
+              "markerProvenance": [
+                "fixture_dot"
+              ],
+              "transverseConnectivityAllowed": true
+            }
+          },
+          {
+            "id": "gev-658d3550d4cd845f",
+            "type": "endpoint",
+            "coordinates": [
+              20.0,
+              0.0
+            ],
+            "sourceSegments": [
+              "seg-60929a4e0a7d0ee7"
+            ],
+            "armAngles": [
+              135.0
+            ],
+            "provenance": {
+              "extractor": "tl004a-geometric-events-v1",
+              "shadowOnly": true,
+              "inputs": [
+                "input"
+              ]
+            },
+            "nearbyComponents": [],
+            "classification": "terminal",
+            "confidence": "high",
+            "parameters": {
+              "endpointClusterTolerance": 3.0,
+              "intersectionTolerance": 1.5,
+              "componentContactTolerance": 1.25,
+              "nearbyComponentDistance": 8.5,
+              "collinearToleranceDegrees": 12.0,
+              "markerTolerance": 1.25,
+              "coordinatePrecision": 3,
+              "scale": 1.0,
+              "lineWidth": 1.0
+            },
+            "geometricEvidence": {
+              "armCount": 1,
+              "arms": [
+                {
+                  "segmentId": "seg-60929a4e0a7d0ee7",
+                  "role": "end",
+                  "angle": 135.0
+                }
+              ],
+              "properIntersection": false,
+              "explicitMarker": false,
+              "markerProvenance": [],
+              "transverseConnectivityAllowed": false
+            }
+          },
+          {
+            "id": "gev-16ed1bab3de517a8",
+            "type": "endpoint",
+            "coordinates": [
+              20.0,
+              20.0
+            ],
+            "sourceSegments": [
+              "seg-ed703594845a039f"
+            ],
+            "armAngles": [
+              225.0
+            ],
+            "provenance": {
+              "extractor": "tl004a-geometric-events-v1",
+              "shadowOnly": true,
+              "inputs": [
+                "input"
+              ]
+            },
+            "nearbyComponents": [],
+            "classification": "terminal",
+            "confidence": "high",
+            "parameters": {
+              "endpointClusterTolerance": 3.0,
+              "intersectionTolerance": 1.5,
+              "componentContactTolerance": 1.25,
+              "nearbyComponentDistance": 8.5,
+              "collinearToleranceDegrees": 12.0,
+              "markerTolerance": 1.25,
+              "coordinatePrecision": 3,
+              "scale": 1.0,
+              "lineWidth": 1.0
+            },
+            "geometricEvidence": {
+              "armCount": 1,
+              "arms": [
+                {
+                  "segmentId": "seg-ed703594845a039f",
+                  "role": "end",
+                  "angle": 225.0
+                }
+              ],
+              "properIntersection": false,
+              "explicitMarker": false,
+              "markerProvenance": [],
+              "transverseConnectivityAllowed": false
+            }
+          }
+        ],
+        "summary": {
+          "inputSegmentCount": 2,
+          "canonicalSegmentCount": 2,
+          "eventCount": 5,
+          "eventCountByType": {
+            "endpoint": 4,
+            "continuation": 0,
+            "elbow": 0,
+            "crossing": 0,
+            "explicit_junction": 1,
+            "bifurcation": 0,
+            "component_port": 0,
+            "component_boundary_intersection": 0
+          }
+        },
+        "invariants": {
+          "deterministicIds": true,
+          "segmentOrderIndependent": true,
+          "inputMutation": false,
+          "flowDecisionInfluence": false
+        }
+      }
+    },
+    {
+      "fixtureId": "t_bifurcation",
+      "title": "Bifurcação em T",
+      "topologyRole": null,
+      "catalog": {
+        "schemaVersion": "1.0",
+        "extractorRevision": "tl004a-geometric-events-v1",
+        "mode": "shadow_only",
+        "strategyDependency": "none",
+        "producesFlows": false,
+        "parameters": {
+          "configured": {
+            "endpoint_cluster_tolerance": 2.5,
+            "intersection_tolerance": 1.25,
+            "component_contact_tolerance": 1.0,
+            "nearby_component_distance": 8.0,
+            "collinear_tolerance_degrees": 12.0,
+            "marker_tolerance": 1.0,
+            "line_width_tolerance_factor": 0.5,
+            "coordinate_precision": 3
+          },
+          "effective": {
+            "endpointClusterTolerance": 3.0,
+            "intersectionTolerance": 1.5,
+            "componentContactTolerance": 1.25,
+            "nearbyComponentDistance": 8.5,
+            "collinearToleranceDegrees": 12.0,
+            "markerTolerance": 1.25,
+            "coordinatePrecision": 3,
+            "scale": 1.0,
+            "lineWidth": 1.0
+          }
+        },
+        "segments": [
+          {
+            "id": "seg-1ee3f6de4a8a78a6",
+            "start": [
+              10.0,
+              10.0
+            ],
+            "end": [
+              10.0,
+              20.0
+            ],
+            "provenance": [
+              "fixture"
+            ],
+            "inputIds": [
+              "t-down"
+            ],
+            "duplicateCount": 1
+          },
+          {
+            "id": "seg-b8ce5a2a7fe8714e",
+            "start": [
+              0.0,
+              10.0
+            ],
+            "end": [
+              10.0,
+              10.0
+            ],
+            "provenance": [
+              "fixture"
+            ],
+            "inputIds": [
+              "t-left"
+            ],
+            "duplicateCount": 1
+          },
+          {
+            "id": "seg-d01398af8f0ddb9d",
+            "start": [
+              10.0,
+              10.0
+            ],
+            "end": [
+              20.0,
+              10.0
+            ],
+            "provenance": [
+              "fixture"
+            ],
+            "inputIds": [
+              "t-right"
+            ],
+            "duplicateCount": 1
+          }
+        ],
+        "events": [
+          {
+            "id": "gev-eb2a4b0a76190a80",
+            "type": "endpoint",
+            "coordinates": [
+              0.0,
+              10.0
+            ],
+            "sourceSegments": [
+              "seg-b8ce5a2a7fe8714e"
+            ],
+            "armAngles": [
+              0.0
+            ],
+            "provenance": {
+              "extractor": "tl004a-geometric-events-v1",
+              "shadowOnly": true,
+              "inputs": [
+                "fixture"
+              ]
+            },
+            "nearbyComponents": [],
+            "classification": "terminal",
+            "confidence": "high",
+            "parameters": {
+              "endpointClusterTolerance": 3.0,
+              "intersectionTolerance": 1.5,
+              "componentContactTolerance": 1.25,
+              "nearbyComponentDistance": 8.5,
+              "collinearToleranceDegrees": 12.0,
+              "markerTolerance": 1.25,
+              "coordinatePrecision": 3,
+              "scale": 1.0,
+              "lineWidth": 1.0
+            },
+            "geometricEvidence": {
+              "armCount": 1,
+              "arms": [
+                {
+                  "segmentId": "seg-b8ce5a2a7fe8714e",
+                  "role": "start",
+                  "angle": 0.0
+                }
+              ],
+              "properIntersection": false,
+              "explicitMarker": false,
+              "markerProvenance": [],
+              "transverseConnectivityAllowed": false
+            }
+          },
+          {
+            "id": "gev-0c2cf72b060e6141",
+            "type": "bifurcation",
+            "coordinates": [
+              10.0,
+              10.0
+            ],
+            "sourceSegments": [
+              "seg-1ee3f6de4a8a78a6",
+              "seg-b8ce5a2a7fe8714e",
+              "seg-d01398af8f0ddb9d"
+            ],
+            "armAngles": [
+              0.0,
+              90.0,
+              180.0
+            ],
+            "provenance": {
+              "extractor": "tl004a-geometric-events-v1",
+              "shadowOnly": true,
+              "inputs": [
+                "fixture"
+              ]
+            },
+            "nearbyComponents": [],
+            "classification": "connecting_bifurcation",
+            "confidence": "high",
+            "parameters": {
+              "endpointClusterTolerance": 3.0,
+              "intersectionTolerance": 1.5,
+              "componentContactTolerance": 1.25,
+              "nearbyComponentDistance": 8.5,
+              "collinearToleranceDegrees": 12.0,
+              "markerTolerance": 1.25,
+              "coordinatePrecision": 3,
+              "scale": 1.0,
+              "lineWidth": 1.0
+            },
+            "geometricEvidence": {
+              "armCount": 3,
+              "arms": [
+                {
+                  "segmentId": "seg-d01398af8f0ddb9d",
+                  "role": "start",
+                  "angle": 0.0
+                },
+                {
+                  "segmentId": "seg-1ee3f6de4a8a78a6",
+                  "role": "start",
+                  "angle": 90.0
+                },
+                {
+                  "segmentId": "seg-b8ce5a2a7fe8714e",
+                  "role": "end",
+                  "angle": 180.0
+                }
+              ],
+              "properIntersection": false,
+              "explicitMarker": false,
+              "markerProvenance": [],
+              "transverseConnectivityAllowed": false
+            }
+          },
+          {
+            "id": "gev-92ffae6f5dfe82ed",
+            "type": "endpoint",
+            "coordinates": [
+              10.0,
+              20.0
+            ],
+            "sourceSegments": [
+              "seg-1ee3f6de4a8a78a6"
+            ],
+            "armAngles": [
+              270.0
+            ],
+            "provenance": {
+              "extractor": "tl004a-geometric-events-v1",
+              "shadowOnly": true,
+              "inputs": [
+                "fixture"
+              ]
+            },
+            "nearbyComponents": [],
+            "classification": "terminal",
+            "confidence": "high",
+            "parameters": {
+              "endpointClusterTolerance": 3.0,
+              "intersectionTolerance": 1.5,
+              "componentContactTolerance": 1.25,
+              "nearbyComponentDistance": 8.5,
+              "collinearToleranceDegrees": 12.0,
+              "markerTolerance": 1.25,
+              "coordinatePrecision": 3,
+              "scale": 1.0,
+              "lineWidth": 1.0
+            },
+            "geometricEvidence": {
+              "armCount": 1,
+              "arms": [
+                {
+                  "segmentId": "seg-1ee3f6de4a8a78a6",
+                  "role": "end",
+                  "angle": 270.0
+                }
+              ],
+              "properIntersection": false,
+              "explicitMarker": false,
+              "markerProvenance": [],
+              "transverseConnectivityAllowed": false
+            }
+          },
+          {
+            "id": "gev-681f8e225945a95f",
+            "type": "endpoint",
+            "coordinates": [
+              20.0,
+              10.0
+            ],
+            "sourceSegments": [
+              "seg-d01398af8f0ddb9d"
+            ],
+            "armAngles": [
+              180.0
+            ],
+            "provenance": {
+              "extractor": "tl004a-geometric-events-v1",
+              "shadowOnly": true,
+              "inputs": [
+                "fixture"
+              ]
+            },
+            "nearbyComponents": [],
+            "classification": "terminal",
+            "confidence": "high",
+            "parameters": {
+              "endpointClusterTolerance": 3.0,
+              "intersectionTolerance": 1.5,
+              "componentContactTolerance": 1.25,
+              "nearbyComponentDistance": 8.5,
+              "collinearToleranceDegrees": 12.0,
+              "markerTolerance": 1.25,
+              "coordinatePrecision": 3,
+              "scale": 1.0,
+              "lineWidth": 1.0
+            },
+            "geometricEvidence": {
+              "armCount": 1,
+              "arms": [
+                {
+                  "segmentId": "seg-d01398af8f0ddb9d",
+                  "role": "end",
+                  "angle": 180.0
+                }
+              ],
+              "properIntersection": false,
+              "explicitMarker": false,
+              "markerProvenance": [],
+              "transverseConnectivityAllowed": false
+            }
+          }
+        ],
+        "summary": {
+          "inputSegmentCount": 3,
+          "canonicalSegmentCount": 3,
+          "eventCount": 4,
+          "eventCountByType": {
+            "endpoint": 3,
+            "continuation": 0,
+            "elbow": 0,
+            "crossing": 0,
+            "explicit_junction": 0,
+            "bifurcation": 1,
+            "component_port": 0,
+            "component_boundary_intersection": 0
+          }
+        },
+        "invariants": {
+          "deterministicIds": true,
+          "segmentOrderIndependent": true,
+          "inputMutation": false,
+          "flowDecisionInfluence": false
+        }
+      }
+    },
+    {
+      "fixtureId": "y_bifurcation",
+      "title": "Bifurcação em Y",
+      "topologyRole": null,
+      "catalog": {
+        "schemaVersion": "1.0",
+        "extractorRevision": "tl004a-geometric-events-v1",
+        "mode": "shadow_only",
+        "strategyDependency": "none",
+        "producesFlows": false,
+        "parameters": {
+          "configured": {
+            "endpoint_cluster_tolerance": 2.5,
+            "intersection_tolerance": 1.25,
+            "component_contact_tolerance": 1.0,
+            "nearby_component_distance": 8.0,
+            "collinear_tolerance_degrees": 12.0,
+            "marker_tolerance": 1.0,
+            "line_width_tolerance_factor": 0.5,
+            "coordinate_precision": 3
+          },
+          "effective": {
+            "endpointClusterTolerance": 3.0,
+            "intersectionTolerance": 1.5,
+            "componentContactTolerance": 1.25,
+            "nearbyComponentDistance": 8.5,
+            "collinearToleranceDegrees": 12.0,
+            "markerTolerance": 1.25,
+            "coordinatePrecision": 3,
+            "scale": 1.0,
+            "lineWidth": 1.0
+          }
+        },
+        "segments": [
+          {
+            "id": "seg-1ee3f6de4a8a78a6",
+            "start": [
+              10.0,
+              10.0
+            ],
+            "end": [
+              10.0,
+              20.0
+            ],
+            "provenance": [
+              "input"
+            ],
+            "inputIds": [],
+            "duplicateCount": 1
+          },
+          {
+            "id": "seg-48d40160dbc62a1b",
+            "start": [
+              0.0,
+              0.0
+            ],
+            "end": [
+              10.0,
+              10.0
+            ],
+            "provenance": [
+              "input"
+            ],
+            "inputIds": [],
+            "duplicateCount": 1
+          },
+          {
+            "id": "seg-752b117eee8cf431",
+            "start": [
+              10.0,
+              10.0
+            ],
+            "end": [
+              20.0,
+              0.0
+            ],
+            "provenance": [
+              "input"
+            ],
+            "inputIds": [],
+            "duplicateCount": 1
+          }
+        ],
+        "events": [
+          {
+            "id": "gev-09897e5242f6c13a",
+            "type": "endpoint",
+            "coordinates": [
+              0.0,
+              0.0
+            ],
+            "sourceSegments": [
+              "seg-48d40160dbc62a1b"
+            ],
+            "armAngles": [
+              45.0
+            ],
+            "provenance": {
+              "extractor": "tl004a-geometric-events-v1",
+              "shadowOnly": true,
+              "inputs": [
+                "input"
+              ]
+            },
+            "nearbyComponents": [],
+            "classification": "terminal",
+            "confidence": "high",
+            "parameters": {
+              "endpointClusterTolerance": 3.0,
+              "intersectionTolerance": 1.5,
+              "componentContactTolerance": 1.25,
+              "nearbyComponentDistance": 8.5,
+              "collinearToleranceDegrees": 12.0,
+              "markerTolerance": 1.25,
+              "coordinatePrecision": 3,
+              "scale": 1.0,
+              "lineWidth": 1.0
+            },
+            "geometricEvidence": {
+              "armCount": 1,
+              "arms": [
+                {
+                  "segmentId": "seg-48d40160dbc62a1b",
+                  "role": "start",
+                  "angle": 45.0
+                }
+              ],
+              "properIntersection": false,
+              "explicitMarker": false,
+              "markerProvenance": [],
+              "transverseConnectivityAllowed": false
+            }
+          },
+          {
+            "id": "gev-ec5419f180767fae",
+            "type": "bifurcation",
+            "coordinates": [
+              10.0,
+              10.0
+            ],
+            "sourceSegments": [
+              "seg-1ee3f6de4a8a78a6",
+              "seg-48d40160dbc62a1b",
+              "seg-752b117eee8cf431"
+            ],
+            "armAngles": [
+              90.0,
+              225.0,
+              315.0
+            ],
+            "provenance": {
+              "extractor": "tl004a-geometric-events-v1",
+              "shadowOnly": true,
+              "inputs": [
+                "input"
+              ]
+            },
+            "nearbyComponents": [],
+            "classification": "connecting_bifurcation",
+            "confidence": "high",
+            "parameters": {
+              "endpointClusterTolerance": 3.0,
+              "intersectionTolerance": 1.5,
+              "componentContactTolerance": 1.25,
+              "nearbyComponentDistance": 8.5,
+              "collinearToleranceDegrees": 12.0,
+              "markerTolerance": 1.25,
+              "coordinatePrecision": 3,
+              "scale": 1.0,
+              "lineWidth": 1.0
+            },
+            "geometricEvidence": {
+              "armCount": 3,
+              "arms": [
+                {
+                  "segmentId": "seg-1ee3f6de4a8a78a6",
+                  "role": "start",
+                  "angle": 90.0
+                },
+                {
+                  "segmentId": "seg-48d40160dbc62a1b",
+                  "role": "end",
+                  "angle": 225.0
+                },
+                {
+                  "segmentId": "seg-752b117eee8cf431",
+                  "role": "start",
+                  "angle": 315.0
+                }
+              ],
+              "properIntersection": false,
+              "explicitMarker": false,
+              "markerProvenance": [],
+              "transverseConnectivityAllowed": false
+            }
+          },
+          {
+            "id": "gev-92ffae6f5dfe82ed",
+            "type": "endpoint",
+            "coordinates": [
+              10.0,
+              20.0
+            ],
+            "sourceSegments": [
+              "seg-1ee3f6de4a8a78a6"
+            ],
+            "armAngles": [
+              270.0
+            ],
+            "provenance": {
+              "extractor": "tl004a-geometric-events-v1",
+              "shadowOnly": true,
+              "inputs": [
+                "input"
+              ]
+            },
+            "nearbyComponents": [],
+            "classification": "terminal",
+            "confidence": "high",
+            "parameters": {
+              "endpointClusterTolerance": 3.0,
+              "intersectionTolerance": 1.5,
+              "componentContactTolerance": 1.25,
+              "nearbyComponentDistance": 8.5,
+              "collinearToleranceDegrees": 12.0,
+              "markerTolerance": 1.25,
+              "coordinatePrecision": 3,
+              "scale": 1.0,
+              "lineWidth": 1.0
+            },
+            "geometricEvidence": {
+              "armCount": 1,
+              "arms": [
+                {
+                  "segmentId": "seg-1ee3f6de4a8a78a6",
+                  "role": "end",
+                  "angle": 270.0
+                }
+              ],
+              "properIntersection": false,
+              "explicitMarker": false,
+              "markerProvenance": [],
+              "transverseConnectivityAllowed": false
+            }
+          },
+          {
+            "id": "gev-c1f775a6232f449c",
+            "type": "endpoint",
+            "coordinates": [
+              20.0,
+              0.0
+            ],
+            "sourceSegments": [
+              "seg-752b117eee8cf431"
+            ],
+            "armAngles": [
+              135.0
+            ],
+            "provenance": {
+              "extractor": "tl004a-geometric-events-v1",
+              "shadowOnly": true,
+              "inputs": [
+                "input"
+              ]
+            },
+            "nearbyComponents": [],
+            "classification": "terminal",
+            "confidence": "high",
+            "parameters": {
+              "endpointClusterTolerance": 3.0,
+              "intersectionTolerance": 1.5,
+              "componentContactTolerance": 1.25,
+              "nearbyComponentDistance": 8.5,
+              "collinearToleranceDegrees": 12.0,
+              "markerTolerance": 1.25,
+              "coordinatePrecision": 3,
+              "scale": 1.0,
+              "lineWidth": 1.0
+            },
+            "geometricEvidence": {
+              "armCount": 1,
+              "arms": [
+                {
+                  "segmentId": "seg-752b117eee8cf431",
+                  "role": "end",
+                  "angle": 135.0
+                }
+              ],
+              "properIntersection": false,
+              "explicitMarker": false,
+              "markerProvenance": [],
+              "transverseConnectivityAllowed": false
+            }
+          }
+        ],
+        "summary": {
+          "inputSegmentCount": 3,
+          "canonicalSegmentCount": 3,
+          "eventCount": 4,
+          "eventCountByType": {
+            "endpoint": 3,
+            "continuation": 0,
+            "elbow": 0,
+            "crossing": 0,
+            "explicit_junction": 0,
+            "bifurcation": 1,
+            "component_port": 0,
+            "component_boundary_intersection": 0
+          }
+        },
+        "invariants": {
+          "deterministicIds": true,
+          "segmentOrderIndependent": true,
+          "inputMutation": false,
+          "flowDecisionInfluence": false
+        }
+      }
+    },
+    {
+      "fixtureId": "parallel_lines",
+      "title": "Linhas paralelas independentes",
+      "topologyRole": null,
+      "catalog": {
+        "schemaVersion": "1.0",
+        "extractorRevision": "tl004a-geometric-events-v1",
+        "mode": "shadow_only",
+        "strategyDependency": "none",
+        "producesFlows": false,
+        "parameters": {
+          "configured": {
+            "endpoint_cluster_tolerance": 2.5,
+            "intersection_tolerance": 1.25,
+            "component_contact_tolerance": 1.0,
+            "nearby_component_distance": 8.0,
+            "collinear_tolerance_degrees": 12.0,
+            "marker_tolerance": 1.0,
+            "line_width_tolerance_factor": 0.5,
+            "coordinate_precision": 3
+          },
+          "effective": {
+            "endpointClusterTolerance": 3.0,
+            "intersectionTolerance": 1.5,
+            "componentContactTolerance": 1.25,
+            "nearbyComponentDistance": 8.5,
+            "collinearToleranceDegrees": 12.0,
+            "markerTolerance": 1.25,
+            "coordinatePrecision": 3,
+            "scale": 1.0,
+            "lineWidth": 1.0
+          }
+        },
+        "segments": [
+          {
+            "id": "seg-486f7b5ce14219d2",
+            "start": [
+              0.0,
+              6.0
+            ],
+            "end": [
+              20.0,
+              6.0
+            ],
+            "provenance": [
+              "input"
+            ],
+            "inputIds": [],
+            "duplicateCount": 1
+          },
+          {
+            "id": "seg-a44e81b5be95fc9c",
+            "start": [
+              0.0,
+              0.0
+            ],
+            "end": [
+              20.0,
+              0.0
+            ],
+            "provenance": [
+              "input"
+            ],
+            "inputIds": [],
+            "duplicateCount": 1
+          }
+        ],
+        "events": [
+          {
+            "id": "gev-10afa89b4a472bdb",
+            "type": "endpoint",
+            "coordinates": [
+              0.0,
+              0.0
+            ],
+            "sourceSegments": [
+              "seg-a44e81b5be95fc9c"
+            ],
+            "armAngles": [
+              0.0
+            ],
+            "provenance": {
+              "extractor": "tl004a-geometric-events-v1",
+              "shadowOnly": true,
+              "inputs": [
+                "input"
+              ]
+            },
+            "nearbyComponents": [],
+            "classification": "terminal",
+            "confidence": "high",
+            "parameters": {
+              "endpointClusterTolerance": 3.0,
+              "intersectionTolerance": 1.5,
+              "componentContactTolerance": 1.25,
+              "nearbyComponentDistance": 8.5,
+              "collinearToleranceDegrees": 12.0,
+              "markerTolerance": 1.25,
+              "coordinatePrecision": 3,
+              "scale": 1.0,
+              "lineWidth": 1.0
+            },
+            "geometricEvidence": {
+              "armCount": 1,
+              "arms": [
+                {
+                  "segmentId": "seg-a44e81b5be95fc9c",
+                  "role": "start",
+                  "angle": 0.0
+                }
+              ],
+              "properIntersection": false,
+              "explicitMarker": false,
+              "markerProvenance": [],
+              "transverseConnectivityAllowed": false
+            }
+          },
+          {
+            "id": "gev-a3c09a2ab1d84794",
+            "type": "endpoint",
+            "coordinates": [
+              0.0,
+              6.0
+            ],
+            "sourceSegments": [
+              "seg-486f7b5ce14219d2"
+            ],
+            "armAngles": [
+              0.0
+            ],
+            "provenance": {
+              "extractor": "tl004a-geometric-events-v1",
+              "shadowOnly": true,
+              "inputs": [
+                "input"
+              ]
+            },
+            "nearbyComponents": [],
+            "classification": "terminal",
+            "confidence": "high",
+            "parameters": {
+              "endpointClusterTolerance": 3.0,
+              "intersectionTolerance": 1.5,
+              "componentContactTolerance": 1.25,
+              "nearbyComponentDistance": 8.5,
+              "collinearToleranceDegrees": 12.0,
+              "markerTolerance": 1.25,
+              "coordinatePrecision": 3,
+              "scale": 1.0,
+              "lineWidth": 1.0
+            },
+            "geometricEvidence": {
+              "armCount": 1,
+              "arms": [
+                {
+                  "segmentId": "seg-486f7b5ce14219d2",
+                  "role": "start",
+                  "angle": 0.0
+                }
+              ],
+              "properIntersection": false,
+              "explicitMarker": false,
+              "markerProvenance": [],
+              "transverseConnectivityAllowed": false
+            }
+          },
+          {
+            "id": "gev-172ccedb23e5418f",
+            "type": "endpoint",
+            "coordinates": [
+              20.0,
+              0.0
+            ],
+            "sourceSegments": [
+              "seg-a44e81b5be95fc9c"
+            ],
+            "armAngles": [
+              180.0
+            ],
+            "provenance": {
+              "extractor": "tl004a-geometric-events-v1",
+              "shadowOnly": true,
+              "inputs": [
+                "input"
+              ]
+            },
+            "nearbyComponents": [],
+            "classification": "terminal",
+            "confidence": "high",
+            "parameters": {
+              "endpointClusterTolerance": 3.0,
+              "intersectionTolerance": 1.5,
+              "componentContactTolerance": 1.25,
+              "nearbyComponentDistance": 8.5,
+              "collinearToleranceDegrees": 12.0,
+              "markerTolerance": 1.25,
+              "coordinatePrecision": 3,
+              "scale": 1.0,
+              "lineWidth": 1.0
+            },
+            "geometricEvidence": {
+              "armCount": 1,
+              "arms": [
+                {
+                  "segmentId": "seg-a44e81b5be95fc9c",
+                  "role": "end",
+                  "angle": 180.0
+                }
+              ],
+              "properIntersection": false,
+              "explicitMarker": false,
+              "markerProvenance": [],
+              "transverseConnectivityAllowed": false
+            }
+          },
+          {
+            "id": "gev-eeabaa14afa4e50a",
+            "type": "endpoint",
+            "coordinates": [
+              20.0,
+              6.0
+            ],
+            "sourceSegments": [
+              "seg-486f7b5ce14219d2"
+            ],
+            "armAngles": [
+              180.0
+            ],
+            "provenance": {
+              "extractor": "tl004a-geometric-events-v1",
+              "shadowOnly": true,
+              "inputs": [
+                "input"
+              ]
+            },
+            "nearbyComponents": [],
+            "classification": "terminal",
+            "confidence": "high",
+            "parameters": {
+              "endpointClusterTolerance": 3.0,
+              "intersectionTolerance": 1.5,
+              "componentContactTolerance": 1.25,
+              "nearbyComponentDistance": 8.5,
+              "collinearToleranceDegrees": 12.0,
+              "markerTolerance": 1.25,
+              "coordinatePrecision": 3,
+              "scale": 1.0,
+              "lineWidth": 1.0
+            },
+            "geometricEvidence": {
+              "armCount": 1,
+              "arms": [
+                {
+                  "segmentId": "seg-486f7b5ce14219d2",
+                  "role": "end",
+                  "angle": 180.0
+                }
+              ],
+              "properIntersection": false,
+              "explicitMarker": false,
+              "markerProvenance": [],
+              "transverseConnectivityAllowed": false
+            }
+          }
+        ],
+        "summary": {
+          "inputSegmentCount": 2,
+          "canonicalSegmentCount": 2,
+          "eventCount": 4,
+          "eventCountByType": {
+            "endpoint": 4,
+            "continuation": 0,
+            "elbow": 0,
+            "crossing": 0,
+            "explicit_junction": 0,
+            "bifurcation": 0,
+            "component_port": 0,
+            "component_boundary_intersection": 0
+          }
+        },
+        "invariants": {
+          "deterministicIds": true,
+          "segmentOrderIndependent": true,
+          "inputMutation": false,
+          "flowDecisionInfluence": false
+        }
+      }
+    },
+    {
+      "fixtureId": "endpoint_touching_component",
+      "title": "Endpoint tocando a borda de componente",
+      "topologyRole": null,
+      "catalog": {
+        "schemaVersion": "1.0",
+        "extractorRevision": "tl004a-geometric-events-v1",
+        "mode": "shadow_only",
+        "strategyDependency": "none",
+        "producesFlows": false,
+        "parameters": {
+          "configured": {
+            "endpoint_cluster_tolerance": 2.5,
+            "intersection_tolerance": 1.25,
+            "component_contact_tolerance": 1.0,
+            "nearby_component_distance": 8.0,
+            "collinear_tolerance_degrees": 12.0,
+            "marker_tolerance": 1.0,
+            "line_width_tolerance_factor": 0.5,
+            "coordinate_precision": 3
+          },
+          "effective": {
+            "endpointClusterTolerance": 3.0,
+            "intersectionTolerance": 1.5,
+            "componentContactTolerance": 1.25,
+            "nearbyComponentDistance": 8.5,
+            "collinearToleranceDegrees": 12.0,
+            "markerTolerance": 1.25,
+            "coordinatePrecision": 3,
+            "scale": 1.0,
+            "lineWidth": 1.0
+          }
+        },
+        "segments": [
+          {
+            "id": "seg-93741b32a9315327",
+            "start": [
+              0.0,
+              5.0
+            ],
+            "end": [
+              10.0,
+              5.0
+            ],
+            "provenance": [
+              "input"
+            ],
+            "inputIds": [],
+            "duplicateCount": 1
+          }
+        ],
+        "events": [
+          {
+            "id": "gev-e0e31db24e86c735",
+            "type": "endpoint",
+            "coordinates": [
+              0.0,
+              5.0
+            ],
+            "sourceSegments": [
+              "seg-93741b32a9315327"
+            ],
+            "armAngles": [
+              0.0
+            ],
+            "provenance": {
+              "extractor": "tl004a-geometric-events-v1",
+              "shadowOnly": true,
+              "inputs": [
+                "input"
+              ]
+            },
+            "nearbyComponents": [],
+            "classification": "terminal",
+            "confidence": "high",
+            "parameters": {
+              "endpointClusterTolerance": 3.0,
+              "intersectionTolerance": 1.5,
+              "componentContactTolerance": 1.25,
+              "nearbyComponentDistance": 8.5,
+              "collinearToleranceDegrees": 12.0,
+              "markerTolerance": 1.25,
+              "coordinatePrecision": 3,
+              "scale": 1.0,
+              "lineWidth": 1.0
+            },
+            "geometricEvidence": {
+              "armCount": 1,
+              "arms": [
+                {
+                  "segmentId": "seg-93741b32a9315327",
+                  "role": "start",
+                  "angle": 0.0
+                }
+              ],
+              "properIntersection": false,
+              "explicitMarker": false,
+              "markerProvenance": [],
+              "transverseConnectivityAllowed": false
+            }
+          },
+          {
+            "id": "gev-f6c26b18d778935e",
+            "type": "component_boundary_intersection",
+            "coordinates": [
+              10.0,
+              5.0
+            ],
+            "sourceSegments": [
+              "seg-93741b32a9315327"
+            ],
+            "armAngles": [],
+            "provenance": {
+              "extractor": "tl004a-geometric-events-v1",
+              "shadowOnly": true,
+              "inputs": [
+                "input"
+              ]
+            },
+            "nearbyComponents": [
+              "component-a"
+            ],
+            "classification": "boundary_contact",
+            "confidence": "high",
+            "parameters": {
+              "endpointClusterTolerance": 3.0,
+              "intersectionTolerance": 1.5,
+              "componentContactTolerance": 1.25,
+              "nearbyComponentDistance": 8.5,
+              "collinearToleranceDegrees": 12.0,
+              "markerTolerance": 1.25,
+              "coordinatePrecision": 3,
+              "scale": 1.0,
+              "lineWidth": 1.0
+            },
+            "geometricEvidence": {
+              "componentId": "component-a",
+              "crossesComponentInterior": false,
+              "normalizedPathPosition": 1.0
+            }
+          },
+          {
+            "id": "gev-8274787e8bf27d9b",
+            "type": "component_port",
+            "coordinates": [
+              10.0,
+              5.0
+            ],
+            "sourceSegments": [
+              "seg-93741b32a9315327"
+            ],
+            "armAngles": [
+              180.0
+            ],
+            "provenance": {
+              "extractor": "tl004a-geometric-events-v1",
+              "shadowOnly": true,
+              "inputs": [
+                "input"
+              ]
+            },
+            "nearbyComponents": [
+              "component-a"
+            ],
+            "classification": "boundary_contact",
+            "confidence": "high",
+            "parameters": {
+              "endpointClusterTolerance": 3.0,
+              "intersectionTolerance": 1.5,
+              "componentContactTolerance": 1.25,
+              "nearbyComponentDistance": 8.5,
+              "collinearToleranceDegrees": 12.0,
+              "markerTolerance": 1.25,
+              "coordinatePrecision": 3,
+              "scale": 1.0,
+              "lineWidth": 1.0
+            },
+            "geometricEvidence": {
+              "componentId": "component-a",
+              "boundaryDistance": 0.0,
+              "contactVerified": true
+            }
+          },
+          {
+            "id": "gev-ecfa78776defe73e",
+            "type": "endpoint",
+            "coordinates": [
+              10.0,
+              5.0
+            ],
+            "sourceSegments": [
+              "seg-93741b32a9315327"
+            ],
+            "armAngles": [
+              180.0
+            ],
+            "provenance": {
+              "extractor": "tl004a-geometric-events-v1",
+              "shadowOnly": true,
+              "inputs": [
+                "input"
+              ]
+            },
+            "nearbyComponents": [
+              "component-a"
+            ],
+            "classification": "terminal",
+            "confidence": "high",
+            "parameters": {
+              "endpointClusterTolerance": 3.0,
+              "intersectionTolerance": 1.5,
+              "componentContactTolerance": 1.25,
+              "nearbyComponentDistance": 8.5,
+              "collinearToleranceDegrees": 12.0,
+              "markerTolerance": 1.25,
+              "coordinatePrecision": 3,
+              "scale": 1.0,
+              "lineWidth": 1.0
+            },
+            "geometricEvidence": {
+              "armCount": 1,
+              "arms": [
+                {
+                  "segmentId": "seg-93741b32a9315327",
+                  "role": "end",
+                  "angle": 180.0
+                }
+              ],
+              "properIntersection": false,
+              "explicitMarker": false,
+              "markerProvenance": [],
+              "transverseConnectivityAllowed": false
+            }
+          }
+        ],
+        "summary": {
+          "inputSegmentCount": 1,
+          "canonicalSegmentCount": 1,
+          "eventCount": 4,
+          "eventCountByType": {
+            "endpoint": 2,
+            "continuation": 0,
+            "elbow": 0,
+            "crossing": 0,
+            "explicit_junction": 0,
+            "bifurcation": 0,
+            "component_port": 1,
+            "component_boundary_intersection": 1
+          }
+        },
+        "invariants": {
+          "deterministicIds": true,
+          "segmentOrderIndependent": true,
+          "inputMutation": false,
+          "flowDecisionInfluence": false
+        }
+      }
+    },
+    {
+      "fixtureId": "endpoint_near_component",
+      "title": "Endpoint próximo sem contato",
+      "topologyRole": null,
+      "catalog": {
+        "schemaVersion": "1.0",
+        "extractorRevision": "tl004a-geometric-events-v1",
+        "mode": "shadow_only",
+        "strategyDependency": "none",
+        "producesFlows": false,
+        "parameters": {
+          "configured": {
+            "endpoint_cluster_tolerance": 2.5,
+            "intersection_tolerance": 1.25,
+            "component_contact_tolerance": 1.0,
+            "nearby_component_distance": 8.0,
+            "collinear_tolerance_degrees": 12.0,
+            "marker_tolerance": 1.0,
+            "line_width_tolerance_factor": 0.5,
+            "coordinate_precision": 3
+          },
+          "effective": {
+            "endpointClusterTolerance": 3.0,
+            "intersectionTolerance": 1.5,
+            "componentContactTolerance": 1.25,
+            "nearbyComponentDistance": 8.5,
+            "collinearToleranceDegrees": 12.0,
+            "markerTolerance": 1.25,
+            "coordinatePrecision": 3,
+            "scale": 1.0,
+            "lineWidth": 1.0
+          }
+        },
+        "segments": [
+          {
+            "id": "seg-11fb0bc0e32e8433",
+            "start": [
+              0.0,
+              5.0
+            ],
+            "end": [
+              8.0,
+              5.0
+            ],
+            "provenance": [
+              "input"
+            ],
+            "inputIds": [],
+            "duplicateCount": 1
+          }
+        ],
+        "events": [
+          {
+            "id": "gev-f5d5e34903a7faf4",
+            "type": "endpoint",
+            "coordinates": [
+              0.0,
+              5.0
+            ],
+            "sourceSegments": [
+              "seg-11fb0bc0e32e8433"
+            ],
+            "armAngles": [
+              0.0
+            ],
+            "provenance": {
+              "extractor": "tl004a-geometric-events-v1",
+              "shadowOnly": true,
+              "inputs": [
+                "input"
+              ]
+            },
+            "nearbyComponents": [],
+            "classification": "terminal",
+            "confidence": "high",
+            "parameters": {
+              "endpointClusterTolerance": 3.0,
+              "intersectionTolerance": 1.5,
+              "componentContactTolerance": 1.25,
+              "nearbyComponentDistance": 8.5,
+              "collinearToleranceDegrees": 12.0,
+              "markerTolerance": 1.25,
+              "coordinatePrecision": 3,
+              "scale": 1.0,
+              "lineWidth": 1.0
+            },
+            "geometricEvidence": {
+              "armCount": 1,
+              "arms": [
+                {
+                  "segmentId": "seg-11fb0bc0e32e8433",
+                  "role": "start",
+                  "angle": 0.0
+                }
+              ],
+              "properIntersection": false,
+              "explicitMarker": false,
+              "markerProvenance": [],
+              "transverseConnectivityAllowed": false
+            }
+          },
+          {
+            "id": "gev-d286597f4d50e1a7",
+            "type": "endpoint",
+            "coordinates": [
+              8.0,
+              5.0
+            ],
+            "sourceSegments": [
+              "seg-11fb0bc0e32e8433"
+            ],
+            "armAngles": [
+              180.0
+            ],
+            "provenance": {
+              "extractor": "tl004a-geometric-events-v1",
+              "shadowOnly": true,
+              "inputs": [
+                "input"
+              ]
+            },
+            "nearbyComponents": [
+              "component-a"
+            ],
+            "classification": "terminal",
+            "confidence": "high",
+            "parameters": {
+              "endpointClusterTolerance": 3.0,
+              "intersectionTolerance": 1.5,
+              "componentContactTolerance": 1.25,
+              "nearbyComponentDistance": 8.5,
+              "collinearToleranceDegrees": 12.0,
+              "markerTolerance": 1.25,
+              "coordinatePrecision": 3,
+              "scale": 1.0,
+              "lineWidth": 1.0
+            },
+            "geometricEvidence": {
+              "armCount": 1,
+              "arms": [
+                {
+                  "segmentId": "seg-11fb0bc0e32e8433",
+                  "role": "end",
+                  "angle": 180.0
+                }
+              ],
+              "properIntersection": false,
+              "explicitMarker": false,
+              "markerProvenance": [],
+              "transverseConnectivityAllowed": false
+            }
+          }
+        ],
+        "summary": {
+          "inputSegmentCount": 1,
+          "canonicalSegmentCount": 1,
+          "eventCount": 2,
+          "eventCountByType": {
+            "endpoint": 2,
+            "continuation": 0,
+            "elbow": 0,
+            "crossing": 0,
+            "explicit_junction": 0,
+            "bifurcation": 0,
+            "component_port": 0,
+            "component_boundary_intersection": 0
+          }
+        },
+        "invariants": {
+          "deterministicIds": true,
+          "segmentOrderIndependent": true,
+          "inputMutation": false,
+          "flowDecisionInfluence": false
+        }
+      }
+    },
+    {
+      "fixtureId": "path_through_component",
+      "title": "Caminho atravessando componente",
+      "topologyRole": null,
+      "catalog": {
+        "schemaVersion": "1.0",
+        "extractorRevision": "tl004a-geometric-events-v1",
+        "mode": "shadow_only",
+        "strategyDependency": "none",
+        "producesFlows": false,
+        "parameters": {
+          "configured": {
+            "endpoint_cluster_tolerance": 2.5,
+            "intersection_tolerance": 1.25,
+            "component_contact_tolerance": 1.0,
+            "nearby_component_distance": 8.0,
+            "collinear_tolerance_degrees": 12.0,
+            "marker_tolerance": 1.0,
+            "line_width_tolerance_factor": 0.5,
+            "coordinate_precision": 3
+          },
+          "effective": {
+            "endpointClusterTolerance": 3.0,
+            "intersectionTolerance": 1.5,
+            "componentContactTolerance": 1.25,
+            "nearbyComponentDistance": 8.5,
+            "collinearToleranceDegrees": 12.0,
+            "markerTolerance": 1.25,
+            "coordinatePrecision": 3,
+            "scale": 1.0,
+            "lineWidth": 1.0
+          }
+        },
+        "segments": [
+          {
+            "id": "seg-3934afdd24df302b",
+            "start": [
+              0.0,
+              5.0
+            ],
+            "end": [
+              30.0,
+              5.0
+            ],
+            "provenance": [
+              "input"
+            ],
+            "inputIds": [],
+            "duplicateCount": 1
+          }
+        ],
+        "events": [
+          {
+            "id": "gev-65f84619797585e2",
+            "type": "endpoint",
+            "coordinates": [
+              0.0,
+              5.0
+            ],
+            "sourceSegments": [
+              "seg-3934afdd24df302b"
+            ],
+            "armAngles": [
+              0.0
+            ],
+            "provenance": {
+              "extractor": "tl004a-geometric-events-v1",
+              "shadowOnly": true,
+              "inputs": [
+                "input"
+              ]
+            },
+            "nearbyComponents": [],
+            "classification": "terminal",
+            "confidence": "high",
+            "parameters": {
+              "endpointClusterTolerance": 3.0,
+              "intersectionTolerance": 1.5,
+              "componentContactTolerance": 1.25,
+              "nearbyComponentDistance": 8.5,
+              "collinearToleranceDegrees": 12.0,
+              "markerTolerance": 1.25,
+              "coordinatePrecision": 3,
+              "scale": 1.0,
+              "lineWidth": 1.0
+            },
+            "geometricEvidence": {
+              "armCount": 1,
+              "arms": [
+                {
+                  "segmentId": "seg-3934afdd24df302b",
+                  "role": "start",
+                  "angle": 0.0
+                }
+              ],
+              "properIntersection": false,
+              "explicitMarker": false,
+              "markerProvenance": [],
+              "transverseConnectivityAllowed": false
+            }
+          },
+          {
+            "id": "gev-54b576698957a7b1",
+            "type": "component_boundary_intersection",
+            "coordinates": [
+              10.0,
+              5.0
+            ],
+            "sourceSegments": [
+              "seg-3934afdd24df302b"
+            ],
+            "armAngles": [],
+            "provenance": {
+              "extractor": "tl004a-geometric-events-v1",
+              "shadowOnly": true,
+              "inputs": [
+                "input"
+              ]
+            },
+            "nearbyComponents": [
+              "component-a"
+            ],
+            "classification": "barrier",
+            "confidence": "high",
+            "parameters": {
+              "endpointClusterTolerance": 3.0,
+              "intersectionTolerance": 1.5,
+              "componentContactTolerance": 1.25,
+              "nearbyComponentDistance": 8.5,
+              "collinearToleranceDegrees": 12.0,
+              "markerTolerance": 1.25,
+              "coordinatePrecision": 3,
+              "scale": 1.0,
+              "lineWidth": 1.0
+            },
+            "geometricEvidence": {
+              "componentId": "component-a",
+              "crossesComponentInterior": true,
+              "normalizedPathPosition": 0.333333
+            }
+          },
+          {
+            "id": "gev-e6007e8d12b72121",
+            "type": "component_boundary_intersection",
+            "coordinates": [
+              20.0,
+              5.0
+            ],
+            "sourceSegments": [
+              "seg-3934afdd24df302b"
+            ],
+            "armAngles": [],
+            "provenance": {
+              "extractor": "tl004a-geometric-events-v1",
+              "shadowOnly": true,
+              "inputs": [
+                "input"
+              ]
+            },
+            "nearbyComponents": [
+              "component-a"
+            ],
+            "classification": "barrier",
+            "confidence": "high",
+            "parameters": {
+              "endpointClusterTolerance": 3.0,
+              "intersectionTolerance": 1.5,
+              "componentContactTolerance": 1.25,
+              "nearbyComponentDistance": 8.5,
+              "collinearToleranceDegrees": 12.0,
+              "markerTolerance": 1.25,
+              "coordinatePrecision": 3,
+              "scale": 1.0,
+              "lineWidth": 1.0
+            },
+            "geometricEvidence": {
+              "componentId": "component-a",
+              "crossesComponentInterior": true,
+              "normalizedPathPosition": 0.666667
+            }
+          },
+          {
+            "id": "gev-7e6575f731b687ec",
+            "type": "endpoint",
+            "coordinates": [
+              30.0,
+              5.0
+            ],
+            "sourceSegments": [
+              "seg-3934afdd24df302b"
+            ],
+            "armAngles": [
+              180.0
+            ],
+            "provenance": {
+              "extractor": "tl004a-geometric-events-v1",
+              "shadowOnly": true,
+              "inputs": [
+                "input"
+              ]
+            },
+            "nearbyComponents": [],
+            "classification": "terminal",
+            "confidence": "high",
+            "parameters": {
+              "endpointClusterTolerance": 3.0,
+              "intersectionTolerance": 1.5,
+              "componentContactTolerance": 1.25,
+              "nearbyComponentDistance": 8.5,
+              "collinearToleranceDegrees": 12.0,
+              "markerTolerance": 1.25,
+              "coordinatePrecision": 3,
+              "scale": 1.0,
+              "lineWidth": 1.0
+            },
+            "geometricEvidence": {
+              "armCount": 1,
+              "arms": [
+                {
+                  "segmentId": "seg-3934afdd24df302b",
+                  "role": "end",
+                  "angle": 180.0
+                }
+              ],
+              "properIntersection": false,
+              "explicitMarker": false,
+              "markerProvenance": [],
+              "transverseConnectivityAllowed": false
+            }
+          }
+        ],
+        "summary": {
+          "inputSegmentCount": 1,
+          "canonicalSegmentCount": 1,
+          "eventCount": 4,
+          "eventCountByType": {
+            "endpoint": 2,
+            "continuation": 0,
+            "elbow": 0,
+            "crossing": 0,
+            "explicit_junction": 0,
+            "bifurcation": 0,
+            "component_port": 0,
+            "component_boundary_intersection": 2
+          }
+        },
+        "invariants": {
+          "deterministicIds": true,
+          "segmentOrderIndependent": true,
+          "inputMutation": false,
+          "flowDecisionInfluence": false
+        }
+      }
+    },
+    {
+      "fixtureId": "shared_trunk_fan_in",
+      "title": "Tronco compartilhado com fan-in",
+      "topologyRole": "fan_in",
+      "catalog": {
+        "schemaVersion": "1.0",
+        "extractorRevision": "tl004a-geometric-events-v1",
+        "mode": "shadow_only",
+        "strategyDependency": "none",
+        "producesFlows": false,
+        "parameters": {
+          "configured": {
+            "endpoint_cluster_tolerance": 2.5,
+            "intersection_tolerance": 1.25,
+            "component_contact_tolerance": 1.0,
+            "nearby_component_distance": 8.0,
+            "collinear_tolerance_degrees": 12.0,
+            "marker_tolerance": 1.0,
+            "line_width_tolerance_factor": 0.5,
+            "coordinate_precision": 3
+          },
+          "effective": {
+            "endpointClusterTolerance": 3.0,
+            "intersectionTolerance": 1.5,
+            "componentContactTolerance": 1.25,
+            "nearbyComponentDistance": 8.5,
+            "collinearToleranceDegrees": 12.0,
+            "markerTolerance": 1.25,
+            "coordinatePrecision": 3,
+            "scale": 1.0,
+            "lineWidth": 1.0
+          }
+        },
+        "segments": [
+          {
+            "id": "seg-48d40160dbc62a1b",
+            "start": [
+              0.0,
+              0.0
+            ],
+            "end": [
+              10.0,
+              10.0
+            ],
+            "provenance": [
+              "input"
+            ],
+            "inputIds": [],
+            "duplicateCount": 1
+          },
+          {
+            "id": "seg-9ee715bb40e64e03",
+            "start": [
+              0.0,
+              20.0
+            ],
+            "end": [
+              10.0,
+              10.0
+            ],
+            "provenance": [
+              "input"
+            ],
+            "inputIds": [],
+            "duplicateCount": 1
+          },
+          {
+            "id": "seg-d01398af8f0ddb9d",
+            "start": [
+              10.0,
+              10.0
+            ],
+            "end": [
+              20.0,
+              10.0
+            ],
+            "provenance": [
+              "input"
+            ],
+            "inputIds": [],
+            "duplicateCount": 1
+          }
+        ],
+        "events": [
+          {
+            "id": "gev-09897e5242f6c13a",
+            "type": "endpoint",
+            "coordinates": [
+              0.0,
+              0.0
+            ],
+            "sourceSegments": [
+              "seg-48d40160dbc62a1b"
+            ],
+            "armAngles": [
+              45.0
+            ],
+            "provenance": {
+              "extractor": "tl004a-geometric-events-v1",
+              "shadowOnly": true,
+              "inputs": [
+                "input"
+              ]
+            },
+            "nearbyComponents": [],
+            "classification": "terminal",
+            "confidence": "high",
+            "parameters": {
+              "endpointClusterTolerance": 3.0,
+              "intersectionTolerance": 1.5,
+              "componentContactTolerance": 1.25,
+              "nearbyComponentDistance": 8.5,
+              "collinearToleranceDegrees": 12.0,
+              "markerTolerance": 1.25,
+              "coordinatePrecision": 3,
+              "scale": 1.0,
+              "lineWidth": 1.0
+            },
+            "geometricEvidence": {
+              "armCount": 1,
+              "arms": [
+                {
+                  "segmentId": "seg-48d40160dbc62a1b",
+                  "role": "start",
+                  "angle": 45.0
+                }
+              ],
+              "properIntersection": false,
+              "explicitMarker": false,
+              "markerProvenance": [],
+              "transverseConnectivityAllowed": false
+            }
+          },
+          {
+            "id": "gev-784cfc079c861bdb",
+            "type": "endpoint",
+            "coordinates": [
+              0.0,
+              20.0
+            ],
+            "sourceSegments": [
+              "seg-9ee715bb40e64e03"
+            ],
+            "armAngles": [
+              315.0
+            ],
+            "provenance": {
+              "extractor": "tl004a-geometric-events-v1",
+              "shadowOnly": true,
+              "inputs": [
+                "input"
+              ]
+            },
+            "nearbyComponents": [],
+            "classification": "terminal",
+            "confidence": "high",
+            "parameters": {
+              "endpointClusterTolerance": 3.0,
+              "intersectionTolerance": 1.5,
+              "componentContactTolerance": 1.25,
+              "nearbyComponentDistance": 8.5,
+              "collinearToleranceDegrees": 12.0,
+              "markerTolerance": 1.25,
+              "coordinatePrecision": 3,
+              "scale": 1.0,
+              "lineWidth": 1.0
+            },
+            "geometricEvidence": {
+              "armCount": 1,
+              "arms": [
+                {
+                  "segmentId": "seg-9ee715bb40e64e03",
+                  "role": "start",
+                  "angle": 315.0
+                }
+              ],
+              "properIntersection": false,
+              "explicitMarker": false,
+              "markerProvenance": [],
+              "transverseConnectivityAllowed": false
+            }
+          },
+          {
+            "id": "gev-70e8b891e71d9464",
+            "type": "bifurcation",
+            "coordinates": [
+              10.0,
+              10.0
+            ],
+            "sourceSegments": [
+              "seg-48d40160dbc62a1b",
+              "seg-9ee715bb40e64e03",
+              "seg-d01398af8f0ddb9d"
+            ],
+            "armAngles": [
+              0.0,
+              135.0,
+              225.0
+            ],
+            "provenance": {
+              "extractor": "tl004a-geometric-events-v1",
+              "shadowOnly": true,
+              "inputs": [
+                "input"
+              ]
+            },
+            "nearbyComponents": [],
+            "classification": "connecting_bifurcation",
+            "confidence": "high",
+            "parameters": {
+              "endpointClusterTolerance": 3.0,
+              "intersectionTolerance": 1.5,
+              "componentContactTolerance": 1.25,
+              "nearbyComponentDistance": 8.5,
+              "collinearToleranceDegrees": 12.0,
+              "markerTolerance": 1.25,
+              "coordinatePrecision": 3,
+              "scale": 1.0,
+              "lineWidth": 1.0
+            },
+            "geometricEvidence": {
+              "armCount": 3,
+              "arms": [
+                {
+                  "segmentId": "seg-d01398af8f0ddb9d",
+                  "role": "start",
+                  "angle": 0.0
+                },
+                {
+                  "segmentId": "seg-9ee715bb40e64e03",
+                  "role": "end",
+                  "angle": 135.0
+                },
+                {
+                  "segmentId": "seg-48d40160dbc62a1b",
+                  "role": "end",
+                  "angle": 225.0
+                }
+              ],
+              "properIntersection": false,
+              "explicitMarker": false,
+              "markerProvenance": [],
+              "transverseConnectivityAllowed": false
+            }
+          },
+          {
+            "id": "gev-681f8e225945a95f",
+            "type": "endpoint",
+            "coordinates": [
+              20.0,
+              10.0
+            ],
+            "sourceSegments": [
+              "seg-d01398af8f0ddb9d"
+            ],
+            "armAngles": [
+              180.0
+            ],
+            "provenance": {
+              "extractor": "tl004a-geometric-events-v1",
+              "shadowOnly": true,
+              "inputs": [
+                "input"
+              ]
+            },
+            "nearbyComponents": [],
+            "classification": "terminal",
+            "confidence": "high",
+            "parameters": {
+              "endpointClusterTolerance": 3.0,
+              "intersectionTolerance": 1.5,
+              "componentContactTolerance": 1.25,
+              "nearbyComponentDistance": 8.5,
+              "collinearToleranceDegrees": 12.0,
+              "markerTolerance": 1.25,
+              "coordinatePrecision": 3,
+              "scale": 1.0,
+              "lineWidth": 1.0
+            },
+            "geometricEvidence": {
+              "armCount": 1,
+              "arms": [
+                {
+                  "segmentId": "seg-d01398af8f0ddb9d",
+                  "role": "end",
+                  "angle": 180.0
+                }
+              ],
+              "properIntersection": false,
+              "explicitMarker": false,
+              "markerProvenance": [],
+              "transverseConnectivityAllowed": false
+            }
+          }
+        ],
+        "summary": {
+          "inputSegmentCount": 3,
+          "canonicalSegmentCount": 3,
+          "eventCount": 4,
+          "eventCountByType": {
+            "endpoint": 3,
+            "continuation": 0,
+            "elbow": 0,
+            "crossing": 0,
+            "explicit_junction": 0,
+            "bifurcation": 1,
+            "component_port": 0,
+            "component_boundary_intersection": 0
+          }
+        },
+        "invariants": {
+          "deterministicIds": true,
+          "segmentOrderIndependent": true,
+          "inputMutation": false,
+          "flowDecisionInfluence": false
+        }
+      }
+    },
+    {
+      "fixtureId": "shared_trunk_fan_out",
+      "title": "Tronco compartilhado com fan-out",
+      "topologyRole": "fan_out",
+      "catalog": {
+        "schemaVersion": "1.0",
+        "extractorRevision": "tl004a-geometric-events-v1",
+        "mode": "shadow_only",
+        "strategyDependency": "none",
+        "producesFlows": false,
+        "parameters": {
+          "configured": {
+            "endpoint_cluster_tolerance": 2.5,
+            "intersection_tolerance": 1.25,
+            "component_contact_tolerance": 1.0,
+            "nearby_component_distance": 8.0,
+            "collinear_tolerance_degrees": 12.0,
+            "marker_tolerance": 1.0,
+            "line_width_tolerance_factor": 0.5,
+            "coordinate_precision": 3
+          },
+          "effective": {
+            "endpointClusterTolerance": 3.0,
+            "intersectionTolerance": 1.5,
+            "componentContactTolerance": 1.25,
+            "nearbyComponentDistance": 8.5,
+            "collinearToleranceDegrees": 12.0,
+            "markerTolerance": 1.25,
+            "coordinatePrecision": 3,
+            "scale": 1.0,
+            "lineWidth": 1.0
+          }
+        },
+        "segments": [
+          {
+            "id": "seg-752b117eee8cf431",
+            "start": [
+              10.0,
+              10.0
+            ],
+            "end": [
+              20.0,
+              0.0
+            ],
+            "provenance": [
+              "input"
+            ],
+            "inputIds": [],
+            "duplicateCount": 1
+          },
+          {
+            "id": "seg-b8ce5a2a7fe8714e",
+            "start": [
+              0.0,
+              10.0
+            ],
+            "end": [
+              10.0,
+              10.0
+            ],
+            "provenance": [
+              "input"
+            ],
+            "inputIds": [],
+            "duplicateCount": 1
+          },
+          {
+            "id": "seg-e4fb3187b7c03fe4",
+            "start": [
+              10.0,
+              10.0
+            ],
+            "end": [
+              20.0,
+              20.0
+            ],
+            "provenance": [
+              "input"
+            ],
+            "inputIds": [],
+            "duplicateCount": 1
+          }
+        ],
+        "events": [
+          {
+            "id": "gev-eb2a4b0a76190a80",
+            "type": "endpoint",
+            "coordinates": [
+              0.0,
+              10.0
+            ],
+            "sourceSegments": [
+              "seg-b8ce5a2a7fe8714e"
+            ],
+            "armAngles": [
+              0.0
+            ],
+            "provenance": {
+              "extractor": "tl004a-geometric-events-v1",
+              "shadowOnly": true,
+              "inputs": [
+                "input"
+              ]
+            },
+            "nearbyComponents": [],
+            "classification": "terminal",
+            "confidence": "high",
+            "parameters": {
+              "endpointClusterTolerance": 3.0,
+              "intersectionTolerance": 1.5,
+              "componentContactTolerance": 1.25,
+              "nearbyComponentDistance": 8.5,
+              "collinearToleranceDegrees": 12.0,
+              "markerTolerance": 1.25,
+              "coordinatePrecision": 3,
+              "scale": 1.0,
+              "lineWidth": 1.0
+            },
+            "geometricEvidence": {
+              "armCount": 1,
+              "arms": [
+                {
+                  "segmentId": "seg-b8ce5a2a7fe8714e",
+                  "role": "start",
+                  "angle": 0.0
+                }
+              ],
+              "properIntersection": false,
+              "explicitMarker": false,
+              "markerProvenance": [],
+              "transverseConnectivityAllowed": false
+            }
+          },
+          {
+            "id": "gev-2251412ce1be348a",
+            "type": "bifurcation",
+            "coordinates": [
+              10.0,
+              10.0
+            ],
+            "sourceSegments": [
+              "seg-752b117eee8cf431",
+              "seg-b8ce5a2a7fe8714e",
+              "seg-e4fb3187b7c03fe4"
+            ],
+            "armAngles": [
+              45.0,
+              180.0,
+              315.0
+            ],
+            "provenance": {
+              "extractor": "tl004a-geometric-events-v1",
+              "shadowOnly": true,
+              "inputs": [
+                "input"
+              ]
+            },
+            "nearbyComponents": [],
+            "classification": "connecting_bifurcation",
+            "confidence": "high",
+            "parameters": {
+              "endpointClusterTolerance": 3.0,
+              "intersectionTolerance": 1.5,
+              "componentContactTolerance": 1.25,
+              "nearbyComponentDistance": 8.5,
+              "collinearToleranceDegrees": 12.0,
+              "markerTolerance": 1.25,
+              "coordinatePrecision": 3,
+              "scale": 1.0,
+              "lineWidth": 1.0
+            },
+            "geometricEvidence": {
+              "armCount": 3,
+              "arms": [
+                {
+                  "segmentId": "seg-e4fb3187b7c03fe4",
+                  "role": "start",
+                  "angle": 45.0
+                },
+                {
+                  "segmentId": "seg-b8ce5a2a7fe8714e",
+                  "role": "end",
+                  "angle": 180.0
+                },
+                {
+                  "segmentId": "seg-752b117eee8cf431",
+                  "role": "start",
+                  "angle": 315.0
+                }
+              ],
+              "properIntersection": false,
+              "explicitMarker": false,
+              "markerProvenance": [],
+              "transverseConnectivityAllowed": false
+            }
+          },
+          {
+            "id": "gev-c1f775a6232f449c",
+            "type": "endpoint",
+            "coordinates": [
+              20.0,
+              0.0
+            ],
+            "sourceSegments": [
+              "seg-752b117eee8cf431"
+            ],
+            "armAngles": [
+              135.0
+            ],
+            "provenance": {
+              "extractor": "tl004a-geometric-events-v1",
+              "shadowOnly": true,
+              "inputs": [
+                "input"
+              ]
+            },
+            "nearbyComponents": [],
+            "classification": "terminal",
+            "confidence": "high",
+            "parameters": {
+              "endpointClusterTolerance": 3.0,
+              "intersectionTolerance": 1.5,
+              "componentContactTolerance": 1.25,
+              "nearbyComponentDistance": 8.5,
+              "collinearToleranceDegrees": 12.0,
+              "markerTolerance": 1.25,
+              "coordinatePrecision": 3,
+              "scale": 1.0,
+              "lineWidth": 1.0
+            },
+            "geometricEvidence": {
+              "armCount": 1,
+              "arms": [
+                {
+                  "segmentId": "seg-752b117eee8cf431",
+                  "role": "end",
+                  "angle": 135.0
+                }
+              ],
+              "properIntersection": false,
+              "explicitMarker": false,
+              "markerProvenance": [],
+              "transverseConnectivityAllowed": false
+            }
+          },
+          {
+            "id": "gev-cc27ec475275bb91",
+            "type": "endpoint",
+            "coordinates": [
+              20.0,
+              20.0
+            ],
+            "sourceSegments": [
+              "seg-e4fb3187b7c03fe4"
+            ],
+            "armAngles": [
+              225.0
+            ],
+            "provenance": {
+              "extractor": "tl004a-geometric-events-v1",
+              "shadowOnly": true,
+              "inputs": [
+                "input"
+              ]
+            },
+            "nearbyComponents": [],
+            "classification": "terminal",
+            "confidence": "high",
+            "parameters": {
+              "endpointClusterTolerance": 3.0,
+              "intersectionTolerance": 1.5,
+              "componentContactTolerance": 1.25,
+              "nearbyComponentDistance": 8.5,
+              "collinearToleranceDegrees": 12.0,
+              "markerTolerance": 1.25,
+              "coordinatePrecision": 3,
+              "scale": 1.0,
+              "lineWidth": 1.0
+            },
+            "geometricEvidence": {
+              "armCount": 1,
+              "arms": [
+                {
+                  "segmentId": "seg-e4fb3187b7c03fe4",
+                  "role": "end",
+                  "angle": 225.0
+                }
+              ],
+              "properIntersection": false,
+              "explicitMarker": false,
+              "markerProvenance": [],
+              "transverseConnectivityAllowed": false
+            }
+          }
+        ],
+        "summary": {
+          "inputSegmentCount": 3,
+          "canonicalSegmentCount": 3,
+          "eventCount": 4,
+          "eventCountByType": {
+            "endpoint": 3,
+            "continuation": 0,
+            "elbow": 0,
+            "crossing": 0,
+            "explicit_junction": 0,
+            "bifurcation": 1,
+            "component_port": 0,
+            "component_boundary_intersection": 0
+          }
+        },
+        "invariants": {
+          "deterministicIds": true,
+          "segmentOrderIndependent": true,
+          "inputMutation": false,
+          "flowDecisionInfluence": false
+        }
+      }
+    },
+    {
+      "fixtureId": "chain_a_b_c",
+      "title": "Cadeia A para B para C sem atalho",
+      "topologyRole": null,
+      "catalog": {
+        "schemaVersion": "1.0",
+        "extractorRevision": "tl004a-geometric-events-v1",
+        "mode": "shadow_only",
+        "strategyDependency": "none",
+        "producesFlows": false,
+        "parameters": {
+          "configured": {
+            "endpoint_cluster_tolerance": 2.5,
+            "intersection_tolerance": 1.25,
+            "component_contact_tolerance": 1.0,
+            "nearby_component_distance": 8.0,
+            "collinear_tolerance_degrees": 12.0,
+            "marker_tolerance": 1.0,
+            "line_width_tolerance_factor": 0.5,
+            "coordinate_precision": 3
+          },
+          "effective": {
+            "endpointClusterTolerance": 3.0,
+            "intersectionTolerance": 1.5,
+            "componentContactTolerance": 1.25,
+            "nearbyComponentDistance": 8.5,
+            "collinearToleranceDegrees": 12.0,
+            "markerTolerance": 1.25,
+            "coordinatePrecision": 3,
+            "scale": 1.0,
+            "lineWidth": 1.0
+          }
+        },
+        "segments": [
+          {
+            "id": "seg-771d4df47cd3a80c",
+            "start": [
+              10.0,
+              5.0
+            ],
+            "end": [
+              20.0,
+              5.0
+            ],
+            "provenance": [
+              "input"
+            ],
+            "inputIds": [],
+            "duplicateCount": 1
+          },
+          {
+            "id": "seg-9b85c49aae4b6f19",
+            "start": [
+              30.0,
+              5.0
+            ],
+            "end": [
+              40.0,
+              5.0
+            ],
+            "provenance": [
+              "input"
+            ],
+            "inputIds": [],
+            "duplicateCount": 1
+          }
+        ],
+        "events": [
+          {
+            "id": "gev-d12fd057763faeca",
+            "type": "component_boundary_intersection",
+            "coordinates": [
+              10.0,
+              5.0
+            ],
+            "sourceSegments": [
+              "seg-771d4df47cd3a80c"
+            ],
+            "armAngles": [],
+            "provenance": {
+              "extractor": "tl004a-geometric-events-v1",
+              "shadowOnly": true,
+              "inputs": [
+                "input"
+              ]
+            },
+            "nearbyComponents": [
+              "A"
+            ],
+            "classification": "boundary_contact",
+            "confidence": "high",
+            "parameters": {
+              "endpointClusterTolerance": 3.0,
+              "intersectionTolerance": 1.5,
+              "componentContactTolerance": 1.25,
+              "nearbyComponentDistance": 8.5,
+              "collinearToleranceDegrees": 12.0,
+              "markerTolerance": 1.25,
+              "coordinatePrecision": 3,
+              "scale": 1.0,
+              "lineWidth": 1.0
+            },
+            "geometricEvidence": {
+              "componentId": "A",
+              "crossesComponentInterior": false,
+              "normalizedPathPosition": 0.0
+            }
+          },
+          {
+            "id": "gev-cfbe51c53cd4a5cb",
+            "type": "component_port",
+            "coordinates": [
+              10.0,
+              5.0
+            ],
+            "sourceSegments": [
+              "seg-771d4df47cd3a80c"
+            ],
+            "armAngles": [
+              0.0
+            ],
+            "provenance": {
+              "extractor": "tl004a-geometric-events-v1",
+              "shadowOnly": true,
+              "inputs": [
+                "input"
+              ]
+            },
+            "nearbyComponents": [
+              "A"
+            ],
+            "classification": "boundary_contact",
+            "confidence": "high",
+            "parameters": {
+              "endpointClusterTolerance": 3.0,
+              "intersectionTolerance": 1.5,
+              "componentContactTolerance": 1.25,
+              "nearbyComponentDistance": 8.5,
+              "collinearToleranceDegrees": 12.0,
+              "markerTolerance": 1.25,
+              "coordinatePrecision": 3,
+              "scale": 1.0,
+              "lineWidth": 1.0
+            },
+            "geometricEvidence": {
+              "componentId": "A",
+              "boundaryDistance": 0.0,
+              "contactVerified": true
+            }
+          },
+          {
+            "id": "gev-9450c3292ece6e2f",
+            "type": "endpoint",
+            "coordinates": [
+              10.0,
+              5.0
+            ],
+            "sourceSegments": [
+              "seg-771d4df47cd3a80c"
+            ],
+            "armAngles": [
+              0.0
+            ],
+            "provenance": {
+              "extractor": "tl004a-geometric-events-v1",
+              "shadowOnly": true,
+              "inputs": [
+                "input"
+              ]
+            },
+            "nearbyComponents": [
+              "A"
+            ],
+            "classification": "terminal",
+            "confidence": "high",
+            "parameters": {
+              "endpointClusterTolerance": 3.0,
+              "intersectionTolerance": 1.5,
+              "componentContactTolerance": 1.25,
+              "nearbyComponentDistance": 8.5,
+              "collinearToleranceDegrees": 12.0,
+              "markerTolerance": 1.25,
+              "coordinatePrecision": 3,
+              "scale": 1.0,
+              "lineWidth": 1.0
+            },
+            "geometricEvidence": {
+              "armCount": 1,
+              "arms": [
+                {
+                  "segmentId": "seg-771d4df47cd3a80c",
+                  "role": "start",
+                  "angle": 0.0
+                }
+              ],
+              "properIntersection": false,
+              "explicitMarker": false,
+              "markerProvenance": [],
+              "transverseConnectivityAllowed": false
+            }
+          },
+          {
+            "id": "gev-ed4a94e6f936d649",
+            "type": "component_boundary_intersection",
+            "coordinates": [
+              20.0,
+              5.0
+            ],
+            "sourceSegments": [
+              "seg-771d4df47cd3a80c"
+            ],
+            "armAngles": [],
+            "provenance": {
+              "extractor": "tl004a-geometric-events-v1",
+              "shadowOnly": true,
+              "inputs": [
+                "input"
+              ]
+            },
+            "nearbyComponents": [
+              "B"
+            ],
+            "classification": "boundary_contact",
+            "confidence": "high",
+            "parameters": {
+              "endpointClusterTolerance": 3.0,
+              "intersectionTolerance": 1.5,
+              "componentContactTolerance": 1.25,
+              "nearbyComponentDistance": 8.5,
+              "collinearToleranceDegrees": 12.0,
+              "markerTolerance": 1.25,
+              "coordinatePrecision": 3,
+              "scale": 1.0,
+              "lineWidth": 1.0
+            },
+            "geometricEvidence": {
+              "componentId": "B",
+              "crossesComponentInterior": false,
+              "normalizedPathPosition": 1.0
+            }
+          },
+          {
+            "id": "gev-c63f7d8c7bd78c54",
+            "type": "component_port",
+            "coordinates": [
+              20.0,
+              5.0
+            ],
+            "sourceSegments": [
+              "seg-771d4df47cd3a80c"
+            ],
+            "armAngles": [
+              180.0
+            ],
+            "provenance": {
+              "extractor": "tl004a-geometric-events-v1",
+              "shadowOnly": true,
+              "inputs": [
+                "input"
+              ]
+            },
+            "nearbyComponents": [
+              "B"
+            ],
+            "classification": "boundary_contact",
+            "confidence": "high",
+            "parameters": {
+              "endpointClusterTolerance": 3.0,
+              "intersectionTolerance": 1.5,
+              "componentContactTolerance": 1.25,
+              "nearbyComponentDistance": 8.5,
+              "collinearToleranceDegrees": 12.0,
+              "markerTolerance": 1.25,
+              "coordinatePrecision": 3,
+              "scale": 1.0,
+              "lineWidth": 1.0
+            },
+            "geometricEvidence": {
+              "componentId": "B",
+              "boundaryDistance": 0.0,
+              "contactVerified": true
+            }
+          },
+          {
+            "id": "gev-dfee15f1a6ab8731",
+            "type": "endpoint",
+            "coordinates": [
+              20.0,
+              5.0
+            ],
+            "sourceSegments": [
+              "seg-771d4df47cd3a80c"
+            ],
+            "armAngles": [
+              180.0
+            ],
+            "provenance": {
+              "extractor": "tl004a-geometric-events-v1",
+              "shadowOnly": true,
+              "inputs": [
+                "input"
+              ]
+            },
+            "nearbyComponents": [
+              "B"
+            ],
+            "classification": "terminal",
+            "confidence": "high",
+            "parameters": {
+              "endpointClusterTolerance": 3.0,
+              "intersectionTolerance": 1.5,
+              "componentContactTolerance": 1.25,
+              "nearbyComponentDistance": 8.5,
+              "collinearToleranceDegrees": 12.0,
+              "markerTolerance": 1.25,
+              "coordinatePrecision": 3,
+              "scale": 1.0,
+              "lineWidth": 1.0
+            },
+            "geometricEvidence": {
+              "armCount": 1,
+              "arms": [
+                {
+                  "segmentId": "seg-771d4df47cd3a80c",
+                  "role": "end",
+                  "angle": 180.0
+                }
+              ],
+              "properIntersection": false,
+              "explicitMarker": false,
+              "markerProvenance": [],
+              "transverseConnectivityAllowed": false
+            }
+          },
+          {
+            "id": "gev-ad8f43ede9aaf8ab",
+            "type": "component_boundary_intersection",
+            "coordinates": [
+              30.0,
+              5.0
+            ],
+            "sourceSegments": [
+              "seg-9b85c49aae4b6f19"
+            ],
+            "armAngles": [],
+            "provenance": {
+              "extractor": "tl004a-geometric-events-v1",
+              "shadowOnly": true,
+              "inputs": [
+                "input"
+              ]
+            },
+            "nearbyComponents": [
+              "B"
+            ],
+            "classification": "boundary_contact",
+            "confidence": "high",
+            "parameters": {
+              "endpointClusterTolerance": 3.0,
+              "intersectionTolerance": 1.5,
+              "componentContactTolerance": 1.25,
+              "nearbyComponentDistance": 8.5,
+              "collinearToleranceDegrees": 12.0,
+              "markerTolerance": 1.25,
+              "coordinatePrecision": 3,
+              "scale": 1.0,
+              "lineWidth": 1.0
+            },
+            "geometricEvidence": {
+              "componentId": "B",
+              "crossesComponentInterior": false,
+              "normalizedPathPosition": 0.0
+            }
+          },
+          {
+            "id": "gev-0064fca976c41267",
+            "type": "component_port",
+            "coordinates": [
+              30.0,
+              5.0
+            ],
+            "sourceSegments": [
+              "seg-9b85c49aae4b6f19"
+            ],
+            "armAngles": [
+              0.0
+            ],
+            "provenance": {
+              "extractor": "tl004a-geometric-events-v1",
+              "shadowOnly": true,
+              "inputs": [
+                "input"
+              ]
+            },
+            "nearbyComponents": [
+              "B"
+            ],
+            "classification": "boundary_contact",
+            "confidence": "high",
+            "parameters": {
+              "endpointClusterTolerance": 3.0,
+              "intersectionTolerance": 1.5,
+              "componentContactTolerance": 1.25,
+              "nearbyComponentDistance": 8.5,
+              "collinearToleranceDegrees": 12.0,
+              "markerTolerance": 1.25,
+              "coordinatePrecision": 3,
+              "scale": 1.0,
+              "lineWidth": 1.0
+            },
+            "geometricEvidence": {
+              "componentId": "B",
+              "boundaryDistance": 0.0,
+              "contactVerified": true
+            }
+          },
+          {
+            "id": "gev-ac852ceb6f85560c",
+            "type": "endpoint",
+            "coordinates": [
+              30.0,
+              5.0
+            ],
+            "sourceSegments": [
+              "seg-9b85c49aae4b6f19"
+            ],
+            "armAngles": [
+              0.0
+            ],
+            "provenance": {
+              "extractor": "tl004a-geometric-events-v1",
+              "shadowOnly": true,
+              "inputs": [
+                "input"
+              ]
+            },
+            "nearbyComponents": [
+              "B"
+            ],
+            "classification": "terminal",
+            "confidence": "high",
+            "parameters": {
+              "endpointClusterTolerance": 3.0,
+              "intersectionTolerance": 1.5,
+              "componentContactTolerance": 1.25,
+              "nearbyComponentDistance": 8.5,
+              "collinearToleranceDegrees": 12.0,
+              "markerTolerance": 1.25,
+              "coordinatePrecision": 3,
+              "scale": 1.0,
+              "lineWidth": 1.0
+            },
+            "geometricEvidence": {
+              "armCount": 1,
+              "arms": [
+                {
+                  "segmentId": "seg-9b85c49aae4b6f19",
+                  "role": "start",
+                  "angle": 0.0
+                }
+              ],
+              "properIntersection": false,
+              "explicitMarker": false,
+              "markerProvenance": [],
+              "transverseConnectivityAllowed": false
+            }
+          },
+          {
+            "id": "gev-b7fdb786228f73bb",
+            "type": "component_boundary_intersection",
+            "coordinates": [
+              40.0,
+              5.0
+            ],
+            "sourceSegments": [
+              "seg-9b85c49aae4b6f19"
+            ],
+            "armAngles": [],
+            "provenance": {
+              "extractor": "tl004a-geometric-events-v1",
+              "shadowOnly": true,
+              "inputs": [
+                "input"
+              ]
+            },
+            "nearbyComponents": [
+              "C"
+            ],
+            "classification": "boundary_contact",
+            "confidence": "high",
+            "parameters": {
+              "endpointClusterTolerance": 3.0,
+              "intersectionTolerance": 1.5,
+              "componentContactTolerance": 1.25,
+              "nearbyComponentDistance": 8.5,
+              "collinearToleranceDegrees": 12.0,
+              "markerTolerance": 1.25,
+              "coordinatePrecision": 3,
+              "scale": 1.0,
+              "lineWidth": 1.0
+            },
+            "geometricEvidence": {
+              "componentId": "C",
+              "crossesComponentInterior": false,
+              "normalizedPathPosition": 1.0
+            }
+          },
+          {
+            "id": "gev-c3f286fd796e503d",
+            "type": "component_port",
+            "coordinates": [
+              40.0,
+              5.0
+            ],
+            "sourceSegments": [
+              "seg-9b85c49aae4b6f19"
+            ],
+            "armAngles": [
+              180.0
+            ],
+            "provenance": {
+              "extractor": "tl004a-geometric-events-v1",
+              "shadowOnly": true,
+              "inputs": [
+                "input"
+              ]
+            },
+            "nearbyComponents": [
+              "C"
+            ],
+            "classification": "boundary_contact",
+            "confidence": "high",
+            "parameters": {
+              "endpointClusterTolerance": 3.0,
+              "intersectionTolerance": 1.5,
+              "componentContactTolerance": 1.25,
+              "nearbyComponentDistance": 8.5,
+              "collinearToleranceDegrees": 12.0,
+              "markerTolerance": 1.25,
+              "coordinatePrecision": 3,
+              "scale": 1.0,
+              "lineWidth": 1.0
+            },
+            "geometricEvidence": {
+              "componentId": "C",
+              "boundaryDistance": 0.0,
+              "contactVerified": true
+            }
+          },
+          {
+            "id": "gev-f7bb07ff6e53b08b",
+            "type": "endpoint",
+            "coordinates": [
+              40.0,
+              5.0
+            ],
+            "sourceSegments": [
+              "seg-9b85c49aae4b6f19"
+            ],
+            "armAngles": [
+              180.0
+            ],
+            "provenance": {
+              "extractor": "tl004a-geometric-events-v1",
+              "shadowOnly": true,
+              "inputs": [
+                "input"
+              ]
+            },
+            "nearbyComponents": [
+              "C"
+            ],
+            "classification": "terminal",
+            "confidence": "high",
+            "parameters": {
+              "endpointClusterTolerance": 3.0,
+              "intersectionTolerance": 1.5,
+              "componentContactTolerance": 1.25,
+              "nearbyComponentDistance": 8.5,
+              "collinearToleranceDegrees": 12.0,
+              "markerTolerance": 1.25,
+              "coordinatePrecision": 3,
+              "scale": 1.0,
+              "lineWidth": 1.0
+            },
+            "geometricEvidence": {
+              "armCount": 1,
+              "arms": [
+                {
+                  "segmentId": "seg-9b85c49aae4b6f19",
+                  "role": "end",
+                  "angle": 180.0
+                }
+              ],
+              "properIntersection": false,
+              "explicitMarker": false,
+              "markerProvenance": [],
+              "transverseConnectivityAllowed": false
+            }
+          }
+        ],
+        "summary": {
+          "inputSegmentCount": 2,
+          "canonicalSegmentCount": 2,
+          "eventCount": 12,
+          "eventCountByType": {
+            "endpoint": 4,
+            "continuation": 0,
+            "elbow": 0,
+            "crossing": 0,
+            "explicit_junction": 0,
+            "bifurcation": 0,
+            "component_port": 4,
+            "component_boundary_intersection": 4
+          }
+        },
+        "invariants": {
+          "deterministicIds": true,
+          "segmentOrderIndependent": true,
+          "inputMutation": false,
+          "flowDecisionInfluence": false
+        }
+      }
+    },
+    {
+      "fixtureId": "duplicate_and_fragmented",
+      "title": "Segmentos duplicados, invertidos e fragmentados",
+      "topologyRole": null,
+      "catalog": {
+        "schemaVersion": "1.0",
+        "extractorRevision": "tl004a-geometric-events-v1",
+        "mode": "shadow_only",
+        "strategyDependency": "none",
+        "producesFlows": false,
+        "parameters": {
+          "configured": {
+            "endpoint_cluster_tolerance": 2.5,
+            "intersection_tolerance": 1.25,
+            "component_contact_tolerance": 1.0,
+            "nearby_component_distance": 8.0,
+            "collinear_tolerance_degrees": 12.0,
+            "marker_tolerance": 1.0,
+            "line_width_tolerance_factor": 0.5,
+            "coordinate_precision": 3
+          },
+          "effective": {
+            "endpointClusterTolerance": 3.0,
+            "intersectionTolerance": 1.5,
+            "componentContactTolerance": 1.25,
+            "nearbyComponentDistance": 8.5,
+            "collinearToleranceDegrees": 12.0,
+            "markerTolerance": 1.25,
+            "coordinatePrecision": 3,
+            "scale": 1.0,
+            "lineWidth": 1.0
+          }
+        },
+        "segments": [
+          {
+            "id": "seg-1d7833a33ad7f0f7",
+            "start": [
+              10.4,
+              10.0
+            ],
+            "end": [
+              20.0,
+              10.0
+            ],
+            "provenance": [
+              "input"
+            ],
+            "inputIds": [],
+            "duplicateCount": 1
+          },
+          {
+            "id": "seg-b8ce5a2a7fe8714e",
+            "start": [
+              0.0,
+              10.0
+            ],
+            "end": [
+              10.0,
+              10.0
+            ],
+            "provenance": [
+              "input"
+            ],
+            "inputIds": [],
+            "duplicateCount": 2
+          }
+        ],
+        "events": [
+          {
+            "id": "gev-eb2a4b0a76190a80",
+            "type": "endpoint",
+            "coordinates": [
+              0.0,
+              10.0
+            ],
+            "sourceSegments": [
+              "seg-b8ce5a2a7fe8714e"
+            ],
+            "armAngles": [
+              0.0
+            ],
+            "provenance": {
+              "extractor": "tl004a-geometric-events-v1",
+              "shadowOnly": true,
+              "inputs": [
+                "input"
+              ]
+            },
+            "nearbyComponents": [],
+            "classification": "terminal",
+            "confidence": "high",
+            "parameters": {
+              "endpointClusterTolerance": 3.0,
+              "intersectionTolerance": 1.5,
+              "componentContactTolerance": 1.25,
+              "nearbyComponentDistance": 8.5,
+              "collinearToleranceDegrees": 12.0,
+              "markerTolerance": 1.25,
+              "coordinatePrecision": 3,
+              "scale": 1.0,
+              "lineWidth": 1.0
+            },
+            "geometricEvidence": {
+              "armCount": 1,
+              "arms": [
+                {
+                  "segmentId": "seg-b8ce5a2a7fe8714e",
+                  "role": "start",
+                  "angle": 0.0
+                }
+              ],
+              "properIntersection": false,
+              "explicitMarker": false,
+              "markerProvenance": [],
+              "transverseConnectivityAllowed": false
+            }
+          },
+          {
+            "id": "gev-7fce7d57d1269cbd",
+            "type": "continuation",
+            "coordinates": [
+              10.2,
+              10.0
+            ],
+            "sourceSegments": [
+              "seg-1d7833a33ad7f0f7",
+              "seg-b8ce5a2a7fe8714e"
+            ],
+            "armAngles": [
+              0.0,
+              180.0
+            ],
+            "provenance": {
+              "extractor": "tl004a-geometric-events-v1",
+              "shadowOnly": true,
+              "inputs": [
+                "input"
+              ]
+            },
+            "nearbyComponents": [],
+            "classification": "collinear",
+            "confidence": "high",
+            "parameters": {
+              "endpointClusterTolerance": 3.0,
+              "intersectionTolerance": 1.5,
+              "componentContactTolerance": 1.25,
+              "nearbyComponentDistance": 8.5,
+              "collinearToleranceDegrees": 12.0,
+              "markerTolerance": 1.25,
+              "coordinatePrecision": 3,
+              "scale": 1.0,
+              "lineWidth": 1.0
+            },
+            "geometricEvidence": {
+              "armCount": 2,
+              "arms": [
+                {
+                  "segmentId": "seg-1d7833a33ad7f0f7",
+                  "role": "start",
+                  "angle": 0.0
+                },
+                {
+                  "segmentId": "seg-b8ce5a2a7fe8714e",
+                  "role": "end",
+                  "angle": 180.0
+                }
+              ],
+              "properIntersection": false,
+              "explicitMarker": false,
+              "markerProvenance": [],
+              "transverseConnectivityAllowed": false
+            }
+          },
+          {
+            "id": "gev-22a4014538d41f45",
+            "type": "endpoint",
+            "coordinates": [
+              20.0,
+              10.0
+            ],
+            "sourceSegments": [
+              "seg-1d7833a33ad7f0f7"
+            ],
+            "armAngles": [
+              180.0
+            ],
+            "provenance": {
+              "extractor": "tl004a-geometric-events-v1",
+              "shadowOnly": true,
+              "inputs": [
+                "input"
+              ]
+            },
+            "nearbyComponents": [],
+            "classification": "terminal",
+            "confidence": "high",
+            "parameters": {
+              "endpointClusterTolerance": 3.0,
+              "intersectionTolerance": 1.5,
+              "componentContactTolerance": 1.25,
+              "nearbyComponentDistance": 8.5,
+              "collinearToleranceDegrees": 12.0,
+              "markerTolerance": 1.25,
+              "coordinatePrecision": 3,
+              "scale": 1.0,
+              "lineWidth": 1.0
+            },
+            "geometricEvidence": {
+              "armCount": 1,
+              "arms": [
+                {
+                  "segmentId": "seg-1d7833a33ad7f0f7",
+                  "role": "end",
+                  "angle": 180.0
+                }
+              ],
+              "properIntersection": false,
+              "explicitMarker": false,
+              "markerProvenance": [],
+              "transverseConnectivityAllowed": false
+            }
+          }
+        ],
+        "summary": {
+          "inputSegmentCount": 3,
+          "canonicalSegmentCount": 2,
+          "eventCount": 3,
+          "eventCountByType": {
+            "endpoint": 2,
+            "continuation": 1,
+            "elbow": 0,
+            "crossing": 0,
+            "explicit_junction": 0,
+            "bifurcation": 0,
+            "component_port": 0,
+            "component_boundary_intersection": 0
+          }
+        },
+        "invariants": {
+          "deterministicIds": true,
+          "segmentOrderIndependent": true,
+          "inputMutation": false,
+          "flowDecisionInfluence": false
+        }
+      }
+    },
+    {
+      "fixtureId": "different_segment_order",
+      "title": "Mesma bifurcação em T com ordem diferente",
+      "topologyRole": null,
+      "catalog": {
+        "schemaVersion": "1.0",
+        "extractorRevision": "tl004a-geometric-events-v1",
+        "mode": "shadow_only",
+        "strategyDependency": "none",
+        "producesFlows": false,
+        "parameters": {
+          "configured": {
+            "endpoint_cluster_tolerance": 2.5,
+            "intersection_tolerance": 1.25,
+            "component_contact_tolerance": 1.0,
+            "nearby_component_distance": 8.0,
+            "collinear_tolerance_degrees": 12.0,
+            "marker_tolerance": 1.0,
+            "line_width_tolerance_factor": 0.5,
+            "coordinate_precision": 3
+          },
+          "effective": {
+            "endpointClusterTolerance": 3.0,
+            "intersectionTolerance": 1.5,
+            "componentContactTolerance": 1.25,
+            "nearbyComponentDistance": 8.5,
+            "collinearToleranceDegrees": 12.0,
+            "markerTolerance": 1.25,
+            "coordinatePrecision": 3,
+            "scale": 1.0,
+            "lineWidth": 1.0
+          }
+        },
+        "segments": [
+          {
+            "id": "seg-1ee3f6de4a8a78a6",
+            "start": [
+              10.0,
+              10.0
+            ],
+            "end": [
+              10.0,
+              20.0
+            ],
+            "provenance": [
+              "fixture"
+            ],
+            "inputIds": [
+              "t-down"
+            ],
+            "duplicateCount": 1
+          },
+          {
+            "id": "seg-b8ce5a2a7fe8714e",
+            "start": [
+              0.0,
+              10.0
+            ],
+            "end": [
+              10.0,
+              10.0
+            ],
+            "provenance": [
+              "fixture"
+            ],
+            "inputIds": [
+              "t-left"
+            ],
+            "duplicateCount": 1
+          },
+          {
+            "id": "seg-d01398af8f0ddb9d",
+            "start": [
+              10.0,
+              10.0
+            ],
+            "end": [
+              20.0,
+              10.0
+            ],
+            "provenance": [
+              "fixture"
+            ],
+            "inputIds": [
+              "t-right"
+            ],
+            "duplicateCount": 1
+          }
+        ],
+        "events": [
+          {
+            "id": "gev-eb2a4b0a76190a80",
+            "type": "endpoint",
+            "coordinates": [
+              0.0,
+              10.0
+            ],
+            "sourceSegments": [
+              "seg-b8ce5a2a7fe8714e"
+            ],
+            "armAngles": [
+              0.0
+            ],
+            "provenance": {
+              "extractor": "tl004a-geometric-events-v1",
+              "shadowOnly": true,
+              "inputs": [
+                "fixture"
+              ]
+            },
+            "nearbyComponents": [],
+            "classification": "terminal",
+            "confidence": "high",
+            "parameters": {
+              "endpointClusterTolerance": 3.0,
+              "intersectionTolerance": 1.5,
+              "componentContactTolerance": 1.25,
+              "nearbyComponentDistance": 8.5,
+              "collinearToleranceDegrees": 12.0,
+              "markerTolerance": 1.25,
+              "coordinatePrecision": 3,
+              "scale": 1.0,
+              "lineWidth": 1.0
+            },
+            "geometricEvidence": {
+              "armCount": 1,
+              "arms": [
+                {
+                  "segmentId": "seg-b8ce5a2a7fe8714e",
+                  "role": "start",
+                  "angle": 0.0
+                }
+              ],
+              "properIntersection": false,
+              "explicitMarker": false,
+              "markerProvenance": [],
+              "transverseConnectivityAllowed": false
+            }
+          },
+          {
+            "id": "gev-0c2cf72b060e6141",
+            "type": "bifurcation",
+            "coordinates": [
+              10.0,
+              10.0
+            ],
+            "sourceSegments": [
+              "seg-1ee3f6de4a8a78a6",
+              "seg-b8ce5a2a7fe8714e",
+              "seg-d01398af8f0ddb9d"
+            ],
+            "armAngles": [
+              0.0,
+              90.0,
+              180.0
+            ],
+            "provenance": {
+              "extractor": "tl004a-geometric-events-v1",
+              "shadowOnly": true,
+              "inputs": [
+                "fixture"
+              ]
+            },
+            "nearbyComponents": [],
+            "classification": "connecting_bifurcation",
+            "confidence": "high",
+            "parameters": {
+              "endpointClusterTolerance": 3.0,
+              "intersectionTolerance": 1.5,
+              "componentContactTolerance": 1.25,
+              "nearbyComponentDistance": 8.5,
+              "collinearToleranceDegrees": 12.0,
+              "markerTolerance": 1.25,
+              "coordinatePrecision": 3,
+              "scale": 1.0,
+              "lineWidth": 1.0
+            },
+            "geometricEvidence": {
+              "armCount": 3,
+              "arms": [
+                {
+                  "segmentId": "seg-d01398af8f0ddb9d",
+                  "role": "start",
+                  "angle": 0.0
+                },
+                {
+                  "segmentId": "seg-1ee3f6de4a8a78a6",
+                  "role": "start",
+                  "angle": 90.0
+                },
+                {
+                  "segmentId": "seg-b8ce5a2a7fe8714e",
+                  "role": "end",
+                  "angle": 180.0
+                }
+              ],
+              "properIntersection": false,
+              "explicitMarker": false,
+              "markerProvenance": [],
+              "transverseConnectivityAllowed": false
+            }
+          },
+          {
+            "id": "gev-92ffae6f5dfe82ed",
+            "type": "endpoint",
+            "coordinates": [
+              10.0,
+              20.0
+            ],
+            "sourceSegments": [
+              "seg-1ee3f6de4a8a78a6"
+            ],
+            "armAngles": [
+              270.0
+            ],
+            "provenance": {
+              "extractor": "tl004a-geometric-events-v1",
+              "shadowOnly": true,
+              "inputs": [
+                "fixture"
+              ]
+            },
+            "nearbyComponents": [],
+            "classification": "terminal",
+            "confidence": "high",
+            "parameters": {
+              "endpointClusterTolerance": 3.0,
+              "intersectionTolerance": 1.5,
+              "componentContactTolerance": 1.25,
+              "nearbyComponentDistance": 8.5,
+              "collinearToleranceDegrees": 12.0,
+              "markerTolerance": 1.25,
+              "coordinatePrecision": 3,
+              "scale": 1.0,
+              "lineWidth": 1.0
+            },
+            "geometricEvidence": {
+              "armCount": 1,
+              "arms": [
+                {
+                  "segmentId": "seg-1ee3f6de4a8a78a6",
+                  "role": "end",
+                  "angle": 270.0
+                }
+              ],
+              "properIntersection": false,
+              "explicitMarker": false,
+              "markerProvenance": [],
+              "transverseConnectivityAllowed": false
+            }
+          },
+          {
+            "id": "gev-681f8e225945a95f",
+            "type": "endpoint",
+            "coordinates": [
+              20.0,
+              10.0
+            ],
+            "sourceSegments": [
+              "seg-d01398af8f0ddb9d"
+            ],
+            "armAngles": [
+              180.0
+            ],
+            "provenance": {
+              "extractor": "tl004a-geometric-events-v1",
+              "shadowOnly": true,
+              "inputs": [
+                "fixture"
+              ]
+            },
+            "nearbyComponents": [],
+            "classification": "terminal",
+            "confidence": "high",
+            "parameters": {
+              "endpointClusterTolerance": 3.0,
+              "intersectionTolerance": 1.5,
+              "componentContactTolerance": 1.25,
+              "nearbyComponentDistance": 8.5,
+              "collinearToleranceDegrees": 12.0,
+              "markerTolerance": 1.25,
+              "coordinatePrecision": 3,
+              "scale": 1.0,
+              "lineWidth": 1.0
+            },
+            "geometricEvidence": {
+              "armCount": 1,
+              "arms": [
+                {
+                  "segmentId": "seg-d01398af8f0ddb9d",
+                  "role": "end",
+                  "angle": 180.0
+                }
+              ],
+              "properIntersection": false,
+              "explicitMarker": false,
+              "markerProvenance": [],
+              "transverseConnectivityAllowed": false
+            }
+          }
+        ],
+        "summary": {
+          "inputSegmentCount": 3,
+          "canonicalSegmentCount": 3,
+          "eventCount": 4,
+          "eventCountByType": {
+            "endpoint": 3,
+            "continuation": 0,
+            "elbow": 0,
+            "crossing": 0,
+            "explicit_junction": 0,
+            "bifurcation": 1,
+            "component_port": 0,
+            "component_boundary_intersection": 0
+          }
+        },
+        "invariants": {
+          "deterministicIds": true,
+          "segmentOrderIndependent": true,
+          "inputMutation": false,
+          "flowDecisionInfluence": false
+        }
+      }
+    }
+  ]
+}

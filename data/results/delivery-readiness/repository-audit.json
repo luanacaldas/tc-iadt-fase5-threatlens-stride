@@ -1,0 +1,99 @@
+{
+  "schemaVersion": "1.0",
+  "generatedAt": "2026-07-21T22:35:57.615569+00:00",
+  "version": "1.0.0-mvp",
+  "entrypoints": {
+    "backend": "backend/main.py",
+    "combinedRuntime": "scripts/start-dev.mjs"
+  },
+  "services": [
+    "FastAPI",
+    "Node HTTP proxy",
+    "YOLOv8",
+    "Tesseract OCR",
+    "local RAG"
+  ],
+  "runtime": {
+    "testedPython": "3.14.3",
+    "testedNode": "v24.13.1",
+    "testedDocker": "Docker version 29.6.1, build 8900f1d",
+    "minimumDocumented": {
+      "python": "3.11",
+      "node": "20",
+      "dockerEngine": "24 with Compose v2"
+    }
+  },
+  "ports": {
+    "proxy": 4173,
+    "backend": 8000
+  },
+  "environmentVariables": [
+    "BACKEND_PORT",
+    "FLOW_STRATEGY",
+    "YOLO_MODEL_PATH",
+    "YOLO_MIN_DETECTION_CONFIDENCE",
+    "YOLO_CONFIDENCE_THRESHOLD",
+    "YOLO_CALIBRATION_PATH",
+    "TESSERACT_CMD",
+    "CORS_ALLOWED_ORIGINS",
+    "RAG_EMBEDDING_MODEL",
+    "ENABLE_VISION_FALLBACK",
+    "ENABLE_GENERATIVE_REPORTS",
+    "ENABLE_REMOTE_VALIDATION",
+    "GEMINI_API_KEY",
+    "GROQ_API_KEY"
+  ],
+  "requiredRuntimeFiles": [
+    {
+      "path": "models/threatlens-hybrid-v2/weights/best.pt",
+      "bytes": 6242154,
+      "sha256": "2aebcd0611927505d60a10d23ce11d0e5211cf2e91ca0c4394921fac006c865d"
+    },
+    {
+      "path": "models/component-confidence-calibration.json",
+      "bytes": 592,
+      "sha256": "d37d7979930227bb052603da1066f53a1a349adef997609059ade7f64d5ded0f"
+    },
+    {
+      "path": "models/arrowhead-logistic/model.json",
+      "bytes": 1359,
+      "sha256": "b3f07491871e79d4cfffe1581728608ef4174502ad63311cf8627a28fde9729b"
+    }
+  ],
+  "datasetsRequiredAtRuntime": false,
+  "trainingDataset": {
+    "path": "dataset/hybrid_v2",
+    "images": 373,
+    "classes": 14
+  },
+  "documentation": [
+    "docs/api-contract.md",
+    "docs/architecture.md",
+    "docs/dataset-and-model-plan.md",
+    "docs/dataset-integration-results.md",
+    "docs/demo-runbook.md",
+    "docs/evaluation.md",
+    "docs/final-technical-evidence.md",
+    "docs/human-review-boundaries.md",
+    "docs/judging-brief-ptbr.md",
+    "docs/limitations.md",
+    "docs/model-development.md",
+    "docs/model-evaluation-and-registration.md",
+    "docs/ocr-and-protocol-evidence.md",
+    "docs/real-architecture-benchmark.md",
+    "docs/reporting-and-rag-plan.md",
+    "docs/sample-threat-model.md",
+    "docs/security-and-audit-controls.md",
+    "docs/stride-golden-set.md",
+    "docs/structure-benchmark-results.md",
+    "docs/structure-extraction.md",
+    "docs/threat-traceability.md",
+    "docs/v15-evolution-backlog.md"
+  ],
+  "knownNonRuntimeAbsoluteMetadata": [
+    "models/threatlens-hybrid-v2/model-card.json",
+    "dataset/hybrid_v2/architecture.yaml",
+    "data/benchmarks/structure/benchmark.json"
+  ],
+  "runtimeAbsolutePathsRequired": []
+}

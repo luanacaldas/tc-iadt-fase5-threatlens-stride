@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "1.0",
+  "scope": "WEB-MVP-001",
+  "framework": "vanilla_html_css_javascript_es_modules",
+  "runtimeDependencies": [],
+  "entrypoint": "app/index.html",
+  "files": [
+    {
+      "path": "app/index.html",
+      "bytes": 12098,
+      "sha256": "e09ba567e60e8d360e37c4e76f63df5a099f91e89512dcf96b2662fcdd42a3e1"
+    },
+    {
+      "path": "app/main.js",
+      "bytes": 24957,
+      "sha256": "c260d8ba0e30de568a9f1bc4d03e780347c6f84ae4a1961321518663043cb300"
+    },
+    {
+      "path": "app/runtime-config.js",
+      "bytes": 87,
+      "sha256": "97dc0182965f489663786203e5ac6d65c7e456c532c6e0fc5a83a5015549844f"
+    },
+    {
+      "path": "app/styles.css",
+      "bytes": 17434,
+      "sha256": "4501a49e5f49bb0ea2ee4cf835f7f77b9d0727dc8e465a167ee70859a1903a9f"
+    },
+    {
+      "path": "app/ui-contract.mjs",
+      "bytes": 6989,
+      "sha256": "f835053241a7719a7219a6d51f6635b79e7e7fc4fe854f2d88897ce157ed2163"
+    },
+    {
+      "path": "server.mjs",
+      "bytes": 4067,
+      "sha256": "3935ce0b1f3fe620fba7b6852129eeb202098d95211f3f6841498b73821f433f"
+    }
+  ],
+  "holdoutsExecuted": false
+}

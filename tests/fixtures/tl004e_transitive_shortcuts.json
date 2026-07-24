@@ -1,0 +1,148 @@
+{
+  "schemaVersion": "1.0",
+  "fixtures": [
+    {
+      "id": "simple_chain_adjacent_edge",
+      "components": [{"id":"A","bbox":[0,-2,2,2]},{"id":"B","bbox":[8,-2,12,2]},{"id":"C","bbox":[18,-2,22,2]}],
+      "candidate": {"id":"f-ab","from":"A","to":"B","pathPoints":[[2,0],[8,0]],"directionConfidence":1},
+      "adjacentRelations": [{"from":"A","to":"B","pathPoints":[[2,0],[8,0]]},{"from":"B","to":"C","pathPoints":[[12,0],[18,0]]}],
+      "expectedClassification":"adjacent_relation","expectedAction":"keep"
+    },
+    {
+      "id": "false_shortcut_in_chain",
+      "components": [{"id":"A","bbox":[0,-2,2,2]},{"id":"B","bbox":[8,-2,12,2]},{"id":"C","bbox":[18,-2,22,2]}],
+      "candidate": {"id":"f-ac","from":"A","to":"C","pathPoints":[[2,0],[10,0],[20,0]],"directionConfidence":1},
+      "adjacentRelations": [{"from":"A","to":"B","pathPoints":[[2,0],[8,0]]},{"from":"B","to":"C","pathPoints":[[12,0],[18,0]]}],
+      "expectedClassification":"transitive_shortcut","expectedAction":"block"
+    },
+    {
+      "id": "valid_independent_direct_edge",
+      "components": [{"id":"A","bbox":[0,-2,2,2]},{"id":"B","bbox":[8,-2,12,2]},{"id":"C","bbox":[18,-2,22,2]}],
+      "candidate": {"id":"f-ac-direct","from":"A","to":"C","pathPoints":[[2,1],[2,8],[20,8],[20,2]],"directionConfidence":1},
+      "adjacentRelations": [{"from":"A","to":"B","pathPoints":[[2,0],[8,0]]},{"from":"B","to":"C","pathPoints":[[12,0],[18,0]]}],
+      "confirmedDirectEdges": [{"from":"A","to":"C","source":"reviewed_fixture","independent":true,"independentGeometry":true}],
+      "expectedClassification":"direct_edge_confirmed","expectedAction":"keep"
+    },
+    {
+      "id": "path_completely_through_b",
+      "components": [{"id":"A","bbox":[0,-2,2,2]},{"id":"B","bbox":[8,-2,12,2]},{"id":"C","bbox":[18,-2,22,2]}],
+      "candidate": {"id":"f-ac-barrier","from":"A","to":"C","pathPoints":[[2,0],[20,0]],"directionConfidence":1},
+      "expectedClassification":"intermediate_component_barrier","expectedAction":"decompose"
+    },
+    {
+      "id": "path_touches_b_port_and_continues",
+      "components": [{"id":"A","bbox":[0,-2,2,2]},{"id":"B","bbox":[8,-2,12,2]},{"id":"C","bbox":[18,-2,22,2]}],
+      "candidate": {"id":"f-ac-touch","from":"A","to":"C","pathPoints":[[2,0],[8,0],[12,0],[20,0]],"directionConfidence":1},
+      "adjacentRelations": [{"from":"A","to":"B","pathPoints":[[2,0],[8,0]]},{"from":"B","to":"C","pathPoints":[[12,0],[20,0]]}],
+      "expectedClassification":"transitive_shortcut","expectedAction":"block"
+    },
+    {
+      "id": "adjacent_relations_share_segments",
+      "components": [{"id":"A","bbox":[0,-2,2,2]},{"id":"B","bbox":[8,-2,12,2]},{"id":"C","bbox":[18,-2,22,2]}],
+      "candidate": {"id":"f-ac-shared","from":"A","to":"C","pathPoints":[[2,4],[10,4],[20,4]],"segmentIds":["shared-ab","shared-bc"],"directionConfidence":1},
+      "adjacentRelations": [{"from":"A","to":"B","pathPoints":[[2,4],[10,4]],"segmentIds":["shared-ab"]},{"from":"B","to":"C","pathPoints":[[10,4],[20,4]],"segmentIds":["shared-bc"]}],
+      "expectedClassification":"transitive_shortcut","expectedAction":"block"
+    },
+    {
+      "id": "opposite_direction_indirect_path",
+      "components": [{"id":"A","bbox":[0,-2,2,2]},{"id":"B","bbox":[8,-2,12,2]},{"id":"C","bbox":[18,-2,22,2]}],
+      "candidate": {"id":"f-ac-opposite","from":"A","to":"C","pathPoints":[[2,1],[2,6],[20,6],[20,2]],"directionConfidence":1},
+      "adjacentRelations": [{"from":"C","to":"B","pathPoints":[[18,0],[12,0]]},{"from":"B","to":"A","pathPoints":[[8,0],[2,0]]}],
+      "expectedClassification":"insufficient_evidence","expectedAction":"review"
+    },
+    {
+      "id": "four_component_chain",
+      "components": [{"id":"A","bbox":[0,-2,2,2]},{"id":"B","bbox":[8,-2,12,2]},{"id":"C","bbox":[18,-2,22,2]},{"id":"D","bbox":[28,-2,32,2]}],
+      "candidate": {"id":"f-ad","from":"A","to":"D","pathPoints":[[2,0],[10,0],[20,0],[30,0]],"directionConfidence":1},
+      "adjacentRelations": [{"from":"A","to":"B"},{"from":"B","to":"C"},{"from":"C","to":"D"}],
+      "expectedClassification":"transitive_shortcut","expectedAction":"block"
+    },
+    {
+      "id": "multiple_indirect_paths",
+      "components": [{"id":"A","bbox":[0,-2,2,2]},{"id":"B","bbox":[8,-2,12,2]},{"id":"C","bbox":[18,-2,22,2]},{"id":"D","bbox":[8,8,12,12]}],
+      "candidate": {"id":"f-ac-multiple","from":"A","to":"C","pathPoints":[[2,1],[2,6],[20,6],[20,2]],"directionConfidence":1},
+      "adjacentRelations": [{"from":"A","to":"B"},{"from":"B","to":"C"},{"from":"A","to":"D"},{"from":"D","to":"C"}],
+      "expectedClassification":"ambiguous_path","expectedAction":"review"
+    },
+    {
+      "id": "ambiguous_junction_path",
+      "components": [{"id":"A","bbox":[0,-2,2,2]},{"id":"B","bbox":[8,-2,12,2]},{"id":"C","bbox":[18,-2,22,2]}],
+      "candidate": {"id":"f-ac-review","from":"A","to":"C","pathPoints":[[2,6],[20,6]],"forceReview":true,"ambiguous":true,"directionConfidence":0},
+      "expectedClassification":"review_only","expectedAction":"review"
+    },
+    {
+      "id": "valid_fan_out",
+      "components": [{"id":"A","bbox":[0,-2,2,2]},{"id":"B","bbox":[8,-6,12,-2]},{"id":"C","bbox":[8,2,12,6]}],
+      "candidate": {"id":"f-ab-fanout","from":"A","to":"B","pathPoints":[[2,0],[8,-2]],"directionConfidence":1},
+      "adjacentRelations": [{"from":"A","to":"B"},{"from":"A","to":"C"}],
+      "expectedClassification":"adjacent_relation","expectedAction":"keep"
+    },
+    {
+      "id": "valid_fan_in",
+      "components": [{"id":"A","bbox":[0,-6,2,-2]},{"id":"B","bbox":[0,2,2,6]},{"id":"C","bbox":[8,-2,12,2]}],
+      "candidate": {"id":"f-ac-fanin","from":"A","to":"C","pathPoints":[[2,-2],[8,0]],"directionConfidence":1},
+      "adjacentRelations": [{"from":"A","to":"C"},{"from":"B","to":"C"}],
+      "expectedClassification":"adjacent_relation","expectedAction":"keep"
+    },
+    {
+      "id": "shared_trunk_without_clique",
+      "components": [{"id":"A","bbox":[0,-2,2,2]},{"id":"B","bbox":[8,-6,12,-2]},{"id":"C","bbox":[8,2,12,6]}],
+      "candidate": {"id":"f-ab-trunk","from":"A","to":"B","pathPoints":[[2,0],[6,0],[8,-2]],"directionConfidence":1},
+      "adjacentRelations": [{"from":"A","to":"B"},{"from":"A","to":"C"}],
+      "expectedClassification":"adjacent_relation","expectedAction":"keep","forbiddenEdges":[["B","C"],["C","B"]]
+    },
+    {
+      "id": "direct_edge_with_own_arrowhead",
+      "components": [{"id":"A","bbox":[0,-2,2,2]},{"id":"B","bbox":[8,-2,12,2]},{"id":"C","bbox":[18,-2,22,2]}],
+      "candidate": {"id":"f-ac-arrow","from":"A","to":"C","pathPoints":[[2,1],[2,8],[20,8],[20,2]],"directionEvidence":"visual_arrowhead","directionConfidence":0.95},
+      "adjacentRelations": [{"from":"A","to":"B"},{"from":"B","to":"C"}],
+      "confirmedDirectEdges": [{"from":"A","to":"C","source":"reviewed_fixture","independent":true,"ownArrowhead":true}],
+      "expectedClassification":"direct_edge_confirmed","expectedAction":"keep"
+    },
+    {
+      "id": "direct_edge_independent_geometry_without_arrowhead",
+      "components": [{"id":"A","bbox":[0,-2,2,2]},{"id":"B","bbox":[8,-2,12,2]},{"id":"C","bbox":[18,-2,22,2]}],
+      "candidate": {"id":"f-ac-geometry","from":"A","to":"C","pathPoints":[[2,1],[2,8],[20,8],[20,2]],"directionConfidence":0},
+      "adjacentRelations": [{"from":"A","to":"B"},{"from":"B","to":"C"}],
+      "confirmedDirectEdges": [{"from":"A","to":"C","source":"reviewed_fixture","independentGeometry":true}],
+      "expectedClassification":"direct_edge_confirmed","expectedAction":"keep"
+    },
+    {
+      "id": "near_parallel_paths",
+      "components": [{"id":"A","bbox":[0,-2,2,2]},{"id":"B","bbox":[8,-2,12,2]},{"id":"C","bbox":[18,-2,22,2]}],
+      "candidate": {"id":"f-ac-parallel","from":"A","to":"C","pathPoints":[[2,5],[20,5]],"ambiguous":true,"directionConfidence":0},
+      "adjacentRelations": [{"from":"A","to":"B","pathPoints":[[2,0],[8,0]]},{"from":"B","to":"C","pathPoints":[[12,0],[18,0]]}],
+      "expectedClassification":"ambiguous_path","expectedAction":"review"
+    },
+    {
+      "id": "different_segment_order",
+      "compareWith":"false_shortcut_in_chain",
+      "components": [{"id":"C","bbox":[18,-2,22,2]},{"id":"A","bbox":[0,-2,2,2]},{"id":"B","bbox":[8,-2,12,2]}],
+      "candidate": {"id":"f-ac","from":"A","to":"C","pathPoints":[[2,0],[10,0],[20,0]],"directionConfidence":1},
+      "adjacentRelations": [{"from":"B","to":"C","pathPoints":[[12,0],[18,0]]},{"from":"A","to":"B","pathPoints":[[2,0],[8,0]]}],
+      "expectedClassification":"transitive_shortcut","expectedAction":"block"
+    },
+    {
+      "id": "scaled_rotated_thick_chain",
+      "components": [{"id":"A","bbox":[-1,-3,3,3]},{"id":"B","bbox":[16,-1,24,7]},{"id":"C","bbox":[36,3,44,11]}],
+      "candidate": {"id":"f-ac-scaled","from":"A","to":"C","pathPoints":[[3,1],[20,3],[40,7]],"directionConfidence":1},
+      "adjacentRelations": [{"from":"A","to":"B"},{"from":"B","to":"C"}],
+      "humanConfirmedShortcuts": [{"from":"A","to":"C","source":"reviewed_fixture"}],
+      "scale":2,"lineWidth":3,"expectedClassification":"transitive_shortcut","expectedAction":"block"
+    },
+    {
+      "id": "immutable_input_case",
+      "components": [{"id":"A","bbox":[0,-2,2,2]},{"id":"B","bbox":[8,-2,12,2]},{"id":"C","bbox":[18,-2,22,2]}],
+      "candidate": {"id":"f-ac-immutable","from":"A","to":"C","pathPoints":[[2,0],[10,0],[20,0]],"directionConfidence":1},
+      "adjacentRelations": [{"from":"A","to":"B"},{"from":"B","to":"C"}],
+      "expectedClassification":"transitive_shortcut","expectedAction":"block","verifyInputImmutable":true
+    },
+    {
+      "id": "deterministic_execution_case",
+      "components": [{"id":"A","bbox":[0,-2,2,2]},{"id":"B","bbox":[8,-2,12,2]},{"id":"C","bbox":[18,-2,22,2]}],
+      "candidate": {"id":"f-ac-deterministic","from":"A","to":"C","pathPoints":[[2,0],[10,0],[20,0]],"directionConfidence":1},
+      "adjacentRelations": [{"from":"A","to":"B"},{"from":"B","to":"C"}],
+      "expectedClassification":"transitive_shortcut","expectedAction":"block","verifyDeterministic":true
+    }
+  ]
+}

@@ -1,0 +1,87 @@
+{
+  "schemaVersion": "1.0",
+  "generatedAt": "2026-07-21T01:45:57.498409+00:00",
+  "mode": "end_to_end",
+  "split": "development_tuning",
+  "benchmark": "data/benchmarks/real-architecture/benchmark-expanded.json",
+  "imageCount": 9,
+  "statusCounts": {
+    "false_positive": 276,
+    "missed": 40,
+    "reversed": 7,
+    "true_positive": 24
+  },
+  "falsePositiveCountByEvidence": {
+    "detected_line": 87,
+    "layout_adjacency": 4,
+    "pixel_line_support": 1,
+    "segment_graph": 184
+  },
+  "falsePositiveCountByCandidateLabel": {
+    "crossing_as_connection": 74,
+    "incorrect_bifurcation": 254,
+    "excessive_hops": 0,
+    "geometric_proximity": 119,
+    "parallel_connectors": 216,
+    "connection_through_component": 77,
+    "insufficient_evidence": 15,
+    "ocr_anchor_association_error": 257,
+    "high_density_context": 257,
+    "unclassified": 2
+  },
+  "unclassifiedRate": 0.007246376811594203,
+  "ambiguousRate": 0.9891304347826086,
+  "classificationPolicy": {
+    "type": "multilabel_candidate_signals",
+    "candidateLabels": [
+      "crossing_as_connection",
+      "incorrect_bifurcation",
+      "excessive_hops",
+      "geometric_proximity",
+      "parallel_connectors",
+      "connection_through_component",
+      "insufficient_evidence",
+      "ocr_anchor_association_error",
+      "high_density_context",
+      "unclassified"
+    ],
+    "causalClaimsAllowed": false,
+    "humanReviewRequiredForFalsePositives": true
+  },
+  "previousMetricsIntegrity": {
+    "status": "NOT_APPLICABLE",
+    "reason": "No prior end-to-end flow baseline is registered."
+  },
+  "flowDecisionSnapshotIntegrity": {
+    "status": "PASS",
+    "beforeSha256": "65f4ae0587ed6a0333d3e5d737b3b9965d856f60bf73c63551485ff732932a44",
+    "afterSha256": "65f4ae0587ed6a0333d3e5d737b3b9965d856f60bf73c63551485ff732932a44",
+    "equivalent": true,
+    "decisionFields": [
+      "id",
+      "from",
+      "to",
+      "protocol",
+      "trustBoundary",
+      "crossedBoundaryIds",
+      "confidence",
+      "inferred",
+      "reviewStatus",
+      "evidence",
+      "directionEvidence",
+      "directionConfidence",
+      "arrowheadScores",
+      "pathPoints",
+      "pixelSupport",
+      "maximumGap",
+      "segmentHops",
+      "routeEfficiency"
+    ]
+  },
+  "artifacts": {
+    "inventory": "data/results/flow-diagnostics-v1/end-to-end/flow-inventory.json",
+    "summary": "data/results/flow-diagnostics-v1/end-to-end/flow-diagnostics-summary.json",
+    "metrics": "data/results/flow-diagnostics-v1/end-to-end/flow-stratified-metrics.json",
+    "humanReview": "data/results/flow-diagnostics-v1/end-to-end/flow-human-review.json"
+  }
+}

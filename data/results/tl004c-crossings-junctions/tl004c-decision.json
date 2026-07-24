@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "1.0",
+  "scope": "TL-004C",
+  "criteria": {
+    "intersectionContractDocumented": true,
+    "syntheticFixturesPass": true,
+    "requiredHumanCasesEvaluated": true,
+    "unmarkedXBlocksTransverseConnectivity": true,
+    "explicitJunctionsRepresentable": true,
+    "controlsC01ToC07Preserved": true,
+    "legacySnapshotIdentical": true,
+    "officialLegacyFlowCount": 142,
+    "officialLegacyChanges": 0,
+    "officialDirectionChanges": 0,
+    "validationStatus": "PASS",
+    "holdoutExecutions": 0
+  },
+  "decision": "TL-004C concluída e validada",
+  "nextTaskStarted": false
+}

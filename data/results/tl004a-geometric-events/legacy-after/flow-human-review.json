@@ -1,0 +1,1265 @@
+{
+  "schemaVersion": "1.0",
+  "generatedAt": "2026-07-21T18:11:52.737524+00:00",
+  "mode": "isolated_ground_truth",
+  "split": "development_tuning",
+  "reviewCaseCount": 116,
+  "cases": [
+    {
+      "inventoryId": "isolated_ground_truth:azure-ai-foundry:predicted:4",
+      "imageId": "azure-ai-foundry",
+      "status": "false_positive",
+      "candidateLabels": [
+        "crossing_as_connection",
+        "parallel_connectors",
+        "high_density_context"
+      ],
+      "ambiguous": true,
+      "reason": "Candidate labels are diagnostic signals and require human causal review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:azure-ai-foundry:predicted:7",
+      "imageId": "azure-ai-foundry",
+      "status": "false_positive",
+      "candidateLabels": [
+        "high_density_context"
+      ],
+      "ambiguous": false,
+      "reason": "Candidate labels are diagnostic signals and require human causal review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:aws-video-pipeline:predicted:4",
+      "imageId": "aws-video-pipeline",
+      "status": "reversed",
+      "candidateLabels": [],
+      "ambiguous": false,
+      "reason": "The missed or reversed relation requires architecture review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:aws-video-pipeline:predicted:6",
+      "imageId": "aws-video-pipeline",
+      "status": "false_positive",
+      "candidateLabels": [
+        "incorrect_bifurcation",
+        "geometric_proximity",
+        "parallel_connectors"
+      ],
+      "ambiguous": true,
+      "reason": "Candidate labels are diagnostic signals and require human causal review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:aws-video-pipeline:predicted:7",
+      "imageId": "aws-video-pipeline",
+      "status": "false_positive",
+      "candidateLabels": [
+        "crossing_as_connection",
+        "incorrect_bifurcation",
+        "geometric_proximity",
+        "parallel_connectors"
+      ],
+      "ambiguous": true,
+      "reason": "Candidate labels are diagnostic signals and require human causal review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:aws-video-pipeline:predicted:8",
+      "imageId": "aws-video-pipeline",
+      "status": "false_positive",
+      "candidateLabels": [
+        "crossing_as_connection",
+        "incorrect_bifurcation",
+        "geometric_proximity",
+        "parallel_connectors"
+      ],
+      "ambiguous": true,
+      "reason": "Candidate labels are diagnostic signals and require human causal review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:aws-video-pipeline:predicted:9",
+      "imageId": "aws-video-pipeline",
+      "status": "false_positive",
+      "candidateLabels": [
+        "incorrect_bifurcation",
+        "geometric_proximity",
+        "parallel_connectors"
+      ],
+      "ambiguous": true,
+      "reason": "Candidate labels are diagnostic signals and require human causal review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:aws-video-pipeline:predicted:10",
+      "imageId": "aws-video-pipeline",
+      "status": "false_positive",
+      "candidateLabels": [
+        "crossing_as_connection",
+        "incorrect_bifurcation",
+        "geometric_proximity",
+        "parallel_connectors"
+      ],
+      "ambiguous": true,
+      "reason": "Candidate labels are diagnostic signals and require human causal review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:aws-video-pipeline:predicted:11",
+      "imageId": "aws-video-pipeline",
+      "status": "false_positive",
+      "candidateLabels": [
+        "crossing_as_connection",
+        "incorrect_bifurcation",
+        "geometric_proximity",
+        "parallel_connectors"
+      ],
+      "ambiguous": true,
+      "reason": "Candidate labels are diagnostic signals and require human causal review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:aws-video-pipeline:predicted:12",
+      "imageId": "aws-video-pipeline",
+      "status": "false_positive",
+      "candidateLabels": [
+        "crossing_as_connection",
+        "incorrect_bifurcation",
+        "geometric_proximity",
+        "parallel_connectors"
+      ],
+      "ambiguous": true,
+      "reason": "Candidate labels are diagnostic signals and require human causal review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:aws-video-pipeline:predicted:13",
+      "imageId": "aws-video-pipeline",
+      "status": "false_positive",
+      "candidateLabels": [
+        "incorrect_bifurcation",
+        "geometric_proximity"
+      ],
+      "ambiguous": true,
+      "reason": "Candidate labels are diagnostic signals and require human causal review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:aws-video-pipeline:predicted:14",
+      "imageId": "aws-video-pipeline",
+      "status": "false_positive",
+      "candidateLabels": [
+        "crossing_as_connection",
+        "incorrect_bifurcation",
+        "geometric_proximity",
+        "parallel_connectors"
+      ],
+      "ambiguous": true,
+      "reason": "Candidate labels are diagnostic signals and require human causal review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:aws-video-pipeline:predicted:15",
+      "imageId": "aws-video-pipeline",
+      "status": "false_positive",
+      "candidateLabels": [
+        "crossing_as_connection",
+        "incorrect_bifurcation",
+        "geometric_proximity",
+        "parallel_connectors"
+      ],
+      "ambiguous": true,
+      "reason": "Candidate labels are diagnostic signals and require human causal review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:aws-video-pipeline:predicted:16",
+      "imageId": "aws-video-pipeline",
+      "status": "false_positive",
+      "candidateLabels": [
+        "crossing_as_connection",
+        "incorrect_bifurcation",
+        "geometric_proximity",
+        "parallel_connectors"
+      ],
+      "ambiguous": true,
+      "reason": "Candidate labels are diagnostic signals and require human causal review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:aws-video-pipeline:predicted:17",
+      "imageId": "aws-video-pipeline",
+      "status": "false_positive",
+      "candidateLabels": [
+        "incorrect_bifurcation",
+        "parallel_connectors"
+      ],
+      "ambiguous": true,
+      "reason": "Candidate labels are diagnostic signals and require human causal review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:aws-video-pipeline:predicted:18",
+      "imageId": "aws-video-pipeline",
+      "status": "false_positive",
+      "candidateLabels": [
+        "crossing_as_connection",
+        "incorrect_bifurcation",
+        "parallel_connectors"
+      ],
+      "ambiguous": true,
+      "reason": "Candidate labels are diagnostic signals and require human causal review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:aws-video-pipeline:predicted:19",
+      "imageId": "aws-video-pipeline",
+      "status": "false_positive",
+      "candidateLabels": [
+        "incorrect_bifurcation",
+        "geometric_proximity",
+        "parallel_connectors"
+      ],
+      "ambiguous": true,
+      "reason": "Candidate labels are diagnostic signals and require human causal review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:aws-video-pipeline:predicted:20",
+      "imageId": "aws-video-pipeline",
+      "status": "false_positive",
+      "candidateLabels": [
+        "incorrect_bifurcation",
+        "geometric_proximity",
+        "parallel_connectors"
+      ],
+      "ambiguous": true,
+      "reason": "Candidate labels are diagnostic signals and require human causal review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:aws-video-pipeline:predicted:21",
+      "imageId": "aws-video-pipeline",
+      "status": "false_positive",
+      "candidateLabels": [
+        "crossing_as_connection",
+        "incorrect_bifurcation",
+        "geometric_proximity",
+        "parallel_connectors"
+      ],
+      "ambiguous": true,
+      "reason": "Candidate labels are diagnostic signals and require human causal review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:aws-video-pipeline:predicted:22",
+      "imageId": "aws-video-pipeline",
+      "status": "false_positive",
+      "candidateLabels": [
+        "crossing_as_connection",
+        "incorrect_bifurcation",
+        "geometric_proximity",
+        "parallel_connectors"
+      ],
+      "ambiguous": true,
+      "reason": "Candidate labels are diagnostic signals and require human causal review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:aws-video-pipeline:predicted:23",
+      "imageId": "aws-video-pipeline",
+      "status": "false_positive",
+      "candidateLabels": [
+        "incorrect_bifurcation",
+        "parallel_connectors"
+      ],
+      "ambiguous": true,
+      "reason": "Candidate labels are diagnostic signals and require human causal review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:aws-video-pipeline:predicted:25",
+      "imageId": "aws-video-pipeline",
+      "status": "false_positive",
+      "candidateLabels": [
+        "crossing_as_connection",
+        "incorrect_bifurcation",
+        "geometric_proximity",
+        "parallel_connectors"
+      ],
+      "ambiguous": true,
+      "reason": "Candidate labels are diagnostic signals and require human causal review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:aws-video-pipeline:predicted:26",
+      "imageId": "aws-video-pipeline",
+      "status": "false_positive",
+      "candidateLabels": [
+        "crossing_as_connection",
+        "incorrect_bifurcation",
+        "parallel_connectors"
+      ],
+      "ambiguous": true,
+      "reason": "Candidate labels are diagnostic signals and require human causal review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:aws-video-pipeline:predicted:27",
+      "imageId": "aws-video-pipeline",
+      "status": "false_positive",
+      "candidateLabels": [
+        "crossing_as_connection",
+        "incorrect_bifurcation",
+        "geometric_proximity",
+        "parallel_connectors"
+      ],
+      "ambiguous": true,
+      "reason": "Candidate labels are diagnostic signals and require human causal review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:aws-video-pipeline:predicted:31",
+      "imageId": "aws-video-pipeline",
+      "status": "false_positive",
+      "candidateLabels": [
+        "crossing_as_connection",
+        "incorrect_bifurcation",
+        "parallel_connectors",
+        "connection_through_component"
+      ],
+      "ambiguous": true,
+      "reason": "Candidate labels are diagnostic signals and require human causal review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:aws-video-pipeline:predicted:34",
+      "imageId": "aws-video-pipeline",
+      "status": "false_positive",
+      "candidateLabels": [
+        "incorrect_bifurcation",
+        "parallel_connectors"
+      ],
+      "ambiguous": true,
+      "reason": "Candidate labels are diagnostic signals and require human causal review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:aws-video-pipeline:predicted:35",
+      "imageId": "aws-video-pipeline",
+      "status": "false_positive",
+      "candidateLabels": [
+        "incorrect_bifurcation",
+        "parallel_connectors"
+      ],
+      "ambiguous": true,
+      "reason": "Candidate labels are diagnostic signals and require human causal review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:aws-video-pipeline:predicted:36",
+      "imageId": "aws-video-pipeline",
+      "status": "false_positive",
+      "candidateLabels": [
+        "incorrect_bifurcation",
+        "parallel_connectors"
+      ],
+      "ambiguous": true,
+      "reason": "Candidate labels are diagnostic signals and require human causal review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:aws-video-pipeline:predicted:38",
+      "imageId": "aws-video-pipeline",
+      "status": "false_positive",
+      "candidateLabels": [
+        "incorrect_bifurcation",
+        "parallel_connectors"
+      ],
+      "ambiguous": true,
+      "reason": "Candidate labels are diagnostic signals and require human causal review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:aws-video-pipeline:predicted:39",
+      "imageId": "aws-video-pipeline",
+      "status": "false_positive",
+      "candidateLabels": [
+        "incorrect_bifurcation",
+        "parallel_connectors"
+      ],
+      "ambiguous": true,
+      "reason": "Candidate labels are diagnostic signals and require human causal review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:aws-video-pipeline:predicted:40",
+      "imageId": "aws-video-pipeline",
+      "status": "false_positive",
+      "candidateLabels": [
+        "incorrect_bifurcation",
+        "connection_through_component"
+      ],
+      "ambiguous": true,
+      "reason": "Candidate labels are diagnostic signals and require human causal review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:aws-video-pipeline:missed:3",
+      "imageId": "aws-video-pipeline",
+      "status": "missed",
+      "candidateLabels": [],
+      "ambiguous": false,
+      "reason": "The missed or reversed relation requires architecture review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:aws-video-pipeline:missed:14",
+      "imageId": "aws-video-pipeline",
+      "status": "missed",
+      "candidateLabels": [],
+      "ambiguous": false,
+      "reason": "The missed or reversed relation requires architecture review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:aws-video-pipeline:missed:16",
+      "imageId": "aws-video-pipeline",
+      "status": "missed",
+      "candidateLabels": [],
+      "ambiguous": false,
+      "reason": "The missed or reversed relation requires architecture review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:gcp-secure-cloud-run:predicted:3",
+      "imageId": "gcp-secure-cloud-run",
+      "status": "false_positive",
+      "candidateLabels": [
+        "incorrect_bifurcation",
+        "parallel_connectors",
+        "connection_through_component"
+      ],
+      "ambiguous": true,
+      "reason": "Candidate labels are diagnostic signals and require human causal review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:gcp-secure-cloud-run:predicted:5",
+      "imageId": "gcp-secure-cloud-run",
+      "status": "false_positive",
+      "candidateLabels": [
+        "incorrect_bifurcation",
+        "parallel_connectors"
+      ],
+      "ambiguous": true,
+      "reason": "Candidate labels are diagnostic signals and require human causal review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:gcp-secure-cloud-run:predicted:6",
+      "imageId": "gcp-secure-cloud-run",
+      "status": "false_positive",
+      "candidateLabels": [
+        "unclassified"
+      ],
+      "ambiguous": false,
+      "reason": "Candidate labels are diagnostic signals and require human causal review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:gcp-secure-cloud-run:predicted:7",
+      "imageId": "gcp-secure-cloud-run",
+      "status": "false_positive",
+      "candidateLabels": [
+        "crossing_as_connection",
+        "incorrect_bifurcation",
+        "parallel_connectors"
+      ],
+      "ambiguous": true,
+      "reason": "Candidate labels are diagnostic signals and require human causal review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:gcp-secure-cloud-run:predicted:8",
+      "imageId": "gcp-secure-cloud-run",
+      "status": "false_positive",
+      "candidateLabels": [
+        "incorrect_bifurcation",
+        "geometric_proximity",
+        "parallel_connectors"
+      ],
+      "ambiguous": true,
+      "reason": "Candidate labels are diagnostic signals and require human causal review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:gcp-secure-cloud-run:predicted:9",
+      "imageId": "gcp-secure-cloud-run",
+      "status": "false_positive",
+      "candidateLabels": [
+        "incorrect_bifurcation",
+        "connection_through_component"
+      ],
+      "ambiguous": true,
+      "reason": "Candidate labels are diagnostic signals and require human causal review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:gcp-secure-cloud-run:predicted:10",
+      "imageId": "gcp-secure-cloud-run",
+      "status": "false_positive",
+      "candidateLabels": [
+        "crossing_as_connection",
+        "incorrect_bifurcation",
+        "parallel_connectors",
+        "connection_through_component"
+      ],
+      "ambiguous": true,
+      "reason": "Candidate labels are diagnostic signals and require human causal review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:gcp-secure-cloud-run:predicted:14",
+      "imageId": "gcp-secure-cloud-run",
+      "status": "false_positive",
+      "candidateLabels": [
+        "incorrect_bifurcation",
+        "geometric_proximity"
+      ],
+      "ambiguous": true,
+      "reason": "Candidate labels are diagnostic signals and require human causal review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:gcp-secure-cloud-run:predicted:15",
+      "imageId": "gcp-secure-cloud-run",
+      "status": "false_positive",
+      "candidateLabels": [
+        "incorrect_bifurcation",
+        "parallel_connectors",
+        "connection_through_component"
+      ],
+      "ambiguous": true,
+      "reason": "Candidate labels are diagnostic signals and require human causal review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:generic-cloud-api:predicted:2",
+      "imageId": "generic-cloud-api",
+      "status": "reversed",
+      "candidateLabels": [],
+      "ambiguous": false,
+      "reason": "The missed or reversed relation requires architecture review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:generic-cloud-api:predicted:5",
+      "imageId": "generic-cloud-api",
+      "status": "reversed",
+      "candidateLabels": [],
+      "ambiguous": false,
+      "reason": "The missed or reversed relation requires architecture review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:generic-cloud-api:predicted:6",
+      "imageId": "generic-cloud-api",
+      "status": "false_positive",
+      "candidateLabels": [
+        "incorrect_bifurcation",
+        "parallel_connectors",
+        "high_density_context"
+      ],
+      "ambiguous": true,
+      "reason": "Candidate labels are diagnostic signals and require human causal review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:generic-cloud-api:predicted:7",
+      "imageId": "generic-cloud-api",
+      "status": "false_positive",
+      "candidateLabels": [
+        "incorrect_bifurcation",
+        "high_density_context"
+      ],
+      "ambiguous": true,
+      "reason": "Candidate labels are diagnostic signals and require human causal review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:generic-cloud-api:predicted:9",
+      "imageId": "generic-cloud-api",
+      "status": "false_positive",
+      "candidateLabels": [
+        "incorrect_bifurcation",
+        "high_density_context"
+      ],
+      "ambiguous": true,
+      "reason": "Candidate labels are diagnostic signals and require human causal review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:generic-cloud-api:predicted:10",
+      "imageId": "generic-cloud-api",
+      "status": "false_positive",
+      "candidateLabels": [
+        "incorrect_bifurcation",
+        "high_density_context"
+      ],
+      "ambiguous": true,
+      "reason": "Candidate labels are diagnostic signals and require human causal review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:generic-cloud-api:predicted:11",
+      "imageId": "generic-cloud-api",
+      "status": "false_positive",
+      "candidateLabels": [
+        "high_density_context"
+      ],
+      "ambiguous": false,
+      "reason": "Candidate labels are diagnostic signals and require human causal review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:generic-cloud-api:predicted:12",
+      "imageId": "generic-cloud-api",
+      "status": "false_positive",
+      "candidateLabels": [
+        "high_density_context"
+      ],
+      "ambiguous": false,
+      "reason": "Candidate labels are diagnostic signals and require human causal review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:generic-cloud-api:predicted:13",
+      "imageId": "generic-cloud-api",
+      "status": "false_positive",
+      "candidateLabels": [
+        "crossing_as_connection",
+        "incorrect_bifurcation",
+        "geometric_proximity",
+        "high_density_context"
+      ],
+      "ambiguous": true,
+      "reason": "Candidate labels are diagnostic signals and require human causal review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:generic-cloud-api:predicted:14",
+      "imageId": "generic-cloud-api",
+      "status": "false_positive",
+      "candidateLabels": [
+        "crossing_as_connection",
+        "incorrect_bifurcation",
+        "geometric_proximity",
+        "high_density_context"
+      ],
+      "ambiguous": true,
+      "reason": "Candidate labels are diagnostic signals and require human causal review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:generic-cloud-api:missed:4",
+      "imageId": "generic-cloud-api",
+      "status": "missed",
+      "candidateLabels": [],
+      "ambiguous": false,
+      "reason": "The missed or reversed relation requires architecture review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:aws-serverless-async:predicted:2",
+      "imageId": "aws-serverless-async",
+      "status": "reversed",
+      "candidateLabels": [],
+      "ambiguous": false,
+      "reason": "The missed or reversed relation requires architecture review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:aws-serverless-async:predicted:4",
+      "imageId": "aws-serverless-async",
+      "status": "false_positive",
+      "candidateLabels": [
+        "geometric_proximity"
+      ],
+      "ambiguous": false,
+      "reason": "Candidate labels are diagnostic signals and require human causal review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:aws-serverless-async:predicted:6",
+      "imageId": "aws-serverless-async",
+      "status": "false_positive",
+      "candidateLabels": [
+        "incorrect_bifurcation"
+      ],
+      "ambiguous": false,
+      "reason": "Candidate labels are diagnostic signals and require human causal review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:aws-serverless-async:predicted:7",
+      "imageId": "aws-serverless-async",
+      "status": "false_positive",
+      "candidateLabels": [
+        "unclassified"
+      ],
+      "ambiguous": false,
+      "reason": "Candidate labels are diagnostic signals and require human causal review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:aws-serverless-async:predicted:9",
+      "imageId": "aws-serverless-async",
+      "status": "reversed",
+      "candidateLabels": [],
+      "ambiguous": false,
+      "reason": "The missed or reversed relation requires architecture review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:aws-serverless-async:missed:2",
+      "imageId": "aws-serverless-async",
+      "status": "missed",
+      "candidateLabels": [],
+      "ambiguous": false,
+      "reason": "The missed or reversed relation requires architecture review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:aws-eks-platform:predicted:1",
+      "imageId": "aws-eks-platform",
+      "status": "false_positive",
+      "candidateLabels": [
+        "geometric_proximity",
+        "connection_through_component",
+        "high_density_context"
+      ],
+      "ambiguous": true,
+      "reason": "Candidate labels are diagnostic signals and require human causal review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:aws-eks-platform:predicted:2",
+      "imageId": "aws-eks-platform",
+      "status": "false_positive",
+      "candidateLabels": [
+        "high_density_context"
+      ],
+      "ambiguous": false,
+      "reason": "Candidate labels are diagnostic signals and require human causal review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:aws-eks-platform:predicted:3",
+      "imageId": "aws-eks-platform",
+      "status": "false_positive",
+      "candidateLabels": [
+        "parallel_connectors",
+        "high_density_context"
+      ],
+      "ambiguous": true,
+      "reason": "Candidate labels are diagnostic signals and require human causal review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:aws-eks-platform:predicted:4",
+      "imageId": "aws-eks-platform",
+      "status": "false_positive",
+      "candidateLabels": [
+        "incorrect_bifurcation",
+        "high_density_context"
+      ],
+      "ambiguous": true,
+      "reason": "Candidate labels are diagnostic signals and require human causal review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:aws-eks-platform:predicted:5",
+      "imageId": "aws-eks-platform",
+      "status": "false_positive",
+      "candidateLabels": [
+        "incorrect_bifurcation",
+        "high_density_context"
+      ],
+      "ambiguous": true,
+      "reason": "Candidate labels are diagnostic signals and require human causal review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:aws-eks-platform:predicted:6",
+      "imageId": "aws-eks-platform",
+      "status": "false_positive",
+      "candidateLabels": [
+        "incorrect_bifurcation",
+        "parallel_connectors",
+        "connection_through_component",
+        "high_density_context"
+      ],
+      "ambiguous": true,
+      "reason": "Candidate labels are diagnostic signals and require human causal review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:aws-eks-platform:predicted:8",
+      "imageId": "aws-eks-platform",
+      "status": "false_positive",
+      "candidateLabels": [
+        "parallel_connectors",
+        "high_density_context"
+      ],
+      "ambiguous": true,
+      "reason": "Candidate labels are diagnostic signals and require human causal review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:aws-eks-platform:predicted:10",
+      "imageId": "aws-eks-platform",
+      "status": "false_positive",
+      "candidateLabels": [
+        "high_density_context"
+      ],
+      "ambiguous": false,
+      "reason": "Candidate labels are diagnostic signals and require human causal review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:aws-eks-platform:predicted:11",
+      "imageId": "aws-eks-platform",
+      "status": "false_positive",
+      "candidateLabels": [
+        "incorrect_bifurcation",
+        "geometric_proximity",
+        "parallel_connectors",
+        "high_density_context"
+      ],
+      "ambiguous": true,
+      "reason": "Candidate labels are diagnostic signals and require human causal review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:aws-eks-platform:predicted:12",
+      "imageId": "aws-eks-platform",
+      "status": "false_positive",
+      "candidateLabels": [
+        "incorrect_bifurcation",
+        "geometric_proximity",
+        "parallel_connectors",
+        "high_density_context"
+      ],
+      "ambiguous": true,
+      "reason": "Candidate labels are diagnostic signals and require human causal review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:aws-eks-platform:predicted:13",
+      "imageId": "aws-eks-platform",
+      "status": "false_positive",
+      "candidateLabels": [
+        "incorrect_bifurcation",
+        "geometric_proximity",
+        "parallel_connectors",
+        "high_density_context"
+      ],
+      "ambiguous": true,
+      "reason": "Candidate labels are diagnostic signals and require human causal review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:aws-eks-platform:predicted:15",
+      "imageId": "aws-eks-platform",
+      "status": "false_positive",
+      "candidateLabels": [
+        "incorrect_bifurcation",
+        "geometric_proximity",
+        "parallel_connectors",
+        "high_density_context"
+      ],
+      "ambiguous": true,
+      "reason": "Candidate labels are diagnostic signals and require human causal review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:aws-eks-platform:predicted:16",
+      "imageId": "aws-eks-platform",
+      "status": "false_positive",
+      "candidateLabels": [
+        "incorrect_bifurcation",
+        "geometric_proximity",
+        "parallel_connectors",
+        "high_density_context"
+      ],
+      "ambiguous": true,
+      "reason": "Candidate labels are diagnostic signals and require human causal review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:aws-eks-platform:predicted:17",
+      "imageId": "aws-eks-platform",
+      "status": "false_positive",
+      "candidateLabels": [
+        "incorrect_bifurcation",
+        "geometric_proximity",
+        "high_density_context"
+      ],
+      "ambiguous": true,
+      "reason": "Candidate labels are diagnostic signals and require human causal review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:aws-eks-platform:predicted:18",
+      "imageId": "aws-eks-platform",
+      "status": "false_positive",
+      "candidateLabels": [
+        "incorrect_bifurcation",
+        "connection_through_component",
+        "high_density_context"
+      ],
+      "ambiguous": true,
+      "reason": "Candidate labels are diagnostic signals and require human causal review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:aws-eks-platform:predicted:19",
+      "imageId": "aws-eks-platform",
+      "status": "false_positive",
+      "candidateLabels": [
+        "high_density_context"
+      ],
+      "ambiguous": false,
+      "reason": "Candidate labels are diagnostic signals and require human causal review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:aws-eks-platform:predicted:20",
+      "imageId": "aws-eks-platform",
+      "status": "false_positive",
+      "candidateLabels": [
+        "parallel_connectors",
+        "insufficient_evidence",
+        "high_density_context"
+      ],
+      "ambiguous": true,
+      "reason": "Candidate labels are diagnostic signals and require human causal review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:aws-eks-platform:missed:1",
+      "imageId": "aws-eks-platform",
+      "status": "missed",
+      "candidateLabels": [],
+      "ambiguous": false,
+      "reason": "The missed or reversed relation requires architecture review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:aws-eks-platform:missed:2",
+      "imageId": "aws-eks-platform",
+      "status": "missed",
+      "candidateLabels": [],
+      "ambiguous": false,
+      "reason": "The missed or reversed relation requires architecture review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:aws-eks-platform:missed:3",
+      "imageId": "aws-eks-platform",
+      "status": "missed",
+      "candidateLabels": [],
+      "ambiguous": false,
+      "reason": "The missed or reversed relation requires architecture review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:aws-eks-platform:missed:4",
+      "imageId": "aws-eks-platform",
+      "status": "missed",
+      "candidateLabels": [],
+      "ambiguous": false,
+      "reason": "The missed or reversed relation requires architecture review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:aws-eks-platform:missed:9",
+      "imageId": "aws-eks-platform",
+      "status": "missed",
+      "candidateLabels": [],
+      "ambiguous": false,
+      "reason": "The missed or reversed relation requires architecture review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:aws-eks-platform:missed:10",
+      "imageId": "aws-eks-platform",
+      "status": "missed",
+      "candidateLabels": [],
+      "ambiguous": false,
+      "reason": "The missed or reversed relation requires architecture review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:azure-private-ai-platform:predicted:1",
+      "imageId": "azure-private-ai-platform",
+      "status": "false_positive",
+      "candidateLabels": [
+        "incorrect_bifurcation",
+        "parallel_connectors"
+      ],
+      "ambiguous": true,
+      "reason": "Candidate labels are diagnostic signals and require human causal review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:azure-private-ai-platform:predicted:2",
+      "imageId": "azure-private-ai-platform",
+      "status": "false_positive",
+      "candidateLabels": [
+        "crossing_as_connection",
+        "incorrect_bifurcation",
+        "parallel_connectors"
+      ],
+      "ambiguous": true,
+      "reason": "Candidate labels are diagnostic signals and require human causal review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:azure-private-ai-platform:predicted:3",
+      "imageId": "azure-private-ai-platform",
+      "status": "false_positive",
+      "candidateLabels": [
+        "incorrect_bifurcation",
+        "parallel_connectors"
+      ],
+      "ambiguous": true,
+      "reason": "Candidate labels are diagnostic signals and require human causal review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:azure-private-ai-platform:predicted:4",
+      "imageId": "azure-private-ai-platform",
+      "status": "false_positive",
+      "candidateLabels": [
+        "incorrect_bifurcation",
+        "parallel_connectors",
+        "connection_through_component"
+      ],
+      "ambiguous": true,
+      "reason": "Candidate labels are diagnostic signals and require human causal review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:azure-private-ai-platform:predicted:5",
+      "imageId": "azure-private-ai-platform",
+      "status": "false_positive",
+      "candidateLabels": [
+        "incorrect_bifurcation",
+        "parallel_connectors"
+      ],
+      "ambiguous": true,
+      "reason": "Candidate labels are diagnostic signals and require human causal review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:azure-private-ai-platform:predicted:6",
+      "imageId": "azure-private-ai-platform",
+      "status": "false_positive",
+      "candidateLabels": [
+        "incorrect_bifurcation"
+      ],
+      "ambiguous": false,
+      "reason": "Candidate labels are diagnostic signals and require human causal review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:azure-private-ai-platform:predicted:7",
+      "imageId": "azure-private-ai-platform",
+      "status": "false_positive",
+      "candidateLabels": [
+        "crossing_as_connection",
+        "incorrect_bifurcation",
+        "parallel_connectors"
+      ],
+      "ambiguous": true,
+      "reason": "Candidate labels are diagnostic signals and require human causal review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:azure-private-ai-platform:predicted:8",
+      "imageId": "azure-private-ai-platform",
+      "status": "false_positive",
+      "candidateLabels": [
+        "crossing_as_connection",
+        "incorrect_bifurcation",
+        "parallel_connectors"
+      ],
+      "ambiguous": true,
+      "reason": "Candidate labels are diagnostic signals and require human causal review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:azure-private-ai-platform:predicted:9",
+      "imageId": "azure-private-ai-platform",
+      "status": "false_positive",
+      "candidateLabels": [
+        "incorrect_bifurcation",
+        "geometric_proximity",
+        "parallel_connectors"
+      ],
+      "ambiguous": true,
+      "reason": "Candidate labels are diagnostic signals and require human causal review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:azure-private-ai-platform:predicted:10",
+      "imageId": "azure-private-ai-platform",
+      "status": "false_positive",
+      "candidateLabels": [
+        "crossing_as_connection",
+        "incorrect_bifurcation",
+        "parallel_connectors"
+      ],
+      "ambiguous": true,
+      "reason": "Candidate labels are diagnostic signals and require human causal review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:azure-private-ai-platform:predicted:11",
+      "imageId": "azure-private-ai-platform",
+      "status": "false_positive",
+      "candidateLabels": [
+        "incorrect_bifurcation",
+        "parallel_connectors"
+      ],
+      "ambiguous": true,
+      "reason": "Candidate labels are diagnostic signals and require human causal review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:azure-private-ai-platform:predicted:12",
+      "imageId": "azure-private-ai-platform",
+      "status": "false_positive",
+      "candidateLabels": [
+        "geometric_proximity"
+      ],
+      "ambiguous": false,
+      "reason": "Candidate labels are diagnostic signals and require human causal review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:azure-private-ai-platform:predicted:13",
+      "imageId": "azure-private-ai-platform",
+      "status": "false_positive",
+      "candidateLabels": [
+        "crossing_as_connection",
+        "incorrect_bifurcation",
+        "connection_through_component"
+      ],
+      "ambiguous": true,
+      "reason": "Candidate labels are diagnostic signals and require human causal review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:azure-private-ai-platform:predicted:16",
+      "imageId": "azure-private-ai-platform",
+      "status": "false_positive",
+      "candidateLabels": [
+        "incorrect_bifurcation",
+        "parallel_connectors",
+        "connection_through_component"
+      ],
+      "ambiguous": true,
+      "reason": "Candidate labels are diagnostic signals and require human causal review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:azure-private-ai-platform:predicted:17",
+      "imageId": "azure-private-ai-platform",
+      "status": "false_positive",
+      "candidateLabels": [
+        "incorrect_bifurcation",
+        "geometric_proximity"
+      ],
+      "ambiguous": true,
+      "reason": "Candidate labels are diagnostic signals and require human causal review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:azure-private-ai-platform:predicted:18",
+      "imageId": "azure-private-ai-platform",
+      "status": "false_positive",
+      "candidateLabels": [
+        "incorrect_bifurcation",
+        "geometric_proximity",
+        "parallel_connectors"
+      ],
+      "ambiguous": true,
+      "reason": "Candidate labels are diagnostic signals and require human causal review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:azure-private-ai-platform:predicted:19",
+      "imageId": "azure-private-ai-platform",
+      "status": "false_positive",
+      "candidateLabels": [
+        "incorrect_bifurcation",
+        "parallel_connectors",
+        "connection_through_component"
+      ],
+      "ambiguous": true,
+      "reason": "Candidate labels are diagnostic signals and require human causal review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:azure-private-ai-platform:predicted:20",
+      "imageId": "azure-private-ai-platform",
+      "status": "false_positive",
+      "candidateLabels": [
+        "crossing_as_connection",
+        "incorrect_bifurcation",
+        "excessive_hops",
+        "parallel_connectors"
+      ],
+      "ambiguous": true,
+      "reason": "Candidate labels are diagnostic signals and require human causal review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:azure-private-ai-platform:predicted:21",
+      "imageId": "azure-private-ai-platform",
+      "status": "false_positive",
+      "candidateLabels": [
+        "incorrect_bifurcation",
+        "parallel_connectors",
+        "insufficient_evidence"
+      ],
+      "ambiguous": true,
+      "reason": "Candidate labels are diagnostic signals and require human causal review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:azure-private-ai-platform:missed:3",
+      "imageId": "azure-private-ai-platform",
+      "status": "missed",
+      "candidateLabels": [],
+      "ambiguous": false,
+      "reason": "The missed or reversed relation requires architecture review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:azure-private-ai-platform:missed:4",
+      "imageId": "azure-private-ai-platform",
+      "status": "missed",
+      "candidateLabels": [],
+      "ambiguous": false,
+      "reason": "The missed or reversed relation requires architecture review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:azure-private-ai-platform:missed:5",
+      "imageId": "azure-private-ai-platform",
+      "status": "missed",
+      "candidateLabels": [],
+      "ambiguous": false,
+      "reason": "The missed or reversed relation requires architecture review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:azure-private-ai-platform:missed:6",
+      "imageId": "azure-private-ai-platform",
+      "status": "missed",
+      "candidateLabels": [],
+      "ambiguous": false,
+      "reason": "The missed or reversed relation requires architecture review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:azure-private-ai-platform:missed:7",
+      "imageId": "azure-private-ai-platform",
+      "status": "missed",
+      "candidateLabels": [],
+      "ambiguous": false,
+      "reason": "The missed or reversed relation requires architecture review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:azure-private-ai-platform:missed:8",
+      "imageId": "azure-private-ai-platform",
+      "status": "missed",
+      "candidateLabels": [],
+      "ambiguous": false,
+      "reason": "The missed or reversed relation requires architecture review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:azure-hub-spoke:predicted:1",
+      "imageId": "azure-hub-spoke",
+      "status": "false_positive",
+      "candidateLabels": [
+        "parallel_connectors",
+        "high_density_context"
+      ],
+      "ambiguous": true,
+      "reason": "Candidate labels are diagnostic signals and require human causal review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:azure-hub-spoke:predicted:2",
+      "imageId": "azure-hub-spoke",
+      "status": "false_positive",
+      "candidateLabels": [
+        "high_density_context"
+      ],
+      "ambiguous": false,
+      "reason": "Candidate labels are diagnostic signals and require human causal review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:azure-hub-spoke:predicted:3",
+      "imageId": "azure-hub-spoke",
+      "status": "reversed",
+      "candidateLabels": [],
+      "ambiguous": false,
+      "reason": "The missed or reversed relation requires architecture review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:azure-hub-spoke:predicted:4",
+      "imageId": "azure-hub-spoke",
+      "status": "false_positive",
+      "candidateLabels": [
+        "high_density_context"
+      ],
+      "ambiguous": false,
+      "reason": "Candidate labels are diagnostic signals and require human causal review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:azure-hub-spoke:predicted:5",
+      "imageId": "azure-hub-spoke",
+      "status": "false_positive",
+      "candidateLabels": [
+        "high_density_context"
+      ],
+      "ambiguous": false,
+      "reason": "Candidate labels are diagnostic signals and require human causal review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:azure-hub-spoke:predicted:7",
+      "imageId": "azure-hub-spoke",
+      "status": "reversed",
+      "candidateLabels": [],
+      "ambiguous": false,
+      "reason": "The missed or reversed relation requires architecture review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:azure-hub-spoke:missed:3",
+      "imageId": "azure-hub-spoke",
+      "status": "missed",
+      "candidateLabels": [],
+      "ambiguous": false,
+      "reason": "The missed or reversed relation requires architecture review."
+    },
+    {
+      "inventoryId": "isolated_ground_truth:azure-hub-spoke:missed:4",
+      "imageId": "azure-hub-spoke",
+      "status": "missed",
+      "candidateLabels": [],
+      "ambiguous": false,
+      "reason": "The missed or reversed relation requires architecture review."
+    }
+  ]
+}

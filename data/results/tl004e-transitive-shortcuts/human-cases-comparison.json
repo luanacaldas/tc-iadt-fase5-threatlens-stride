@@ -1,0 +1,199 @@
+{
+  "schemaVersion": "1.0",
+  "split": "development_tuning",
+  "priorityCases": [
+    "E03",
+    "E10",
+    "E14"
+  ],
+  "excludedCases": [
+    "E16"
+  ],
+  "priorityCasesCorrected": true,
+  "cases": [
+    {
+      "caseId": "E03",
+      "priority": true,
+      "imageId": "aws-video-pipeline",
+      "humanPrimaryCause": "transitive_shortcut",
+      "humanContributingCauses": [
+        "component_passthrough"
+      ],
+      "decisionIds": [
+        "shortcut-6fbdc7ff03d904b7"
+      ],
+      "classifications": [
+        "transitive_shortcut"
+      ],
+      "shadowActions": [
+        "block"
+      ],
+      "correctedInShadow": true,
+      "officialResultChanged": false
+    },
+    {
+      "caseId": "E05",
+      "priority": false,
+      "imageId": "azure-private-ai-platform",
+      "humanPrimaryCause": "structural_line",
+      "humanContributingCauses": [
+        "component_passthrough",
+        "ambiguous_endpoint"
+      ],
+      "decisionIds": [
+        "shortcut-52a26d2502a294ad"
+      ],
+      "classifications": [
+        "insufficient_evidence"
+      ],
+      "shadowActions": [
+        "review"
+      ],
+      "correctedInShadow": false,
+      "officialResultChanged": false
+    },
+    {
+      "caseId": "E06",
+      "priority": false,
+      "imageId": "azure-private-ai-platform",
+      "humanPrimaryCause": "incorrect_bifurcation",
+      "humanContributingCauses": [
+        "crossing_without_junction",
+        "parallel_connector_merge"
+      ],
+      "decisionIds": [
+        "shortcut-4a40b3386cf6ea2b"
+      ],
+      "classifications": [
+        "insufficient_evidence"
+      ],
+      "shadowActions": [
+        "review"
+      ],
+      "correctedInShadow": false,
+      "officialResultChanged": false
+    },
+    {
+      "caseId": "E07",
+      "priority": false,
+      "imageId": "aws-eks-platform",
+      "humanPrimaryCause": "structural_line",
+      "humanContributingCauses": [
+        "component_passthrough",
+        "ambiguous_endpoint"
+      ],
+      "decisionIds": [
+        "shortcut-90e913a34f31c201"
+      ],
+      "classifications": [
+        "insufficient_evidence"
+      ],
+      "shadowActions": [
+        "review"
+      ],
+      "correctedInShadow": false,
+      "officialResultChanged": false
+    },
+    {
+      "caseId": "E08",
+      "priority": false,
+      "imageId": "aws-eks-platform",
+      "humanPrimaryCause": "ambiguous_endpoint",
+      "humanContributingCauses": [
+        "component_passthrough",
+        "structural_line"
+      ],
+      "decisionIds": [
+        "shortcut-8898bf5b73e2b917"
+      ],
+      "classifications": [
+        "insufficient_evidence"
+      ],
+      "shadowActions": [
+        "review"
+      ],
+      "correctedInShadow": false,
+      "officialResultChanged": false
+    },
+    {
+      "caseId": "E09",
+      "priority": false,
+      "imageId": "gcp-secure-cloud-run",
+      "humanPrimaryCause": "ambiguous_endpoint",
+      "humanContributingCauses": [
+        "component_passthrough"
+      ],
+      "decisionIds": [
+        "shortcut-700d6ed84cc76839"
+      ],
+      "classifications": [
+        "insufficient_evidence"
+      ],
+      "shadowActions": [
+        "review"
+      ],
+      "correctedInShadow": false,
+      "officialResultChanged": false
+    },
+    {
+      "caseId": "E10",
+      "priority": true,
+      "imageId": "gcp-secure-cloud-run",
+      "humanPrimaryCause": "ambiguous_endpoint",
+      "humanContributingCauses": [
+        "component_passthrough"
+      ],
+      "decisionIds": [
+        "shortcut-6f6b05656850ec0d"
+      ],
+      "classifications": [
+        "transitive_shortcut"
+      ],
+      "shadowActions": [
+        "block"
+      ],
+      "correctedInShadow": true,
+      "officialResultChanged": false
+    },
+    {
+      "caseId": "E14",
+      "priority": true,
+      "imageId": "aws-serverless-async",
+      "humanPrimaryCause": "transitive_shortcut",
+      "humanContributingCauses": [
+        "incorrect_bifurcation"
+      ],
+      "decisionIds": [
+        "shortcut-3a9b556578594c0a"
+      ],
+      "classifications": [
+        "transitive_shortcut"
+      ],
+      "shadowActions": [
+        "block"
+      ],
+      "correctedInShadow": true,
+      "officialResultChanged": false
+    },
+    {
+      "caseId": "E15",
+      "priority": false,
+      "imageId": "aws-eks-platform",
+      "humanPrimaryCause": "ambiguous_endpoint",
+      "humanContributingCauses": [
+        "incorrect_bifurcation"
+      ],
+      "decisionIds": [
+        "shortcut-ed144f4f86a7c9cf"
+      ],
+      "classifications": [
+        "transitive_shortcut"
+      ],
+      "shadowActions": [
+        "block"
+      ],
+      "correctedInShadow": true,
+      "officialResultChanged": false
+    }
+  ]
+}

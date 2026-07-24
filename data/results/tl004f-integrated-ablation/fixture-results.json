@@ -1,0 +1,64 @@
+{
+  "schemaVersion": "1.0",
+  "fixtureCount": 8,
+  "passedCount": 8,
+  "status": "PASS",
+  "results": [
+    {
+      "fixtureId": "transitive_block_precedes_redirect",
+      "expectedAction": "block",
+      "observedAction": "block",
+      "conflictCount": 1,
+      "passed": true
+    },
+    {
+      "fixtureId": "reliable_redirect",
+      "expectedAction": "redirect",
+      "observedAction": "redirect",
+      "conflictCount": 0,
+      "passed": true
+    },
+    {
+      "fixtureId": "low_confidence_review",
+      "expectedAction": "review_only",
+      "observedAction": "review_only",
+      "conflictCount": 0,
+      "passed": true
+    },
+    {
+      "fixtureId": "structural_line_review",
+      "expectedAction": "review_only",
+      "observedAction": "review_only",
+      "conflictCount": 0,
+      "passed": true
+    },
+    {
+      "fixtureId": "protected_keep",
+      "expectedAction": "keep",
+      "observedAction": "keep",
+      "conflictCount": 0,
+      "passed": true
+    },
+    {
+      "fixtureId": "autonomous_recovery",
+      "expectedAction": "recover",
+      "observedAction": "recover",
+      "conflictCount": 0,
+      "passed": true
+    },
+    {
+      "fixtureId": "supervised_recovery_review",
+      "expectedAction": "review_only",
+      "observedAction": "review_only",
+      "conflictCount": 0,
+      "passed": true
+    },
+    {
+      "fixtureId": "recovery_barrier_conflict",
+      "expectedAction": "review_only",
+      "observedAction": "review_only",
+      "conflictCount": 1,
+      "passed": true
+    }
+  ]
+}

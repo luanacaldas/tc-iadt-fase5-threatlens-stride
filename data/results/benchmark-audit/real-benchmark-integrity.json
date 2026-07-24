@@ -1,0 +1,25 @@
+{
+  "schemaVersion": "1.1",
+  "benchmark": "data/benchmarks/real-architecture/benchmark-expanded.json",
+  "status": "passed",
+  "imageCount": 15,
+  "splitCounts": {
+    "development_tuning": 9,
+    "blind_holdout": 6
+  },
+  "providerCounts": {
+    "azure": 6,
+    "aws": 6,
+    "gcp": 2,
+    "generic": 1
+  },
+  "uniqueImageHashes": 15,
+  "activeLearningLeakage": {
+    "checked": true,
+    "blindIdsInActiveLearning": []
+  },
+  "errors": [],
+  "warnings": [
+    "Annotations are human verified but do not yet record an independent second annotator."
+  ]
+}

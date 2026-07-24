@@ -1,0 +1,201 @@
+{
+  "schemaVersion": "1.0",
+  "gate": "v15-regression",
+  "status": "passed",
+  "baseline": {
+    "source": "data/results/ocr-geometry-ablation/semantic-arbitration-v15/end-to-end-development_tuning.json",
+    "sha256": "2f4ba6719cb2ca53ce3245c6df49354ca00533ac6aab6cca19c021da33111fe7",
+    "metrics": {
+      "f1": 0.5296167247386758,
+      "f1Rounded": 0.5296,
+      "precision": 0.4342857142857143,
+      "precisionRounded": 0.4343,
+      "recall": 0.6785714285714286,
+      "recallRounded": 0.6786,
+      "correctThreats": 152,
+      "falsePositives": 198,
+      "expectedThreats": 224,
+      "predictedThreats": 350
+    }
+  },
+  "candidate": {
+    "source": "data/results/v15-regression-gate/20260721T190704Z/end-to-end-development_tuning.json",
+    "split": "development_tuning",
+    "metrics": {
+      "f1": 0.5296167247386758,
+      "f1Rounded": 0.5296,
+      "precision": 0.4342857142857143,
+      "precisionRounded": 0.4343,
+      "recall": 0.6785714285714286,
+      "recallRounded": 0.6786,
+      "correctThreats": 152,
+      "falsePositives": 198,
+      "expectedThreats": 224,
+      "predictedThreats": 350
+    }
+  },
+  "checks": [
+    {
+      "name": "baselineIntegrity",
+      "actual": "PASS",
+      "operator": "==",
+      "expected": "PASS",
+      "passed": true
+    },
+    {
+      "name": "evaluationSplit",
+      "actual": "development_tuning",
+      "operator": "==",
+      "expected": "development_tuning",
+      "passed": true
+    },
+    {
+      "name": "f1",
+      "actual": 0.5296,
+      "operator": ">=",
+      "expected": 0.5296,
+      "passed": true
+    },
+    {
+      "name": "precision",
+      "actual": 0.4343,
+      "operator": ">=",
+      "expected": 0.4343,
+      "passed": true
+    },
+    {
+      "name": "recall",
+      "actual": 0.6786,
+      "operator": ">=",
+      "expected": 0.6786,
+      "passed": true
+    },
+    {
+      "name": "correctThreats",
+      "actual": 152,
+      "operator": ">=",
+      "expected": 152,
+      "passed": true
+    },
+    {
+      "name": "falsePositives",
+      "actual": 198,
+      "operator": "<=",
+      "expected": 198,
+      "passed": true
+    },
+    {
+      "name": "testsRun",
+      "actual": 172,
+      "operator": ">=",
+      "expected": 85,
+      "passed": true
+    },
+    {
+      "name": "testFailures",
+      "actual": 0,
+      "operator": "==",
+      "expected": 0,
+      "passed": true
+    },
+    {
+      "name": "prospectiveV12Integrity",
+      "actual": "PASS",
+      "operator": "==",
+      "expected": "PASS",
+      "passed": true
+    },
+    {
+      "name": "realBenchmarkIntegrity",
+      "actual": "PASS",
+      "operator": "==",
+      "expected": "PASS",
+      "passed": true
+    },
+    {
+      "name": "provenanceIntegrity",
+      "actual": "PASS",
+      "operator": "==",
+      "expected": "PASS",
+      "passed": true
+    }
+  ],
+  "tests": {
+    "testsRun": 172,
+    "testFailures": 0,
+    "failures": 0,
+    "errors": 0,
+    "unexpectedSuccesses": 0,
+    "skipped": 0,
+    "successful": true
+  },
+  "audits": {
+    "prospectiveV12": {
+      "status": "passed",
+      "checks": {
+        "benchmarkHash": true,
+        "detectorHash": true,
+        "resultHash": true,
+        "sealAgreement": true,
+        "imageHashes": true,
+        "firstPass": true,
+        "provenanceDeclared": true
+      },
+      "returnCode": 0
+    },
+    "realBenchmark": {
+      "schemaVersion": "1.1",
+      "benchmark": "data/benchmarks/real-architecture/benchmark-expanded.json",
+      "status": "passed",
+      "imageCount": 15,
+      "splitCounts": {
+        "development_tuning": 9,
+        "blind_holdout": 6
+      },
+      "providerCounts": {
+        "azure": 6,
+        "aws": 6,
+        "gcp": 2,
+        "generic": 1
+      },
+      "uniqueImageHashes": 15,
+      "activeLearningLeakage": {
+        "checked": true,
+        "blindIdsInActiveLearning": []
+      },
+      "errors": [],
+      "warnings": [
+        "Annotations are human verified but do not yet record an independent second annotator."
+      ]
+    }
+  },
+  "provenance": {
+    "pipelineRevision": "v15-semantic-arbitration",
+    "datasetHash": "3e0eb49f1cff67be666be5c27a2e8ec1843fe084843c0ff71e8874b1488be466",
+    "configurationHash": "bf56bf2440bf9931115a9dc4df151236bb6d09fb1ffb9f553131337d749129da",
+    "modelHash": "2aebcd0611927505d60a10d23ce11d0e5211cf2e91ca0c4394921fac006c865d",
+    "executionTimestamp": "2026-07-21T19:07:04.989366+00:00",
+    "configuration": {
+      "evaluationSplit": "development_tuning",
+      "componentMatchIou": 0.25,
+      "yoloConfidenceThreshold": 0.7,
+      "yoloMinimumDetectionConfidence": 0.35,
+      "yoloCalibrationPath": "models/component-confidence-calibration.json",
+      "yoloModelPath": "models/threatlens-hybrid-v2/weights/best.pt",
+      "arrowheadModelPath": "models/arrowhead-logistic/model.json",
+      "minimumFlowScore": 0.5
+    },
+    "supportingHashes": {
+      "baselineResult": "2f4ba6719cb2ca53ce3245c6df49354ca00533ac6aab6cca19c021da33111fe7",
+      "detectorCode": "13fbe818de480bdda1331dd47be7cfa7f701c616f821bfe9eba3bb86faa60e09",
+      "evaluationCode": "2c5b1fc4248583c738d8e2bc0c0935d9623720911db86903862158de74e36eeb",
+      "confidenceCalibration": "d37d7979930227bb052603da1066f53a1a349adef997609059ade7f64d5ded0f",
+      "arrowheadModel": "b3f07491871e79d4cfffe1581728608ef4174502ad63311cf8627a28fde9729b"
+    },
+    "runtime": {
+      "python": "3.14.3",
+      "platform": "Windows-11-10.0.26200-SP0"
+    }
+  },
+  "errors": []
+}

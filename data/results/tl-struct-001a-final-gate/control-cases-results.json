@@ -1,0 +1,197 @@
+{
+  "schemaVersion": "1.0",
+  "split": "development_tuning",
+  "allControlsPass": true,
+  "c04AutonomousRecoveryApplied": false,
+  "controls": [
+    {
+      "caseId": "C01",
+      "requiredEdges": [
+        [
+          "armor",
+          "load_balancer"
+        ],
+        [
+          "internet",
+          "load_balancer"
+        ]
+      ],
+      "forbiddenEdges": [
+        [
+          "armor",
+          "internet"
+        ],
+        [
+          "internet",
+          "armor"
+        ]
+      ],
+      "legacyResult": "preserved",
+      "experimentalResult": "preserved",
+      "blockedRecordIds": [],
+      "status": "PASS"
+    },
+    {
+      "caseId": "C02",
+      "requiredEdges": [
+        [
+          "api_handler",
+          "database"
+        ],
+        [
+          "api_handler",
+          "queue"
+        ]
+      ],
+      "forbiddenEdges": [
+        [
+          "database",
+          "queue"
+        ],
+        [
+          "queue",
+          "database"
+        ]
+      ],
+      "legacyResult": "preserved",
+      "experimentalResult": "preserved",
+      "blockedRecordIds": [],
+      "status": "PASS"
+    },
+    {
+      "caseId": "C03",
+      "requiredEdges": [
+        [
+          "foundry_agent",
+          "ai_search"
+        ],
+        [
+          "foundry_agent",
+          "openai_model"
+        ]
+      ],
+      "forbiddenEdges": [
+        [
+          "ai_search",
+          "openai_model"
+        ],
+        [
+          "openai_model",
+          "ai_search"
+        ]
+      ],
+      "legacyResult": "preserved",
+      "experimentalResult": "preserved",
+      "blockedRecordIds": [],
+      "status": "PASS"
+    },
+    {
+      "caseId": "C04",
+      "requiredEdges": [
+        [
+          "app_service",
+          "key_vault"
+        ],
+        [
+          "app_service",
+          "storage"
+        ]
+      ],
+      "forbiddenEdges": [
+        [
+          "key_vault",
+          "storage"
+        ],
+        [
+          "storage",
+          "key_vault"
+        ]
+      ],
+      "legacyResult": "supervised_shadow_recovered",
+      "experimentalResult": "supervised_shadow_recovery",
+      "blockedRecordIds": [],
+      "status": "PASS"
+    },
+    {
+      "caseId": "C05",
+      "requiredEdges": [
+        [
+          "database",
+          "storage"
+        ],
+        [
+          "monitoring",
+          "storage"
+        ]
+      ],
+      "forbiddenEdges": [
+        [
+          "database",
+          "monitoring"
+        ],
+        [
+          "monitoring",
+          "database"
+        ]
+      ],
+      "legacyResult": "preserved",
+      "experimentalResult": "preserved",
+      "blockedRecordIds": [],
+      "status": "PASS"
+    },
+    {
+      "caseId": "C06",
+      "requiredEdges": [
+        [
+          "app_service",
+          "foundry_agent"
+        ],
+        [
+          "foundry_account",
+          "foundry_agent"
+        ]
+      ],
+      "forbiddenEdges": [
+        [
+          "app_service",
+          "foundry_account"
+        ],
+        [
+          "foundry_account",
+          "app_service"
+        ]
+      ],
+      "legacyResult": "preserved",
+      "experimentalResult": "preserved",
+      "blockedRecordIds": [],
+      "status": "PASS"
+    },
+    {
+      "caseId": "C07",
+      "requiredEdges": [
+        [
+          "mobile",
+          "api"
+        ],
+        [
+          "mobile",
+          "cognito"
+        ]
+      ],
+      "forbiddenEdges": [
+        [
+          "api",
+          "cognito"
+        ],
+        [
+          "cognito",
+          "api"
+        ]
+      ],
+      "legacyResult": "preserved",
+      "experimentalResult": "preserved",
+      "blockedRecordIds": [],
+      "status": "PASS"
+    }
+  ]
+}

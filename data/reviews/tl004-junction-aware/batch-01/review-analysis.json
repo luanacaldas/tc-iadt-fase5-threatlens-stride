@@ -1,0 +1,82 @@
+{
+  "schemaVersion": "1.0",
+  "analysisId": "tl004-junction-review-batch-01-analysis",
+  "generatedAt": "2026-07-21T14:24:53.307248+00:00",
+  "split": "development_tuning",
+  "sourceManifest": "data/reviews/tl004-junction-aware/batch-01/review-manifest.json",
+  "sourceReviewResult": "data/reviews/tl004-junction-aware/batch-01/review-result.json",
+  "reviewer": "Luana Caldas",
+  "completion": {
+    "expectedCaseCount": 18,
+    "completedCaseCount": 18,
+    "complete": true
+  },
+  "distributions": {
+    "group": {
+      "control": 4,
+      "error": 14
+    },
+    "decision": {
+      "confirmed_false_positive": 14,
+      "valid_connection": 4
+    },
+    "primaryCause": {
+      "ambiguous_endpoint": 5,
+      "incorrect_bifurcation": 1,
+      "structural_line": 6,
+      "transitive_shortcut": 2,
+      "valid_junction_or_branch": 4
+    },
+    "tl004Scope": {
+      "inside": 11,
+      "partial": 7
+    },
+    "confidence": {
+      "high": 13,
+      "medium": 5
+    },
+    "contributingCause": {
+      "ambiguous_endpoint": 6,
+      "component_passthrough": 6,
+      "crossing_without_junction": 4,
+      "incorrect_bifurcation": 1,
+      "parallel_connector_merge": 2,
+      "structural_line": 1
+    }
+  },
+  "quality": {
+    "decisionMismatchCaseIds": [],
+    "ambiguousCaseIds": [],
+    "lowConfidenceCaseIds": [],
+    "caseLevelNewCategories": [],
+    "controlsValidated": 4,
+    "falsePositivesConfirmed": 14
+  },
+  "batchAssessment": {
+    "reviewer": "Luana Caldas",
+    "completedAt": "2026-07-21T14:02:09.257Z",
+    "newRelevantCategoriesFound": false,
+    "newCategories": "Nenhuma nova categoria principal. Foi identificado apenas um subtipo de “grade, borda ou linha estrutural”: elemento gráfico interno de um componente interpretado como conector.",
+    "categoriesNeedingMoreExamples": "Cruzamento sem junção, mescla de conectores paralelos, bifurcação incorreta e junções válidas em diagramas densos. Também seria útil revisar mais casos de fan-in e fan-out compartilhando troncos para proteger o recall.",
+    "validInvalidDistinctionResolved": true,
+    "observations": "Foi possível distinguir os falsos fluxos dos controles válidos com boa confiança. Os principais padrões confirmados foram: associação incorreta de endpoints por proximidade; bordas, grades e linhas de agrupamento interpretadas como conectores; caminhos que atravessam componentes intermediários; atalhos transitivos; e troca indevida de ramos em cruzamentos ou bifurcações.\n\nOs controles C01, C02, C03 e C04 confirmaram que fan-in, fan-out e junções reais devem ser preservados. A TL-004 deve priorizar portas e barreiras de componentes, diferenciação entre cruzamentos e junções e decomposição de troncos compartilhados, sem eliminar ramificações válidas.\n\nParte dos erros de linhas estruturais pode exigir tratamento anterior ou complementar ao grafo junction-aware. Recomenda-se apenas um segundo lote reduzido, focado em cruzamentos, conectores paralelos e junções densas, para confirmar que não surgem novas causas antes da implementação."
+  },
+  "nextStepDecision": {
+    "action": "generate_batch_02",
+    "triggerChecks": {
+      "newRelevantCategoriesFound": false,
+      "caseLevelNewCategoriesFound": false,
+      "ambiguousCasesFound": false,
+      "lowConfidenceCasesFound": false,
+      "coverageGapsDeclared": true,
+      "validInvalidDistinctionUnresolved": false
+    },
+    "triggeredReasons": [
+      "coverageGapsDeclared"
+    ],
+    "requestedBatchSize": "8-10",
+    "noNewRelevantCauseStreak": 1,
+    "stopRuleSatisfied": false,
+    "stopRule": "Stop after two consecutive completed batches reveal no relevant new cause."
+  }
+}

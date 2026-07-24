@@ -1,0 +1,587 @@
+{
+  "schemaVersion": "1.0",
+  "fixtureCount": 20,
+  "passedCount": 20,
+  "status": "PASS",
+  "results": [
+    {
+      "fixtureId": "simple_fan_out",
+      "expectedRelations": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "C"
+        ]
+      ],
+      "observedRelations": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "C"
+        ]
+      ],
+      "forbiddenRelationsObserved": [],
+      "classifications": [
+        "valid_fan_out"
+      ],
+      "preventedCliqueCount": 4,
+      "reviewOnlyCount": 0,
+      "inputMutation": false,
+      "passed": true
+    },
+    {
+      "fixtureId": "simple_fan_in",
+      "expectedRelations": [
+        [
+          "A",
+          "C"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "observedRelations": [
+        [
+          "A",
+          "C"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "forbiddenRelationsObserved": [],
+      "classifications": [
+        "valid_fan_in"
+      ],
+      "preventedCliqueCount": 4,
+      "reviewOnlyCount": 0,
+      "inputMutation": false,
+      "passed": true
+    },
+    {
+      "fixtureId": "t_trunk_two_destinations",
+      "expectedRelations": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "C"
+        ]
+      ],
+      "observedRelations": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "C"
+        ]
+      ],
+      "forbiddenRelationsObserved": [],
+      "classifications": [
+        "valid_fan_out"
+      ],
+      "preventedCliqueCount": 4,
+      "reviewOnlyCount": 0,
+      "inputMutation": false,
+      "passed": true
+    },
+    {
+      "fixtureId": "y_trunk_two_destinations",
+      "expectedRelations": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "C"
+        ]
+      ],
+      "observedRelations": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "C"
+        ]
+      ],
+      "forbiddenRelationsObserved": [],
+      "classifications": [
+        "valid_fan_out"
+      ],
+      "preventedCliqueCount": 4,
+      "reviewOnlyCount": 0,
+      "inputMutation": false,
+      "passed": true
+    },
+    {
+      "fixtureId": "three_components_unknown_direction",
+      "expectedRelations": [],
+      "observedRelations": [],
+      "forbiddenRelationsObserved": [],
+      "classifications": [
+        "ambiguous_shared_trunk"
+      ],
+      "preventedCliqueCount": 6,
+      "reviewOnlyCount": 6,
+      "inputMutation": false,
+      "passed": true
+    },
+    {
+      "fixtureId": "angled_fan_in",
+      "expectedRelations": [
+        [
+          "A",
+          "C"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "observedRelations": [
+        [
+          "A",
+          "C"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "forbiddenRelationsObserved": [],
+      "classifications": [
+        "valid_fan_in"
+      ],
+      "preventedCliqueCount": 4,
+      "reviewOnlyCount": 0,
+      "inputMutation": false,
+      "passed": true
+    },
+    {
+      "fixtureId": "fan_out_three_destinations",
+      "expectedRelations": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "D"
+        ]
+      ],
+      "observedRelations": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "D"
+        ]
+      ],
+      "forbiddenRelationsObserved": [],
+      "classifications": [
+        "valid_fan_out"
+      ],
+      "preventedCliqueCount": 9,
+      "reviewOnlyCount": 0,
+      "inputMutation": false,
+      "passed": true
+    },
+    {
+      "fixtureId": "junction_without_direction",
+      "expectedRelations": [],
+      "observedRelations": [],
+      "forbiddenRelationsObserved": [],
+      "classifications": [
+        "ambiguous_shared_trunk"
+      ],
+      "preventedCliqueCount": 6,
+      "reviewOnlyCount": 6,
+      "inputMutation": false,
+      "passed": true
+    },
+    {
+      "fixtureId": "almost_parallel_arms",
+      "expectedRelations": [],
+      "observedRelations": [],
+      "forbiddenRelationsObserved": [],
+      "classifications": [
+        "invalid_branch_pairing"
+      ],
+      "preventedCliqueCount": 0,
+      "reviewOnlyCount": 0,
+      "inputMutation": false,
+      "passed": true
+    },
+    {
+      "fixtureId": "near_without_contact",
+      "expectedRelations": [],
+      "observedRelations": [],
+      "forbiddenRelationsObserved": [],
+      "classifications": [],
+      "preventedCliqueCount": 0,
+      "reviewOnlyCount": 0,
+      "inputMutation": false,
+      "passed": true
+    },
+    {
+      "fixtureId": "bifurcation_near_component",
+      "expectedRelations": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "C"
+        ]
+      ],
+      "observedRelations": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "C"
+        ]
+      ],
+      "forbiddenRelationsObserved": [],
+      "classifications": [
+        "valid_fan_out"
+      ],
+      "preventedCliqueCount": 4,
+      "reviewOnlyCount": 0,
+      "inputMutation": false,
+      "passed": true
+    },
+    {
+      "fixtureId": "intermediate_component_barrier",
+      "expectedRelations": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "observedRelations": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "forbiddenRelationsObserved": [],
+      "classifications": [
+        "shared_trunk"
+      ],
+      "preventedCliqueCount": 4,
+      "reviewOnlyCount": 0,
+      "inputMutation": false,
+      "passed": true
+    },
+    {
+      "fixtureId": "crossing_without_junction",
+      "expectedRelations": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "C",
+          "D"
+        ]
+      ],
+      "observedRelations": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "C",
+          "D"
+        ]
+      ],
+      "forbiddenRelationsObserved": [],
+      "classifications": [
+        "shared_trunk"
+      ],
+      "preventedCliqueCount": 2,
+      "reviewOnlyCount": 0,
+      "inputMutation": false,
+      "passed": true
+    },
+    {
+      "fixtureId": "chain_without_shortcut",
+      "expectedRelations": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "observedRelations": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "B",
+          "C"
+        ]
+      ],
+      "forbiddenRelationsObserved": [],
+      "classifications": [
+        "shared_trunk"
+      ],
+      "preventedCliqueCount": 4,
+      "reviewOnlyCount": 0,
+      "inputMutation": false,
+      "passed": true
+    },
+    {
+      "fixtureId": "two_nearby_trunks",
+      "expectedRelations": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "C",
+          "D"
+        ]
+      ],
+      "observedRelations": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "C",
+          "D"
+        ]
+      ],
+      "forbiddenRelationsObserved": [],
+      "classifications": [
+        "shared_trunk"
+      ],
+      "preventedCliqueCount": 2,
+      "reviewOnlyCount": 0,
+      "inputMutation": false,
+      "passed": true
+    },
+    {
+      "fixtureId": "fragmented_segments",
+      "expectedRelations": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "C"
+        ]
+      ],
+      "observedRelations": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "C"
+        ]
+      ],
+      "forbiddenRelationsObserved": [],
+      "classifications": [
+        "valid_fan_out"
+      ],
+      "preventedCliqueCount": 4,
+      "reviewOnlyCount": 0,
+      "inputMutation": false,
+      "passed": true
+    },
+    {
+      "fixtureId": "different_segment_order",
+      "expectedRelations": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "C"
+        ]
+      ],
+      "observedRelations": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "C"
+        ]
+      ],
+      "forbiddenRelationsObserved": [],
+      "classifications": [
+        "valid_fan_out"
+      ],
+      "preventedCliqueCount": 4,
+      "reviewOnlyCount": 0,
+      "inputMutation": false,
+      "passed": true
+    },
+    {
+      "fixtureId": "scaled_rotated_thick_fan_out",
+      "expectedRelations": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "C"
+        ]
+      ],
+      "observedRelations": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "C"
+        ]
+      ],
+      "forbiddenRelationsObserved": [],
+      "classifications": [
+        "valid_fan_out"
+      ],
+      "preventedCliqueCount": 4,
+      "reviewOnlyCount": 0,
+      "inputMutation": false,
+      "passed": true
+    },
+    {
+      "fixtureId": "simultaneous_fan_in_and_fan_out",
+      "expectedRelations": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "D",
+          "F"
+        ],
+        [
+          "E",
+          "F"
+        ]
+      ],
+      "observedRelations": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "D",
+          "F"
+        ],
+        [
+          "E",
+          "F"
+        ]
+      ],
+      "forbiddenRelationsObserved": [],
+      "classifications": [
+        "valid_fan_in",
+        "valid_fan_out"
+      ],
+      "preventedCliqueCount": 8,
+      "reviewOnlyCount": 0,
+      "inputMutation": false,
+      "passed": true
+    },
+    {
+      "fixtureId": "explicit_clique_prevention",
+      "expectedRelations": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "D"
+        ]
+      ],
+      "observedRelations": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "D"
+        ]
+      ],
+      "forbiddenRelationsObserved": [],
+      "classifications": [
+        "valid_fan_out"
+      ],
+      "preventedCliqueCount": 9,
+      "reviewOnlyCount": 0,
+      "inputMutation": false,
+      "passed": true
+    }
+  ]
+}

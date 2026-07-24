@@ -1,0 +1,25 @@
+{
+  "schemaVersion": "1.0",
+  "scope": "TL-004B",
+  "criteria": {
+    "portsContractDocumented": true,
+    "requiredHumanCasesEvaluated": true,
+    "controlsC01ToC07Preserved": true,
+    "legacySnapshotIdentical": true,
+    "officialLegacyFlowCount": 142,
+    "officialLegacyChanges": 0,
+    "directionChangesToOfficialFlows": 0,
+    "validationStatus": "PASS",
+    "holdoutExecutions": 0
+  },
+  "requiredHumanCaseMatches": {
+    "E03": true,
+    "E09": true,
+    "E10": true,
+    "E11": false,
+    "E15": false,
+    "E16": false
+  },
+  "decision": "TL-004B concluída e validada",
+  "nextTaskStarted": false
+}

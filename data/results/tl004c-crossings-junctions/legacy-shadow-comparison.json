@@ -1,0 +1,71 @@
+{
+  "schemaVersion": "1.0",
+  "split": "development_tuning",
+  "officialStrategy": "legacy",
+  "shadowStrategy": "junction_aware_intersections",
+  "legacyCandidateCount": 142,
+  "shadowEventCount": 69,
+  "classificationCounts": {
+    "ambiguous_intersection": 16,
+    "bifurcation": 13,
+    "continuation": 15,
+    "crossing_without_junction": 17,
+    "elbow": 8
+  },
+  "connectivityActionCounts": {
+    "observed_only": 6,
+    "review_only": 76,
+    "shadow_preserve_candidate_continuity": 106,
+    "shadow_record_local_junction": 16
+  },
+  "officialEdgesChanged": 0,
+  "officialDirectionChanges": 0,
+  "legacySnapshot": {
+    "schemaVersion": "1.0",
+    "comparison": "legacy_before_vs_legacy_after_tl004a",
+    "split": "development_tuning",
+    "holdoutUsed": false,
+    "before": {
+      "source": "data/results/flow-diagnostics-v1/isolated-ground-truth/flow-diagnostics-summary.json",
+      "snapshotSha256": "fbfdf20d136141a3759ee148d37682a4b35b9dd72e4725499d705413088ee8c2",
+      "metrics": {
+        "predictedEdgeCount": 142,
+        "expectedEdgeCount": 71,
+        "falsePositiveEdgeCount": 90,
+        "missedEdgeCount": 19,
+        "reversedEdgeCount": 7,
+        "edgeExistencePrecision": 0.36619718309859156,
+        "edgeExistenceRecall": 0.7323943661971831,
+        "edgeExistenceF1": 0.48826291079812206,
+        "directedEdgeF1": 0.4225352112676057,
+        "directionAccuracy": 0.8653846153846154
+      }
+    },
+    "after": {
+      "source": "data/results/tl004a-geometric-events/legacy-after/flow-diagnostics-summary.json",
+      "snapshotSha256": "fbfdf20d136141a3759ee148d37682a4b35b9dd72e4725499d705413088ee8c2",
+      "metrics": {
+        "predictedEdgeCount": 142,
+        "expectedEdgeCount": 71,
+        "falsePositiveEdgeCount": 90,
+        "missedEdgeCount": 19,
+        "reversedEdgeCount": 7,
+        "edgeExistencePrecision": 0.36619718309859156,
+        "edgeExistenceRecall": 0.7323943661971831,
+        "edgeExistenceF1": 0.48826291079812206,
+        "directedEdgeF1": 0.4225352112676057,
+        "directionAccuracy": 0.8653846153846154
+      }
+    },
+    "checks": {
+      "snapshotEquivalent": true,
+      "metricsEquivalent": true,
+      "edgeCountDelta": 0,
+      "addedEdges": 0,
+      "removedEdges": 0,
+      "reversedEdgeDelta": 0,
+      "legacyBehaviorPreserved": true
+    },
+    "status": "PASS"
+  }
+}

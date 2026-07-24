@@ -1,0 +1,86 @@
+{
+  "schemaVersion": "1.0",
+  "generatedAt": "2026-07-21T14:52:18Z",
+  "decision": "TL-004 pronta para implementação",
+  "implementationStarted": false,
+  "authorizedSplit": "development_tuning",
+  "holdoutsAllowed": false,
+  "humanReview": {
+    "expectedCases": 27,
+    "validatedCases": 27,
+    "confirmedFalsePositives": 20,
+    "validConnections": 7,
+    "ambiguousCases": 0,
+    "decisionConflicts": 0,
+    "missingDecisionFields": 0,
+    "reviewer": "Luana Caldas",
+    "reviewerProvenance": "Inherited from batchAssessment.reviewer for all cases because response.review.reviewer is blank.",
+    "saturationReached": true,
+    "thirdBatchRequired": false
+  },
+  "readinessChecks": [
+    {"name": "exactly_27_unique_cases", "status": "PASS"},
+    {"name": "all_required_review_fields", "status": "PASS"},
+    {"name": "no_decision_conflicts", "status": "PASS"},
+    {"name": "two_batches_without_new_primary_cause", "status": "PASS"},
+    {"name": "c01_c07_defined_as_regression_controls", "status": "PASS"},
+    {"name": "affected_files_and_existing_functions_inspected", "status": "PASS"},
+    {"name": "incremental_dependencies_defined", "status": "PASS"},
+    {"name": "measurable_acceptance_and_rollback_defined", "status": "PASS"},
+    {"name": "legacy_remains_default", "status": "PASS"},
+    {"name": "prospective_v12_untouched", "status": "PASS"}
+  ],
+  "saturation": {
+    "batch01PrimaryErrorCauses": ["structural_line", "ambiguous_endpoint", "transitive_shortcut", "incorrect_bifurcation"],
+    "batch02PrimaryErrorCauses": ["structural_line", "ambiguous_endpoint"],
+    "newPrimaryCauseInBatch02": false,
+    "newRelevantCategoryInBatch02": false,
+    "remainingLowFrequencyPatterns": ["parallel_connector_merge", "incorrect_bifurcation"],
+    "resolution": "Use deterministic fixtures and shadow evaluation; do not request a third broad human-review batch."
+  },
+  "scopeDecision": {
+    "insideTl004": ["component ports and barriers", "first-component termination", "endpoint contact", "crossing versus junction", "arm pairing", "shared trunk decomposition", "transitive shortcut suppression", "valid fan-in and fan-out preservation"],
+    "separateTask": {
+      "id": "TL-005",
+      "title": "Supressão de linhas estruturais e artefatos visuais",
+      "items": ["grid lines", "container and subnet borders", "internal icon strokes", "decorative elements"]
+    },
+    "otherModules": ["OCR", "annotation and ontology", "flow direction", "missing component detection"]
+  },
+  "implementationOrder": ["TL-004A", "TL-004B", "TL-004C", "TL-004D", "TL-004E", "TL-004F"],
+  "strategyContract": {
+    "default": "legacy",
+    "experimental": "junction_aware",
+    "initialMode": "shadow",
+    "automaticPromotion": false,
+    "rollback": "Select legacy and ignore experimental ablation artifacts; no data migration is required."
+  },
+  "promotionDecision": {
+    "falsePositiveEdgeCountMaximum": 81,
+    "minimumFalsePositiveReductionPercent": 10,
+    "edgeExistenceF1Minimum": 0.5083,
+    "edgeExistenceRecallMinimum": 0.7324,
+    "directionAccuracyMinimum": 0.8654,
+    "reversedEdgeCountMaximum": 7,
+    "controlsRequired": ["C01", "C02", "C03", "C04", "C05", "C06", "C07"],
+    "v15GateRequired": "PASS",
+    "prospectiveV12IntegrityRequired": "PASS",
+    "holdoutExecutionsRequired": 0,
+    "manualApprovalRequired": true
+  },
+  "protectedArtifacts": [
+    {"path": "data/results/ocr-geometry-ablation/semantic-arbitration-v15/end-to-end-development_tuning.json", "sha256": "2f4ba6719cb2ca53ce3245c6df49354ca00533ac6aab6cca19c021da33111fe7"},
+    {"path": "data/benchmarks/real-architecture/prospective-v12-seal.json", "sha256": "b44c4ebe3a4aaf8e5221c836e4411de821536240a42903e0a6da28ba6d3623eb"},
+    {"path": "data/results/end-to-end-prospective-v12/result-seal.json", "sha256": "7918af68a6e7757ebfc6c5f88df2836cac6a6dd7c588b2f06d78939920ea9c37"},
+    {"path": "backend/diagram_structure.py", "sha256": "272f3713d2a9bb25ed7e552e683f12b9f43281e6efd3eb3819a998c3cc8e635b"},
+    {"path": "backend/detector.py", "sha256": "13fbe818de480bdda1331dd47be7cfa7f701c616f821bfe9eba3bb86faa60e09"}
+  ],
+  "artifacts": [
+    "data/results/tl004-readiness/consolidated-human-review.json",
+    "data/results/tl004-readiness/human-review-summary.md",
+    "data/results/tl004-readiness/tl004-final-specification.md",
+    "data/results/tl004-readiness/tl004-test-matrix.json",
+    "data/results/tl004-readiness/tl004-readiness-decision.json"
+  ],
+  "nextAuthorizedAction": "Wait for explicit authorization and then implement TL-004A only."
+}

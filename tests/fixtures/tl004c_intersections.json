@@ -1,0 +1,98 @@
+{
+  "schemaVersion": "1.0",
+  "fixtures": [
+    {
+      "id": "x_without_marker",
+      "segments": [[-10, 0, 10, 0], [0, -10, 0, 10]],
+      "expectedClassification": "crossing_without_junction"
+    },
+    {
+      "id": "x_with_explicit_marker",
+      "segments": [[-10, 0, 10, 0], [0, -10, 0, 10]],
+      "explicitJunctions": [{"center": [0, 0], "radius": 2, "confidence": 1, "complete": true, "provenance": "fixture_dot"}],
+      "expectedClassification": "explicit_junction"
+    },
+    {
+      "id": "x_with_ambiguous_marker",
+      "segments": [[-10, 0, 10, 0], [0, -10, 0, 10]],
+      "explicitJunctions": [{"center": [0, 0], "radius": 2, "confidence": 0.55, "complete": false, "provenance": "partial_dot"}],
+      "expectedClassification": "ambiguous_intersection"
+    },
+    {
+      "id": "t_bifurcation",
+      "segments": [[-10, 0, 0, 0], [0, 0, 10, 0], [0, 0, 0, 10]],
+      "expectedClassification": "bifurcation"
+    },
+    {
+      "id": "y_bifurcation",
+      "segments": [[0, 0, 0, -10], [0, 0, -8, 8], [0, 0, 8, 8]],
+      "expectedClassification": "bifurcation"
+    },
+    {
+      "id": "elbow",
+      "segments": [[-10, 0, 0, 0], [0, 0, 0, 10]],
+      "expectedClassification": "elbow"
+    },
+    {
+      "id": "fragmented_continuation",
+      "segments": [[-10, 0, 0, 0], [0, 0, 10, 0]],
+      "expectedClassification": "continuation"
+    },
+    {
+      "id": "near_parallel_lines",
+      "segments": [[-10, 0, 10, 0], [-10, 3, 10, 3]],
+      "expectedClassification": "ambiguous_intersection"
+    },
+    {
+      "id": "non_orthogonal_crossing",
+      "segments": [[-10, 0, 10, 0], [-10, -5, 10, 5]],
+      "expectedClassification": "crossing_without_junction"
+    },
+    {
+      "id": "near_without_contact",
+      "segments": [[0, 0, 10, 0], [5, 2, 5, 10]],
+      "expectedEventCount": 0
+    },
+    {
+      "id": "four_arms_one_collinear_pair",
+      "segments": [[-10, 0, 10, 0], [0, 0, 7, 7], [0, 0, -5, 8]],
+      "expectedClassification": "ambiguous_intersection"
+    },
+    {
+      "id": "crossing_near_component_boundary",
+      "segments": [[0, 10, 20, 10], [10, 0, 10, 20]],
+      "components": [{"id": "component", "bbox": [10, 8, 16, 14]}],
+      "expectedClassification": "crossing_without_junction",
+      "expectedContext": "nearComponentBoundary"
+    },
+    {
+      "id": "junction_connected_to_port",
+      "segments": [[0, 10, 20, 10], [10, 0, 10, 20]],
+      "components": [{"id": "component", "bbox": [10, 8, 16, 14]}],
+      "explicitJunctions": [{"center": [10, 10], "radius": 2, "confidence": 1, "complete": true, "provenance": "fixture_port_dot"}],
+      "expectedClassification": "explicit_junction",
+      "expectedContext": "connectedToComponentPort"
+    },
+    {
+      "id": "crossing_on_component_barrier",
+      "segments": [[0, 10, 20, 10], [10, 0, 10, 20]],
+      "components": [{"id": "component", "bbox": [10, 8, 16, 14]}],
+      "expectedClassification": "crossing_without_junction",
+      "expectedContext": "onComponentBarrier"
+    },
+    {
+      "id": "different_segment_order",
+      "compareWith": "x_without_marker",
+      "segments": [[0, -10, 0, 10], [-10, 0, 10, 0]],
+      "expectedClassification": "crossing_without_junction"
+    },
+    {
+      "id": "scaled_rotated_thick_crossing",
+      "compareWith": "x_without_marker",
+      "segments": [[-19.851, -2.437, 19.851, 2.437], [2.437, -19.851, -2.437, 19.851]],
+      "scale": 2,
+      "lineWidth": 2,
+      "expectedClassification": "crossing_without_junction"
+    }
+  ]
+}

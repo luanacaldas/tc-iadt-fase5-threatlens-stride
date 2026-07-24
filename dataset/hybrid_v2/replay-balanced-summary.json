@@ -1,0 +1,29 @@
+{
+  "datasetYaml": "E:\\Tech Challenge IADT - Fase 5 - Hackathon\\dataset\\hybrid_v2\\architecture-replay.yaml",
+  "trainList": "E:\\Tech Challenge IADT - Fase 5 - Hackathon\\dataset\\hybrid_v2\\train-replay-balanced.txt",
+  "validationList": "E:\\Tech Challenge IADT - Fase 5 - Hackathon\\dataset\\hybrid_v2\\val-replay-balanced.txt",
+  "focusSource": "kaggle_unique",
+  "focusImages": 55,
+  "replaySource": "current",
+  "replayImages": 55,
+  "totalTrainingImages": 110,
+  "focusValidationImages": 9,
+  "replayValidationImages": 9,
+  "totalValidationImages": 18,
+  "classObjects": {
+    "api_gateway": 60,
+    "backup": 22,
+    "cdn": 29,
+    "compute": 255,
+    "database": 161,
+    "identity_provider": 49,
+    "internet": 49,
+    "load_balancer": 77,
+    "monitoring": 45,
+    "queue": 71,
+    "secrets_kms": 39,
+    "storage": 104,
+    "user": 55,
+    "waf": 45
+  }
+}

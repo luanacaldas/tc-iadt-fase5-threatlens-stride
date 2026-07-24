@@ -1,0 +1,30 @@
+{
+  "schemaVersion": "1.0",
+  "caseId": "C04",
+  "imageId": "azure-private-ai-platform",
+  "split": "development_tuning",
+  "annotationMethod": "human_reviewed_connector_trace",
+  "reviewer": "Luana Caldas",
+  "reviewSource": "data/results/tl004-readiness/consolidated-human-review.json",
+  "purpose": "Supervised shadow regression for the reviewed private-bus fan-out.",
+  "segments": [
+    {"id": "c04-app", "start": [520, 1297], "end": [520, 1051], "provenance": "C04:reviewed-trace"},
+    {"id": "c04-trunk-left", "start": [520, 1051], "end": [926, 1051], "provenance": "C04:reviewed-trace"},
+    {"id": "c04-key-vault", "start": [926, 1051], "end": [926, 1208], "provenance": "C04:reviewed-trace"},
+    {"id": "c04-trunk-right", "start": [926, 1051], "end": [1073, 1051], "provenance": "C04:reviewed-trace"},
+    {"id": "c04-storage", "start": [1073, 1051], "end": [1073, 1201], "provenance": "C04:reviewed-trace"}
+  ],
+  "ports": [
+    {"id": "c04-port-app", "componentId": "app_service", "coordinates": [520, 1297], "segmentId": "c04-app", "direction": "outgoing", "confidence": 1.0, "reviewed": true, "provenance": "C04:human-review"},
+    {"id": "c04-port-key-vault", "componentId": "key_vault", "coordinates": [926, 1208], "segmentId": "c04-key-vault", "direction": "incoming", "confidence": 1.0, "reviewed": true, "provenance": "C04:human-review"},
+    {"id": "c04-port-storage", "componentId": "storage", "coordinates": [1073, 1201], "segmentId": "c04-storage", "direction": "incoming", "confidence": 1.0, "reviewed": true, "provenance": "C04:human-review"}
+  ],
+  "expectedRelations": [
+    ["app_service", "key_vault"],
+    ["app_service", "storage"]
+  ],
+  "forbiddenRelations": [
+    ["key_vault", "storage"],
+    ["storage", "key_vault"]
+  ]
+}

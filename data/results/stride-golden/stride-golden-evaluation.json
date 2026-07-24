@@ -1,0 +1,158 @@
+{
+  "schemaVersion": "1.0",
+  "evaluatedAt": "2026-07-22T21:50:04.345058+00:00",
+  "status": "passed",
+  "aggregate": {
+    "scenarioCount": 6,
+    "truePositive": 9,
+    "falsePositive": 0,
+    "falseNegative": 0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "exactMatchCount": 6,
+    "exactMatchRate": 1.0,
+    "knownRuleCount": 7,
+    "coveredRuleCount": 7,
+    "ruleCoverage": 1.0,
+    "uncoveredRuleIds": []
+  },
+  "perScenario": [
+    {
+      "id": "public-api-unknown-boundary-protocol",
+      "description": "An Internet-facing API crosses a trust boundary without a WAF, while the transport protocol is unknown.",
+      "expectedRuleIds": [
+        "external-entry-without-waf",
+        "internet-to-api",
+        "unknown-protocol-crosses-trust-boundary"
+      ],
+      "predictedRuleIds": [
+        "external-entry-without-waf",
+        "internet-to-api",
+        "unknown-protocol-crosses-trust-boundary"
+      ],
+      "metrics": {
+        "truePositive": [
+          "external-entry-without-waf",
+          "internet-to-api",
+          "unknown-protocol-crosses-trust-boundary"
+        ],
+        "falsePositive": [],
+        "falseNegative": [],
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "exactMatch": true
+      }
+    },
+    {
+      "id": "plaintext-edge-with-waf",
+      "description": "A WAF exists, but the external boundary flow explicitly uses plaintext HTTP.",
+      "expectedRuleIds": [
+        "insecure-protocol-crosses-trust-boundary"
+      ],
+      "predictedRuleIds": [
+        "insecure-protocol-crosses-trust-boundary"
+      ],
+      "metrics": {
+        "truePositive": [
+          "insecure-protocol-crosses-trust-boundary"
+        ],
+        "falsePositive": [],
+        "falseNegative": [],
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "exactMatch": true
+      }
+    },
+    {
+      "id": "database-without-backup",
+      "description": "A monitored compute tier reaches a database, but no recovery component is represented.",
+      "expectedRuleIds": [
+        "compute-to-database",
+        "missing-backup-for-database"
+      ],
+      "predictedRuleIds": [
+        "compute-to-database",
+        "missing-backup-for-database"
+      ],
+      "metrics": {
+        "truePositive": [
+          "compute-to-database",
+          "missing-backup-for-database"
+        ],
+        "falsePositive": [],
+        "falseNegative": [],
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "exactMatch": true
+      }
+    },
+    {
+      "id": "resilient-observed-data-tier",
+      "description": "Monitoring and backup controls suppress absence findings while the sensitive data flow remains reportable.",
+      "expectedRuleIds": [
+        "compute-to-database"
+      ],
+      "predictedRuleIds": [
+        "compute-to-database"
+      ],
+      "metrics": {
+        "truePositive": [
+          "compute-to-database"
+        ],
+        "falsePositive": [],
+        "falseNegative": [],
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "exactMatch": true
+      }
+    },
+    {
+      "id": "protected-public-api",
+      "description": "A public API with WAF, HTTPS, and monitoring should retain the authentication finding without absence or transport findings.",
+      "expectedRuleIds": [
+        "internet-to-api"
+      ],
+      "predictedRuleIds": [
+        "internet-to-api"
+      ],
+      "metrics": {
+        "truePositive": [
+          "internet-to-api"
+        ],
+        "falsePositive": [],
+        "falseNegative": [],
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "exactMatch": true
+      }
+    },
+    {
+      "id": "unmonitored-worker",
+      "description": "An internal worker without monitoring should produce only the missing-observability architecture rule.",
+      "expectedRuleIds": [
+        "missing-monitoring"
+      ],
+      "predictedRuleIds": [
+        "missing-monitoring"
+      ],
+      "metrics": {
+        "truePositive": [
+          "missing-monitoring"
+        ],
+        "falsePositive": [],
+        "falseNegative": [],
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "exactMatch": true
+      }
+    }
+  ],
+  "goldenSet": "E:\\Tech Challenge IADT - Fase 5 - Hackathon\\data\\benchmarks\\stride\\golden-set.json"
+}

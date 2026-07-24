@@ -1,0 +1,613 @@
+{
+  "schemaVersion": "1.0",
+  "split": "development_tuning",
+  "metrics": {
+    "aws-eks-platform": {
+      "edgeExistencePrecision": 0.21052631578947367,
+      "edgeExistenceRecall": 0.4,
+      "edgeExistenceF1": 0.27586206896551724,
+      "directedEdgeF1": 0.27586206896551724,
+      "undirectedEdgeF1": 0.27586206896551724,
+      "directionAccuracy": 1.0,
+      "predictedEdgeCount": 19,
+      "expectedEdgeCount": 10,
+      "falsePositiveEdgeCount": 15,
+      "missedEdgeCount": 6,
+      "reversedEdgeCount": 0,
+      "correctAdjacencyCount": 4,
+      "falsePositiveEdges": [
+        [
+          "comprehend",
+          "glue"
+        ],
+        [
+          "comprehend",
+          "lambda"
+        ],
+        [
+          "comprehend",
+          "microservices"
+        ],
+        [
+          "comprehend",
+          "notebook"
+        ],
+        [
+          "comprehend",
+          "sagemaker"
+        ],
+        [
+          "dynamo",
+          "rds"
+        ],
+        [
+          "external",
+          "raw"
+        ],
+        [
+          "external",
+          "sql"
+        ],
+        [
+          "external",
+          "warehouse"
+        ],
+        [
+          "glue",
+          "lambda"
+        ],
+        [
+          "glue",
+          "microservices"
+        ],
+        [
+          "glue",
+          "rds"
+        ],
+        [
+          "lambda",
+          "sagemaker"
+        ],
+        [
+          "notebook",
+          "sagemaker"
+        ],
+        [
+          "sql",
+          "warehouse"
+        ]
+      ],
+      "missedEdges": [
+        [
+          "microservices",
+          "rds"
+        ],
+        [
+          "notebook",
+          "raw"
+        ],
+        [
+          "raw",
+          "sagemaker"
+        ],
+        [
+          "rds",
+          "visualization"
+        ],
+        [
+          "sagemaker",
+          "sql"
+        ],
+        [
+          "sagemaker",
+          "warehouse"
+        ]
+      ],
+      "reversedEdges": []
+    },
+    "aws-serverless-async": {
+      "edgeExistencePrecision": 0.8,
+      "edgeExistenceRecall": 0.8888888888888888,
+      "edgeExistenceF1": 0.8421052631578948,
+      "directedEdgeF1": 0.631578947368421,
+      "undirectedEdgeF1": 0.8421052631578948,
+      "directionAccuracy": 0.75,
+      "predictedEdgeCount": 10,
+      "expectedEdgeCount": 9,
+      "falsePositiveEdgeCount": 2,
+      "missedEdgeCount": 1,
+      "reversedEdgeCount": 2,
+      "correctAdjacencyCount": 8,
+      "falsePositiveEdges": [
+        [
+          "api",
+          "waf"
+        ],
+        [
+          "catalog",
+          "database"
+        ]
+      ],
+      "missedEdges": [
+        [
+          "cognito",
+          "search_handler"
+        ]
+      ],
+      "reversedEdges": [
+        [
+          "api",
+          "cognito"
+        ],
+        [
+          "queue",
+          "worker"
+        ]
+      ]
+    },
+    "aws-video-pipeline": {
+      "edgeExistencePrecision": 0.325,
+      "edgeExistenceRecall": 0.8125,
+      "edgeExistenceF1": 0.46428571428571436,
+      "directedEdgeF1": 0.4285714285714285,
+      "undirectedEdgeF1": 0.46428571428571436,
+      "directionAccuracy": 0.9230769230769231,
+      "predictedEdgeCount": 40,
+      "expectedEdgeCount": 16,
+      "falsePositiveEdgeCount": 27,
+      "missedEdgeCount": 3,
+      "reversedEdgeCount": 1,
+      "correctAdjacencyCount": 13,
+      "falsePositiveEdges": [
+        [
+          "business1",
+          "business2"
+        ],
+        [
+          "business1",
+          "transcoder"
+        ],
+        [
+          "business1",
+          "trigger1"
+        ],
+        [
+          "business1",
+          "trigger2"
+        ],
+        [
+          "business2",
+          "stage1"
+        ],
+        [
+          "business2",
+          "stage3"
+        ],
+        [
+          "business2",
+          "trigger1"
+        ],
+        [
+          "database",
+          "media"
+        ],
+        [
+          "database",
+          "stage3"
+        ],
+        [
+          "database",
+          "trigger3"
+        ],
+        [
+          "database",
+          "upload"
+        ],
+        [
+          "media",
+          "stage2"
+        ],
+        [
+          "media",
+          "trigger1"
+        ],
+        [
+          "stage1",
+          "transcoder"
+        ],
+        [
+          "stage1",
+          "trigger2"
+        ],
+        [
+          "stage2",
+          "stage3"
+        ],
+        [
+          "stage2",
+          "trigger1"
+        ],
+        [
+          "stage2",
+          "trigger3"
+        ],
+        [
+          "stage3",
+          "transcoder"
+        ],
+        [
+          "stage3",
+          "trigger1"
+        ],
+        [
+          "stage3",
+          "trigger2"
+        ],
+        [
+          "transcoder",
+          "trigger2"
+        ],
+        [
+          "transcoder",
+          "trigger3"
+        ],
+        [
+          "transcoder",
+          "upload"
+        ],
+        [
+          "trigger1",
+          "upload"
+        ],
+        [
+          "trigger2",
+          "trigger3"
+        ],
+        [
+          "trigger2",
+          "upload"
+        ]
+      ],
+      "missedEdges": [
+        [
+          "api",
+          "business1"
+        ],
+        [
+          "api",
+          "upload"
+        ],
+        [
+          "business1",
+          "email"
+        ]
+      ],
+      "reversedEdges": [
+        [
+          "trigger3",
+          "business2"
+        ]
+      ]
+    },
+    "azure-ai-foundry": {
+      "edgeExistencePrecision": 0.7142857142857143,
+      "edgeExistenceRecall": 1.0,
+      "edgeExistenceF1": 0.8333333333333333,
+      "directedEdgeF1": 0.8333333333333333,
+      "undirectedEdgeF1": 0.8333333333333333,
+      "directionAccuracy": 1.0,
+      "predictedEdgeCount": 7,
+      "expectedEdgeCount": 5,
+      "falsePositiveEdgeCount": 2,
+      "missedEdgeCount": 0,
+      "reversedEdgeCount": 0,
+      "correctAdjacencyCount": 5,
+      "falsePositiveEdges": [
+        [
+          "ai_search",
+          "openai_model"
+        ],
+        [
+          "foundry_account",
+          "openai_model"
+        ]
+      ],
+      "missedEdges": [],
+      "reversedEdges": []
+    },
+    "azure-container-edge": {
+      "edgeExistencePrecision": 1.0,
+      "edgeExistenceRecall": 1.0,
+      "edgeExistenceF1": 1.0,
+      "directedEdgeF1": 1.0,
+      "undirectedEdgeF1": 1.0,
+      "directionAccuracy": 1.0,
+      "predictedEdgeCount": 4,
+      "expectedEdgeCount": 4,
+      "falsePositiveEdgeCount": 0,
+      "missedEdgeCount": 0,
+      "reversedEdgeCount": 0,
+      "correctAdjacencyCount": 4,
+      "falsePositiveEdges": [],
+      "missedEdges": [],
+      "reversedEdges": []
+    },
+    "azure-hub-spoke": {
+      "edgeExistencePrecision": 0.42857142857142855,
+      "edgeExistenceRecall": 0.5,
+      "edgeExistenceF1": 0.4615384615384615,
+      "directedEdgeF1": 0.28571428571428575,
+      "undirectedEdgeF1": 0.4615384615384615,
+      "directionAccuracy": 0.6666666666666666,
+      "predictedEdgeCount": 8,
+      "expectedEdgeCount": 6,
+      "falsePositiveEdgeCount": 4,
+      "missedEdgeCount": 3,
+      "reversedEdgeCount": 1,
+      "correctAdjacencyCount": 3,
+      "falsePositiveEdges": [
+        [
+          "firewall",
+          "onprem"
+        ],
+        [
+          "nonprod2_vm",
+          "nonprod_vm"
+        ],
+        [
+          "nonprod2_vm",
+          "prod2_vm"
+        ],
+        [
+          "prod2_vm",
+          "prod_vm"
+        ]
+      ],
+      "missedEdges": [
+        [
+          "firewall",
+          "prod2_vm"
+        ],
+        [
+          "firewall",
+          "prod_vm"
+        ],
+        [
+          "gateway",
+          "nonprod2_vm"
+        ]
+      ],
+      "reversedEdges": [
+        [
+          "gateway",
+          "firewall"
+        ]
+      ]
+    },
+    "azure-private-ai-platform": {
+      "edgeExistencePrecision": 0.09523809523809523,
+      "edgeExistenceRecall": 0.25,
+      "edgeExistenceF1": 0.13793103448275862,
+      "directedEdgeF1": 0.13793103448275862,
+      "undirectedEdgeF1": 0.13793103448275862,
+      "directionAccuracy": 1.0,
+      "predictedEdgeCount": 21,
+      "expectedEdgeCount": 8,
+      "falsePositiveEdgeCount": 19,
+      "missedEdgeCount": 6,
+      "reversedEdgeCount": 0,
+      "correctAdjacencyCount": 2,
+      "falsePositiveEdges": [
+        [
+          "ai_search",
+          "bastion"
+        ],
+        [
+          "ai_search",
+          "cosmos"
+        ],
+        [
+          "ai_search",
+          "firewall"
+        ],
+        [
+          "ai_search",
+          "storage"
+        ],
+        [
+          "app_gateway",
+          "bastion"
+        ],
+        [
+          "app_gateway",
+          "build_agents"
+        ],
+        [
+          "app_gateway",
+          "firewall"
+        ],
+        [
+          "app_gateway",
+          "foundry_agent"
+        ],
+        [
+          "bastion",
+          "cosmos"
+        ],
+        [
+          "bastion",
+          "firewall"
+        ],
+        [
+          "bastion",
+          "foundry_agent"
+        ],
+        [
+          "bastion",
+          "openai"
+        ],
+        [
+          "build_agents",
+          "firewall"
+        ],
+        [
+          "build_agents",
+          "foundry_agent"
+        ],
+        [
+          "build_agents",
+          "openai"
+        ],
+        [
+          "cosmos",
+          "firewall"
+        ],
+        [
+          "cosmos",
+          "storage"
+        ],
+        [
+          "firewall",
+          "foundry_agent"
+        ],
+        [
+          "key_vault",
+          "storage"
+        ]
+      ],
+      "missedEdges": [
+        [
+          "ai_search",
+          "app_service"
+        ],
+        [
+          "app_service",
+          "cosmos"
+        ],
+        [
+          "app_service",
+          "foundry_agent"
+        ],
+        [
+          "app_service",
+          "key_vault"
+        ],
+        [
+          "app_service",
+          "storage"
+        ],
+        [
+          "foundry_agent",
+          "openai"
+        ]
+      ],
+      "reversedEdges": []
+    },
+    "gcp-secure-cloud-run": {
+      "edgeExistencePrecision": 0.5,
+      "edgeExistenceRecall": 1.0,
+      "edgeExistenceF1": 0.6666666666666666,
+      "directedEdgeF1": 0.6666666666666666,
+      "undirectedEdgeF1": 0.6666666666666666,
+      "directionAccuracy": 1.0,
+      "predictedEdgeCount": 12,
+      "expectedEdgeCount": 6,
+      "falsePositiveEdgeCount": 6,
+      "missedEdgeCount": 0,
+      "reversedEdgeCount": 0,
+      "correctAdjacencyCount": 6,
+      "falsePositiveEdges": [
+        [
+          "armor",
+          "artifact_registry"
+        ],
+        [
+          "artifact_registry",
+          "firewall"
+        ],
+        [
+          "artifact_registry",
+          "secret_manager"
+        ],
+        [
+          "artifact_registry",
+          "vpc_connector"
+        ],
+        [
+          "cloud_run",
+          "secret_manager"
+        ],
+        [
+          "logging",
+          "secret_manager"
+        ]
+      ],
+      "missedEdges": [],
+      "reversedEdges": []
+    },
+    "generic-cloud-api": {
+      "edgeExistencePrecision": 0.42857142857142855,
+      "edgeExistenceRecall": 0.8571428571428571,
+      "edgeExistenceF1": 0.5714285714285714,
+      "directedEdgeF1": 0.38095238095238093,
+      "undirectedEdgeF1": 0.5714285714285714,
+      "directionAccuracy": 0.6666666666666666,
+      "predictedEdgeCount": 14,
+      "expectedEdgeCount": 7,
+      "falsePositiveEdgeCount": 8,
+      "missedEdgeCount": 1,
+      "reversedEdgeCount": 2,
+      "correctAdjacencyCount": 6,
+      "falsePositiveEdges": [
+        [
+          "api",
+          "database"
+        ],
+        [
+          "api",
+          "storage"
+        ],
+        [
+          "cdn",
+          "database"
+        ],
+        [
+          "cdn",
+          "monitoring"
+        ],
+        [
+          "cdn",
+          "user"
+        ],
+        [
+          "compute",
+          "internet"
+        ],
+        [
+          "database",
+          "monitoring"
+        ],
+        [
+          "database",
+          "user"
+        ]
+      ],
+      "missedEdges": [
+        [
+          "api",
+          "compute"
+        ]
+      ],
+      "reversedEdges": [
+        [
+          "compute",
+          "database"
+        ],
+        [
+          "user",
+          "internet"
+        ]
+      ]
+    }
+  }
+}

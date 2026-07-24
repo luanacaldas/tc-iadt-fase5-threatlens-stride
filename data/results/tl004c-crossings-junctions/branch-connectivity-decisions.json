@@ -1,0 +1,3205 @@
+{
+  "schemaVersion": "1.0",
+  "split": "development_tuning",
+  "decisionCount": 204,
+  "actionCounts": {
+    "observed_only": 6,
+    "review_only": 76,
+    "shadow_preserve_candidate_continuity": 106,
+    "shadow_record_local_junction": 16
+  },
+  "decisions": [
+    {
+      "eventId": "int-1cc7f0ca18238c94",
+      "candidateRecordId": "isolated_ground_truth:aws-eks-platform:predicted:10",
+      "candidateArmIds": [
+        "arm-535e78478cd24801",
+        "arm-8c2684b48e332591"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-535e78478cd24801",
+          "arm-8c2684b48e332591"
+        ]
+      ],
+      "shadowAction": "shadow_preserve_candidate_continuity",
+      "reason": "candidate follows locally allowed branch continuity",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-9eb3d43108d24848",
+      "candidateRecordId": "isolated_ground_truth:aws-eks-platform:predicted:12",
+      "candidateArmIds": [
+        "arm-e899c19aa415325a"
+      ],
+      "candidateBranchPairs": [],
+      "shadowAction": "review_only",
+      "reason": "intersection evidence is ambiguous",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-3e629f703ca1e002",
+      "candidateRecordId": "isolated_ground_truth:aws-eks-platform:predicted:13",
+      "candidateArmIds": [
+        "arm-73c0b875cc3d9355",
+        "arm-d88daa554c36939a"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-73c0b875cc3d9355",
+          "arm-d88daa554c36939a"
+        ]
+      ],
+      "shadowAction": "shadow_preserve_candidate_continuity",
+      "reason": "candidate follows locally allowed branch continuity",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-9c3bdaa7a3b77115",
+      "candidateRecordId": "isolated_ground_truth:aws-eks-platform:predicted:13",
+      "candidateArmIds": [
+        "arm-3cc45ca87194869c",
+        "arm-525d912f8f75a8aa"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-3cc45ca87194869c",
+          "arm-525d912f8f75a8aa"
+        ]
+      ],
+      "shadowAction": "shadow_preserve_candidate_continuity",
+      "reason": "candidate follows locally allowed branch continuity",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-c81de4a1d8cb16b5",
+      "candidateRecordId": "isolated_ground_truth:aws-eks-platform:predicted:13",
+      "candidateArmIds": [
+        "arm-bcce26364a163b67",
+        "arm-c4bf4b2773a6ad4e"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-bcce26364a163b67",
+          "arm-c4bf4b2773a6ad4e"
+        ]
+      ],
+      "shadowAction": "shadow_preserve_candidate_continuity",
+      "reason": "candidate follows locally allowed branch continuity",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-3e629f703ca1e002",
+      "candidateRecordId": "isolated_ground_truth:aws-eks-platform:predicted:14",
+      "candidateArmIds": [
+        "arm-73c0b875cc3d9355",
+        "arm-d88daa554c36939a"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-73c0b875cc3d9355",
+          "arm-d88daa554c36939a"
+        ]
+      ],
+      "shadowAction": "shadow_preserve_candidate_continuity",
+      "reason": "candidate follows locally allowed branch continuity",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-9c3bdaa7a3b77115",
+      "candidateRecordId": "isolated_ground_truth:aws-eks-platform:predicted:14",
+      "candidateArmIds": [
+        "arm-3cc45ca87194869c",
+        "arm-525d912f8f75a8aa"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-3cc45ca87194869c",
+          "arm-525d912f8f75a8aa"
+        ]
+      ],
+      "shadowAction": "shadow_preserve_candidate_continuity",
+      "reason": "candidate follows locally allowed branch continuity",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-c81de4a1d8cb16b5",
+      "candidateRecordId": "isolated_ground_truth:aws-eks-platform:predicted:14",
+      "candidateArmIds": [
+        "arm-bcce26364a163b67",
+        "arm-c4bf4b2773a6ad4e"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-bcce26364a163b67",
+          "arm-c4bf4b2773a6ad4e"
+        ]
+      ],
+      "shadowAction": "shadow_preserve_candidate_continuity",
+      "reason": "candidate follows locally allowed branch continuity",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-9eb3d43108d24848",
+      "candidateRecordId": "isolated_ground_truth:aws-eks-platform:predicted:16",
+      "candidateArmIds": [
+        "arm-f9a3927fab94607b"
+      ],
+      "candidateBranchPairs": [],
+      "shadowAction": "review_only",
+      "reason": "intersection evidence is ambiguous",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-4d600e99c4fe4666",
+      "candidateRecordId": "isolated_ground_truth:aws-eks-platform:predicted:2",
+      "candidateArmIds": [
+        "arm-294f103e8d3a64e7",
+        "arm-579e96c81b54c1e4"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-294f103e8d3a64e7",
+          "arm-579e96c81b54c1e4"
+        ]
+      ],
+      "shadowAction": "shadow_preserve_candidate_continuity",
+      "reason": "candidate follows locally allowed branch continuity",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-9684e558a593f071",
+      "candidateRecordId": "isolated_ground_truth:aws-eks-platform:predicted:2",
+      "candidateArmIds": [
+        "arm-34d9238a783bc022"
+      ],
+      "candidateBranchPairs": [],
+      "shadowAction": "review_only",
+      "reason": "intersection evidence is ambiguous",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-e353f471b2cee596",
+      "candidateRecordId": "isolated_ground_truth:aws-eks-platform:predicted:2",
+      "candidateArmIds": [
+        "arm-3923d93f646b6f12",
+        "arm-ec67a60e5221bd26"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-3923d93f646b6f12",
+          "arm-ec67a60e5221bd26"
+        ]
+      ],
+      "shadowAction": "shadow_preserve_candidate_continuity",
+      "reason": "candidate follows locally allowed branch continuity",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-1b9cf2fed059e368",
+      "candidateRecordId": "isolated_ground_truth:aws-eks-platform:predicted:21",
+      "candidateArmIds": [
+        "arm-44df8125bbfc5359",
+        "arm-4d705d18f22bcd77"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-44df8125bbfc5359",
+          "arm-4d705d18f22bcd77"
+        ]
+      ],
+      "shadowAction": "shadow_preserve_candidate_continuity",
+      "reason": "candidate follows locally allowed branch continuity",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-7159cab5de81ddb6",
+      "candidateRecordId": "isolated_ground_truth:aws-eks-platform:predicted:21",
+      "candidateArmIds": [
+        "arm-1045c23840997d53",
+        "arm-1e610092294c8fd4"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-1045c23840997d53",
+          "arm-1e610092294c8fd4"
+        ]
+      ],
+      "shadowAction": "shadow_preserve_candidate_continuity",
+      "reason": "candidate follows locally allowed branch continuity",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-9684e558a593f071",
+      "candidateRecordId": "isolated_ground_truth:aws-eks-platform:predicted:21",
+      "candidateArmIds": [
+        "arm-002247d6f4a7722b",
+        "arm-cc2851eb258fa375"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-002247d6f4a7722b",
+          "arm-cc2851eb258fa375"
+        ]
+      ],
+      "shadowAction": "review_only",
+      "reason": "intersection evidence is ambiguous",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-e353f471b2cee596",
+      "candidateRecordId": "isolated_ground_truth:aws-eks-platform:predicted:21",
+      "candidateArmIds": [
+        "arm-49973868a964badb"
+      ],
+      "candidateBranchPairs": [],
+      "shadowAction": "shadow_record_local_junction",
+      "reason": "local junction is representable but decomposition is deferred",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-2d4db71850b09dc9",
+      "candidateRecordId": "isolated_ground_truth:aws-eks-platform:predicted:3",
+      "candidateArmIds": [
+        "arm-e7415b92a907d00d"
+      ],
+      "candidateBranchPairs": [],
+      "shadowAction": "review_only",
+      "reason": "intersection evidence is ambiguous",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-f22bdf1047c429b0",
+      "candidateRecordId": "isolated_ground_truth:aws-eks-platform:predicted:3",
+      "candidateArmIds": [
+        "arm-8b8a80ce59b1bee9"
+      ],
+      "candidateBranchPairs": [],
+      "shadowAction": "shadow_record_local_junction",
+      "reason": "local junction is representable but decomposition is deferred",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-2d4db71850b09dc9",
+      "candidateRecordId": "isolated_ground_truth:aws-eks-platform:predicted:6",
+      "candidateArmIds": [
+        "arm-4f4e9bd08f7ead98"
+      ],
+      "candidateBranchPairs": [],
+      "shadowAction": "review_only",
+      "reason": "intersection evidence is ambiguous",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-f22bdf1047c429b0",
+      "candidateRecordId": "isolated_ground_truth:aws-eks-platform:predicted:6",
+      "candidateArmIds": [
+        "arm-bedda07e03a39a21",
+        "arm-defa18ad5227a522"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-bedda07e03a39a21",
+          "arm-defa18ad5227a522"
+        ]
+      ],
+      "shadowAction": "shadow_preserve_candidate_continuity",
+      "reason": "candidate follows locally allowed branch continuity",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-1b9cf2fed059e368",
+      "candidateRecordId": "isolated_ground_truth:aws-eks-platform:predicted:7",
+      "candidateArmIds": [
+        "arm-340d0c51d49691c3"
+      ],
+      "candidateBranchPairs": [],
+      "shadowAction": "shadow_record_local_junction",
+      "reason": "local junction is representable but decomposition is deferred",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-4d600e99c4fe4666",
+      "candidateRecordId": "isolated_ground_truth:aws-eks-platform:predicted:7",
+      "candidateArmIds": [
+        "arm-3bb37f02c453f106"
+      ],
+      "candidateBranchPairs": [],
+      "shadowAction": "shadow_record_local_junction",
+      "reason": "local junction is representable but decomposition is deferred",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-7159cab5de81ddb6",
+      "candidateRecordId": "isolated_ground_truth:aws-eks-platform:predicted:7",
+      "candidateArmIds": [
+        "arm-4b900130005f939f",
+        "arm-b78f01f83585478b"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-4b900130005f939f",
+          "arm-b78f01f83585478b"
+        ]
+      ],
+      "shadowAction": "shadow_preserve_candidate_continuity",
+      "reason": "candidate follows locally allowed branch continuity",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-9684e558a593f071",
+      "candidateRecordId": "isolated_ground_truth:aws-eks-platform:predicted:7",
+      "candidateArmIds": [
+        "arm-b2f79da7a698eea3",
+        "arm-c65eba46005b4fb3"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-b2f79da7a698eea3",
+          "arm-c65eba46005b4fb3"
+        ]
+      ],
+      "shadowAction": "review_only",
+      "reason": "intersection evidence is ambiguous",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-eb38cb23f61b6395",
+      "candidateRecordId": "isolated_ground_truth:aws-serverless-async:predicted:1",
+      "candidateArmIds": [
+        "arm-6959123038cf9bc4",
+        "arm-f37aafe771cd2d7f"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-6959123038cf9bc4",
+          "arm-f37aafe771cd2d7f"
+        ]
+      ],
+      "shadowAction": "shadow_preserve_candidate_continuity",
+      "reason": "candidate follows locally allowed branch continuity",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-2b5bb0285cc745f8",
+      "candidateRecordId": "isolated_ground_truth:aws-serverless-async:predicted:3",
+      "candidateArmIds": [
+        "arm-42a507a37ccb93e0",
+        "arm-6dfd4146b886581a"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-42a507a37ccb93e0",
+          "arm-6dfd4146b886581a"
+        ]
+      ],
+      "shadowAction": "shadow_preserve_candidate_continuity",
+      "reason": "candidate follows locally allowed branch continuity",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-d58464b8bc6313a7",
+      "candidateRecordId": "isolated_ground_truth:aws-serverless-async:predicted:3",
+      "candidateArmIds": [
+        "arm-47186cc60132a5da",
+        "arm-91f5d864ba3c7331"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-47186cc60132a5da",
+          "arm-91f5d864ba3c7331"
+        ]
+      ],
+      "shadowAction": "shadow_preserve_candidate_continuity",
+      "reason": "candidate follows locally allowed branch continuity",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-aec7109cab900993",
+      "candidateRecordId": "isolated_ground_truth:aws-serverless-async:predicted:5",
+      "candidateArmIds": [
+        "arm-7bb1dc1700ca7ae7",
+        "arm-8d3b20fbcc3e4727"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-7bb1dc1700ca7ae7",
+          "arm-8d3b20fbcc3e4727"
+        ]
+      ],
+      "shadowAction": "shadow_preserve_candidate_continuity",
+      "reason": "candidate follows locally allowed branch continuity",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-2c342931fc2a28b6",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:1",
+      "candidateArmIds": [
+        "arm-335d018c0570d7ab",
+        "arm-c0af3da32e205719"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-335d018c0570d7ab",
+          "arm-c0af3da32e205719"
+        ]
+      ],
+      "shadowAction": "shadow_preserve_candidate_continuity",
+      "reason": "candidate follows locally allowed branch continuity",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-33f4bdd5be1ef369",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:10",
+      "candidateArmIds": [
+        "arm-793ba0f3506e527c",
+        "arm-bde4d3d5a69e001e"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-793ba0f3506e527c",
+          "arm-bde4d3d5a69e001e"
+        ]
+      ],
+      "shadowAction": "review_only",
+      "reason": "intersection evidence is ambiguous",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-3b2fce99819934fc",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:10",
+      "candidateArmIds": [
+        "arm-3487853841842f03",
+        "arm-7c85c7b4592d5dc1"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-3487853841842f03",
+          "arm-7c85c7b4592d5dc1"
+        ]
+      ],
+      "shadowAction": "shadow_preserve_candidate_continuity",
+      "reason": "candidate follows locally allowed branch continuity",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-ad8bd6d385f30623",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:10",
+      "candidateArmIds": [
+        "arm-8744639a4eaa59c2"
+      ],
+      "candidateBranchPairs": [],
+      "shadowAction": "review_only",
+      "reason": "intersection evidence is ambiguous",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-b893bf08440a2069",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:10",
+      "candidateArmIds": [
+        "arm-4f1f160acb485304",
+        "arm-785241b1dcb2a871"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-4f1f160acb485304",
+          "arm-785241b1dcb2a871"
+        ]
+      ],
+      "shadowAction": "review_only",
+      "reason": "intersection evidence is ambiguous",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-c7d20d7c92d7f926",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:10",
+      "candidateArmIds": [
+        "arm-be6faba22324443a",
+        "arm-de9aab80abd2647d"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-be6faba22324443a",
+          "arm-de9aab80abd2647d"
+        ]
+      ],
+      "shadowAction": "review_only",
+      "reason": "intersection evidence is ambiguous",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-f8c83217469e7fd5",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:10",
+      "candidateArmIds": [
+        "arm-02071fd559bee512",
+        "arm-fcb857c6707cdef4"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-02071fd559bee512",
+          "arm-fcb857c6707cdef4"
+        ]
+      ],
+      "shadowAction": "shadow_preserve_candidate_continuity",
+      "reason": "candidate follows locally allowed branch continuity",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-6c7d33e790e4547f",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:11",
+      "candidateArmIds": [
+        "arm-9f7cdc82b46d28ff",
+        "arm-b399f86274110412"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-9f7cdc82b46d28ff",
+          "arm-b399f86274110412"
+        ]
+      ],
+      "shadowAction": "review_only",
+      "reason": "intersection evidence is ambiguous",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-ad8bd6d385f30623",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:11",
+      "candidateArmIds": [
+        "arm-1b274f87f946c0bb",
+        "arm-2a6401632878ee62"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-1b274f87f946c0bb",
+          "arm-2a6401632878ee62"
+        ]
+      ],
+      "shadowAction": "review_only",
+      "reason": "intersection evidence is ambiguous",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-c15be88b6654b429",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:11",
+      "candidateArmIds": [
+        "arm-76a7feafec87694f",
+        "arm-c608e92671a5ba9f"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-76a7feafec87694f",
+          "arm-c608e92671a5ba9f"
+        ]
+      ],
+      "shadowAction": "shadow_preserve_candidate_continuity",
+      "reason": "candidate follows locally allowed branch continuity",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-c7a74d176c165959",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:11",
+      "candidateArmIds": [
+        "arm-ae9b313359cdb869",
+        "arm-b6f6d55d5f39aa7e"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-ae9b313359cdb869",
+          "arm-b6f6d55d5f39aa7e"
+        ]
+      ],
+      "shadowAction": "shadow_preserve_candidate_continuity",
+      "reason": "candidate follows locally allowed branch continuity",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-c7d20d7c92d7f926",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:11",
+      "candidateArmIds": [
+        "arm-0ac7125caff985d5"
+      ],
+      "candidateBranchPairs": [],
+      "shadowAction": "review_only",
+      "reason": "intersection evidence is ambiguous",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-d10eb0436c1209cf",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:11",
+      "candidateArmIds": [
+        "arm-76a7feafec87694f",
+        "arm-c608e92671a5ba9f"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-76a7feafec87694f",
+          "arm-c608e92671a5ba9f"
+        ]
+      ],
+      "shadowAction": "shadow_preserve_candidate_continuity",
+      "reason": "candidate follows locally allowed branch continuity",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-e63cb6322781150b",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:11",
+      "candidateArmIds": [
+        "arm-25bc093622e004a3",
+        "arm-a8473d8cc1cffc08"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-25bc093622e004a3",
+          "arm-a8473d8cc1cffc08"
+        ]
+      ],
+      "shadowAction": "shadow_preserve_candidate_continuity",
+      "reason": "candidate follows locally allowed branch continuity",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-6c7d33e790e4547f",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:12",
+      "candidateArmIds": [
+        "arm-9f7cdc82b46d28ff",
+        "arm-b399f86274110412"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-9f7cdc82b46d28ff",
+          "arm-b399f86274110412"
+        ]
+      ],
+      "shadowAction": "review_only",
+      "reason": "intersection evidence is ambiguous",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-ad8bd6d385f30623",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:12",
+      "candidateArmIds": [
+        "arm-1b274f87f946c0bb",
+        "arm-2a6401632878ee62"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-1b274f87f946c0bb",
+          "arm-2a6401632878ee62"
+        ]
+      ],
+      "shadowAction": "review_only",
+      "reason": "intersection evidence is ambiguous",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-c15be88b6654b429",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:12",
+      "candidateArmIds": [
+        "arm-76a7feafec87694f",
+        "arm-c608e92671a5ba9f"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-76a7feafec87694f",
+          "arm-c608e92671a5ba9f"
+        ]
+      ],
+      "shadowAction": "shadow_preserve_candidate_continuity",
+      "reason": "candidate follows locally allowed branch continuity",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-c7a74d176c165959",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:12",
+      "candidateArmIds": [
+        "arm-ae9b313359cdb869",
+        "arm-b6f6d55d5f39aa7e"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-ae9b313359cdb869",
+          "arm-b6f6d55d5f39aa7e"
+        ]
+      ],
+      "shadowAction": "shadow_preserve_candidate_continuity",
+      "reason": "candidate follows locally allowed branch continuity",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-c7d20d7c92d7f926",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:12",
+      "candidateArmIds": [
+        "arm-0ac7125caff985d5"
+      ],
+      "candidateBranchPairs": [],
+      "shadowAction": "review_only",
+      "reason": "intersection evidence is ambiguous",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-d10eb0436c1209cf",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:12",
+      "candidateArmIds": [
+        "arm-76a7feafec87694f",
+        "arm-c608e92671a5ba9f"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-76a7feafec87694f",
+          "arm-c608e92671a5ba9f"
+        ]
+      ],
+      "shadowAction": "shadow_preserve_candidate_continuity",
+      "reason": "candidate follows locally allowed branch continuity",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-e63cb6322781150b",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:12",
+      "candidateArmIds": [
+        "arm-25bc093622e004a3",
+        "arm-a8473d8cc1cffc08"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-25bc093622e004a3",
+          "arm-a8473d8cc1cffc08"
+        ]
+      ],
+      "shadowAction": "shadow_preserve_candidate_continuity",
+      "reason": "candidate follows locally allowed branch continuity",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-9e49af2612937ce6",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:13",
+      "candidateArmIds": [
+        "arm-5729d59e3775991b",
+        "arm-5bee9cf0a02a17cd"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-5729d59e3775991b",
+          "arm-5bee9cf0a02a17cd"
+        ]
+      ],
+      "shadowAction": "shadow_preserve_candidate_continuity",
+      "reason": "candidate follows locally allowed branch continuity",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-a28822c1b27fbc52",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:13",
+      "candidateArmIds": [
+        "arm-ff2e57d880433be8"
+      ],
+      "candidateBranchPairs": [],
+      "shadowAction": "shadow_record_local_junction",
+      "reason": "local junction is representable but decomposition is deferred",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-33f4bdd5be1ef369",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:14",
+      "candidateArmIds": [
+        "arm-cecaf71f8bd020b7",
+        "arm-ed3a724ae1a65ab9"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-cecaf71f8bd020b7",
+          "arm-ed3a724ae1a65ab9"
+        ]
+      ],
+      "shadowAction": "review_only",
+      "reason": "intersection evidence is ambiguous",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-6c7d33e790e4547f",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:14",
+      "candidateArmIds": [
+        "arm-d4e3be096022bc49"
+      ],
+      "candidateBranchPairs": [],
+      "shadowAction": "review_only",
+      "reason": "intersection evidence is ambiguous",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-ad8bd6d385f30623",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:14",
+      "candidateArmIds": [
+        "arm-393d3586ad25c777",
+        "arm-88deb039e788229d"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-393d3586ad25c777",
+          "arm-88deb039e788229d"
+        ]
+      ],
+      "shadowAction": "review_only",
+      "reason": "intersection evidence is ambiguous",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-c7d20d7c92d7f926",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:14",
+      "candidateArmIds": [
+        "arm-6b1a2e1592226ef1",
+        "arm-b4eba6ac0b60958a"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-6b1a2e1592226ef1",
+          "arm-b4eba6ac0b60958a"
+        ]
+      ],
+      "shadowAction": "review_only",
+      "reason": "intersection evidence is ambiguous",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-d10eb0436c1209cf",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:14",
+      "candidateArmIds": [
+        "arm-05e2469a69943d42",
+        "arm-2475372954f8fbb3"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-05e2469a69943d42",
+          "arm-2475372954f8fbb3"
+        ]
+      ],
+      "shadowAction": "shadow_preserve_candidate_continuity",
+      "reason": "candidate follows locally allowed branch continuity",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-e63cb6322781150b",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:14",
+      "candidateArmIds": [
+        "arm-12e8d0e5c0c73df6",
+        "arm-dc6edc524b9a10e5"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-12e8d0e5c0c73df6",
+          "arm-dc6edc524b9a10e5"
+        ]
+      ],
+      "shadowAction": "shadow_preserve_candidate_continuity",
+      "reason": "candidate follows locally allowed branch continuity",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-f8c83217469e7fd5",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:14",
+      "candidateArmIds": [
+        "arm-67ee004cbd9ed931"
+      ],
+      "candidateBranchPairs": [],
+      "shadowAction": "shadow_record_local_junction",
+      "reason": "local junction is representable but decomposition is deferred",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-33f4bdd5be1ef369",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:15",
+      "candidateArmIds": [
+        "arm-cecaf71f8bd020b7",
+        "arm-ed3a724ae1a65ab9"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-cecaf71f8bd020b7",
+          "arm-ed3a724ae1a65ab9"
+        ]
+      ],
+      "shadowAction": "review_only",
+      "reason": "intersection evidence is ambiguous",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-6c7d33e790e4547f",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:15",
+      "candidateArmIds": [
+        "arm-d4e3be096022bc49"
+      ],
+      "candidateBranchPairs": [],
+      "shadowAction": "review_only",
+      "reason": "intersection evidence is ambiguous",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-ad8bd6d385f30623",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:15",
+      "candidateArmIds": [
+        "arm-393d3586ad25c777",
+        "arm-88deb039e788229d"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-393d3586ad25c777",
+          "arm-88deb039e788229d"
+        ]
+      ],
+      "shadowAction": "review_only",
+      "reason": "intersection evidence is ambiguous",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-c7d20d7c92d7f926",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:15",
+      "candidateArmIds": [
+        "arm-6b1a2e1592226ef1",
+        "arm-b4eba6ac0b60958a"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-6b1a2e1592226ef1",
+          "arm-b4eba6ac0b60958a"
+        ]
+      ],
+      "shadowAction": "review_only",
+      "reason": "intersection evidence is ambiguous",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-d10eb0436c1209cf",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:15",
+      "candidateArmIds": [
+        "arm-05e2469a69943d42",
+        "arm-2475372954f8fbb3"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-05e2469a69943d42",
+          "arm-2475372954f8fbb3"
+        ]
+      ],
+      "shadowAction": "shadow_preserve_candidate_continuity",
+      "reason": "candidate follows locally allowed branch continuity",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-e63cb6322781150b",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:15",
+      "candidateArmIds": [
+        "arm-12e8d0e5c0c73df6",
+        "arm-dc6edc524b9a10e5"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-12e8d0e5c0c73df6",
+          "arm-dc6edc524b9a10e5"
+        ]
+      ],
+      "shadowAction": "shadow_preserve_candidate_continuity",
+      "reason": "candidate follows locally allowed branch continuity",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-f8c83217469e7fd5",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:15",
+      "candidateArmIds": [
+        "arm-67ee004cbd9ed931"
+      ],
+      "candidateBranchPairs": [],
+      "shadowAction": "shadow_record_local_junction",
+      "reason": "local junction is representable but decomposition is deferred",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-33f4bdd5be1ef369",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:16",
+      "candidateArmIds": [
+        "arm-cecaf71f8bd020b7",
+        "arm-ed3a724ae1a65ab9"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-cecaf71f8bd020b7",
+          "arm-ed3a724ae1a65ab9"
+        ]
+      ],
+      "shadowAction": "review_only",
+      "reason": "intersection evidence is ambiguous",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-6c7d33e790e4547f",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:16",
+      "candidateArmIds": [
+        "arm-d4e3be096022bc49"
+      ],
+      "candidateBranchPairs": [],
+      "shadowAction": "review_only",
+      "reason": "intersection evidence is ambiguous",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-ad8bd6d385f30623",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:16",
+      "candidateArmIds": [
+        "arm-393d3586ad25c777",
+        "arm-88deb039e788229d"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-393d3586ad25c777",
+          "arm-88deb039e788229d"
+        ]
+      ],
+      "shadowAction": "review_only",
+      "reason": "intersection evidence is ambiguous",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-c7d20d7c92d7f926",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:16",
+      "candidateArmIds": [
+        "arm-6b1a2e1592226ef1",
+        "arm-b4eba6ac0b60958a"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-6b1a2e1592226ef1",
+          "arm-b4eba6ac0b60958a"
+        ]
+      ],
+      "shadowAction": "review_only",
+      "reason": "intersection evidence is ambiguous",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-d10eb0436c1209cf",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:16",
+      "candidateArmIds": [
+        "arm-05e2469a69943d42",
+        "arm-2475372954f8fbb3"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-05e2469a69943d42",
+          "arm-2475372954f8fbb3"
+        ]
+      ],
+      "shadowAction": "shadow_preserve_candidate_continuity",
+      "reason": "candidate follows locally allowed branch continuity",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-e63cb6322781150b",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:16",
+      "candidateArmIds": [
+        "arm-12e8d0e5c0c73df6",
+        "arm-dc6edc524b9a10e5"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-12e8d0e5c0c73df6",
+          "arm-dc6edc524b9a10e5"
+        ]
+      ],
+      "shadowAction": "shadow_preserve_candidate_continuity",
+      "reason": "candidate follows locally allowed branch continuity",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-f8c83217469e7fd5",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:16",
+      "candidateArmIds": [
+        "arm-67ee004cbd9ed931"
+      ],
+      "candidateBranchPairs": [],
+      "shadowAction": "shadow_record_local_junction",
+      "reason": "local junction is representable but decomposition is deferred",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-33f4bdd5be1ef369",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:17",
+      "candidateArmIds": [
+        "arm-1a7080ae7dd73053"
+      ],
+      "candidateBranchPairs": [],
+      "shadowAction": "review_only",
+      "reason": "intersection evidence is ambiguous",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-b356a9baf9416682",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:17",
+      "candidateArmIds": [
+        "arm-cd612124c1a35084"
+      ],
+      "candidateBranchPairs": [],
+      "shadowAction": "review_only",
+      "reason": "intersection evidence is ambiguous",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-b893bf08440a2069",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:17",
+      "candidateArmIds": [
+        "arm-130db8ed93969a0e",
+        "arm-2c4250a7ca11ebf6"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-130db8ed93969a0e",
+          "arm-2c4250a7ca11ebf6"
+        ]
+      ],
+      "shadowAction": "review_only",
+      "reason": "intersection evidence is ambiguous",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-ebb2dfb1752f0c6e",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:17",
+      "candidateArmIds": [
+        "arm-5f9a536cae237a12",
+        "arm-b90e3173abc55af0"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-5f9a536cae237a12",
+          "arm-b90e3173abc55af0"
+        ]
+      ],
+      "shadowAction": "shadow_preserve_candidate_continuity",
+      "reason": "candidate follows locally allowed branch continuity",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-33f4bdd5be1ef369",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:18",
+      "candidateArmIds": [
+        "arm-1a7080ae7dd73053"
+      ],
+      "candidateBranchPairs": [],
+      "shadowAction": "review_only",
+      "reason": "intersection evidence is ambiguous",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-b356a9baf9416682",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:18",
+      "candidateArmIds": [
+        "arm-cd612124c1a35084"
+      ],
+      "candidateBranchPairs": [],
+      "shadowAction": "review_only",
+      "reason": "intersection evidence is ambiguous",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-b893bf08440a2069",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:18",
+      "candidateArmIds": [
+        "arm-130db8ed93969a0e",
+        "arm-2c4250a7ca11ebf6"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-130db8ed93969a0e",
+          "arm-2c4250a7ca11ebf6"
+        ]
+      ],
+      "shadowAction": "review_only",
+      "reason": "intersection evidence is ambiguous",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-ebb2dfb1752f0c6e",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:18",
+      "candidateArmIds": [
+        "arm-5f9a536cae237a12",
+        "arm-b90e3173abc55af0"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-5f9a536cae237a12",
+          "arm-b90e3173abc55af0"
+        ]
+      ],
+      "shadowAction": "shadow_preserve_candidate_continuity",
+      "reason": "candidate follows locally allowed branch continuity",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-9e49af2612937ce6",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:19",
+      "candidateArmIds": [
+        "arm-22f914517ae18b4c"
+      ],
+      "candidateBranchPairs": [],
+      "shadowAction": "shadow_record_local_junction",
+      "reason": "local junction is representable but decomposition is deferred",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-a28822c1b27fbc52",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:19",
+      "candidateArmIds": [
+        "arm-8bf4e9cda788aab0",
+        "arm-c5882dd2a7d88c7e"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-8bf4e9cda788aab0",
+          "arm-c5882dd2a7d88c7e"
+        ]
+      ],
+      "shadowAction": "shadow_preserve_candidate_continuity",
+      "reason": "candidate follows locally allowed branch continuity",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-07800323b516b51d",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:2",
+      "candidateArmIds": [
+        "arm-b24238bc9ad462e8"
+      ],
+      "candidateBranchPairs": [],
+      "shadowAction": "review_only",
+      "reason": "intersection evidence is ambiguous",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-1a8251076e1a64eb",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:2",
+      "candidateArmIds": [
+        "arm-e86609770b80ab29",
+        "arm-ea1315c5092a84d2"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-e86609770b80ab29",
+          "arm-ea1315c5092a84d2"
+        ]
+      ],
+      "shadowAction": "shadow_preserve_candidate_continuity",
+      "reason": "candidate follows locally allowed branch continuity",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-304d23c6b21ef8a8",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:2",
+      "candidateArmIds": [
+        "arm-291f4cefa050eddf"
+      ],
+      "candidateBranchPairs": [],
+      "shadowAction": "review_only",
+      "reason": "intersection evidence is ambiguous",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-3b2fce99819934fc",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:2",
+      "candidateArmIds": [
+        "arm-09d53bfd724ede74",
+        "arm-e0f3f3cbcdfb1aaf"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-09d53bfd724ede74",
+          "arm-e0f3f3cbcdfb1aaf"
+        ]
+      ],
+      "shadowAction": "shadow_preserve_candidate_continuity",
+      "reason": "candidate follows locally allowed branch continuity",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-ebb2dfb1752f0c6e",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:2",
+      "candidateArmIds": [
+        "arm-cbc2201c116fd639",
+        "arm-f5e103378c990b0d"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-cbc2201c116fd639",
+          "arm-f5e103378c990b0d"
+        ]
+      ],
+      "shadowAction": "shadow_preserve_candidate_continuity",
+      "reason": "candidate follows locally allowed branch continuity",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-9e49af2612937ce6",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:20",
+      "candidateArmIds": [
+        "arm-22f914517ae18b4c"
+      ],
+      "candidateBranchPairs": [],
+      "shadowAction": "shadow_record_local_junction",
+      "reason": "local junction is representable but decomposition is deferred",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-a28822c1b27fbc52",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:20",
+      "candidateArmIds": [
+        "arm-8bf4e9cda788aab0",
+        "arm-c5882dd2a7d88c7e"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-8bf4e9cda788aab0",
+          "arm-c5882dd2a7d88c7e"
+        ]
+      ],
+      "shadowAction": "shadow_preserve_candidate_continuity",
+      "reason": "candidate follows locally allowed branch continuity",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-6c7d33e790e4547f",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:21",
+      "candidateArmIds": [
+        "arm-139e4a4905c32505",
+        "arm-a61f2cc6f301bcbe"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-139e4a4905c32505",
+          "arm-a61f2cc6f301bcbe"
+        ]
+      ],
+      "shadowAction": "review_only",
+      "reason": "intersection evidence is ambiguous",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-8bdf805a894c32e7",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:21",
+      "candidateArmIds": [
+        "arm-4a5a84dde0f44d0d"
+      ],
+      "candidateBranchPairs": [],
+      "shadowAction": "review_only",
+      "reason": "intersection evidence is ambiguous",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-c7a74d176c165959",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:21",
+      "candidateArmIds": [
+        "arm-9ab750b537cb2790"
+      ],
+      "candidateBranchPairs": [],
+      "shadowAction": "shadow_record_local_junction",
+      "reason": "local junction is representable but decomposition is deferred",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-d10eb0436c1209cf",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:21",
+      "candidateArmIds": [
+        "arm-a2c51da7c1493757",
+        "arm-a7c241e52ff30a3e"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-a2c51da7c1493757",
+          "arm-a7c241e52ff30a3e"
+        ]
+      ],
+      "shadowAction": "shadow_preserve_candidate_continuity",
+      "reason": "candidate follows locally allowed branch continuity",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-e63cb6322781150b",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:21",
+      "candidateArmIds": [
+        "arm-a2c51da7c1493757",
+        "arm-a7c241e52ff30a3e"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-a2c51da7c1493757",
+          "arm-a7c241e52ff30a3e"
+        ]
+      ],
+      "shadowAction": "shadow_preserve_candidate_continuity",
+      "reason": "candidate follows locally allowed branch continuity",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-6c7d33e790e4547f",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:22",
+      "candidateArmIds": [
+        "arm-139e4a4905c32505",
+        "arm-a61f2cc6f301bcbe"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-139e4a4905c32505",
+          "arm-a61f2cc6f301bcbe"
+        ]
+      ],
+      "shadowAction": "review_only",
+      "reason": "intersection evidence is ambiguous",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-8bdf805a894c32e7",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:22",
+      "candidateArmIds": [
+        "arm-4a5a84dde0f44d0d"
+      ],
+      "candidateBranchPairs": [],
+      "shadowAction": "review_only",
+      "reason": "intersection evidence is ambiguous",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-c7a74d176c165959",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:22",
+      "candidateArmIds": [
+        "arm-9ab750b537cb2790"
+      ],
+      "candidateBranchPairs": [],
+      "shadowAction": "shadow_record_local_junction",
+      "reason": "local junction is representable but decomposition is deferred",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-d10eb0436c1209cf",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:22",
+      "candidateArmIds": [
+        "arm-a2c51da7c1493757",
+        "arm-a7c241e52ff30a3e"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-a2c51da7c1493757",
+          "arm-a7c241e52ff30a3e"
+        ]
+      ],
+      "shadowAction": "shadow_preserve_candidate_continuity",
+      "reason": "candidate follows locally allowed branch continuity",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-e63cb6322781150b",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:22",
+      "candidateArmIds": [
+        "arm-a2c51da7c1493757",
+        "arm-a7c241e52ff30a3e"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-a2c51da7c1493757",
+          "arm-a7c241e52ff30a3e"
+        ]
+      ],
+      "shadowAction": "shadow_preserve_candidate_continuity",
+      "reason": "candidate follows locally allowed branch continuity",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-b356a9baf9416682",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:23",
+      "candidateArmIds": [
+        "arm-f8701066a7ed2c00"
+      ],
+      "candidateBranchPairs": [],
+      "shadowAction": "review_only",
+      "reason": "intersection evidence is ambiguous",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-b893bf08440a2069",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:23",
+      "candidateArmIds": [
+        "arm-59108b106b5352dd"
+      ],
+      "candidateBranchPairs": [],
+      "shadowAction": "review_only",
+      "reason": "intersection evidence is ambiguous",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-ebb2dfb1752f0c6e",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:23",
+      "candidateArmIds": [
+        "arm-433812328fd583e4",
+        "arm-55c18d638a303d12"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-433812328fd583e4",
+          "arm-55c18d638a303d12"
+        ]
+      ],
+      "shadowAction": "shadow_preserve_candidate_continuity",
+      "reason": "candidate follows locally allowed branch continuity",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-8bdf805a894c32e7",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:25",
+      "candidateArmIds": [
+        "arm-70e120b96576d407"
+      ],
+      "candidateBranchPairs": [],
+      "shadowAction": "review_only",
+      "reason": "intersection evidence is ambiguous",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-c15be88b6654b429",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:25",
+      "candidateArmIds": [
+        "arm-2a2e6461953f3798",
+        "arm-ef94e3dcc9b6ec8b"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-2a2e6461953f3798",
+          "arm-ef94e3dcc9b6ec8b"
+        ]
+      ],
+      "shadowAction": "shadow_preserve_candidate_continuity",
+      "reason": "candidate follows locally allowed branch continuity",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-b356a9baf9416682",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:26",
+      "candidateArmIds": [
+        "arm-f8701066a7ed2c00"
+      ],
+      "candidateBranchPairs": [],
+      "shadowAction": "review_only",
+      "reason": "intersection evidence is ambiguous",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-b893bf08440a2069",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:26",
+      "candidateArmIds": [
+        "arm-59108b106b5352dd"
+      ],
+      "candidateBranchPairs": [],
+      "shadowAction": "review_only",
+      "reason": "intersection evidence is ambiguous",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-ebb2dfb1752f0c6e",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:26",
+      "candidateArmIds": [
+        "arm-433812328fd583e4",
+        "arm-55c18d638a303d12"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-433812328fd583e4",
+          "arm-55c18d638a303d12"
+        ]
+      ],
+      "shadowAction": "shadow_preserve_candidate_continuity",
+      "reason": "candidate follows locally allowed branch continuity",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-8bdf805a894c32e7",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:27",
+      "candidateArmIds": [
+        "arm-70e120b96576d407"
+      ],
+      "candidateBranchPairs": [],
+      "shadowAction": "review_only",
+      "reason": "intersection evidence is ambiguous",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-c15be88b6654b429",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:27",
+      "candidateArmIds": [
+        "arm-2a2e6461953f3798",
+        "arm-ef94e3dcc9b6ec8b"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-2a2e6461953f3798",
+          "arm-ef94e3dcc9b6ec8b"
+        ]
+      ],
+      "shadowAction": "shadow_preserve_candidate_continuity",
+      "reason": "candidate follows locally allowed branch continuity",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-07800323b516b51d",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:31",
+      "candidateArmIds": [
+        "arm-56ecc6c171a8cd91"
+      ],
+      "candidateBranchPairs": [],
+      "shadowAction": "review_only",
+      "reason": "intersection evidence is ambiguous",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-1a8251076e1a64eb",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:31",
+      "candidateArmIds": [
+        "arm-168a572d73d21ed9",
+        "arm-62efbc4b19ab4a17"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-168a572d73d21ed9",
+          "arm-62efbc4b19ab4a17"
+        ]
+      ],
+      "shadowAction": "shadow_preserve_candidate_continuity",
+      "reason": "candidate follows locally allowed branch continuity",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-304d23c6b21ef8a8",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:31",
+      "candidateArmIds": [
+        "arm-580573f284f00a31"
+      ],
+      "candidateBranchPairs": [],
+      "shadowAction": "review_only",
+      "reason": "intersection evidence is ambiguous",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-3b2fce99819934fc",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:31",
+      "candidateArmIds": [
+        "arm-32e6c70e72e13ae8",
+        "arm-e17d445f6e41adca"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-32e6c70e72e13ae8",
+          "arm-e17d445f6e41adca"
+        ]
+      ],
+      "shadowAction": "shadow_preserve_candidate_continuity",
+      "reason": "candidate follows locally allowed branch continuity",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-ebb2dfb1752f0c6e",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:31",
+      "candidateArmIds": [
+        "arm-a497d08b0e63ef6b",
+        "arm-f1d8095f29f690cd"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-a497d08b0e63ef6b",
+          "arm-f1d8095f29f690cd"
+        ]
+      ],
+      "shadowAction": "shadow_preserve_candidate_continuity",
+      "reason": "candidate follows locally allowed branch continuity",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-2c342931fc2a28b6",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:41",
+      "candidateArmIds": [
+        "arm-4d81137150cc91dc"
+      ],
+      "candidateBranchPairs": [],
+      "shadowAction": "shadow_record_local_junction",
+      "reason": "local junction is representable but decomposition is deferred",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-33f4bdd5be1ef369",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:6",
+      "candidateArmIds": [
+        "arm-793ba0f3506e527c",
+        "arm-bde4d3d5a69e001e"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-793ba0f3506e527c",
+          "arm-bde4d3d5a69e001e"
+        ]
+      ],
+      "shadowAction": "review_only",
+      "reason": "intersection evidence is ambiguous",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-3b2fce99819934fc",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:6",
+      "candidateArmIds": [
+        "arm-3487853841842f03",
+        "arm-7c85c7b4592d5dc1"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-3487853841842f03",
+          "arm-7c85c7b4592d5dc1"
+        ]
+      ],
+      "shadowAction": "shadow_preserve_candidate_continuity",
+      "reason": "candidate follows locally allowed branch continuity",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-ad8bd6d385f30623",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:6",
+      "candidateArmIds": [
+        "arm-8744639a4eaa59c2"
+      ],
+      "candidateBranchPairs": [],
+      "shadowAction": "review_only",
+      "reason": "intersection evidence is ambiguous",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-b893bf08440a2069",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:6",
+      "candidateArmIds": [
+        "arm-4f1f160acb485304",
+        "arm-785241b1dcb2a871"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-4f1f160acb485304",
+          "arm-785241b1dcb2a871"
+        ]
+      ],
+      "shadowAction": "review_only",
+      "reason": "intersection evidence is ambiguous",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-c7d20d7c92d7f926",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:6",
+      "candidateArmIds": [
+        "arm-be6faba22324443a",
+        "arm-de9aab80abd2647d"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-be6faba22324443a",
+          "arm-de9aab80abd2647d"
+        ]
+      ],
+      "shadowAction": "review_only",
+      "reason": "intersection evidence is ambiguous",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-f8c83217469e7fd5",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:6",
+      "candidateArmIds": [
+        "arm-02071fd559bee512",
+        "arm-fcb857c6707cdef4"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-02071fd559bee512",
+          "arm-fcb857c6707cdef4"
+        ]
+      ],
+      "shadowAction": "shadow_preserve_candidate_continuity",
+      "reason": "candidate follows locally allowed branch continuity",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-6c7d33e790e4547f",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:7",
+      "candidateArmIds": [
+        "arm-9f7cdc82b46d28ff",
+        "arm-b399f86274110412"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-9f7cdc82b46d28ff",
+          "arm-b399f86274110412"
+        ]
+      ],
+      "shadowAction": "review_only",
+      "reason": "intersection evidence is ambiguous",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-ad8bd6d385f30623",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:7",
+      "candidateArmIds": [
+        "arm-1b274f87f946c0bb",
+        "arm-2a6401632878ee62"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-1b274f87f946c0bb",
+          "arm-2a6401632878ee62"
+        ]
+      ],
+      "shadowAction": "review_only",
+      "reason": "intersection evidence is ambiguous",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-c15be88b6654b429",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:7",
+      "candidateArmIds": [
+        "arm-76a7feafec87694f",
+        "arm-c608e92671a5ba9f"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-76a7feafec87694f",
+          "arm-c608e92671a5ba9f"
+        ]
+      ],
+      "shadowAction": "shadow_preserve_candidate_continuity",
+      "reason": "candidate follows locally allowed branch continuity",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-c7a74d176c165959",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:7",
+      "candidateArmIds": [
+        "arm-ae9b313359cdb869",
+        "arm-b6f6d55d5f39aa7e"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-ae9b313359cdb869",
+          "arm-b6f6d55d5f39aa7e"
+        ]
+      ],
+      "shadowAction": "shadow_preserve_candidate_continuity",
+      "reason": "candidate follows locally allowed branch continuity",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-c7d20d7c92d7f926",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:7",
+      "candidateArmIds": [
+        "arm-0ac7125caff985d5"
+      ],
+      "candidateBranchPairs": [],
+      "shadowAction": "review_only",
+      "reason": "intersection evidence is ambiguous",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-d10eb0436c1209cf",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:7",
+      "candidateArmIds": [
+        "arm-76a7feafec87694f",
+        "arm-c608e92671a5ba9f"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-76a7feafec87694f",
+          "arm-c608e92671a5ba9f"
+        ]
+      ],
+      "shadowAction": "shadow_preserve_candidate_continuity",
+      "reason": "candidate follows locally allowed branch continuity",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-e63cb6322781150b",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:7",
+      "candidateArmIds": [
+        "arm-25bc093622e004a3",
+        "arm-a8473d8cc1cffc08"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-25bc093622e004a3",
+          "arm-a8473d8cc1cffc08"
+        ]
+      ],
+      "shadowAction": "shadow_preserve_candidate_continuity",
+      "reason": "candidate follows locally allowed branch continuity",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-33f4bdd5be1ef369",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:8",
+      "candidateArmIds": [
+        "arm-793ba0f3506e527c",
+        "arm-bde4d3d5a69e001e"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-793ba0f3506e527c",
+          "arm-bde4d3d5a69e001e"
+        ]
+      ],
+      "shadowAction": "review_only",
+      "reason": "intersection evidence is ambiguous",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-3b2fce99819934fc",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:8",
+      "candidateArmIds": [
+        "arm-3487853841842f03",
+        "arm-7c85c7b4592d5dc1"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-3487853841842f03",
+          "arm-7c85c7b4592d5dc1"
+        ]
+      ],
+      "shadowAction": "shadow_preserve_candidate_continuity",
+      "reason": "candidate follows locally allowed branch continuity",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-ad8bd6d385f30623",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:8",
+      "candidateArmIds": [
+        "arm-8744639a4eaa59c2"
+      ],
+      "candidateBranchPairs": [],
+      "shadowAction": "review_only",
+      "reason": "intersection evidence is ambiguous",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-b893bf08440a2069",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:8",
+      "candidateArmIds": [
+        "arm-4f1f160acb485304",
+        "arm-785241b1dcb2a871"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-4f1f160acb485304",
+          "arm-785241b1dcb2a871"
+        ]
+      ],
+      "shadowAction": "review_only",
+      "reason": "intersection evidence is ambiguous",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-c7d20d7c92d7f926",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:8",
+      "candidateArmIds": [
+        "arm-be6faba22324443a",
+        "arm-de9aab80abd2647d"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-be6faba22324443a",
+          "arm-de9aab80abd2647d"
+        ]
+      ],
+      "shadowAction": "review_only",
+      "reason": "intersection evidence is ambiguous",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-f8c83217469e7fd5",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:8",
+      "candidateArmIds": [
+        "arm-02071fd559bee512",
+        "arm-fcb857c6707cdef4"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-02071fd559bee512",
+          "arm-fcb857c6707cdef4"
+        ]
+      ],
+      "shadowAction": "shadow_preserve_candidate_continuity",
+      "reason": "candidate follows locally allowed branch continuity",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-33f4bdd5be1ef369",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:9",
+      "candidateArmIds": [
+        "arm-793ba0f3506e527c",
+        "arm-bde4d3d5a69e001e"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-793ba0f3506e527c",
+          "arm-bde4d3d5a69e001e"
+        ]
+      ],
+      "shadowAction": "review_only",
+      "reason": "intersection evidence is ambiguous",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-3b2fce99819934fc",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:9",
+      "candidateArmIds": [
+        "arm-3487853841842f03",
+        "arm-7c85c7b4592d5dc1"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-3487853841842f03",
+          "arm-7c85c7b4592d5dc1"
+        ]
+      ],
+      "shadowAction": "shadow_preserve_candidate_continuity",
+      "reason": "candidate follows locally allowed branch continuity",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-ad8bd6d385f30623",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:9",
+      "candidateArmIds": [
+        "arm-8744639a4eaa59c2"
+      ],
+      "candidateBranchPairs": [],
+      "shadowAction": "review_only",
+      "reason": "intersection evidence is ambiguous",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-b893bf08440a2069",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:9",
+      "candidateArmIds": [
+        "arm-4f1f160acb485304",
+        "arm-785241b1dcb2a871"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-4f1f160acb485304",
+          "arm-785241b1dcb2a871"
+        ]
+      ],
+      "shadowAction": "review_only",
+      "reason": "intersection evidence is ambiguous",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-c7d20d7c92d7f926",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:9",
+      "candidateArmIds": [
+        "arm-be6faba22324443a",
+        "arm-de9aab80abd2647d"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-be6faba22324443a",
+          "arm-de9aab80abd2647d"
+        ]
+      ],
+      "shadowAction": "review_only",
+      "reason": "intersection evidence is ambiguous",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-f8c83217469e7fd5",
+      "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:9",
+      "candidateArmIds": [
+        "arm-02071fd559bee512",
+        "arm-fcb857c6707cdef4"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-02071fd559bee512",
+          "arm-fcb857c6707cdef4"
+        ]
+      ],
+      "shadowAction": "shadow_preserve_candidate_continuity",
+      "reason": "candidate follows locally allowed branch continuity",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-4dde3be32d76de6f",
+      "candidateRecordId": "isolated_ground_truth:azure-ai-foundry:predicted:1",
+      "candidateArmIds": [
+        "arm-440087953f0a9b72",
+        "arm-f85d2ceaa28f5cf7"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-440087953f0a9b72",
+          "arm-f85d2ceaa28f5cf7"
+        ]
+      ],
+      "shadowAction": "shadow_preserve_candidate_continuity",
+      "reason": "candidate follows locally allowed branch continuity",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-4dde3be32d76de6f",
+      "candidateRecordId": "isolated_ground_truth:azure-ai-foundry:predicted:4",
+      "candidateArmIds": [
+        "arm-156e5414090e0278",
+        "arm-2b286b4cc8cbbe70"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-156e5414090e0278",
+          "arm-2b286b4cc8cbbe70"
+        ]
+      ],
+      "shadowAction": "shadow_preserve_candidate_continuity",
+      "reason": "candidate follows locally allowed branch continuity",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-0b21f3ad6101cdcd",
+      "candidateRecordId": "isolated_ground_truth:azure-ai-foundry:predicted:6",
+      "candidateArmIds": [
+        "arm-e400659ab1d3cf07",
+        "arm-ea9c5cb0690d29b1"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-e400659ab1d3cf07",
+          "arm-ea9c5cb0690d29b1"
+        ]
+      ],
+      "shadowAction": "shadow_preserve_candidate_continuity",
+      "reason": "candidate follows locally allowed branch continuity",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-10d1066762cb7afe",
+      "candidateRecordId": "isolated_ground_truth:azure-ai-foundry:predicted:6",
+      "candidateArmIds": [
+        "arm-4965f5500e31f30a",
+        "arm-4ab0cf598b2b0b7c"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-4965f5500e31f30a",
+          "arm-4ab0cf598b2b0b7c"
+        ]
+      ],
+      "shadowAction": "shadow_preserve_candidate_continuity",
+      "reason": "candidate follows locally allowed branch continuity",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-4538d310075d05c3",
+      "candidateRecordId": "isolated_ground_truth:azure-ai-foundry:predicted:6",
+      "candidateArmIds": [
+        "arm-0895e888288fc0fb",
+        "arm-9dcfcfe8eca9b3bc"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-0895e888288fc0fb",
+          "arm-9dcfcfe8eca9b3bc"
+        ]
+      ],
+      "shadowAction": "shadow_preserve_candidate_continuity",
+      "reason": "candidate follows locally allowed branch continuity",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-93a04265b4daafa0",
+      "candidateRecordId": "isolated_ground_truth:azure-ai-foundry:predicted:6",
+      "candidateArmIds": [
+        "arm-00082dfbc69be7d9",
+        "arm-a2813feba49323b5"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-00082dfbc69be7d9",
+          "arm-a2813feba49323b5"
+        ]
+      ],
+      "shadowAction": "shadow_preserve_candidate_continuity",
+      "reason": "candidate follows locally allowed branch continuity",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-b364ad0b56990326",
+      "candidateRecordId": "isolated_ground_truth:azure-ai-foundry:predicted:6",
+      "candidateArmIds": [
+        "arm-cc5c48ba7c1314bd",
+        "arm-f35d0039209e533a"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-cc5c48ba7c1314bd",
+          "arm-f35d0039209e533a"
+        ]
+      ],
+      "shadowAction": "shadow_preserve_candidate_continuity",
+      "reason": "candidate follows locally allowed branch continuity",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-d405731010d825ce",
+      "candidateRecordId": "isolated_ground_truth:azure-ai-foundry:predicted:6",
+      "candidateArmIds": [
+        "arm-817db87012092d09",
+        "arm-a894e6ef8e281401"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-817db87012092d09",
+          "arm-a894e6ef8e281401"
+        ]
+      ],
+      "shadowAction": "shadow_preserve_candidate_continuity",
+      "reason": "candidate follows locally allowed branch continuity",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-c3e1a5551231b8fd",
+      "candidateRecordId": "isolated_ground_truth:azure-hub-spoke:predicted:1",
+      "candidateArmIds": [
+        "arm-79ccf63c4640a5af"
+      ],
+      "candidateBranchPairs": [],
+      "shadowAction": "shadow_record_local_junction",
+      "reason": "local junction is representable but decomposition is deferred",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-c3e1a5551231b8fd",
+      "candidateRecordId": "isolated_ground_truth:azure-hub-spoke:predicted:3",
+      "candidateArmIds": [
+        "arm-39944625dded6cdc",
+        "arm-db4d5740bfa48572"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-39944625dded6cdc",
+          "arm-db4d5740bfa48572"
+        ]
+      ],
+      "shadowAction": "shadow_preserve_candidate_continuity",
+      "reason": "candidate follows locally allowed branch continuity",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-249cbff3791cc55d",
+      "candidateRecordId": "isolated_ground_truth:azure-private-ai-platform:predicted:10",
+      "candidateArmIds": [
+        "arm-4e39e7b387606b0a",
+        "arm-b70d7d5e12054767"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-4e39e7b387606b0a",
+          "arm-b70d7d5e12054767"
+        ]
+      ],
+      "shadowAction": "review_only",
+      "reason": "intersection evidence is ambiguous",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-50cbb23f28225ceb",
+      "candidateRecordId": "isolated_ground_truth:azure-private-ai-platform:predicted:10",
+      "candidateArmIds": [
+        "arm-0c7d9eda6aeeffd4",
+        "arm-ee442e6c88964359"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-0c7d9eda6aeeffd4",
+          "arm-ee442e6c88964359"
+        ]
+      ],
+      "shadowAction": "shadow_preserve_candidate_continuity",
+      "reason": "candidate follows locally allowed branch continuity",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-a17f6cfccb06c79e",
+      "candidateRecordId": "isolated_ground_truth:azure-private-ai-platform:predicted:10",
+      "candidateArmIds": [
+        "arm-94d563267ae85c91",
+        "arm-bfb689fd2498c100",
+        "arm-d1c4fcae5603252c",
+        "arm-e52a6f5c9a36bcbf"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-94d563267ae85c91",
+          "arm-bfb689fd2498c100"
+        ],
+        [
+          "arm-94d563267ae85c91",
+          "arm-d1c4fcae5603252c"
+        ],
+        [
+          "arm-94d563267ae85c91",
+          "arm-e52a6f5c9a36bcbf"
+        ],
+        [
+          "arm-bfb689fd2498c100",
+          "arm-d1c4fcae5603252c"
+        ],
+        [
+          "arm-bfb689fd2498c100",
+          "arm-e52a6f5c9a36bcbf"
+        ],
+        [
+          "arm-d1c4fcae5603252c",
+          "arm-e52a6f5c9a36bcbf"
+        ]
+      ],
+      "shadowAction": "review_only",
+      "reason": "intersection evidence is ambiguous",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-c882d386821a4401",
+      "candidateRecordId": "isolated_ground_truth:azure-private-ai-platform:predicted:10",
+      "candidateArmIds": [
+        "arm-10a17a712609f35a",
+        "arm-4eedd340cf660bdd"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-10a17a712609f35a",
+          "arm-4eedd340cf660bdd"
+        ]
+      ],
+      "shadowAction": "shadow_preserve_candidate_continuity",
+      "reason": "candidate follows locally allowed branch continuity",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-249cbff3791cc55d",
+      "candidateRecordId": "isolated_ground_truth:azure-private-ai-platform:predicted:11",
+      "candidateArmIds": [
+        "arm-4e39e7b387606b0a",
+        "arm-b70d7d5e12054767"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-4e39e7b387606b0a",
+          "arm-b70d7d5e12054767"
+        ]
+      ],
+      "shadowAction": "review_only",
+      "reason": "intersection evidence is ambiguous",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-50cbb23f28225ceb",
+      "candidateRecordId": "isolated_ground_truth:azure-private-ai-platform:predicted:11",
+      "candidateArmIds": [
+        "arm-0c7d9eda6aeeffd4",
+        "arm-ee442e6c88964359"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-0c7d9eda6aeeffd4",
+          "arm-ee442e6c88964359"
+        ]
+      ],
+      "shadowAction": "shadow_preserve_candidate_continuity",
+      "reason": "candidate follows locally allowed branch continuity",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-a17f6cfccb06c79e",
+      "candidateRecordId": "isolated_ground_truth:azure-private-ai-platform:predicted:11",
+      "candidateArmIds": [
+        "arm-94d563267ae85c91",
+        "arm-bfb689fd2498c100",
+        "arm-d1c4fcae5603252c",
+        "arm-e52a6f5c9a36bcbf"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-94d563267ae85c91",
+          "arm-bfb689fd2498c100"
+        ],
+        [
+          "arm-94d563267ae85c91",
+          "arm-d1c4fcae5603252c"
+        ],
+        [
+          "arm-94d563267ae85c91",
+          "arm-e52a6f5c9a36bcbf"
+        ],
+        [
+          "arm-bfb689fd2498c100",
+          "arm-d1c4fcae5603252c"
+        ],
+        [
+          "arm-bfb689fd2498c100",
+          "arm-e52a6f5c9a36bcbf"
+        ],
+        [
+          "arm-d1c4fcae5603252c",
+          "arm-e52a6f5c9a36bcbf"
+        ]
+      ],
+      "shadowAction": "review_only",
+      "reason": "intersection evidence is ambiguous",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-c882d386821a4401",
+      "candidateRecordId": "isolated_ground_truth:azure-private-ai-platform:predicted:11",
+      "candidateArmIds": [
+        "arm-10a17a712609f35a",
+        "arm-4eedd340cf660bdd"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-10a17a712609f35a",
+          "arm-4eedd340cf660bdd"
+        ]
+      ],
+      "shadowAction": "shadow_preserve_candidate_continuity",
+      "reason": "candidate follows locally allowed branch continuity",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-31b2288716ed44bd",
+      "candidateRecordId": "isolated_ground_truth:azure-private-ai-platform:predicted:13",
+      "candidateArmIds": [
+        "arm-294046f342712fe0",
+        "arm-f8765683103331b3"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-294046f342712fe0",
+          "arm-f8765683103331b3"
+        ]
+      ],
+      "shadowAction": "shadow_preserve_candidate_continuity",
+      "reason": "candidate follows locally allowed branch continuity",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-497198e49a125aa0",
+      "candidateRecordId": "isolated_ground_truth:azure-private-ai-platform:predicted:13",
+      "candidateArmIds": [
+        "arm-255f597c780c2375",
+        "arm-29bcf6ac5a2dda74"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-255f597c780c2375",
+          "arm-29bcf6ac5a2dda74"
+        ]
+      ],
+      "shadowAction": "shadow_preserve_candidate_continuity",
+      "reason": "candidate follows locally allowed branch continuity",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-b830491df18a70b3",
+      "candidateRecordId": "isolated_ground_truth:azure-private-ai-platform:predicted:13",
+      "candidateArmIds": [
+        "arm-d247101d20acccbe",
+        "arm-e7f13e53abb8a883"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-d247101d20acccbe",
+          "arm-e7f13e53abb8a883"
+        ]
+      ],
+      "shadowAction": "shadow_preserve_candidate_continuity",
+      "reason": "candidate follows locally allowed branch continuity",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-c0b57212e1e97542",
+      "candidateRecordId": "isolated_ground_truth:azure-private-ai-platform:predicted:13",
+      "candidateArmIds": [
+        "arm-25ef0c17f7a9a8f8",
+        "arm-eee5eab1bf25eb0c"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-25ef0c17f7a9a8f8",
+          "arm-eee5eab1bf25eb0c"
+        ]
+      ],
+      "shadowAction": "shadow_preserve_candidate_continuity",
+      "reason": "candidate follows locally allowed branch continuity",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-a32b1274d8d6064a",
+      "candidateRecordId": "isolated_ground_truth:azure-private-ai-platform:predicted:14",
+      "candidateArmIds": [
+        "arm-0c686e6e34284611",
+        "arm-668f32a28f480cd9"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-0c686e6e34284611",
+          "arm-668f32a28f480cd9"
+        ]
+      ],
+      "shadowAction": "shadow_preserve_candidate_continuity",
+      "reason": "candidate follows locally allowed branch continuity",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-59bfe200aff4b6df",
+      "candidateRecordId": "isolated_ground_truth:azure-private-ai-platform:predicted:2",
+      "candidateArmIds": [
+        "arm-600bd4f2731cb68a",
+        "arm-b62ee5366c9ac8be"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-600bd4f2731cb68a",
+          "arm-b62ee5366c9ac8be"
+        ]
+      ],
+      "shadowAction": "shadow_preserve_candidate_continuity",
+      "reason": "candidate follows locally allowed branch continuity",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-a32b1274d8d6064a",
+      "candidateRecordId": "isolated_ground_truth:azure-private-ai-platform:predicted:2",
+      "candidateArmIds": [
+        "arm-600bd4f2731cb68a",
+        "arm-b62ee5366c9ac8be"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-600bd4f2731cb68a",
+          "arm-b62ee5366c9ac8be"
+        ]
+      ],
+      "shadowAction": "shadow_preserve_candidate_continuity",
+      "reason": "candidate follows locally allowed branch continuity",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-c0b57212e1e97542",
+      "candidateRecordId": "isolated_ground_truth:azure-private-ai-platform:predicted:2",
+      "candidateArmIds": [
+        "arm-600bd4f2731cb68a",
+        "arm-b62ee5366c9ac8be"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-600bd4f2731cb68a",
+          "arm-b62ee5366c9ac8be"
+        ]
+      ],
+      "shadowAction": "shadow_preserve_candidate_continuity",
+      "reason": "candidate follows locally allowed branch continuity",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-249cbff3791cc55d",
+      "candidateRecordId": "isolated_ground_truth:azure-private-ai-platform:predicted:20",
+      "candidateArmIds": [
+        "arm-4e39e7b387606b0a",
+        "arm-b70d7d5e12054767"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-4e39e7b387606b0a",
+          "arm-b70d7d5e12054767"
+        ]
+      ],
+      "shadowAction": "review_only",
+      "reason": "intersection evidence is ambiguous",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-27e10b8602d1736d",
+      "candidateRecordId": "isolated_ground_truth:azure-private-ai-platform:predicted:20",
+      "candidateArmIds": [
+        "arm-0758ceada100cb9b",
+        "arm-e294b05ceb9c8192"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-0758ceada100cb9b",
+          "arm-e294b05ceb9c8192"
+        ]
+      ],
+      "shadowAction": "shadow_preserve_candidate_continuity",
+      "reason": "candidate follows locally allowed branch continuity",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-a17f6cfccb06c79e",
+      "candidateRecordId": "isolated_ground_truth:azure-private-ai-platform:predicted:20",
+      "candidateArmIds": [
+        "arm-94d563267ae85c91",
+        "arm-ab8693ee13bd0362",
+        "arm-bfb689fd2498c100",
+        "arm-e52a6f5c9a36bcbf"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-94d563267ae85c91",
+          "arm-ab8693ee13bd0362"
+        ],
+        [
+          "arm-94d563267ae85c91",
+          "arm-bfb689fd2498c100"
+        ],
+        [
+          "arm-94d563267ae85c91",
+          "arm-e52a6f5c9a36bcbf"
+        ],
+        [
+          "arm-ab8693ee13bd0362",
+          "arm-bfb689fd2498c100"
+        ],
+        [
+          "arm-ab8693ee13bd0362",
+          "arm-e52a6f5c9a36bcbf"
+        ],
+        [
+          "arm-bfb689fd2498c100",
+          "arm-e52a6f5c9a36bcbf"
+        ]
+      ],
+      "shadowAction": "review_only",
+      "reason": "intersection evidence is ambiguous",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-c882d386821a4401",
+      "candidateRecordId": "isolated_ground_truth:azure-private-ai-platform:predicted:20",
+      "candidateArmIds": [
+        "arm-10a17a712609f35a",
+        "arm-4eedd340cf660bdd"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-10a17a712609f35a",
+          "arm-4eedd340cf660bdd"
+        ]
+      ],
+      "shadowAction": "shadow_preserve_candidate_continuity",
+      "reason": "candidate follows locally allowed branch continuity",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-fc31c47ff81b609d",
+      "candidateRecordId": "isolated_ground_truth:azure-private-ai-platform:predicted:20",
+      "candidateArmIds": [
+        "arm-5adccbab68221bd1",
+        "arm-5c88f302a272b4e4"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-5adccbab68221bd1",
+          "arm-5c88f302a272b4e4"
+        ]
+      ],
+      "shadowAction": "shadow_preserve_candidate_continuity",
+      "reason": "candidate follows locally allowed branch continuity",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-27e10b8602d1736d",
+      "candidateRecordId": "isolated_ground_truth:azure-private-ai-platform:predicted:6",
+      "candidateArmIds": [
+        "arm-8a6378f5eebcdda7",
+        "arm-e294b05ceb9c8192"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-8a6378f5eebcdda7",
+          "arm-e294b05ceb9c8192"
+        ]
+      ],
+      "shadowAction": "shadow_preserve_candidate_continuity",
+      "reason": "candidate follows locally allowed branch continuity",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-50cbb23f28225ceb",
+      "candidateRecordId": "isolated_ground_truth:azure-private-ai-platform:predicted:6",
+      "candidateArmIds": [
+        "arm-0c7d9eda6aeeffd4",
+        "arm-ee442e6c88964359"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-0c7d9eda6aeeffd4",
+          "arm-ee442e6c88964359"
+        ]
+      ],
+      "shadowAction": "shadow_preserve_candidate_continuity",
+      "reason": "candidate follows locally allowed branch continuity",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-a17f6cfccb06c79e",
+      "candidateRecordId": "isolated_ground_truth:azure-private-ai-platform:predicted:6",
+      "candidateArmIds": [
+        "arm-ab8693ee13bd0362",
+        "arm-d1c4fcae5603252c"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-ab8693ee13bd0362",
+          "arm-d1c4fcae5603252c"
+        ]
+      ],
+      "shadowAction": "review_only",
+      "reason": "intersection evidence is ambiguous",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-23fb6007f78be925",
+      "candidateRecordId": "isolated_ground_truth:azure-private-ai-platform:predicted:7",
+      "candidateArmIds": [
+        "arm-3d701880b618839f",
+        "arm-816302357a3872c0"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-3d701880b618839f",
+          "arm-816302357a3872c0"
+        ]
+      ],
+      "shadowAction": "shadow_preserve_candidate_continuity",
+      "reason": "candidate follows locally allowed branch continuity",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-497198e49a125aa0",
+      "candidateRecordId": "isolated_ground_truth:azure-private-ai-platform:predicted:7",
+      "candidateArmIds": [
+        "arm-02a46a4757e897f8"
+      ],
+      "candidateBranchPairs": [],
+      "shadowAction": "shadow_record_local_junction",
+      "reason": "local junction is representable but decomposition is deferred",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-59bfe200aff4b6df",
+      "candidateRecordId": "isolated_ground_truth:azure-private-ai-platform:predicted:7",
+      "candidateArmIds": [
+        "arm-6e4b5f53748510f1",
+        "arm-c9fb613fd47bb9d5"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-6e4b5f53748510f1",
+          "arm-c9fb613fd47bb9d5"
+        ]
+      ],
+      "shadowAction": "shadow_preserve_candidate_continuity",
+      "reason": "candidate follows locally allowed branch continuity",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-23fb6007f78be925",
+      "candidateRecordId": "isolated_ground_truth:azure-private-ai-platform:predicted:8",
+      "candidateArmIds": [
+        "arm-fd1e0ed4152f8cc4"
+      ],
+      "candidateBranchPairs": [],
+      "shadowAction": "shadow_record_local_junction",
+      "reason": "local junction is representable but decomposition is deferred",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-59bfe200aff4b6df",
+      "candidateRecordId": "isolated_ground_truth:azure-private-ai-platform:predicted:8",
+      "candidateArmIds": [
+        "arm-d1282dc8214a73ff",
+        "arm-f0c27a999f096e86"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-d1282dc8214a73ff",
+          "arm-f0c27a999f096e86"
+        ]
+      ],
+      "shadowAction": "shadow_preserve_candidate_continuity",
+      "reason": "candidate follows locally allowed branch continuity",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-38b3130546897bc1",
+      "candidateRecordId": "isolated_ground_truth:gcp-secure-cloud-run:predicted:10",
+      "candidateArmIds": [
+        "arm-7f315d4a8251a683",
+        "arm-e74038466fb1b668"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-7f315d4a8251a683",
+          "arm-e74038466fb1b668"
+        ]
+      ],
+      "shadowAction": "review_only",
+      "reason": "intersection evidence is ambiguous",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-6e0cea4bf1f9b2f8",
+      "candidateRecordId": "isolated_ground_truth:gcp-secure-cloud-run:predicted:12",
+      "candidateArmIds": [
+        "arm-1097cdb6ef0adf41",
+        "arm-e075772b8b4b1cb1"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-1097cdb6ef0adf41",
+          "arm-e075772b8b4b1cb1"
+        ]
+      ],
+      "shadowAction": "shadow_preserve_candidate_continuity",
+      "reason": "candidate follows locally allowed branch continuity",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-cb804908bc4419d6",
+      "candidateRecordId": "isolated_ground_truth:gcp-secure-cloud-run:predicted:12",
+      "candidateArmIds": [
+        "arm-97ec9c1c0e53f532"
+      ],
+      "candidateBranchPairs": [],
+      "shadowAction": "observed_only",
+      "reason": "candidate contributes one arm and does not traverse the event",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-18d1dbcafa7a46ef",
+      "candidateRecordId": "isolated_ground_truth:gcp-secure-cloud-run:predicted:2",
+      "candidateArmIds": [
+        "arm-00b01fed61fc87cd",
+        "arm-21f62564435ec67e"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-00b01fed61fc87cd",
+          "arm-21f62564435ec67e"
+        ]
+      ],
+      "shadowAction": "shadow_preserve_candidate_continuity",
+      "reason": "candidate follows locally allowed branch continuity",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-38b3130546897bc1",
+      "candidateRecordId": "isolated_ground_truth:gcp-secure-cloud-run:predicted:2",
+      "candidateArmIds": [
+        "arm-39dbc3234c0e66cb"
+      ],
+      "candidateBranchPairs": [],
+      "shadowAction": "review_only",
+      "reason": "intersection evidence is ambiguous",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-4ffa944d79233560",
+      "candidateRecordId": "isolated_ground_truth:gcp-secure-cloud-run:predicted:2",
+      "candidateArmIds": [
+        "arm-99c1161acbf4e654"
+      ],
+      "candidateBranchPairs": [],
+      "shadowAction": "review_only",
+      "reason": "intersection evidence is ambiguous",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-18d1dbcafa7a46ef",
+      "candidateRecordId": "isolated_ground_truth:gcp-secure-cloud-run:predicted:3",
+      "candidateArmIds": [
+        "arm-d8a3f0a2aaa1fee8",
+        "arm-e6dd6be7ba3b5690"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-d8a3f0a2aaa1fee8",
+          "arm-e6dd6be7ba3b5690"
+        ]
+      ],
+      "shadowAction": "shadow_preserve_candidate_continuity",
+      "reason": "candidate follows locally allowed branch continuity",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-38b3130546897bc1",
+      "candidateRecordId": "isolated_ground_truth:gcp-secure-cloud-run:predicted:3",
+      "candidateArmIds": [
+        "arm-0de69324b06a2715"
+      ],
+      "candidateBranchPairs": [],
+      "shadowAction": "review_only",
+      "reason": "intersection evidence is ambiguous",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-4ffa944d79233560",
+      "candidateRecordId": "isolated_ground_truth:gcp-secure-cloud-run:predicted:3",
+      "candidateArmIds": [
+        "arm-ce44242b0a3c4bc7"
+      ],
+      "candidateBranchPairs": [],
+      "shadowAction": "review_only",
+      "reason": "intersection evidence is ambiguous",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-3a4a7d6dce2b2d18",
+      "candidateRecordId": "isolated_ground_truth:gcp-secure-cloud-run:predicted:4",
+      "candidateArmIds": [
+        "arm-35180137b994ce44",
+        "arm-dbc02b4b4836e5e4"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-35180137b994ce44",
+          "arm-dbc02b4b4836e5e4"
+        ]
+      ],
+      "shadowAction": "shadow_preserve_candidate_continuity",
+      "reason": "candidate follows locally allowed branch continuity",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-6e0cea4bf1f9b2f8",
+      "candidateRecordId": "isolated_ground_truth:gcp-secure-cloud-run:predicted:4",
+      "candidateArmIds": [
+        "arm-35180137b994ce44",
+        "arm-dbc02b4b4836e5e4"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-35180137b994ce44",
+          "arm-dbc02b4b4836e5e4"
+        ]
+      ],
+      "shadowAction": "shadow_preserve_candidate_continuity",
+      "reason": "candidate follows locally allowed branch continuity",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-1caea9a054e8ee28",
+      "candidateRecordId": "isolated_ground_truth:gcp-secure-cloud-run:predicted:5",
+      "candidateArmIds": [
+        "arm-5a8d92f04aabcdfd"
+      ],
+      "candidateBranchPairs": [],
+      "shadowAction": "observed_only",
+      "reason": "candidate contributes one arm and does not traverse the event",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-e2eccb503b258a39",
+      "candidateRecordId": "isolated_ground_truth:gcp-secure-cloud-run:predicted:5",
+      "candidateArmIds": [
+        "arm-0e3acb512a7e11c0"
+      ],
+      "candidateBranchPairs": [],
+      "shadowAction": "observed_only",
+      "reason": "candidate contributes one arm and does not traverse the event",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-1caea9a054e8ee28",
+      "candidateRecordId": "isolated_ground_truth:gcp-secure-cloud-run:predicted:6",
+      "candidateArmIds": [
+        "arm-e13c8ee5fbd3a46b"
+      ],
+      "candidateBranchPairs": [],
+      "shadowAction": "observed_only",
+      "reason": "candidate contributes one arm and does not traverse the event",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-18d1dbcafa7a46ef",
+      "candidateRecordId": "isolated_ground_truth:gcp-secure-cloud-run:predicted:7",
+      "candidateArmIds": [
+        "arm-432745fac0f908fc",
+        "arm-cc70f20c454734f4"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-432745fac0f908fc",
+          "arm-cc70f20c454734f4"
+        ]
+      ],
+      "shadowAction": "shadow_preserve_candidate_continuity",
+      "reason": "candidate follows locally allowed branch continuity",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-cb804908bc4419d6",
+      "candidateRecordId": "isolated_ground_truth:gcp-secure-cloud-run:predicted:7",
+      "candidateArmIds": [
+        "arm-afde22d0a51301b7"
+      ],
+      "candidateBranchPairs": [],
+      "shadowAction": "observed_only",
+      "reason": "candidate contributes one arm and does not traverse the event",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-3a4a7d6dce2b2d18",
+      "candidateRecordId": "isolated_ground_truth:gcp-secure-cloud-run:predicted:8",
+      "candidateArmIds": [
+        "arm-bd7cd82cbfa7a08a",
+        "arm-da6fd9c3882b3ffb"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-bd7cd82cbfa7a08a",
+          "arm-da6fd9c3882b3ffb"
+        ]
+      ],
+      "shadowAction": "shadow_preserve_candidate_continuity",
+      "reason": "candidate follows locally allowed branch continuity",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-e2eccb503b258a39",
+      "candidateRecordId": "isolated_ground_truth:gcp-secure-cloud-run:predicted:8",
+      "candidateArmIds": [
+        "arm-472c6ba59f4210e7"
+      ],
+      "candidateBranchPairs": [],
+      "shadowAction": "observed_only",
+      "reason": "candidate contributes one arm and does not traverse the event",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-1f2a3591a974193a",
+      "candidateRecordId": "isolated_ground_truth:generic-cloud-api:predicted:13",
+      "candidateArmIds": [
+        "arm-bb36114d5e2462c2",
+        "arm-e20fa504cf5ad901"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-bb36114d5e2462c2",
+          "arm-e20fa504cf5ad901"
+        ]
+      ],
+      "shadowAction": "shadow_preserve_candidate_continuity",
+      "reason": "candidate follows locally allowed branch continuity",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-6c44fc0d1cd9551c",
+      "candidateRecordId": "isolated_ground_truth:generic-cloud-api:predicted:14",
+      "candidateArmIds": [
+        "arm-62ac73598b488286",
+        "arm-6a014e0b6bf46ecc"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-62ac73598b488286",
+          "arm-6a014e0b6bf46ecc"
+        ]
+      ],
+      "shadowAction": "shadow_preserve_candidate_continuity",
+      "reason": "candidate follows locally allowed branch continuity",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-e6d59abc6e3ac421",
+      "candidateRecordId": "isolated_ground_truth:generic-cloud-api:predicted:14",
+      "candidateArmIds": [
+        "arm-6a014e0b6bf46ecc",
+        "arm-d2cee7d60d3e3edf"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-6a014e0b6bf46ecc",
+          "arm-d2cee7d60d3e3edf"
+        ]
+      ],
+      "shadowAction": "shadow_preserve_candidate_continuity",
+      "reason": "candidate follows locally allowed branch continuity",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-1f2a3591a974193a",
+      "candidateRecordId": "isolated_ground_truth:generic-cloud-api:predicted:2",
+      "candidateArmIds": [
+        "arm-56916565a42cc472",
+        "arm-729506d377974106"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-56916565a42cc472",
+          "arm-729506d377974106"
+        ]
+      ],
+      "shadowAction": "shadow_preserve_candidate_continuity",
+      "reason": "candidate follows locally allowed branch continuity",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-e6d59abc6e3ac421",
+      "candidateRecordId": "isolated_ground_truth:generic-cloud-api:predicted:3",
+      "candidateArmIds": [
+        "arm-df323173480be015",
+        "arm-e4b72373bf39e7ae"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-df323173480be015",
+          "arm-e4b72373bf39e7ae"
+        ]
+      ],
+      "shadowAction": "shadow_preserve_candidate_continuity",
+      "reason": "candidate follows locally allowed branch continuity",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-450cb6fdd4e9d0c4",
+      "candidateRecordId": "isolated_ground_truth:generic-cloud-api:predicted:5",
+      "candidateArmIds": [
+        "arm-2c9fd3082d723e36",
+        "arm-870e0b2928f932fc"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-2c9fd3082d723e36",
+          "arm-870e0b2928f932fc"
+        ]
+      ],
+      "shadowAction": "shadow_preserve_candidate_continuity",
+      "reason": "candidate follows locally allowed branch continuity",
+      "officialAction": "unchanged"
+    },
+    {
+      "eventId": "int-6c44fc0d1cd9551c",
+      "candidateRecordId": "isolated_ground_truth:generic-cloud-api:predicted:6",
+      "candidateArmIds": [
+        "arm-889c318cf0a65ccf",
+        "arm-9cabb7372137df50"
+      ],
+      "candidateBranchPairs": [
+        [
+          "arm-889c318cf0a65ccf",
+          "arm-9cabb7372137df50"
+        ]
+      ],
+      "shadowAction": "shadow_preserve_candidate_continuity",
+      "reason": "candidate follows locally allowed branch continuity",
+      "officialAction": "unchanged"
+    }
+  ]
+}

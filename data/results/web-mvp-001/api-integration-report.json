@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "1.0",
+  "apiBaseConfiguration": "FRONTEND_API_BASE_URL",
+  "localDefault": "/api",
+  "checks": {
+    "health": "PASS",
+    "analyzeFullMultipart": "PASS",
+    "responseValidationFailClosed": "PASS",
+    "strategyReadOnly": "PASS",
+    "absoluteProductionUrlAbsent": "PASS",
+    "backendContractUnchanged": true
+  },
+  "observedStrategy": "legacy",
+  "holdoutsExecuted": false,
+  "status": "PASS"
+}

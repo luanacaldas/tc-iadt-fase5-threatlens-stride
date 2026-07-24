@@ -1,0 +1,35 @@
+{
+  "schemaVersion": "1.0",
+  "generatedAt": "2026-07-21T22:35:57.615569+00:00",
+  "status": "PASS",
+  "checks": [
+    {
+      "path": "README.md",
+      "present": true
+    },
+    {
+      "path": "docs/architecture.md",
+      "present": true
+    },
+    {
+      "path": "docs/model-development.md",
+      "present": true
+    },
+    {
+      "path": "docs/api-contract.md",
+      "present": true
+    },
+    {
+      "path": "docs/evaluation.md",
+      "present": true
+    },
+    {
+      "path": "docs/limitations.md",
+      "present": true
+    },
+    {
+      "path": "docs/sample-threat-model.md",
+      "present": true
+    }
+  ]
+}

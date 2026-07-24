@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "1.0",
+  "scope": "TL-004D",
+  "criteria": {
+    "contractDocumented": true,
+    "allTwentySyntheticFixturesPass": true,
+    "noImproperCliqueGenerated": true,
+    "controlsC01ToC07Preserved": true,
+    "c04SupervisedShadowRecovered": true,
+    "requiredHumanCasesReevaluated": true,
+    "legacySnapshotIdentical": true,
+    "officialLegacyFlowCount": 142,
+    "officialLegacyChanges": 0,
+    "officialDirectionChanges": 0,
+    "validationStatus": "PASS",
+    "holdoutExecutions": 0
+  },
+  "decision": "TL-004D concluída e validada",
+  "nextTaskStarted": false
+}

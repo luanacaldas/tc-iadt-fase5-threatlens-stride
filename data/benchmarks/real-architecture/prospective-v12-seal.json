@@ -1,0 +1,13 @@
+{
+  "schemaVersion": "1.0",
+  "sealedAt": "2026-07-20T23:00:18.1725445Z",
+  "protocol": "prospective_holdout_sealed_before_first_inference",
+  "benchmark": "data/benchmarks/real-architecture/benchmark-prospective-v12.json",
+  "benchmarkSha256": "846cba6ec308403916f5c4da87b9edb62d6f34768aac8971a5ab3562b4fb8e00",
+  "detector": "data/sealed-code/detector-v12.py",
+  "detectorSha256": "10da2309905204a569b9a7719299dbe3d9e2ded1dbda0e23fe3d129272196635",
+  "inferenceRunsBeforeSeal": 0,
+  "imageCount": 3,
+  "componentCount": 33,
+  "imageHashesVerified": true
+}

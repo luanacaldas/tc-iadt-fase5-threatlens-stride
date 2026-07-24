@@ -1,0 +1,2874 @@
+{
+  "schemaVersion": "2.0",
+  "builtAt": "2026-07-18T02:39:26.106916+00:00",
+  "sealedAt": "2026-07-18T01:48:59.488921+00:00",
+  "annotationMethod": "Manual review of visible primary nodes, directed flows, explicit protocols, and trust-zone membership.",
+  "selectionPolicy": "One primary diagram per source group; provider-corrected labels; no augmented icons treated as ground truth.",
+  "splitPolicy": "development_tuning may guide fixes; blind_holdout is evaluated only by the final end-to-end command.",
+  "imageCount": 15,
+  "splitCounts": {
+    "development_tuning": 9,
+    "blind_holdout": 6
+  },
+  "providers": [
+    "aws",
+    "azure",
+    "gcp",
+    "generic"
+  ],
+  "entries": [
+    {
+      "id": "azure-container-edge",
+      "provider": "azure",
+      "sourceGroup": "azure_container_instances_0004",
+      "split": "development_tuning",
+      "image": "dataset/hybrid_v2/images/test/kaggle_unique_kaggle_azure_container_instances_0004_aug_2.png",
+      "annotationSize": [
+        886,
+        590
+      ],
+      "components": [
+        {
+          "id": "clients",
+          "name": "Clients",
+          "type": "user",
+          "bbox": [
+            20,
+            202,
+            132,
+            316
+          ]
+        },
+        {
+          "id": "load_balancer",
+          "name": "Azure Load Balancer",
+          "type": "load_balancer",
+          "bbox": [
+            267,
+            202,
+            354,
+            294
+          ]
+        },
+        {
+          "id": "application_firewall",
+          "name": "Application Firewall",
+          "type": "waf",
+          "bbox": [
+            342,
+            171,
+            490,
+            285
+          ]
+        },
+        {
+          "id": "azure_firewall",
+          "name": "Azure Firewall Premium",
+          "type": "waf",
+          "bbox": [
+            526,
+            202,
+            616,
+            296
+          ]
+        },
+        {
+          "id": "virtual_machines",
+          "name": "Azure Virtual Machines",
+          "type": "compute",
+          "bbox": [
+            756,
+            211,
+            844,
+            301
+          ]
+        }
+      ],
+      "flows": [
+        {
+          "id": "edge-1",
+          "from": "clients",
+          "to": "load_balancer",
+          "protocol": "HTTPS"
+        },
+        {
+          "id": "edge-2",
+          "from": "load_balancer",
+          "to": "application_firewall",
+          "protocol": "unknown"
+        },
+        {
+          "id": "edge-3",
+          "from": "application_firewall",
+          "to": "azure_firewall",
+          "protocol": "unknown"
+        },
+        {
+          "id": "edge-4",
+          "from": "azure_firewall",
+          "to": "virtual_machines",
+          "protocol": "HTTPS"
+        }
+      ],
+      "boundaries": [],
+      "protocols": [
+        {
+          "flowId": "edge-1",
+          "value": "HTTPS",
+          "evidenceText": "HTTPS"
+        },
+        {
+          "flowId": "edge-4",
+          "value": "HTTPS",
+          "evidenceText": "HTTPS"
+        }
+      ],
+      "annotationStatus": "human_verified",
+      "imageSha256": "ba0e1465e34014417297a7fafe12327a4ba4b037b5a2c44fafcd45491da38448"
+    },
+    {
+      "id": "azure-ai-foundry",
+      "provider": "azure",
+      "sourceGroup": "azure_sql_database_0007",
+      "split": "development_tuning",
+      "image": "dataset/raw_kaggle_selected/azure_sql_database_0007_aug_0.png",
+      "annotationSize": [
+        1323,
+        882
+      ],
+      "components": [
+        {
+          "id": "user",
+          "name": "User",
+          "type": "user",
+          "bbox": [
+            126,
+            281,
+            204,
+            353
+          ]
+        },
+        {
+          "id": "app_service",
+          "name": "App Service instance",
+          "type": "compute",
+          "bbox": [
+            683,
+            294,
+            765,
+            441
+          ]
+        },
+        {
+          "id": "foundry_account",
+          "name": "Azure AI Foundry account",
+          "type": "compute",
+          "bbox": [
+            991,
+            97,
+            1094,
+            253
+          ]
+        },
+        {
+          "id": "foundry_agent",
+          "name": "Foundry Agent Service",
+          "type": "compute",
+          "bbox": [
+            988,
+            304,
+            1094,
+            433
+          ]
+        },
+        {
+          "id": "openai_model",
+          "name": "Azure OpenAI model",
+          "type": "compute",
+          "bbox": [
+            1005,
+            525,
+            1088,
+            687
+          ]
+        },
+        {
+          "id": "ai_search",
+          "name": "Azure AI Search",
+          "type": "storage",
+          "bbox": [
+            1094,
+            719,
+            1212,
+            858
+          ]
+        }
+      ],
+      "flows": [
+        {
+          "id": "foundry-1",
+          "from": "user",
+          "to": "app_service",
+          "protocol": "HTTPS"
+        },
+        {
+          "id": "foundry-2",
+          "from": "app_service",
+          "to": "foundry_agent",
+          "protocol": "unknown"
+        },
+        {
+          "id": "foundry-3",
+          "from": "foundry_account",
+          "to": "foundry_agent",
+          "protocol": "unknown"
+        },
+        {
+          "id": "foundry-4",
+          "from": "foundry_agent",
+          "to": "openai_model",
+          "protocol": "unknown"
+        },
+        {
+          "id": "foundry-5",
+          "from": "foundry_agent",
+          "to": "ai_search",
+          "protocol": "unknown"
+        }
+      ],
+      "boundaries": [
+        {
+          "id": "app-service-zone",
+          "name": "App Service",
+          "componentIds": [
+            "app_service"
+          ]
+        },
+        {
+          "id": "foundry-zone",
+          "name": "Azure AI Foundry",
+          "componentIds": [
+            "foundry_account",
+            "foundry_agent",
+            "openai_model"
+          ]
+        },
+        {
+          "id": "foundry-project",
+          "name": "Azure AI Foundry project",
+          "componentIds": [
+            "foundry_agent"
+          ]
+        }
+      ],
+      "protocols": [
+        {
+          "flowId": "foundry-1",
+          "value": "HTTPS",
+          "evidenceText": "https://domainname.azurewebsites.net"
+        }
+      ],
+      "annotationStatus": "human_verified",
+      "imageSha256": "f6e8d7ca8cfb1d4860c5c5f51dff968492ac4e6ba219da68e199f936824e4821"
+    },
+    {
+      "id": "aws-video-pipeline",
+      "provider": "aws",
+      "sourceGroup": "azure_vm_scale_sets_0001",
+      "split": "development_tuning",
+      "image": "dataset/hybrid_v2/images/test/kaggle_unique_kaggle_azure_vm_scale_sets_0001_aug_6.png",
+      "annotationSize": [
+        2048,
+        1024
+      ],
+      "components": [
+        {
+          "id": "mobile",
+          "name": "Mobile Client",
+          "type": "user",
+          "bbox": [
+            244,
+            464,
+            286,
+            535
+          ]
+        },
+        {
+          "id": "cognito",
+          "name": "Cognito",
+          "type": "identity_provider",
+          "bbox": [
+            341,
+            223,
+            442,
+            324
+          ]
+        },
+        {
+          "id": "api",
+          "name": "API Gateway",
+          "type": "api_gateway",
+          "bbox": [
+            496,
+            452,
+            596,
+            555
+          ]
+        },
+        {
+          "id": "upload",
+          "name": "Video Uploads",
+          "type": "compute",
+          "bbox": [
+            794,
+            309,
+            895,
+            412
+          ]
+        },
+        {
+          "id": "stage1",
+          "name": "Lake Stage Bucket 1",
+          "type": "storage",
+          "bbox": [
+            949,
+            312,
+            1052,
+            415
+          ]
+        },
+        {
+          "id": "trigger1",
+          "name": "Trigger Function 1",
+          "type": "compute",
+          "bbox": [
+            1105,
+            313,
+            1206,
+            417
+          ]
+        },
+        {
+          "id": "transcoder",
+          "name": "Elastic Transcoder",
+          "type": "compute",
+          "bbox": [
+            1262,
+            316,
+            1363,
+            420
+          ]
+        },
+        {
+          "id": "stage2",
+          "name": "Lake Stage Bucket 2",
+          "type": "storage",
+          "bbox": [
+            1422,
+            317,
+            1525,
+            422
+          ]
+        },
+        {
+          "id": "trigger2",
+          "name": "Trigger Function 2",
+          "type": "compute",
+          "bbox": [
+            1589,
+            320,
+            1691,
+            425
+          ]
+        },
+        {
+          "id": "media",
+          "name": "AWS Elemental MediaConvert",
+          "type": "compute",
+          "bbox": [
+            1745,
+            322,
+            1847,
+            427
+          ]
+        },
+        {
+          "id": "stage3",
+          "name": "Lake Stage Bucket 3",
+          "type": "storage",
+          "bbox": [
+            1917,
+            325,
+            2020,
+            430
+          ]
+        },
+        {
+          "id": "business1",
+          "name": "Business Logic Function 1",
+          "type": "compute",
+          "bbox": [
+            789,
+            596,
+            890,
+            701
+          ]
+        },
+        {
+          "id": "database",
+          "name": "DocumentDB",
+          "type": "database",
+          "bbox": [
+            1195,
+            603,
+            1297,
+            709
+          ]
+        },
+        {
+          "id": "business2",
+          "name": "Business Logic Function 2",
+          "type": "compute",
+          "bbox": [
+            1585,
+            606,
+            1686,
+            713
+          ]
+        },
+        {
+          "id": "trigger3",
+          "name": "Trigger Function 3",
+          "type": "compute",
+          "bbox": [
+            1928,
+            612,
+            2031,
+            717
+          ]
+        },
+        {
+          "id": "email",
+          "name": "Amazon SES",
+          "type": "queue",
+          "bbox": [
+            832,
+            835,
+            936,
+            941
+          ]
+        }
+      ],
+      "flows": [
+        {
+          "id": "video-1",
+          "from": "mobile",
+          "to": "api",
+          "protocol": "unknown"
+        },
+        {
+          "id": "video-2",
+          "from": "mobile",
+          "to": "cognito",
+          "protocol": "unknown"
+        },
+        {
+          "id": "video-3",
+          "from": "api",
+          "to": "upload",
+          "protocol": "unknown"
+        },
+        {
+          "id": "video-4",
+          "from": "upload",
+          "to": "stage1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "video-5",
+          "from": "stage1",
+          "to": "trigger1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "video-6",
+          "from": "trigger1",
+          "to": "transcoder",
+          "protocol": "unknown"
+        },
+        {
+          "id": "video-7",
+          "from": "transcoder",
+          "to": "stage2",
+          "protocol": "unknown"
+        },
+        {
+          "id": "video-8",
+          "from": "stage2",
+          "to": "trigger2",
+          "protocol": "unknown"
+        },
+        {
+          "id": "video-9",
+          "from": "trigger2",
+          "to": "media",
+          "protocol": "unknown"
+        },
+        {
+          "id": "video-10",
+          "from": "media",
+          "to": "stage3",
+          "protocol": "unknown"
+        },
+        {
+          "id": "video-11",
+          "from": "stage3",
+          "to": "trigger3",
+          "protocol": "unknown"
+        },
+        {
+          "id": "video-12",
+          "from": "trigger3",
+          "to": "business2",
+          "protocol": "unknown"
+        },
+        {
+          "id": "video-13",
+          "from": "business2",
+          "to": "database",
+          "protocol": "unknown"
+        },
+        {
+          "id": "video-14",
+          "from": "api",
+          "to": "business1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "video-15",
+          "from": "business1",
+          "to": "database",
+          "protocol": "unknown"
+        },
+        {
+          "id": "video-16",
+          "from": "business1",
+          "to": "email",
+          "protocol": "unknown"
+        }
+      ],
+      "boundaries": [
+        {
+          "id": "video-processing",
+          "name": "Video Processing Pipeline",
+          "componentIds": [
+            "upload",
+            "stage1",
+            "trigger1",
+            "transcoder",
+            "stage2",
+            "trigger2",
+            "media",
+            "stage3"
+          ]
+        }
+      ],
+      "protocols": [],
+      "annotationStatus": "human_verified",
+      "imageSha256": "88537cc0548bda3abfd3048302a7c61702ecbf3eef8cbf5f6a459019ab841e7c"
+    },
+    {
+      "id": "gcp-secure-cloud-run",
+      "provider": "gcp",
+      "sourceGroup": "google_cloud_official_serverless_blueprint",
+      "split": "development_tuning",
+      "image": "data/benchmarks/real-architecture/images/gcp-secure-cloud-run.png",
+      "imageSha256": "3359e179620ffd5424197906316e002fb646e21de4c4b3d7e9e902894fab38b4",
+      "annotationStatus": "human_verified",
+      "annotationMethod": "Manual visual review of primary architecture content; augmentation overlays excluded.",
+      "components": [
+        {
+          "id": "internet",
+          "name": "Internet",
+          "type": "internet",
+          "bboxNormalized": [
+            0.0,
+            0.225,
+            0.145,
+            0.295
+          ]
+        },
+        {
+          "id": "armor",
+          "name": "Google Cloud Armor",
+          "type": "waf",
+          "bboxNormalized": [
+            0.425,
+            0.132,
+            0.615,
+            0.201
+          ]
+        },
+        {
+          "id": "load_balancer",
+          "name": "Cloud Load Balancer",
+          "type": "load_balancer",
+          "bboxNormalized": [
+            0.425,
+            0.226,
+            0.615,
+            0.294
+          ]
+        },
+        {
+          "id": "cloud_run",
+          "name": "Cloud Run",
+          "type": "compute",
+          "bboxNormalized": [
+            0.425,
+            0.344,
+            0.615,
+            0.413
+          ]
+        },
+        {
+          "id": "vpc_connector",
+          "name": "Serverless VPC Access connector",
+          "type": "compute",
+          "bboxNormalized": [
+            0.644,
+            0.344,
+            0.88,
+            0.413
+          ]
+        },
+        {
+          "id": "artifact_registry",
+          "name": "Artifact Registry",
+          "type": "storage",
+          "bboxNormalized": [
+            0.258,
+            0.51,
+            0.434,
+            0.58
+          ]
+        },
+        {
+          "id": "kms",
+          "name": "Cloud KMS",
+          "type": "secrets_kms",
+          "bboxNormalized": [
+            0.258,
+            0.622,
+            0.434,
+            0.691
+          ]
+        },
+        {
+          "id": "secret_manager",
+          "name": "Secret Manager",
+          "type": "secrets_kms",
+          "bboxNormalized": [
+            0.258,
+            0.733,
+            0.434,
+            0.802
+          ]
+        },
+        {
+          "id": "firewall",
+          "name": "Ingress and egress rules",
+          "type": "waf",
+          "bboxNormalized": [
+            0.66,
+            0.489,
+            0.85,
+            0.596
+          ]
+        },
+        {
+          "id": "resource",
+          "name": "Internal resource",
+          "type": "compute",
+          "bboxNormalized": [
+            0.653,
+            0.65,
+            0.82,
+            0.721
+          ]
+        },
+        {
+          "id": "iam",
+          "name": "IAM",
+          "type": "identity_provider",
+          "bboxNormalized": [
+            0.61,
+            0.878,
+            0.76,
+            0.945
+          ]
+        },
+        {
+          "id": "logging",
+          "name": "Logging",
+          "type": "monitoring",
+          "bboxNormalized": [
+            0.788,
+            0.878,
+            0.938,
+            0.945
+          ]
+        }
+      ],
+      "flows": [
+        {
+          "id": "gcp-1",
+          "from": "internet",
+          "to": "load_balancer",
+          "protocol": "unknown"
+        },
+        {
+          "id": "gcp-2",
+          "from": "armor",
+          "to": "load_balancer",
+          "protocol": "unknown"
+        },
+        {
+          "id": "gcp-3",
+          "from": "load_balancer",
+          "to": "cloud_run",
+          "protocol": "unknown"
+        },
+        {
+          "id": "gcp-4",
+          "from": "cloud_run",
+          "to": "vpc_connector",
+          "protocol": "unknown"
+        },
+        {
+          "id": "gcp-5",
+          "from": "vpc_connector",
+          "to": "firewall",
+          "protocol": "unknown"
+        },
+        {
+          "id": "gcp-6",
+          "from": "firewall",
+          "to": "resource",
+          "protocol": "unknown"
+        }
+      ],
+      "boundaries": [
+        {
+          "id": "service-project",
+          "name": "Service project",
+          "componentIds": [
+            "armor",
+            "load_balancer",
+            "cloud_run",
+            "vpc_connector"
+          ]
+        },
+        {
+          "id": "security-project",
+          "name": "Security project",
+          "componentIds": [
+            "artifact_registry",
+            "kms",
+            "secret_manager"
+          ]
+        },
+        {
+          "id": "host-project",
+          "name": "Host project",
+          "componentIds": [
+            "firewall",
+            "resource"
+          ]
+        }
+      ],
+      "protocols": []
+    },
+    {
+      "id": "generic-cloud-api",
+      "provider": "generic",
+      "sourceGroup": "current_arch_test_0000",
+      "split": "development_tuning",
+      "image": "dataset/hybrid_v2/images/test/current_arch_test_0000.jpg",
+      "imageSha256": "2dabc06f76b9365877fe0860d162407be318329250c0e2e39b3639b6c7d3f124",
+      "annotationStatus": "human_verified",
+      "annotationMethod": "Manual visual review of primary architecture content; augmentation overlays excluded.",
+      "components": [
+        {
+          "id": "user",
+          "name": "User",
+          "type": "user",
+          "bboxNormalized": [
+            0.47,
+            0.04,
+            0.56,
+            0.13
+          ]
+        },
+        {
+          "id": "internet",
+          "name": "Internet",
+          "type": "internet",
+          "bboxNormalized": [
+            0.02,
+            0.27,
+            0.14,
+            0.35
+          ]
+        },
+        {
+          "id": "cdn",
+          "name": "CDN",
+          "type": "cdn",
+          "bboxNormalized": [
+            0.44,
+            0.24,
+            0.56,
+            0.35
+          ]
+        },
+        {
+          "id": "api",
+          "name": "API Gateway",
+          "type": "api_gateway",
+          "bboxNormalized": [
+            0.86,
+            0.24,
+            0.98,
+            0.35
+          ]
+        },
+        {
+          "id": "compute",
+          "name": "Compute",
+          "type": "compute",
+          "bboxNormalized": [
+            0.02,
+            0.45,
+            0.14,
+            0.55
+          ]
+        },
+        {
+          "id": "database",
+          "name": "Database",
+          "type": "database",
+          "bboxNormalized": [
+            0.44,
+            0.45,
+            0.56,
+            0.57
+          ]
+        },
+        {
+          "id": "storage",
+          "name": "Storage",
+          "type": "storage",
+          "bboxNormalized": [
+            0.86,
+            0.45,
+            0.98,
+            0.55
+          ]
+        },
+        {
+          "id": "monitoring",
+          "name": "Monitoring",
+          "type": "monitoring",
+          "bboxNormalized": [
+            0.44,
+            0.66,
+            0.56,
+            0.76
+          ]
+        }
+      ],
+      "flows": [
+        {
+          "id": "generic-1",
+          "from": "user",
+          "to": "internet",
+          "protocol": "unknown"
+        },
+        {
+          "id": "generic-2",
+          "from": "internet",
+          "to": "cdn",
+          "protocol": "unknown"
+        },
+        {
+          "id": "generic-3",
+          "from": "cdn",
+          "to": "api",
+          "protocol": "unknown"
+        },
+        {
+          "id": "generic-4",
+          "from": "compute",
+          "to": "api",
+          "protocol": "unknown"
+        },
+        {
+          "id": "generic-5",
+          "from": "compute",
+          "to": "database",
+          "protocol": "unknown"
+        },
+        {
+          "id": "generic-6",
+          "from": "database",
+          "to": "storage",
+          "protocol": "unknown"
+        },
+        {
+          "id": "generic-7",
+          "from": "monitoring",
+          "to": "storage",
+          "protocol": "unknown"
+        }
+      ],
+      "boundaries": [],
+      "protocols": []
+    },
+    {
+      "id": "aws-serverless-async",
+      "provider": "aws",
+      "sourceGroup": "aws_amazon_elastic_container_service_0001",
+      "split": "development_tuning",
+      "image": "dataset/raw_kaggle_selected/aws_amazon_elastic_container_service_0001_aug_3.png",
+      "imageSha256": "a031cc8bceb4dd4b323847a151fe3ebb6b88545febffa1bb206f34b31f96cdc5",
+      "annotationStatus": "human_verified",
+      "annotationMethod": "Manual visual review of primary architecture content; augmentation overlays excluded.",
+      "components": [
+        {
+          "id": "api",
+          "name": "API Gateway",
+          "type": "api_gateway",
+          "bboxNormalized": [
+            0.408,
+            0.105,
+            0.49,
+            0.195
+          ]
+        },
+        {
+          "id": "waf",
+          "name": "AWS WAF",
+          "type": "waf",
+          "bboxNormalized": [
+            0.444,
+            0.092,
+            0.496,
+            0.151
+          ]
+        },
+        {
+          "id": "cognito",
+          "name": "Cognito Authorizer",
+          "type": "identity_provider",
+          "bboxNormalized": [
+            0.42,
+            0.3,
+            0.49,
+            0.39
+          ]
+        },
+        {
+          "id": "search_handler",
+          "name": "OpenSearch Handler",
+          "type": "compute",
+          "bboxNormalized": [
+            0.295,
+            0.455,
+            0.36,
+            0.555
+          ]
+        },
+        {
+          "id": "api_handler",
+          "name": "API Handler",
+          "type": "compute",
+          "bboxNormalized": [
+            0.552,
+            0.446,
+            0.617,
+            0.548
+          ]
+        },
+        {
+          "id": "queue",
+          "name": "SQS Queue",
+          "type": "queue",
+          "bboxNormalized": [
+            0.895,
+            0.484,
+            0.963,
+            0.584
+          ]
+        },
+        {
+          "id": "worker",
+          "name": "Worker",
+          "type": "compute",
+          "bboxNormalized": [
+            0.756,
+            0.586,
+            0.822,
+            0.685
+          ]
+        },
+        {
+          "id": "fargate",
+          "name": "ECS Fargate",
+          "type": "compute",
+          "bboxNormalized": [
+            0.758,
+            0.822,
+            0.838,
+            0.936
+          ]
+        },
+        {
+          "id": "database",
+          "name": "Aurora Serverless Metadata DB",
+          "type": "database",
+          "bboxNormalized": [
+            0.57,
+            0.827,
+            0.64,
+            0.936
+          ]
+        },
+        {
+          "id": "catalog",
+          "name": "OpenSearch Catalog",
+          "type": "storage",
+          "bboxNormalized": [
+            0.327,
+            0.844,
+            0.396,
+            0.954
+          ]
+        },
+        {
+          "id": "cloudwatch",
+          "name": "CloudWatch",
+          "type": "monitoring",
+          "bboxNormalized": [
+            0.101,
+            0.466,
+            0.171,
+            0.572
+          ]
+        }
+      ],
+      "flows": [
+        {
+          "id": "async-1",
+          "from": "api",
+          "to": "cognito",
+          "protocol": "unknown"
+        },
+        {
+          "id": "async-2",
+          "from": "cognito",
+          "to": "search_handler",
+          "protocol": "unknown"
+        },
+        {
+          "id": "async-3",
+          "from": "cognito",
+          "to": "api_handler",
+          "protocol": "unknown"
+        },
+        {
+          "id": "async-4",
+          "from": "api_handler",
+          "to": "queue",
+          "protocol": "unknown"
+        },
+        {
+          "id": "async-5",
+          "from": "queue",
+          "to": "worker",
+          "protocol": "unknown"
+        },
+        {
+          "id": "async-6",
+          "from": "worker",
+          "to": "fargate",
+          "protocol": "unknown"
+        },
+        {
+          "id": "async-7",
+          "from": "fargate",
+          "to": "database",
+          "protocol": "unknown"
+        },
+        {
+          "id": "async-8",
+          "from": "api_handler",
+          "to": "database",
+          "protocol": "unknown"
+        },
+        {
+          "id": "async-9",
+          "from": "search_handler",
+          "to": "catalog",
+          "protocol": "unknown"
+        }
+      ],
+      "boundaries": [
+        {
+          "id": "vpc",
+          "name": "VPC private subnet",
+          "componentIds": [
+            "cognito",
+            "search_handler",
+            "api_handler",
+            "queue",
+            "worker",
+            "fargate",
+            "database",
+            "catalog",
+            "cloudwatch"
+          ]
+        }
+      ],
+      "protocols": []
+    },
+    {
+      "id": "aws-eks-platform",
+      "provider": "aws",
+      "sourceGroup": "aws_amazon_elastic_kubernetes_service_0005",
+      "split": "development_tuning",
+      "image": "dataset/raw_kaggle_selected/aws_amazon_elastic_kubernetes_service_0005_aug_4.png",
+      "imageSha256": "2521de772aaccc1025592a531bb140610ce7577bc1876392d1322eb240830e1b",
+      "annotationStatus": "human_verified",
+      "annotationMethod": "Manual visual review of primary architecture content; augmentation overlays excluded.",
+      "components": [
+        {
+          "id": "warehouse",
+          "name": "Data Warehouse",
+          "type": "database",
+          "bboxNormalized": [
+            0.055,
+            0.25,
+            0.145,
+            0.39
+          ]
+        },
+        {
+          "id": "sql",
+          "name": "SQL Database",
+          "type": "database",
+          "bboxNormalized": [
+            0.055,
+            0.44,
+            0.145,
+            0.57
+          ]
+        },
+        {
+          "id": "external",
+          "name": "External Services",
+          "type": "compute",
+          "bboxNormalized": [
+            0.055,
+            0.71,
+            0.145,
+            0.84
+          ]
+        },
+        {
+          "id": "sagemaker",
+          "name": "AWS SageMaker",
+          "type": "compute",
+          "bboxNormalized": [
+            0.345,
+            0.15,
+            0.445,
+            0.29
+          ]
+        },
+        {
+          "id": "comprehend",
+          "name": "AWS Comprehend",
+          "type": "compute",
+          "bboxNormalized": [
+            0.345,
+            0.315,
+            0.445,
+            0.42
+          ]
+        },
+        {
+          "id": "notebook",
+          "name": "Notebook",
+          "type": "compute",
+          "bboxNormalized": [
+            0.345,
+            0.44,
+            0.445,
+            0.57
+          ]
+        },
+        {
+          "id": "raw",
+          "name": "Raw Data",
+          "type": "storage",
+          "bboxNormalized": [
+            0.34,
+            0.71,
+            0.445,
+            0.845
+          ]
+        },
+        {
+          "id": "processed",
+          "name": "Processed Data",
+          "type": "storage",
+          "bboxNormalized": [
+            0.48,
+            0.71,
+            0.585,
+            0.845
+          ]
+        },
+        {
+          "id": "lambda",
+          "name": "Functions",
+          "type": "compute",
+          "bboxNormalized": [
+            0.59,
+            0.215,
+            0.675,
+            0.33
+          ]
+        },
+        {
+          "id": "microservices",
+          "name": "Microservices",
+          "type": "compute",
+          "bboxNormalized": [
+            0.59,
+            0.365,
+            0.675,
+            0.48
+          ]
+        },
+        {
+          "id": "glue",
+          "name": "Glue ETL",
+          "type": "compute",
+          "bboxNormalized": [
+            0.59,
+            0.52,
+            0.675,
+            0.635
+          ]
+        },
+        {
+          "id": "dynamo",
+          "name": "DynamoDB",
+          "type": "database",
+          "bboxNormalized": [
+            0.74,
+            0.71,
+            0.835,
+            0.845
+          ]
+        },
+        {
+          "id": "rds",
+          "name": "RDS",
+          "type": "database",
+          "bboxNormalized": [
+            0.85,
+            0.71,
+            0.945,
+            0.845
+          ]
+        },
+        {
+          "id": "visualization",
+          "name": "Visualization",
+          "type": "monitoring",
+          "bboxNormalized": [
+            0.825,
+            0.155,
+            0.92,
+            0.29
+          ]
+        }
+      ],
+      "flows": [
+        {
+          "id": "eks-1",
+          "from": "warehouse",
+          "to": "sagemaker",
+          "protocol": "unknown"
+        },
+        {
+          "id": "eks-2",
+          "from": "sql",
+          "to": "sagemaker",
+          "protocol": "unknown"
+        },
+        {
+          "id": "eks-3",
+          "from": "sagemaker",
+          "to": "raw",
+          "protocol": "unknown"
+        },
+        {
+          "id": "eks-4",
+          "from": "notebook",
+          "to": "raw",
+          "protocol": "unknown"
+        },
+        {
+          "id": "eks-5",
+          "from": "raw",
+          "to": "glue",
+          "protocol": "unknown"
+        },
+        {
+          "id": "eks-6",
+          "from": "glue",
+          "to": "processed",
+          "protocol": "unknown"
+        },
+        {
+          "id": "eks-7",
+          "from": "lambda",
+          "to": "microservices",
+          "protocol": "unknown"
+        },
+        {
+          "id": "eks-8",
+          "from": "microservices",
+          "to": "dynamo",
+          "protocol": "unknown"
+        },
+        {
+          "id": "eks-9",
+          "from": "microservices",
+          "to": "rds",
+          "protocol": "unknown"
+        },
+        {
+          "id": "eks-10",
+          "from": "rds",
+          "to": "visualization",
+          "protocol": "unknown"
+        }
+      ],
+      "boundaries": [],
+      "protocols": []
+    },
+    {
+      "id": "azure-private-ai-platform",
+      "provider": "azure",
+      "sourceGroup": "aws_amazon_rds_0005",
+      "split": "development_tuning",
+      "image": "dataset/raw_kaggle_selected/aws_amazon_rds_0005_aug_0.png",
+      "imageSha256": "5e066d924c34df0f6abb60c9a10d23e81a51e15df41fa31f1b913a7fad7276d6",
+      "annotationStatus": "human_verified",
+      "annotationMethod": "Manual visual review of primary architecture content; augmentation overlays excluded.",
+      "components": [
+        {
+          "id": "user",
+          "name": "User",
+          "type": "user",
+          "bboxNormalized": [
+            0.035,
+            0.41,
+            0.07,
+            0.455
+          ]
+        },
+        {
+          "id": "app_gateway",
+          "name": "Application Gateway with WAF",
+          "type": "waf",
+          "bboxNormalized": [
+            0.155,
+            0.405,
+            0.22,
+            0.5
+          ]
+        },
+        {
+          "id": "app_service",
+          "name": "App Service",
+          "type": "compute",
+          "bboxNormalized": [
+            0.21,
+            0.655,
+            0.33,
+            0.78
+          ]
+        },
+        {
+          "id": "key_vault",
+          "name": "Azure Key Vault",
+          "type": "secrets_kms",
+          "bboxNormalized": [
+            0.335,
+            0.655,
+            0.39,
+            0.765
+          ]
+        },
+        {
+          "id": "storage",
+          "name": "Azure Storage",
+          "type": "storage",
+          "bboxNormalized": [
+            0.405,
+            0.655,
+            0.455,
+            0.765
+          ]
+        },
+        {
+          "id": "firewall",
+          "name": "Azure Firewall",
+          "type": "waf",
+          "bboxNormalized": [
+            0.65,
+            0.385,
+            0.705,
+            0.465
+          ]
+        },
+        {
+          "id": "bastion",
+          "name": "Azure Bastion",
+          "type": "compute",
+          "bboxNormalized": [
+            0.735,
+            0.385,
+            0.795,
+            0.47
+          ]
+        },
+        {
+          "id": "build_agents",
+          "name": "Build agents",
+          "type": "compute",
+          "bboxNormalized": [
+            0.82,
+            0.385,
+            0.875,
+            0.47
+          ]
+        },
+        {
+          "id": "ai_search",
+          "name": "Azure AI Search",
+          "type": "storage",
+          "bboxNormalized": [
+            0.545,
+            0.655,
+            0.61,
+            0.765
+          ]
+        },
+        {
+          "id": "cosmos",
+          "name": "Azure Cosmos DB",
+          "type": "database",
+          "bboxNormalized": [
+            0.62,
+            0.655,
+            0.68,
+            0.765
+          ]
+        },
+        {
+          "id": "foundry_agent",
+          "name": "Foundry Agent Service",
+          "type": "compute",
+          "bboxNormalized": [
+            0.915,
+            0.31,
+            0.965,
+            0.4
+          ]
+        },
+        {
+          "id": "openai",
+          "name": "Azure OpenAI model",
+          "type": "compute",
+          "bboxNormalized": [
+            0.915,
+            0.455,
+            0.965,
+            0.56
+          ]
+        }
+      ],
+      "flows": [
+        {
+          "id": "ai-1",
+          "from": "user",
+          "to": "app_gateway",
+          "protocol": "unknown"
+        },
+        {
+          "id": "ai-2",
+          "from": "app_gateway",
+          "to": "app_service",
+          "protocol": "unknown"
+        },
+        {
+          "id": "ai-3",
+          "from": "app_service",
+          "to": "key_vault",
+          "protocol": "unknown"
+        },
+        {
+          "id": "ai-4",
+          "from": "app_service",
+          "to": "storage",
+          "protocol": "unknown"
+        },
+        {
+          "id": "ai-5",
+          "from": "app_service",
+          "to": "ai_search",
+          "protocol": "unknown"
+        },
+        {
+          "id": "ai-6",
+          "from": "app_service",
+          "to": "cosmos",
+          "protocol": "unknown"
+        },
+        {
+          "id": "ai-7",
+          "from": "app_service",
+          "to": "foundry_agent",
+          "protocol": "unknown"
+        },
+        {
+          "id": "ai-8",
+          "from": "foundry_agent",
+          "to": "openai",
+          "protocol": "unknown"
+        }
+      ],
+      "boundaries": [],
+      "protocols": []
+    },
+    {
+      "id": "azure-hub-spoke",
+      "provider": "azure",
+      "sourceGroup": "gcp_google_kubernetes_engine_0004",
+      "split": "development_tuning",
+      "image": "dataset/raw_kaggle_selected/gcp_google_kubernetes_engine_0004_aug_2.png",
+      "imageSha256": "a0ee06c3106e0f1c084a767facdb8464b8a99ae0dac8fe64d2dae23828dac52e",
+      "annotationStatus": "human_verified",
+      "annotationMethod": "Manual visual review of primary architecture content; augmentation overlays excluded.",
+      "components": [
+        {
+          "id": "onprem",
+          "name": "Cross-premises network",
+          "type": "internet",
+          "bboxNormalized": [
+            0.025,
+            0.3,
+            0.175,
+            0.61
+          ]
+        },
+        {
+          "id": "bastion",
+          "name": "Azure Bastion",
+          "type": "compute",
+          "bboxNormalized": [
+            0.245,
+            0.12,
+            0.345,
+            0.23
+          ]
+        },
+        {
+          "id": "firewall",
+          "name": "Azure Firewall",
+          "type": "waf",
+          "bboxNormalized": [
+            0.245,
+            0.31,
+            0.345,
+            0.43
+          ]
+        },
+        {
+          "id": "gateway",
+          "name": "VPN Gateway",
+          "type": "api_gateway",
+          "bboxNormalized": [
+            0.245,
+            0.5,
+            0.345,
+            0.62
+          ]
+        },
+        {
+          "id": "prod_vm",
+          "name": "Production virtual machines",
+          "type": "compute",
+          "bboxNormalized": [
+            0.69,
+            0.13,
+            0.94,
+            0.27
+          ]
+        },
+        {
+          "id": "prod2_vm",
+          "name": "Production virtual machines 2",
+          "type": "compute",
+          "bboxNormalized": [
+            0.69,
+            0.33,
+            0.94,
+            0.47
+          ]
+        },
+        {
+          "id": "nonprod_vm",
+          "name": "Non-production virtual machines",
+          "type": "compute",
+          "bboxNormalized": [
+            0.45,
+            0.65,
+            0.65,
+            0.84
+          ]
+        },
+        {
+          "id": "nonprod2_vm",
+          "name": "Non-production virtual machines 2",
+          "type": "compute",
+          "bboxNormalized": [
+            0.72,
+            0.65,
+            0.94,
+            0.84
+          ]
+        }
+      ],
+      "flows": [
+        {
+          "id": "hub-1",
+          "from": "onprem",
+          "to": "gateway",
+          "protocol": "unknown"
+        },
+        {
+          "id": "hub-2",
+          "from": "gateway",
+          "to": "firewall",
+          "protocol": "unknown"
+        },
+        {
+          "id": "hub-3",
+          "from": "firewall",
+          "to": "prod_vm",
+          "protocol": "unknown"
+        },
+        {
+          "id": "hub-4",
+          "from": "firewall",
+          "to": "prod2_vm",
+          "protocol": "unknown"
+        },
+        {
+          "id": "hub-5",
+          "from": "gateway",
+          "to": "nonprod_vm",
+          "protocol": "unknown"
+        },
+        {
+          "id": "hub-6",
+          "from": "gateway",
+          "to": "nonprod2_vm",
+          "protocol": "unknown"
+        }
+      ],
+      "boundaries": [],
+      "protocols": []
+    },
+    {
+      "id": "aws-notification-platform",
+      "provider": "aws",
+      "sourceGroup": "aws_amazon_simple_notification_service_0008",
+      "split": "blind_holdout",
+      "image": "dataset/kaggle_curated_unique/images/test/kaggle_aws_amazon_simple_notification_service_0008_aug_7.png",
+      "imageSha256": "47c3f47d84d13b9387b1d67ef26fe833536db9e1ed9d635327a865ff66080604",
+      "annotationStatus": "human_verified",
+      "annotationMethod": "Manual visual review of primary architecture content; augmentation overlays excluded.",
+      "components": [
+        {
+          "id": "s3",
+          "name": "Amazon S3",
+          "type": "storage",
+          "bboxNormalized": [
+            0.315,
+            0.33,
+            0.405,
+            0.44
+          ]
+        },
+        {
+          "id": "lambda",
+          "name": "AWS Lambda",
+          "type": "compute",
+          "bboxNormalized": [
+            0.315,
+            0.155,
+            0.405,
+            0.26
+          ]
+        },
+        {
+          "id": "ground_truth",
+          "name": "SageMaker Ground Truth",
+          "type": "compute",
+          "bboxNormalized": [
+            0.535,
+            0.135,
+            0.65,
+            0.26
+          ]
+        },
+        {
+          "id": "training",
+          "name": "SageMaker Deep Learning Training",
+          "type": "compute",
+          "bboxNormalized": [
+            0.75,
+            0.125,
+            0.87,
+            0.25
+          ]
+        },
+        {
+          "id": "model_a",
+          "name": "SageMaker Model",
+          "type": "compute",
+          "bboxNormalized": [
+            0.77,
+            0.34,
+            0.875,
+            0.455
+          ]
+        },
+        {
+          "id": "model_b",
+          "name": "SageMaker Model Endpoint",
+          "type": "compute",
+          "bboxNormalized": [
+            0.76,
+            0.655,
+            0.875,
+            0.77
+          ]
+        }
+      ],
+      "flows": [
+        {
+          "id": "notify-1",
+          "from": "s3",
+          "to": "lambda",
+          "protocol": "unknown"
+        },
+        {
+          "id": "notify-2",
+          "from": "lambda",
+          "to": "ground_truth",
+          "protocol": "unknown"
+        },
+        {
+          "id": "notify-3",
+          "from": "ground_truth",
+          "to": "training",
+          "protocol": "unknown"
+        },
+        {
+          "id": "notify-4",
+          "from": "training",
+          "to": "model_a",
+          "protocol": "unknown"
+        },
+        {
+          "id": "notify-5",
+          "from": "model_a",
+          "to": "model_b",
+          "protocol": "unknown"
+        }
+      ],
+      "boundaries": [],
+      "protocols": []
+    },
+    {
+      "id": "aws-network-load-balancer",
+      "provider": "aws",
+      "sourceGroup": "aws_elastic_load_balancing_network_load_balancer_0004",
+      "split": "blind_holdout",
+      "image": "dataset/kaggle_curated_unique/images/test/kaggle_aws_elastic_load_balancing_network_load_balancer_0004_aug_7.png",
+      "imageSha256": "2e6c8f653cc3a7a2282fb0d6c993946b1df108a8bb23975567127aa9462d46e7",
+      "annotationStatus": "human_verified",
+      "annotationMethod": "Manual visual review of primary architecture content; augmentation overlays excluded.",
+      "components": [
+        {
+          "id": "sources",
+          "name": "Data Sources",
+          "type": "internet",
+          "bboxNormalized": [
+            0.02,
+            0.42,
+            0.105,
+            0.72
+          ]
+        },
+        {
+          "id": "ingestion",
+          "name": "Data Ingestion",
+          "type": "queue",
+          "bboxNormalized": [
+            0.115,
+            0.43,
+            0.185,
+            0.72
+          ]
+        },
+        {
+          "id": "processing",
+          "name": "Data Processing",
+          "type": "compute",
+          "bboxNormalized": [
+            0.22,
+            0.18,
+            0.5,
+            0.67
+          ]
+        },
+        {
+          "id": "data_lake",
+          "name": "Data Lake",
+          "type": "storage",
+          "bboxNormalized": [
+            0.225,
+            0.69,
+            0.5,
+            0.875
+          ]
+        },
+        {
+          "id": "profiles",
+          "name": "Unified Customer Profile",
+          "type": "database",
+          "bboxNormalized": [
+            0.535,
+            0.17,
+            0.65,
+            0.41
+          ]
+        },
+        {
+          "id": "activation",
+          "name": "Activation",
+          "type": "compute",
+          "bboxNormalized": [
+            0.67,
+            0.17,
+            0.8,
+            0.41
+          ]
+        },
+        {
+          "id": "analytics",
+          "name": "Analytics",
+          "type": "monitoring",
+          "bboxNormalized": [
+            0.535,
+            0.47,
+            0.805,
+            0.82
+          ]
+        },
+        {
+          "id": "consumers",
+          "name": "Consumers",
+          "type": "user",
+          "bboxNormalized": [
+            0.865,
+            0.16,
+            0.975,
+            0.8
+          ]
+        }
+      ],
+      "flows": [
+        {
+          "id": "nlb-1",
+          "from": "sources",
+          "to": "ingestion",
+          "protocol": "unknown"
+        },
+        {
+          "id": "nlb-2",
+          "from": "ingestion",
+          "to": "processing",
+          "protocol": "unknown"
+        },
+        {
+          "id": "nlb-3",
+          "from": "processing",
+          "to": "data_lake",
+          "protocol": "unknown"
+        },
+        {
+          "id": "nlb-4",
+          "from": "data_lake",
+          "to": "profiles",
+          "protocol": "unknown"
+        },
+        {
+          "id": "nlb-5",
+          "from": "profiles",
+          "to": "activation",
+          "protocol": "unknown"
+        },
+        {
+          "id": "nlb-6",
+          "from": "activation",
+          "to": "consumers",
+          "protocol": "unknown"
+        },
+        {
+          "id": "nlb-7",
+          "from": "data_lake",
+          "to": "analytics",
+          "protocol": "unknown"
+        },
+        {
+          "id": "nlb-8",
+          "from": "analytics",
+          "to": "consumers",
+          "protocol": "unknown"
+        }
+      ],
+      "boundaries": [],
+      "protocols": []
+    },
+    {
+      "id": "azure-kubernetes",
+      "provider": "azure",
+      "sourceGroup": "azure_kubernetes_services_0003",
+      "split": "blind_holdout",
+      "image": "dataset/kaggle_curated_unique/images/test/kaggle_azure_kubernetes_services_0003_aug_7.png",
+      "imageSha256": "db4b0330bea344e4aac472fdbee274dfff44d1829606ca36a0a8d585a3dadf92",
+      "annotationStatus": "human_verified",
+      "annotationMethod": "Manual visual review of primary architecture content; augmentation overlays excluded.",
+      "components": [
+        {
+          "id": "users",
+          "name": "Users",
+          "type": "user",
+          "bboxNormalized": [
+            0.025,
+            0.37,
+            0.095,
+            0.47
+          ]
+        },
+        {
+          "id": "front_door",
+          "name": "Azure Front Door",
+          "type": "cdn",
+          "bboxNormalized": [
+            0.2,
+            0.355,
+            0.285,
+            0.455
+          ]
+        },
+        {
+          "id": "app_gateway",
+          "name": "Application Gateway",
+          "type": "api_gateway",
+          "bboxNormalized": [
+            0.325,
+            0.355,
+            0.41,
+            0.455
+          ]
+        },
+        {
+          "id": "aks",
+          "name": "Azure Kubernetes Service",
+          "type": "compute",
+          "bboxNormalized": [
+            0.455,
+            0.33,
+            0.59,
+            0.5
+          ]
+        },
+        {
+          "id": "openai",
+          "name": "Azure OpenAI",
+          "type": "compute",
+          "bboxNormalized": [
+            0.66,
+            0.3,
+            0.75,
+            0.41
+          ]
+        },
+        {
+          "id": "cosmos",
+          "name": "Azure Cosmos DB",
+          "type": "database",
+          "bboxNormalized": [
+            0.66,
+            0.49,
+            0.75,
+            0.6
+          ]
+        },
+        {
+          "id": "storage",
+          "name": "Azure Storage",
+          "type": "storage",
+          "bboxNormalized": [
+            0.66,
+            0.64,
+            0.75,
+            0.75
+          ]
+        },
+        {
+          "id": "key_vault",
+          "name": "Key Vault",
+          "type": "secrets_kms",
+          "bboxNormalized": [
+            0.28,
+            0.65,
+            0.36,
+            0.76
+          ]
+        },
+        {
+          "id": "monitor",
+          "name": "Azure Monitor",
+          "type": "monitoring",
+          "bboxNormalized": [
+            0.455,
+            0.65,
+            0.555,
+            0.76
+          ]
+        }
+      ],
+      "flows": [
+        {
+          "id": "aks-1",
+          "from": "users",
+          "to": "front_door",
+          "protocol": "unknown"
+        },
+        {
+          "id": "aks-2",
+          "from": "front_door",
+          "to": "app_gateway",
+          "protocol": "unknown"
+        },
+        {
+          "id": "aks-3",
+          "from": "app_gateway",
+          "to": "aks",
+          "protocol": "unknown"
+        },
+        {
+          "id": "aks-4",
+          "from": "aks",
+          "to": "openai",
+          "protocol": "unknown"
+        },
+        {
+          "id": "aks-5",
+          "from": "aks",
+          "to": "cosmos",
+          "protocol": "unknown"
+        },
+        {
+          "id": "aks-6",
+          "from": "aks",
+          "to": "storage",
+          "protocol": "unknown"
+        },
+        {
+          "id": "aks-7",
+          "from": "aks",
+          "to": "key_vault",
+          "protocol": "unknown"
+        },
+        {
+          "id": "aks-8",
+          "from": "aks",
+          "to": "monitor",
+          "protocol": "unknown"
+        }
+      ],
+      "boundaries": [],
+      "protocols": []
+    },
+    {
+      "id": "gcp-cicd-gke",
+      "provider": "gcp",
+      "sourceGroup": "google_cloud_official_cicd_gke",
+      "split": "blind_holdout",
+      "image": "data/benchmarks/real-architecture/images/gcp-cicd-gke.png",
+      "imageSha256": "07f06caa75fb6caaeaf82ddfc34e290d1da2c3cdc8b07aa9bcdfe4726fdb1ad8",
+      "annotationStatus": "human_verified",
+      "annotationMethod": "Manual visual review of primary architecture content; augmentation overlays excluded.",
+      "components": [
+        {
+          "id": "github",
+          "name": "GitHub",
+          "type": "storage",
+          "bboxNormalized": [
+            0.0,
+            0.13,
+            0.115,
+            0.22
+          ]
+        },
+        {
+          "id": "developer",
+          "name": "Developer",
+          "type": "user",
+          "bboxNormalized": [
+            0.0,
+            0.4,
+            0.115,
+            0.49
+          ]
+        },
+        {
+          "id": "source",
+          "name": "Cloud Source Repositories",
+          "type": "storage",
+          "bboxNormalized": [
+            0.2,
+            0.09,
+            0.34,
+            0.255
+          ]
+        },
+        {
+          "id": "develop",
+          "name": "Cloud Code",
+          "type": "compute",
+          "bboxNormalized": [
+            0.2,
+            0.36,
+            0.34,
+            0.53
+          ]
+        },
+        {
+          "id": "dev_cluster",
+          "name": "Development Cluster",
+          "type": "compute",
+          "bboxNormalized": [
+            0.2,
+            0.56,
+            0.34,
+            0.725
+          ]
+        },
+        {
+          "id": "ci",
+          "name": "Cloud Build",
+          "type": "compute",
+          "bboxNormalized": [
+            0.38,
+            0.36,
+            0.52,
+            0.53
+          ]
+        },
+        {
+          "id": "build_artifacts",
+          "name": "Build Artifacts",
+          "type": "storage",
+          "bboxNormalized": [
+            0.535,
+            0.09,
+            0.675,
+            0.255
+          ]
+        },
+        {
+          "id": "cd",
+          "name": "Cloud Deploy",
+          "type": "compute",
+          "bboxNormalized": [
+            0.535,
+            0.36,
+            0.675,
+            0.53
+          ]
+        },
+        {
+          "id": "deploy_artifacts",
+          "name": "Deploy Artifacts",
+          "type": "storage",
+          "bboxNormalized": [
+            0.69,
+            0.09,
+            0.83,
+            0.255
+          ]
+        },
+        {
+          "id": "staging",
+          "name": "Staging Cluster",
+          "type": "compute",
+          "bboxNormalized": [
+            0.535,
+            0.56,
+            0.675,
+            0.725
+          ]
+        },
+        {
+          "id": "production",
+          "name": "Production Cluster",
+          "type": "compute",
+          "bboxNormalized": [
+            0.69,
+            0.56,
+            0.83,
+            0.725
+          ]
+        },
+        {
+          "id": "container",
+          "name": "Application Container",
+          "type": "storage",
+          "bboxNormalized": [
+            0.535,
+            0.76,
+            0.675,
+            0.925
+          ]
+        },
+        {
+          "id": "operations",
+          "name": "Operations Approval",
+          "type": "user",
+          "bboxNormalized": [
+            0.865,
+            0.6,
+            0.985,
+            0.69
+          ]
+        }
+      ],
+      "flows": [
+        {
+          "id": "cicd-1",
+          "from": "github",
+          "to": "source",
+          "protocol": "unknown"
+        },
+        {
+          "id": "cicd-2",
+          "from": "developer",
+          "to": "develop",
+          "protocol": "unknown"
+        },
+        {
+          "id": "cicd-3",
+          "from": "develop",
+          "to": "source",
+          "protocol": "unknown"
+        },
+        {
+          "id": "cicd-4",
+          "from": "develop",
+          "to": "dev_cluster",
+          "protocol": "unknown"
+        },
+        {
+          "id": "cicd-5",
+          "from": "source",
+          "to": "ci",
+          "protocol": "unknown"
+        },
+        {
+          "id": "cicd-6",
+          "from": "ci",
+          "to": "build_artifacts",
+          "protocol": "unknown"
+        },
+        {
+          "id": "cicd-7",
+          "from": "ci",
+          "to": "cd",
+          "protocol": "unknown"
+        },
+        {
+          "id": "cicd-8",
+          "from": "cd",
+          "to": "staging",
+          "protocol": "unknown"
+        },
+        {
+          "id": "cicd-9",
+          "from": "cd",
+          "to": "deploy_artifacts",
+          "protocol": "unknown"
+        },
+        {
+          "id": "cicd-10",
+          "from": "operations",
+          "to": "production",
+          "protocol": "unknown"
+        },
+        {
+          "id": "cicd-11",
+          "from": "container",
+          "to": "staging",
+          "protocol": "unknown"
+        },
+        {
+          "id": "cicd-12",
+          "from": "container",
+          "to": "production",
+          "protocol": "unknown"
+        }
+      ],
+      "boundaries": [
+        {
+          "id": "gcp",
+          "name": "Google Cloud",
+          "componentIds": [
+            "source",
+            "develop",
+            "dev_cluster",
+            "ci",
+            "build_artifacts",
+            "cd",
+            "deploy_artifacts",
+            "staging",
+            "production",
+            "container"
+          ]
+        }
+      ],
+      "protocols": []
+    },
+    {
+      "id": "fiap-aws-multiaz",
+      "provider": "aws",
+      "sourceGroup": "fiap_architecture_1",
+      "split": "blind_holdout",
+      "image": "data/benchmarks/real-architecture/images/fiap-architecture-1.png",
+      "imageSha256": "0eb0f93befb0bb62ed929dede2c4970c0db245489c03d0fe1d23584cf6a30f0b",
+      "annotationStatus": "human_verified",
+      "annotationMethod": "Manual visual review of primary architecture content; augmentation overlays excluded.",
+      "components": [
+        {
+          "id": "users",
+          "name": "Usuarios SEI",
+          "type": "user",
+          "bboxNormalized": [
+            0.04,
+            0.045,
+            0.13,
+            0.105
+          ]
+        },
+        {
+          "id": "shield",
+          "name": "AWS Shield",
+          "type": "waf",
+          "bboxNormalized": [
+            0.23,
+            0.045,
+            0.3,
+            0.115
+          ]
+        },
+        {
+          "id": "cloudfront",
+          "name": "Amazon CloudFront",
+          "type": "cdn",
+          "bboxNormalized": [
+            0.345,
+            0.045,
+            0.42,
+            0.115
+          ]
+        },
+        {
+          "id": "waf",
+          "name": "AWS WAF",
+          "type": "waf",
+          "bboxNormalized": [
+            0.46,
+            0.045,
+            0.53,
+            0.115
+          ]
+        },
+        {
+          "id": "alb_a",
+          "name": "Application Load Balancer A",
+          "type": "load_balancer",
+          "bboxNormalized": [
+            0.17,
+            0.245,
+            0.26,
+            0.33
+          ]
+        },
+        {
+          "id": "alb_b",
+          "name": "Application Load Balancer B",
+          "type": "load_balancer",
+          "bboxNormalized": [
+            0.405,
+            0.245,
+            0.495,
+            0.33
+          ]
+        },
+        {
+          "id": "alb_c",
+          "name": "Application Load Balancer C",
+          "type": "load_balancer",
+          "bboxNormalized": [
+            0.635,
+            0.245,
+            0.725,
+            0.33
+          ]
+        },
+        {
+          "id": "compute_a",
+          "name": "SEI/SIP A",
+          "type": "compute",
+          "bboxNormalized": [
+            0.19,
+            0.415,
+            0.275,
+            0.505
+          ]
+        },
+        {
+          "id": "compute_b",
+          "name": "SEI/SIP B",
+          "type": "compute",
+          "bboxNormalized": [
+            0.42,
+            0.415,
+            0.505,
+            0.505
+          ]
+        },
+        {
+          "id": "compute_c",
+          "name": "SEI/SIP C",
+          "type": "compute",
+          "bboxNormalized": [
+            0.65,
+            0.415,
+            0.735,
+            0.505
+          ]
+        },
+        {
+          "id": "storage",
+          "name": "Amazon EFS",
+          "type": "storage",
+          "bboxNormalized": [
+            0.135,
+            0.635,
+            0.23,
+            0.725
+          ]
+        },
+        {
+          "id": "database",
+          "name": "Amazon RDS",
+          "type": "database",
+          "bboxNormalized": [
+            0.33,
+            0.635,
+            0.425,
+            0.725
+          ]
+        },
+        {
+          "id": "cache",
+          "name": "Amazon ElastiCache",
+          "type": "database",
+          "bboxNormalized": [
+            0.52,
+            0.635,
+            0.615,
+            0.725
+          ]
+        },
+        {
+          "id": "cloudtrail",
+          "name": "AWS CloudTrail",
+          "type": "monitoring",
+          "bboxNormalized": [
+            0.805,
+            0.19,
+            0.9,
+            0.27
+          ]
+        },
+        {
+          "id": "kms",
+          "name": "AWS KMS",
+          "type": "secrets_kms",
+          "bboxNormalized": [
+            0.805,
+            0.3,
+            0.9,
+            0.38
+          ]
+        },
+        {
+          "id": "backup",
+          "name": "AWS Backup",
+          "type": "backup",
+          "bboxNormalized": [
+            0.805,
+            0.41,
+            0.9,
+            0.49
+          ]
+        },
+        {
+          "id": "cloudwatch",
+          "name": "Amazon CloudWatch",
+          "type": "monitoring",
+          "bboxNormalized": [
+            0.805,
+            0.52,
+            0.9,
+            0.6
+          ]
+        }
+      ],
+      "flows": [
+        {
+          "id": "fiap-aws-1",
+          "from": "users",
+          "to": "shield",
+          "protocol": "unknown"
+        },
+        {
+          "id": "fiap-aws-2",
+          "from": "shield",
+          "to": "cloudfront",
+          "protocol": "unknown"
+        },
+        {
+          "id": "fiap-aws-3",
+          "from": "cloudfront",
+          "to": "waf",
+          "protocol": "unknown"
+        },
+        {
+          "id": "fiap-aws-4",
+          "from": "waf",
+          "to": "alb_a",
+          "protocol": "unknown"
+        },
+        {
+          "id": "fiap-aws-5",
+          "from": "waf",
+          "to": "alb_b",
+          "protocol": "unknown"
+        },
+        {
+          "id": "fiap-aws-6",
+          "from": "waf",
+          "to": "alb_c",
+          "protocol": "unknown"
+        },
+        {
+          "id": "fiap-aws-7",
+          "from": "alb_a",
+          "to": "compute_a",
+          "protocol": "unknown"
+        },
+        {
+          "id": "fiap-aws-8",
+          "from": "alb_b",
+          "to": "compute_b",
+          "protocol": "unknown"
+        },
+        {
+          "id": "fiap-aws-9",
+          "from": "alb_c",
+          "to": "compute_c",
+          "protocol": "unknown"
+        },
+        {
+          "id": "fiap-aws-10",
+          "from": "compute_a",
+          "to": "storage",
+          "protocol": "unknown"
+        },
+        {
+          "id": "fiap-aws-11",
+          "from": "compute_b",
+          "to": "database",
+          "protocol": "unknown"
+        },
+        {
+          "id": "fiap-aws-12",
+          "from": "compute_c",
+          "to": "cache",
+          "protocol": "unknown"
+        }
+      ],
+      "boundaries": [
+        {
+          "id": "vpc",
+          "name": "AWS VPC",
+          "componentIds": [
+            "alb_a",
+            "alb_b",
+            "alb_c",
+            "compute_a",
+            "compute_b",
+            "compute_c",
+            "storage",
+            "database",
+            "cache"
+          ]
+        }
+      ],
+      "protocols": []
+    },
+    {
+      "id": "fiap-azure-integration",
+      "provider": "azure",
+      "sourceGroup": "fiap_architecture_2",
+      "split": "blind_holdout",
+      "image": "data/benchmarks/real-architecture/images/fiap-architecture-2.png",
+      "imageSha256": "471b6a757b14593d881e7b8f9e6954c8946055a30e8f9726fc03cd01b144393e",
+      "annotationStatus": "human_verified",
+      "annotationMethod": "Manual visual review of primary architecture content; augmentation overlays excluded.",
+      "components": [
+        {
+          "id": "entra",
+          "name": "Microsoft Entra",
+          "type": "identity_provider",
+          "bboxNormalized": [
+            0.055,
+            0.035,
+            0.135,
+            0.115
+          ]
+        },
+        {
+          "id": "internet",
+          "name": "Internet",
+          "type": "internet",
+          "bboxNormalized": [
+            0.055,
+            0.245,
+            0.135,
+            0.325
+          ]
+        },
+        {
+          "id": "user",
+          "name": "API Consumer",
+          "type": "user",
+          "bboxNormalized": [
+            0.055,
+            0.52,
+            0.135,
+            0.61
+          ]
+        },
+        {
+          "id": "gateway",
+          "name": "API Gateway",
+          "type": "api_gateway",
+          "bboxNormalized": [
+            0.3,
+            0.305,
+            0.39,
+            0.4
+          ]
+        },
+        {
+          "id": "portal",
+          "name": "Developer Portal",
+          "type": "compute",
+          "bboxNormalized": [
+            0.3,
+            0.6,
+            0.39,
+            0.69
+          ]
+        },
+        {
+          "id": "logic",
+          "name": "Logic Apps",
+          "type": "compute",
+          "bboxNormalized": [
+            0.505,
+            0.305,
+            0.595,
+            0.4
+          ]
+        },
+        {
+          "id": "azure_services",
+          "name": "Azure Services",
+          "type": "compute",
+          "bboxNormalized": [
+            0.76,
+            0.23,
+            0.88,
+            0.33
+          ]
+        },
+        {
+          "id": "saas",
+          "name": "SaaS Services",
+          "type": "compute",
+          "bboxNormalized": [
+            0.76,
+            0.38,
+            0.88,
+            0.48
+          ]
+        },
+        {
+          "id": "rest",
+          "name": "REST Services",
+          "type": "api_gateway",
+          "bboxNormalized": [
+            0.76,
+            0.55,
+            0.88,
+            0.65
+          ]
+        },
+        {
+          "id": "soap",
+          "name": "SOAP Services",
+          "type": "api_gateway",
+          "bboxNormalized": [
+            0.76,
+            0.7,
+            0.88,
+            0.8
+          ]
+        }
+      ],
+      "flows": [
+        {
+          "id": "fiap-az-1",
+          "from": "user",
+          "to": "internet",
+          "protocol": "unknown"
+        },
+        {
+          "id": "fiap-az-2",
+          "from": "internet",
+          "to": "gateway",
+          "protocol": "unknown"
+        },
+        {
+          "id": "fiap-az-3",
+          "from": "entra",
+          "to": "gateway",
+          "protocol": "unknown"
+        },
+        {
+          "id": "fiap-az-4",
+          "from": "gateway",
+          "to": "logic",
+          "protocol": "unknown"
+        },
+        {
+          "id": "fiap-az-5",
+          "from": "gateway",
+          "to": "portal",
+          "protocol": "unknown"
+        },
+        {
+          "id": "fiap-az-6",
+          "from": "logic",
+          "to": "azure_services",
+          "protocol": "unknown"
+        },
+        {
+          "id": "fiap-az-7",
+          "from": "logic",
+          "to": "saas",
+          "protocol": "unknown"
+        },
+        {
+          "id": "fiap-az-8",
+          "from": "logic",
+          "to": "rest",
+          "protocol": "unknown"
+        },
+        {
+          "id": "fiap-az-9",
+          "from": "logic",
+          "to": "soap",
+          "protocol": "unknown"
+        }
+      ],
+      "boundaries": [
+        {
+          "id": "resource-group",
+          "name": "Resource group",
+          "componentIds": [
+            "gateway",
+            "portal",
+            "logic"
+          ]
+        }
+      ],
+      "protocols": [
+        {
+          "flowId": "fiap-az-2",
+          "value": "HTTP",
+          "evidenceText": "HTTP"
+        }
+      ]
+    }
+  ]
+}

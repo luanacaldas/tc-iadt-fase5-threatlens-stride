@@ -1,0 +1,237 @@
+{
+  "schemaVersion": "1.0",
+  "builtAt": "2026-07-18T01:50:49.060631+00:00",
+  "seed": 42,
+  "sourceBenchmark": "E:\\Tech Challenge IADT - Fase 5 - Hackathon\\data\\benchmarks\\real-architecture\\benchmark-expanded.json",
+  "sourceSplit": "development_tuning",
+  "blindHoldoutIncluded": false,
+  "modelBefore": {
+    "path": "models/threatlens-hybrid-v2/weights/best.pt",
+    "sha256": "2aebcd0611927505d60a10d23ce11d0e5211cf2e91ca0c4394921fac006c865d"
+  },
+  "imageCount": 9,
+  "classCounts": {
+    "api_gateway": 4,
+    "cdn": 1,
+    "compute": 38,
+    "database": 8,
+    "identity_provider": 3,
+    "internet": 3,
+    "load_balancer": 2,
+    "monitoring": 4,
+    "queue": 2,
+    "secrets_kms": 3,
+    "storage": 11,
+    "user": 5,
+    "waf": 8
+  },
+  "meanTypedRecallBefore": 0.1527777777777778,
+  "records": [
+    {
+      "id": "gcp-secure-cloud-run",
+      "split": "val",
+      "sourceImage": "data/benchmarks/real-architecture/images/gcp-secure-cloud-run.png",
+      "expectedComponents": 12,
+      "predictedComponents": 0,
+      "typedRecallBefore": 0.0,
+      "missedComponentIds": [
+        "internet",
+        "armor",
+        "load_balancer",
+        "cloud_run",
+        "vpc_connector",
+        "artifact_registry",
+        "kms",
+        "secret_manager",
+        "firewall",
+        "resource",
+        "iam",
+        "logging"
+      ],
+      "wrongTypeMatches": []
+    },
+    {
+      "id": "aws-eks-platform",
+      "split": "val",
+      "sourceImage": "dataset/raw_kaggle_selected/aws_amazon_elastic_kubernetes_service_0005_aug_4.png",
+      "expectedComponents": 14,
+      "predictedComponents": 10,
+      "typedRecallBefore": 0.0,
+      "missedComponentIds": [
+        "warehouse",
+        "sql",
+        "external",
+        "sagemaker",
+        "comprehend",
+        "notebook",
+        "raw",
+        "processed",
+        "lambda",
+        "microservices",
+        "glue",
+        "dynamo",
+        "rds",
+        "visualization"
+      ],
+      "wrongTypeMatches": [
+        {
+          "expectedId": "processed",
+          "predictedId": "queue_2",
+          "expectedType": "storage",
+          "predictedType": "queue",
+          "typeCorrect": false,
+          "iou": 0.507
+        }
+      ]
+    },
+    {
+      "id": "azure-private-ai-platform",
+      "split": "train",
+      "sourceImage": "dataset/raw_kaggle_selected/aws_amazon_rds_0005_aug_0.png",
+      "expectedComponents": 12,
+      "predictedComponents": 12,
+      "typedRecallBefore": 0.08333333333333333,
+      "missedComponentIds": [
+        "user",
+        "app_gateway",
+        "app_service",
+        "key_vault",
+        "storage",
+        "firewall",
+        "build_agents",
+        "ai_search",
+        "cosmos",
+        "foundry_agent",
+        "openai"
+      ],
+      "wrongTypeMatches": []
+    },
+    {
+      "id": "generic-cloud-api",
+      "split": "train",
+      "sourceImage": "dataset/hybrid_v2/images/test/current_arch_test_0000.jpg",
+      "expectedComponents": 8,
+      "predictedComponents": 8,
+      "typedRecallBefore": 1.0,
+      "missedComponentIds": [],
+      "wrongTypeMatches": []
+    },
+    {
+      "id": "azure-hub-spoke",
+      "split": "train",
+      "sourceImage": "dataset/raw_kaggle_selected/gcp_google_kubernetes_engine_0004_aug_2.png",
+      "expectedComponents": 8,
+      "predictedComponents": 9,
+      "typedRecallBefore": 0.125,
+      "missedComponentIds": [
+        "onprem",
+        "firewall",
+        "gateway",
+        "prod_vm",
+        "prod2_vm",
+        "nonprod_vm",
+        "nonprod2_vm"
+      ],
+      "wrongTypeMatches": [
+        {
+          "expectedId": "firewall",
+          "predictedId": "compute_2",
+          "expectedType": "waf",
+          "predictedType": "compute",
+          "typeCorrect": false,
+          "iou": 0.4497
+        },
+        {
+          "expectedId": "gateway",
+          "predictedId": "storage_1",
+          "expectedType": "api_gateway",
+          "predictedType": "storage",
+          "typeCorrect": false,
+          "iou": 0.3234
+        }
+      ]
+    },
+    {
+      "id": "aws-video-pipeline",
+      "split": "train",
+      "sourceImage": "dataset/hybrid_v2/images/test/kaggle_unique_kaggle_azure_vm_scale_sets_0001_aug_6.png",
+      "expectedComponents": 16,
+      "predictedComponents": 5,
+      "typedRecallBefore": 0.0,
+      "missedComponentIds": [
+        "mobile",
+        "cognito",
+        "api",
+        "upload",
+        "stage1",
+        "trigger1",
+        "transcoder",
+        "stage2",
+        "trigger2",
+        "media",
+        "stage3",
+        "business1",
+        "database",
+        "business2",
+        "trigger3",
+        "email"
+      ],
+      "wrongTypeMatches": []
+    },
+    {
+      "id": "aws-serverless-async",
+      "split": "train",
+      "sourceImage": "dataset/raw_kaggle_selected/aws_amazon_elastic_container_service_0001_aug_3.png",
+      "expectedComponents": 11,
+      "predictedComponents": 10,
+      "typedRecallBefore": 0.0,
+      "missedComponentIds": [
+        "api",
+        "waf",
+        "cognito",
+        "search_handler",
+        "api_handler",
+        "queue",
+        "worker",
+        "fargate",
+        "database",
+        "catalog",
+        "cloudwatch"
+      ],
+      "wrongTypeMatches": []
+    },
+    {
+      "id": "azure-container-edge",
+      "split": "train",
+      "sourceImage": "dataset/hybrid_v2/images/test/kaggle_unique_kaggle_azure_container_instances_0004_aug_2.png",
+      "expectedComponents": 5,
+      "predictedComponents": 4,
+      "typedRecallBefore": 0.0,
+      "missedComponentIds": [
+        "clients",
+        "load_balancer",
+        "application_firewall",
+        "azure_firewall",
+        "virtual_machines"
+      ],
+      "wrongTypeMatches": []
+    },
+    {
+      "id": "azure-ai-foundry",
+      "split": "train",
+      "sourceImage": "dataset/raw_kaggle_selected/azure_sql_database_0007_aug_0.png",
+      "expectedComponents": 6,
+      "predictedComponents": 8,
+      "typedRecallBefore": 0.16666666666666666,
+      "missedComponentIds": [
+        "app_service",
+        "foundry_account",
+        "foundry_agent",
+        "openai_model",
+        "ai_search"
+      ],
+      "wrongTypeMatches": []
+    }
+  ],
+  "annotationPolicy": "All labels originate from the human-verified benchmark; Kaggle XML augmentation boxes are excluded."
+}

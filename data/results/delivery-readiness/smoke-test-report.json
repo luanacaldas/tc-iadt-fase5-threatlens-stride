@@ -1,0 +1,2423 @@
+{
+  "schemaVersion": "1.0",
+  "version": "1.0.0-mvp",
+  "executedAt": "2026-07-21T22:30:38.412431+00:00",
+  "holdoutsExecuted": false,
+  "transition": [
+    "legacy",
+    "junction_aware_controlled",
+    "legacy"
+  ],
+  "expectedTransition": [
+    "legacy",
+    "junction_aware_controlled",
+    "legacy"
+  ],
+  "phases": [
+    {
+      "baseUrl": "http://127.0.0.1:8141",
+      "expectedStrategy": "legacy",
+      "image": "data/sample-diagrams/02-mixed-components.jpg",
+      "checks": [
+        {
+          "name": "healthHttp200",
+          "passed": true,
+          "detail": 200
+        },
+        {
+          "name": "healthStatus",
+          "passed": true,
+          "detail": "ok"
+        },
+        {
+          "name": "version",
+          "passed": true,
+          "detail": "1.0.0-mvp"
+        },
+        {
+          "name": "flowStrategy",
+          "passed": true,
+          "detail": "legacy"
+        },
+        {
+          "name": "analyzeImageHttp200",
+          "passed": true,
+          "detail": 200
+        },
+        {
+          "name": "imageComponents",
+          "passed": true,
+          "detail": 8
+        },
+        {
+          "name": "imageFlows",
+          "passed": true,
+          "detail": 13
+        },
+        {
+          "name": "imageStrategy",
+          "passed": true,
+          "detail": "legacy"
+        },
+        {
+          "name": "analyzeFullHttp200",
+          "passed": true,
+          "detail": 200
+        },
+        {
+          "name": "fullComponents",
+          "passed": true,
+          "detail": 8
+        },
+        {
+          "name": "fullFlows",
+          "passed": true,
+          "detail": 13
+        },
+        {
+          "name": "strideThreats",
+          "passed": true,
+          "detail": 23
+        },
+        {
+          "name": "vulnerabilitiesOrCountermeasures",
+          "passed": true,
+          "detail": true
+        },
+        {
+          "name": "fullStrategy",
+          "passed": true,
+          "detail": "legacy"
+        },
+        {
+          "name": "flowStrategyTrace",
+          "passed": true,
+          "detail": "dict"
+        },
+        {
+          "name": "invalidImageRejected",
+          "passed": true,
+          "detail": 415
+        },
+        {
+          "name": "invalidImageErrorIsReadable",
+          "passed": true,
+          "detail": "Unsupported image type: text/plain"
+        }
+      ],
+      "status": "passed",
+      "sampleAnalysis": {
+        "architecture": {
+          "name": "Detected architecture",
+          "components": [
+            {
+              "id": "compute_1",
+              "name": "Compute",
+              "type": "compute",
+              "provider": "generic",
+              "confidence": 0.462,
+              "bbox": [
+                20,
+                270,
+                110,
+                329
+              ],
+              "reviewStatus": "pending"
+            },
+            {
+              "id": "api_gateway_1",
+              "name": "Api Gateway",
+              "type": "api_gateway",
+              "provider": "generic",
+              "confidence": 0.433,
+              "bbox": [
+                689,
+                144,
+                780,
+                205
+              ],
+              "reviewStatus": "pending"
+            },
+            {
+              "id": "storage_1",
+              "name": "Storage",
+              "type": "storage",
+              "provider": "generic",
+              "confidence": 0.376,
+              "bbox": [
+                689,
+                270,
+                780,
+                330
+              ],
+              "reviewStatus": "pending"
+            },
+            {
+              "id": "monitoring_1",
+              "name": "Monitoring",
+              "type": "monitoring",
+              "provider": "generic",
+              "confidence": 0.373,
+              "bbox": [
+                354,
+                394,
+                445,
+                455
+              ],
+              "reviewStatus": "pending"
+            },
+            {
+              "id": "database_1",
+              "name": "Database",
+              "type": "database",
+              "provider": "generic",
+              "confidence": 0.345,
+              "bbox": [
+                354,
+                269,
+                445,
+                330
+              ],
+              "reviewStatus": "pending"
+            },
+            {
+              "id": "cdn_1",
+              "name": "Cdn",
+              "type": "cdn",
+              "provider": "generic",
+              "confidence": 0.301,
+              "bbox": [
+                354,
+                144,
+                444,
+                205
+              ],
+              "reviewStatus": "pending"
+            },
+            {
+              "id": "internet_1",
+              "name": "Internet",
+              "type": "internet",
+              "provider": "generic",
+              "confidence": 0.292,
+              "bbox": [
+                19,
+                145,
+                110,
+                206
+              ],
+              "reviewStatus": "pending"
+            },
+            {
+              "id": "user_1",
+              "name": "User",
+              "type": "user",
+              "provider": "generic",
+              "confidence": 0.185,
+              "bbox": [
+                359,
+                21,
+                441,
+                80
+              ],
+              "reviewStatus": "pending"
+            }
+          ],
+          "flows": [
+            {
+              "id": "f1",
+              "from": "internet_1",
+              "to": "cdn_1",
+              "protocol": "unknown",
+              "trustBoundary": false,
+              "confidence": 0.795,
+              "inferred": true,
+              "reviewStatus": "pending",
+              "evidence": "detected_line",
+              "directionEvidence": "semantic_source"
+            },
+            {
+              "id": "f2",
+              "from": "database_1",
+              "to": "compute_1",
+              "protocol": "unknown",
+              "trustBoundary": false,
+              "confidence": 0.793,
+              "inferred": true,
+              "reviewStatus": "pending",
+              "evidence": "detected_line",
+              "directionEvidence": "visual_arrowhead"
+            },
+            {
+              "id": "f3",
+              "from": "cdn_1",
+              "to": "api_gateway_1",
+              "protocol": "unknown",
+              "trustBoundary": false,
+              "confidence": 0.792,
+              "inferred": true,
+              "reviewStatus": "pending",
+              "evidence": "detected_line",
+              "directionEvidence": "visual_arrowhead"
+            },
+            {
+              "id": "f4",
+              "from": "database_1",
+              "to": "storage_1",
+              "protocol": "unknown",
+              "trustBoundary": false,
+              "confidence": 0.791,
+              "inferred": true,
+              "reviewStatus": "pending",
+              "evidence": "detected_line",
+              "directionEvidence": "supervised_arrowhead"
+            },
+            {
+              "id": "f5",
+              "from": "internet_1",
+              "to": "user_1",
+              "protocol": "unknown",
+              "trustBoundary": false,
+              "confidence": 0.758,
+              "inferred": true,
+              "reviewStatus": "pending",
+              "evidence": "segment_graph",
+              "directionEvidence": "left_to_right"
+            },
+            {
+              "id": "f6",
+              "from": "database_1",
+              "to": "api_gateway_1",
+              "protocol": "unknown",
+              "trustBoundary": false,
+              "confidence": 0.757,
+              "inferred": true,
+              "reviewStatus": "pending",
+              "evidence": "segment_graph",
+              "directionEvidence": "left_to_right"
+            },
+            {
+              "id": "f7",
+              "from": "user_1",
+              "to": "cdn_1",
+              "protocol": "unknown",
+              "trustBoundary": false,
+              "confidence": 0.752,
+              "inferred": true,
+              "reviewStatus": "pending",
+              "evidence": "detected_line",
+              "directionEvidence": "semantic_source"
+            },
+            {
+              "id": "f8",
+              "from": "monitoring_1",
+              "to": "storage_1",
+              "protocol": "unknown",
+              "trustBoundary": true,
+              "confidence": 0.751,
+              "inferred": true,
+              "reviewStatus": "pending",
+              "evidence": "segment_graph",
+              "directionEvidence": "left_to_right"
+            },
+            {
+              "id": "f9",
+              "from": "monitoring_1",
+              "to": "database_1",
+              "protocol": "unknown",
+              "trustBoundary": true,
+              "confidence": 0.75,
+              "inferred": true,
+              "reviewStatus": "pending",
+              "evidence": "detected_line",
+              "directionEvidence": "visual_arrowhead"
+            },
+            {
+              "id": "f10",
+              "from": "database_1",
+              "to": "cdn_1",
+              "protocol": "unknown",
+              "trustBoundary": false,
+              "confidence": 0.75,
+              "inferred": true,
+              "reviewStatus": "pending",
+              "evidence": "detected_line",
+              "directionEvidence": "visual_arrowhead"
+            },
+            {
+              "id": "f11",
+              "from": "internet_1",
+              "to": "compute_1",
+              "protocol": "unknown",
+              "trustBoundary": false,
+              "confidence": 0.748,
+              "inferred": true,
+              "reviewStatus": "pending",
+              "evidence": "detected_line",
+              "directionEvidence": "semantic_source"
+            },
+            {
+              "id": "f12",
+              "from": "api_gateway_1",
+              "to": "storage_1",
+              "protocol": "unknown",
+              "trustBoundary": false,
+              "confidence": 0.746,
+              "inferred": true,
+              "reviewStatus": "pending",
+              "evidence": "detected_line",
+              "directionEvidence": "top_to_bottom"
+            },
+            {
+              "id": "f13",
+              "from": "monitoring_1",
+              "to": "cdn_1",
+              "protocol": "unknown",
+              "trustBoundary": true,
+              "confidence": 0.743,
+              "inferred": true,
+              "reviewStatus": "pending",
+              "evidence": "segment_graph",
+              "directionEvidence": "supervised_arrowhead"
+            }
+          ],
+          "trustBoundaries": [
+            {
+              "id": "tb1",
+              "name": "Detected trust zone 1",
+              "bbox": [
+                321,
+                379,
+                520,
+                480
+              ],
+              "componentIds": [
+                "monitoring_1"
+              ],
+              "confidence": 0.586,
+              "inferred": true,
+              "reviewStatus": "pending",
+              "evidence": "rectangular_zone"
+            }
+          ]
+        },
+        "threats": [
+          {
+            "id": "database_1-information-disclosure-sensitive-records-can-be-exposed",
+            "stride": "Information Disclosure",
+            "title": "Sensitive records can be exposed",
+            "severity": "Critical",
+            "componentId": "database_1",
+            "componentName": "Database",
+            "evidence": "Component: Database. Rule source: component-rule:generic.",
+            "countermeasures": [
+              "Encrypt data at rest with managed keys or KMS.",
+              "Restrict network access and apply least privilege database roles.",
+              "Mask or tokenize sensitive attributes where possible."
+            ],
+            "confidence": 0.345,
+            "source": "component-rule:generic",
+            "ruleId": null,
+            "securityReferences": [
+              {
+                "framework": "CWE",
+                "id": "CWE-200",
+                "title": "Exposure of Sensitive Information",
+                "url": "https://cwe.mitre.org/data/definitions/200.html"
+              },
+              {
+                "framework": "CAPEC",
+                "id": "CAPEC-118",
+                "title": "Data Leakage Attacks",
+                "url": "https://capec.mitre.org/data/definitions/118.html"
+              },
+              {
+                "framework": "OWASP",
+                "id": "A02:2021",
+                "title": "Cryptographic Failures",
+                "url": "https://owasp.org/Top10/A02_2021-Cryptographic_Failures/"
+              },
+              {
+                "framework": "MITRE ATT&CK",
+                "id": "T1530",
+                "title": "Data from Cloud Storage",
+                "url": "https://attack.mitre.org/techniques/T1530/"
+              }
+            ],
+            "management": {
+              "status": "open",
+              "owner": "",
+              "justification": "",
+              "selectedCountermeasure": "",
+              "updatedAt": null
+            },
+            "evidenceTrace": {
+              "ruleId": null,
+              "ruleSource": "component-rule:generic",
+              "componentIds": [
+                "database_1"
+              ],
+              "flowIds": [],
+              "boundaryIds": [],
+              "absenceEvidence": [],
+              "ragSourceIds": [
+                "rag-4b6d2d3002c8",
+                "rag-f57b85dab6d8",
+                "rag-0409733a928a"
+              ]
+            }
+          },
+          {
+            "id": "architecture-denial-of-service-public-flow-without-explicit-waf-or-edge-filtering",
+            "stride": "Denial of Service",
+            "title": "Public flow without explicit WAF or edge filtering",
+            "severity": "High",
+            "componentId": "architecture",
+            "componentName": "Architecture",
+            "evidence": "The architecture contains an external flow, but no WAF component was detected.",
+            "countermeasures": [
+              "Place a WAF or equivalent edge control before public APIs.",
+              "Add rate limiting, bot mitigation, and DDoS protection at the edge."
+            ],
+            "confidence": 0.74,
+            "source": "flow-rule",
+            "ruleId": "external-entry-without-waf",
+            "securityReferences": [
+              {
+                "framework": "CWE",
+                "id": "CWE-400",
+                "title": "Uncontrolled Resource Consumption",
+                "url": "https://cwe.mitre.org/data/definitions/400.html"
+              },
+              {
+                "framework": "CAPEC",
+                "id": "CAPEC-125",
+                "title": "Resource Depletion through Flooding",
+                "url": "https://capec.mitre.org/data/definitions/125.html"
+              },
+              {
+                "framework": "OWASP",
+                "id": "API4:2023",
+                "title": "Unrestricted Resource Consumption",
+                "url": "https://owasp.org/API-Security/editions/2023/en/0xa4-unrestricted-resource-consumption/"
+              },
+              {
+                "framework": "MITRE ATT&CK",
+                "id": "T1499",
+                "title": "Endpoint Denial of Service",
+                "url": "https://attack.mitre.org/techniques/T1499/"
+              }
+            ],
+            "management": {
+              "status": "open",
+              "owner": "",
+              "justification": "",
+              "selectedCountermeasure": "",
+              "updatedAt": null
+            },
+            "evidenceTrace": {
+              "ruleId": "external-entry-without-waf",
+              "ruleSource": "flow-rule",
+              "componentIds": [
+                "cdn_1",
+                "compute_1",
+                "internet_1",
+                "user_1"
+              ],
+              "flowIds": [
+                "f1",
+                "f11",
+                "f5",
+                "f7"
+              ],
+              "boundaryIds": [],
+              "absenceEvidence": [],
+              "ragSourceIds": [
+                "rag-3bdc71ba1d55",
+                "rag-b11ca23fbaff",
+                "rag-c5de0424bf95"
+              ]
+            }
+          },
+          {
+            "id": "architecture-denial-of-service-database-present-without-explicit-backup-component",
+            "stride": "Denial of Service",
+            "title": "Database present without explicit backup component",
+            "severity": "High",
+            "componentId": "architecture",
+            "componentName": "Architecture",
+            "evidence": "A database was detected, but no backup/recovery component was detected.",
+            "countermeasures": [
+              "Configure automated backups, retention policy, and restore testing.",
+              "Define RTO/RPO and alert on backup job failures."
+            ],
+            "confidence": 0.7,
+            "source": "flow-rule",
+            "ruleId": "missing-backup-for-database",
+            "securityReferences": [
+              {
+                "framework": "CWE",
+                "id": "CWE-400",
+                "title": "Uncontrolled Resource Consumption",
+                "url": "https://cwe.mitre.org/data/definitions/400.html"
+              },
+              {
+                "framework": "CAPEC",
+                "id": "CAPEC-125",
+                "title": "Resource Depletion through Flooding",
+                "url": "https://capec.mitre.org/data/definitions/125.html"
+              },
+              {
+                "framework": "OWASP",
+                "id": "API4:2023",
+                "title": "Unrestricted Resource Consumption",
+                "url": "https://owasp.org/API-Security/editions/2023/en/0xa4-unrestricted-resource-consumption/"
+              },
+              {
+                "framework": "MITRE ATT&CK",
+                "id": "T1499",
+                "title": "Endpoint Denial of Service",
+                "url": "https://attack.mitre.org/techniques/T1499/"
+              }
+            ],
+            "management": {
+              "status": "open",
+              "owner": "",
+              "justification": "",
+              "selectedCountermeasure": "",
+              "updatedAt": null
+            },
+            "evidenceTrace": {
+              "ruleId": "missing-backup-for-database",
+              "ruleSource": "flow-rule",
+              "componentIds": [
+                "database_1"
+              ],
+              "flowIds": [],
+              "boundaryIds": [],
+              "absenceEvidence": [
+                "A database is present and no component with canonical type 'backup' was present."
+              ],
+              "ragSourceIds": [
+                "rag-0409733a928a"
+              ]
+            }
+          },
+          {
+            "id": "architecture-tampering-trust-boundary-flow-has-an-unverified-protocol",
+            "stride": "Tampering",
+            "title": "Trust-boundary flow has an unverified protocol",
+            "severity": "High",
+            "componentId": "architecture",
+            "componentName": "Architecture",
+            "evidence": "A flow crosses a trust boundary, but its protocol and protection could not be confirmed from the diagram.",
+            "countermeasures": [
+              "Confirm the protocol, authentication method, and encryption properties during human review.",
+              "Require TLS, certificate validation, and integrity protection for boundary-crossing traffic."
+            ],
+            "confidence": 0.68,
+            "source": "flow-rule",
+            "ruleId": "unknown-protocol-crosses-trust-boundary",
+            "securityReferences": [
+              {
+                "framework": "CWE",
+                "id": "CWE-20",
+                "title": "Improper Input Validation",
+                "url": "https://cwe.mitre.org/data/definitions/20.html"
+              },
+              {
+                "framework": "CAPEC",
+                "id": "CAPEC-153",
+                "title": "Input Data Manipulation",
+                "url": "https://capec.mitre.org/data/definitions/153.html"
+              },
+              {
+                "framework": "OWASP",
+                "id": "A08:2021",
+                "title": "Software and Data Integrity Failures",
+                "url": "https://owasp.org/Top10/A08_2021-Software_and_Data_Integrity_Failures/"
+              },
+              {
+                "framework": "MITRE ATT&CK",
+                "id": "T1565",
+                "title": "Data Manipulation",
+                "url": "https://attack.mitre.org/techniques/T1565/"
+              }
+            ],
+            "management": {
+              "status": "open",
+              "owner": "",
+              "justification": "",
+              "selectedCountermeasure": "",
+              "updatedAt": null
+            },
+            "evidenceTrace": {
+              "ruleId": "unknown-protocol-crosses-trust-boundary",
+              "ruleSource": "flow-rule",
+              "componentIds": [
+                "cdn_1",
+                "database_1",
+                "monitoring_1",
+                "storage_1"
+              ],
+              "flowIds": [
+                "f13",
+                "f8",
+                "f9"
+              ],
+              "boundaryIds": [
+                "tb1"
+              ],
+              "absenceEvidence": [],
+              "ragSourceIds": [
+                "rag-3bdc71ba1d55",
+                "rag-b11ca23fbaff",
+                "rag-6699a3c306b3"
+              ]
+            }
+          },
+          {
+            "id": "compute_1-elevation-of-privilege-compromised-workload-can-gain-broader-permissions",
+            "stride": "Elevation of Privilege",
+            "title": "Compromised workload can gain broader permissions",
+            "severity": "High",
+            "componentId": "compute_1",
+            "componentName": "Compute",
+            "evidence": "Component: Compute. Rule source: component-rule:generic.",
+            "countermeasures": [
+              "Use least privilege IAM roles and avoid long-lived credentials.",
+              "Harden runtime, patch dependencies, and isolate workloads by trust level."
+            ],
+            "confidence": 0.462,
+            "source": "component-rule:generic",
+            "ruleId": null,
+            "securityReferences": [
+              {
+                "framework": "CWE",
+                "id": "CWE-269",
+                "title": "Improper Privilege Management",
+                "url": "https://cwe.mitre.org/data/definitions/269.html"
+              },
+              {
+                "framework": "CAPEC",
+                "id": "CAPEC-233",
+                "title": "Privilege Escalation",
+                "url": "https://capec.mitre.org/data/definitions/233.html"
+              },
+              {
+                "framework": "OWASP",
+                "id": "A01:2021",
+                "title": "Broken Access Control",
+                "url": "https://owasp.org/Top10/A01_2021-Broken_Access_Control/"
+              },
+              {
+                "framework": "MITRE ATT&CK",
+                "id": "T1068",
+                "title": "Exploitation for Privilege Escalation",
+                "url": "https://attack.mitre.org/techniques/T1068/"
+              }
+            ],
+            "management": {
+              "status": "open",
+              "owner": "",
+              "justification": "",
+              "selectedCountermeasure": "",
+              "updatedAt": null
+            },
+            "evidenceTrace": {
+              "ruleId": null,
+              "ruleSource": "component-rule:generic",
+              "componentIds": [
+                "compute_1"
+              ],
+              "flowIds": [],
+              "boundaryIds": [],
+              "absenceEvidence": [],
+              "ragSourceIds": [
+                "rag-c5de0424bf95",
+                "rag-036bbf3f5c93"
+              ]
+            }
+          },
+          {
+            "id": "compute_1-tampering-application-code-or-configuration-can-be-changed",
+            "stride": "Tampering",
+            "title": "Application code or configuration can be changed",
+            "severity": "High",
+            "componentId": "compute_1",
+            "componentName": "Compute",
+            "evidence": "Component: Compute. Rule source: component-rule:generic.",
+            "countermeasures": [
+              "Use signed deployments, immutable artifacts, and CI/CD approvals.",
+              "Separate deploy permissions from runtime permissions."
+            ],
+            "confidence": 0.462,
+            "source": "component-rule:generic",
+            "ruleId": null,
+            "securityReferences": [
+              {
+                "framework": "CWE",
+                "id": "CWE-20",
+                "title": "Improper Input Validation",
+                "url": "https://cwe.mitre.org/data/definitions/20.html"
+              },
+              {
+                "framework": "CAPEC",
+                "id": "CAPEC-153",
+                "title": "Input Data Manipulation",
+                "url": "https://capec.mitre.org/data/definitions/153.html"
+              },
+              {
+                "framework": "OWASP",
+                "id": "A08:2021",
+                "title": "Software and Data Integrity Failures",
+                "url": "https://owasp.org/Top10/A08_2021-Software_and_Data_Integrity_Failures/"
+              },
+              {
+                "framework": "MITRE ATT&CK",
+                "id": "T1565",
+                "title": "Data Manipulation",
+                "url": "https://attack.mitre.org/techniques/T1565/"
+              }
+            ],
+            "management": {
+              "status": "open",
+              "owner": "",
+              "justification": "",
+              "selectedCountermeasure": "",
+              "updatedAt": null
+            },
+            "evidenceTrace": {
+              "ruleId": null,
+              "ruleSource": "component-rule:generic",
+              "componentIds": [
+                "compute_1"
+              ],
+              "flowIds": [],
+              "boundaryIds": [],
+              "absenceEvidence": [],
+              "ragSourceIds": [
+                "rag-3bdc71ba1d55",
+                "rag-6699a3c306b3",
+                "rag-c5de0424bf95"
+              ]
+            }
+          },
+          {
+            "id": "api_gateway_1-spoofing-api-clients-can-forge-identity-or-tokens",
+            "stride": "Spoofing",
+            "title": "API clients can forge identity or tokens",
+            "severity": "High",
+            "componentId": "api_gateway_1",
+            "componentName": "Api Gateway",
+            "evidence": "Component: Api Gateway. Rule source: component-rule:generic.",
+            "countermeasures": [
+              "Validate JWT issuer, audience, expiration, and signature.",
+              "Use OAuth2/OIDC and mTLS for service-to-service integrations.",
+              "Apply least privilege scopes per endpoint."
+            ],
+            "confidence": 0.433,
+            "source": "component-rule:generic",
+            "ruleId": null,
+            "securityReferences": [
+              {
+                "framework": "CWE",
+                "id": "CWE-287",
+                "title": "Improper Authentication",
+                "url": "https://cwe.mitre.org/data/definitions/287.html"
+              },
+              {
+                "framework": "CAPEC",
+                "id": "CAPEC-115",
+                "title": "Authentication Bypass",
+                "url": "https://capec.mitre.org/data/definitions/115.html"
+              },
+              {
+                "framework": "OWASP",
+                "id": "A07:2021",
+                "title": "Identification and Authentication Failures",
+                "url": "https://owasp.org/Top10/A07_2021-Identification_and_Authentication_Failures/"
+              },
+              {
+                "framework": "MITRE ATT&CK",
+                "id": "T1078",
+                "title": "Valid Accounts",
+                "url": "https://attack.mitre.org/techniques/T1078/"
+              }
+            ],
+            "management": {
+              "status": "open",
+              "owner": "",
+              "justification": "",
+              "selectedCountermeasure": "",
+              "updatedAt": null
+            },
+            "evidenceTrace": {
+              "ruleId": null,
+              "ruleSource": "component-rule:generic",
+              "componentIds": [
+                "api_gateway_1"
+              ],
+              "flowIds": [],
+              "boundaryIds": [],
+              "absenceEvidence": [],
+              "ragSourceIds": [
+                "rag-ecb8ee801850",
+                "rag-c0cb70dbe106",
+                "rag-d321b494d4dc"
+              ]
+            }
+          },
+          {
+            "id": "api_gateway_1-tampering-request-payload-can-be-modified-before-reaching-backend",
+            "stride": "Tampering",
+            "title": "Request payload can be modified before reaching backend",
+            "severity": "High",
+            "componentId": "api_gateway_1",
+            "componentName": "Api Gateway",
+            "evidence": "Component: Api Gateway. Rule source: component-rule:generic.",
+            "countermeasures": [
+              "Validate schemas at the gateway and backend.",
+              "Reject unexpected fields and enforce content-type restrictions."
+            ],
+            "confidence": 0.433,
+            "source": "component-rule:generic",
+            "ruleId": null,
+            "securityReferences": [
+              {
+                "framework": "CWE",
+                "id": "CWE-20",
+                "title": "Improper Input Validation",
+                "url": "https://cwe.mitre.org/data/definitions/20.html"
+              },
+              {
+                "framework": "CAPEC",
+                "id": "CAPEC-153",
+                "title": "Input Data Manipulation",
+                "url": "https://capec.mitre.org/data/definitions/153.html"
+              },
+              {
+                "framework": "OWASP",
+                "id": "A08:2021",
+                "title": "Software and Data Integrity Failures",
+                "url": "https://owasp.org/Top10/A08_2021-Software_and_Data_Integrity_Failures/"
+              },
+              {
+                "framework": "MITRE ATT&CK",
+                "id": "T1565",
+                "title": "Data Manipulation",
+                "url": "https://attack.mitre.org/techniques/T1565/"
+              }
+            ],
+            "management": {
+              "status": "open",
+              "owner": "",
+              "justification": "",
+              "selectedCountermeasure": "",
+              "updatedAt": null
+            },
+            "evidenceTrace": {
+              "ruleId": null,
+              "ruleSource": "component-rule:generic",
+              "componentIds": [
+                "api_gateway_1"
+              ],
+              "flowIds": [],
+              "boundaryIds": [],
+              "absenceEvidence": [],
+              "ragSourceIds": [
+                "rag-3bdc71ba1d55",
+                "rag-c0cb70dbe106",
+                "rag-6699a3c306b3"
+              ]
+            }
+          },
+          {
+            "id": "api_gateway_1-denial-of-service-api-endpoint-can-be-overloaded",
+            "stride": "Denial of Service",
+            "title": "API endpoint can be overloaded",
+            "severity": "High",
+            "componentId": "api_gateway_1",
+            "componentName": "Api Gateway",
+            "evidence": "Component: Api Gateway. Rule source: component-rule:generic.",
+            "countermeasures": [
+              "Enable throttling, quotas, circuit breakers, and request size limits.",
+              "Add alerts for latency spikes and unusual request volume."
+            ],
+            "confidence": 0.433,
+            "source": "component-rule:generic",
+            "ruleId": null,
+            "securityReferences": [
+              {
+                "framework": "CWE",
+                "id": "CWE-400",
+                "title": "Uncontrolled Resource Consumption",
+                "url": "https://cwe.mitre.org/data/definitions/400.html"
+              },
+              {
+                "framework": "CAPEC",
+                "id": "CAPEC-125",
+                "title": "Resource Depletion through Flooding",
+                "url": "https://capec.mitre.org/data/definitions/125.html"
+              },
+              {
+                "framework": "OWASP",
+                "id": "API4:2023",
+                "title": "Unrestricted Resource Consumption",
+                "url": "https://owasp.org/API-Security/editions/2023/en/0xa4-unrestricted-resource-consumption/"
+              },
+              {
+                "framework": "MITRE ATT&CK",
+                "id": "T1499",
+                "title": "Endpoint Denial of Service",
+                "url": "https://attack.mitre.org/techniques/T1499/"
+              }
+            ],
+            "management": {
+              "status": "open",
+              "owner": "",
+              "justification": "",
+              "selectedCountermeasure": "",
+              "updatedAt": null
+            },
+            "evidenceTrace": {
+              "ruleId": null,
+              "ruleSource": "component-rule:generic",
+              "componentIds": [
+                "api_gateway_1"
+              ],
+              "flowIds": [],
+              "boundaryIds": [],
+              "absenceEvidence": [],
+              "ragSourceIds": [
+                "rag-c0cb70dbe106",
+                "rag-db234bcb4672"
+              ]
+            }
+          },
+          {
+            "id": "storage_1-information-disclosure-object-storage-can-expose-private-files",
+            "stride": "Information Disclosure",
+            "title": "Object storage can expose private files",
+            "severity": "High",
+            "componentId": "storage_1",
+            "componentName": "Storage",
+            "evidence": "Component: Storage. Rule source: component-rule:generic.",
+            "countermeasures": [
+              "Block public access by default and review bucket/container policies.",
+              "Encrypt objects and classify sensitive data."
+            ],
+            "confidence": 0.376,
+            "source": "component-rule:generic",
+            "ruleId": null,
+            "securityReferences": [
+              {
+                "framework": "CWE",
+                "id": "CWE-200",
+                "title": "Exposure of Sensitive Information",
+                "url": "https://cwe.mitre.org/data/definitions/200.html"
+              },
+              {
+                "framework": "CAPEC",
+                "id": "CAPEC-118",
+                "title": "Data Leakage Attacks",
+                "url": "https://capec.mitre.org/data/definitions/118.html"
+              },
+              {
+                "framework": "OWASP",
+                "id": "A02:2021",
+                "title": "Cryptographic Failures",
+                "url": "https://owasp.org/Top10/A02_2021-Cryptographic_Failures/"
+              },
+              {
+                "framework": "MITRE ATT&CK",
+                "id": "T1530",
+                "title": "Data from Cloud Storage",
+                "url": "https://attack.mitre.org/techniques/T1530/"
+              }
+            ],
+            "management": {
+              "status": "open",
+              "owner": "",
+              "justification": "",
+              "selectedCountermeasure": "",
+              "updatedAt": null
+            },
+            "evidenceTrace": {
+              "ruleId": null,
+              "ruleSource": "component-rule:generic",
+              "componentIds": [
+                "storage_1"
+              ],
+              "flowIds": [],
+              "boundaryIds": [],
+              "absenceEvidence": [],
+              "ragSourceIds": [
+                "rag-4b6d2d3002c8",
+                "rag-f57b85dab6d8",
+                "rag-4ebfea9b8d61"
+              ]
+            }
+          },
+          {
+            "id": "monitoring_1-repudiation-missing-or-mutable-logs-reduce-forensic-capability",
+            "stride": "Repudiation",
+            "title": "Missing or mutable logs reduce forensic capability",
+            "severity": "High",
+            "componentId": "monitoring_1",
+            "componentName": "Monitoring",
+            "evidence": "Component: Monitoring. Rule source: component-rule:generic.",
+            "countermeasures": [
+              "Centralize logs and protect them with immutable retention.",
+              "Log authentication, authorization, data access, and administrative actions."
+            ],
+            "confidence": 0.373,
+            "source": "component-rule:generic",
+            "ruleId": null,
+            "securityReferences": [
+              {
+                "framework": "CWE",
+                "id": "CWE-778",
+                "title": "Insufficient Logging",
+                "url": "https://cwe.mitre.org/data/definitions/778.html"
+              },
+              {
+                "framework": "CAPEC",
+                "id": "CAPEC-268",
+                "title": "Audit Log Manipulation",
+                "url": "https://capec.mitre.org/data/definitions/268.html"
+              },
+              {
+                "framework": "OWASP",
+                "id": "A09:2021",
+                "title": "Security Logging and Monitoring Failures",
+                "url": "https://owasp.org/Top10/A09_2021-Security_Logging_and_Monitoring_Failures/"
+              },
+              {
+                "framework": "MITRE ATT&CK",
+                "id": "T1070",
+                "title": "Indicator Removal",
+                "url": "https://attack.mitre.org/techniques/T1070/"
+              }
+            ],
+            "management": {
+              "status": "open",
+              "owner": "",
+              "justification": "",
+              "selectedCountermeasure": "",
+              "updatedAt": null
+            },
+            "evidenceTrace": {
+              "ruleId": null,
+              "ruleSource": "component-rule:generic",
+              "componentIds": [
+                "monitoring_1"
+              ],
+              "flowIds": [],
+              "boundaryIds": [],
+              "absenceEvidence": [],
+              "ragSourceIds": [
+                "rag-cba75a46d329",
+                "rag-c5de0424bf95",
+                "rag-829e0961766b"
+              ]
+            }
+          },
+          {
+            "id": "database_1-tampering-data-can-be-changed-without-integrity-controls",
+            "stride": "Tampering",
+            "title": "Data can be changed without integrity controls",
+            "severity": "High",
+            "componentId": "database_1",
+            "componentName": "Database",
+            "evidence": "Component: Database. Rule source: component-rule:generic.",
+            "countermeasures": [
+              "Use transactions, constraints, audit trails, and change history for sensitive tables.",
+              "Monitor abnormal write volume and privileged updates."
+            ],
+            "confidence": 0.345,
+            "source": "component-rule:generic",
+            "ruleId": null,
+            "securityReferences": [
+              {
+                "framework": "CWE",
+                "id": "CWE-20",
+                "title": "Improper Input Validation",
+                "url": "https://cwe.mitre.org/data/definitions/20.html"
+              },
+              {
+                "framework": "CAPEC",
+                "id": "CAPEC-153",
+                "title": "Input Data Manipulation",
+                "url": "https://capec.mitre.org/data/definitions/153.html"
+              },
+              {
+                "framework": "OWASP",
+                "id": "A08:2021",
+                "title": "Software and Data Integrity Failures",
+                "url": "https://owasp.org/Top10/A08_2021-Software_and_Data_Integrity_Failures/"
+              },
+              {
+                "framework": "MITRE ATT&CK",
+                "id": "T1565",
+                "title": "Data Manipulation",
+                "url": "https://attack.mitre.org/techniques/T1565/"
+              }
+            ],
+            "management": {
+              "status": "open",
+              "owner": "",
+              "justification": "",
+              "selectedCountermeasure": "",
+              "updatedAt": null
+            },
+            "evidenceTrace": {
+              "ruleId": null,
+              "ruleSource": "component-rule:generic",
+              "componentIds": [
+                "database_1"
+              ],
+              "flowIds": [],
+              "boundaryIds": [],
+              "absenceEvidence": [],
+              "ragSourceIds": [
+                "rag-3bdc71ba1d55",
+                "rag-6699a3c306b3",
+                "rag-6578ede5ea09"
+              ]
+            }
+          },
+          {
+            "id": "database_1-denial-of-service-database-can-be-exhausted-by-expensive-queries",
+            "stride": "Denial of Service",
+            "title": "Database can be exhausted by expensive queries",
+            "severity": "High",
+            "componentId": "database_1",
+            "componentName": "Database",
+            "evidence": "Component: Database. Rule source: component-rule:generic.",
+            "countermeasures": [
+              "Apply query timeouts, connection pooling, resource limits, and read replicas.",
+              "Alert on CPU, locks, storage, and connection saturation."
+            ],
+            "confidence": 0.345,
+            "source": "component-rule:generic",
+            "ruleId": null,
+            "securityReferences": [
+              {
+                "framework": "CWE",
+                "id": "CWE-400",
+                "title": "Uncontrolled Resource Consumption",
+                "url": "https://cwe.mitre.org/data/definitions/400.html"
+              },
+              {
+                "framework": "CAPEC",
+                "id": "CAPEC-125",
+                "title": "Resource Depletion through Flooding",
+                "url": "https://capec.mitre.org/data/definitions/125.html"
+              },
+              {
+                "framework": "OWASP",
+                "id": "API4:2023",
+                "title": "Unrestricted Resource Consumption",
+                "url": "https://owasp.org/API-Security/editions/2023/en/0xa4-unrestricted-resource-consumption/"
+              },
+              {
+                "framework": "MITRE ATT&CK",
+                "id": "T1499",
+                "title": "Endpoint Denial of Service",
+                "url": "https://attack.mitre.org/techniques/T1499/"
+              }
+            ],
+            "management": {
+              "status": "open",
+              "owner": "",
+              "justification": "",
+              "selectedCountermeasure": "",
+              "updatedAt": null
+            },
+            "evidenceTrace": {
+              "ruleId": null,
+              "ruleSource": "component-rule:generic",
+              "componentIds": [
+                "database_1"
+              ],
+              "flowIds": [],
+              "boundaryIds": [],
+              "absenceEvidence": [],
+              "ragSourceIds": [
+                "rag-0409733a928a"
+              ]
+            }
+          },
+          {
+            "id": "internet_1-denial-of-service-public-entry-point-can-be-abused-by-high-traffic",
+            "stride": "Denial of Service",
+            "title": "Public entry point can be abused by high traffic",
+            "severity": "High",
+            "componentId": "internet_1",
+            "componentName": "Internet",
+            "evidence": "Component: Internet. Rule source: component-rule:generic.",
+            "countermeasures": [
+              "Use rate limiting, WAF rules, bot protection, and autoscaling.",
+              "Define abuse thresholds and monitoring alerts for public endpoints."
+            ],
+            "confidence": 0.292,
+            "source": "component-rule:generic",
+            "ruleId": null,
+            "securityReferences": [
+              {
+                "framework": "CWE",
+                "id": "CWE-400",
+                "title": "Uncontrolled Resource Consumption",
+                "url": "https://cwe.mitre.org/data/definitions/400.html"
+              },
+              {
+                "framework": "CAPEC",
+                "id": "CAPEC-125",
+                "title": "Resource Depletion through Flooding",
+                "url": "https://capec.mitre.org/data/definitions/125.html"
+              },
+              {
+                "framework": "OWASP",
+                "id": "API4:2023",
+                "title": "Unrestricted Resource Consumption",
+                "url": "https://owasp.org/API-Security/editions/2023/en/0xa4-unrestricted-resource-consumption/"
+              },
+              {
+                "framework": "MITRE ATT&CK",
+                "id": "T1499",
+                "title": "Endpoint Denial of Service",
+                "url": "https://attack.mitre.org/techniques/T1499/"
+              }
+            ],
+            "management": {
+              "status": "open",
+              "owner": "",
+              "justification": "",
+              "selectedCountermeasure": "",
+              "updatedAt": null
+            },
+            "evidenceTrace": {
+              "ruleId": null,
+              "ruleSource": "component-rule:generic",
+              "componentIds": [
+                "internet_1"
+              ],
+              "flowIds": [],
+              "boundaryIds": [],
+              "absenceEvidence": [],
+              "ragSourceIds": []
+            }
+          },
+          {
+            "id": "internet_1-tampering-traffic-can-be-altered-if-transport-is-weak",
+            "stride": "Tampering",
+            "title": "Traffic can be altered if transport is weak",
+            "severity": "High",
+            "componentId": "internet_1",
+            "componentName": "Internet",
+            "evidence": "Component: Internet. Rule source: component-rule:generic.",
+            "countermeasures": [
+              "Enforce HTTPS/TLS 1.2+ end to end.",
+              "Reject insecure protocols and redirect HTTP to HTTPS."
+            ],
+            "confidence": 0.292,
+            "source": "component-rule:generic",
+            "ruleId": null,
+            "securityReferences": [
+              {
+                "framework": "CWE",
+                "id": "CWE-20",
+                "title": "Improper Input Validation",
+                "url": "https://cwe.mitre.org/data/definitions/20.html"
+              },
+              {
+                "framework": "CAPEC",
+                "id": "CAPEC-153",
+                "title": "Input Data Manipulation",
+                "url": "https://capec.mitre.org/data/definitions/153.html"
+              },
+              {
+                "framework": "OWASP",
+                "id": "A08:2021",
+                "title": "Software and Data Integrity Failures",
+                "url": "https://owasp.org/Top10/A08_2021-Software_and_Data_Integrity_Failures/"
+              },
+              {
+                "framework": "MITRE ATT&CK",
+                "id": "T1565",
+                "title": "Data Manipulation",
+                "url": "https://attack.mitre.org/techniques/T1565/"
+              }
+            ],
+            "management": {
+              "status": "open",
+              "owner": "",
+              "justification": "",
+              "selectedCountermeasure": "",
+              "updatedAt": null
+            },
+            "evidenceTrace": {
+              "ruleId": null,
+              "ruleSource": "component-rule:generic",
+              "componentIds": [
+                "internet_1"
+              ],
+              "flowIds": [],
+              "boundaryIds": [],
+              "absenceEvidence": [],
+              "ragSourceIds": [
+                "rag-3bdc71ba1d55",
+                "rag-6699a3c306b3",
+                "rag-6578ede5ea09"
+              ]
+            }
+          },
+          {
+            "id": "compute_1-repudiation-backend-actions-may-not-be-attributable",
+            "stride": "Repudiation",
+            "title": "Backend actions may not be attributable",
+            "severity": "Medium",
+            "componentId": "compute_1",
+            "componentName": "Compute",
+            "evidence": "Component: Compute. Rule source: component-rule:generic.",
+            "countermeasures": [
+              "Propagate request correlation ids across services.",
+              "Log actor, service identity, request id, and authorization decision."
+            ],
+            "confidence": 0.462,
+            "source": "component-rule:generic",
+            "ruleId": null,
+            "securityReferences": [
+              {
+                "framework": "CWE",
+                "id": "CWE-778",
+                "title": "Insufficient Logging",
+                "url": "https://cwe.mitre.org/data/definitions/778.html"
+              },
+              {
+                "framework": "CAPEC",
+                "id": "CAPEC-268",
+                "title": "Audit Log Manipulation",
+                "url": "https://capec.mitre.org/data/definitions/268.html"
+              },
+              {
+                "framework": "OWASP",
+                "id": "A09:2021",
+                "title": "Security Logging and Monitoring Failures",
+                "url": "https://owasp.org/Top10/A09_2021-Security_Logging_and_Monitoring_Failures/"
+              },
+              {
+                "framework": "MITRE ATT&CK",
+                "id": "T1070",
+                "title": "Indicator Removal",
+                "url": "https://attack.mitre.org/techniques/T1070/"
+              }
+            ],
+            "management": {
+              "status": "open",
+              "owner": "",
+              "justification": "",
+              "selectedCountermeasure": "",
+              "updatedAt": null
+            },
+            "evidenceTrace": {
+              "ruleId": null,
+              "ruleSource": "component-rule:generic",
+              "componentIds": [
+                "compute_1"
+              ],
+              "flowIds": [],
+              "boundaryIds": [],
+              "absenceEvidence": [],
+              "ragSourceIds": [
+                "rag-cba75a46d329",
+                "rag-c5de0424bf95"
+              ]
+            }
+          },
+          {
+            "id": "api_gateway_1-information-disclosure-api-responses-can-expose-sensitive-data",
+            "stride": "Information Disclosure",
+            "title": "API responses can expose sensitive data",
+            "severity": "Medium",
+            "componentId": "api_gateway_1",
+            "componentName": "Api Gateway",
+            "evidence": "Component: Api Gateway. Rule source: component-rule:generic.",
+            "countermeasures": [
+              "Filter sensitive fields before response serialization.",
+              "Use consistent error handling that does not leak stack traces or secrets."
+            ],
+            "confidence": 0.433,
+            "source": "component-rule:generic",
+            "ruleId": null,
+            "securityReferences": [
+              {
+                "framework": "CWE",
+                "id": "CWE-200",
+                "title": "Exposure of Sensitive Information",
+                "url": "https://cwe.mitre.org/data/definitions/200.html"
+              },
+              {
+                "framework": "CAPEC",
+                "id": "CAPEC-118",
+                "title": "Data Leakage Attacks",
+                "url": "https://capec.mitre.org/data/definitions/118.html"
+              },
+              {
+                "framework": "OWASP",
+                "id": "A02:2021",
+                "title": "Cryptographic Failures",
+                "url": "https://owasp.org/Top10/A02_2021-Cryptographic_Failures/"
+              },
+              {
+                "framework": "MITRE ATT&CK",
+                "id": "T1530",
+                "title": "Data from Cloud Storage",
+                "url": "https://attack.mitre.org/techniques/T1530/"
+              }
+            ],
+            "management": {
+              "status": "open",
+              "owner": "",
+              "justification": "",
+              "selectedCountermeasure": "",
+              "updatedAt": null
+            },
+            "evidenceTrace": {
+              "ruleId": null,
+              "ruleSource": "component-rule:generic",
+              "componentIds": [
+                "api_gateway_1"
+              ],
+              "flowIds": [],
+              "boundaryIds": [],
+              "absenceEvidence": [],
+              "ragSourceIds": [
+                "rag-c0cb70dbe106",
+                "rag-4b6d2d3002c8",
+                "rag-f57b85dab6d8"
+              ]
+            }
+          },
+          {
+            "id": "storage_1-tampering-stored-artifacts-can-be-modified",
+            "stride": "Tampering",
+            "title": "Stored artifacts can be modified",
+            "severity": "Medium",
+            "componentId": "storage_1",
+            "componentName": "Storage",
+            "evidence": "Component: Storage. Rule source: component-rule:generic.",
+            "countermeasures": [
+              "Enable object versioning and integrity checks.",
+              "Use write-once retention for critical evidence or backups."
+            ],
+            "confidence": 0.376,
+            "source": "component-rule:generic",
+            "ruleId": null,
+            "securityReferences": [
+              {
+                "framework": "CWE",
+                "id": "CWE-20",
+                "title": "Improper Input Validation",
+                "url": "https://cwe.mitre.org/data/definitions/20.html"
+              },
+              {
+                "framework": "CAPEC",
+                "id": "CAPEC-153",
+                "title": "Input Data Manipulation",
+                "url": "https://capec.mitre.org/data/definitions/153.html"
+              },
+              {
+                "framework": "OWASP",
+                "id": "A08:2021",
+                "title": "Software and Data Integrity Failures",
+                "url": "https://owasp.org/Top10/A08_2021-Software_and_Data_Integrity_Failures/"
+              },
+              {
+                "framework": "MITRE ATT&CK",
+                "id": "T1565",
+                "title": "Data Manipulation",
+                "url": "https://attack.mitre.org/techniques/T1565/"
+              }
+            ],
+            "management": {
+              "status": "open",
+              "owner": "",
+              "justification": "",
+              "selectedCountermeasure": "",
+              "updatedAt": null
+            },
+            "evidenceTrace": {
+              "ruleId": null,
+              "ruleSource": "component-rule:generic",
+              "componentIds": [
+                "storage_1"
+              ],
+              "flowIds": [],
+              "boundaryIds": [],
+              "absenceEvidence": [],
+              "ragSourceIds": [
+                "rag-3bdc71ba1d55",
+                "rag-6699a3c306b3",
+                "rag-6578ede5ea09"
+              ]
+            }
+          },
+          {
+            "id": "monitoring_1-information-disclosure-logs-can-contain-secrets-or-personal-data",
+            "stride": "Information Disclosure",
+            "title": "Logs can contain secrets or personal data",
+            "severity": "Medium",
+            "componentId": "monitoring_1",
+            "componentName": "Monitoring",
+            "evidence": "Component: Monitoring. Rule source: component-rule:generic.",
+            "countermeasures": [
+              "Redact tokens, passwords, and sensitive payload fields.",
+              "Restrict log access and audit log queries."
+            ],
+            "confidence": 0.373,
+            "source": "component-rule:generic",
+            "ruleId": null,
+            "securityReferences": [
+              {
+                "framework": "CWE",
+                "id": "CWE-200",
+                "title": "Exposure of Sensitive Information",
+                "url": "https://cwe.mitre.org/data/definitions/200.html"
+              },
+              {
+                "framework": "CAPEC",
+                "id": "CAPEC-118",
+                "title": "Data Leakage Attacks",
+                "url": "https://capec.mitre.org/data/definitions/118.html"
+              },
+              {
+                "framework": "OWASP",
+                "id": "A02:2021",
+                "title": "Cryptographic Failures",
+                "url": "https://owasp.org/Top10/A02_2021-Cryptographic_Failures/"
+              },
+              {
+                "framework": "MITRE ATT&CK",
+                "id": "T1530",
+                "title": "Data from Cloud Storage",
+                "url": "https://attack.mitre.org/techniques/T1530/"
+              }
+            ],
+            "management": {
+              "status": "open",
+              "owner": "",
+              "justification": "",
+              "selectedCountermeasure": "",
+              "updatedAt": null
+            },
+            "evidenceTrace": {
+              "ruleId": null,
+              "ruleSource": "component-rule:generic",
+              "componentIds": [
+                "monitoring_1"
+              ],
+              "flowIds": [],
+              "boundaryIds": [],
+              "absenceEvidence": [],
+              "ragSourceIds": [
+                "rag-4b6d2d3002c8",
+                "rag-f57b85dab6d8",
+                "rag-829e0961766b"
+              ]
+            }
+          },
+          {
+            "id": "cdn_1-information-disclosure-cached-content-can-expose-sensitive-responses",
+            "stride": "Information Disclosure",
+            "title": "Cached content can expose sensitive responses",
+            "severity": "Medium",
+            "componentId": "cdn_1",
+            "componentName": "Cdn",
+            "evidence": "Component: Cdn. Rule source: component-rule:generic.",
+            "countermeasures": [
+              "Disable caching for authenticated or sensitive endpoints.",
+              "Validate cache-control headers and purge workflows."
+            ],
+            "confidence": 0.301,
+            "source": "component-rule:generic",
+            "ruleId": null,
+            "securityReferences": [
+              {
+                "framework": "CWE",
+                "id": "CWE-200",
+                "title": "Exposure of Sensitive Information",
+                "url": "https://cwe.mitre.org/data/definitions/200.html"
+              },
+              {
+                "framework": "CAPEC",
+                "id": "CAPEC-118",
+                "title": "Data Leakage Attacks",
+                "url": "https://capec.mitre.org/data/definitions/118.html"
+              },
+              {
+                "framework": "OWASP",
+                "id": "A02:2021",
+                "title": "Cryptographic Failures",
+                "url": "https://owasp.org/Top10/A02_2021-Cryptographic_Failures/"
+              },
+              {
+                "framework": "MITRE ATT&CK",
+                "id": "T1530",
+                "title": "Data from Cloud Storage",
+                "url": "https://attack.mitre.org/techniques/T1530/"
+              }
+            ],
+            "management": {
+              "status": "open",
+              "owner": "",
+              "justification": "",
+              "selectedCountermeasure": "",
+              "updatedAt": null
+            },
+            "evidenceTrace": {
+              "ruleId": null,
+              "ruleSource": "component-rule:generic",
+              "componentIds": [
+                "cdn_1"
+              ],
+              "flowIds": [],
+              "boundaryIds": [],
+              "absenceEvidence": [],
+              "ragSourceIds": [
+                "rag-3bdc71ba1d55",
+                "rag-b11ca23fbaff",
+                "rag-4b6d2d3002c8"
+              ]
+            }
+          },
+          {
+            "id": "cdn_1-tampering-origin-or-cache-configuration-can-be-abused",
+            "stride": "Tampering",
+            "title": "Origin or cache configuration can be abused",
+            "severity": "Medium",
+            "componentId": "cdn_1",
+            "componentName": "Cdn",
+            "evidence": "Component: Cdn. Rule source: component-rule:generic.",
+            "countermeasures": [
+              "Restrict origin access to the CDN.",
+              "Use signed URLs or signed cookies for protected content."
+            ],
+            "confidence": 0.301,
+            "source": "component-rule:generic",
+            "ruleId": null,
+            "securityReferences": [
+              {
+                "framework": "CWE",
+                "id": "CWE-20",
+                "title": "Improper Input Validation",
+                "url": "https://cwe.mitre.org/data/definitions/20.html"
+              },
+              {
+                "framework": "CAPEC",
+                "id": "CAPEC-153",
+                "title": "Input Data Manipulation",
+                "url": "https://capec.mitre.org/data/definitions/153.html"
+              },
+              {
+                "framework": "OWASP",
+                "id": "A08:2021",
+                "title": "Software and Data Integrity Failures",
+                "url": "https://owasp.org/Top10/A08_2021-Software_and_Data_Integrity_Failures/"
+              },
+              {
+                "framework": "MITRE ATT&CK",
+                "id": "T1565",
+                "title": "Data Manipulation",
+                "url": "https://attack.mitre.org/techniques/T1565/"
+              }
+            ],
+            "management": {
+              "status": "open",
+              "owner": "",
+              "justification": "",
+              "selectedCountermeasure": "",
+              "updatedAt": null
+            },
+            "evidenceTrace": {
+              "ruleId": null,
+              "ruleSource": "component-rule:generic",
+              "componentIds": [
+                "cdn_1"
+              ],
+              "flowIds": [],
+              "boundaryIds": [],
+              "absenceEvidence": [],
+              "ragSourceIds": [
+                "rag-3bdc71ba1d55",
+                "rag-b11ca23fbaff",
+                "rag-6699a3c306b3"
+              ]
+            }
+          },
+          {
+            "id": "user_1-spoofing-user-identity-can-be-impersonated",
+            "stride": "Spoofing",
+            "title": "User identity can be impersonated",
+            "severity": "Medium",
+            "componentId": "user_1",
+            "componentName": "User",
+            "evidence": "Component: User. Rule source: component-rule:generic.",
+            "countermeasures": [
+              "Require strong authentication with MFA for privileged flows.",
+              "Use short-lived sessions and secure cookie attributes.",
+              "Bind sensitive actions to re-authentication."
+            ],
+            "confidence": 0.185,
+            "source": "component-rule:generic",
+            "ruleId": null,
+            "securityReferences": [
+              {
+                "framework": "CWE",
+                "id": "CWE-287",
+                "title": "Improper Authentication",
+                "url": "https://cwe.mitre.org/data/definitions/287.html"
+              },
+              {
+                "framework": "CAPEC",
+                "id": "CAPEC-115",
+                "title": "Authentication Bypass",
+                "url": "https://capec.mitre.org/data/definitions/115.html"
+              },
+              {
+                "framework": "OWASP",
+                "id": "A07:2021",
+                "title": "Identification and Authentication Failures",
+                "url": "https://owasp.org/Top10/A07_2021-Identification_and_Authentication_Failures/"
+              },
+              {
+                "framework": "MITRE ATT&CK",
+                "id": "T1078",
+                "title": "Valid Accounts",
+                "url": "https://attack.mitre.org/techniques/T1078/"
+              }
+            ],
+            "management": {
+              "status": "open",
+              "owner": "",
+              "justification": "",
+              "selectedCountermeasure": "",
+              "updatedAt": null
+            },
+            "evidenceTrace": {
+              "ruleId": null,
+              "ruleSource": "component-rule:generic",
+              "componentIds": [
+                "user_1"
+              ],
+              "flowIds": [],
+              "boundaryIds": [],
+              "absenceEvidence": [],
+              "ragSourceIds": [
+                "rag-ecb8ee801850",
+                "rag-d321b494d4dc",
+                "rag-474f80ff2596"
+              ]
+            }
+          },
+          {
+            "id": "user_1-repudiation-user-actions-may-not-be-traceable",
+            "stride": "Repudiation",
+            "title": "User actions may not be traceable",
+            "severity": "Medium",
+            "componentId": "user_1",
+            "componentName": "User",
+            "evidence": "Component: User. Rule source: component-rule:generic.",
+            "countermeasures": [
+              "Log security-relevant actions with user id, source, timestamp, and request correlation id.",
+              "Protect audit logs against deletion or tampering."
+            ],
+            "confidence": 0.185,
+            "source": "component-rule:generic",
+            "ruleId": null,
+            "securityReferences": [
+              {
+                "framework": "CWE",
+                "id": "CWE-778",
+                "title": "Insufficient Logging",
+                "url": "https://cwe.mitre.org/data/definitions/778.html"
+              },
+              {
+                "framework": "CAPEC",
+                "id": "CAPEC-268",
+                "title": "Audit Log Manipulation",
+                "url": "https://capec.mitre.org/data/definitions/268.html"
+              },
+              {
+                "framework": "OWASP",
+                "id": "A09:2021",
+                "title": "Security Logging and Monitoring Failures",
+                "url": "https://owasp.org/Top10/A09_2021-Security_Logging_and_Monitoring_Failures/"
+              },
+              {
+                "framework": "MITRE ATT&CK",
+                "id": "T1070",
+                "title": "Indicator Removal",
+                "url": "https://attack.mitre.org/techniques/T1070/"
+              }
+            ],
+            "management": {
+              "status": "open",
+              "owner": "",
+              "justification": "",
+              "selectedCountermeasure": "",
+              "updatedAt": null
+            },
+            "evidenceTrace": {
+              "ruleId": null,
+              "ruleSource": "component-rule:generic",
+              "componentIds": [
+                "user_1"
+              ],
+              "flowIds": [],
+              "boundaryIds": [],
+              "absenceEvidence": [],
+              "ragSourceIds": [
+                "rag-cba75a46d329",
+                "rag-c5de0424bf95"
+              ]
+            }
+          }
+        ],
+        "score": {
+          "value": 4.4,
+          "label": "Medium",
+          "summary": "The architecture has relevant risks; the controls and exposure should be reviewed in context."
+        },
+        "riskComparison": {
+          "inherent": {
+            "value": 4.4,
+            "label": "Medium",
+            "summary": "The architecture has relevant risks; the controls and exposure should be reviewed in context."
+          },
+          "residual": {
+            "value": 4.4,
+            "label": "Medium",
+            "summary": "The architecture has relevant risks; the controls and exposure should be reviewed in context."
+          },
+          "reduction": 0.0,
+          "counts": {
+            "accepted": 0,
+            "false_positive": 0,
+            "mitigated": 0,
+            "open": 23
+          }
+        },
+        "humanReviewItems": [
+          {
+            "id": "compute_1",
+            "kind": "component",
+            "severity": "Medium",
+            "title": "Review detected component: Compute",
+            "confidence": 0.462,
+            "reason": "Component was not explicitly confirmed by a human reviewer."
+          },
+          {
+            "id": "api_gateway_1",
+            "kind": "component",
+            "severity": "Medium",
+            "title": "Review detected component: Api Gateway",
+            "confidence": 0.433,
+            "reason": "Component was not explicitly confirmed by a human reviewer."
+          },
+          {
+            "id": "storage_1",
+            "kind": "component",
+            "severity": "Medium",
+            "title": "Review detected component: Storage",
+            "confidence": 0.376,
+            "reason": "Component was not explicitly confirmed by a human reviewer."
+          },
+          {
+            "id": "monitoring_1",
+            "kind": "component",
+            "severity": "Medium",
+            "title": "Review detected component: Monitoring",
+            "confidence": 0.373,
+            "reason": "Component was not explicitly confirmed by a human reviewer."
+          },
+          {
+            "id": "database_1",
+            "kind": "component",
+            "severity": "Medium",
+            "title": "Review detected component: Database",
+            "confidence": 0.345,
+            "reason": "Component was not explicitly confirmed by a human reviewer."
+          },
+          {
+            "id": "cdn_1",
+            "kind": "component",
+            "severity": "Medium",
+            "title": "Review detected component: Cdn",
+            "confidence": 0.301,
+            "reason": "Component was not explicitly confirmed by a human reviewer."
+          },
+          {
+            "id": "internet_1",
+            "kind": "component",
+            "severity": "Medium",
+            "title": "Review detected component: Internet",
+            "confidence": 0.292,
+            "reason": "Component was not explicitly confirmed by a human reviewer."
+          },
+          {
+            "id": "user_1",
+            "kind": "component",
+            "severity": "Medium",
+            "title": "Review detected component: User",
+            "confidence": 0.185,
+            "reason": "Component was not explicitly confirmed by a human reviewer."
+          },
+          {
+            "id": "database_1-information-disclosure-sensitive-records-can-be-exposed",
+            "kind": "threat",
+            "stride": "Information Disclosure",
+            "severity": "Critical",
+            "title": "Sensitive records can be exposed",
+            "confidence": 0.345,
+            "reason": "Low detection confidence \u2014 manual verification recommended."
+          },
+          {
+            "id": "architecture-tampering-trust-boundary-flow-has-an-unverified-protocol",
+            "kind": "threat",
+            "stride": "Tampering",
+            "severity": "High",
+            "title": "Trust-boundary flow has an unverified protocol",
+            "confidence": 0.68,
+            "reason": "Low detection confidence \u2014 manual verification recommended."
+          },
+          {
+            "id": "compute_1-elevation-of-privilege-compromised-workload-can-gain-broader-permissions",
+            "kind": "threat",
+            "stride": "Elevation of Privilege",
+            "severity": "High",
+            "title": "Compromised workload can gain broader permissions",
+            "confidence": 0.462,
+            "reason": "Low detection confidence \u2014 manual verification recommended."
+          },
+          {
+            "id": "compute_1-tampering-application-code-or-configuration-can-be-changed",
+            "kind": "threat",
+            "stride": "Tampering",
+            "severity": "High",
+            "title": "Application code or configuration can be changed",
+            "confidence": 0.462,
+            "reason": "Low detection confidence \u2014 manual verification recommended."
+          },
+          {
+            "id": "api_gateway_1-spoofing-api-clients-can-forge-identity-or-tokens",
+            "kind": "threat",
+            "stride": "Spoofing",
+            "severity": "High",
+            "title": "API clients can forge identity or tokens",
+            "confidence": 0.433,
+            "reason": "Low detection confidence \u2014 manual verification recommended."
+          },
+          {
+            "id": "api_gateway_1-tampering-request-payload-can-be-modified-before-reaching-backend",
+            "kind": "threat",
+            "stride": "Tampering",
+            "severity": "High",
+            "title": "Request payload can be modified before reaching backend",
+            "confidence": 0.433,
+            "reason": "Low detection confidence \u2014 manual verification recommended."
+          },
+          {
+            "id": "api_gateway_1-denial-of-service-api-endpoint-can-be-overloaded",
+            "kind": "threat",
+            "stride": "Denial of Service",
+            "severity": "High",
+            "title": "API endpoint can be overloaded",
+            "confidence": 0.433,
+            "reason": "Low detection confidence \u2014 manual verification recommended."
+          },
+          {
+            "id": "storage_1-information-disclosure-object-storage-can-expose-private-files",
+            "kind": "threat",
+            "stride": "Information Disclosure",
+            "severity": "High",
+            "title": "Object storage can expose private files",
+            "confidence": 0.376,
+            "reason": "Low detection confidence \u2014 manual verification recommended."
+          },
+          {
+            "id": "monitoring_1-repudiation-missing-or-mutable-logs-reduce-forensic-capability",
+            "kind": "threat",
+            "stride": "Repudiation",
+            "severity": "High",
+            "title": "Missing or mutable logs reduce forensic capability",
+            "confidence": 0.373,
+            "reason": "Low detection confidence \u2014 manual verification recommended."
+          },
+          {
+            "id": "database_1-tampering-data-can-be-changed-without-integrity-controls",
+            "kind": "threat",
+            "stride": "Tampering",
+            "severity": "High",
+            "title": "Data can be changed without integrity controls",
+            "confidence": 0.345,
+            "reason": "Low detection confidence \u2014 manual verification recommended."
+          },
+          {
+            "id": "database_1-denial-of-service-database-can-be-exhausted-by-expensive-queries",
+            "kind": "threat",
+            "stride": "Denial of Service",
+            "severity": "High",
+            "title": "Database can be exhausted by expensive queries",
+            "confidence": 0.345,
+            "reason": "Low detection confidence \u2014 manual verification recommended."
+          },
+          {
+            "id": "internet_1-denial-of-service-public-entry-point-can-be-abused-by-high-traffic",
+            "kind": "threat",
+            "stride": "Denial of Service",
+            "severity": "High",
+            "title": "Public entry point can be abused by high traffic",
+            "confidence": 0.292,
+            "reason": "Low detection confidence \u2014 manual verification recommended."
+          },
+          {
+            "id": "internet_1-tampering-traffic-can-be-altered-if-transport-is-weak",
+            "kind": "threat",
+            "stride": "Tampering",
+            "severity": "High",
+            "title": "Traffic can be altered if transport is weak",
+            "confidence": 0.292,
+            "reason": "Low detection confidence \u2014 manual verification recommended."
+          },
+          {
+            "id": "compute_1-repudiation-backend-actions-may-not-be-attributable",
+            "kind": "threat",
+            "stride": "Repudiation",
+            "severity": "Medium",
+            "title": "Backend actions may not be attributable",
+            "confidence": 0.462,
+            "reason": "Low detection confidence \u2014 manual verification recommended."
+          },
+          {
+            "id": "api_gateway_1-information-disclosure-api-responses-can-expose-sensitive-data",
+            "kind": "threat",
+            "stride": "Information Disclosure",
+            "severity": "Medium",
+            "title": "API responses can expose sensitive data",
+            "confidence": 0.433,
+            "reason": "Low detection confidence \u2014 manual verification recommended."
+          },
+          {
+            "id": "storage_1-tampering-stored-artifacts-can-be-modified",
+            "kind": "threat",
+            "stride": "Tampering",
+            "severity": "Medium",
+            "title": "Stored artifacts can be modified",
+            "confidence": 0.376,
+            "reason": "Low detection confidence \u2014 manual verification recommended."
+          },
+          {
+            "id": "monitoring_1-information-disclosure-logs-can-contain-secrets-or-personal-data",
+            "kind": "threat",
+            "stride": "Information Disclosure",
+            "severity": "Medium",
+            "title": "Logs can contain secrets or personal data",
+            "confidence": 0.373,
+            "reason": "Low detection confidence \u2014 manual verification recommended."
+          },
+          {
+            "id": "cdn_1-information-disclosure-cached-content-can-expose-sensitive-responses",
+            "kind": "threat",
+            "stride": "Information Disclosure",
+            "severity": "Medium",
+            "title": "Cached content can expose sensitive responses",
+            "confidence": 0.301,
+            "reason": "Low detection confidence \u2014 manual verification recommended."
+          },
+          {
+            "id": "cdn_1-tampering-origin-or-cache-configuration-can-be-abused",
+            "kind": "threat",
+            "stride": "Tampering",
+            "severity": "Medium",
+            "title": "Origin or cache configuration can be abused",
+            "confidence": 0.301,
+            "reason": "Low detection confidence \u2014 manual verification recommended."
+          },
+          {
+            "id": "user_1-spoofing-user-identity-can-be-impersonated",
+            "kind": "threat",
+            "stride": "Spoofing",
+            "severity": "Medium",
+            "title": "User identity can be impersonated",
+            "confidence": 0.185,
+            "reason": "Low detection confidence \u2014 manual verification recommended."
+          },
+          {
+            "id": "user_1-repudiation-user-actions-may-not-be-traceable",
+            "kind": "threat",
+            "stride": "Repudiation",
+            "severity": "Medium",
+            "title": "User actions may not be traceable",
+            "confidence": 0.185,
+            "reason": "Low detection confidence \u2014 manual verification recommended."
+          },
+          {
+            "id": "f1",
+            "kind": "flow",
+            "severity": "Medium",
+            "title": "Confirm inferred data flow",
+            "confidence": 0.795,
+            "reason": "A line was detected between the components; confirm its direction and protocol."
+          },
+          {
+            "id": "f2",
+            "kind": "flow",
+            "severity": "Medium",
+            "title": "Confirm inferred data flow",
+            "confidence": 0.793,
+            "reason": "A line was detected between the components; confirm its direction and protocol."
+          },
+          {
+            "id": "f3",
+            "kind": "flow",
+            "severity": "Medium",
+            "title": "Confirm inferred data flow",
+            "confidence": 0.792,
+            "reason": "A line was detected between the components; confirm its direction and protocol."
+          },
+          {
+            "id": "f4",
+            "kind": "flow",
+            "severity": "Medium",
+            "title": "Confirm inferred data flow",
+            "confidence": 0.791,
+            "reason": "A line was detected between the components; confirm its direction and protocol."
+          },
+          {
+            "id": "f5",
+            "kind": "flow",
+            "severity": "Medium",
+            "title": "Confirm inferred data flow",
+            "confidence": 0.758,
+            "reason": "This flow was inferred from component layout."
+          },
+          {
+            "id": "f6",
+            "kind": "flow",
+            "severity": "Medium",
+            "title": "Confirm inferred data flow",
+            "confidence": 0.757,
+            "reason": "This flow was inferred from component layout."
+          },
+          {
+            "id": "f7",
+            "kind": "flow",
+            "severity": "Medium",
+            "title": "Confirm inferred data flow",
+            "confidence": 0.752,
+            "reason": "A line was detected between the components; confirm its direction and protocol."
+          },
+          {
+            "id": "f8",
+            "kind": "flow",
+            "severity": "Medium",
+            "title": "Confirm inferred data flow",
+            "confidence": 0.751,
+            "reason": "This flow was inferred from component layout."
+          },
+          {
+            "id": "f9",
+            "kind": "flow",
+            "severity": "Medium",
+            "title": "Confirm inferred data flow",
+            "confidence": 0.75,
+            "reason": "A line was detected between the components; confirm its direction and protocol."
+          },
+          {
+            "id": "f10",
+            "kind": "flow",
+            "severity": "Medium",
+            "title": "Confirm inferred data flow",
+            "confidence": 0.75,
+            "reason": "A line was detected between the components; confirm its direction and protocol."
+          },
+          {
+            "id": "f11",
+            "kind": "flow",
+            "severity": "Medium",
+            "title": "Confirm inferred data flow",
+            "confidence": 0.748,
+            "reason": "A line was detected between the components; confirm its direction and protocol."
+          },
+          {
+            "id": "f12",
+            "kind": "flow",
+            "severity": "Medium",
+            "title": "Confirm inferred data flow",
+            "confidence": 0.746,
+            "reason": "A line was detected between the components; confirm its direction and protocol."
+          },
+          {
+            "id": "f13",
+            "kind": "flow",
+            "severity": "Medium",
+            "title": "Confirm inferred data flow",
+            "confidence": 0.743,
+            "reason": "This flow was inferred from component layout."
+          },
+          {
+            "id": "ocr-database_1",
+            "kind": "ocr_label",
+            "severity": "Medium",
+            "title": "Resolve OCR label conflict for Database",
+            "confidence": 0.92,
+            "reason": "OCR read 'Cdn', but the supervised detector classified the component as 'database'. The OCR label was not applied."
+          },
+          {
+            "id": "tb1",
+            "kind": "trust_boundary",
+            "severity": "Medium",
+            "title": "Confirm trust boundary: Detected trust zone 1",
+            "confidence": 0.586,
+            "reason": "A rectangular architecture zone was detected and its membership must be confirmed."
+          }
+        ],
+        "pipeline": {
+          "detectorUsed": "yolo",
+          "detectorModel": "models/threatlens-hybrid-v2/weights/best.pt",
+          "flowStrategy": "legacy",
+          "flowStrategyTrace": {
+            "strategy": "legacy",
+            "strategyRevision": "tl-promotion-001-controlled-v1",
+            "defaultStrategy": "legacy",
+            "selectableStrategies": [
+              "legacy",
+              "junction_aware_controlled"
+            ],
+            "reversible": true,
+            "endpointRedirectEnabled": false,
+            "inputFlowCount": 13,
+            "outputFlowCount": 13,
+            "changedFlowCount": 0,
+            "actionCounts": {
+              "keep": 13
+            },
+            "structuralGate": {
+              "executed": false,
+              "blockedCount": 0
+            }
+          },
+          "alternativeTrace": {
+            "inputCount": 0,
+            "outputCount": 0,
+            "alternativeLossCount": 0
+          },
+          "ragDocsRetrieved": 18,
+          "reportApproved": true,
+          "reviewRequired": true
+        }
+      }
+    },
+    {
+      "baseUrl": "http://127.0.0.1:8142",
+      "expectedStrategy": "junction_aware_controlled",
+      "image": "data/sample-diagrams/02-mixed-components.jpg",
+      "checks": [
+        {
+          "name": "healthHttp200",
+          "passed": true,
+          "detail": 200
+        },
+        {
+          "name": "healthStatus",
+          "passed": true,
+          "detail": "ok"
+        },
+        {
+          "name": "version",
+          "passed": true,
+          "detail": "1.0.0-mvp"
+        },
+        {
+          "name": "flowStrategy",
+          "passed": true,
+          "detail": "junction_aware_controlled"
+        },
+        {
+          "name": "analyzeImageHttp200",
+          "passed": true,
+          "detail": 200
+        },
+        {
+          "name": "imageComponents",
+          "passed": true,
+          "detail": 8
+        },
+        {
+          "name": "imageFlows",
+          "passed": true,
+          "detail": 13
+        },
+        {
+          "name": "imageStrategy",
+          "passed": true,
+          "detail": "junction_aware_controlled"
+        }
+      ],
+      "status": "passed",
+      "sampleAnalysis": null
+    },
+    {
+      "baseUrl": "http://127.0.0.1:8143",
+      "expectedStrategy": "legacy",
+      "image": "data/sample-diagrams/02-mixed-components.jpg",
+      "checks": [
+        {
+          "name": "healthHttp200",
+          "passed": true,
+          "detail": 200
+        },
+        {
+          "name": "healthStatus",
+          "passed": true,
+          "detail": "ok"
+        },
+        {
+          "name": "version",
+          "passed": true,
+          "detail": "1.0.0-mvp"
+        },
+        {
+          "name": "flowStrategy",
+          "passed": true,
+          "detail": "legacy"
+        },
+        {
+          "name": "analyzeImageHttp200",
+          "passed": true,
+          "detail": 200
+        },
+        {
+          "name": "imageComponents",
+          "passed": true,
+          "detail": 8
+        },
+        {
+          "name": "imageFlows",
+          "passed": true,
+          "detail": 13
+        },
+        {
+          "name": "imageStrategy",
+          "passed": true,
+          "detail": "legacy"
+        }
+      ],
+      "status": "passed",
+      "sampleAnalysis": null
+    }
+  ],
+  "status": "passed"
+}

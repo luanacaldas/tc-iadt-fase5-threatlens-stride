@@ -1,0 +1,76 @@
+{
+  "source_root": "E:\\Tech Challenge IADT - Fase 5 - Hackathon\\dataset\\raw_kaggle_selected",
+  "output_root": "E:\\Tech Challenge IADT - Fase 5 - Hackathon\\dataset\\kaggle_curated",
+  "dry_run": false,
+  "discovered_pairs": 219,
+  "orphan_xml": 0,
+  "augmentation_groups": 73,
+  "selected_pairs": 219,
+  "written_images": {
+    "train": 165,
+    "val": 27,
+    "test": 27
+  },
+  "split_group_counts": {
+    "train": 55,
+    "val": 9,
+    "test": 9
+  },
+  "split_leakage_groups": [],
+  "mapped_classes": {
+    "compute": 813,
+    "database": 441,
+    "storage": 285,
+    "queue": 183,
+    "load_balancer": 174,
+    "identity_provider": 93,
+    "api_gateway": 87,
+    "monitoring": 84,
+    "secrets_kms": 69,
+    "cdn": 39
+  },
+  "unmapped_classes": {
+    "azure_virtual_networks": 36,
+    "azure_devops": 36,
+    "gcp_virtual_private_cloud": 33,
+    "aws_amazon_virtual_private_cloud": 33,
+    "aws_amazon_route_53": 30,
+    "aws_route_53_hosted_zone": 30,
+    "azure_resource_groups": 30,
+    "azure_network_security_groups": 24,
+    "aws_vpc_virtual_private_cloud_vpc": 24,
+    "azure_firewalls": 21,
+    "aws_cloudformation_template": 21,
+    "aws_cloudformation": 18
+  },
+  "raw_class_count": 85,
+  "rejected": {
+    "unmapped": 336,
+    "invalid_bbox": 0,
+    "outside_image": 0
+  },
+  "canonical_classes": [
+    "api_gateway",
+    "backup",
+    "cdn",
+    "compute",
+    "database",
+    "identity_provider",
+    "internet",
+    "load_balancer",
+    "monitoring",
+    "queue",
+    "secrets_kms",
+    "storage",
+    "user",
+    "waf"
+  ],
+  "settings": {
+    "train_ratio": 0.7,
+    "val_ratio": 0.15,
+    "test_ratio": 0.15,
+    "seed": "threatlens-kaggle-v1",
+    "max_augmentations_per_group": 4,
+    "link_mode": "hardlink"
+  }
+}

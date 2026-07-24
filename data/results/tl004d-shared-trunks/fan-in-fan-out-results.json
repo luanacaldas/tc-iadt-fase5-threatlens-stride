@@ -1,0 +1,603 @@
+{
+  "schemaVersion": "1.0",
+  "split": "development_tuning",
+  "classificationCounts": {
+    "ambiguous_shared_trunk": 13,
+    "insufficient_branch_evidence": 58,
+    "invalid_branch_pairing": 3,
+    "shared_trunk": 40,
+    "valid_fan_out": 1
+  },
+  "supportedClassifications": [
+    "valid_fan_in",
+    "valid_fan_out",
+    "shared_trunk",
+    "ambiguous_shared_trunk",
+    "invalid_branch_pairing",
+    "insufficient_branch_evidence"
+  ],
+  "c04": {
+    "caseId": "C04",
+    "split": "development_tuning",
+    "evidenceSource": "data/fixtures/tl004d_c04_shared_trunk.json",
+    "annotationMethod": "human_reviewed_connector_trace",
+    "autonomousRecoveryClaimed": false,
+    "expectedRelations": [
+      [
+        "app_service",
+        "key_vault"
+      ],
+      [
+        "app_service",
+        "storage"
+      ]
+    ],
+    "experimentalRelations": [
+      [
+        "app_service",
+        "key_vault"
+      ],
+      [
+        "app_service",
+        "storage"
+      ]
+    ],
+    "forbiddenRelationsObserved": [],
+    "classification": [
+      "valid_fan_out"
+    ],
+    "confidence": "high_reviewed_trace",
+    "missingEvidenceForAutonomousRecovery": [
+      "detector-produced continuous connector trace for both missed edges",
+      "detector-produced endpoint ports for the two missed destinations"
+    ],
+    "reconstructedCorrectlyInSupervisedShadow": true,
+    "officialResultChanged": false,
+    "analysis": {
+      "schemaVersion": "1.0",
+      "strategyRevision": "tl004d-shared-trunks-v1",
+      "mode": "shadow",
+      "officialEligible": false,
+      "dependencies": [
+        "backend/geometric_events.py",
+        "backend/endpoint_validation.py",
+        "backend/intersection_validation.py"
+      ],
+      "trunks": [
+        {
+          "id": "trunk-7ce5bb49781747e6",
+          "classification": "valid_fan_out",
+          "segmentIds": [
+            "seg-1ff95cc7fbe5dc91",
+            "seg-503a0a911d2fd4f2",
+            "seg-9677af9d9c7388ee",
+            "seg-af2c0a730d6744e2",
+            "seg-e5efd8eeacda2321"
+          ],
+          "segmentProvenance": [
+            "C04:reviewed-trace"
+          ],
+          "eventIds": [
+            "int-2ac8736f7ae457f9",
+            "int-56769ffff3dd0951",
+            "int-fb49f980be541c08"
+          ],
+          "junctionEventIds": [
+            "int-56769ffff3dd0951"
+          ],
+          "junctionArms": [
+            {
+              "id": "arm-9a10df2a9ddf3db4",
+              "segmentId": "seg-503a0a911d2fd4f2",
+              "role": "start",
+              "angle": 0.0,
+              "provenance": [
+                "C04:reviewed-trace"
+              ],
+              "inputSegmentIds": [
+                "c04-trunk-right"
+              ]
+            },
+            {
+              "id": "arm-e4326767ab2a7f0c",
+              "segmentId": "seg-1ff95cc7fbe5dc91",
+              "role": "start",
+              "angle": 90.0,
+              "provenance": [
+                "C04:reviewed-trace"
+              ],
+              "inputSegmentIds": [
+                "c04-key-vault"
+              ]
+            },
+            {
+              "id": "arm-349702246e01941e",
+              "segmentId": "seg-e5efd8eeacda2321",
+              "role": "end",
+              "angle": 180.0,
+              "provenance": [
+                "C04:reviewed-trace"
+              ],
+              "inputSegmentIds": [
+                "c04-trunk-left"
+              ]
+            }
+          ],
+          "inputArms": [
+            {
+              "portId": "c04-port-app",
+              "componentId": "app_service",
+              "segmentId": "seg-af2c0a730d6744e2",
+              "coordinates": [
+                520.0,
+                1297.0
+              ],
+              "direction": "outgoing",
+              "directionConfidence": 1.0,
+              "provenance": "C04:human-review"
+            }
+          ],
+          "outputArms": [
+            {
+              "portId": "c04-port-key-vault",
+              "componentId": "key_vault",
+              "segmentId": "seg-1ff95cc7fbe5dc91",
+              "coordinates": [
+                926.0,
+                1208.0
+              ],
+              "direction": "incoming",
+              "directionConfidence": 1.0,
+              "provenance": "C04:human-review"
+            },
+            {
+              "portId": "c04-port-storage",
+              "componentId": "storage",
+              "segmentId": "seg-9677af9d9c7388ee",
+              "coordinates": [
+                1073.0,
+                1201.0
+              ],
+              "direction": "incoming",
+              "directionConfidence": 1.0,
+              "provenance": "C04:human-review"
+            }
+          ],
+          "unknownDirectionArms": [],
+          "connectedPorts": [
+            {
+              "id": "c04-port-app",
+              "componentId": "app_service",
+              "coordinates": [
+                520.0,
+                1297.0
+              ],
+              "direction": "outgoing",
+              "directionConfidence": 1.0,
+              "segmentId": "c04-app",
+              "confidence": "reviewed",
+              "evidence": "reviewed_terminal_port",
+              "provenance": "C04:human-review",
+              "reviewed": true,
+              "canonicalSegmentId": "seg-af2c0a730d6744e2"
+            },
+            {
+              "id": "c04-port-key-vault",
+              "componentId": "key_vault",
+              "coordinates": [
+                926.0,
+                1208.0
+              ],
+              "direction": "incoming",
+              "directionConfidence": 1.0,
+              "segmentId": "c04-key-vault",
+              "confidence": "reviewed",
+              "evidence": "reviewed_terminal_port",
+              "provenance": "C04:human-review",
+              "reviewed": true,
+              "canonicalSegmentId": "seg-1ff95cc7fbe5dc91"
+            },
+            {
+              "id": "c04-port-storage",
+              "componentId": "storage",
+              "coordinates": [
+                1073.0,
+                1201.0
+              ],
+              "direction": "incoming",
+              "directionConfidence": 1.0,
+              "segmentId": "c04-storage",
+              "confidence": "reviewed",
+              "evidence": "reviewed_terminal_port",
+              "provenance": "C04:human-review",
+              "reviewed": true,
+              "canonicalSegmentId": "seg-9677af9d9c7388ee"
+            }
+          ],
+          "terminalComponents": [
+            "app_service",
+            "key_vault",
+            "storage"
+          ],
+          "sourceComponents": [
+            "app_service"
+          ],
+          "destinationComponents": [
+            "key_vault",
+            "storage"
+          ],
+          "unknownDirectionComponents": [],
+          "barrierComponents": [],
+          "allowedPairings": [
+            {
+              "id": "rel-298feeff93ed07b1",
+              "from": "app_service",
+              "to": "key_vault",
+              "trunkId": "trunk-7ce5bb49781747e6",
+              "reason": "one source feeds multiple branches",
+              "shadowOnly": true,
+              "officialEligible": false
+            },
+            {
+              "id": "rel-48c5458aa024079c",
+              "from": "app_service",
+              "to": "storage",
+              "trunkId": "trunk-7ce5bb49781747e6",
+              "reason": "one source feeds multiple branches",
+              "shadowOnly": true,
+              "officialEligible": false
+            }
+          ],
+          "blockedPairings": [
+            {
+              "from": "key_vault",
+              "to": "app_service",
+              "trunkId": "trunk-7ce5bb49781747e6"
+            },
+            {
+              "from": "key_vault",
+              "to": "storage",
+              "trunkId": "trunk-7ce5bb49781747e6"
+            },
+            {
+              "from": "storage",
+              "to": "app_service",
+              "trunkId": "trunk-7ce5bb49781747e6"
+            },
+            {
+              "from": "storage",
+              "to": "key_vault",
+              "trunkId": "trunk-7ce5bb49781747e6"
+            }
+          ],
+          "pairingOptionsConsidered": [],
+          "confidence": "high",
+          "reasons": [
+            "single_outgoing_terminal_with_multiple_incoming_terminals"
+          ],
+          "parameters": {
+            "directionConfidenceThreshold": 0.7,
+            "parallelArmToleranceDegrees": 20.0,
+            "geometry": {
+              "endpointClusterTolerance": 3.0,
+              "intersectionTolerance": 1.5,
+              "componentContactTolerance": 1.25,
+              "nearbyComponentDistance": 8.5,
+              "collinearToleranceDegrees": 12.0,
+              "markerTolerance": 1.25,
+              "coordinatePrecision": 3,
+              "scale": 1.0,
+              "lineWidth": 1.0
+            }
+          },
+          "evidence": {
+            "tl004aEventCount": 3,
+            "tl004bPortCount": 3,
+            "tl004cJunctionCount": 1
+          },
+          "shadowOnly": true,
+          "officialEligible": false
+        }
+      ],
+      "experimentalRelations": [
+        {
+          "id": "rel-298feeff93ed07b1",
+          "from": "app_service",
+          "to": "key_vault",
+          "trunkId": "trunk-7ce5bb49781747e6",
+          "reason": "one source feeds multiple branches",
+          "shadowOnly": true,
+          "officialEligible": false
+        },
+        {
+          "id": "rel-48c5458aa024079c",
+          "from": "app_service",
+          "to": "storage",
+          "trunkId": "trunk-7ce5bb49781747e6",
+          "reason": "one source feeds multiple branches",
+          "shadowOnly": true,
+          "officialEligible": false
+        }
+      ],
+      "reviewOnlyRelations": [],
+      "preventedCliqueRelations": [
+        {
+          "from": "key_vault",
+          "to": "app_service",
+          "trunkId": "trunk-7ce5bb49781747e6"
+        },
+        {
+          "from": "key_vault",
+          "to": "storage",
+          "trunkId": "trunk-7ce5bb49781747e6"
+        },
+        {
+          "from": "storage",
+          "to": "app_service",
+          "trunkId": "trunk-7ce5bb49781747e6"
+        },
+        {
+          "from": "storage",
+          "to": "key_vault",
+          "trunkId": "trunk-7ce5bb49781747e6"
+        }
+      ],
+      "blockedLocalEvents": [],
+      "inputMutation": false,
+      "parameters": {
+        "directionConfidenceThreshold": 0.7,
+        "parallelArmToleranceDegrees": 20.0,
+        "scale": 1.0,
+        "lineWidth": 1.0
+      }
+    }
+  },
+  "controls": [
+    {
+      "caseId": "C01",
+      "imageId": "gcp-secure-cloud-run",
+      "requiredEdges": [
+        [
+          "armor",
+          "load_balancer"
+        ],
+        [
+          "internet",
+          "load_balancer"
+        ]
+      ],
+      "forbiddenEdges": [
+        [
+          "armor",
+          "internet"
+        ],
+        [
+          "internet",
+          "armor"
+        ]
+      ],
+      "experimentalRelations": [],
+      "forbiddenEdgesObserved": [],
+      "status": "preserved",
+      "reason": "all required legacy edges remain official and shadow adds no forbidden peer edge",
+      "confidence": "high",
+      "preserved": true,
+      "officialResultChanged": false
+    },
+    {
+      "caseId": "C02",
+      "imageId": "aws-serverless-async",
+      "requiredEdges": [
+        [
+          "api_handler",
+          "database"
+        ],
+        [
+          "api_handler",
+          "queue"
+        ]
+      ],
+      "forbiddenEdges": [
+        [
+          "database",
+          "queue"
+        ],
+        [
+          "queue",
+          "database"
+        ]
+      ],
+      "experimentalRelations": [
+        [
+          "api_handler",
+          "queue"
+        ]
+      ],
+      "forbiddenEdgesObserved": [],
+      "status": "preserved",
+      "reason": "all required legacy edges remain official and shadow adds no forbidden peer edge",
+      "confidence": "high",
+      "preserved": true,
+      "officialResultChanged": false
+    },
+    {
+      "caseId": "C03",
+      "imageId": "azure-ai-foundry",
+      "requiredEdges": [
+        [
+          "foundry_agent",
+          "ai_search"
+        ],
+        [
+          "foundry_agent",
+          "openai_model"
+        ]
+      ],
+      "forbiddenEdges": [
+        [
+          "ai_search",
+          "openai_model"
+        ],
+        [
+          "openai_model",
+          "ai_search"
+        ]
+      ],
+      "experimentalRelations": [
+        [
+          "foundry_agent",
+          "openai_model"
+        ]
+      ],
+      "forbiddenEdgesObserved": [],
+      "status": "preserved",
+      "reason": "all required legacy edges remain official and shadow adds no forbidden peer edge",
+      "confidence": "medium",
+      "preserved": true,
+      "officialResultChanged": false
+    },
+    {
+      "caseId": "C04",
+      "imageId": "azure-private-ai-platform",
+      "requiredEdges": [
+        [
+          "app_service",
+          "key_vault"
+        ],
+        [
+          "app_service",
+          "storage"
+        ]
+      ],
+      "forbiddenEdges": [
+        [
+          "key_vault",
+          "storage"
+        ],
+        [
+          "storage",
+          "key_vault"
+        ]
+      ],
+      "experimentalRelations": [
+        [
+          "app_service",
+          "key_vault"
+        ],
+        [
+          "app_service",
+          "storage"
+        ]
+      ],
+      "forbiddenEdgesObserved": [],
+      "status": "supervised_shadow_recovered",
+      "reason": "reviewed connector trace reconstructs the missing fan-out in supervised shadow",
+      "confidence": "high_reviewed_trace",
+      "preserved": true,
+      "officialResultChanged": false
+    },
+    {
+      "caseId": "C05",
+      "imageId": "generic-cloud-api",
+      "requiredEdges": [
+        [
+          "database",
+          "storage"
+        ],
+        [
+          "monitoring",
+          "storage"
+        ]
+      ],
+      "forbiddenEdges": [
+        [
+          "database",
+          "monitoring"
+        ],
+        [
+          "monitoring",
+          "database"
+        ]
+      ],
+      "experimentalRelations": [
+        [
+          "database",
+          "storage"
+        ]
+      ],
+      "forbiddenEdgesObserved": [],
+      "status": "preserved",
+      "reason": "all required legacy edges remain official and shadow adds no forbidden peer edge",
+      "confidence": "high",
+      "preserved": true,
+      "officialResultChanged": false
+    },
+    {
+      "caseId": "C06",
+      "imageId": "azure-ai-foundry",
+      "requiredEdges": [
+        [
+          "app_service",
+          "foundry_agent"
+        ],
+        [
+          "foundry_account",
+          "foundry_agent"
+        ]
+      ],
+      "forbiddenEdges": [
+        [
+          "app_service",
+          "foundry_account"
+        ],
+        [
+          "foundry_account",
+          "app_service"
+        ]
+      ],
+      "experimentalRelations": [
+        [
+          "app_service",
+          "foundry_agent"
+        ]
+      ],
+      "forbiddenEdgesObserved": [],
+      "status": "preserved",
+      "reason": "all required legacy edges remain official and shadow adds no forbidden peer edge",
+      "confidence": "high",
+      "preserved": true,
+      "officialResultChanged": false
+    },
+    {
+      "caseId": "C07",
+      "imageId": "aws-video-pipeline",
+      "requiredEdges": [
+        [
+          "mobile",
+          "api"
+        ],
+        [
+          "mobile",
+          "cognito"
+        ]
+      ],
+      "forbiddenEdges": [
+        [
+          "api",
+          "cognito"
+        ],
+        [
+          "cognito",
+          "api"
+        ]
+      ],
+      "experimentalRelations": [],
+      "forbiddenEdgesObserved": [],
+      "status": "preserved",
+      "reason": "all required legacy edges remain official and shadow adds no forbidden peer edge",
+      "confidence": "high",
+      "preserved": true,
+      "officialResultChanged": false
+    }
+  ]
+}

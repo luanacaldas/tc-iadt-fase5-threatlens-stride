@@ -1,0 +1,27 @@
+{
+  "schemaVersion": "1.0",
+  "generatedAt": "2026-07-21T18:11:33.102550+00:00",
+  "configured": {
+    "endpoint_cluster_tolerance": 2.5,
+    "intersection_tolerance": 1.25,
+    "component_contact_tolerance": 1.0,
+    "nearby_component_distance": 8.0,
+    "collinear_tolerance_degrees": 12.0,
+    "marker_tolerance": 1.0,
+    "line_width_tolerance_factor": 0.5,
+    "coordinate_precision": 3
+  },
+  "effectiveAtFixtureDefaults": {
+    "endpointClusterTolerance": 3.0,
+    "intersectionTolerance": 1.5,
+    "componentContactTolerance": 1.25,
+    "nearbyComponentDistance": 8.5,
+    "collinearToleranceDegrees": 12.0,
+    "markerTolerance": 1.25,
+    "coordinatePrecision": 3,
+    "scale": 1.0,
+    "lineWidth": 1.0
+  },
+  "calibrationSource": "documented_engineering_defaults_not_human_review",
+  "source": "backend/geometric_events.py::GeometryParameters"
+}

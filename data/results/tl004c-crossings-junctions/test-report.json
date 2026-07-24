@@ -1,0 +1,75 @@
+{
+  "schemaVersion": "1.0",
+  "scope": "TL-004C",
+  "split": "development_tuning",
+  "validation": {
+    "specificTests": {
+      "testsRun": 22,
+      "failures": 0,
+      "status": "PASS"
+    },
+    "fullSuite": {
+      "testsRun": 194,
+      "failures": 0,
+      "status": "PASS"
+    },
+    "v15Gate": {
+      "status": "PASS",
+      "artifact": "data/results/v15-regression-gate/20260721T192708Z/gate-report.json"
+    },
+    "projectVerification": {
+      "status": "PASS"
+    },
+    "prospectiveV12": {
+      "status": "PASS"
+    },
+    "tl004aIntegrity": {
+      "status": "PASS",
+      "files": {
+        "backend/geometric_events.py": {
+          "expected": "47e33d81208e744c46db37b58230277479ccb0630b74df1abd4d39ce9928c180",
+          "actual": "47e33d81208e744c46db37b58230277479ccb0630b74df1abd4d39ce9928c180"
+        },
+        "scripts/build_tl004a_artifacts.py": {
+          "expected": "c4cfff7861771c32fa22cb7dffa1c008016c77a5482034922301110ce5705b2f",
+          "actual": "c4cfff7861771c32fa22cb7dffa1c008016c77a5482034922301110ce5705b2f"
+        },
+        "tests/test_geometric_events.py": {
+          "expected": "c27e08a5ce3706e155e2fb03f3dc33a80364097162c278fd18d09eb0f6cfbbd2",
+          "actual": "c27e08a5ce3706e155e2fb03f3dc33a80364097162c278fd18d09eb0f6cfbbd2"
+        },
+        "tests/fixtures/tl004a_geometric_events.json": {
+          "expected": "b82893be3977f1db58728c86c82b23605838becd28d114df4d0ebddae48f691b",
+          "actual": "b82893be3977f1db58728c86c82b23605838becd28d114df4d0ebddae48f691b"
+        }
+      }
+    },
+    "tl004bIntegrity": {
+      "status": "PASS",
+      "files": {
+        "backend/endpoint_validation.py": {
+          "expected": "9b85458b3428ae2dd08c57e2cc17b58519c23779a98e56ffde7613d35860a66d",
+          "actual": "9b85458b3428ae2dd08c57e2cc17b58519c23779a98e56ffde7613d35860a66d"
+        },
+        "scripts/build_tl004b_artifacts.py": {
+          "expected": "4b7b99bf609aa15d8a2b064b36a90aeb1b4fd9cd75c27c1875d4d36fab2ca613",
+          "actual": "4b7b99bf609aa15d8a2b064b36a90aeb1b4fd9cd75c27c1875d4d36fab2ca613"
+        },
+        "tests/test_endpoint_validation.py": {
+          "expected": "e34f222d60dc60a84654febe3d0d8df86db7b6ec16c41b0c7074e268ba4f3d0e",
+          "actual": "e34f222d60dc60a84654febe3d0d8df86db7b6ec16c41b0c7074e268ba4f3d0e"
+        },
+        "data/results/tl004b-ports-barriers/tl004b-decision.json": {
+          "expected": "3f119650fbf7a3c2902cc5ae9fa692d7d32cc073c47df6c258818204c74edf3b",
+          "actual": "3f119650fbf7a3c2902cc5ae9fa692d7d32cc073c47df6c258818204c74edf3b"
+        },
+        "data/results/tl004b-ports-barriers/legacy-shadow-comparison.json": {
+          "expected": "e78f60858b5971c78f2650585ac4407625e4950c695f52fd575bb37a10463885",
+          "actual": "e78f60858b5971c78f2650585ac4407625e4950c695f52fd575bb37a10463885"
+        }
+      }
+    },
+    "holdoutExecutions": 0,
+    "status": "PASS"
+  }
+}

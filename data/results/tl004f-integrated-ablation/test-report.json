@@ -1,0 +1,132 @@
+{
+  "schemaVersion": "1.0",
+  "scope": "TL-004F",
+  "split": "development_tuning",
+  "validation": {
+    "specificTests": {
+      "testsRun": 35,
+      "failures": 0,
+      "status": "PASS"
+    },
+    "fullSuite": {
+      "testsRun": 285,
+      "failures": 0,
+      "status": "PASS"
+    },
+    "v15Gate": {
+      "status": "PASS",
+      "artifact": "data/results/v15-regression-gate/tl004f-final/gate-report.json"
+    },
+    "projectVerification": {
+      "status": "PASS"
+    },
+    "prospectiveV12": {
+      "status": "PASS"
+    },
+    "dependencyIntegrity": {
+      "TL-004A": {
+        "status": "PASS",
+        "files": {
+          "backend/geometric_events.py": {
+            "expected": "47e33d81208e744c46db37b58230277479ccb0630b74df1abd4d39ce9928c180",
+            "actual": "47e33d81208e744c46db37b58230277479ccb0630b74df1abd4d39ce9928c180"
+          },
+          "scripts/build_tl004a_artifacts.py": {
+            "expected": "c4cfff7861771c32fa22cb7dffa1c008016c77a5482034922301110ce5705b2f",
+            "actual": "c4cfff7861771c32fa22cb7dffa1c008016c77a5482034922301110ce5705b2f"
+          },
+          "tests/test_geometric_events.py": {
+            "expected": "c27e08a5ce3706e155e2fb03f3dc33a80364097162c278fd18d09eb0f6cfbbd2",
+            "actual": "c27e08a5ce3706e155e2fb03f3dc33a80364097162c278fd18d09eb0f6cfbbd2"
+          }
+        }
+      },
+      "TL-004B": {
+        "status": "PASS",
+        "files": {
+          "backend/endpoint_validation.py": {
+            "expected": "9b85458b3428ae2dd08c57e2cc17b58519c23779a98e56ffde7613d35860a66d",
+            "actual": "9b85458b3428ae2dd08c57e2cc17b58519c23779a98e56ffde7613d35860a66d"
+          },
+          "scripts/build_tl004b_artifacts.py": {
+            "expected": "4b7b99bf609aa15d8a2b064b36a90aeb1b4fd9cd75c27c1875d4d36fab2ca613",
+            "actual": "4b7b99bf609aa15d8a2b064b36a90aeb1b4fd9cd75c27c1875d4d36fab2ca613"
+          },
+          "tests/test_endpoint_validation.py": {
+            "expected": "e34f222d60dc60a84654febe3d0d8df86db7b6ec16c41b0c7074e268ba4f3d0e",
+            "actual": "e34f222d60dc60a84654febe3d0d8df86db7b6ec16c41b0c7074e268ba4f3d0e"
+          }
+        }
+      },
+      "TL-004C": {
+        "status": "PASS",
+        "files": {
+          "backend/intersection_validation.py": {
+            "expected": "545994754617bdf9478850c88edd247a3f3239c0a8c19bd4557deee13fafbf0e",
+            "actual": "545994754617bdf9478850c88edd247a3f3239c0a8c19bd4557deee13fafbf0e"
+          },
+          "scripts/build_tl004c_artifacts.py": {
+            "expected": "127f34cee33293f71f1b2906bf843a4f3273d2949d9b506ad91b1669a65e4d1a",
+            "actual": "127f34cee33293f71f1b2906bf843a4f3273d2949d9b506ad91b1669a65e4d1a"
+          },
+          "tests/test_intersection_validation.py": {
+            "expected": "4b55534de2555e77064bd08a1b2666cd30dbacbab09efe0c4e6d6d66dc59cfa1",
+            "actual": "4b55534de2555e77064bd08a1b2666cd30dbacbab09efe0c4e6d6d66dc59cfa1"
+          }
+        }
+      },
+      "TL-004D": {
+        "status": "PASS",
+        "files": {
+          "backend/shared_trunk_reconstruction.py": {
+            "expected": "9430a46d70ad2438864cefba4477bf71f69840aa93b2208a58d1fb9b514493e3",
+            "actual": "9430a46d70ad2438864cefba4477bf71f69840aa93b2208a58d1fb9b514493e3"
+          },
+          "scripts/build_tl004d_artifacts.py": {
+            "expected": "40a421703235ec95843dfb4f24f1f9a452d53c0b991c9cbbadab2b20443fb62e",
+            "actual": "40a421703235ec95843dfb4f24f1f9a452d53c0b991c9cbbadab2b20443fb62e"
+          },
+          "tests/test_shared_trunk_reconstruction.py": {
+            "expected": "3256b0fabf5ea8228b1da991e8effaa7e4c704896e52901045927de018dc118d",
+            "actual": "3256b0fabf5ea8228b1da991e8effaa7e4c704896e52901045927de018dc118d"
+          },
+          "data/results/tl004d-shared-trunks/tl004d-decision.json": {
+            "expected": "3e2a0720cbf5f88bd972698ef6efc2611a5faa0ae1482f1ea251a7fd8399d50e",
+            "actual": "3e2a0720cbf5f88bd972698ef6efc2611a5faa0ae1482f1ea251a7fd8399d50e"
+          }
+        }
+      },
+      "TL-004E": {
+        "status": "PASS",
+        "files": {
+          "backend/transitive_shortcut_validation.py": {
+            "expected": "4ceb879941a5c1e7c1d5ac69fd7c36eaf6d1a8b0bf7da7b98c5cd74f93aff0fd",
+            "actual": "4ceb879941a5c1e7c1d5ac69fd7c36eaf6d1a8b0bf7da7b98c5cd74f93aff0fd"
+          },
+          "scripts/build_tl004e_artifacts.py": {
+            "expected": "0f5d7b94479ea6f9d27ec5dddce7cbd02ec28f5d176c8c410f95b8743f8d37cd",
+            "actual": "0f5d7b94479ea6f9d27ec5dddce7cbd02ec28f5d176c8c410f95b8743f8d37cd"
+          },
+          "tests/test_transitive_shortcut_validation.py": {
+            "expected": "b9881a20b3c464318e841c07dd2a98ae3e542857d26ebd8d2771a55321f955e9",
+            "actual": "b9881a20b3c464318e841c07dd2a98ae3e542857d26ebd8d2771a55321f955e9"
+          },
+          "tests/fixtures/tl004e_transitive_shortcuts.json": {
+            "expected": "53ccd6886ce8d3b3e858381f1fc7e6eb5292f4067ca4556ee858dd333860976a",
+            "actual": "53ccd6886ce8d3b3e858381f1fc7e6eb5292f4067ca4556ee858dd333860976a"
+          },
+          "data/results/tl004e-transitive-shortcuts/tl004e-decision.json": {
+            "expected": "ce7a6d170833aaeeeeada598436a1a927dd133faf1ca9f41a23674d609f47eee",
+            "actual": "ce7a6d170833aaeeeeada598436a1a927dd133faf1ca9f41a23674d609f47eee"
+          },
+          "data/results/tl004e-transitive-shortcuts/legacy-shadow-comparison.json": {
+            "expected": "a5febf63c403a836a1eefbaca490a46f44c53ca3cd1c94fb3eb55b560be708ec",
+            "actual": "a5febf63c403a836a1eefbaca490a46f44c53ca3cd1c94fb3eb55b560be708ec"
+          }
+        }
+      }
+    },
+    "holdoutExecutions": 0,
+    "status": "PASS"
+  }
+}

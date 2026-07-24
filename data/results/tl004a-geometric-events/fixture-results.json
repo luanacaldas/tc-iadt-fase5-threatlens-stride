@@ -1,0 +1,505 @@
+{
+  "schemaVersion": "1.0",
+  "generatedAt": "2026-07-21T18:11:33.102550+00:00",
+  "status": "PASS",
+  "fixtureCount": 15,
+  "passedFixtureCount": 15,
+  "failedFixtureCount": 0,
+  "results": [
+    {
+      "fixtureId": "straight_line",
+      "title": "Linha reta fragmentada em dois segmentos",
+      "topologyRole": null,
+      "status": "PASS",
+      "checks": [
+        {
+          "name": "minimum_continuation",
+          "actual": 1,
+          "operator": ">=",
+          "expected": 1,
+          "passed": true
+        },
+        {
+          "name": "minimum_endpoint",
+          "actual": 2,
+          "operator": ">=",
+          "expected": 2,
+          "passed": true
+        }
+      ],
+      "eventCountByType": {
+        "endpoint": 2,
+        "continuation": 1,
+        "elbow": 0,
+        "crossing": 0,
+        "explicit_junction": 0,
+        "bifurcation": 0,
+        "component_port": 0,
+        "component_boundary_intersection": 0
+      },
+      "canonicalSegmentCount": 2
+    },
+    {
+      "fixtureId": "elbow",
+      "title": "Cotovelo ortogonal",
+      "topologyRole": null,
+      "status": "PASS",
+      "checks": [
+        {
+          "name": "minimum_elbow",
+          "actual": 1,
+          "operator": ">=",
+          "expected": 1,
+          "passed": true
+        },
+        {
+          "name": "minimum_endpoint",
+          "actual": 2,
+          "operator": ">=",
+          "expected": 2,
+          "passed": true
+        }
+      ],
+      "eventCountByType": {
+        "endpoint": 2,
+        "continuation": 0,
+        "elbow": 1,
+        "crossing": 0,
+        "explicit_junction": 0,
+        "bifurcation": 0,
+        "component_port": 0,
+        "component_boundary_intersection": 0
+      },
+      "canonicalSegmentCount": 2
+    },
+    {
+      "fixtureId": "x_without_junction",
+      "title": "Cruzamento em X sem marcador de junção",
+      "topologyRole": null,
+      "status": "PASS",
+      "checks": [
+        {
+          "name": "minimum_crossing",
+          "actual": 1,
+          "operator": ">=",
+          "expected": 1,
+          "passed": true
+        },
+        {
+          "name": "forbidden_explicit_junction",
+          "actual": 0,
+          "operator": "==",
+          "expected": 0,
+          "passed": true
+        }
+      ],
+      "eventCountByType": {
+        "endpoint": 4,
+        "continuation": 0,
+        "elbow": 0,
+        "crossing": 1,
+        "explicit_junction": 0,
+        "bifurcation": 0,
+        "component_port": 0,
+        "component_boundary_intersection": 0
+      },
+      "canonicalSegmentCount": 2
+    },
+    {
+      "fixtureId": "x_with_explicit_junction",
+      "title": "Cruzamento em X com marcador explícito",
+      "topologyRole": null,
+      "status": "PASS",
+      "checks": [
+        {
+          "name": "minimum_explicit_junction",
+          "actual": 1,
+          "operator": ">=",
+          "expected": 1,
+          "passed": true
+        },
+        {
+          "name": "forbidden_crossing",
+          "actual": 0,
+          "operator": "==",
+          "expected": 0,
+          "passed": true
+        }
+      ],
+      "eventCountByType": {
+        "endpoint": 4,
+        "continuation": 0,
+        "elbow": 0,
+        "crossing": 0,
+        "explicit_junction": 1,
+        "bifurcation": 0,
+        "component_port": 0,
+        "component_boundary_intersection": 0
+      },
+      "canonicalSegmentCount": 2
+    },
+    {
+      "fixtureId": "t_bifurcation",
+      "title": "Bifurcação em T",
+      "topologyRole": null,
+      "status": "PASS",
+      "checks": [
+        {
+          "name": "minimum_bifurcation",
+          "actual": 1,
+          "operator": ">=",
+          "expected": 1,
+          "passed": true
+        },
+        {
+          "name": "minimum_endpoint",
+          "actual": 3,
+          "operator": ">=",
+          "expected": 3,
+          "passed": true
+        }
+      ],
+      "eventCountByType": {
+        "endpoint": 3,
+        "continuation": 0,
+        "elbow": 0,
+        "crossing": 0,
+        "explicit_junction": 0,
+        "bifurcation": 1,
+        "component_port": 0,
+        "component_boundary_intersection": 0
+      },
+      "canonicalSegmentCount": 3
+    },
+    {
+      "fixtureId": "y_bifurcation",
+      "title": "Bifurcação em Y",
+      "topologyRole": null,
+      "status": "PASS",
+      "checks": [
+        {
+          "name": "minimum_bifurcation",
+          "actual": 1,
+          "operator": ">=",
+          "expected": 1,
+          "passed": true
+        },
+        {
+          "name": "minimum_endpoint",
+          "actual": 3,
+          "operator": ">=",
+          "expected": 3,
+          "passed": true
+        }
+      ],
+      "eventCountByType": {
+        "endpoint": 3,
+        "continuation": 0,
+        "elbow": 0,
+        "crossing": 0,
+        "explicit_junction": 0,
+        "bifurcation": 1,
+        "component_port": 0,
+        "component_boundary_intersection": 0
+      },
+      "canonicalSegmentCount": 3
+    },
+    {
+      "fixtureId": "parallel_lines",
+      "title": "Linhas paralelas independentes",
+      "topologyRole": null,
+      "status": "PASS",
+      "checks": [
+        {
+          "name": "minimum_endpoint",
+          "actual": 4,
+          "operator": ">=",
+          "expected": 4,
+          "passed": true
+        },
+        {
+          "name": "forbidden_continuation",
+          "actual": 0,
+          "operator": "==",
+          "expected": 0,
+          "passed": true
+        },
+        {
+          "name": "forbidden_elbow",
+          "actual": 0,
+          "operator": "==",
+          "expected": 0,
+          "passed": true
+        },
+        {
+          "name": "forbidden_crossing",
+          "actual": 0,
+          "operator": "==",
+          "expected": 0,
+          "passed": true
+        },
+        {
+          "name": "forbidden_explicit_junction",
+          "actual": 0,
+          "operator": "==",
+          "expected": 0,
+          "passed": true
+        },
+        {
+          "name": "forbidden_bifurcation",
+          "actual": 0,
+          "operator": "==",
+          "expected": 0,
+          "passed": true
+        }
+      ],
+      "eventCountByType": {
+        "endpoint": 4,
+        "continuation": 0,
+        "elbow": 0,
+        "crossing": 0,
+        "explicit_junction": 0,
+        "bifurcation": 0,
+        "component_port": 0,
+        "component_boundary_intersection": 0
+      },
+      "canonicalSegmentCount": 2
+    },
+    {
+      "fixtureId": "endpoint_touching_component",
+      "title": "Endpoint tocando a borda de componente",
+      "topologyRole": null,
+      "status": "PASS",
+      "checks": [
+        {
+          "name": "minimum_component_port",
+          "actual": 1,
+          "operator": ">=",
+          "expected": 1,
+          "passed": true
+        }
+      ],
+      "eventCountByType": {
+        "endpoint": 2,
+        "continuation": 0,
+        "elbow": 0,
+        "crossing": 0,
+        "explicit_junction": 0,
+        "bifurcation": 0,
+        "component_port": 1,
+        "component_boundary_intersection": 1
+      },
+      "canonicalSegmentCount": 1
+    },
+    {
+      "fixtureId": "endpoint_near_component",
+      "title": "Endpoint próximo sem contato",
+      "topologyRole": null,
+      "status": "PASS",
+      "checks": [
+        {
+          "name": "forbidden_component_port",
+          "actual": 0,
+          "operator": "==",
+          "expected": 0,
+          "passed": true
+        },
+        {
+          "name": "forbidden_component_boundary_intersection",
+          "actual": 0,
+          "operator": "==",
+          "expected": 0,
+          "passed": true
+        }
+      ],
+      "eventCountByType": {
+        "endpoint": 2,
+        "continuation": 0,
+        "elbow": 0,
+        "crossing": 0,
+        "explicit_junction": 0,
+        "bifurcation": 0,
+        "component_port": 0,
+        "component_boundary_intersection": 0
+      },
+      "canonicalSegmentCount": 1
+    },
+    {
+      "fixtureId": "path_through_component",
+      "title": "Caminho atravessando componente",
+      "topologyRole": null,
+      "status": "PASS",
+      "checks": [
+        {
+          "name": "minimum_component_boundary_intersection",
+          "actual": 2,
+          "operator": ">=",
+          "expected": 2,
+          "passed": true
+        }
+      ],
+      "eventCountByType": {
+        "endpoint": 2,
+        "continuation": 0,
+        "elbow": 0,
+        "crossing": 0,
+        "explicit_junction": 0,
+        "bifurcation": 0,
+        "component_port": 0,
+        "component_boundary_intersection": 2
+      },
+      "canonicalSegmentCount": 1
+    },
+    {
+      "fixtureId": "shared_trunk_fan_in",
+      "title": "Tronco compartilhado com fan-in",
+      "topologyRole": "fan_in",
+      "status": "PASS",
+      "checks": [
+        {
+          "name": "minimum_bifurcation",
+          "actual": 1,
+          "operator": ">=",
+          "expected": 1,
+          "passed": true
+        }
+      ],
+      "eventCountByType": {
+        "endpoint": 3,
+        "continuation": 0,
+        "elbow": 0,
+        "crossing": 0,
+        "explicit_junction": 0,
+        "bifurcation": 1,
+        "component_port": 0,
+        "component_boundary_intersection": 0
+      },
+      "canonicalSegmentCount": 3
+    },
+    {
+      "fixtureId": "shared_trunk_fan_out",
+      "title": "Tronco compartilhado com fan-out",
+      "topologyRole": "fan_out",
+      "status": "PASS",
+      "checks": [
+        {
+          "name": "minimum_bifurcation",
+          "actual": 1,
+          "operator": ">=",
+          "expected": 1,
+          "passed": true
+        }
+      ],
+      "eventCountByType": {
+        "endpoint": 3,
+        "continuation": 0,
+        "elbow": 0,
+        "crossing": 0,
+        "explicit_junction": 0,
+        "bifurcation": 1,
+        "component_port": 0,
+        "component_boundary_intersection": 0
+      },
+      "canonicalSegmentCount": 3
+    },
+    {
+      "fixtureId": "chain_a_b_c",
+      "title": "Cadeia A para B para C sem atalho",
+      "topologyRole": null,
+      "status": "PASS",
+      "checks": [
+        {
+          "name": "minimum_component_port",
+          "actual": 4,
+          "operator": ">=",
+          "expected": 4,
+          "passed": true
+        }
+      ],
+      "eventCountByType": {
+        "endpoint": 4,
+        "continuation": 0,
+        "elbow": 0,
+        "crossing": 0,
+        "explicit_junction": 0,
+        "bifurcation": 0,
+        "component_port": 4,
+        "component_boundary_intersection": 4
+      },
+      "canonicalSegmentCount": 2
+    },
+    {
+      "fixtureId": "duplicate_and_fragmented",
+      "title": "Segmentos duplicados, invertidos e fragmentados",
+      "topologyRole": null,
+      "status": "PASS",
+      "checks": [
+        {
+          "name": "minimum_continuation",
+          "actual": 1,
+          "operator": ">=",
+          "expected": 1,
+          "passed": true
+        },
+        {
+          "name": "canonicalSegmentCount",
+          "actual": 2,
+          "operator": "==",
+          "expected": 2,
+          "passed": true
+        },
+        {
+          "name": "inputSegmentCount",
+          "actual": 3,
+          "operator": "==",
+          "expected": 3,
+          "passed": true
+        }
+      ],
+      "eventCountByType": {
+        "endpoint": 2,
+        "continuation": 1,
+        "elbow": 0,
+        "crossing": 0,
+        "explicit_junction": 0,
+        "bifurcation": 0,
+        "component_port": 0,
+        "component_boundary_intersection": 0
+      },
+      "canonicalSegmentCount": 2
+    },
+    {
+      "fixtureId": "different_segment_order",
+      "title": "Mesma bifurcação em T com ordem diferente",
+      "topologyRole": null,
+      "status": "PASS",
+      "checks": [
+        {
+          "name": "minimum_bifurcation",
+          "actual": 1,
+          "operator": ">=",
+          "expected": 1,
+          "passed": true
+        },
+        {
+          "name": "minimum_endpoint",
+          "actual": 3,
+          "operator": ">=",
+          "expected": 3,
+          "passed": true
+        }
+      ],
+      "eventCountByType": {
+        "endpoint": 3,
+        "continuation": 0,
+        "elbow": 0,
+        "crossing": 0,
+        "explicit_junction": 0,
+        "bifurcation": 1,
+        "component_port": 0,
+        "component_boundary_intersection": 0
+      },
+      "canonicalSegmentCount": 3
+    }
+  ]
+}

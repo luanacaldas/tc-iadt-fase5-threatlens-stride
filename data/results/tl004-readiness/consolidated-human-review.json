@@ -1,0 +1,1478 @@
+{
+  "schemaVersion": "1.0",
+  "generatedAt": "2026-07-21T14:52:18Z",
+  "split": "development_tuning",
+  "reviewScope": "sampled_stratified_human_validation_for_tl004",
+  "sourceArtifacts": [
+    {
+      "path": "data/reviews/tl004-junction-aware/batch-01/review-result.json",
+      "sha256": "7653f947e240dc2ca0ad232a03ea9f0e6f191107a7ecb1a0d14dc517ce2449d2"
+    },
+    {
+      "path": "data/reviews/tl004-junction-aware/batch-02/review-result.json",
+      "sha256": "d5662ed16c3ae8d2a3f110ea9ca0319927721ec1ccb9554108c2510481cfa238"
+    },
+    {
+      "path": "data/reviews/tl004-junction-aware/batch-01/review-manifest.json",
+      "sha256": "65836ad67b12b92f9f9057e4639e7d5b0cd6c7395126ac20601abad58572c0dc"
+    },
+    {
+      "path": "data/reviews/tl004-junction-aware/batch-02/review-manifest.json",
+      "sha256": "1fd608ee960c5c28e2e42738b186eb1d26d4f357fdc485f3f2e136f5b9fe3c85"
+    },
+    {
+      "path": "data/results/flow-diagnostics-v1/isolated-ground-truth/flow-inventory.json",
+      "sha256": "c8af8e1e60e88895357312538275c0bc5b82ae59fe5ac89e550b3135ca6741d7"
+    },
+    {
+      "path": "data/results/flow-diagnostics-v1/isolated-ground-truth/flow-diagnostics-summary.json",
+      "sha256": "7583cfe62d94fc73494eb3cec3e674eeef09464f11ea8581e1a6879df3d4dfb6"
+    },
+    {
+      "path": "data/results/flow-diagnostics-v1/isolated-ground-truth/flow-stratified-metrics.json",
+      "sha256": "baed8db68e61c248b980d112c126a23db1d3103a3c3101ffdca1964d5284a0b9"
+    },
+    {
+      "path": "data/results/flow-diagnostics-v1/isolated-ground-truth/flow-human-review.json",
+      "sha256": "b4ea904efafcedc0ab5a105d2f8adff1913a345b6c59176bdc71869aed223b1a"
+    },
+    {
+      "path": "data/results/flow-diagnostics-v1/end-to-end/flow-inventory.json",
+      "sha256": "b79ffb965da479a45d5f4ce183314c25072b71370cea8f92155f40b1cd640c08"
+    },
+    {
+      "path": "data/results/flow-diagnostics-v1/end-to-end/flow-diagnostics-summary.json",
+      "sha256": "4b9ac75c8cd79048030934db300bad5093243bb15e98b1b1ed194e522ea32b1e"
+    },
+    {
+      "path": "data/results/flow-diagnostics-v1/end-to-end/flow-stratified-metrics.json",
+      "sha256": "0b5cd54b0c07aea5d16e77cddd7edccec2c73ef3a3fc04ca356e07c299addd0c"
+    },
+    {
+      "path": "data/results/flow-diagnostics-v1/end-to-end/flow-human-review.json",
+      "sha256": "689367dd7f375893b99361b883514d22fe79ca1757f07f948275ba057455eeb5"
+    }
+  ],
+  "validation": {
+    "status": "PASS_WITH_TRACEABILITY_NOTE",
+    "expectedCaseCount": 27,
+    "foundCaseCount": 27,
+    "uniqueCaseCount": 27,
+    "expectedIds": [
+      "E01",
+      "E02",
+      "E03",
+      "E04",
+      "E05",
+      "E06",
+      "E07",
+      "E08",
+      "E09",
+      "E10",
+      "E11",
+      "E12",
+      "E13",
+      "E14",
+      "E15",
+      "E16",
+      "E17",
+      "E18",
+      "E19",
+      "E20",
+      "C01",
+      "C02",
+      "C03",
+      "C04",
+      "C05",
+      "C06",
+      "C07"
+    ],
+    "missingIds": [],
+    "unexpectedIds": [],
+    "duplicateIds": [],
+    "decisionConflicts": [],
+    "incompatibleFields": [],
+    "missingRequiredReviewFields": [],
+    "traceabilityNotes": [
+      {
+        "code": "REVIEWER_INHERITED_FROM_BATCH",
+        "caseIds": [
+          "E01",
+          "E02",
+          "E03",
+          "E04",
+          "E05",
+          "E06",
+          "E07",
+          "E08",
+          "E09",
+          "E10",
+          "E11",
+          "E12",
+          "E13",
+          "E14",
+          "E15",
+          "E16",
+          "E17",
+          "E18",
+          "E19",
+          "E20",
+          "C01",
+          "C02",
+          "C03",
+          "C04",
+          "C05",
+          "C06",
+          "C07"
+        ],
+        "detail": "response.review.reviewer is blank in all 27 responses; reviewer Luana Caldas is present in each source batchAssessment and is inherited with reviewerSource recorded."
+      }
+    ]
+  },
+  "totals": {
+    "confirmedFalsePositives": 20,
+    "validConnections": 7,
+    "ambiguousCases": 0,
+    "insideTl004": 16,
+    "partiallyInsideTl004": 11,
+    "outsideTl004": 0
+  },
+  "distributions": {
+    "byDecision": {
+      "confirmed_false_positive": {
+        "count": 20,
+        "caseIds": [
+          "E01",
+          "E02",
+          "E03",
+          "E04",
+          "E05",
+          "E06",
+          "E07",
+          "E08",
+          "E09",
+          "E10",
+          "E11",
+          "E12",
+          "E13",
+          "E14",
+          "E15",
+          "E16",
+          "E17",
+          "E18",
+          "E19",
+          "E20"
+        ]
+      },
+      "valid_connection": {
+        "count": 7,
+        "caseIds": [
+          "C01",
+          "C02",
+          "C03",
+          "C04",
+          "C05",
+          "C06",
+          "C07"
+        ]
+      }
+    },
+    "byPrimaryCause": {
+      "structural_line": {
+        "count": 10,
+        "caseIds": [
+          "E01",
+          "E02",
+          "E04",
+          "E05",
+          "E07",
+          "E12",
+          "E17",
+          "E18",
+          "E19",
+          "E20"
+        ]
+      },
+      "transitive_shortcut": {
+        "count": 2,
+        "caseIds": [
+          "E03",
+          "E14"
+        ]
+      },
+      "incorrect_bifurcation": {
+        "count": 1,
+        "caseIds": [
+          "E06"
+        ]
+      },
+      "ambiguous_endpoint": {
+        "count": 7,
+        "caseIds": [
+          "E08",
+          "E09",
+          "E10",
+          "E11",
+          "E13",
+          "E15",
+          "E16"
+        ]
+      },
+      "valid_junction_or_branch": {
+        "count": 7,
+        "caseIds": [
+          "C01",
+          "C02",
+          "C03",
+          "C04",
+          "C05",
+          "C06",
+          "C07"
+        ]
+      }
+    },
+    "byContributingCause": {
+      "ambiguous_endpoint": {
+        "count": 10,
+        "caseIds": [
+          "E01",
+          "E02",
+          "E04",
+          "E05",
+          "E07",
+          "E12",
+          "E17",
+          "E18",
+          "E19",
+          "E20"
+        ]
+      },
+      "component_passthrough": {
+        "count": 6,
+        "caseIds": [
+          "E03",
+          "E05",
+          "E07",
+          "E08",
+          "E09",
+          "E10"
+        ]
+      },
+      "crossing_without_junction": {
+        "count": 8,
+        "caseIds": [
+          "E04",
+          "E06",
+          "E12",
+          "E13",
+          "E17",
+          "E18",
+          "E19",
+          "E20"
+        ]
+      },
+      "parallel_connector_merge": {
+        "count": 2,
+        "caseIds": [
+          "E06",
+          "E13"
+        ]
+      },
+      "structural_line": {
+        "count": 1,
+        "caseIds": [
+          "E08"
+        ]
+      },
+      "incorrect_bifurcation": {
+        "count": 3,
+        "caseIds": [
+          "E14",
+          "E15",
+          "E16"
+        ]
+      }
+    },
+    "byProvider": {
+      "aws": {
+        "count": 11,
+        "caseIds": [
+          "E01",
+          "E02",
+          "E03",
+          "E07",
+          "E08",
+          "E14",
+          "E15",
+          "E16",
+          "E20",
+          "C02",
+          "C07"
+        ]
+      },
+      "azure": {
+        "count": 8,
+        "caseIds": [
+          "E04",
+          "E05",
+          "E06",
+          "E13",
+          "E18",
+          "C03",
+          "C04",
+          "C06"
+        ]
+      },
+      "gcp": {
+        "count": 4,
+        "caseIds": [
+          "E09",
+          "E10",
+          "E19",
+          "C01"
+        ]
+      },
+      "generic": {
+        "count": 4,
+        "caseIds": [
+          "E11",
+          "E12",
+          "E17",
+          "C05"
+        ]
+      }
+    },
+    "byDensity": {
+      "medium": {
+        "count": 16,
+        "caseIds": [
+          "E01",
+          "E02",
+          "E03",
+          "E04",
+          "E05",
+          "E06",
+          "E09",
+          "E10",
+          "E14",
+          "E18",
+          "E19",
+          "E20",
+          "C01",
+          "C02",
+          "C04",
+          "C07"
+        ]
+      },
+      "high": {
+        "count": 11,
+        "caseIds": [
+          "E07",
+          "E08",
+          "E11",
+          "E12",
+          "E13",
+          "E15",
+          "E16",
+          "E17",
+          "C03",
+          "C05",
+          "C06"
+        ]
+      }
+    },
+    "byConfidence": {
+      "high": {
+        "count": 21,
+        "caseIds": [
+          "E01",
+          "E02",
+          "E03",
+          "E04",
+          "E05",
+          "E08",
+          "E09",
+          "E10",
+          "E11",
+          "E12",
+          "E16",
+          "E17",
+          "E18",
+          "E19",
+          "E20",
+          "C01",
+          "C02",
+          "C04",
+          "C05",
+          "C06",
+          "C07"
+        ]
+      },
+      "medium": {
+        "count": 6,
+        "caseIds": [
+          "E06",
+          "E07",
+          "E13",
+          "E14",
+          "E15",
+          "C03"
+        ]
+      }
+    },
+    "byTl004Scope": {
+      "partial": {
+        "count": 11,
+        "caseIds": [
+          "E01",
+          "E02",
+          "E04",
+          "E05",
+          "E07",
+          "E08",
+          "E12",
+          "E17",
+          "E18",
+          "E19",
+          "E20"
+        ]
+      },
+      "inside": {
+        "count": 16,
+        "caseIds": [
+          "E03",
+          "E06",
+          "E09",
+          "E10",
+          "E11",
+          "E13",
+          "E14",
+          "E15",
+          "E16",
+          "C01",
+          "C02",
+          "C03",
+          "C04",
+          "C05",
+          "C06",
+          "C07"
+        ]
+      }
+    }
+  },
+  "batchAssessments": [
+    {
+      "batch": "batch-01",
+      "batchId": "tl004-junction-review-batch-01",
+      "reviewer": "Luana Caldas",
+      "completedAt": "2026-07-21T14:02:09.257Z",
+      "newRelevantCategoriesFound": false,
+      "newCategories": "Nenhuma nova categoria principal. Foi identificado apenas um subtipo de “grade, borda ou linha estrutural”: elemento gráfico interno de um componente interpretado como conector.",
+      "categoriesNeedingMoreExamples": "Cruzamento sem junção, mescla de conectores paralelos, bifurcação incorreta e junções válidas em diagramas densos. Também seria útil revisar mais casos de fan-in e fan-out compartilhando troncos para proteger o recall.",
+      "validInvalidDistinctionResolved": true,
+      "observations": "Foi possível distinguir os falsos fluxos dos controles válidos com boa confiança. Os principais padrões confirmados foram: associação incorreta de endpoints por proximidade; bordas, grades e linhas de agrupamento interpretadas como conectores; caminhos que atravessam componentes intermediários; atalhos transitivos; e troca indevida de ramos em cruzamentos ou bifurcações.\n\nOs controles C01, C02, C03 e C04 confirmaram que fan-in, fan-out e junções reais devem ser preservados. A TL-004 deve priorizar portas e barreiras de componentes, diferenciação entre cruzamentos e junções e decomposição de troncos compartilhados, sem eliminar ramificações válidas.\n\nParte dos erros de linhas estruturais pode exigir tratamento anterior ou complementar ao grafo junction-aware. Recomenda-se apenas um segundo lote reduzido, focado em cruzamentos, conectores paralelos e junções densas, para confirmar que não surgem novas causas antes da implementação."
+    },
+    {
+      "batch": "batch-02",
+      "batchId": "tl004-junction-review-batch-02",
+      "reviewer": "Luana Caldas",
+      "completedAt": "2026-07-21T14:44:24.801Z",
+      "newRelevantCategoriesFound": false,
+      "newCategories": "Nenhuma. O segundo lote confirmou as categorias já identificadas no primeiro: associação ambígua de endpoints, linhas estruturais ou bordas interpretadas como conectores, cruzamentos sem junção e seleção incorreta de ramos.",
+      "categoriesNeedingMoreExamples": "Não é necessário gerar outro lote neste momento. Mescla de conectores paralelos e bifurcações em regiões densas devem ser aprofundadas por fixtures e experimentos controlados durante a TL-004.",
+      "validInvalidDistinctionResolved": true,
+      "observations": "O segundo lote confirmou os padrões encontrados anteriormente, sem revelar novas causas relevantes. Os falsos fluxos analisados foram explicados principalmente por associação de endpoints apenas por proximidade, uso de bordas de containers ou linhas de grade como conectores e combinação incorreta de segmentos ou ramos.\n\nOs controles C05, C06 e C07 confirmaram que fan-in, fan-out e junções reais continuam distinguíveis dos erros e devem ser preservados. Os dois lotes consecutivos não apresentaram novas categorias, indicando saturação suficiente para encerrar a revisão humana amostral.\n\nA TL-004 pode avançar com estratégia experimental e opt-in, priorizando portas e barreiras de componentes, exclusão de linhas estruturais, diferenciação entre cruzamentos e junções e preservação explícita de fan-in e fan-out válidos. A versão atual deve permanecer como fallback até a validação completa das métricas e dos controles de regressão."
+    }
+  ],
+  "baselines": {
+    "isolatedStructural": {
+      "expectedEdgeCount": 71,
+      "predictedEdgeCount": 142,
+      "adjacencyCorrectCount": 52,
+      "falsePositiveEdgeCount": 90,
+      "missedEdgeCount": 19,
+      "reversedEdgeCount": 7,
+      "edgeExistencePrecision": 0.36619718309859156,
+      "edgeExistenceRecall": 0.7323943661971831,
+      "edgeExistenceF1": 0.48826291079812206,
+      "directedEdgeF1": 0.4225352112676057,
+      "directionAccuracy": 0.8653846153846154,
+      "source": "data/results/flow-diagnostics-v1/isolated-ground-truth/flow-stratified-metrics.json"
+    },
+    "endToEndDiagnostic": {
+      "expectedEdgeCount": 71,
+      "predictedEdgeCount": 307,
+      "falsePositiveEdgeCount": 276,
+      "missedEdgeCount": 40,
+      "reversedEdgeCount": 7,
+      "edgeExistencePrecision": 0.10097719869706841,
+      "edgeExistenceRecall": 0.43661971830985913,
+      "edgeExistenceF1": 0.164021164021164,
+      "directedEdgeF1": 0.12698412698412698,
+      "directionAccuracy": 0.7741935483870968,
+      "source": "data/results/flow-diagnostics-v1/end-to-end/flow-stratified-metrics.json"
+    },
+    "v15": {
+      "f1": 0.5296,
+      "precision": 0.4343,
+      "recall": 0.6786,
+      "correctThreats": 152,
+      "falsePositives": 198,
+      "source": "data/results/ocr-geometry-ablation/semantic-arbitration-v15/end-to-end-development_tuning.json"
+    }
+  },
+  "cases": [
+    {
+      "caseId": "E01",
+      "batch": "batch-01",
+      "group": "error",
+      "title": "Caminho compartilhado entre banco e trigger",
+      "imageId": "aws-video-pipeline",
+      "provider": "aws",
+      "densityStratum": "medium",
+      "sourceImage": "dataset/hybrid_v2/images/test/kaggle_unique_kaggle_azure_vm_scale_sets_0001_aug_6.png",
+      "visualization": "data/reviews/tl004-junction-aware/batch-01/crops/E01.png",
+      "recordIds": [
+        "isolated_ground_truth:aws-video-pipeline:predicted:6"
+      ],
+      "automaticHypotheses": [
+        "geometric_proximity",
+        "incorrect_bifurcation",
+        "parallel_connectors"
+      ],
+      "review": {
+        "decision": "confirmed_false_positive",
+        "primaryCause": "structural_line",
+        "contributingCauses": [
+          "ambiguous_endpoint"
+        ],
+        "tl004Scope": "partial",
+        "confidence": "high",
+        "observations": "Não existe uma conexão direta entre o DocumentDB e a Trigger Function 3. As setas pretas do diagrama indicam um fluxo intermediado pela Business Logic Function, seguindo Trigger Function 3 → Business Logic Function → DocumentDB. A linha superior utilizada pelo segment_graph parece ser uma borda ou linha estrutural independente, cujos extremos foram associados por proximidade ao banco e ao trigger. Isso gerou a relação incorreta database → trigger3.",
+        "expectedStructuralCorrection": "Descartar a linha superior como conector entre esses componentes e exigir que os endpoints de um fluxo estejam associados às portas ou bordas reais dos componentes. Preservar apenas as conexões adjacentes Trigger Function 3 → Business Logic Function e Business Logic Function → DocumentDB, sem criar uma conexão direta database → trigger3.",
+        "newCategory": "",
+        "reviewer": "Luana Caldas",
+        "reviewerSource": "batchAssessment.reviewer",
+        "originalCaseReviewer": "",
+        "reviewedAt": "2026-07-21T13:27:16.535Z",
+        "evidenceStatus": "confirmed_by_human_review"
+      }
+    },
+    {
+      "caseId": "E02",
+      "batch": "batch-01",
+      "group": "error",
+      "title": "Cruzamento entre funcoes de negocio",
+      "imageId": "aws-video-pipeline",
+      "provider": "aws",
+      "densityStratum": "medium",
+      "sourceImage": "dataset/hybrid_v2/images/test/kaggle_unique_kaggle_azure_vm_scale_sets_0001_aug_6.png",
+      "visualization": "data/reviews/tl004-junction-aware/batch-01/crops/E02.png",
+      "recordIds": [
+        "isolated_ground_truth:aws-video-pipeline:predicted:7"
+      ],
+      "automaticHypotheses": [
+        "crossing_as_connection",
+        "geometric_proximity",
+        "incorrect_bifurcation",
+        "parallel_connectors"
+      ],
+      "review": {
+        "decision": "confirmed_false_positive",
+        "primaryCause": "structural_line",
+        "contributingCauses": [
+          "ambiguous_endpoint"
+        ],
+        "tl004Scope": "partial",
+        "confidence": "high",
+        "observations": "Não existe uma conexão direta entre Business Logic Function 1 e Business Logic Function 2. O diagrama apresenta dois fluxos distintos convergindo para o DocumentDB: business1 → database e business2 → database. A linha superior utilizada pelo segment_graph está visualmente separada dos componentes e aparenta ser uma borda ou linha estrutural. Seus extremos foram associados por proximidade às duas funções de negócio, produzindo incorretamente o fluxo business1 → business2.",
+        "expectedStructuralCorrection": "Descartar a linha superior como conector entre as funções de negócio. Exigir que os endpoints estejam conectados às bordas ou portas reais dos componentes e preservar apenas os fluxos business1 → database e business2 → database, sem criar uma relação direta entre business1 e business2.",
+        "newCategory": "",
+        "reviewer": "Luana Caldas",
+        "reviewerSource": "batchAssessment.reviewer",
+        "originalCaseReviewer": "",
+        "reviewedAt": "2026-07-21T13:30:47.744Z",
+        "evidenceStatus": "confirmed_by_human_review"
+      }
+    },
+    {
+      "caseId": "E03",
+      "batch": "batch-01",
+      "group": "error",
+      "title": "Atalho atravessando o terceiro estagio",
+      "imageId": "aws-video-pipeline",
+      "provider": "aws",
+      "densityStratum": "medium",
+      "sourceImage": "dataset/hybrid_v2/images/test/kaggle_unique_kaggle_azure_vm_scale_sets_0001_aug_6.png",
+      "visualization": "data/reviews/tl004-junction-aware/batch-01/crops/E03.png",
+      "recordIds": [
+        "isolated_ground_truth:aws-video-pipeline:predicted:31"
+      ],
+      "automaticHypotheses": [
+        "connection_through_component",
+        "crossing_as_connection",
+        "incorrect_bifurcation",
+        "parallel_connectors"
+      ],
+      "review": {
+        "decision": "confirmed_false_positive",
+        "primaryCause": "transitive_shortcut",
+        "contributingCauses": [
+          "component_passthrough"
+        ],
+        "tl004Scope": "inside",
+        "confidence": "high",
+        "observations": "O fluxo direto media → trigger3 não existe no diagrama. As setas originais indicam duas relações adjacentes: media → stage3 e stage3 → trigger3. O segment_graph percorreu o caminho através do componente stage3 e produziu um atalho transitivo entre o MediaConvert e a Trigger Function, ignorando o Lake Stage Bucket como etapa intermediária.",
+        "expectedStructuralCorrection": "Interromper o caminho ao atingir a borda ou porta do componente stage3 e decompor a relação em duas conexões: media → stage3 e stage3 → trigger3. Não gerar a aresta direta media → trigger3.",
+        "newCategory": "",
+        "reviewer": "Luana Caldas",
+        "reviewerSource": "batchAssessment.reviewer",
+        "originalCaseReviewer": "",
+        "reviewedAt": "2026-07-21T13:32:19.344Z",
+        "evidenceStatus": "confirmed_by_human_review"
+      }
+    },
+    {
+      "caseId": "E04",
+      "batch": "batch-01",
+      "group": "error",
+      "title": "Tronco privado associado ao Bastion",
+      "imageId": "azure-private-ai-platform",
+      "provider": "azure",
+      "densityStratum": "medium",
+      "sourceImage": "dataset/raw_kaggle_selected/aws_amazon_rds_0005_aug_0.png",
+      "visualization": "data/reviews/tl004-junction-aware/batch-01/crops/E04.png",
+      "recordIds": [
+        "isolated_ground_truth:azure-private-ai-platform:predicted:2"
+      ],
+      "automaticHypotheses": [
+        "crossing_as_connection",
+        "incorrect_bifurcation",
+        "parallel_connectors"
+      ],
+      "review": {
+        "decision": "confirmed_false_positive",
+        "primaryCause": "structural_line",
+        "contributingCauses": [
+          "crossing_without_junction",
+          "ambiguous_endpoint"
+        ],
+        "tl004Scope": "partial",
+        "confidence": "high",
+        "observations": "Não existe uma conexão direta entre o Application Gateway with WAF e o Azure Bastion. O caminho utilizado pelo segment_graph coincide com a borda inferior de uma área de subnet, representada por uma linha azul estrutural. Essa borda cruza diversos conectores verticais sem formar junções e não termina nas portas ou bordas funcionais dos componentes. Os extremos foram associados por proximidade ao Application Gateway e ao Bastion, produzindo incorretamente o fluxo app_gateway → bastion.",
+        "expectedStructuralCorrection": "Não considerar bordas de subnets, containers ou áreas arquiteturais como conectores de fluxo. Cruzamentos entre essas bordas e conectores verticais não devem formar junções. Exigir que os endpoints estejam ligados a portas ou bordas funcionais dos componentes antes de criar uma aresta e remover a relação direta app_gateway → bastion.",
+        "newCategory": "",
+        "reviewer": "Luana Caldas",
+        "reviewerSource": "batchAssessment.reviewer",
+        "originalCaseReviewer": "",
+        "reviewedAt": "2026-07-21T13:35:38.800Z",
+        "evidenceStatus": "confirmed_by_human_review"
+      }
+    },
+    {
+      "caseId": "E05",
+      "batch": "batch-01",
+      "group": "error",
+      "title": "Conector atravessando AI Search",
+      "imageId": "azure-private-ai-platform",
+      "provider": "azure",
+      "densityStratum": "medium",
+      "sourceImage": "dataset/raw_kaggle_selected/aws_amazon_rds_0005_aug_0.png",
+      "visualization": "data/reviews/tl004-junction-aware/batch-01/crops/E05.png",
+      "recordIds": [
+        "isolated_ground_truth:azure-private-ai-platform:predicted:4"
+      ],
+      "automaticHypotheses": [
+        "connection_through_component",
+        "incorrect_bifurcation",
+        "parallel_connectors"
+      ],
+      "review": {
+        "decision": "confirmed_false_positive",
+        "primaryCause": "structural_line",
+        "contributingCauses": [
+          "component_passthrough",
+          "ambiguous_endpoint"
+        ],
+        "tl004Scope": "partial",
+        "confidence": "high",
+        "observations": "Não existe uma conexão direta entre Azure Storage e Azure Cosmos DB. O caminho utilizado pelo segment_graph atravessa a área do componente Azure AI Search e parece estar associado a uma linha estrutural ou ao agrupamento visual “Foundry Agent Service dependencies”, e não a um conector funcional. Os extremos dessa linha foram associados incorretamente aos componentes storage e cosmos, gerando o falso fluxo storage → cosmos.",
+        "expectedStructuralCorrection": "Não promover linhas de agrupamento, bordas ou elementos textuais a conectores de fluxo. Um caminho que intersecta o interior de um componente deve terminar em uma porta ou borda válida desse componente, ou ser rejeitado. Remover a relação direta storage → cosmos e não criar automaticamente conexões com ai_search sem evidência visual de setas ou endpoints válidos.",
+        "newCategory": "",
+        "reviewer": "Luana Caldas",
+        "reviewerSource": "batchAssessment.reviewer",
+        "originalCaseReviewer": "",
+        "reviewedAt": "2026-07-21T13:36:56.748Z",
+        "evidenceStatus": "confirmed_by_human_review"
+      }
+    },
+    {
+      "caseId": "E06",
+      "batch": "batch-01",
+      "group": "error",
+      "title": "Rota longa entre Firewall e Foundry Agent",
+      "imageId": "azure-private-ai-platform",
+      "provider": "azure",
+      "densityStratum": "medium",
+      "sourceImage": "dataset/raw_kaggle_selected/aws_amazon_rds_0005_aug_0.png",
+      "visualization": "data/reviews/tl004-junction-aware/batch-01/crops/E06.png",
+      "recordIds": [
+        "isolated_ground_truth:azure-private-ai-platform:predicted:20"
+      ],
+      "automaticHypotheses": [
+        "crossing_as_connection",
+        "excessive_hops",
+        "incorrect_bifurcation",
+        "parallel_connectors"
+      ],
+      "review": {
+        "decision": "confirmed_false_positive",
+        "primaryCause": "incorrect_bifurcation",
+        "contributingCauses": [
+          "crossing_without_junction",
+          "parallel_connector_merge"
+        ],
+        "tl004Scope": "inside",
+        "confidence": "medium",
+        "observations": "Não existe evidência visual de uma conexão direta entre Azure Firewall e Foundry Agent Service. O segment_graph concatenou vários segmentos pertencentes a conectores ou troncos distintos, mudou de direção em uma região com múltiplas interseções e continuou por uma linha horizontal longa até o Foundry Agent. O caminho possui diversos hops e aparenta ter selecionado um ramo incorreto em uma bifurcação ou cruzamento, produzindo o falso fluxo firewall → foundry_agent.",
+        "expectedStructuralCorrection": "Remover a relação direta firewall → foundry_agent. Em cruzamentos e bifurcações, o grafo deve preservar a continuidade geométrica do conector e somente permitir a troca de ramo quando houver evidência explícita de junção. Segmentos paralelos ou apenas sobrepostos visualmente não devem ser combinados em um único caminho. Limitar a formação de rotas longas que atravessam múltiplas junções sem uma conexão visual contínua entre origem e destino.",
+        "newCategory": "",
+        "reviewer": "Luana Caldas",
+        "reviewerSource": "batchAssessment.reviewer",
+        "originalCaseReviewer": "",
+        "reviewedAt": "2026-07-21T13:40:23.174Z",
+        "evidenceStatus": "confirmed_by_human_review"
+      }
+    },
+    {
+      "caseId": "E07",
+      "batch": "batch-01",
+      "group": "error",
+      "title": "Glue conectado ao RDS atraves do DynamoDB",
+      "imageId": "aws-eks-platform",
+      "provider": "aws",
+      "densityStratum": "high",
+      "sourceImage": "dataset/raw_kaggle_selected/aws_amazon_elastic_kubernetes_service_0005_aug_4.png",
+      "visualization": "data/reviews/tl004-junction-aware/batch-01/crops/E07.png",
+      "recordIds": [
+        "isolated_ground_truth:aws-eks-platform:predicted:6"
+      ],
+      "automaticHypotheses": [
+        "connection_through_component",
+        "high_density_context",
+        "incorrect_bifurcation",
+        "parallel_connectors"
+      ],
+      "review": {
+        "decision": "confirmed_false_positive",
+        "primaryCause": "structural_line",
+        "contributingCauses": [
+          "component_passthrough",
+          "ambiguous_endpoint"
+        ],
+        "tl004Scope": "partial",
+        "confidence": "medium",
+        "observations": "Não existe evidência visual de uma conexão direta entre Glue ETL e RDS. O caminho detectado não parece partir do componente Glue e coincide com a região superior do agrupamento que contém DynamoDB e RDS. O segment_graph provavelmente interpretou uma borda ou linha estrutural como conector, associou seu endpoint inicial incorretamente ao Glue e permitiu que o caminho atravessasse o componente DynamoDB, produzindo o falso fluxo glue → rds.",
+        "expectedStructuralCorrection": "Descartar bordas de agrupamentos e containers como conectores de fluxo. Exigir que o endpoint inicial esteja ligado visualmente à borda ou porta do componente Glue e impedir que um caminho atravesse o interior do DynamoDB sem terminar nele. Remover a relação direta glue → rds e não criar automaticamente glue → dynamo ou dynamo → rds sem evidência visual válida.",
+        "newCategory": "",
+        "reviewer": "Luana Caldas",
+        "reviewerSource": "batchAssessment.reviewer",
+        "originalCaseReviewer": "",
+        "reviewedAt": "2026-07-21T13:42:50.384Z",
+        "evidenceStatus": "confirmed_by_human_review"
+      }
+    },
+    {
+      "caseId": "E08",
+      "batch": "batch-01",
+      "group": "error",
+      "title": "Lambda conectado ao Glue atraves de Microservices",
+      "imageId": "aws-eks-platform",
+      "provider": "aws",
+      "densityStratum": "high",
+      "sourceImage": "dataset/raw_kaggle_selected/aws_amazon_elastic_kubernetes_service_0005_aug_4.png",
+      "visualization": "data/reviews/tl004-junction-aware/batch-01/crops/E08.png",
+      "recordIds": [
+        "isolated_ground_truth:aws-eks-platform:predicted:18"
+      ],
+      "automaticHypotheses": [
+        "connection_through_component",
+        "high_density_context",
+        "incorrect_bifurcation"
+      ],
+      "review": {
+        "decision": "confirmed_false_positive",
+        "primaryCause": "ambiguous_endpoint",
+        "contributingCauses": [
+          "component_passthrough",
+          "structural_line"
+        ],
+        "tl004Scope": "partial",
+        "confidence": "high",
+        "observations": "Não existe evidência visual de uma conexão direta entre Functions e Glue ETL. O caminho detectado é um pequeno segmento horizontal localizado dentro da área do componente Microservices e não alcança visualmente as bordas de lambda ou glue. Os endpoints parecem ter sido associados por proximidade aos componentes posicionados acima e abaixo, produzindo incorretamente o fluxo lambda → glue.",
+        "expectedStructuralCorrection": "Rejeitar candidatos cujos endpoints não estejam conectados às bordas ou portas dos componentes de origem e destino. Caminhos localizados predominantemente dentro de um componente intermediário não devem ser associados a componentes vizinhos. Também devem ser descartados traços internos de ícones, textos ou elementos decorativos interpretados como conectores. Não gerar o fluxo direto lambda → glue.",
+        "newCategory": "",
+        "reviewer": "Luana Caldas",
+        "reviewerSource": "batchAssessment.reviewer",
+        "originalCaseReviewer": "",
+        "reviewedAt": "2026-07-21T13:44:21.139Z",
+        "evidenceStatus": "confirmed_by_human_review"
+      }
+    },
+    {
+      "caseId": "E09",
+      "batch": "batch-01",
+      "group": "error",
+      "title": "Internet conectada diretamente ao Cloud Armor",
+      "imageId": "gcp-secure-cloud-run",
+      "provider": "gcp",
+      "densityStratum": "medium",
+      "sourceImage": "data/benchmarks/real-architecture/images/gcp-secure-cloud-run.png",
+      "visualization": "data/reviews/tl004-junction-aware/batch-01/crops/E09.png",
+      "recordIds": [
+        "isolated_ground_truth:gcp-secure-cloud-run:predicted:3"
+      ],
+      "automaticHypotheses": [
+        "connection_through_component",
+        "incorrect_bifurcation",
+        "parallel_connectors"
+      ],
+      "review": {
+        "decision": "confirmed_false_positive",
+        "primaryCause": "ambiguous_endpoint",
+        "contributingCauses": [
+          "component_passthrough"
+        ],
+        "tl004Scope": "inside",
+        "confidence": "high",
+        "observations": "A linha do diagrama parte da Internet e termina visualmente na borda esquerda do Cloud Load Balancer. Ela não alcança o Google Cloud Armor. O segment_graph associou incorretamente o endpoint ao componente armor, provavelmente devido à proximidade entre os dois componentes, produzindo o falso fluxo internet → armor. O destino correto do caminho detectado é o load_balancer.",
+        "expectedStructuralCorrection": "Encerrar o caminho no primeiro componente cuja borda ou porta seja atingida. Neste caso, gerar internet → load_balancer e não criar internet → armor. O Cloud Armor somente deve ser conectado se existir um conector visual explícito entre ele e outro componente.",
+        "newCategory": "",
+        "reviewer": "Luana Caldas",
+        "reviewerSource": "batchAssessment.reviewer",
+        "originalCaseReviewer": "",
+        "reviewedAt": "2026-07-21T13:45:24.268Z",
+        "evidenceStatus": "confirmed_by_human_review"
+      }
+    },
+    {
+      "caseId": "E10",
+      "batch": "batch-01",
+      "group": "error",
+      "title": "Load Balancer conectado diretamente ao VPC Connector",
+      "imageId": "gcp-secure-cloud-run",
+      "provider": "gcp",
+      "densityStratum": "medium",
+      "sourceImage": "data/benchmarks/real-architecture/images/gcp-secure-cloud-run.png",
+      "visualization": "data/reviews/tl004-junction-aware/batch-01/crops/E10.png",
+      "recordIds": [
+        "isolated_ground_truth:gcp-secure-cloud-run:predicted:9"
+      ],
+      "automaticHypotheses": [
+        "connection_through_component",
+        "incorrect_bifurcation"
+      ],
+      "review": {
+        "decision": "confirmed_false_positive",
+        "primaryCause": "ambiguous_endpoint",
+        "contributingCauses": [
+          "component_passthrough"
+        ],
+        "tl004Scope": "inside",
+        "confidence": "high",
+        "observations": "O caminho horizontal destacado parte visualmente da borda do Cloud Run e termina no Serverless VPC Access connector. O segment_graph associou incorretamente o endpoint de origem ao Cloud Load Balancer e tratou o Cloud Run como componente atravessado, produzindo o falso fluxo load_balancer → vpc_connector. A relação visualmente suportada é cloud_run → vpc_connector.",
+        "expectedStructuralCorrection": "Associar o endpoint inicial ao primeiro componente cuja borda ou porta é efetivamente tocada pelo caminho. Neste caso, gerar cloud_run → vpc_connector e não criar a relação direta load_balancer → vpc_connector. Um componente tocado pelo início do segmento não deve ser classificado apenas como componente atravessado.",
+        "newCategory": "",
+        "reviewer": "Luana Caldas",
+        "reviewerSource": "batchAssessment.reviewer",
+        "originalCaseReviewer": "",
+        "reviewedAt": "2026-07-21T13:48:19.523Z",
+        "evidenceStatus": "confirmed_by_human_review"
+      }
+    },
+    {
+      "caseId": "E11",
+      "batch": "batch-01",
+      "group": "error",
+      "title": "Linha do Compute associada ao Database",
+      "imageId": "generic-cloud-api",
+      "provider": "generic",
+      "densityStratum": "high",
+      "sourceImage": "dataset/hybrid_v2/images/test/current_arch_test_0000.jpg",
+      "visualization": "data/reviews/tl004-junction-aware/batch-01/crops/E11.png",
+      "recordIds": [
+        "isolated_ground_truth:generic-cloud-api:predicted:6"
+      ],
+      "automaticHypotheses": [
+        "high_density_context",
+        "incorrect_bifurcation",
+        "parallel_connectors"
+      ],
+      "review": {
+        "decision": "confirmed_false_positive",
+        "primaryCause": "ambiguous_endpoint",
+        "contributingCauses": [],
+        "tl004Scope": "inside",
+        "confidence": "high",
+        "observations": "A linha diagonal é um conector visual válido que termina na API, mas seu endpoint inicial não toca nem parte do componente Database. O ponto utilizado pelo segment_graph está acima do banco e parece pertencer a uma conexão originada em outro componente, provavelmente o Compute indicado no título do caso. O algoritmo associou o endpoint ao Database por proximidade, produzindo incorretamente o fluxo database → api.",
+        "expectedStructuralCorrection": "Não associar o endpoint ao Database, pois o caminho não alcança sua borda ou uma porta válida. O endpoint deve ser vinculado ao componente que realmente origina a linha, provavelmente o Compute na imagem completa. Preservar a conexão correta desse componente com a API e remover o falso fluxo database → api.",
+        "newCategory": "",
+        "reviewer": "Luana Caldas",
+        "reviewerSource": "batchAssessment.reviewer",
+        "originalCaseReviewer": "",
+        "reviewedAt": "2026-07-21T13:49:40.606Z",
+        "evidenceStatus": "confirmed_by_human_review"
+      }
+    },
+    {
+      "caseId": "E12",
+      "batch": "batch-01",
+      "group": "error",
+      "title": "Linha vertical de grade interpretada como fluxo",
+      "imageId": "generic-cloud-api",
+      "provider": "generic",
+      "densityStratum": "high",
+      "sourceImage": "dataset/hybrid_v2/images/test/current_arch_test_0000.jpg",
+      "visualization": "data/reviews/tl004-junction-aware/batch-01/crops/E12.png",
+      "recordIds": [
+        "isolated_ground_truth:generic-cloud-api:predicted:13"
+      ],
+      "automaticHypotheses": [
+        "crossing_as_connection",
+        "geometric_proximity",
+        "high_density_context",
+        "incorrect_bifurcation"
+      ],
+      "review": {
+        "decision": "confirmed_false_positive",
+        "primaryCause": "structural_line",
+        "contributingCauses": [
+          "crossing_without_junction",
+          "ambiguous_endpoint"
+        ],
+        "tl004Scope": "partial",
+        "confidence": "high",
+        "observations": "Não existe conexão visual entre Monitoring e CDN. O segmento vertical detectado está alinhado com uma linha da grade de fundo, não alcança a borda de nenhum dos dois componentes e cruza conectores reais sem qualquer marcador de junção. O segment_graph interpretou essa linha estrutural como parte de um caminho e associou seus extremos por proximidade ao monitoring e ao cdn, produzindo o falso fluxo monitoring → cdn.",
+        "expectedStructuralCorrection": "Descartar linhas da grade de fundo como candidatas a conectores. Cruzamentos entre linhas estruturais e conectores reais não devem criar nós ou junções. Exigir que os endpoints estejam conectados às bordas ou portas dos componentes antes de gerar uma aresta. Remover o fluxo monitoring → cdn e preservar apenas os conectores reais já presentes no diagrama.",
+        "newCategory": "",
+        "reviewer": "Luana Caldas",
+        "reviewerSource": "batchAssessment.reviewer",
+        "originalCaseReviewer": "",
+        "reviewedAt": "2026-07-21T13:50:51.829Z",
+        "evidenceStatus": "confirmed_by_human_review"
+      }
+    },
+    {
+      "caseId": "E13",
+      "batch": "batch-01",
+      "group": "error",
+      "title": "Conta Foundry conectada diretamente ao modelo",
+      "imageId": "azure-ai-foundry",
+      "provider": "azure",
+      "densityStratum": "high",
+      "sourceImage": "dataset/raw_kaggle_selected/azure_sql_database_0007_aug_0.png",
+      "visualization": "data/reviews/tl004-junction-aware/batch-01/crops/E13.png",
+      "recordIds": [
+        "isolated_ground_truth:azure-ai-foundry:predicted:4"
+      ],
+      "automaticHypotheses": [
+        "crossing_as_connection",
+        "high_density_context",
+        "parallel_connectors"
+      ],
+      "review": {
+        "decision": "confirmed_false_positive",
+        "primaryCause": "ambiguous_endpoint",
+        "contributingCauses": [
+          "crossing_without_junction",
+          "parallel_connector_merge"
+        ],
+        "tl004Scope": "inside",
+        "confidence": "medium",
+        "observations": "Não existe um conector visual direto entre Azure AI Foundry account e Azure OpenAI model. O segmento utilizado pelo segment_graph não toca a borda de nenhum dos dois componentes, cruza uma conexão horizontal sem marcador de junção e está próximo de outros segmentos verticais. O algoritmo provavelmente combinou segmentos distintos e associou seus extremos por proximidade à conta Foundry e ao modelo OpenAI, produzindo incorretamente o fluxo foundry_account → openai_model.",
+        "expectedStructuralCorrection": "Rejeitar a relação direta foundry_account → openai_model. Exigir que os endpoints estejam conectados às portas ou bordas reais dos componentes. Em cruzamentos sem marcador de junção, preservar a continuidade das linhas sem permitir troca de ramo. Segmentos verticais paralelos ou próximos não devem ser combinados em um único caminho. Preservar somente as relações explicitamente suportadas pelos conectores do diagrama.",
+        "newCategory": "",
+        "reviewer": "Luana Caldas",
+        "reviewerSource": "batchAssessment.reviewer",
+        "originalCaseReviewer": "",
+        "reviewedAt": "2026-07-21T13:53:32.322Z",
+        "evidenceStatus": "confirmed_by_human_review"
+      }
+    },
+    {
+      "caseId": "E14",
+      "batch": "batch-01",
+      "group": "error",
+      "title": "API Handler conectado diretamente ao Worker",
+      "imageId": "aws-serverless-async",
+      "provider": "aws",
+      "densityStratum": "medium",
+      "sourceImage": "dataset/raw_kaggle_selected/aws_amazon_elastic_container_service_0001_aug_3.png",
+      "visualization": "data/reviews/tl004-junction-aware/batch-01/crops/E14.png",
+      "recordIds": [
+        "isolated_ground_truth:aws-serverless-async:predicted:6"
+      ],
+      "automaticHypotheses": [
+        "incorrect_bifurcation"
+      ],
+      "review": {
+        "decision": "confirmed_false_positive",
+        "primaryCause": "transitive_shortcut",
+        "contributingCauses": [
+          "incorrect_bifurcation"
+        ],
+        "tl004Scope": "inside",
+        "confidence": "medium",
+        "observations": "Não existe evidência de uma conexão direta api_handler → worker. O API Handler se conecta a um tronco horizontal compartilhado que aparenta envolver um componente intermediário de mensageria ou fila. O segment_graph percorreu esse tronco e relacionou diretamente o API Handler ao Worker, ignorando a etapa intermediária. Além disso, não há uma arrowhead visível indicando um fluxo direto do API Handler para o Worker.",
+        "expectedStructuralCorrection": "Remover a relação direta api_handler → worker. Decompor o tronco compartilhado em relações adjacentes, preservando conexões como api_handler → queue e queue → worker somente quando forem suportadas pelas setas e anotações do diagrama. Uma junção compartilhada não deve gerar automaticamente uma aresta entre todos os seus terminais.",
+        "newCategory": "",
+        "reviewer": "Luana Caldas",
+        "reviewerSource": "batchAssessment.reviewer",
+        "originalCaseReviewer": "",
+        "reviewedAt": "2026-07-21T13:56:09.999Z",
+        "evidenceStatus": "confirmed_by_human_review"
+      }
+    },
+    {
+      "caseId": "E15",
+      "batch": "batch-02",
+      "group": "error",
+      "title": "Ramo da Lambda associado ao DynamoDB no EKS",
+      "imageId": "aws-eks-platform",
+      "provider": "aws",
+      "densityStratum": "high",
+      "sourceImage": "dataset/raw_kaggle_selected/aws_amazon_elastic_kubernetes_service_0005_aug_4.png",
+      "visualization": "data/reviews/tl004-junction-aware/batch-02/crops/E15.png",
+      "recordIds": [
+        "isolated_ground_truth:aws-eks-platform:predicted:13"
+      ],
+      "automaticHypotheses": [
+        "geometric_proximity",
+        "high_density_context",
+        "incorrect_bifurcation",
+        "parallel_connectors"
+      ],
+      "review": {
+        "decision": "confirmed_false_positive",
+        "primaryCause": "ambiguous_endpoint",
+        "contributingCauses": [
+          "incorrect_bifurcation"
+        ],
+        "tl004Scope": "inside",
+        "confidence": "medium",
+        "observations": "Não existe evidência visual de uma conexão direta entre Functions e DynamoDB. O caminho detectado não toca a borda do componente lambda nem termina no componente dynamo. O segment_graph parece ter selecionado um pequeno ramo horizontal, seguido por um tronco vertical pertencente a outra relação, e associado seus extremos por proximidade aos componentes Functions e DynamoDB. Isso produziu incorretamente o fluxo lambda → dynamo.",
+        "expectedStructuralCorrection": "Remover a relação direta lambda → dynamo. Exigir que os endpoints de um caminho estejam conectados às portas ou bordas reais dos componentes de origem e destino. Em bifurcações, o grafo deve preservar a continuidade do ramo correto e não combinar um braço curto com um tronco pertencente a outra conexão. Caso o caminho pertença a outra relação, ele deve ser associado somente aos componentes realmente tocados.",
+        "newCategory": "",
+        "reviewer": "Luana Caldas",
+        "reviewerSource": "batchAssessment.reviewer",
+        "originalCaseReviewer": "",
+        "reviewedAt": "2026-07-21T14:34:02.769Z",
+        "evidenceStatus": "confirmed_by_human_review"
+      }
+    },
+    {
+      "caseId": "E16",
+      "batch": "batch-02",
+      "group": "error",
+      "title": "Comprehend associado ao ramo do Glue no EKS",
+      "imageId": "aws-eks-platform",
+      "provider": "aws",
+      "densityStratum": "high",
+      "sourceImage": "dataset/raw_kaggle_selected/aws_amazon_elastic_kubernetes_service_0005_aug_4.png",
+      "visualization": "data/reviews/tl004-junction-aware/batch-02/crops/E16.png",
+      "recordIds": [
+        "isolated_ground_truth:aws-eks-platform:predicted:12"
+      ],
+      "automaticHypotheses": [
+        "geometric_proximity",
+        "high_density_context",
+        "incorrect_bifurcation",
+        "parallel_connectors"
+      ],
+      "review": {
+        "decision": "confirmed_false_positive",
+        "primaryCause": "ambiguous_endpoint",
+        "contributingCauses": [
+          "incorrect_bifurcation"
+        ],
+        "tl004Scope": "inside",
+        "confidence": "high",
+        "observations": "Não existe evidência visual de uma conexão direta entre AWS Comprehend e Glue ETL. O caminho detectado começa em uma linha horizontal próxima à fronteira do agrupamento e termina no componente verde localizado entre Functions e Glue. Nenhum dos endpoints toca as bordas de comprehend ou glue. O segment_graph associou o segmento aos componentes vizinhos por proximidade e produziu incorretamente o fluxo comprehend → glue.",
+        "expectedStructuralCorrection": "Remover a relação comprehend → glue. Exigir que os endpoints estejam conectados às portas ou bordas reais dos componentes declarados. O ramo diagonal deve permanecer associado ao componente verde e à linha da qual realmente se origina, sem ser atribuído ao AWS Comprehend ou ao Glue ETL por proximidade.",
+        "newCategory": "",
+        "reviewer": "Luana Caldas",
+        "reviewerSource": "batchAssessment.reviewer",
+        "originalCaseReviewer": "",
+        "reviewedAt": "2026-07-21T14:35:41.348Z",
+        "evidenceStatus": "confirmed_by_human_review"
+      }
+    },
+    {
+      "caseId": "E17",
+      "batch": "batch-02",
+      "group": "error",
+      "title": "Linha densa entre usuario e banco generico",
+      "imageId": "generic-cloud-api",
+      "provider": "generic",
+      "densityStratum": "high",
+      "sourceImage": "dataset/hybrid_v2/images/test/current_arch_test_0000.jpg",
+      "visualization": "data/reviews/tl004-junction-aware/batch-02/crops/E17.png",
+      "recordIds": [
+        "isolated_ground_truth:generic-cloud-api:predicted:14"
+      ],
+      "automaticHypotheses": [
+        "crossing_as_connection",
+        "geometric_proximity",
+        "high_density_context",
+        "incorrect_bifurcation"
+      ],
+      "review": {
+        "decision": "confirmed_false_positive",
+        "primaryCause": "structural_line",
+        "contributingCauses": [
+          "crossing_without_junction",
+          "ambiguous_endpoint"
+        ],
+        "tl004Scope": "partial",
+        "confidence": "high",
+        "observations": "Não existe conexão visual direta entre User e Database. O segmento vertical detectado não toca a borda de nenhum dos dois componentes e cruza diferentes conectores reais sem marcador de junção. Ele parece coincidir com uma linha da grade de fundo. O segment_graph interpretou essa linha estrutural como conector e associou seus extremos por proximidade ao user e ao database, produzindo incorretamente o fluxo user → database.",
+        "expectedStructuralCorrection": "Descartar linhas da grade de fundo como candidatas a conectores. Cruzamentos com conectores reais não devem formar junções sem evidência explícita. Exigir que os endpoints estejam conectados às bordas ou portas dos componentes antes de gerar uma aresta. Remover o falso fluxo user → database e preservar somente as conexões reais do diagrama.",
+        "newCategory": "",
+        "reviewer": "Luana Caldas",
+        "reviewerSource": "batchAssessment.reviewer",
+        "originalCaseReviewer": "",
+        "reviewedAt": "2026-07-21T14:37:33.891Z",
+        "evidenceStatus": "confirmed_by_human_review"
+      }
+    },
+    {
+      "caseId": "E18",
+      "batch": "batch-02",
+      "group": "error",
+      "title": "Tronco do App Gateway associado aos Build Agents",
+      "imageId": "azure-private-ai-platform",
+      "provider": "azure",
+      "densityStratum": "medium",
+      "sourceImage": "dataset/raw_kaggle_selected/aws_amazon_rds_0005_aug_0.png",
+      "visualization": "data/reviews/tl004-junction-aware/batch-02/crops/E18.png",
+      "recordIds": [
+        "isolated_ground_truth:azure-private-ai-platform:predicted:10"
+      ],
+      "automaticHypotheses": [
+        "crossing_as_connection",
+        "incorrect_bifurcation",
+        "parallel_connectors"
+      ],
+      "review": {
+        "decision": "confirmed_false_positive",
+        "primaryCause": "structural_line",
+        "contributingCauses": [
+          "crossing_without_junction",
+          "ambiguous_endpoint"
+        ],
+        "tl004Scope": "partial",
+        "confidence": "high",
+        "observations": "Não existe conexão visual direta entre o Application Gateway with WAF e os Build agents. O caminho detectado acompanha a borda superior azul de várias subnets e atravessa diversas regiões do diagrama sem representar um fluxo funcional. Além disso, o endpoint final está visualmente próximo ao Foundry Agent Service, e não aos Build agents. O segment_graph interpretou uma borda estrutural longa como conector e associou seus extremos por proximidade aos componentes app_gateway e build_agents, gerando o falso fluxo.",
+        "expectedStructuralCorrection": "Descartar bordas de subnets, containers e agrupamentos como candidatas a conectores. Cruzamentos dessas bordas com linhas funcionais não devem formar junções. Exigir que origem e destino estejam ligados às portas ou bordas reais dos componentes. Remover app_gateway → build_agents e não gerar outra relação com o Foundry Agent sem um conector visual explícito.",
+        "newCategory": "",
+        "reviewer": "Luana Caldas",
+        "reviewerSource": "batchAssessment.reviewer",
+        "originalCaseReviewer": "",
+        "reviewedAt": "2026-07-21T14:38:57.217Z",
+        "evidenceStatus": "confirmed_by_human_review"
+      }
+    },
+    {
+      "caseId": "E19",
+      "batch": "batch-02",
+      "group": "error",
+      "title": "Cruzamento entre Cloud Armor e Artifact Registry",
+      "imageId": "gcp-secure-cloud-run",
+      "provider": "gcp",
+      "densityStratum": "medium",
+      "sourceImage": "data/benchmarks/real-architecture/images/gcp-secure-cloud-run.png",
+      "visualization": "data/reviews/tl004-junction-aware/batch-02/crops/E19.png",
+      "recordIds": [
+        "isolated_ground_truth:gcp-secure-cloud-run:predicted:7"
+      ],
+      "automaticHypotheses": [
+        "crossing_as_connection",
+        "incorrect_bifurcation",
+        "parallel_connectors"
+      ],
+      "review": {
+        "decision": "confirmed_false_positive",
+        "primaryCause": "structural_line",
+        "contributingCauses": [
+          "crossing_without_junction",
+          "ambiguous_endpoint"
+        ],
+        "tl004Scope": "partial",
+        "confidence": "high",
+        "observations": "Não existe conexão visual direta entre Google Cloud Armor e Artifact Registry. O segmento vertical detectado coincide com a borda esquerda da área “Service project”, não toca a borda de nenhum dos dois componentes e cruza o fluxo horizontal entre Internet e Cloud Load Balancer sem marcador de junção. O segment_graph interpretou essa borda estrutural como conector e associou seus extremos por proximidade ao armor e ao artifact_registry, produzindo incorretamente o fluxo armor → artifact_registry.",
+        "expectedStructuralCorrection": "Descartar bordas de projetos, subnets, containers e áreas arquiteturais como candidatas a conectores. O cruzamento entre uma borda estrutural e um fluxo real não deve gerar nó ou permitir troca de ramo. Exigir que os endpoints alcancem portas ou bordas funcionais dos componentes antes de criar uma aresta. Remover o fluxo armor → artifact_registry e preservar apenas as conexões explicitamente representadas no diagrama.",
+        "newCategory": "",
+        "reviewer": "Luana Caldas",
+        "reviewerSource": "batchAssessment.reviewer",
+        "originalCaseReviewer": "",
+        "reviewedAt": "2026-07-21T14:40:01.361Z",
+        "evidenceStatus": "confirmed_by_human_review"
+      }
+    },
+    {
+      "caseId": "E20",
+      "batch": "batch-02",
+      "group": "error",
+      "title": "Ramo do transcoder associado ao terceiro estagio",
+      "imageId": "aws-video-pipeline",
+      "provider": "aws",
+      "densityStratum": "medium",
+      "sourceImage": "dataset/hybrid_v2/images/test/kaggle_unique_kaggle_azure_vm_scale_sets_0001_aug_6.png",
+      "visualization": "data/reviews/tl004-junction-aware/batch-02/crops/E20.png",
+      "recordIds": [
+        "isolated_ground_truth:aws-video-pipeline:predicted:8"
+      ],
+      "automaticHypotheses": [
+        "crossing_as_connection",
+        "geometric_proximity",
+        "incorrect_bifurcation",
+        "parallel_connectors"
+      ],
+      "review": {
+        "decision": "confirmed_false_positive",
+        "primaryCause": "structural_line",
+        "contributingCauses": [
+          "crossing_without_junction",
+          "ambiguous_endpoint"
+        ],
+        "tl004Scope": "partial",
+        "confidence": "high",
+        "observations": "Não existe uma conexão visual direta entre Elastic Transcoder e Lake Stage Bucket 3. O caminho detectado coincide com a borda inferior azul tracejada do agrupamento, localizada abaixo dos componentes e separada dos conectores funcionais. O segment_graph interpretou essa borda estrutural como um conector e associou seus extremos por proximidade ao transcoder e ao stage3, produzindo incorretamente o fluxo transcoder → stage3. Próximo ao destino, a borda também cruza uma linha vertical real sem marcador de junção.",
+        "expectedStructuralCorrection": "Descartar bordas de containers, agrupamentos e áreas arquiteturais como candidatas a conectores. Cruzamentos entre essas bordas e linhas funcionais não devem criar nós ou permitir troca de caminho. Exigir que os endpoints alcancem portas ou bordas funcionais dos componentes. Remover o fluxo direto transcoder → stage3 e preservar somente as conexões sequenciais explicitamente representadas pelas setas do diagrama.",
+        "newCategory": "",
+        "reviewer": "Luana Caldas",
+        "reviewerSource": "batchAssessment.reviewer",
+        "originalCaseReviewer": "",
+        "reviewedAt": "2026-07-21T14:41:02.461Z",
+        "evidenceStatus": "confirmed_by_human_review"
+      }
+    },
+    {
+      "caseId": "C01",
+      "batch": "batch-01",
+      "group": "control",
+      "title": "Controle de fan-in no Load Balancer",
+      "imageId": "gcp-secure-cloud-run",
+      "provider": "gcp",
+      "densityStratum": "medium",
+      "sourceImage": "data/benchmarks/real-architecture/images/gcp-secure-cloud-run.png",
+      "visualization": "data/reviews/tl004-junction-aware/batch-01/crops/C01.png",
+      "recordIds": [
+        "isolated_ground_truth:gcp-secure-cloud-run:predicted:1",
+        "isolated_ground_truth:gcp-secure-cloud-run:predicted:2"
+      ],
+      "automaticHypotheses": [],
+      "review": {
+        "decision": "valid_connection",
+        "primaryCause": "valid_junction_or_branch",
+        "contributingCauses": [],
+        "tl004Scope": "inside",
+        "confidence": "high",
+        "observations": "O caso representa um fan-in válido no Cloud Load Balancer. Existem duas conexões independentes e esperadas: internet → load_balancer e armor → load_balancer. Ambas foram corretamente identificadas, sem criação de conexões extras entre Internet e Cloud Armor. Este caso deve ser utilizado como controle para garantir que a lógica junction-aware não remova relações válidas que compartilham o mesmo destino.",
+        "expectedStructuralCorrection": "Nenhuma correção é necessária. Preservar as duas arestas independentes internet → load_balancer e armor → load_balancer. A implementação da TL-004 não deve colapsar, podar ou combinar essas conexões, nem criar uma relação direta entre internet e armor.",
+        "newCategory": "",
+        "reviewer": "Luana Caldas",
+        "reviewerSource": "batchAssessment.reviewer",
+        "originalCaseReviewer": "",
+        "reviewedAt": "2026-07-21T13:57:16.724Z",
+        "evidenceStatus": "confirmed_by_human_review"
+      }
+    },
+    {
+      "caseId": "C02",
+      "batch": "batch-01",
+      "group": "control",
+      "title": "Controle de fan-out no API Handler",
+      "imageId": "aws-serverless-async",
+      "provider": "aws",
+      "densityStratum": "medium",
+      "sourceImage": "dataset/raw_kaggle_selected/aws_amazon_elastic_container_service_0001_aug_3.png",
+      "visualization": "data/reviews/tl004-junction-aware/batch-01/crops/C02.png",
+      "recordIds": [
+        "isolated_ground_truth:aws-serverless-async:predicted:3",
+        "isolated_ground_truth:aws-serverless-async:predicted:5"
+      ],
+      "automaticHypotheses": [],
+      "review": {
+        "decision": "valid_connection",
+        "primaryCause": "valid_junction_or_branch",
+        "contributingCauses": [],
+        "tl004Scope": "inside",
+        "confidence": "high",
+        "observations": "O caso representa um fan-out válido a partir do API Handler. Existem duas relações independentes e esperadas: api_handler → queue e api_handler → database. Os caminhos identificados correspondem aos conectores visuais do diagrama e não atravessam componentes intermediários. Compartilhar o mesmo componente de origem não caracteriza bifurcação incorreta.",
+        "expectedStructuralCorrection": "Nenhuma correção é necessária. Preservar as duas arestas api_handler → queue e api_handler → database. A lógica junction-aware não deve remover um dos ramos, fundir os dois caminhos ou criar conexões indevidas entre queue e database.",
+        "newCategory": "",
+        "reviewer": "Luana Caldas",
+        "reviewerSource": "batchAssessment.reviewer",
+        "originalCaseReviewer": "",
+        "reviewedAt": "2026-07-21T13:58:03.785Z",
+        "evidenceStatus": "confirmed_by_human_review"
+      }
+    },
+    {
+      "caseId": "C03",
+      "batch": "batch-01",
+      "group": "control",
+      "title": "Controle de fan-out no Foundry Agent",
+      "imageId": "azure-ai-foundry",
+      "provider": "azure",
+      "densityStratum": "high",
+      "sourceImage": "dataset/raw_kaggle_selected/azure_sql_database_0007_aug_0.png",
+      "visualization": "data/reviews/tl004-junction-aware/batch-01/crops/C03.png",
+      "recordIds": [
+        "isolated_ground_truth:azure-ai-foundry:predicted:2",
+        "isolated_ground_truth:azure-ai-foundry:predicted:3"
+      ],
+      "automaticHypotheses": [],
+      "review": {
+        "decision": "valid_connection",
+        "primaryCause": "valid_junction_or_branch",
+        "contributingCauses": [],
+        "tl004Scope": "inside",
+        "confidence": "medium",
+        "observations": "O caso representa um fan-out válido a partir do Foundry Agent Service, com duas relações esperadas: foundry_agent -> openai_model e foundry_agent -> ai_search. A proximidade entre os ramos e a sobreposição visual na região do openai_model tornam o segundo caminho mais ambíguo, mas não há evidência suficiente para tratá-lo como conexão incorreta. Este caso deve ser preservado como controle para garantir que a lógica junction-aware não elimine ramos válidos em áreas densas ou com caminhos paralelos próximos.",
+        "expectedStructuralCorrection": "Nenhuma correção é necessária. Preservar as relações foundry_agent -> openai_model e foundry_agent -> ai_search. A lógica junction-aware não deve colapsar os ramos, remover a conexão com ai_search por proximidade ao openai_model, nem transformar esse fan-out válido em atalho transitivo ou passagem inválida através de componente.",
+        "newCategory": "",
+        "reviewer": "Luana Caldas",
+        "reviewerSource": "batchAssessment.reviewer",
+        "originalCaseReviewer": "",
+        "reviewedAt": "2026-07-21T13:59:08.784Z",
+        "evidenceStatus": "confirmed_by_human_review"
+      }
+    },
+    {
+      "caseId": "C04",
+      "batch": "batch-01",
+      "group": "control",
+      "title": "Controle de juncoes reais no barramento privado",
+      "imageId": "azure-private-ai-platform",
+      "provider": "azure",
+      "densityStratum": "medium",
+      "sourceImage": "dataset/raw_kaggle_selected/aws_amazon_rds_0005_aug_0.png",
+      "visualization": "data/reviews/tl004-junction-aware/batch-01/crops/C04.png",
+      "recordIds": [
+        "isolated_ground_truth:azure-private-ai-platform:missed:3",
+        "isolated_ground_truth:azure-private-ai-platform:missed:4"
+      ],
+      "automaticHypotheses": [],
+      "review": {
+        "decision": "valid_connection",
+        "primaryCause": "valid_junction_or_branch",
+        "contributingCauses": [],
+        "tl004Scope": "inside",
+        "confidence": "high",
+        "observations": "O caso apresenta uma junção real em um barramento privado compartilhado. O App Service está conectado ao tronco, que possui ramificações válidas para Azure Key Vault e Azure Storage. As relações esperadas app_service → key_vault e app_service → storage não foram detectadas, caracterizando falsos negativos. A bifurcação visual é legítima e deve ser preservada, não eliminada como erro.",
+        "expectedStructuralCorrection": "Reconstruir o tronco compartilhado e identificar os pontos reais de ramificação, gerando as arestas app_service → key_vault e app_service → storage. A lógica junction-aware deve preservar o fan-out válido sem criar relações diretas indevidas entre key_vault e storage ou entre outros componentes apenas por compartilharem o mesmo barramento.\n\nResumo para marcar",
+        "newCategory": "",
+        "reviewer": "Luana Caldas",
+        "reviewerSource": "batchAssessment.reviewer",
+        "originalCaseReviewer": "",
+        "reviewedAt": "2026-07-21T14:00:07.116Z",
+        "evidenceStatus": "confirmed_by_human_review"
+      }
+    },
+    {
+      "caseId": "C05",
+      "batch": "batch-02",
+      "group": "control",
+      "title": "Controle denso de fan-in no Storage",
+      "imageId": "generic-cloud-api",
+      "provider": "generic",
+      "densityStratum": "high",
+      "sourceImage": "dataset/hybrid_v2/images/test/current_arch_test_0000.jpg",
+      "visualization": "data/reviews/tl004-junction-aware/batch-02/crops/C05.png",
+      "recordIds": [
+        "isolated_ground_truth:generic-cloud-api:predicted:4",
+        "isolated_ground_truth:generic-cloud-api:predicted:8"
+      ],
+      "automaticHypotheses": [],
+      "review": {
+        "decision": "valid_connection",
+        "primaryCause": "valid_junction_or_branch",
+        "contributingCauses": [],
+        "tl004Scope": "inside",
+        "confidence": "high",
+        "observations": "O caso representa um fan-in válido no componente Storage. Existem duas conexões independentes e esperadas: database → storage, por um conector horizontal, e monitoring → storage, por um conector diagonal. Os dois fluxos convergem para o mesmo destino, mas não representam bifurcação incorreta, atalho transitivo ou associação ambígua de endpoints. A região possui outras linhas próximas, porém os caminhos destacados correspondem às conexões reais do diagrama.",
+        "expectedStructuralCorrection": "Nenhuma correção é necessária. Preservar as arestas database → storage e monitoring → storage. A TL-004 não deve remover um dos ramos, combinar os dois caminhos, escolher apenas uma origem ou criar uma conexão adicional entre database e monitoring.",
+        "newCategory": "",
+        "reviewer": "Luana Caldas",
+        "reviewerSource": "batchAssessment.reviewer",
+        "originalCaseReviewer": "",
+        "reviewedAt": "2026-07-21T14:41:39.314Z",
+        "evidenceStatus": "confirmed_by_human_review"
+      }
+    },
+    {
+      "caseId": "C06",
+      "batch": "batch-02",
+      "group": "control",
+      "title": "Controle denso de fan-in no Foundry Agent",
+      "imageId": "azure-ai-foundry",
+      "provider": "azure",
+      "densityStratum": "high",
+      "sourceImage": "dataset/raw_kaggle_selected/azure_sql_database_0007_aug_0.png",
+      "visualization": "data/reviews/tl004-junction-aware/batch-02/crops/C06.png",
+      "recordIds": [
+        "isolated_ground_truth:azure-ai-foundry:predicted:1",
+        "isolated_ground_truth:azure-ai-foundry:predicted:5"
+      ],
+      "automaticHypotheses": [],
+      "review": {
+        "decision": "valid_connection",
+        "primaryCause": "valid_junction_or_branch",
+        "contributingCauses": [],
+        "tl004Scope": "inside",
+        "confidence": "high",
+        "observations": "O caso representa um fan-in válido no Foundry Agent Service. Existem duas conexões independentes e esperadas: app_service → foundry_agent e foundry_account → foundry_agent. Os caminhos partem de componentes diferentes e convergem corretamente para o mesmo destino. A densidade visual e a proximidade de outros elementos não tornam essas relações uma bifurcação incorreta ou uma associação ambígua.",
+        "expectedStructuralCorrection": "Nenhuma correção é necessária. Preservar as arestas app_service → foundry_agent e foundry_account → foundry_agent. A lógica junction-aware não deve remover uma das origens, fundir indevidamente os caminhos nem criar uma conexão direta entre app_service e foundry_account.",
+        "newCategory": "",
+        "reviewer": "Luana Caldas",
+        "reviewerSource": "batchAssessment.reviewer",
+        "originalCaseReviewer": "",
+        "reviewedAt": "2026-07-21T14:42:09.158Z",
+        "evidenceStatus": "confirmed_by_human_review"
+      }
+    },
+    {
+      "caseId": "C07",
+      "batch": "batch-02",
+      "group": "control",
+      "title": "Controle de fan-out do aplicativo movel",
+      "imageId": "aws-video-pipeline",
+      "provider": "aws",
+      "densityStratum": "medium",
+      "sourceImage": "dataset/hybrid_v2/images/test/kaggle_unique_kaggle_azure_vm_scale_sets_0001_aug_6.png",
+      "visualization": "data/reviews/tl004-junction-aware/batch-02/crops/C07.png",
+      "recordIds": [
+        "isolated_ground_truth:aws-video-pipeline:predicted:1",
+        "isolated_ground_truth:aws-video-pipeline:predicted:41"
+      ],
+      "automaticHypotheses": [],
+      "review": {
+        "decision": "valid_connection",
+        "primaryCause": "valid_junction_or_branch",
+        "contributingCauses": [],
+        "tl004Scope": "inside",
+        "confidence": "high",
+        "observations": "O caso representa um fan-out válido a partir do Mobile Client. Há duas conexões independentes e esperadas: mobile → api e mobile → cognito. O tronco horizontal segue até o API Gateway, enquanto um ramo vertical sobe para o Cognito. Essa bifurcação é legítima e não deve ser tratada como atalho transitivo, bifurcação incorreta ou associação ambígua de endpoints.",
+        "expectedStructuralCorrection": "Nenhuma correção é necessária. Preservar as arestas mobile → api e mobile → cognito. A lógica junction-aware não deve remover um dos ramos, fundir os dois destinos nem criar uma relação indevida entre api e cognito.",
+        "newCategory": "",
+        "reviewer": "Luana Caldas",
+        "reviewerSource": "batchAssessment.reviewer",
+        "originalCaseReviewer": "",
+        "reviewedAt": "2026-07-21T14:42:56.693Z",
+        "evidenceStatus": "confirmed_by_human_review"
+      }
+    }
+  ]
+}

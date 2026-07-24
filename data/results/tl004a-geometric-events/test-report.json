@@ -1,0 +1,73 @@
+{
+  "schemaVersion": "1.0",
+  "scope": "TL-004A",
+  "split": "development_tuning",
+  "holdoutExecutions": 0,
+  "results": {
+    "targetedTests": {
+      "command": ".venv/Scripts/python.exe -m unittest tests.test_geometric_events -v",
+      "testsRun": 18,
+      "failures": 0,
+      "status": "PASS"
+    },
+    "fullTestSuite": {
+      "command": ".venv/Scripts/python.exe -m unittest discover -s tests",
+      "testsRun": 148,
+      "failures": 0,
+      "status": "PASS"
+    },
+    "legacySnapshot": {
+      "artifact": "data/results/tl004a-geometric-events/flow-snapshot-comparison.json",
+      "status": "PASS"
+    },
+    "v15Gate": {
+      "artifact": "data/results/v15-regression-gate/20260721T181309Z/gate-report.json",
+      "f1": 0.5296,
+      "precision": 0.4343,
+      "recall": 0.6786,
+      "correctThreats": 152,
+      "falsePositives": 198,
+      "status": "PASS"
+    },
+    "prospectiveV12Audit": {
+      "benchmarkHash": true,
+      "detectorHash": true,
+      "resultHash": true,
+      "sealAgreement": true,
+      "imageHashes": true,
+      "firstPass": true,
+      "provenanceDeclared": true,
+      "status": "PASS"
+    },
+    "generalVerification": {
+      "command": ".venv/Scripts/python.exe scripts/verify_project.py",
+      "status": "BLOCKED_BY_PREEXISTING_MANIFEST_MISMATCH",
+      "mismatches": [
+        "data/results/benchmark-audit/real-benchmark-integrity.json",
+        "backend/main.py",
+        "tests/test_frontend_contract.py",
+        "server.mjs"
+      ],
+      "tl004aFilesInMismatch": [],
+      "remainingStagesRunSeparately": {
+        "lockedDependencies": "PASS",
+        "offlineImageContract": "PASS",
+        "strideGoldenSet": "PASS",
+        "realBenchmarkAudit": "PASS",
+        "prospectiveV12Audit": "PASS",
+        "javascriptSyntax": "PASS"
+      }
+    }
+  },
+  "protectedScope": {
+    "segmentGraphCandidatesModified": false,
+    "flowThresholdsModified": false,
+    "shortestPathModified": false,
+    "flowScoresModified": false,
+    "flowDirectionModified": false,
+    "legacyPipelineIntegration": "none",
+    "junctionAwareActivated": false,
+    "structuralLineFilteringImplemented": false
+  },
+  "decision": "TL-004A implementada, mas bloqueada por validação"
+}

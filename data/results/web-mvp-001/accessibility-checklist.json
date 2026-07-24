@@ -1,0 +1,51 @@
+{
+  "schemaVersion": "1.0",
+  "checks": [
+    {
+      "name": "languageDeclared",
+      "status": "PASS"
+    },
+    {
+      "name": "skipLink",
+      "status": "PASS"
+    },
+    {
+      "name": "semanticLandmarks",
+      "status": "PASS"
+    },
+    {
+      "name": "headingHierarchy",
+      "status": "PASS"
+    },
+    {
+      "name": "keyboardUploadControl",
+      "status": "PASS"
+    },
+    {
+      "name": "visibleFocus",
+      "status": "PASS"
+    },
+    {
+      "name": "liveStatus",
+      "status": "PASS"
+    },
+    {
+      "name": "errorAlert",
+      "status": "PASS"
+    },
+    {
+      "name": "imageAlternativeText",
+      "status": "PASS"
+    },
+    {
+      "name": "reducedMotion",
+      "status": "PASS"
+    },
+    {
+      "name": "mobileNoOverflow",
+      "status": "PASS"
+    }
+  ],
+  "automatedStandardAudit": "not_available_offline",
+  "status": "PASS_WITH_DOCUMENTED_MANUAL_CHECKS"
+}

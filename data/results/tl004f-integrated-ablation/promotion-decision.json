@@ -1,0 +1,8 @@
+{
+  "schemaVersion": "1.0",
+  "recommendation": "not_eligible_metrics",
+  "allCriteriaPassed": false,
+  "defaultStrategyChanged": false,
+  "defaultStrategy": "legacy",
+  "reason": "Promotion is a recommendation only; no runtime default was changed."
+}

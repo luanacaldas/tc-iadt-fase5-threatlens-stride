@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Modelagem de ameaças STRIDE assistida por IA a partir de diagramas de arquitetura." />
+    <title>ThreatLens AI | Modelagem de ameaças</title>
+    <link rel="stylesheet" href="/app/styles.css" />
+    <script src="/app/runtime-config.js"></script>
+    <script type="module" src="/app/main.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#mainContent">Ir para o conteúdo</a>
+
+    <header class="app-header">
+      <div class="brand-block">
+        <p class="product-kicker">FIAP Software Security</p>
+        <div class="brand-line">
+          <h1>ThreatLens AI</h1>
+          <span class="version-badge">1.0.0-mvp</span>
+        </div>
+        <p class="product-description">Modelagem de ameaças STRIDE a partir de diagramas de arquitetura.</p>
+      </div>
+      <div class="runtime-summary" aria-label="Estado do sistema">
+        <div id="backendStatus" class="status-line checking" role="status" aria-live="polite">
+          <span class="status-dot" aria-hidden="true"></span>
+          <span>Verificando backend</span>
+        </div>
+        <div id="strategyStatus" class="strategy-line" aria-live="polite">Estratégia: verificando</div>
+      </div>
+    </header>
+
+    <main id="mainContent">
+      <section class="workspace-band" aria-labelledby="uploadTitle">
+        <div class="section-heading">
+          <div>
+            <p class="section-index">01 / Entrada</p>
+            <h2 id="uploadTitle">Envie o diagrama de arquitetura</h2>
+          </div>
+          <p>PNG, JPEG ou WebP, com até 25 MB. O arquivo só é enviado após sua confirmação.</p>
+        </div>
+
+        <div class="upload-workspace">
+          <div class="upload-column">
+            <div
+              id="dropZone"
+              class="drop-zone"
+              role="button"
+              tabindex="0"
+              aria-controls="imageInput"
+              aria-describedby="uploadHelp"
+            >
+              <div class="upload-symbol" aria-hidden="true">↑</div>
+              <strong>Arraste uma imagem para cá</strong>
+              <span>ou selecione um arquivo do computador</span>
+              <button id="chooseFileBtn" type="button" class="secondary-command">Selecionar imagem</button>
+              <input id="imageInput" type="file" accept="image/png,image/jpeg,image/webp" hidden />
+            </div>
+            <p id="uploadHelp" class="field-help">A imagem permanece local até você escolher analisar.</p>
+
+            <div id="fileSummary" class="file-summary" hidden>
+              <div>
+                <strong id="fileName"></strong>
+                <span id="fileSize"></span>
+              </div>
+              <div class="file-actions">
+                <button id="replaceFileBtn" type="button" class="text-command">Substituir</button>
+                <button id="removeFileBtn" type="button" class="text-command danger-command">Remover</button>
+              </div>
+            </div>
+
+            <button id="analyzeBtn" type="button" class="primary-command" disabled>
+              Analisar arquitetura
+            </button>
+          </div>
+
+          <figure id="previewFigure" class="preview-figure" hidden>
+            <div class="preview-stage">
+              <img id="previewImage" alt="Pré-visualização do diagrama selecionado" />
+            </div>
+            <figcaption>Pré-visualização do arquivo selecionado</figcaption>
+          </figure>
+        </div>
+
+        <div id="processingPanel" class="processing-panel" hidden aria-live="polite">
+          <div class="processing-header">
+            <strong>Processando arquitetura</strong>
+            <span>Progresso estimado durante uma única requisição</span>
+          </div>
+          <ol id="processingSteps" class="processing-steps">
+            <li data-step="upload">Enviando imagem</li>
+            <li data-step="components">Detectando componentes</li>
+            <li data-step="flows">Reconstruindo fluxos</li>
+            <li data-step="stride">Aplicando STRIDE</li>
+            <li data-step="report">Preparando relatório</li>
+          </ol>
+        </div>
+
+        <div id="errorPanel" class="error-panel" role="alert" hidden>
+          <div>
+            <strong>Não foi possível concluir a análise</strong>
+            <p id="errorMessage"></p>
+          </div>
+          <button id="retryBtn" type="button" class="secondary-command">Tentar novamente</button>
+        </div>
+      </section>
+
+      <section class="examples-band" aria-labelledby="examplesTitle">
+        <div class="section-heading compact-heading">
+          <div>
+            <p class="section-index">Exemplos</p>
+            <h2 id="examplesTitle">Diagramas para demonstração</h2>
+          </div>
+          <p>Imagens geradas pelo projeto. A análise sempre será produzida pela API.</p>
+        </div>
+        <div id="sampleGrid" class="sample-grid"></div>
+      </section>
+
+      <div id="resultsRegion" hidden>
+        <section class="summary-band" aria-labelledby="summaryTitle">
+          <div class="section-heading compact-heading">
+            <div>
+              <p class="section-index">02 / Resultado</p>
+              <h2 id="summaryTitle">Resumo da análise</h2>
+            </div>
+            <div class="result-actions">
+              <button id="downloadJsonBtn" type="button" class="secondary-command">Baixar JSON</button>
+              <button id="printBtn" type="button" class="secondary-command">Imprimir / Salvar PDF</button>
+            </div>
+          </div>
+          <div id="qualityPanel" class="quality-panel" role="status" aria-live="polite">
+            <div class="quality-heading">
+              <strong id="qualityStatus">Qualidade estrutural</strong>
+              <span id="qualityScore">--</span>
+            </div>
+            <ul id="qualityReasons" class="quality-reasons"></ul>
+            <p id="qualityAction"></p>
+          </div>
+          <div class="summary-grid" aria-label="Indicadores da análise">
+            <div class="metric"><span>Componentes</span><strong id="componentCount">0</strong></div>
+            <div class="metric"><span>Fluxos</span><strong id="flowCount">0</strong></div>
+            <div class="metric"><span>Ameaças</span><strong id="threatCount">0</strong></div>
+            <div class="metric critical-metric"><span>Críticas</span><strong id="criticalCount">0</strong></div>
+            <div class="metric"><span>Vulnerabilidades</span><strong id="vulnerabilityCount">0</strong></div>
+            <div class="metric"><span>Contramedidas</span><strong id="countermeasureCount">0</strong></div>
+          </div>
+          <div class="risk-summary">
+            <span id="riskBadge" class="risk-badge">Risco --</span>
+            <p id="riskSummary">A avaliação de risco não foi retornada.</p>
+          </div>
+        </section>
+
+        <section class="result-band" aria-labelledby="diagramTitle">
+          <div class="section-heading compact-heading">
+            <div>
+              <p class="section-index">Diagrama</p>
+              <h2 id="diagramTitle">Arquitetura analisada</h2>
+            </div>
+            <p>As caixas são desenhadas somente para componentes com coordenadas válidas retornadas pela API.</p>
+          </div>
+          <div class="analyzed-layout">
+            <figure class="analyzed-figure">
+              <div id="analyzedStage" class="analyzed-stage">
+                <img id="analyzedImage" alt="Diagrama original analisado" />
+                <div id="componentOverlay" class="component-overlay" aria-hidden="true"></div>
+              </div>
+              <figcaption>Imagem original com localização dos componentes detectados</figcaption>
+            </figure>
+            <aside class="diagram-legend" aria-label="Legenda do diagrama">
+              <strong>Legenda</strong>
+              <span><i class="legend-box" aria-hidden="true"></i> Componente detectado</span>
+              <span><i class="legend-review" aria-hidden="true"></i> Revisão recomendada</span>
+              <p id="diagramNotice"></p>
+            </aside>
+          </div>
+        </section>
+
+        <section class="result-band" aria-labelledby="componentsTitle">
+          <div class="section-heading compact-heading">
+            <div>
+              <p class="section-index">Inventário</p>
+              <h2 id="componentsTitle">Componentes detectados</h2>
+            </div>
+          </div>
+          <div class="table-scroll">
+            <table>
+              <thead><tr><th>Nome ou ID</th><th>Tipo</th><th>Provider</th><th>Confiança</th><th>Status</th></tr></thead>
+              <tbody id="componentsBody"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="result-band" aria-labelledby="flowsTitle">
+          <div class="section-heading compact-heading">
+            <div>
+              <p class="section-index">Conectividade</p>
+              <h2 id="flowsTitle">Fluxos identificados</h2>
+            </div>
+          </div>
+          <div class="table-scroll">
+            <table>
+              <thead><tr><th>Origem</th><th>Destino</th><th>Direção</th><th>Protocolo</th><th>Confiança</th><th>Revisão</th></tr></thead>
+              <tbody id="flowsBody"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="alternativesSection" class="result-band" aria-labelledby="alternativesTitle" hidden>
+          <div class="section-heading compact-heading">
+            <div>
+              <p class="section-index">Somente para revisão</p>
+              <h2 id="alternativesTitle">Alternativas de detecção</h2>
+            </div>
+            <p>Hipóteses substituídas não participam do grafo, do STRIDE ou do risco.</p>
+          </div>
+          <div class="table-scroll">
+            <table class="review-table alternative-review-table">
+              <thead><tr><th>ID</th><th>Hipótese</th><th>Tipo</th><th>Provider</th><th>Confiança</th><th>Substituída por</th></tr></thead>
+              <tbody id="alternativeReviewBody"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="threatsSection" class="result-band threat-band" aria-labelledby="threatsTitle">
+          <div class="section-heading compact-heading">
+            <div>
+              <p class="section-index">03 / STRIDE</p>
+              <h2 id="threatsTitle">Ameaças identificadas</h2>
+            </div>
+          </div>
+          <div class="filter-bar" aria-label="Filtros de ameaças">
+            <label>Categoria STRIDE<select id="strideFilter"><option value="">Todas</option></select></label>
+            <label>Severidade<select id="severityFilter"><option value="">Todas</option></select></label>
+            <label>Componente<select id="componentFilter"><option value="">Todos</option></select></label>
+            <button id="clearFiltersBtn" type="button" class="text-command">Limpar filtros</button>
+          </div>
+          <p id="filterResult" class="filter-result" aria-live="polite"></p>
+          <div id="threatGroups" class="threat-groups"></div>
+        </section>
+
+        <section id="mitigationSection" class="result-band" aria-labelledby="vulnerabilitiesTitle">
+          <div class="section-heading compact-heading">
+            <div>
+              <p class="section-index">Plano de mitigação</p>
+              <h2 id="vulnerabilitiesTitle">Vulnerabilidades e contramedidas</h2>
+            </div>
+          </div>
+          <div class="table-scroll">
+            <table>
+              <thead><tr><th>Vulnerabilidade</th><th>Ativo relacionado</th><th>Severidade</th><th>Contramedidas recomendadas</th></tr></thead>
+              <tbody id="vulnerabilitiesBody"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="details-band" aria-labelledby="detailsTitle">
+          <details>
+            <summary id="detailsTitle">Detalhes da análise</summary>
+            <dl id="technicalSummary" class="technical-summary"></dl>
+            <div id="strategyDecisionSummary" class="strategy-decisions"></div>
+            <pre id="strategyTrace"></pre>
+          </details>
+        </section>
+      </div>
+    </main>
+
+    <footer class="app-footer">
+      <span>ThreatLens AI 1.0.0-mvp</span>
+      <span>Resultados automáticos exigem revisão humana.</span>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,1281 @@
+{
+  "schemaVersion": "1.0",
+  "split": "development_tuning",
+  "requiredCases": [
+    "E06",
+    "E13",
+    "E15",
+    "E16"
+  ],
+  "requiredCasesEvaluated": true,
+  "cases": [
+    {
+      "caseId": "E01",
+      "requiredRegression": false,
+      "imageId": "aws-video-pipeline",
+      "recordIds": [
+        "isolated_ground_truth:aws-video-pipeline:predicted:6"
+      ],
+      "humanCause": "structural_line",
+      "humanContributingCauses": [
+        "ambiguous_endpoint"
+      ],
+      "humanExpectedCorrection": "Descartar a linha superior como conector entre esses componentes e exigir que os endpoints de um fluxo estejam associados às portas ou bordas reais dos componentes. Preservar apenas as conexões adjacentes Trigger Function 3 → Business Logic Function e Business Logic Function → DocumentDB, sem criar uma conexão direta database → trigger3.",
+      "intersectionEventIds": [
+        "int-ad8bd6d385f30623",
+        "int-33f4bdd5be1ef369",
+        "int-c7d20d7c92d7f926",
+        "int-b893bf08440a2069",
+        "int-f8c83217469e7fd5",
+        "int-3b2fce99819934fc"
+      ],
+      "classifications": [
+        "ambiguous_intersection",
+        "bifurcation",
+        "crossing_without_junction"
+      ],
+      "candidateDecisions": [
+        {
+          "eventId": "int-33f4bdd5be1ef369",
+          "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:6",
+          "candidateArmIds": [
+            "arm-793ba0f3506e527c",
+            "arm-bde4d3d5a69e001e"
+          ],
+          "candidateBranchPairs": [
+            [
+              "arm-793ba0f3506e527c",
+              "arm-bde4d3d5a69e001e"
+            ]
+          ],
+          "shadowAction": "review_only",
+          "reason": "intersection evidence is ambiguous",
+          "officialAction": "unchanged"
+        },
+        {
+          "eventId": "int-3b2fce99819934fc",
+          "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:6",
+          "candidateArmIds": [
+            "arm-3487853841842f03",
+            "arm-7c85c7b4592d5dc1"
+          ],
+          "candidateBranchPairs": [
+            [
+              "arm-3487853841842f03",
+              "arm-7c85c7b4592d5dc1"
+            ]
+          ],
+          "shadowAction": "shadow_preserve_candidate_continuity",
+          "reason": "candidate follows locally allowed branch continuity",
+          "officialAction": "unchanged"
+        },
+        {
+          "eventId": "int-ad8bd6d385f30623",
+          "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:6",
+          "candidateArmIds": [
+            "arm-8744639a4eaa59c2"
+          ],
+          "candidateBranchPairs": [],
+          "shadowAction": "review_only",
+          "reason": "intersection evidence is ambiguous",
+          "officialAction": "unchanged"
+        },
+        {
+          "eventId": "int-b893bf08440a2069",
+          "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:6",
+          "candidateArmIds": [
+            "arm-4f1f160acb485304",
+            "arm-785241b1dcb2a871"
+          ],
+          "candidateBranchPairs": [
+            [
+              "arm-4f1f160acb485304",
+              "arm-785241b1dcb2a871"
+            ]
+          ],
+          "shadowAction": "review_only",
+          "reason": "intersection evidence is ambiguous",
+          "officialAction": "unchanged"
+        },
+        {
+          "eventId": "int-c7d20d7c92d7f926",
+          "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:6",
+          "candidateArmIds": [
+            "arm-be6faba22324443a",
+            "arm-de9aab80abd2647d"
+          ],
+          "candidateBranchPairs": [
+            [
+              "arm-be6faba22324443a",
+              "arm-de9aab80abd2647d"
+            ]
+          ],
+          "shadowAction": "review_only",
+          "reason": "intersection evidence is ambiguous",
+          "officialAction": "unchanged"
+        },
+        {
+          "eventId": "int-f8c83217469e7fd5",
+          "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:6",
+          "candidateArmIds": [
+            "arm-02071fd559bee512",
+            "arm-fcb857c6707cdef4"
+          ],
+          "candidateBranchPairs": [
+            [
+              "arm-02071fd559bee512",
+              "arm-fcb857c6707cdef4"
+            ]
+          ],
+          "shadowAction": "shadow_preserve_candidate_continuity",
+          "reason": "candidate follows locally allowed branch continuity",
+          "officialAction": "unchanged"
+        }
+      ],
+      "evaluated": true,
+      "officialResultChanged": false
+    },
+    {
+      "caseId": "E02",
+      "requiredRegression": false,
+      "imageId": "aws-video-pipeline",
+      "recordIds": [
+        "isolated_ground_truth:aws-video-pipeline:predicted:7"
+      ],
+      "humanCause": "structural_line",
+      "humanContributingCauses": [
+        "ambiguous_endpoint"
+      ],
+      "humanExpectedCorrection": "Descartar a linha superior como conector entre as funções de negócio. Exigir que os endpoints estejam conectados às bordas ou portas reais dos componentes e preservar apenas os fluxos business1 → database e business2 → database, sem criar uma relação direta entre business1 e business2.",
+      "intersectionEventIds": [
+        "int-c15be88b6654b429",
+        "int-6c7d33e790e4547f",
+        "int-e63cb6322781150b",
+        "int-d10eb0436c1209cf",
+        "int-ad8bd6d385f30623",
+        "int-c7a74d176c165959",
+        "int-c7d20d7c92d7f926"
+      ],
+      "classifications": [
+        "ambiguous_intersection",
+        "bifurcation",
+        "crossing_without_junction"
+      ],
+      "candidateDecisions": [
+        {
+          "eventId": "int-6c7d33e790e4547f",
+          "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:7",
+          "candidateArmIds": [
+            "arm-9f7cdc82b46d28ff",
+            "arm-b399f86274110412"
+          ],
+          "candidateBranchPairs": [
+            [
+              "arm-9f7cdc82b46d28ff",
+              "arm-b399f86274110412"
+            ]
+          ],
+          "shadowAction": "review_only",
+          "reason": "intersection evidence is ambiguous",
+          "officialAction": "unchanged"
+        },
+        {
+          "eventId": "int-ad8bd6d385f30623",
+          "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:7",
+          "candidateArmIds": [
+            "arm-1b274f87f946c0bb",
+            "arm-2a6401632878ee62"
+          ],
+          "candidateBranchPairs": [
+            [
+              "arm-1b274f87f946c0bb",
+              "arm-2a6401632878ee62"
+            ]
+          ],
+          "shadowAction": "review_only",
+          "reason": "intersection evidence is ambiguous",
+          "officialAction": "unchanged"
+        },
+        {
+          "eventId": "int-c15be88b6654b429",
+          "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:7",
+          "candidateArmIds": [
+            "arm-76a7feafec87694f",
+            "arm-c608e92671a5ba9f"
+          ],
+          "candidateBranchPairs": [
+            [
+              "arm-76a7feafec87694f",
+              "arm-c608e92671a5ba9f"
+            ]
+          ],
+          "shadowAction": "shadow_preserve_candidate_continuity",
+          "reason": "candidate follows locally allowed branch continuity",
+          "officialAction": "unchanged"
+        },
+        {
+          "eventId": "int-c7a74d176c165959",
+          "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:7",
+          "candidateArmIds": [
+            "arm-ae9b313359cdb869",
+            "arm-b6f6d55d5f39aa7e"
+          ],
+          "candidateBranchPairs": [
+            [
+              "arm-ae9b313359cdb869",
+              "arm-b6f6d55d5f39aa7e"
+            ]
+          ],
+          "shadowAction": "shadow_preserve_candidate_continuity",
+          "reason": "candidate follows locally allowed branch continuity",
+          "officialAction": "unchanged"
+        },
+        {
+          "eventId": "int-c7d20d7c92d7f926",
+          "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:7",
+          "candidateArmIds": [
+            "arm-0ac7125caff985d5"
+          ],
+          "candidateBranchPairs": [],
+          "shadowAction": "review_only",
+          "reason": "intersection evidence is ambiguous",
+          "officialAction": "unchanged"
+        },
+        {
+          "eventId": "int-d10eb0436c1209cf",
+          "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:7",
+          "candidateArmIds": [
+            "arm-76a7feafec87694f",
+            "arm-c608e92671a5ba9f"
+          ],
+          "candidateBranchPairs": [
+            [
+              "arm-76a7feafec87694f",
+              "arm-c608e92671a5ba9f"
+            ]
+          ],
+          "shadowAction": "shadow_preserve_candidate_continuity",
+          "reason": "candidate follows locally allowed branch continuity",
+          "officialAction": "unchanged"
+        },
+        {
+          "eventId": "int-e63cb6322781150b",
+          "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:7",
+          "candidateArmIds": [
+            "arm-25bc093622e004a3",
+            "arm-a8473d8cc1cffc08"
+          ],
+          "candidateBranchPairs": [
+            [
+              "arm-25bc093622e004a3",
+              "arm-a8473d8cc1cffc08"
+            ]
+          ],
+          "shadowAction": "shadow_preserve_candidate_continuity",
+          "reason": "candidate follows locally allowed branch continuity",
+          "officialAction": "unchanged"
+        }
+      ],
+      "evaluated": true,
+      "officialResultChanged": false
+    },
+    {
+      "caseId": "E04",
+      "requiredRegression": false,
+      "imageId": "azure-private-ai-platform",
+      "recordIds": [
+        "isolated_ground_truth:azure-private-ai-platform:predicted:2"
+      ],
+      "humanCause": "structural_line",
+      "humanContributingCauses": [
+        "crossing_without_junction",
+        "ambiguous_endpoint"
+      ],
+      "humanExpectedCorrection": "Não considerar bordas de subnets, containers ou áreas arquiteturais como conectores de fluxo. Cruzamentos entre essas bordas e conectores verticais não devem formar junções. Exigir que os endpoints estejam ligados a portas ou bordas funcionais dos componentes antes de criar uma aresta e remover a relação direta app_gateway → bastion.",
+      "intersectionEventIds": [
+        "int-a32b1274d8d6064a",
+        "int-c0b57212e1e97542",
+        "int-59bfe200aff4b6df"
+      ],
+      "classifications": [
+        "crossing_without_junction"
+      ],
+      "candidateDecisions": [
+        {
+          "eventId": "int-59bfe200aff4b6df",
+          "candidateRecordId": "isolated_ground_truth:azure-private-ai-platform:predicted:2",
+          "candidateArmIds": [
+            "arm-600bd4f2731cb68a",
+            "arm-b62ee5366c9ac8be"
+          ],
+          "candidateBranchPairs": [
+            [
+              "arm-600bd4f2731cb68a",
+              "arm-b62ee5366c9ac8be"
+            ]
+          ],
+          "shadowAction": "shadow_preserve_candidate_continuity",
+          "reason": "candidate follows locally allowed branch continuity",
+          "officialAction": "unchanged"
+        },
+        {
+          "eventId": "int-a32b1274d8d6064a",
+          "candidateRecordId": "isolated_ground_truth:azure-private-ai-platform:predicted:2",
+          "candidateArmIds": [
+            "arm-600bd4f2731cb68a",
+            "arm-b62ee5366c9ac8be"
+          ],
+          "candidateBranchPairs": [
+            [
+              "arm-600bd4f2731cb68a",
+              "arm-b62ee5366c9ac8be"
+            ]
+          ],
+          "shadowAction": "shadow_preserve_candidate_continuity",
+          "reason": "candidate follows locally allowed branch continuity",
+          "officialAction": "unchanged"
+        },
+        {
+          "eventId": "int-c0b57212e1e97542",
+          "candidateRecordId": "isolated_ground_truth:azure-private-ai-platform:predicted:2",
+          "candidateArmIds": [
+            "arm-600bd4f2731cb68a",
+            "arm-b62ee5366c9ac8be"
+          ],
+          "candidateBranchPairs": [
+            [
+              "arm-600bd4f2731cb68a",
+              "arm-b62ee5366c9ac8be"
+            ]
+          ],
+          "shadowAction": "shadow_preserve_candidate_continuity",
+          "reason": "candidate follows locally allowed branch continuity",
+          "officialAction": "unchanged"
+        }
+      ],
+      "evaluated": true,
+      "officialResultChanged": false
+    },
+    {
+      "caseId": "E05",
+      "requiredRegression": false,
+      "imageId": "azure-private-ai-platform",
+      "recordIds": [
+        "isolated_ground_truth:azure-private-ai-platform:predicted:4"
+      ],
+      "humanCause": "structural_line",
+      "humanContributingCauses": [
+        "component_passthrough",
+        "ambiguous_endpoint"
+      ],
+      "humanExpectedCorrection": "Não promover linhas de agrupamento, bordas ou elementos textuais a conectores de fluxo. Um caminho que intersecta o interior de um componente deve terminar em uma porta ou borda válida desse componente, ou ser rejeitado. Remover a relação direta storage → cosmos e não criar automaticamente conexões com ai_search sem evidência visual de setas ou endpoints válidos.",
+      "intersectionEventIds": [],
+      "classifications": [],
+      "candidateDecisions": [],
+      "evaluated": false,
+      "officialResultChanged": false
+    },
+    {
+      "caseId": "E06",
+      "requiredRegression": true,
+      "imageId": "azure-private-ai-platform",
+      "recordIds": [
+        "isolated_ground_truth:azure-private-ai-platform:predicted:20"
+      ],
+      "humanCause": "incorrect_bifurcation",
+      "humanContributingCauses": [
+        "crossing_without_junction",
+        "parallel_connector_merge"
+      ],
+      "humanExpectedCorrection": "Remover a relação direta firewall → foundry_agent. Em cruzamentos e bifurcações, o grafo deve preservar a continuidade geométrica do conector e somente permitir a troca de ramo quando houver evidência explícita de junção. Segmentos paralelos ou apenas sobrepostos visualmente não devem ser combinados em um único caminho. Limitar a formação de rotas longas que atravessam múltiplas junções sem uma conexão visual contínua entre origem e destino.",
+      "intersectionEventIds": [
+        "int-c882d386821a4401",
+        "int-249cbff3791cc55d",
+        "int-a17f6cfccb06c79e",
+        "int-27e10b8602d1736d",
+        "int-fc31c47ff81b609d"
+      ],
+      "classifications": [
+        "ambiguous_intersection",
+        "bifurcation",
+        "continuation",
+        "elbow"
+      ],
+      "candidateDecisions": [
+        {
+          "eventId": "int-249cbff3791cc55d",
+          "candidateRecordId": "isolated_ground_truth:azure-private-ai-platform:predicted:20",
+          "candidateArmIds": [
+            "arm-4e39e7b387606b0a",
+            "arm-b70d7d5e12054767"
+          ],
+          "candidateBranchPairs": [
+            [
+              "arm-4e39e7b387606b0a",
+              "arm-b70d7d5e12054767"
+            ]
+          ],
+          "shadowAction": "review_only",
+          "reason": "intersection evidence is ambiguous",
+          "officialAction": "unchanged"
+        },
+        {
+          "eventId": "int-27e10b8602d1736d",
+          "candidateRecordId": "isolated_ground_truth:azure-private-ai-platform:predicted:20",
+          "candidateArmIds": [
+            "arm-0758ceada100cb9b",
+            "arm-e294b05ceb9c8192"
+          ],
+          "candidateBranchPairs": [
+            [
+              "arm-0758ceada100cb9b",
+              "arm-e294b05ceb9c8192"
+            ]
+          ],
+          "shadowAction": "shadow_preserve_candidate_continuity",
+          "reason": "candidate follows locally allowed branch continuity",
+          "officialAction": "unchanged"
+        },
+        {
+          "eventId": "int-a17f6cfccb06c79e",
+          "candidateRecordId": "isolated_ground_truth:azure-private-ai-platform:predicted:20",
+          "candidateArmIds": [
+            "arm-94d563267ae85c91",
+            "arm-ab8693ee13bd0362",
+            "arm-bfb689fd2498c100",
+            "arm-e52a6f5c9a36bcbf"
+          ],
+          "candidateBranchPairs": [
+            [
+              "arm-94d563267ae85c91",
+              "arm-ab8693ee13bd0362"
+            ],
+            [
+              "arm-94d563267ae85c91",
+              "arm-bfb689fd2498c100"
+            ],
+            [
+              "arm-94d563267ae85c91",
+              "arm-e52a6f5c9a36bcbf"
+            ],
+            [
+              "arm-ab8693ee13bd0362",
+              "arm-bfb689fd2498c100"
+            ],
+            [
+              "arm-ab8693ee13bd0362",
+              "arm-e52a6f5c9a36bcbf"
+            ],
+            [
+              "arm-bfb689fd2498c100",
+              "arm-e52a6f5c9a36bcbf"
+            ]
+          ],
+          "shadowAction": "review_only",
+          "reason": "intersection evidence is ambiguous",
+          "officialAction": "unchanged"
+        },
+        {
+          "eventId": "int-c882d386821a4401",
+          "candidateRecordId": "isolated_ground_truth:azure-private-ai-platform:predicted:20",
+          "candidateArmIds": [
+            "arm-10a17a712609f35a",
+            "arm-4eedd340cf660bdd"
+          ],
+          "candidateBranchPairs": [
+            [
+              "arm-10a17a712609f35a",
+              "arm-4eedd340cf660bdd"
+            ]
+          ],
+          "shadowAction": "shadow_preserve_candidate_continuity",
+          "reason": "candidate follows locally allowed branch continuity",
+          "officialAction": "unchanged"
+        },
+        {
+          "eventId": "int-fc31c47ff81b609d",
+          "candidateRecordId": "isolated_ground_truth:azure-private-ai-platform:predicted:20",
+          "candidateArmIds": [
+            "arm-5adccbab68221bd1",
+            "arm-5c88f302a272b4e4"
+          ],
+          "candidateBranchPairs": [
+            [
+              "arm-5adccbab68221bd1",
+              "arm-5c88f302a272b4e4"
+            ]
+          ],
+          "shadowAction": "shadow_preserve_candidate_continuity",
+          "reason": "candidate follows locally allowed branch continuity",
+          "officialAction": "unchanged"
+        }
+      ],
+      "evaluated": true,
+      "officialResultChanged": false
+    },
+    {
+      "caseId": "E07",
+      "requiredRegression": false,
+      "imageId": "aws-eks-platform",
+      "recordIds": [
+        "isolated_ground_truth:aws-eks-platform:predicted:6"
+      ],
+      "humanCause": "structural_line",
+      "humanContributingCauses": [
+        "component_passthrough",
+        "ambiguous_endpoint"
+      ],
+      "humanExpectedCorrection": "Descartar bordas de agrupamentos e containers como conectores de fluxo. Exigir que o endpoint inicial esteja ligado visualmente à borda ou porta do componente Glue e impedir que um caminho atravesse o interior do DynamoDB sem terminar nele. Remover a relação direta glue → rds e não criar automaticamente glue → dynamo ou dynamo → rds sem evidência visual válida.",
+      "intersectionEventIds": [
+        "int-f22bdf1047c429b0",
+        "int-2d4db71850b09dc9"
+      ],
+      "classifications": [
+        "ambiguous_intersection",
+        "bifurcation"
+      ],
+      "candidateDecisions": [
+        {
+          "eventId": "int-2d4db71850b09dc9",
+          "candidateRecordId": "isolated_ground_truth:aws-eks-platform:predicted:6",
+          "candidateArmIds": [
+            "arm-4f4e9bd08f7ead98"
+          ],
+          "candidateBranchPairs": [],
+          "shadowAction": "review_only",
+          "reason": "intersection evidence is ambiguous",
+          "officialAction": "unchanged"
+        },
+        {
+          "eventId": "int-f22bdf1047c429b0",
+          "candidateRecordId": "isolated_ground_truth:aws-eks-platform:predicted:6",
+          "candidateArmIds": [
+            "arm-bedda07e03a39a21",
+            "arm-defa18ad5227a522"
+          ],
+          "candidateBranchPairs": [
+            [
+              "arm-bedda07e03a39a21",
+              "arm-defa18ad5227a522"
+            ]
+          ],
+          "shadowAction": "shadow_preserve_candidate_continuity",
+          "reason": "candidate follows locally allowed branch continuity",
+          "officialAction": "unchanged"
+        }
+      ],
+      "evaluated": true,
+      "officialResultChanged": false
+    },
+    {
+      "caseId": "E08",
+      "requiredRegression": false,
+      "imageId": "aws-eks-platform",
+      "recordIds": [
+        "isolated_ground_truth:aws-eks-platform:predicted:18"
+      ],
+      "humanCause": "ambiguous_endpoint",
+      "humanContributingCauses": [
+        "component_passthrough",
+        "structural_line"
+      ],
+      "humanExpectedCorrection": "Rejeitar candidatos cujos endpoints não estejam conectados às bordas ou portas dos componentes de origem e destino. Caminhos localizados predominantemente dentro de um componente intermediário não devem ser associados a componentes vizinhos. Também devem ser descartados traços internos de ícones, textos ou elementos decorativos interpretados como conectores. Não gerar o fluxo direto lambda → glue.",
+      "intersectionEventIds": [],
+      "classifications": [],
+      "candidateDecisions": [],
+      "evaluated": false,
+      "officialResultChanged": false
+    },
+    {
+      "caseId": "E09",
+      "requiredRegression": false,
+      "imageId": "gcp-secure-cloud-run",
+      "recordIds": [
+        "isolated_ground_truth:gcp-secure-cloud-run:predicted:3"
+      ],
+      "humanCause": "ambiguous_endpoint",
+      "humanContributingCauses": [
+        "component_passthrough"
+      ],
+      "humanExpectedCorrection": "Encerrar o caminho no primeiro componente cuja borda ou porta seja atingida. Neste caso, gerar internet → load_balancer e não criar internet → armor. O Cloud Armor somente deve ser conectado se existir um conector visual explícito entre ele e outro componente.",
+      "intersectionEventIds": [
+        "int-4ffa944d79233560",
+        "int-18d1dbcafa7a46ef",
+        "int-38b3130546897bc1"
+      ],
+      "classifications": [
+        "ambiguous_intersection",
+        "crossing_without_junction"
+      ],
+      "candidateDecisions": [
+        {
+          "eventId": "int-18d1dbcafa7a46ef",
+          "candidateRecordId": "isolated_ground_truth:gcp-secure-cloud-run:predicted:3",
+          "candidateArmIds": [
+            "arm-d8a3f0a2aaa1fee8",
+            "arm-e6dd6be7ba3b5690"
+          ],
+          "candidateBranchPairs": [
+            [
+              "arm-d8a3f0a2aaa1fee8",
+              "arm-e6dd6be7ba3b5690"
+            ]
+          ],
+          "shadowAction": "shadow_preserve_candidate_continuity",
+          "reason": "candidate follows locally allowed branch continuity",
+          "officialAction": "unchanged"
+        },
+        {
+          "eventId": "int-38b3130546897bc1",
+          "candidateRecordId": "isolated_ground_truth:gcp-secure-cloud-run:predicted:3",
+          "candidateArmIds": [
+            "arm-0de69324b06a2715"
+          ],
+          "candidateBranchPairs": [],
+          "shadowAction": "review_only",
+          "reason": "intersection evidence is ambiguous",
+          "officialAction": "unchanged"
+        },
+        {
+          "eventId": "int-4ffa944d79233560",
+          "candidateRecordId": "isolated_ground_truth:gcp-secure-cloud-run:predicted:3",
+          "candidateArmIds": [
+            "arm-ce44242b0a3c4bc7"
+          ],
+          "candidateBranchPairs": [],
+          "shadowAction": "review_only",
+          "reason": "intersection evidence is ambiguous",
+          "officialAction": "unchanged"
+        }
+      ],
+      "evaluated": true,
+      "officialResultChanged": false
+    },
+    {
+      "caseId": "E10",
+      "requiredRegression": false,
+      "imageId": "gcp-secure-cloud-run",
+      "recordIds": [
+        "isolated_ground_truth:gcp-secure-cloud-run:predicted:9"
+      ],
+      "humanCause": "ambiguous_endpoint",
+      "humanContributingCauses": [
+        "component_passthrough"
+      ],
+      "humanExpectedCorrection": "Associar o endpoint inicial ao primeiro componente cuja borda ou porta é efetivamente tocada pelo caminho. Neste caso, gerar cloud_run → vpc_connector e não criar a relação direta load_balancer → vpc_connector. Um componente tocado pelo início do segmento não deve ser classificado apenas como componente atravessado.",
+      "intersectionEventIds": [],
+      "classifications": [],
+      "candidateDecisions": [],
+      "evaluated": false,
+      "officialResultChanged": false
+    },
+    {
+      "caseId": "E11",
+      "requiredRegression": false,
+      "imageId": "generic-cloud-api",
+      "recordIds": [
+        "isolated_ground_truth:generic-cloud-api:predicted:6"
+      ],
+      "humanCause": "ambiguous_endpoint",
+      "humanContributingCauses": [],
+      "humanExpectedCorrection": "Não associar o endpoint ao Database, pois o caminho não alcança sua borda ou uma porta válida. O endpoint deve ser vinculado ao componente que realmente origina a linha, provavelmente o Compute na imagem completa. Preservar a conexão correta desse componente com a API e remover o falso fluxo database → api.",
+      "intersectionEventIds": [
+        "int-6c44fc0d1cd9551c"
+      ],
+      "classifications": [
+        "crossing_without_junction"
+      ],
+      "candidateDecisions": [
+        {
+          "eventId": "int-6c44fc0d1cd9551c",
+          "candidateRecordId": "isolated_ground_truth:generic-cloud-api:predicted:6",
+          "candidateArmIds": [
+            "arm-889c318cf0a65ccf",
+            "arm-9cabb7372137df50"
+          ],
+          "candidateBranchPairs": [
+            [
+              "arm-889c318cf0a65ccf",
+              "arm-9cabb7372137df50"
+            ]
+          ],
+          "shadowAction": "shadow_preserve_candidate_continuity",
+          "reason": "candidate follows locally allowed branch continuity",
+          "officialAction": "unchanged"
+        }
+      ],
+      "evaluated": true,
+      "officialResultChanged": false
+    },
+    {
+      "caseId": "E12",
+      "requiredRegression": false,
+      "imageId": "generic-cloud-api",
+      "recordIds": [
+        "isolated_ground_truth:generic-cloud-api:predicted:13"
+      ],
+      "humanCause": "structural_line",
+      "humanContributingCauses": [
+        "crossing_without_junction",
+        "ambiguous_endpoint"
+      ],
+      "humanExpectedCorrection": "Descartar linhas da grade de fundo como candidatas a conectores. Cruzamentos entre linhas estruturais e conectores reais não devem criar nós ou junções. Exigir que os endpoints estejam conectados às bordas ou portas dos componentes antes de gerar uma aresta. Remover o fluxo monitoring → cdn e preservar apenas os conectores reais já presentes no diagrama.",
+      "intersectionEventIds": [
+        "int-1f2a3591a974193a"
+      ],
+      "classifications": [
+        "crossing_without_junction"
+      ],
+      "candidateDecisions": [
+        {
+          "eventId": "int-1f2a3591a974193a",
+          "candidateRecordId": "isolated_ground_truth:generic-cloud-api:predicted:13",
+          "candidateArmIds": [
+            "arm-bb36114d5e2462c2",
+            "arm-e20fa504cf5ad901"
+          ],
+          "candidateBranchPairs": [
+            [
+              "arm-bb36114d5e2462c2",
+              "arm-e20fa504cf5ad901"
+            ]
+          ],
+          "shadowAction": "shadow_preserve_candidate_continuity",
+          "reason": "candidate follows locally allowed branch continuity",
+          "officialAction": "unchanged"
+        }
+      ],
+      "evaluated": true,
+      "officialResultChanged": false
+    },
+    {
+      "caseId": "E13",
+      "requiredRegression": true,
+      "imageId": "azure-ai-foundry",
+      "recordIds": [
+        "isolated_ground_truth:azure-ai-foundry:predicted:4"
+      ],
+      "humanCause": "ambiguous_endpoint",
+      "humanContributingCauses": [
+        "crossing_without_junction",
+        "parallel_connector_merge"
+      ],
+      "humanExpectedCorrection": "Rejeitar a relação direta foundry_account → openai_model. Exigir que os endpoints estejam conectados às portas ou bordas reais dos componentes. Em cruzamentos sem marcador de junção, preservar a continuidade das linhas sem permitir troca de ramo. Segmentos verticais paralelos ou próximos não devem ser combinados em um único caminho. Preservar somente as relações explicitamente suportadas pelos conectores do diagrama.",
+      "intersectionEventIds": [
+        "int-4dde3be32d76de6f"
+      ],
+      "classifications": [
+        "crossing_without_junction"
+      ],
+      "candidateDecisions": [
+        {
+          "eventId": "int-4dde3be32d76de6f",
+          "candidateRecordId": "isolated_ground_truth:azure-ai-foundry:predicted:4",
+          "candidateArmIds": [
+            "arm-156e5414090e0278",
+            "arm-2b286b4cc8cbbe70"
+          ],
+          "candidateBranchPairs": [
+            [
+              "arm-156e5414090e0278",
+              "arm-2b286b4cc8cbbe70"
+            ]
+          ],
+          "shadowAction": "shadow_preserve_candidate_continuity",
+          "reason": "candidate follows locally allowed branch continuity",
+          "officialAction": "unchanged"
+        }
+      ],
+      "evaluated": true,
+      "officialResultChanged": false
+    },
+    {
+      "caseId": "E14",
+      "requiredRegression": false,
+      "imageId": "aws-serverless-async",
+      "recordIds": [
+        "isolated_ground_truth:aws-serverless-async:predicted:6"
+      ],
+      "humanCause": "transitive_shortcut",
+      "humanContributingCauses": [
+        "incorrect_bifurcation"
+      ],
+      "humanExpectedCorrection": "Remover a relação direta api_handler → worker. Decompor o tronco compartilhado em relações adjacentes, preservando conexões como api_handler → queue e queue → worker somente quando forem suportadas pelas setas e anotações do diagrama. Uma junção compartilhada não deve gerar automaticamente uma aresta entre todos os seus terminais.",
+      "intersectionEventIds": [],
+      "classifications": [],
+      "candidateDecisions": [],
+      "evaluated": false,
+      "officialResultChanged": false
+    },
+    {
+      "caseId": "E15",
+      "requiredRegression": true,
+      "imageId": "aws-eks-platform",
+      "recordIds": [
+        "isolated_ground_truth:aws-eks-platform:predicted:13"
+      ],
+      "humanCause": "ambiguous_endpoint",
+      "humanContributingCauses": [
+        "incorrect_bifurcation"
+      ],
+      "humanExpectedCorrection": "Remover a relação direta lambda → dynamo. Exigir que os endpoints de um caminho estejam conectados às portas ou bordas reais dos componentes de origem e destino. Em bifurcações, o grafo deve preservar a continuidade do ramo correto e não combinar um braço curto com um tronco pertencente a outra conexão. Caso o caminho pertença a outra relação, ele deve ser associado somente aos componentes realmente tocados.",
+      "intersectionEventIds": [
+        "int-3e629f703ca1e002",
+        "int-9c3bdaa7a3b77115",
+        "int-c81de4a1d8cb16b5"
+      ],
+      "classifications": [
+        "continuation",
+        "elbow"
+      ],
+      "candidateDecisions": [
+        {
+          "eventId": "int-3e629f703ca1e002",
+          "candidateRecordId": "isolated_ground_truth:aws-eks-platform:predicted:13",
+          "candidateArmIds": [
+            "arm-73c0b875cc3d9355",
+            "arm-d88daa554c36939a"
+          ],
+          "candidateBranchPairs": [
+            [
+              "arm-73c0b875cc3d9355",
+              "arm-d88daa554c36939a"
+            ]
+          ],
+          "shadowAction": "shadow_preserve_candidate_continuity",
+          "reason": "candidate follows locally allowed branch continuity",
+          "officialAction": "unchanged"
+        },
+        {
+          "eventId": "int-9c3bdaa7a3b77115",
+          "candidateRecordId": "isolated_ground_truth:aws-eks-platform:predicted:13",
+          "candidateArmIds": [
+            "arm-3cc45ca87194869c",
+            "arm-525d912f8f75a8aa"
+          ],
+          "candidateBranchPairs": [
+            [
+              "arm-3cc45ca87194869c",
+              "arm-525d912f8f75a8aa"
+            ]
+          ],
+          "shadowAction": "shadow_preserve_candidate_continuity",
+          "reason": "candidate follows locally allowed branch continuity",
+          "officialAction": "unchanged"
+        },
+        {
+          "eventId": "int-c81de4a1d8cb16b5",
+          "candidateRecordId": "isolated_ground_truth:aws-eks-platform:predicted:13",
+          "candidateArmIds": [
+            "arm-bcce26364a163b67",
+            "arm-c4bf4b2773a6ad4e"
+          ],
+          "candidateBranchPairs": [
+            [
+              "arm-bcce26364a163b67",
+              "arm-c4bf4b2773a6ad4e"
+            ]
+          ],
+          "shadowAction": "shadow_preserve_candidate_continuity",
+          "reason": "candidate follows locally allowed branch continuity",
+          "officialAction": "unchanged"
+        }
+      ],
+      "evaluated": true,
+      "officialResultChanged": false
+    },
+    {
+      "caseId": "E16",
+      "requiredRegression": true,
+      "imageId": "aws-eks-platform",
+      "recordIds": [
+        "isolated_ground_truth:aws-eks-platform:predicted:12"
+      ],
+      "humanCause": "ambiguous_endpoint",
+      "humanContributingCauses": [
+        "incorrect_bifurcation"
+      ],
+      "humanExpectedCorrection": "Remover a relação comprehend → glue. Exigir que os endpoints estejam conectados às portas ou bordas reais dos componentes declarados. O ramo diagonal deve permanecer associado ao componente verde e à linha da qual realmente se origina, sem ser atribuído ao AWS Comprehend ou ao Glue ETL por proximidade.",
+      "intersectionEventIds": [
+        "int-9eb3d43108d24848"
+      ],
+      "classifications": [
+        "ambiguous_intersection"
+      ],
+      "candidateDecisions": [
+        {
+          "eventId": "int-9eb3d43108d24848",
+          "candidateRecordId": "isolated_ground_truth:aws-eks-platform:predicted:12",
+          "candidateArmIds": [
+            "arm-e899c19aa415325a"
+          ],
+          "candidateBranchPairs": [],
+          "shadowAction": "review_only",
+          "reason": "intersection evidence is ambiguous",
+          "officialAction": "unchanged"
+        }
+      ],
+      "evaluated": true,
+      "officialResultChanged": false
+    },
+    {
+      "caseId": "E17",
+      "requiredRegression": false,
+      "imageId": "generic-cloud-api",
+      "recordIds": [
+        "isolated_ground_truth:generic-cloud-api:predicted:14"
+      ],
+      "humanCause": "structural_line",
+      "humanContributingCauses": [
+        "crossing_without_junction",
+        "ambiguous_endpoint"
+      ],
+      "humanExpectedCorrection": "Descartar linhas da grade de fundo como candidatas a conectores. Cruzamentos com conectores reais não devem formar junções sem evidência explícita. Exigir que os endpoints estejam conectados às bordas ou portas dos componentes antes de gerar uma aresta. Remover o falso fluxo user → database e preservar somente as conexões reais do diagrama.",
+      "intersectionEventIds": [
+        "int-e6d59abc6e3ac421",
+        "int-6c44fc0d1cd9551c"
+      ],
+      "classifications": [
+        "crossing_without_junction"
+      ],
+      "candidateDecisions": [
+        {
+          "eventId": "int-6c44fc0d1cd9551c",
+          "candidateRecordId": "isolated_ground_truth:generic-cloud-api:predicted:14",
+          "candidateArmIds": [
+            "arm-62ac73598b488286",
+            "arm-6a014e0b6bf46ecc"
+          ],
+          "candidateBranchPairs": [
+            [
+              "arm-62ac73598b488286",
+              "arm-6a014e0b6bf46ecc"
+            ]
+          ],
+          "shadowAction": "shadow_preserve_candidate_continuity",
+          "reason": "candidate follows locally allowed branch continuity",
+          "officialAction": "unchanged"
+        },
+        {
+          "eventId": "int-e6d59abc6e3ac421",
+          "candidateRecordId": "isolated_ground_truth:generic-cloud-api:predicted:14",
+          "candidateArmIds": [
+            "arm-6a014e0b6bf46ecc",
+            "arm-d2cee7d60d3e3edf"
+          ],
+          "candidateBranchPairs": [
+            [
+              "arm-6a014e0b6bf46ecc",
+              "arm-d2cee7d60d3e3edf"
+            ]
+          ],
+          "shadowAction": "shadow_preserve_candidate_continuity",
+          "reason": "candidate follows locally allowed branch continuity",
+          "officialAction": "unchanged"
+        }
+      ],
+      "evaluated": true,
+      "officialResultChanged": false
+    },
+    {
+      "caseId": "E18",
+      "requiredRegression": false,
+      "imageId": "azure-private-ai-platform",
+      "recordIds": [
+        "isolated_ground_truth:azure-private-ai-platform:predicted:10"
+      ],
+      "humanCause": "structural_line",
+      "humanContributingCauses": [
+        "crossing_without_junction",
+        "ambiguous_endpoint"
+      ],
+      "humanExpectedCorrection": "Descartar bordas de subnets, containers e agrupamentos como candidatas a conectores. Cruzamentos dessas bordas com linhas funcionais não devem formar junções. Exigir que origem e destino estejam ligados às portas ou bordas reais dos componentes. Remover app_gateway → build_agents e não gerar outra relação com o Foundry Agent sem um conector visual explícito.",
+      "intersectionEventIds": [
+        "int-50cbb23f28225ceb",
+        "int-c882d386821a4401",
+        "int-249cbff3791cc55d",
+        "int-a17f6cfccb06c79e"
+      ],
+      "classifications": [
+        "ambiguous_intersection",
+        "continuation",
+        "elbow"
+      ],
+      "candidateDecisions": [
+        {
+          "eventId": "int-249cbff3791cc55d",
+          "candidateRecordId": "isolated_ground_truth:azure-private-ai-platform:predicted:10",
+          "candidateArmIds": [
+            "arm-4e39e7b387606b0a",
+            "arm-b70d7d5e12054767"
+          ],
+          "candidateBranchPairs": [
+            [
+              "arm-4e39e7b387606b0a",
+              "arm-b70d7d5e12054767"
+            ]
+          ],
+          "shadowAction": "review_only",
+          "reason": "intersection evidence is ambiguous",
+          "officialAction": "unchanged"
+        },
+        {
+          "eventId": "int-50cbb23f28225ceb",
+          "candidateRecordId": "isolated_ground_truth:azure-private-ai-platform:predicted:10",
+          "candidateArmIds": [
+            "arm-0c7d9eda6aeeffd4",
+            "arm-ee442e6c88964359"
+          ],
+          "candidateBranchPairs": [
+            [
+              "arm-0c7d9eda6aeeffd4",
+              "arm-ee442e6c88964359"
+            ]
+          ],
+          "shadowAction": "shadow_preserve_candidate_continuity",
+          "reason": "candidate follows locally allowed branch continuity",
+          "officialAction": "unchanged"
+        },
+        {
+          "eventId": "int-a17f6cfccb06c79e",
+          "candidateRecordId": "isolated_ground_truth:azure-private-ai-platform:predicted:10",
+          "candidateArmIds": [
+            "arm-94d563267ae85c91",
+            "arm-bfb689fd2498c100",
+            "arm-d1c4fcae5603252c",
+            "arm-e52a6f5c9a36bcbf"
+          ],
+          "candidateBranchPairs": [
+            [
+              "arm-94d563267ae85c91",
+              "arm-bfb689fd2498c100"
+            ],
+            [
+              "arm-94d563267ae85c91",
+              "arm-d1c4fcae5603252c"
+            ],
+            [
+              "arm-94d563267ae85c91",
+              "arm-e52a6f5c9a36bcbf"
+            ],
+            [
+              "arm-bfb689fd2498c100",
+              "arm-d1c4fcae5603252c"
+            ],
+            [
+              "arm-bfb689fd2498c100",
+              "arm-e52a6f5c9a36bcbf"
+            ],
+            [
+              "arm-d1c4fcae5603252c",
+              "arm-e52a6f5c9a36bcbf"
+            ]
+          ],
+          "shadowAction": "review_only",
+          "reason": "intersection evidence is ambiguous",
+          "officialAction": "unchanged"
+        },
+        {
+          "eventId": "int-c882d386821a4401",
+          "candidateRecordId": "isolated_ground_truth:azure-private-ai-platform:predicted:10",
+          "candidateArmIds": [
+            "arm-10a17a712609f35a",
+            "arm-4eedd340cf660bdd"
+          ],
+          "candidateBranchPairs": [
+            [
+              "arm-10a17a712609f35a",
+              "arm-4eedd340cf660bdd"
+            ]
+          ],
+          "shadowAction": "shadow_preserve_candidate_continuity",
+          "reason": "candidate follows locally allowed branch continuity",
+          "officialAction": "unchanged"
+        }
+      ],
+      "evaluated": true,
+      "officialResultChanged": false
+    },
+    {
+      "caseId": "E19",
+      "requiredRegression": false,
+      "imageId": "gcp-secure-cloud-run",
+      "recordIds": [
+        "isolated_ground_truth:gcp-secure-cloud-run:predicted:7"
+      ],
+      "humanCause": "structural_line",
+      "humanContributingCauses": [
+        "crossing_without_junction",
+        "ambiguous_endpoint"
+      ],
+      "humanExpectedCorrection": "Descartar bordas de projetos, subnets, containers e áreas arquiteturais como candidatas a conectores. O cruzamento entre uma borda estrutural e um fluxo real não deve gerar nó ou permitir troca de ramo. Exigir que os endpoints alcancem portas ou bordas funcionais dos componentes antes de criar uma aresta. Remover o fluxo armor → artifact_registry e preservar apenas as conexões explicitamente representadas no diagrama.",
+      "intersectionEventIds": [
+        "int-18d1dbcafa7a46ef",
+        "int-cb804908bc4419d6"
+      ],
+      "classifications": [
+        "crossing_without_junction",
+        "elbow"
+      ],
+      "candidateDecisions": [
+        {
+          "eventId": "int-18d1dbcafa7a46ef",
+          "candidateRecordId": "isolated_ground_truth:gcp-secure-cloud-run:predicted:7",
+          "candidateArmIds": [
+            "arm-432745fac0f908fc",
+            "arm-cc70f20c454734f4"
+          ],
+          "candidateBranchPairs": [
+            [
+              "arm-432745fac0f908fc",
+              "arm-cc70f20c454734f4"
+            ]
+          ],
+          "shadowAction": "shadow_preserve_candidate_continuity",
+          "reason": "candidate follows locally allowed branch continuity",
+          "officialAction": "unchanged"
+        },
+        {
+          "eventId": "int-cb804908bc4419d6",
+          "candidateRecordId": "isolated_ground_truth:gcp-secure-cloud-run:predicted:7",
+          "candidateArmIds": [
+            "arm-afde22d0a51301b7"
+          ],
+          "candidateBranchPairs": [],
+          "shadowAction": "observed_only",
+          "reason": "candidate contributes one arm and does not traverse the event",
+          "officialAction": "unchanged"
+        }
+      ],
+      "evaluated": true,
+      "officialResultChanged": false
+    },
+    {
+      "caseId": "E20",
+      "requiredRegression": false,
+      "imageId": "aws-video-pipeline",
+      "recordIds": [
+        "isolated_ground_truth:aws-video-pipeline:predicted:8"
+      ],
+      "humanCause": "structural_line",
+      "humanContributingCauses": [
+        "crossing_without_junction",
+        "ambiguous_endpoint"
+      ],
+      "humanExpectedCorrection": "Descartar bordas de containers, agrupamentos e áreas arquiteturais como candidatas a conectores. Cruzamentos entre essas bordas e linhas funcionais não devem criar nós ou permitir troca de caminho. Exigir que os endpoints alcancem portas ou bordas funcionais dos componentes. Remover o fluxo direto transcoder → stage3 e preservar somente as conexões sequenciais explicitamente representadas pelas setas do diagrama.",
+      "intersectionEventIds": [
+        "int-ad8bd6d385f30623",
+        "int-33f4bdd5be1ef369",
+        "int-c7d20d7c92d7f926",
+        "int-b893bf08440a2069",
+        "int-f8c83217469e7fd5",
+        "int-3b2fce99819934fc"
+      ],
+      "classifications": [
+        "ambiguous_intersection",
+        "bifurcation",
+        "crossing_without_junction"
+      ],
+      "candidateDecisions": [
+        {
+          "eventId": "int-33f4bdd5be1ef369",
+          "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:8",
+          "candidateArmIds": [
+            "arm-793ba0f3506e527c",
+            "arm-bde4d3d5a69e001e"
+          ],
+          "candidateBranchPairs": [
+            [
+              "arm-793ba0f3506e527c",
+              "arm-bde4d3d5a69e001e"
+            ]
+          ],
+          "shadowAction": "review_only",
+          "reason": "intersection evidence is ambiguous",
+          "officialAction": "unchanged"
+        },
+        {
+          "eventId": "int-3b2fce99819934fc",
+          "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:8",
+          "candidateArmIds": [
+            "arm-3487853841842f03",
+            "arm-7c85c7b4592d5dc1"
+          ],
+          "candidateBranchPairs": [
+            [
+              "arm-3487853841842f03",
+              "arm-7c85c7b4592d5dc1"
+            ]
+          ],
+          "shadowAction": "shadow_preserve_candidate_continuity",
+          "reason": "candidate follows locally allowed branch continuity",
+          "officialAction": "unchanged"
+        },
+        {
+          "eventId": "int-ad8bd6d385f30623",
+          "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:8",
+          "candidateArmIds": [
+            "arm-8744639a4eaa59c2"
+          ],
+          "candidateBranchPairs": [],
+          "shadowAction": "review_only",
+          "reason": "intersection evidence is ambiguous",
+          "officialAction": "unchanged"
+        },
+        {
+          "eventId": "int-b893bf08440a2069",
+          "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:8",
+          "candidateArmIds": [
+            "arm-4f1f160acb485304",
+            "arm-785241b1dcb2a871"
+          ],
+          "candidateBranchPairs": [
+            [
+              "arm-4f1f160acb485304",
+              "arm-785241b1dcb2a871"
+            ]
+          ],
+          "shadowAction": "review_only",
+          "reason": "intersection evidence is ambiguous",
+          "officialAction": "unchanged"
+        },
+        {
+          "eventId": "int-c7d20d7c92d7f926",
+          "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:8",
+          "candidateArmIds": [
+            "arm-be6faba22324443a",
+            "arm-de9aab80abd2647d"
+          ],
+          "candidateBranchPairs": [
+            [
+              "arm-be6faba22324443a",
+              "arm-de9aab80abd2647d"
+            ]
+          ],
+          "shadowAction": "review_only",
+          "reason": "intersection evidence is ambiguous",
+          "officialAction": "unchanged"
+        },
+        {
+          "eventId": "int-f8c83217469e7fd5",
+          "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:8",
+          "candidateArmIds": [
+            "arm-02071fd559bee512",
+            "arm-fcb857c6707cdef4"
+          ],
+          "candidateBranchPairs": [
+            [
+              "arm-02071fd559bee512",
+              "arm-fcb857c6707cdef4"
+            ]
+          ],
+          "shadowAction": "shadow_preserve_candidate_continuity",
+          "reason": "candidate follows locally allowed branch continuity",
+          "officialAction": "unchanged"
+        }
+      ],
+      "evaluated": true,
+      "officialResultChanged": false
+    }
+  ]
+}

@@ -1,0 +1,1202 @@
+{
+  "schemaVersion": "1.0",
+  "evaluatedAt": "2026-07-20T22:22:29.041485+00:00",
+  "benchmark": "E:\\Tech Challenge IADT - Fase 5 - Hackathon\\data\\benchmarks\\real-architecture\\benchmark-expanded.json",
+  "split": "development_tuning",
+  "evaluationProtocol": "development_diagram_provider_geometry_v5",
+  "imageCount": 9,
+  "aggregate": {
+    "expected": 257,
+    "predicted": 326,
+    "correct": 95,
+    "missing": 162,
+    "extra": 231,
+    "precision": 0.29141104294478526,
+    "recall": 0.36964980544747084,
+    "f1": 0.3259005145797599,
+    "meanComponentTypedRecall": 0.40205627705627706
+  },
+  "perImage": [
+    {
+      "id": "azure-container-edge",
+      "provider": "azure",
+      "image": "dataset/hybrid_v2/images/test/kaggle_unique_kaggle_azure_container_instances_0004_aug_2.png",
+      "components": {
+        "matches": [],
+        "expected": 5,
+        "predicted": 6,
+        "localized": 0,
+        "typeCorrect": 0,
+        "localizationRecall": 0.0,
+        "typedRecall": 0.0,
+        "precision": 0.0
+      },
+      "threats": {
+        "expected": 12,
+        "predicted": 15,
+        "correct": 1,
+        "missing": 11,
+        "extra": 14,
+        "precision": 0.06666666666666667,
+        "recall": 0.08333333333333333,
+        "f1": 0.07407407407407407,
+        "correctSignatures": [
+          "Repudiation|Architecture lacks explicit monitoring or logging component|architecture"
+        ],
+        "missingSignatures": [
+          "Denial of Service|Load balancer can become a shared bottleneck|load_balancer",
+          "Denial of Service|WAF bypass or weak rate policy can allow abuse|application_firewall",
+          "Denial of Service|WAF bypass or weak rate policy can allow abuse|azure_firewall",
+          "Elevation of Privilege|Compromised workload can gain broader permissions|virtual_machines",
+          "Repudiation|Backend actions may not be attributable|virtual_machines",
+          "Repudiation|User actions may not be traceable|clients",
+          "Spoofing|User identity can be impersonated|clients",
+          "Tampering|Application code or configuration can be changed|virtual_machines",
+          "Tampering|Traffic routing can be manipulated|load_balancer",
+          "Tampering|Weak WAF policy can allow malicious payloads|application_firewall",
+          "Tampering|Weak WAF policy can allow malicious payloads|azure_firewall"
+        ],
+        "extraSignatures": [
+          "Denial of Service|Load balancer can become a shared bottleneck|unmatched::load_balancer_1",
+          "Denial of Service|Load balancer can become a shared bottleneck|unmatched::load_balancer_2",
+          "Denial of Service|WAF bypass or weak rate policy can allow abuse|unmatched::waf_ocr_1",
+          "Elevation of Privilege|Compromised workload can gain broader permissions|unmatched::compute_1",
+          "Elevation of Privilege|Compromised workload can gain broader permissions|unmatched::compute_2",
+          "Repudiation|Backend actions may not be attributable|unmatched::compute_1",
+          "Repudiation|Backend actions may not be attributable|unmatched::compute_2",
+          "Repudiation|User actions may not be traceable|unmatched::user_ocr_1",
+          "Spoofing|User identity can be impersonated|unmatched::user_ocr_1",
+          "Tampering|Application code or configuration can be changed|unmatched::compute_1",
+          "Tampering|Application code or configuration can be changed|unmatched::compute_2",
+          "Tampering|Traffic routing can be manipulated|unmatched::load_balancer_1",
+          "Tampering|Traffic routing can be manipulated|unmatched::load_balancer_2",
+          "Tampering|Weak WAF policy can allow malicious payloads|unmatched::waf_ocr_1"
+        ]
+      },
+      "predictedStructure": {
+        "components": 6,
+        "flows": 2,
+        "boundaries": 1
+      }
+    },
+    {
+      "id": "azure-ai-foundry",
+      "provider": "azure",
+      "image": "dataset/raw_kaggle_selected/azure_sql_database_0007_aug_0.png",
+      "components": {
+        "matches": [
+          {
+            "expectedId": "user",
+            "predictedId": "user_1",
+            "expectedType": "user",
+            "predictedType": "user",
+            "typeCorrect": true,
+            "iou": 0.6061
+          }
+        ],
+        "expected": 6,
+        "predicted": 10,
+        "localized": 1,
+        "typeCorrect": 1,
+        "localizationRecall": 0.16666666666666666,
+        "typedRecall": 0.16666666666666666,
+        "precision": 0.1
+      },
+      "threats": {
+        "expected": 18,
+        "predicted": 27,
+        "correct": 3,
+        "missing": 15,
+        "extra": 24,
+        "precision": 0.1111111111111111,
+        "recall": 0.16666666666666666,
+        "f1": 0.13333333333333333,
+        "correctSignatures": [
+          "Denial of Service|Public flow without explicit WAF or edge filtering|architecture",
+          "Repudiation|User actions may not be traceable|user",
+          "Spoofing|User identity can be impersonated|user"
+        ],
+        "missingSignatures": [
+          "Elevation of Privilege|Compromised workload can gain broader permissions|app_service",
+          "Elevation of Privilege|Compromised workload can gain broader permissions|foundry_account",
+          "Elevation of Privilege|Compromised workload can gain broader permissions|foundry_agent",
+          "Elevation of Privilege|Compromised workload can gain broader permissions|openai_model",
+          "Information Disclosure|Object storage can expose private files|ai_search",
+          "Repudiation|Architecture lacks explicit monitoring or logging component|architecture",
+          "Repudiation|Backend actions may not be attributable|app_service",
+          "Repudiation|Backend actions may not be attributable|foundry_account",
+          "Repudiation|Backend actions may not be attributable|foundry_agent",
+          "Repudiation|Backend actions may not be attributable|openai_model",
+          "Tampering|Application code or configuration can be changed|app_service",
+          "Tampering|Application code or configuration can be changed|foundry_account",
+          "Tampering|Application code or configuration can be changed|foundry_agent",
+          "Tampering|Application code or configuration can be changed|openai_model",
+          "Tampering|Stored artifacts can be modified|ai_search"
+        ],
+        "extraSignatures": [
+          "Denial of Service|Database can be exhausted by expensive queries|unmatched::database_2",
+          "Denial of Service|Database can be exhausted by expensive queries|unmatched::database_3",
+          "Denial of Service|Database present without explicit backup component|architecture",
+          "Denial of Service|Load balancer can become a shared bottleneck|unmatched::load_balancer_1",
+          "Elevation of Privilege|Compromised workload can gain broader permissions|unmatched::compute_1",
+          "Elevation of Privilege|Compromised workload can gain broader permissions|unmatched::compute_2",
+          "Elevation of Privilege|Compromised workload can gain broader permissions|unmatched::compute_ocr_3",
+          "Elevation of Privilege|Overbroad key permissions can unlock sensitive systems|unmatched::secrets_kms_1",
+          "Information Disclosure|Azure databases can leak data if private endpoints are not used|unmatched::database_1",
+          "Information Disclosure|Backend-to-database flow can expose sensitive data|architecture",
+          "Information Disclosure|Secrets or keys can be exposed|unmatched::secrets_kms_1",
+          "Information Disclosure|Sensitive records can be exposed|unmatched::database_2",
+          "Information Disclosure|Sensitive records can be exposed|unmatched::database_3",
+          "Repudiation|Backend actions may not be attributable|unmatched::compute_1",
+          "Repudiation|Backend actions may not be attributable|unmatched::compute_2",
+          "Repudiation|Backend actions may not be attributable|unmatched::compute_ocr_3",
+          "Repudiation|Logging gaps in Azure Monitor/App Insights reduce forensic visibility|unmatched::monitoring_ocr_1",
+          "Tampering|Application code or configuration can be changed|unmatched::compute_1",
+          "Tampering|Application code or configuration can be changed|unmatched::compute_2",
+          "Tampering|Application code or configuration can be changed|unmatched::compute_ocr_3",
+          "Tampering|Data can be changed without integrity controls|unmatched::database_2",
+          "Tampering|Data can be changed without integrity controls|unmatched::database_3",
+          "Tampering|Traffic routing can be manipulated|unmatched::load_balancer_1",
+          "Tampering|Trust-boundary flow has an unverified protocol|architecture"
+        ]
+      },
+      "predictedStructure": {
+        "components": 10,
+        "flows": 16,
+        "boundaries": 1
+      }
+    },
+    {
+      "id": "aws-video-pipeline",
+      "provider": "aws",
+      "image": "dataset/hybrid_v2/images/test/kaggle_unique_kaggle_azure_vm_scale_sets_0001_aug_6.png",
+      "components": {
+        "matches": [
+          {
+            "expectedId": "database",
+            "predictedId": "database_ocr_3",
+            "expectedType": "database",
+            "predictedType": "database",
+            "typeCorrect": true,
+            "iou": 0.4232
+          },
+          {
+            "expectedId": "stage3",
+            "predictedId": "storage_ocr_4",
+            "expectedType": "storage",
+            "predictedType": "storage",
+            "typeCorrect": true,
+            "iou": 0.4206
+          },
+          {
+            "expectedId": "stage1",
+            "predictedId": "storage_ocr_2",
+            "expectedType": "storage",
+            "predictedType": "storage",
+            "typeCorrect": true,
+            "iou": 0.4153
+          },
+          {
+            "expectedId": "stage2",
+            "predictedId": "storage_ocr_3",
+            "expectedType": "storage",
+            "predictedType": "storage",
+            "typeCorrect": true,
+            "iou": 0.4072
+          },
+          {
+            "expectedId": "api",
+            "predictedId": "api_gateway_ocr_1",
+            "expectedType": "api_gateway",
+            "predictedType": "api_gateway",
+            "typeCorrect": true,
+            "iou": 0.3942
+          },
+          {
+            "expectedId": "trigger3",
+            "predictedId": "compute_ocr_7",
+            "expectedType": "compute",
+            "predictedType": "compute",
+            "typeCorrect": true,
+            "iou": 0.3509
+          },
+          {
+            "expectedId": "trigger2",
+            "predictedId": "compute_ocr_4",
+            "expectedType": "compute",
+            "predictedType": "compute",
+            "typeCorrect": true,
+            "iou": 0.3332
+          },
+          {
+            "expectedId": "trigger1",
+            "predictedId": "compute_ocr_3",
+            "expectedType": "compute",
+            "predictedType": "compute",
+            "typeCorrect": true,
+            "iou": 0.3309
+          },
+          {
+            "expectedId": "cognito",
+            "predictedId": "identity_provider_ocr_1",
+            "expectedType": "identity_provider",
+            "predictedType": "identity_provider",
+            "typeCorrect": true,
+            "iou": 0.3287
+          },
+          {
+            "expectedId": "transcoder",
+            "predictedId": "compute_ocr_5",
+            "expectedType": "compute",
+            "predictedType": "compute",
+            "typeCorrect": true,
+            "iou": 0.2813
+          },
+          {
+            "expectedId": "media",
+            "predictedId": "compute_ocr_6",
+            "expectedType": "compute",
+            "predictedType": "compute",
+            "typeCorrect": true,
+            "iou": 0.2785
+          },
+          {
+            "expectedId": "email",
+            "predictedId": "queue_ocr_2",
+            "expectedType": "queue",
+            "predictedType": "queue",
+            "typeCorrect": true,
+            "iou": 0.2775
+          }
+        ],
+        "expected": 16,
+        "predicted": 21,
+        "localized": 12,
+        "typeCorrect": 12,
+        "localizationRecall": 0.75,
+        "typedRecall": 0.75,
+        "precision": 0.5714285714285714
+      },
+      "threats": {
+        "expected": 47,
+        "predicted": 51,
+        "correct": 21,
+        "missing": 26,
+        "extra": 30,
+        "precision": 0.4117647058823529,
+        "recall": 0.44680851063829785,
+        "f1": 0.42857142857142855,
+        "correctSignatures": [
+          "Denial of Service|Database present without explicit backup component|architecture",
+          "Denial of Service|Public flow without explicit WAF or edge filtering|architecture",
+          "Denial of Service|Queue can be flooded with messages|email",
+          "Elevation of Privilege|Compromised workload can gain broader permissions|media",
+          "Elevation of Privilege|Compromised workload can gain broader permissions|transcoder",
+          "Elevation of Privilege|Compromised workload can gain broader permissions|trigger1",
+          "Elevation of Privilege|Compromised workload can gain broader permissions|trigger2",
+          "Elevation of Privilege|Compromised workload can gain broader permissions|trigger3",
+          "Information Disclosure|Backend-to-database flow can expose sensitive data|architecture",
+          "Repudiation|Architecture lacks explicit monitoring or logging component|architecture",
+          "Repudiation|Backend actions may not be attributable|media",
+          "Repudiation|Backend actions may not be attributable|transcoder",
+          "Repudiation|Backend actions may not be attributable|trigger1",
+          "Repudiation|Backend actions may not be attributable|trigger2",
+          "Repudiation|Backend actions may not be attributable|trigger3",
+          "Tampering|Application code or configuration can be changed|media",
+          "Tampering|Application code or configuration can be changed|transcoder",
+          "Tampering|Application code or configuration can be changed|trigger1",
+          "Tampering|Application code or configuration can be changed|trigger2",
+          "Tampering|Application code or configuration can be changed|trigger3",
+          "Tampering|Messages can be altered or replayed|email"
+        ],
+        "missingSignatures": [
+          "Denial of Service|API endpoint can be overloaded|api",
+          "Denial of Service|Database can be exhausted by expensive queries|database",
+          "Elevation of Privilege|Compromised workload can gain broader permissions|business1",
+          "Elevation of Privilege|Compromised workload can gain broader permissions|business2",
+          "Elevation of Privilege|Compromised workload can gain broader permissions|upload",
+          "Elevation of Privilege|Excessive roles can grant unauthorized access|cognito",
+          "Information Disclosure|API responses can expose sensitive data|api",
+          "Information Disclosure|Object storage can expose private files|stage1",
+          "Information Disclosure|Object storage can expose private files|stage2",
+          "Information Disclosure|Object storage can expose private files|stage3",
+          "Information Disclosure|Sensitive records can be exposed|database",
+          "Repudiation|Backend actions may not be attributable|business1",
+          "Repudiation|Backend actions may not be attributable|business2",
+          "Repudiation|Backend actions may not be attributable|upload",
+          "Repudiation|User actions may not be traceable|mobile",
+          "Spoofing|API clients can forge identity or tokens|api",
+          "Spoofing|Identity provider compromise impacts all dependent services|cognito",
+          "Spoofing|User identity can be impersonated|mobile",
+          "Tampering|Application code or configuration can be changed|business1",
+          "Tampering|Application code or configuration can be changed|business2",
+          "Tampering|Application code or configuration can be changed|upload",
+          "Tampering|Data can be changed without integrity controls|database",
+          "Tampering|Request payload can be modified before reaching backend|api",
+          "Tampering|Stored artifacts can be modified|stage1",
+          "Tampering|Stored artifacts can be modified|stage2",
+          "Tampering|Stored artifacts can be modified|stage3"
+        ],
+        "extraSignatures": [
+          "Denial of Service|Database can be exhausted by expensive queries|unmatched::database_1",
+          "Denial of Service|Queue can be flooded with messages|unmatched::queue_1",
+          "Elevation of Privilege|Compromised workload can gain broader permissions|unmatched::compute_1",
+          "Elevation of Privilege|Compromised workload can gain broader permissions|unmatched::compute_2",
+          "Elevation of Privilege|Compromised workload can gain broader permissions|unmatched::compute_ocr_8",
+          "Elevation of Privilege|Compromised workload can gain broader permissions|unmatched::compute_ocr_9",
+          "Information Disclosure|AWS databases can expose data through public access or weak security groups|database",
+          "Information Disclosure|AWS databases can expose data through public access or weak security groups|unmatched::database_ocr_2",
+          "Information Disclosure|Object storage can expose private files|unmatched::storage_1",
+          "Information Disclosure|S3-style storage can leak data through bucket policy drift|stage1",
+          "Information Disclosure|S3-style storage can leak data through bucket policy drift|stage2",
+          "Information Disclosure|S3-style storage can leak data through bucket policy drift|stage3",
+          "Information Disclosure|Sensitive records can be exposed|unmatched::database_1",
+          "Repudiation|Backend actions may not be attributable|unmatched::compute_1",
+          "Repudiation|Backend actions may not be attributable|unmatched::compute_2",
+          "Repudiation|Backend actions may not be attributable|unmatched::compute_ocr_8",
+          "Repudiation|Backend actions may not be attributable|unmatched::compute_ocr_9",
+          "Repudiation|User actions may not be traceable|unmatched::user_ocr_1",
+          "Spoofing|AWS API Gateway can accept forged identity tokens if authorizers are weak|api",
+          "Spoofing|Federated identities can be abused if trust policy or IdP validation is weak|cognito",
+          "Spoofing|User identity can be impersonated|unmatched::user_ocr_1",
+          "Tampering|Application code or configuration can be changed|unmatched::compute_1",
+          "Tampering|Application code or configuration can be changed|unmatched::compute_2",
+          "Tampering|Application code or configuration can be changed|unmatched::compute_ocr_8",
+          "Tampering|Application code or configuration can be changed|unmatched::compute_ocr_9",
+          "Tampering|Data can be changed without integrity controls|unmatched::database_1",
+          "Tampering|Messages can be altered or replayed|unmatched::queue_1",
+          "Tampering|Request transformation and mapping templates can introduce weak controls|api",
+          "Tampering|Stored artifacts can be modified|unmatched::storage_1",
+          "Tampering|Trust-boundary flow has an unverified protocol|architecture"
+        ]
+      },
+      "predictedStructure": {
+        "components": 21,
+        "flows": 50,
+        "boundaries": 1
+      }
+    },
+    {
+      "id": "gcp-secure-cloud-run",
+      "provider": "gcp",
+      "image": "data/benchmarks/real-architecture/images/gcp-secure-cloud-run.png",
+      "components": {
+        "matches": [
+          {
+            "expectedId": "firewall",
+            "predictedId": "waf_ocr_2",
+            "expectedType": "waf",
+            "predictedType": "waf",
+            "typeCorrect": true,
+            "iou": 0.6138
+          },
+          {
+            "expectedId": "internet",
+            "predictedId": "internet_ocr_1",
+            "expectedType": "internet",
+            "predictedType": "internet",
+            "typeCorrect": true,
+            "iou": 0.5812
+          },
+          {
+            "expectedId": "cloud_run",
+            "predictedId": "compute_ocr_1",
+            "expectedType": "compute",
+            "predictedType": "compute",
+            "typeCorrect": true,
+            "iou": 0.5719
+          },
+          {
+            "expectedId": "armor",
+            "predictedId": "waf_ocr_1",
+            "expectedType": "waf",
+            "predictedType": "waf",
+            "typeCorrect": true,
+            "iou": 0.5043
+          },
+          {
+            "expectedId": "kms",
+            "predictedId": "secrets_kms_ocr_1",
+            "expectedType": "secrets_kms",
+            "predictedType": "secrets_kms",
+            "typeCorrect": true,
+            "iou": 0.5029
+          },
+          {
+            "expectedId": "logging",
+            "predictedId": "monitoring_ocr_1",
+            "expectedType": "monitoring",
+            "predictedType": "monitoring",
+            "typeCorrect": true,
+            "iou": 0.4786
+          }
+        ],
+        "expected": 12,
+        "predicted": 6,
+        "localized": 6,
+        "typeCorrect": 6,
+        "localizationRecall": 0.5,
+        "typedRecall": 0.5,
+        "precision": 1.0
+      },
+      "threats": {
+        "expected": 27,
+        "predicted": 13,
+        "correct": 11,
+        "missing": 16,
+        "extra": 2,
+        "precision": 0.8461538461538461,
+        "recall": 0.4074074074074074,
+        "f1": 0.5499999999999999,
+        "correctSignatures": [
+          "Denial of Service|Public entry point can be abused by high traffic|internet",
+          "Denial of Service|WAF bypass or weak rate policy can allow abuse|armor",
+          "Denial of Service|WAF bypass or weak rate policy can allow abuse|firewall",
+          "Elevation of Privilege|Compromised workload can gain broader permissions|cloud_run",
+          "Information Disclosure|Logs can contain secrets or personal data|logging",
+          "Repudiation|Backend actions may not be attributable|cloud_run",
+          "Repudiation|Missing or mutable logs reduce forensic capability|logging",
+          "Tampering|Application code or configuration can be changed|cloud_run",
+          "Tampering|Traffic can be altered if transport is weak|internet",
+          "Tampering|Weak WAF policy can allow malicious payloads|armor",
+          "Tampering|Weak WAF policy can allow malicious payloads|firewall"
+        ],
+        "missingSignatures": [
+          "Denial of Service|Load balancer can become a shared bottleneck|load_balancer",
+          "Elevation of Privilege|Compromised workload can gain broader permissions|resource",
+          "Elevation of Privilege|Compromised workload can gain broader permissions|vpc_connector",
+          "Elevation of Privilege|Excessive roles can grant unauthorized access|iam",
+          "Elevation of Privilege|Overbroad key permissions can unlock sensitive systems|kms",
+          "Elevation of Privilege|Overbroad key permissions can unlock sensitive systems|secret_manager",
+          "Information Disclosure|Object storage can expose private files|artifact_registry",
+          "Information Disclosure|Secrets or keys can be exposed|kms",
+          "Information Disclosure|Secrets or keys can be exposed|secret_manager",
+          "Repudiation|Backend actions may not be attributable|resource",
+          "Repudiation|Backend actions may not be attributable|vpc_connector",
+          "Spoofing|Identity provider compromise impacts all dependent services|iam",
+          "Tampering|Application code or configuration can be changed|resource",
+          "Tampering|Application code or configuration can be changed|vpc_connector",
+          "Tampering|Stored artifacts can be modified|artifact_registry",
+          "Tampering|Traffic routing can be manipulated|load_balancer"
+        ],
+        "extraSignatures": [
+          "Information Disclosure|Secrets Manager or KMS misuse can expose application secrets|kms",
+          "Tampering|Trust-boundary flow has an unverified protocol|architecture"
+        ]
+      },
+      "predictedStructure": {
+        "components": 6,
+        "flows": 4,
+        "boundaries": 1
+      }
+    },
+    {
+      "id": "generic-cloud-api",
+      "provider": "generic",
+      "image": "dataset/hybrid_v2/images/test/current_arch_test_0000.jpg",
+      "components": {
+        "matches": [
+          {
+            "expectedId": "storage",
+            "predictedId": "storage_1",
+            "expectedType": "storage",
+            "predictedType": "storage",
+            "typeCorrect": true,
+            "iou": 0.9479
+          },
+          {
+            "expectedId": "compute",
+            "predictedId": "compute_1",
+            "expectedType": "compute",
+            "predictedType": "compute",
+            "typeCorrect": true,
+            "iou": 0.9219
+          },
+          {
+            "expectedId": "monitoring",
+            "predictedId": "monitoring_1",
+            "expectedType": "monitoring",
+            "predictedType": "monitoring",
+            "typeCorrect": true,
+            "iou": 0.9036
+          },
+          {
+            "expectedId": "api",
+            "predictedId": "api_gateway_1",
+            "expectedType": "api_gateway",
+            "predictedType": "api_gateway",
+            "typeCorrect": true,
+            "iou": 0.8761
+          },
+          {
+            "expectedId": "cdn",
+            "predictedId": "cdn_1",
+            "expectedType": "cdn",
+            "predictedType": "cdn",
+            "typeCorrect": true,
+            "iou": 0.8665
+          },
+          {
+            "expectedId": "database",
+            "predictedId": "database_1",
+            "expectedType": "database",
+            "predictedType": "database",
+            "typeCorrect": true,
+            "iou": 0.7797
+          },
+          {
+            "expectedId": "user",
+            "predictedId": "user_1",
+            "expectedType": "user",
+            "predictedType": "user",
+            "typeCorrect": true,
+            "iou": 0.6729
+          },
+          {
+            "expectedId": "internet",
+            "predictedId": "internet_1",
+            "expectedType": "internet",
+            "predictedType": "internet",
+            "typeCorrect": true,
+            "iou": 0.6505
+          }
+        ],
+        "expected": 8,
+        "predicted": 8,
+        "localized": 8,
+        "typeCorrect": 8,
+        "localizationRecall": 1.0,
+        "typedRecall": 1.0,
+        "precision": 1.0
+      },
+      "threats": {
+        "expected": 23,
+        "predicted": 23,
+        "correct": 22,
+        "missing": 1,
+        "extra": 1,
+        "precision": 0.9565217391304348,
+        "recall": 0.9565217391304348,
+        "f1": 0.9565217391304348,
+        "correctSignatures": [
+          "Denial of Service|API endpoint can be overloaded|api",
+          "Denial of Service|Database can be exhausted by expensive queries|database",
+          "Denial of Service|Database present without explicit backup component|architecture",
+          "Denial of Service|Public entry point can be abused by high traffic|internet",
+          "Denial of Service|Public flow without explicit WAF or edge filtering|architecture",
+          "Elevation of Privilege|Compromised workload can gain broader permissions|compute",
+          "Information Disclosure|API responses can expose sensitive data|api",
+          "Information Disclosure|Cached content can expose sensitive responses|cdn",
+          "Information Disclosure|Logs can contain secrets or personal data|monitoring",
+          "Information Disclosure|Object storage can expose private files|storage",
+          "Information Disclosure|Sensitive records can be exposed|database",
+          "Repudiation|Backend actions may not be attributable|compute",
+          "Repudiation|Missing or mutable logs reduce forensic capability|monitoring",
+          "Repudiation|User actions may not be traceable|user",
+          "Spoofing|API clients can forge identity or tokens|api",
+          "Spoofing|User identity can be impersonated|user",
+          "Tampering|Application code or configuration can be changed|compute",
+          "Tampering|Data can be changed without integrity controls|database",
+          "Tampering|Origin or cache configuration can be abused|cdn",
+          "Tampering|Request payload can be modified before reaching backend|api",
+          "Tampering|Stored artifacts can be modified|storage",
+          "Tampering|Traffic can be altered if transport is weak|internet"
+        ],
+        "missingSignatures": [
+          "Information Disclosure|Backend-to-database flow can expose sensitive data|architecture"
+        ],
+        "extraSignatures": [
+          "Tampering|Trust-boundary flow has an unverified protocol|architecture"
+        ]
+      },
+      "predictedStructure": {
+        "components": 8,
+        "flows": 13,
+        "boundaries": 1
+      }
+    },
+    {
+      "id": "aws-serverless-async",
+      "provider": "aws",
+      "image": "dataset/raw_kaggle_selected/aws_amazon_elastic_container_service_0001_aug_3.png",
+      "components": {
+        "matches": [
+          {
+            "expectedId": "cognito",
+            "predictedId": "identity_provider_ocr_2",
+            "expectedType": "identity_provider",
+            "predictedType": "identity_provider",
+            "typeCorrect": true,
+            "iou": 0.6354
+          },
+          {
+            "expectedId": "queue",
+            "predictedId": "queue_ocr_1",
+            "expectedType": "queue",
+            "predictedType": "queue",
+            "typeCorrect": true,
+            "iou": 0.6306
+          },
+          {
+            "expectedId": "worker",
+            "predictedId": "compute_ocr_5",
+            "expectedType": "compute",
+            "predictedType": "compute",
+            "typeCorrect": true,
+            "iou": 0.6246
+          },
+          {
+            "expectedId": "fargate",
+            "predictedId": "compute_ocr_6",
+            "expectedType": "compute",
+            "predictedType": "compute",
+            "typeCorrect": true,
+            "iou": 0.6209
+          },
+          {
+            "expectedId": "api",
+            "predictedId": "api_gateway_ocr_1",
+            "expectedType": "api_gateway",
+            "predictedType": "api_gateway",
+            "typeCorrect": true,
+            "iou": 0.5969
+          },
+          {
+            "expectedId": "database",
+            "predictedId": "database_ocr_5",
+            "expectedType": "database",
+            "predictedType": "database",
+            "typeCorrect": true,
+            "iou": 0.5118
+          },
+          {
+            "expectedId": "search_handler",
+            "predictedId": "compute_ocr_4",
+            "expectedType": "compute",
+            "predictedType": "compute",
+            "typeCorrect": true,
+            "iou": 0.5115
+          }
+        ],
+        "expected": 11,
+        "predicted": 20,
+        "localized": 7,
+        "typeCorrect": 7,
+        "localizationRecall": 0.6363636363636364,
+        "typedRecall": 0.6363636363636364,
+        "precision": 0.35
+      },
+      "threats": {
+        "expected": 31,
+        "predicted": 51,
+        "correct": 13,
+        "missing": 18,
+        "extra": 38,
+        "precision": 0.2549019607843137,
+        "recall": 0.41935483870967744,
+        "f1": 0.31707317073170727,
+        "correctSignatures": [
+          "Denial of Service|Database present without explicit backup component|architecture",
+          "Denial of Service|Queue can be flooded with messages|queue",
+          "Elevation of Privilege|Compromised workload can gain broader permissions|fargate",
+          "Elevation of Privilege|Compromised workload can gain broader permissions|search_handler",
+          "Elevation of Privilege|Compromised workload can gain broader permissions|worker",
+          "Information Disclosure|Backend-to-database flow can expose sensitive data|architecture",
+          "Repudiation|Backend actions may not be attributable|fargate",
+          "Repudiation|Backend actions may not be attributable|search_handler",
+          "Repudiation|Backend actions may not be attributable|worker",
+          "Tampering|Application code or configuration can be changed|fargate",
+          "Tampering|Application code or configuration can be changed|search_handler",
+          "Tampering|Application code or configuration can be changed|worker",
+          "Tampering|Messages can be altered or replayed|queue"
+        ],
+        "missingSignatures": [
+          "Denial of Service|API endpoint can be overloaded|api",
+          "Denial of Service|Database can be exhausted by expensive queries|database",
+          "Denial of Service|WAF bypass or weak rate policy can allow abuse|waf",
+          "Elevation of Privilege|Compromised workload can gain broader permissions|api_handler",
+          "Elevation of Privilege|Excessive roles can grant unauthorized access|cognito",
+          "Information Disclosure|API responses can expose sensitive data|api",
+          "Information Disclosure|Logs can contain secrets or personal data|cloudwatch",
+          "Information Disclosure|Object storage can expose private files|catalog",
+          "Information Disclosure|Sensitive records can be exposed|database",
+          "Repudiation|Backend actions may not be attributable|api_handler",
+          "Repudiation|Missing or mutable logs reduce forensic capability|cloudwatch",
+          "Spoofing|API clients can forge identity or tokens|api",
+          "Spoofing|Identity provider compromise impacts all dependent services|cognito",
+          "Tampering|Application code or configuration can be changed|api_handler",
+          "Tampering|Data can be changed without integrity controls|database",
+          "Tampering|Request payload can be modified before reaching backend|api",
+          "Tampering|Stored artifacts can be modified|catalog",
+          "Tampering|Weak WAF policy can allow malicious payloads|waf"
+        ],
+        "extraSignatures": [
+          "Denial of Service|Database can be exhausted by expensive queries|unmatched::database_1",
+          "Denial of Service|Database can be exhausted by expensive queries|unmatched::database_2",
+          "Denial of Service|Database can be exhausted by expensive queries|unmatched::database_3",
+          "Denial of Service|Database can be exhausted by expensive queries|unmatched::database_4",
+          "Denial of Service|Load balancer can become a shared bottleneck|unmatched::load_balancer_1",
+          "Denial of Service|WAF bypass or weak rate policy can allow abuse|unmatched::waf_ocr_1",
+          "Elevation of Privilege|Compromised workload can gain broader permissions|unmatched::compute_1",
+          "Elevation of Privilege|Compromised workload can gain broader permissions|unmatched::compute_2",
+          "Elevation of Privilege|Compromised workload can gain broader permissions|unmatched::compute_3",
+          "Elevation of Privilege|Excessive roles can grant unauthorized access|unmatched::identity_provider_1",
+          "Information Disclosure|AWS databases can expose data through public access or weak security groups|database",
+          "Information Disclosure|Logs can contain secrets or personal data|unmatched::monitoring_ocr_1",
+          "Information Disclosure|Logs can contain secrets or personal data|unmatched::monitoring_ocr_2",
+          "Information Disclosure|Object storage can expose private files|unmatched::storage_1",
+          "Information Disclosure|Sensitive records can be exposed|unmatched::database_1",
+          "Information Disclosure|Sensitive records can be exposed|unmatched::database_2",
+          "Information Disclosure|Sensitive records can be exposed|unmatched::database_3",
+          "Information Disclosure|Sensitive records can be exposed|unmatched::database_4",
+          "Repudiation|Backend actions may not be attributable|unmatched::compute_1",
+          "Repudiation|Backend actions may not be attributable|unmatched::compute_2",
+          "Repudiation|Backend actions may not be attributable|unmatched::compute_3",
+          "Repudiation|Missing or mutable logs reduce forensic capability|unmatched::monitoring_ocr_1",
+          "Repudiation|Missing or mutable logs reduce forensic capability|unmatched::monitoring_ocr_2",
+          "Spoofing|AWS API Gateway can accept forged identity tokens if authorizers are weak|api",
+          "Spoofing|Federated identities can be abused if trust policy or IdP validation is weak|cognito",
+          "Spoofing|Identity provider compromise impacts all dependent services|unmatched::identity_provider_1",
+          "Tampering|Application code or configuration can be changed|unmatched::compute_1",
+          "Tampering|Application code or configuration can be changed|unmatched::compute_2",
+          "Tampering|Application code or configuration can be changed|unmatched::compute_3",
+          "Tampering|Data can be changed without integrity controls|unmatched::database_1",
+          "Tampering|Data can be changed without integrity controls|unmatched::database_2",
+          "Tampering|Data can be changed without integrity controls|unmatched::database_3",
+          "Tampering|Data can be changed without integrity controls|unmatched::database_4",
+          "Tampering|Request transformation and mapping templates can introduce weak controls|api",
+          "Tampering|Stored artifacts can be modified|unmatched::storage_1",
+          "Tampering|Traffic routing can be manipulated|unmatched::load_balancer_1",
+          "Tampering|Trust-boundary flow has an unverified protocol|architecture",
+          "Tampering|Weak WAF policy can allow malicious payloads|unmatched::waf_ocr_1"
+        ]
+      },
+      "predictedStructure": {
+        "components": 20,
+        "flows": 37,
+        "boundaries": 3
+      }
+    },
+    {
+      "id": "aws-eks-platform",
+      "provider": "aws",
+      "image": "dataset/raw_kaggle_selected/aws_amazon_elastic_kubernetes_service_0005_aug_4.png",
+      "components": {
+        "matches": [
+          {
+            "expectedId": "glue",
+            "predictedId": "compute_ocr_6",
+            "expectedType": "compute",
+            "predictedType": "compute",
+            "typeCorrect": true,
+            "iou": 0.5731
+          },
+          {
+            "expectedId": "visualization",
+            "predictedId": "monitoring_ocr_1",
+            "expectedType": "monitoring",
+            "predictedType": "monitoring",
+            "typeCorrect": true,
+            "iou": 0.486
+          },
+          {
+            "expectedId": "sagemaker",
+            "predictedId": "compute_ocr_3",
+            "expectedType": "compute",
+            "predictedType": "compute",
+            "typeCorrect": true,
+            "iou": 0.427
+          },
+          {
+            "expectedId": "notebook",
+            "predictedId": "compute_ocr_5",
+            "expectedType": "compute",
+            "predictedType": "compute",
+            "typeCorrect": true,
+            "iou": 0.2695
+          },
+          {
+            "expectedId": "lambda",
+            "predictedId": "compute_ocr_4",
+            "expectedType": "compute",
+            "predictedType": "compute",
+            "typeCorrect": true,
+            "iou": 0.2652
+          },
+          {
+            "expectedId": "processed",
+            "predictedId": "queue_2",
+            "expectedType": "storage",
+            "predictedType": "queue",
+            "typeCorrect": false,
+            "iou": 0.507
+          }
+        ],
+        "expected": 14,
+        "predicted": 20,
+        "localized": 6,
+        "typeCorrect": 5,
+        "localizationRecall": 0.42857142857142855,
+        "typedRecall": 0.35714285714285715,
+        "precision": 0.3
+      },
+      "threats": {
+        "expected": 41,
+        "predicted": 45,
+        "correct": 16,
+        "missing": 25,
+        "extra": 29,
+        "precision": 0.35555555555555557,
+        "recall": 0.3902439024390244,
+        "f1": 0.37209302325581395,
+        "correctSignatures": [
+          "Denial of Service|Database present without explicit backup component|architecture",
+          "Elevation of Privilege|Compromised workload can gain broader permissions|glue",
+          "Elevation of Privilege|Compromised workload can gain broader permissions|lambda",
+          "Elevation of Privilege|Compromised workload can gain broader permissions|notebook",
+          "Elevation of Privilege|Compromised workload can gain broader permissions|sagemaker",
+          "Information Disclosure|Backend-to-database flow can expose sensitive data|architecture",
+          "Information Disclosure|Logs can contain secrets or personal data|visualization",
+          "Repudiation|Backend actions may not be attributable|glue",
+          "Repudiation|Backend actions may not be attributable|lambda",
+          "Repudiation|Backend actions may not be attributable|notebook",
+          "Repudiation|Backend actions may not be attributable|sagemaker",
+          "Repudiation|Missing or mutable logs reduce forensic capability|visualization",
+          "Tampering|Application code or configuration can be changed|glue",
+          "Tampering|Application code or configuration can be changed|lambda",
+          "Tampering|Application code or configuration can be changed|notebook",
+          "Tampering|Application code or configuration can be changed|sagemaker"
+        ],
+        "missingSignatures": [
+          "Denial of Service|Database can be exhausted by expensive queries|dynamo",
+          "Denial of Service|Database can be exhausted by expensive queries|rds",
+          "Denial of Service|Database can be exhausted by expensive queries|sql",
+          "Denial of Service|Database can be exhausted by expensive queries|warehouse",
+          "Elevation of Privilege|Compromised workload can gain broader permissions|comprehend",
+          "Elevation of Privilege|Compromised workload can gain broader permissions|external",
+          "Elevation of Privilege|Compromised workload can gain broader permissions|microservices",
+          "Information Disclosure|Object storage can expose private files|processed",
+          "Information Disclosure|Object storage can expose private files|raw",
+          "Information Disclosure|Sensitive records can be exposed|dynamo",
+          "Information Disclosure|Sensitive records can be exposed|rds",
+          "Information Disclosure|Sensitive records can be exposed|sql",
+          "Information Disclosure|Sensitive records can be exposed|warehouse",
+          "Repudiation|Backend actions may not be attributable|comprehend",
+          "Repudiation|Backend actions may not be attributable|external",
+          "Repudiation|Backend actions may not be attributable|microservices",
+          "Tampering|Application code or configuration can be changed|comprehend",
+          "Tampering|Application code or configuration can be changed|external",
+          "Tampering|Application code or configuration can be changed|microservices",
+          "Tampering|Data can be changed without integrity controls|dynamo",
+          "Tampering|Data can be changed without integrity controls|rds",
+          "Tampering|Data can be changed without integrity controls|sql",
+          "Tampering|Data can be changed without integrity controls|warehouse",
+          "Tampering|Stored artifacts can be modified|processed",
+          "Tampering|Stored artifacts can be modified|raw"
+        ],
+        "extraSignatures": [
+          "Denial of Service|Database can be exhausted by expensive queries|unmatched::database_1",
+          "Denial of Service|Load balancer can become a shared bottleneck|unmatched::load_balancer_1",
+          "Denial of Service|Queue can be flooded with messages|processed",
+          "Denial of Service|Queue can be flooded with messages|unmatched::queue_1",
+          "Elevation of Privilege|Compromised workload can gain broader permissions|unmatched::compute_1",
+          "Elevation of Privilege|Compromised workload can gain broader permissions|unmatched::compute_2",
+          "Elevation of Privilege|Excessive roles can grant unauthorized access|unmatched::identity_provider_1",
+          "Elevation of Privilege|Overbroad key permissions can unlock sensitive systems|unmatched::secrets_kms_1",
+          "Elevation of Privilege|Overbroad key permissions can unlock sensitive systems|unmatched::secrets_kms_2",
+          "Information Disclosure|AWS databases can expose data through public access or weak security groups|unmatched::database_ocr_2",
+          "Information Disclosure|AWS databases can expose data through public access or weak security groups|unmatched::database_ocr_3",
+          "Information Disclosure|AWS databases can expose data through public access or weak security groups|unmatched::database_ocr_4",
+          "Information Disclosure|Object storage can expose private files|unmatched::storage_1",
+          "Information Disclosure|S3-style storage can leak data through bucket policy drift|unmatched::storage_ocr_2",
+          "Information Disclosure|S3-style storage can leak data through bucket policy drift|unmatched::storage_ocr_3",
+          "Information Disclosure|Secrets or keys can be exposed|unmatched::secrets_kms_1",
+          "Information Disclosure|Secrets or keys can be exposed|unmatched::secrets_kms_2",
+          "Information Disclosure|Sensitive records can be exposed|unmatched::database_1",
+          "Repudiation|Backend actions may not be attributable|unmatched::compute_1",
+          "Repudiation|Backend actions may not be attributable|unmatched::compute_2",
+          "Spoofing|Identity provider compromise impacts all dependent services|unmatched::identity_provider_1",
+          "Tampering|Application code or configuration can be changed|unmatched::compute_1",
+          "Tampering|Application code or configuration can be changed|unmatched::compute_2",
+          "Tampering|Data can be changed without integrity controls|unmatched::database_1",
+          "Tampering|Messages can be altered or replayed|processed",
+          "Tampering|Messages can be altered or replayed|unmatched::queue_1",
+          "Tampering|Stored artifacts can be modified|unmatched::storage_1",
+          "Tampering|Traffic routing can be manipulated|unmatched::load_balancer_1",
+          "Tampering|Trust-boundary flow has an unverified protocol|architecture"
+        ]
+      },
+      "predictedStructure": {
+        "components": 20,
+        "flows": 33,
+        "boundaries": 2
+      }
+    },
+    {
+      "id": "azure-private-ai-platform",
+      "provider": "azure",
+      "image": "dataset/raw_kaggle_selected/aws_amazon_rds_0005_aug_0.png",
+      "components": {
+        "matches": [
+          {
+            "expectedId": "bastion",
+            "predictedId": "compute_2",
+            "expectedType": "compute",
+            "predictedType": "compute",
+            "typeCorrect": true,
+            "iou": 0.2653
+          },
+          {
+            "expectedId": "app_gateway",
+            "predictedId": "api_gateway_ocr_1",
+            "expectedType": "waf",
+            "predictedType": "api_gateway",
+            "typeCorrect": false,
+            "iou": 0.5489
+          }
+        ],
+        "expected": 12,
+        "predicted": 29,
+        "localized": 2,
+        "typeCorrect": 1,
+        "localizationRecall": 0.16666666666666666,
+        "typedRecall": 0.08333333333333333,
+        "precision": 0.06896551724137931
+      },
+      "threats": {
+        "expected": 33,
+        "predicted": 72,
+        "correct": 5,
+        "missing": 28,
+        "extra": 67,
+        "precision": 0.06944444444444445,
+        "recall": 0.15151515151515152,
+        "f1": 0.09523809523809525,
+        "correctSignatures": [
+          "Denial of Service|Database present without explicit backup component|architecture",
+          "Elevation of Privilege|Compromised workload can gain broader permissions|bastion",
+          "Information Disclosure|Backend-to-database flow can expose sensitive data|architecture",
+          "Repudiation|Backend actions may not be attributable|bastion",
+          "Tampering|Application code or configuration can be changed|bastion"
+        ],
+        "missingSignatures": [
+          "Denial of Service|Database can be exhausted by expensive queries|cosmos",
+          "Denial of Service|WAF bypass or weak rate policy can allow abuse|app_gateway",
+          "Denial of Service|WAF bypass or weak rate policy can allow abuse|firewall",
+          "Elevation of Privilege|Compromised workload can gain broader permissions|app_service",
+          "Elevation of Privilege|Compromised workload can gain broader permissions|build_agents",
+          "Elevation of Privilege|Compromised workload can gain broader permissions|foundry_agent",
+          "Elevation of Privilege|Compromised workload can gain broader permissions|openai",
+          "Elevation of Privilege|Overbroad key permissions can unlock sensitive systems|key_vault",
+          "Information Disclosure|Object storage can expose private files|ai_search",
+          "Information Disclosure|Object storage can expose private files|storage",
+          "Information Disclosure|Secrets or keys can be exposed|key_vault",
+          "Information Disclosure|Sensitive records can be exposed|cosmos",
+          "Repudiation|Architecture lacks explicit monitoring or logging component|architecture",
+          "Repudiation|Backend actions may not be attributable|app_service",
+          "Repudiation|Backend actions may not be attributable|build_agents",
+          "Repudiation|Backend actions may not be attributable|foundry_agent",
+          "Repudiation|Backend actions may not be attributable|openai",
+          "Repudiation|User actions may not be traceable|user",
+          "Spoofing|User identity can be impersonated|user",
+          "Tampering|Application code or configuration can be changed|app_service",
+          "Tampering|Application code or configuration can be changed|build_agents",
+          "Tampering|Application code or configuration can be changed|foundry_agent",
+          "Tampering|Application code or configuration can be changed|openai",
+          "Tampering|Data can be changed without integrity controls|cosmos",
+          "Tampering|Stored artifacts can be modified|ai_search",
+          "Tampering|Stored artifacts can be modified|storage",
+          "Tampering|Weak WAF policy can allow malicious payloads|app_gateway",
+          "Tampering|Weak WAF policy can allow malicious payloads|firewall"
+        ],
+        "extraSignatures": [
+          "Denial of Service|Database can be exhausted by expensive queries|unmatched::database_1",
+          "Denial of Service|Database can be exhausted by expensive queries|unmatched::database_2",
+          "Denial of Service|Database can be exhausted by expensive queries|unmatched::database_3",
+          "Denial of Service|Database can be exhausted by expensive queries|unmatched::database_4",
+          "Denial of Service|Load balancer can become a shared bottleneck|unmatched::load_balancer_1",
+          "Denial of Service|Load balancer can become a shared bottleneck|unmatched::load_balancer_2",
+          "Denial of Service|Public entry point can be abused by high traffic|unmatched::internet_ocr_1",
+          "Denial of Service|WAF bypass or weak rate policy can allow abuse|unmatched::waf_ocr_1",
+          "Elevation of Privilege|Compromised workload can gain broader permissions|unmatched::compute_1",
+          "Elevation of Privilege|Compromised workload can gain broader permissions|unmatched::compute_3",
+          "Elevation of Privilege|Compromised workload can gain broader permissions|unmatched::compute_4",
+          "Elevation of Privilege|Compromised workload can gain broader permissions|unmatched::compute_5",
+          "Elevation of Privilege|Compromised workload can gain broader permissions|unmatched::compute_ocr_10",
+          "Elevation of Privilege|Compromised workload can gain broader permissions|unmatched::compute_ocr_11",
+          "Elevation of Privilege|Compromised workload can gain broader permissions|unmatched::compute_ocr_6",
+          "Elevation of Privilege|Compromised workload can gain broader permissions|unmatched::compute_ocr_7",
+          "Elevation of Privilege|Compromised workload can gain broader permissions|unmatched::compute_ocr_8",
+          "Elevation of Privilege|Compromised workload can gain broader permissions|unmatched::compute_ocr_9",
+          "Elevation of Privilege|Overbroad key permissions can unlock sensitive systems|unmatched::secrets_kms_ocr_1",
+          "Information Disclosure|Azure databases can leak data if private endpoints are not used|unmatched::database_ocr_5",
+          "Information Disclosure|Logs can contain secrets or personal data|unmatched::monitoring_1",
+          "Information Disclosure|Object storage can expose private files|unmatched::storage_ocr_1",
+          "Information Disclosure|Object storage can expose private files|unmatched::storage_ocr_2",
+          "Information Disclosure|Object storage can expose private files|unmatched::storage_ocr_3",
+          "Information Disclosure|Secrets or keys can be exposed|unmatched::secrets_kms_ocr_1",
+          "Information Disclosure|Sensitive records can be exposed|unmatched::database_1",
+          "Information Disclosure|Sensitive records can be exposed|unmatched::database_2",
+          "Information Disclosure|Sensitive records can be exposed|unmatched::database_3",
+          "Information Disclosure|Sensitive records can be exposed|unmatched::database_4",
+          "Repudiation|Backend actions may not be attributable|unmatched::compute_1",
+          "Repudiation|Backend actions may not be attributable|unmatched::compute_3",
+          "Repudiation|Backend actions may not be attributable|unmatched::compute_4",
+          "Repudiation|Backend actions may not be attributable|unmatched::compute_5",
+          "Repudiation|Backend actions may not be attributable|unmatched::compute_ocr_10",
+          "Repudiation|Backend actions may not be attributable|unmatched::compute_ocr_11",
+          "Repudiation|Backend actions may not be attributable|unmatched::compute_ocr_6",
+          "Repudiation|Backend actions may not be attributable|unmatched::compute_ocr_7",
+          "Repudiation|Backend actions may not be attributable|unmatched::compute_ocr_8",
+          "Repudiation|Backend actions may not be attributable|unmatched::compute_ocr_9",
+          "Repudiation|Logging gaps in Azure Monitor/App Insights reduce forensic visibility|unmatched::monitoring_ocr_2",
+          "Repudiation|Missing or mutable logs reduce forensic capability|unmatched::monitoring_1",
+          "Repudiation|User actions may not be traceable|unmatched::user_ocr_1",
+          "Spoofing|Azure API Management can be abused when JWT validation or subscription enforcement is weak|app_gateway",
+          "Spoofing|Azure API Management can be abused when JWT validation or subscription enforcement is weak|unmatched::api_gateway_ocr_2",
+          "Spoofing|User identity can be impersonated|unmatched::user_ocr_1",
+          "Tampering|Application code or configuration can be changed|unmatched::compute_1",
+          "Tampering|Application code or configuration can be changed|unmatched::compute_3",
+          "Tampering|Application code or configuration can be changed|unmatched::compute_4",
+          "Tampering|Application code or configuration can be changed|unmatched::compute_5",
+          "Tampering|Application code or configuration can be changed|unmatched::compute_ocr_10",
+          "Tampering|Application code or configuration can be changed|unmatched::compute_ocr_11",
+          "Tampering|Application code or configuration can be changed|unmatched::compute_ocr_6",
+          "Tampering|Application code or configuration can be changed|unmatched::compute_ocr_7",
+          "Tampering|Application code or configuration can be changed|unmatched::compute_ocr_8",
+          "Tampering|Application code or configuration can be changed|unmatched::compute_ocr_9",
+          "Tampering|Data can be changed without integrity controls|unmatched::database_1",
+          "Tampering|Data can be changed without integrity controls|unmatched::database_2",
+          "Tampering|Data can be changed without integrity controls|unmatched::database_3",
+          "Tampering|Data can be changed without integrity controls|unmatched::database_4",
+          "Tampering|Stored artifacts can be modified|unmatched::storage_ocr_1",
+          "Tampering|Stored artifacts can be modified|unmatched::storage_ocr_2",
+          "Tampering|Stored artifacts can be modified|unmatched::storage_ocr_3",
+          "Tampering|Traffic can be altered if transport is weak|unmatched::internet_ocr_1",
+          "Tampering|Traffic routing can be manipulated|unmatched::load_balancer_1",
+          "Tampering|Traffic routing can be manipulated|unmatched::load_balancer_2",
+          "Tampering|Trust-boundary flow has an unverified protocol|architecture",
+          "Tampering|Weak WAF policy can allow malicious payloads|unmatched::waf_ocr_1"
+        ]
+      },
+      "predictedStructure": {
+        "components": 29,
+        "flows": 89,
+        "boundaries": 1
+      }
+    },
+    {
+      "id": "azure-hub-spoke",
+      "provider": "azure",
+      "image": "dataset/raw_kaggle_selected/gcp_google_kubernetes_engine_0004_aug_2.png",
+      "components": {
+        "matches": [
+          {
+            "expectedId": "bastion",
+            "predictedId": "compute_7",
+            "expectedType": "compute",
+            "predictedType": "compute",
+            "typeCorrect": true,
+            "iou": 0.5221
+          },
+          {
+            "expectedId": "firewall",
+            "predictedId": "compute_2",
+            "expectedType": "waf",
+            "predictedType": "compute",
+            "typeCorrect": false,
+            "iou": 0.4497
+          },
+          {
+            "expectedId": "gateway",
+            "predictedId": "storage_1",
+            "expectedType": "api_gateway",
+            "predictedType": "storage",
+            "typeCorrect": false,
+            "iou": 0.3234
+          }
+        ],
+        "expected": 8,
+        "predicted": 10,
+        "localized": 3,
+        "typeCorrect": 1,
+        "localizationRecall": 0.375,
+        "typedRecall": 0.125,
+        "precision": 0.3
+      },
+      "threats": {
+        "expected": 25,
+        "predicted": 29,
+        "correct": 3,
+        "missing": 22,
+        "extra": 26,
+        "precision": 0.10344827586206896,
+        "recall": 0.12,
+        "f1": 0.11111111111111112,
+        "correctSignatures": [
+          "Elevation of Privilege|Compromised workload can gain broader permissions|bastion",
+          "Repudiation|Backend actions may not be attributable|bastion",
+          "Tampering|Application code or configuration can be changed|bastion"
+        ],
+        "missingSignatures": [
+          "Denial of Service|API endpoint can be overloaded|gateway",
+          "Denial of Service|Public entry point can be abused by high traffic|onprem",
+          "Denial of Service|WAF bypass or weak rate policy can allow abuse|firewall",
+          "Elevation of Privilege|Compromised workload can gain broader permissions|nonprod2_vm",
+          "Elevation of Privilege|Compromised workload can gain broader permissions|nonprod_vm",
+          "Elevation of Privilege|Compromised workload can gain broader permissions|prod2_vm",
+          "Elevation of Privilege|Compromised workload can gain broader permissions|prod_vm",
+          "Information Disclosure|API responses can expose sensitive data|gateway",
+          "Repudiation|Architecture lacks explicit monitoring or logging component|architecture",
+          "Repudiation|Backend actions may not be attributable|nonprod2_vm",
+          "Repudiation|Backend actions may not be attributable|nonprod_vm",
+          "Repudiation|Backend actions may not be attributable|prod2_vm",
+          "Repudiation|Backend actions may not be attributable|prod_vm",
+          "Spoofing|API clients can forge identity or tokens|gateway",
+          "Spoofing|Internet-facing API requires strong authentication controls|architecture",
+          "Tampering|Application code or configuration can be changed|nonprod2_vm",
+          "Tampering|Application code or configuration can be changed|nonprod_vm",
+          "Tampering|Application code or configuration can be changed|prod2_vm",
+          "Tampering|Application code or configuration can be changed|prod_vm",
+          "Tampering|Request payload can be modified before reaching backend|gateway",
+          "Tampering|Traffic can be altered if transport is weak|onprem",
+          "Tampering|Weak WAF policy can allow malicious payloads|firewall"
+        ],
+        "extraSignatures": [
+          "Denial of Service|Database can be exhausted by expensive queries|unmatched::database_1",
+          "Denial of Service|Database present without explicit backup component|architecture",
+          "Elevation of Privilege|Compromised workload can gain broader permissions|firewall",
+          "Elevation of Privilege|Compromised workload can gain broader permissions|unmatched::compute_1",
+          "Elevation of Privilege|Compromised workload can gain broader permissions|unmatched::compute_3",
+          "Elevation of Privilege|Compromised workload can gain broader permissions|unmatched::compute_4",
+          "Elevation of Privilege|Compromised workload can gain broader permissions|unmatched::compute_5",
+          "Elevation of Privilege|Compromised workload can gain broader permissions|unmatched::compute_6",
+          "Information Disclosure|Backend-to-database flow can expose sensitive data|architecture",
+          "Information Disclosure|Object storage can expose private files|gateway",
+          "Information Disclosure|Sensitive records can be exposed|unmatched::database_1",
+          "Repudiation|Backend actions may not be attributable|firewall",
+          "Repudiation|Backend actions may not be attributable|unmatched::compute_1",
+          "Repudiation|Backend actions may not be attributable|unmatched::compute_3",
+          "Repudiation|Backend actions may not be attributable|unmatched::compute_4",
+          "Repudiation|Backend actions may not be attributable|unmatched::compute_5",
+          "Repudiation|Backend actions may not be attributable|unmatched::compute_6",
+          "Repudiation|Logging gaps in Azure Monitor/App Insights reduce forensic visibility|unmatched::monitoring_ocr_1",
+          "Tampering|Application code or configuration can be changed|firewall",
+          "Tampering|Application code or configuration can be changed|unmatched::compute_1",
+          "Tampering|Application code or configuration can be changed|unmatched::compute_3",
+          "Tampering|Application code or configuration can be changed|unmatched::compute_4",
+          "Tampering|Application code or configuration can be changed|unmatched::compute_5",
+          "Tampering|Application code or configuration can be changed|unmatched::compute_6",
+          "Tampering|Data can be changed without integrity controls|unmatched::database_1",
+          "Tampering|Stored artifacts can be modified|gateway"
+        ]
+      },
+      "predictedStructure": {
+        "components": 10,
+        "flows": 18,
+        "boundaries": 0
+      }
+    }
+  ],
+  "interpretation": "Threat correctness is evaluated after the full supervised detector -> graph -> STRIDE chain. Expected STRIDE cases are generated from human-annotated architecture facts with the same versioned rule base."
+}

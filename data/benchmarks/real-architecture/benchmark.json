@@ -1,0 +1,116 @@
+{
+  "schemaVersion": "1.0",
+  "annotationMethod": "Manual review of visible primary architecture nodes, arrows, rectangular zones, and explicit protocol labels.",
+  "limitations": [
+    "The source dataset images contain augmentation overlays that are not part of the primary architecture.",
+    "Only unambiguous primary-diagram flows are annotated.",
+    "Component boxes are supplied as ground truth to isolate structure and OCR quality from object detection."
+  ],
+  "entries": [
+    {
+      "id": "azure-container-edge",
+      "provider": "azure",
+      "sourceGroup": "azure_container_instances_0004",
+      "split": "reserved_test_group",
+      "image": "dataset/hybrid_v2/images/test/kaggle_unique_kaggle_azure_container_instances_0004_aug_2.png",
+      "annotationSize": [886, 590],
+      "components": [
+        {"id": "clients", "name": "Clients", "type": "user", "bbox": [20, 202, 132, 316]},
+        {"id": "load_balancer", "name": "Azure Load Balancer", "type": "load_balancer", "bbox": [267, 202, 354, 294]},
+        {"id": "application_firewall", "name": "Application Firewall", "type": "waf", "bbox": [342, 171, 490, 285]},
+        {"id": "azure_firewall", "name": "Azure Firewall Premium", "type": "waf", "bbox": [526, 202, 616, 296]},
+        {"id": "virtual_machines", "name": "Azure Virtual Machines", "type": "compute", "bbox": [756, 211, 844, 301]}
+      ],
+      "flows": [
+        {"id": "edge-1", "from": "clients", "to": "load_balancer"},
+        {"id": "edge-2", "from": "load_balancer", "to": "application_firewall"},
+        {"id": "edge-3", "from": "application_firewall", "to": "azure_firewall"},
+        {"id": "edge-4", "from": "azure_firewall", "to": "virtual_machines"}
+      ],
+      "boundaries": [],
+      "protocols": [
+        {"flowId": "edge-1", "value": "HTTPS", "evidenceText": "HTTPS"},
+        {"flowId": "edge-4", "value": "HTTPS", "evidenceText": "HTTPS"}
+      ]
+    },
+    {
+      "id": "azure-ai-foundry",
+      "provider": "azure",
+      "sourceGroup": "azure_sql_database_0007",
+      "split": "reserved_test_group",
+      "image": "dataset/raw_kaggle_selected/azure_sql_database_0007_aug_0.png",
+      "annotationSize": [1323, 882],
+      "components": [
+        {"id": "user", "name": "User", "type": "user", "bbox": [126, 281, 204, 353]},
+        {"id": "app_service", "name": "App Service instance", "type": "compute", "bbox": [683, 294, 765, 441]},
+        {"id": "foundry_account", "name": "Azure AI Foundry account", "type": "compute", "bbox": [991, 97, 1094, 253]},
+        {"id": "foundry_agent", "name": "Foundry Agent Service", "type": "compute", "bbox": [988, 304, 1094, 433]},
+        {"id": "openai_model", "name": "Azure OpenAI model", "type": "compute", "bbox": [1005, 525, 1088, 687]},
+        {"id": "ai_search", "name": "Azure AI Search", "type": "storage", "bbox": [1094, 719, 1212, 858]}
+      ],
+      "flows": [
+        {"id": "foundry-1", "from": "user", "to": "app_service"},
+        {"id": "foundry-2", "from": "app_service", "to": "foundry_agent"},
+        {"id": "foundry-3", "from": "foundry_account", "to": "foundry_agent"},
+        {"id": "foundry-4", "from": "foundry_agent", "to": "openai_model"},
+        {"id": "foundry-5", "from": "foundry_agent", "to": "ai_search"}
+      ],
+      "boundaries": [
+        {"id": "app-service-zone", "name": "App Service", "componentIds": ["app_service"]},
+        {"id": "foundry-zone", "name": "Azure AI Foundry", "componentIds": ["foundry_account", "foundry_agent", "openai_model"]},
+        {"id": "foundry-project", "name": "Azure AI Foundry project", "componentIds": ["foundry_agent"]}
+      ],
+      "protocols": [
+        {"flowId": "foundry-1", "value": "HTTPS", "evidenceText": "https://domainname.azurewebsites.net"}
+      ]
+    },
+    {
+      "id": "aws-video-pipeline",
+      "provider": "aws",
+      "sourceGroup": "azure_vm_scale_sets_0001",
+      "split": "reserved_test_group",
+      "image": "dataset/hybrid_v2/images/test/kaggle_unique_kaggle_azure_vm_scale_sets_0001_aug_6.png",
+      "annotationSize": [2048, 1024],
+      "components": [
+        {"id": "mobile", "name": "Mobile Client", "type": "user", "bbox": [244, 464, 286, 535]},
+        {"id": "cognito", "name": "Cognito", "type": "identity_provider", "bbox": [341, 223, 442, 324]},
+        {"id": "api", "name": "API Gateway", "type": "api_gateway", "bbox": [496, 452, 596, 555]},
+        {"id": "upload", "name": "Video Uploads", "type": "compute", "bbox": [794, 309, 895, 412]},
+        {"id": "stage1", "name": "Lake Stage Bucket 1", "type": "storage", "bbox": [949, 312, 1052, 415]},
+        {"id": "trigger1", "name": "Trigger Function 1", "type": "compute", "bbox": [1105, 313, 1206, 417]},
+        {"id": "transcoder", "name": "Elastic Transcoder", "type": "compute", "bbox": [1262, 316, 1363, 420]},
+        {"id": "stage2", "name": "Lake Stage Bucket 2", "type": "storage", "bbox": [1422, 317, 1525, 422]},
+        {"id": "trigger2", "name": "Trigger Function 2", "type": "compute", "bbox": [1589, 320, 1691, 425]},
+        {"id": "media", "name": "AWS Elemental MediaConvert", "type": "compute", "bbox": [1745, 322, 1847, 427]},
+        {"id": "stage3", "name": "Lake Stage Bucket 3", "type": "storage", "bbox": [1917, 325, 2020, 430]},
+        {"id": "business1", "name": "Business Logic Function 1", "type": "compute", "bbox": [789, 596, 890, 701]},
+        {"id": "database", "name": "DocumentDB", "type": "database", "bbox": [1195, 603, 1297, 709]},
+        {"id": "business2", "name": "Business Logic Function 2", "type": "compute", "bbox": [1585, 606, 1686, 713]},
+        {"id": "trigger3", "name": "Trigger Function 3", "type": "compute", "bbox": [1928, 612, 2031, 717]},
+        {"id": "email", "name": "Amazon SES", "type": "queue", "bbox": [832, 835, 936, 941]}
+      ],
+      "flows": [
+        {"id": "video-1", "from": "mobile", "to": "api"},
+        {"id": "video-2", "from": "mobile", "to": "cognito"},
+        {"id": "video-3", "from": "api", "to": "upload"},
+        {"id": "video-4", "from": "upload", "to": "stage1"},
+        {"id": "video-5", "from": "stage1", "to": "trigger1"},
+        {"id": "video-6", "from": "trigger1", "to": "transcoder"},
+        {"id": "video-7", "from": "transcoder", "to": "stage2"},
+        {"id": "video-8", "from": "stage2", "to": "trigger2"},
+        {"id": "video-9", "from": "trigger2", "to": "media"},
+        {"id": "video-10", "from": "media", "to": "stage3"},
+        {"id": "video-11", "from": "stage3", "to": "trigger3"},
+        {"id": "video-12", "from": "trigger3", "to": "business2"},
+        {"id": "video-13", "from": "business2", "to": "database"},
+        {"id": "video-14", "from": "api", "to": "business1"},
+        {"id": "video-15", "from": "business1", "to": "database"},
+        {"id": "video-16", "from": "business1", "to": "email"}
+      ],
+      "boundaries": [
+        {"id": "video-processing", "name": "Video Processing Pipeline", "componentIds": ["upload", "stage1", "trigger1", "transcoder", "stage2", "trigger2", "media", "stage3"]}
+      ],
+      "protocols": []
+    }
+  ]
+}

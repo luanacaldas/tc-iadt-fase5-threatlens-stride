@@ -1,0 +1,47 @@
+{
+  "schemaVersion": "1.0",
+  "generatedAt": "2026-07-21T22:35:57.615569+00:00",
+  "count": 4,
+  "items": [
+    {
+      "path": "data/sample-diagrams/01-simple-api.jpg",
+      "sha256": "03917fa385e5ade4f8550ed2d3e0bc17e8ed35e01804a45edf0a2f8bc4e45292",
+      "bytes": 27184,
+      "source": "current_arch_test_0001",
+      "provenance": "project_generated_known_graph",
+      "seed": 42271,
+      "purpose": "simple",
+      "authorizedForDemo": true
+    },
+    {
+      "path": "data/sample-diagrams/02-mixed-components.jpg",
+      "sha256": "2dabc06f76b9365877fe0860d162407be318329250c0e2e39b3639b6c7d3f124",
+      "bytes": 60883,
+      "source": "current_arch_test_0000",
+      "provenance": "project_generated_known_graph",
+      "seed": 42270,
+      "purpose": "mixed_components",
+      "authorizedForDemo": true
+    },
+    {
+      "path": "data/sample-diagrams/03-security-controls.jpg",
+      "sha256": "7562c20fa6590c6e4ab8ac5ff2d90775285a8d700683eecfd82111bfa5b84cbf",
+      "bytes": 51823,
+      "source": "current_arch_test_0002",
+      "provenance": "project_generated_known_graph",
+      "seed": 42272,
+      "purpose": "multiple_threats",
+      "authorizedForDemo": true
+    },
+    {
+      "path": "data/sample-diagrams/04-dense-pipeline.jpg",
+      "sha256": "14304b8e3aaa937c05fdb8860d76eaab3391112b129085098cc5c4e95be75368",
+      "bytes": 36422,
+      "source": "current_arch_test_0022",
+      "provenance": "project_generated_known_graph",
+      "seed": 42292,
+      "purpose": "dense_limit_case",
+      "authorizedForDemo": true
+    }
+  ]
+}

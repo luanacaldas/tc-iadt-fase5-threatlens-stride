@@ -1,0 +1,209 @@
+{
+  "schemaVersion": "1.0",
+  "evaluatedAt": "2026-07-17T17:28:22.128903+00:00",
+  "model": {
+    "path": "E:\\Tech Challenge IADT - Fase 5 - Hackathon\\models\\threatlens-kaggle-finetune-640\\weights\\best.pt",
+    "sha256": "7dfcb27c9d36ca4b3404b7a2fdff54e11133ac0fb9093b468b90c96540583e5c",
+    "framework": "ultralytics",
+    "classCount": 14
+  },
+  "dataset": {
+    "yaml": "E:\\Tech Challenge IADT - Fase 5 - Hackathon\\dataset\\hybrid_v2\\architecture.yaml",
+    "yamlSha256": "3b1e6426e5045aa2a379eac5649d7d641e54a356244c52f88e8f8e09649587d1",
+    "split": "test"
+  },
+  "settings": {
+    "device": "cpu",
+    "imgsz": 640,
+    "batch": 4
+  },
+  "aggregate": {
+    "precision": 0.47227821273772,
+    "recall": 0.24467383721415978,
+    "map50": 0.29090274478315287,
+    "map50_95": 0.1570562858376754,
+    "fitness": 0.1570562858376754
+  },
+  "perClass": [
+    {
+      "index": 0,
+      "name": "api_gateway",
+      "support": null,
+      "precision": 0.12605661918194516,
+      "recall": 0.037037037037037035,
+      "map50": 0.10304168174309901,
+      "map50_95": 0.05736686977640633
+    },
+    {
+      "index": 1,
+      "name": "backup",
+      "support": null,
+      "precision": 1.0,
+      "recall": 0.0,
+      "map50": 0.13916666666666666,
+      "map50_95": 0.08349999999999999
+    },
+    {
+      "index": 2,
+      "name": "cdn",
+      "support": null,
+      "precision": 0.0,
+      "recall": 0.0,
+      "map50": 0.001,
+      "map50_95": 0.0006000000000000001
+    },
+    {
+      "index": 3,
+      "name": "compute",
+      "support": null,
+      "precision": 0.3553235179586335,
+      "recall": 0.7580645161290323,
+      "map50": 0.6846062924236107,
+      "map50_95": 0.31291430947217147
+    },
+    {
+      "index": 4,
+      "name": "database",
+      "support": null,
+      "precision": 0.6703755526550166,
+      "recall": 0.8958333333333334,
+      "map50": 0.9152920042469653,
+      "map50_95": 0.3259853674905622
+    },
+    {
+      "index": 5,
+      "name": "identity_provider",
+      "support": null,
+      "precision": 0.053183799847313556,
+      "recall": 0.07692307692307693,
+      "map50": 0.03867377711833242,
+      "map50_95": 0.020360224136803023
+    },
+    {
+      "index": 6,
+      "name": "internet",
+      "support": null,
+      "precision": 1.0,
+      "recall": 0.0,
+      "map50": 0.6667999999999998,
+      "map50_95": 0.3570777777777777
+    },
+    {
+      "index": 7,
+      "name": "load_balancer",
+      "support": null,
+      "precision": 0.1581484521569835,
+      "recall": 0.14285714285714285,
+      "map50": 0.14329928942338077,
+      "map50_95": 0.07633440572724598
+    },
+    {
+      "index": 8,
+      "name": "monitoring",
+      "support": null,
+      "precision": 0.3567429124346677,
+      "recall": 0.06666666666666667,
+      "map50": 0.1440591504556799,
+      "map50_95": 0.09327884592900308
+    },
+    {
+      "index": 9,
+      "name": "queue",
+      "support": null,
+      "precision": 0.1304457310374497,
+      "recall": 0.35714285714285715,
+      "map50": 0.11993424013526006,
+      "map50_95": 0.08029656848636539
+    },
+    {
+      "index": 10,
+      "name": "secrets_kms",
+      "support": null,
+      "precision": 0.27895604746381586,
+      "recall": 0.18181818181818182,
+      "map50": 0.3283684210526317,
+      "map50_95": 0.18755344129554663
+    },
+    {
+      "index": 11,
+      "name": "storage",
+      "support": null,
+      "precision": 0.48266234559225457,
+      "recall": 0.9090909090909091,
+      "map50": 0.6593228296244398,
+      "map50_95": 0.5370016731170552
+    },
+    {
+      "index": 12,
+      "name": "user",
+      "support": null,
+      "precision": 1.0,
+      "recall": 0.0,
+      "map50": 0.12407407407407407,
+      "map50_95": 0.06251851851851851
+    },
+    {
+      "index": 13,
+      "name": "waf",
+      "support": null,
+      "precision": 1.0,
+      "recall": 0.0,
+      "map50": 0.005,
+      "map50_95": 0.004
+    }
+  ],
+  "qualityGate": {
+    "passed": false,
+    "checks": [
+      {
+        "name": "aggregate_mAP50",
+        "value": 0.29090274478315287,
+        "minimum": 0.25,
+        "passed": true
+      },
+      {
+        "name": "aggregate_recall",
+        "value": 0.24467383721415978,
+        "minimum": 0.25,
+        "passed": false
+      },
+      {
+        "name": "critical_class_ap50:api_gateway",
+        "value": 0.10304168174309901,
+        "minimum": 0.1,
+        "passed": true
+      },
+      {
+        "name": "critical_class_ap50:compute",
+        "value": 0.6846062924236107,
+        "minimum": 0.1,
+        "passed": true
+      },
+      {
+        "name": "critical_class_ap50:database",
+        "value": 0.9152920042469653,
+        "minimum": 0.1,
+        "passed": true
+      },
+      {
+        "name": "critical_class_ap50:internet",
+        "value": 0.6667999999999998,
+        "minimum": 0.1,
+        "passed": true
+      },
+      {
+        "name": "critical_class_ap50:user",
+        "value": 0.12407407407407407,
+        "minimum": 0.1,
+        "passed": true
+      }
+    ]
+  },
+  "speedMillisecondsPerImage": {
+    "preprocess": 0.8737846154149455,
+    "inference": 46.438633333332874,
+    "loss": 0.00030512820814739173,
+    "postprocess": 0.6498692307617696
+  },
+  "plotsDirectory": "E:\\Tech Challenge IADT - Fase 5 - Hackathon\\data\\results\\threatlens-hybrid-v2-finetuned\\plots"
+}

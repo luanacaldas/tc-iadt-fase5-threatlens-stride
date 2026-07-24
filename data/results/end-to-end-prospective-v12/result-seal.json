@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "1.0",
+  "protocol": "sealed_first_pass_prospective_v12",
+  "evaluatedAt": "2026-07-20T23:02:44.139072+00:00",
+  "result": "data/results/end-to-end-prospective-v12/end-to-end-prospective_holdout.json",
+  "resultSha256": "d6a6f10d5eabd39ff38055d70d74f7f6a7ea2d26abfd1b87eca61e20815ce7fa",
+  "benchmarkSha256": "846cba6ec308403916f5c4da87b9edb62d6f34768aac8971a5ab3562b4fb8e00",
+  "detectorSha256": "10da2309905204a569b9a7719299dbe3d9e2ded1dbda0e23fe3d129272196635",
+  "firstPass": true,
+  "aggregate": {
+    "precision": 0.3111111111111111,
+    "recall": 0.3888888888888889,
+    "f1": 0.34567901234567905,
+    "meanComponentTypedRecall": 0.42246642246642246
+  }
+}

@@ -1,0 +1,173 @@
+{
+  "schemaVersion": "1.0",
+  "evaluatedAt": "2026-07-17T17:53:25.307479+00:00",
+  "model": {
+    "path": "E:\\Tech Challenge IADT - Fase 5 - Hackathon\\models\\threatlens-balanced-replay-v2-640\\weights\\best.pt",
+    "sha256": "2aebcd0611927505d60a10d23ce11d0e5211cf2e91ca0c4394921fac006c865d",
+    "framework": "ultralytics",
+    "classCount": 14
+  },
+  "dataset": {
+    "yaml": "E:\\Tech Challenge IADT - Fase 5 - Hackathon\\data\\results\\threatlens-hybrid-v2-source-slices\\manifests\\kaggle_unique\\architecture.yaml",
+    "yamlSha256": "0a675d0ba8a21bcecafe0353848367e81c8969e9007fd4dc2b15dff276b2df96",
+    "split": "test"
+  },
+  "settings": {
+    "device": "cpu",
+    "imgsz": 640,
+    "batch": 4
+  },
+  "aggregate": {
+    "precision": 0.45500791678552704,
+    "recall": 0.39509620477590257,
+    "map50": 0.3597840551861907,
+    "map50_95": 0.275897927724906,
+    "fitness": 0.275897927724906
+  },
+  "perClass": [
+    {
+      "index": 0,
+      "name": "api_gateway",
+      "support": null,
+      "precision": 1.0,
+      "recall": 0.0,
+      "map50": 0.10264784946236558,
+      "map50_95": 0.08050537634408601
+    },
+    {
+      "index": 2,
+      "name": "cdn",
+      "support": null,
+      "precision": 0.0,
+      "recall": 0.0,
+      "map50": 0.02357142857142857,
+      "map50_95": 0.011785714285714285
+    },
+    {
+      "index": 3,
+      "name": "compute",
+      "support": null,
+      "precision": 0.48632040995004655,
+      "recall": 0.5,
+      "map50": 0.5142020098212505,
+      "map50_95": 0.3692153479936425
+    },
+    {
+      "index": 4,
+      "name": "database",
+      "support": null,
+      "precision": 0.5732877637827013,
+      "recall": 0.5555555555555556,
+      "map50": 0.6763784983895599,
+      "map50_95": 0.5234845256650658
+    },
+    {
+      "index": 5,
+      "name": "identity_provider",
+      "support": null,
+      "precision": 0.23596344905809097,
+      "recall": 0.25,
+      "map50": 0.1336111111111111,
+      "map50_95": 0.12025
+    },
+    {
+      "index": 7,
+      "name": "load_balancer",
+      "support": null,
+      "precision": 0.1846820504781345,
+      "recall": 0.5,
+      "map50": 0.14573275862068963,
+      "map50_95": 0.12271120689655171
+    },
+    {
+      "index": 8,
+      "name": "monitoring",
+      "support": null,
+      "precision": 0.2823473993398432,
+      "recall": 0.11293895973593729,
+      "map50": 0.2895628415300545,
+      "map50_95": 0.1430073273720815
+    },
+    {
+      "index": 9,
+      "name": "queue",
+      "support": null,
+      "precision": 0.5528056735315301,
+      "recall": 0.7142857142857143,
+      "map50": 0.5827726471059804,
+      "map50_95": 0.4913693522526856
+    },
+    {
+      "index": 10,
+      "name": "secrets_kms",
+      "support": null,
+      "precision": 0.3372727343529466,
+      "recall": 0.5,
+      "map50": 0.3189285714285715,
+      "map50_95": 0.26560714285714293
+    },
+    {
+      "index": 11,
+      "name": "storage",
+      "support": null,
+      "precision": 0.8973996873619771,
+      "recall": 0.8181818181818182,
+      "map50": 0.8104328358208955,
+      "map50_95": 0.6310432835820896
+    }
+  ],
+  "qualityGate": {
+    "passed": true,
+    "checks": [
+      {
+        "name": "aggregate_mAP50",
+        "value": 0.3597840551861907,
+        "minimum": 0.0,
+        "passed": true
+      },
+      {
+        "name": "aggregate_recall",
+        "value": 0.39509620477590257,
+        "minimum": 0.0,
+        "passed": true
+      },
+      {
+        "name": "critical_class_ap50:api_gateway",
+        "value": 0.10264784946236558,
+        "minimum": 0.0,
+        "passed": true
+      },
+      {
+        "name": "critical_class_ap50:compute",
+        "value": 0.5142020098212505,
+        "minimum": 0.0,
+        "passed": true
+      },
+      {
+        "name": "critical_class_ap50:database",
+        "value": 0.6763784983895599,
+        "minimum": 0.0,
+        "passed": true
+      },
+      {
+        "name": "critical_class_ap50:internet",
+        "value": 0.0,
+        "minimum": 0.0,
+        "passed": true
+      },
+      {
+        "name": "critical_class_ap50:user",
+        "value": 0.0,
+        "minimum": 0.0,
+        "passed": true
+      }
+    ]
+  },
+  "speedMillisecondsPerImage": {
+    "preprocess": 0.8674555554332781,
+    "inference": 47.935733333360986,
+    "loss": 0.0003444445408402114,
+    "postprocess": 0.856644444461886
+  },
+  "plotsDirectory": "E:\\Tech Challenge IADT - Fase 5 - Hackathon\\data\\results\\threatlens-hybrid-v2-source-slices\\kaggle_unique\\plots"
+}

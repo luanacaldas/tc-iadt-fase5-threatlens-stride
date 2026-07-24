@@ -1,0 +1,56 @@
+{
+  "output_root": "E:\\Tech Challenge IADT - Fase 5 - Hackathon\\dataset\\hybrid_v1",
+  "classes": [
+    "api_gateway",
+    "backup",
+    "cdn",
+    "compute",
+    "database",
+    "identity_provider",
+    "internet",
+    "load_balancer",
+    "monitoring",
+    "queue",
+    "secrets_kms",
+    "storage",
+    "user",
+    "waf"
+  ],
+  "total_images": 519,
+  "split_images": {
+    "train": 375,
+    "val": 87,
+    "test": 57
+  },
+  "source_images": {
+    "current": {
+      "train": 210,
+      "val": 60,
+      "test": 30
+    },
+    "kaggle": {
+      "train": 165,
+      "val": 27,
+      "test": 27
+    }
+  },
+  "class_distribution": {
+    "user": 300,
+    "identity_provider": 192,
+    "api_gateway": 338,
+    "compute": 1093,
+    "database": 732,
+    "monitoring": 220,
+    "backup": 93,
+    "internet": 247,
+    "storage": 378,
+    "waf": 175,
+    "secrets_kms": 161,
+    "cdn": 130,
+    "load_balancer": 266,
+    "queue": 235
+  },
+  "provenance_rows": 519,
+  "leakage_groups": [],
+  "link_mode": "hardlink"
+}

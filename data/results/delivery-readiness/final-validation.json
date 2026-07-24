@@ -1,0 +1,158 @@
+{
+  "schemaVersion": "1.0",
+  "generatedAt": "2026-07-21T22:35:57.615569+00:00",
+  "testsRun": 338,
+  "testFailures": 0,
+  "checks": {
+    "tests": "PASS",
+    "globalVerifier": "PASS",
+    "v15Gate": "PASS",
+    "prospectiveV12Integrity": "PASS",
+    "prospectiveV12ManifestHashes": "PASS",
+    "legacySnapshot": "PASS",
+    "protectedTLHashes": "PASS",
+    "smoke": "PASS",
+    "security": "PASS",
+    "docker": "BLOCKED",
+    "holdoutsExecuted": false
+  },
+  "v15GateReport": "data/results/v15-regression-gate/delivery-001/gate-report.json",
+  "legacySnapshotSha256": "fbfdf20d136141a3759ee148d37682a4b35b9dd72e4725499d705413088ee8c2",
+  "protectedTLIntegrity": {
+    "status": "PASS",
+    "checks": [
+      {
+        "path": "backend/geometric_events.py",
+        "expectedSha256": "47e33d81208e744c46db37b58230277479ccb0630b74df1abd4d39ce9928c180",
+        "actualSha256": "47e33d81208e744c46db37b58230277479ccb0630b74df1abd4d39ce9928c180",
+        "passed": true
+      },
+      {
+        "path": "backend/endpoint_validation.py",
+        "expectedSha256": "9b85458b3428ae2dd08c57e2cc17b58519c23779a98e56ffde7613d35860a66d",
+        "actualSha256": "9b85458b3428ae2dd08c57e2cc17b58519c23779a98e56ffde7613d35860a66d",
+        "passed": true
+      },
+      {
+        "path": "backend/intersection_validation.py",
+        "expectedSha256": "545994754617bdf9478850c88edd247a3f3239c0a8c19bd4557deee13fafbf0e",
+        "actualSha256": "545994754617bdf9478850c88edd247a3f3239c0a8c19bd4557deee13fafbf0e",
+        "passed": true
+      },
+      {
+        "path": "backend/shared_trunk_reconstruction.py",
+        "expectedSha256": "9430a46d70ad2438864cefba4477bf71f69840aa93b2208a58d1fb9b514493e3",
+        "actualSha256": "9430a46d70ad2438864cefba4477bf71f69840aa93b2208a58d1fb9b514493e3",
+        "passed": true
+      },
+      {
+        "path": "backend/transitive_shortcut_validation.py",
+        "expectedSha256": "4ceb879941a5c1e7c1d5ac69fd7c36eaf6d1a8b0bf7da7b98c5cd74f93aff0fd",
+        "actualSha256": "4ceb879941a5c1e7c1d5ac69fd7c36eaf6d1a8b0bf7da7b98c5cd74f93aff0fd",
+        "passed": true
+      },
+      {
+        "path": "backend/integrated_junction_strategy.py",
+        "expectedSha256": "ab5295e6b5ae38b21f758c136b889fe36963f4a4f5a1e3d5c3ae2b59b08bb7c6",
+        "actualSha256": "ab5295e6b5ae38b21f758c136b889fe36963f4a4f5a1e3d5c3ae2b59b08bb7c6",
+        "passed": true
+      },
+      {
+        "path": "backend/structural_line_gate.py",
+        "expectedSha256": "5bd7c6898ceb2cfd80464d88c1332a41d1010571e9e7763a3571d31a78ee352b",
+        "actualSha256": "5bd7c6898ceb2cfd80464d88c1332a41d1010571e9e7763a3571d31a78ee352b",
+        "passed": true
+      },
+      {
+        "path": "backend/flow_strategy.py",
+        "expectedSha256": "5fa943276232d58d050f058c4c5d9705b60976c33f365fdd2f7e2a360c05c32c",
+        "actualSha256": "5fa943276232d58d050f058c4c5d9705b60976c33f365fdd2f7e2a360c05c32c",
+        "passed": true
+      },
+      {
+        "path": "scripts/build_tl004a_artifacts.py",
+        "expectedSha256": "c4cfff7861771c32fa22cb7dffa1c008016c77a5482034922301110ce5705b2f",
+        "actualSha256": "c4cfff7861771c32fa22cb7dffa1c008016c77a5482034922301110ce5705b2f",
+        "passed": true
+      },
+      {
+        "path": "scripts/build_tl004b_artifacts.py",
+        "expectedSha256": "4b7b99bf609aa15d8a2b064b36a90aeb1b4fd9cd75c27c1875d4d36fab2ca613",
+        "actualSha256": "4b7b99bf609aa15d8a2b064b36a90aeb1b4fd9cd75c27c1875d4d36fab2ca613",
+        "passed": true
+      },
+      {
+        "path": "scripts/build_tl004c_artifacts.py",
+        "expectedSha256": "127f34cee33293f71f1b2906bf843a4f3273d2949d9b506ad91b1669a65e4d1a",
+        "actualSha256": "127f34cee33293f71f1b2906bf843a4f3273d2949d9b506ad91b1669a65e4d1a",
+        "passed": true
+      },
+      {
+        "path": "scripts/build_tl004d_artifacts.py",
+        "expectedSha256": "40a421703235ec95843dfb4f24f1f9a452d53c0b991c9cbbadab2b20443fb62e",
+        "actualSha256": "40a421703235ec95843dfb4f24f1f9a452d53c0b991c9cbbadab2b20443fb62e",
+        "passed": true
+      },
+      {
+        "path": "scripts/build_tl004e_artifacts.py",
+        "expectedSha256": "0f5d7b94479ea6f9d27ec5dddce7cbd02ec28f5d176c8c410f95b8743f8d37cd",
+        "actualSha256": "0f5d7b94479ea6f9d27ec5dddce7cbd02ec28f5d176c8c410f95b8743f8d37cd",
+        "passed": true
+      },
+      {
+        "path": "scripts/build_tl004f_artifacts.py",
+        "expectedSha256": "81e367f4186803579773345d2253a3d9dc8c8f7d0db45b0ff9f4a8eb277b9f7c",
+        "actualSha256": "81e367f4186803579773345d2253a3d9dc8c8f7d0db45b0ff9f4a8eb277b9f7c",
+        "passed": true
+      },
+      {
+        "path": "scripts/build_tl_struct_001a_artifacts.py",
+        "expectedSha256": "d67a1dd101b221905c87866a0c9fb5fe0a161f91c0a46b55e3800f99d59101c2",
+        "actualSha256": "d67a1dd101b221905c87866a0c9fb5fe0a161f91c0a46b55e3800f99d59101c2",
+        "passed": true
+      }
+    ]
+  },
+  "prospectiveV12ManifestIntegrity": {
+    "status": "PASS",
+    "checks": [
+      {
+        "path": "data/benchmarks/real-architecture/benchmark-prospective-v12.json",
+        "expectedSha256": "846cba6ec308403916f5c4da87b9edb62d6f34768aac8971a5ab3562b4fb8e00",
+        "actualSha256": "846cba6ec308403916f5c4da87b9edb62d6f34768aac8971a5ab3562b4fb8e00",
+        "passed": true
+      },
+      {
+        "path": "data/benchmarks/real-architecture/prospective-v12-seal.json",
+        "expectedSha256": "b44c4ebe3a4aaf8e5221c836e4411de821536240a42903e0a6da28ba6d3623eb",
+        "actualSha256": "b44c4ebe3a4aaf8e5221c836e4411de821536240a42903e0a6da28ba6d3623eb",
+        "passed": true
+      },
+      {
+        "path": "data/benchmarks/real-architecture/prospective-v12-provenance-erratum.json",
+        "expectedSha256": "c71dae18383b7acd0494a0b19a0f591f25d4621835d6d59f7c5cb6ce27a85dc6",
+        "actualSha256": "c71dae18383b7acd0494a0b19a0f591f25d4621835d6d59f7c5cb6ce27a85dc6",
+        "passed": true
+      },
+      {
+        "path": "data/results/end-to-end-prospective-v12/end-to-end-prospective_holdout.json",
+        "expectedSha256": "d6a6f10d5eabd39ff38055d70d74f7f6a7ea2d26abfd1b87eca61e20815ce7fa",
+        "actualSha256": "d6a6f10d5eabd39ff38055d70d74f7f6a7ea2d26abfd1b87eca61e20815ce7fa",
+        "passed": true
+      },
+      {
+        "path": "data/results/end-to-end-prospective-v12/result-seal.json",
+        "expectedSha256": "7918af68a6e7757ebfc6c5f88df2836cac6a6dd7c588b2f06d78939920ea9c37",
+        "actualSha256": "7918af68a6e7757ebfc6c5f88df2836cac6a6dd7c588b2f06d78939920ea9c37",
+        "passed": true
+      },
+      {
+        "path": "data/sealed-code/detector-v12.py",
+        "expectedSha256": "10da2309905204a569b9a7719299dbe3d9e2ded1dbda0e23fe3d129272196635",
+        "actualSha256": "10da2309905204a569b9a7719299dbe3d9e2ded1dbda0e23fe3d129272196635",
+        "passed": true
+      }
+    ]
+  },
+  "status": "BLOCKED"
+}

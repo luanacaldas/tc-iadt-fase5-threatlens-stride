@@ -1,0 +1,9 @@
+E:/Tech Challenge IADT - Fase 5 - Hackathon/dataset/hybrid_v2/images/test/kaggle_unique_kaggle_aws_amazon_simple_notification_service_0008_aug_7.png
+E:/Tech Challenge IADT - Fase 5 - Hackathon/dataset/hybrid_v2/images/test/kaggle_unique_kaggle_aws_auto_scaling_0001_aug_9.png
+E:/Tech Challenge IADT - Fase 5 - Hackathon/dataset/hybrid_v2/images/test/kaggle_unique_kaggle_aws_elastic_load_balancing_network_load_balancer_0004_aug_7.png
+E:/Tech Challenge IADT - Fase 5 - Hackathon/dataset/hybrid_v2/images/test/kaggle_unique_kaggle_azure_container_instances_0004_aug_2.png
+E:/Tech Challenge IADT - Fase 5 - Hackathon/dataset/hybrid_v2/images/test/kaggle_unique_kaggle_azure_databricks_0001_aug_4.png
+E:/Tech Challenge IADT - Fase 5 - Hackathon/dataset/hybrid_v2/images/test/kaggle_unique_kaggle_azure_kubernetes_services_0003_aug_7.png
+E:/Tech Challenge IADT - Fase 5 - Hackathon/dataset/hybrid_v2/images/test/kaggle_unique_kaggle_azure_sql_database_0007_aug_5.png
+E:/Tech Challenge IADT - Fase 5 - Hackathon/dataset/hybrid_v2/images/test/kaggle_unique_kaggle_azure_vm_scale_sets_0001_aug_6.png
+E:/Tech Challenge IADT - Fase 5 - Hackathon/dataset/hybrid_v2/images/test/kaggle_unique_kaggle_gcp_pubsub_0006_aug_6.png

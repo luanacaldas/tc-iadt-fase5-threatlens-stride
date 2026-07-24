@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "1.0",
+  "entries": [
+    {"id": "gcp-bigquery", "provider": "unverified", "sourceGroup": "gcp_bigquery_0003", "split": "development_tuning", "image": "dataset/raw_kaggle_selected/gcp_bigquery_0003_aug_0.png"},
+    {"id": "gcp-functions", "provider": "unverified", "sourceGroup": "gcp_cloud_functions_0009", "split": "development_tuning", "image": "dataset/raw_kaggle_selected/gcp_cloud_functions_0009_aug_6.png"},
+    {"id": "gcp-load-balancing", "provider": "unverified", "sourceGroup": "gcp_cloud_load_balancing_0004", "split": "development_tuning", "image": "dataset/raw_kaggle_selected/gcp_cloud_load_balancing_0004_aug_0.png"},
+    {"id": "gcp-cloud-run", "provider": "unverified", "sourceGroup": "gcp_cloud_run_0006", "split": "development_tuning", "image": "dataset/raw_kaggle_selected/gcp_cloud_run_0006_aug_4.png"},
+    {"id": "gcp-cloud-sql", "provider": "unverified", "sourceGroup": "gcp_cloud_sql_0006", "split": "development_tuning", "image": "dataset/raw_kaggle_selected/gcp_cloud_sql_0006_aug_1.png"},
+    {"id": "gcp-storage", "provider": "unverified", "sourceGroup": "gcp_cloud_storage_0007", "split": "development_tuning", "image": "dataset/raw_kaggle_selected/gcp_cloud_storage_0007_aug_0.png"},
+    {"id": "gcp-compute", "provider": "unverified", "sourceGroup": "gcp_compute_engine_0003", "split": "development_tuning", "image": "dataset/raw_kaggle_selected/gcp_compute_engine_0003_aug_2.png"},
+    {"id": "gcp-gke", "provider": "unverified", "sourceGroup": "gcp_google_kubernetes_engine_0004", "split": "development_tuning", "image": "dataset/raw_kaggle_selected/gcp_google_kubernetes_engine_0004_aug_2.png"},
+    {"id": "gcp-iam", "provider": "unverified", "sourceGroup": "gcp_identity_and_access_management_0007", "split": "development_tuning", "image": "dataset/raw_kaggle_selected/gcp_identity_and_access_management_0007_aug_0.png"},
+    {"id": "gcp-pubsub", "provider": "unverified", "sourceGroup": "gcp_pubsub_0006", "split": "development_tuning", "image": "dataset/raw_kaggle_selected/gcp_pubsub_0006_aug_3.png"},
+    {"id": "gcp-vertex-ai", "provider": "unverified", "sourceGroup": "gcp_vertex_ai_0009", "split": "development_tuning", "image": "dataset/raw_kaggle_selected/gcp_vertex_ai_0009_aug_2.png"}
+  ]
+}

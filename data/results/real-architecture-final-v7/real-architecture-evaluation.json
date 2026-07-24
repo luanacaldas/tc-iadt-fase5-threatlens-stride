@@ -1,0 +1,1295 @@
+{
+  "schemaVersion": "1.0",
+  "evaluatedAt": "2026-07-18T00:43:39.981106+00:00",
+  "benchmark": "E:\\Tech Challenge IADT - Fase 5 - Hackathon\\data\\benchmarks\\real-architecture\\benchmark.json",
+  "imageCount": 3,
+  "aggregate": {
+    "flows": {
+      "expected": 25,
+      "predicted": 24,
+      "directedTruePositive": 18,
+      "directedPrecision": 0.75,
+      "directedRecall": 0.72,
+      "directedF1": 0.7346938775510204,
+      "undirectedTruePositive": 20,
+      "undirectedPrecision": 0.8333333333333334,
+      "undirectedRecall": 0.8,
+      "undirectedF1": 0.816326530612245,
+      "directionAccuracyOnMatchedEdges": 0.9,
+      "falsePositiveEdges": [
+        [
+          "aws-video-pipeline::business1",
+          "aws-video-pipeline::business2"
+        ],
+        [
+          "aws-video-pipeline::database",
+          "aws-video-pipeline::trigger3"
+        ],
+        [
+          "aws-video-pipeline::stage2",
+          "aws-video-pipeline::trigger3"
+        ],
+        [
+          "azure-ai-foundry::ai_search",
+          "azure-ai-foundry::openai_model"
+        ]
+      ],
+      "missedEdges": [
+        [
+          "aws-video-pipeline::api",
+          "aws-video-pipeline::business1"
+        ],
+        [
+          "aws-video-pipeline::api",
+          "aws-video-pipeline::upload"
+        ],
+        [
+          "aws-video-pipeline::business1",
+          "aws-video-pipeline::email"
+        ],
+        [
+          "azure-ai-foundry::ai_search",
+          "azure-ai-foundry::foundry_agent"
+        ],
+        [
+          "azure-ai-foundry::app_service",
+          "azure-ai-foundry::user"
+        ]
+      ],
+      "reversedEdges": [
+        [
+          "aws-video-pipeline::mobile",
+          "aws-video-pipeline::cognito"
+        ],
+        [
+          "aws-video-pipeline::trigger3",
+          "aws-video-pipeline::business2"
+        ]
+      ]
+    },
+    "boundaries": {
+      "expected": 4,
+      "predicted": 3,
+      "truePositive": 1,
+      "precision": 0.3333333333333333,
+      "recall": 0.25,
+      "f1": 0.28571428571428575
+    },
+    "protocols": {
+      "expected": 3,
+      "predicted": 2,
+      "truePositive": 2,
+      "precision": 1.0,
+      "recall": 0.6666666666666666,
+      "f1": 0.8
+    }
+  },
+  "perImage": [
+    {
+      "id": "azure-container-edge",
+      "provider": "azure",
+      "sourceGroup": "azure_container_instances_0004",
+      "image": "dataset/hybrid_v2/images/test/kaggle_unique_kaggle_azure_container_instances_0004_aug_2.png",
+      "annotationSize": [
+        886,
+        590
+      ],
+      "flowMetrics": {
+        "expected": 4,
+        "predicted": 4,
+        "directedTruePositive": 4,
+        "directedPrecision": 1.0,
+        "directedRecall": 1.0,
+        "directedF1": 1.0,
+        "undirectedTruePositive": 4,
+        "undirectedPrecision": 1.0,
+        "undirectedRecall": 1.0,
+        "undirectedF1": 1.0,
+        "directionAccuracyOnMatchedEdges": 1.0,
+        "falsePositiveEdges": [],
+        "missedEdges": [],
+        "reversedEdges": []
+      },
+      "boundaryMetrics": {
+        "expected": 0,
+        "predicted": 1,
+        "truePositive": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "meanMatchedMemberJaccard": 0.0,
+        "matches": []
+      },
+      "protocolMetrics": {
+        "expected": 2,
+        "predicted": 1,
+        "truePositive": 1,
+        "precision": 1.0,
+        "recall": 0.5,
+        "f1": 0.6666666666666666,
+        "falsePositive": [],
+        "falseNegative": [
+          [
+            "edge-4",
+            "https"
+          ]
+        ]
+      },
+      "diagnostics": {
+        "lineSegments": 377,
+        "candidatePairs": 4,
+        "associatedSegments": 4,
+        "rejectedLowConfidencePairs": 0,
+        "blockedSegments": 0,
+        "pixelRecoveredFlows": 0
+      },
+      "ocrLineCount": 16,
+      "predictedBoundaries": [
+        {
+          "id": "tb1",
+          "name": "Detected trust zone 1",
+          "bbox": [
+            158,
+            0,
+            875,
+            590
+          ],
+          "componentIds": [
+            "application_firewall",
+            "azure_firewall",
+            "load_balancer",
+            "virtual_machines"
+          ],
+          "confidence": 0.52,
+          "inferred": true,
+          "reviewStatus": "pending",
+          "evidence": "rectangular_zone"
+        }
+      ],
+      "predictedFlows": [
+        {
+          "id": "f1",
+          "from": "application_firewall",
+          "to": "azure_firewall",
+          "protocol": "unknown",
+          "trustBoundary": false,
+          "crossedBoundaryIds": [],
+          "confidence": 0.748,
+          "inferred": true,
+          "reviewStatus": "pending",
+          "evidence": "detected_line",
+          "directionEvidence": "visual_arrowhead",
+          "directionConfidence": 0.785,
+          "arrowheadScores": {
+            "application_firewall": 50.0,
+            "azure_firewall": 100.0
+          },
+          "pathPoints": [
+            [
+              478,
+              252
+            ],
+            [
+              529,
+              249
+            ]
+          ],
+          "pixelSupport": null,
+          "maximumGap": null
+        },
+        {
+          "id": "f2",
+          "from": "load_balancer",
+          "to": "application_firewall",
+          "protocol": "unknown",
+          "trustBoundary": false,
+          "crossedBoundaryIds": [],
+          "confidence": 0.743,
+          "inferred": true,
+          "reviewStatus": "pending",
+          "evidence": "detected_line",
+          "directionEvidence": "left_to_right",
+          "directionConfidence": 0.5,
+          "arrowheadScores": {
+            "load_balancer": 80.0,
+            "application_firewall": 80.0
+          },
+          "pathPoints": [
+            [
+              353,
+              272
+            ],
+            [
+              385,
+              271
+            ]
+          ],
+          "pixelSupport": null,
+          "maximumGap": null
+        },
+        {
+          "id": "f3",
+          "from": "clients",
+          "to": "load_balancer",
+          "protocol": "unknown",
+          "trustBoundary": true,
+          "crossedBoundaryIds": [
+            "tb1"
+          ],
+          "confidence": 0.711,
+          "inferred": true,
+          "reviewStatus": "pending",
+          "evidence": "detected_line",
+          "directionEvidence": "semantic_source",
+          "directionConfidence": 0.5,
+          "arrowheadScores": {
+            "clients": 80.0,
+            "load_balancer": 80.0
+          },
+          "pathPoints": [
+            [
+              150,
+              269
+            ],
+            [
+              244,
+              265
+            ]
+          ],
+          "pixelSupport": null,
+          "maximumGap": null
+        },
+        {
+          "id": "f4",
+          "from": "azure_firewall",
+          "to": "virtual_machines",
+          "protocol": "unknown",
+          "trustBoundary": false,
+          "crossedBoundaryIds": [],
+          "confidence": 0.701,
+          "inferred": true,
+          "reviewStatus": "pending",
+          "evidence": "detected_line",
+          "directionEvidence": "left_to_right",
+          "directionConfidence": 0.5,
+          "arrowheadScores": {
+            "azure_firewall": 80.0,
+            "virtual_machines": 100.0
+          },
+          "pathPoints": [
+            [
+              659,
+              243
+            ],
+            [
+              750,
+              239
+            ]
+          ],
+          "pixelSupport": null,
+          "maximumGap": null
+        }
+      ],
+      "protocolFlows": [
+        {
+          "id": "edge-1",
+          "from": "clients",
+          "to": "load_balancer",
+          "protocol": "HTTPS",
+          "protocolEvidence": {
+            "text": "HTTPS",
+            "ocrConfidence": 0.96,
+            "bbox": [
+              182.8,
+              238.8,
+              232.0,
+              254.5
+            ],
+            "engine": "tesseract"
+          }
+        },
+        {
+          "id": "edge-2",
+          "from": "load_balancer",
+          "to": "application_firewall",
+          "protocol": "unknown"
+        },
+        {
+          "id": "edge-3",
+          "from": "application_firewall",
+          "to": "azure_firewall",
+          "protocol": "unknown"
+        },
+        {
+          "id": "edge-4",
+          "from": "azure_firewall",
+          "to": "virtual_machines",
+          "protocol": "unknown"
+        }
+      ]
+    },
+    {
+      "id": "azure-ai-foundry",
+      "provider": "azure",
+      "sourceGroup": "azure_sql_database_0007",
+      "image": "dataset/raw_kaggle_selected/azure_sql_database_0007_aug_0.png",
+      "annotationSize": [
+        1323,
+        882
+      ],
+      "flowMetrics": {
+        "expected": 5,
+        "predicted": 4,
+        "directedTruePositive": 3,
+        "directedPrecision": 0.75,
+        "directedRecall": 0.6,
+        "directedF1": 0.6666666666666665,
+        "undirectedTruePositive": 3,
+        "undirectedPrecision": 0.75,
+        "undirectedRecall": 0.6,
+        "undirectedF1": 0.6666666666666665,
+        "directionAccuracyOnMatchedEdges": 1.0,
+        "falsePositiveEdges": [
+          [
+            "ai_search",
+            "openai_model"
+          ]
+        ],
+        "missedEdges": [
+          [
+            "ai_search",
+            "foundry_agent"
+          ],
+          [
+            "app_service",
+            "user"
+          ]
+        ],
+        "reversedEdges": []
+      },
+      "boundaryMetrics": {
+        "expected": 3,
+        "predicted": 1,
+        "truePositive": 1,
+        "precision": 1.0,
+        "recall": 0.3333333333333333,
+        "f1": 0.5,
+        "meanMatchedMemberJaccard": 1.0,
+        "matches": [
+          {
+            "expectedId": "app-service-zone",
+            "predictedId": "tb1",
+            "memberJaccard": 1.0
+          }
+        ]
+      },
+      "protocolMetrics": {
+        "expected": 1,
+        "predicted": 1,
+        "truePositive": 1,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "falsePositive": [],
+        "falseNegative": []
+      },
+      "diagnostics": {
+        "lineSegments": 1034,
+        "candidatePairs": 6,
+        "associatedSegments": 4,
+        "rejectedLowConfidencePairs": 2,
+        "blockedSegments": 0,
+        "pixelRecoveredFlows": 0
+      },
+      "ocrLineCount": 38,
+      "predictedBoundaries": [
+        {
+          "id": "tb1",
+          "name": "Detected trust zone 1",
+          "bbox": [
+            527,
+            336,
+            891,
+            476
+          ],
+          "componentIds": [
+            "app_service"
+          ],
+          "confidence": 0.523,
+          "inferred": true,
+          "reviewStatus": "pending",
+          "evidence": "rectangular_zone"
+        }
+      ],
+      "predictedFlows": [
+        {
+          "id": "f1",
+          "from": "app_service",
+          "to": "foundry_agent",
+          "protocol": "unknown",
+          "trustBoundary": true,
+          "crossedBoundaryIds": [
+            "tb1"
+          ],
+          "confidence": 0.771,
+          "inferred": true,
+          "reviewStatus": "pending",
+          "evidence": "detected_line",
+          "directionEvidence": "left_to_right",
+          "directionConfidence": 0.5,
+          "arrowheadScores": {
+            "app_service": 80.0,
+            "foundry_agent": 100.0
+          },
+          "pathPoints": [
+            [
+              760,
+              371
+            ],
+            [
+              995,
+              375
+            ]
+          ],
+          "pixelSupport": null,
+          "maximumGap": null
+        },
+        {
+          "id": "f2",
+          "from": "foundry_agent",
+          "to": "openai_model",
+          "protocol": "unknown",
+          "trustBoundary": false,
+          "crossedBoundaryIds": [],
+          "confidence": 0.752,
+          "inferred": true,
+          "reviewStatus": "pending",
+          "evidence": "detected_line",
+          "directionEvidence": "visual_arrowhead",
+          "directionConfidence": 0.84,
+          "arrowheadScores": {
+            "openai_model": 90.0,
+            "foundry_agent": 30.0
+          },
+          "pathPoints": [
+            [
+              1036,
+              533
+            ],
+            [
+              1037,
+              429
+            ]
+          ],
+          "pixelSupport": null,
+          "maximumGap": null
+        },
+        {
+          "id": "f3",
+          "from": "foundry_account",
+          "to": "foundry_agent",
+          "protocol": "unknown",
+          "trustBoundary": false,
+          "crossedBoundaryIds": [],
+          "confidence": 0.728,
+          "inferred": true,
+          "reviewStatus": "pending",
+          "evidence": "detected_line",
+          "directionEvidence": "top_to_bottom",
+          "directionConfidence": 0.5,
+          "arrowheadScores": {
+            "foundry_agent": 40.0,
+            "foundry_account": 40.0
+          },
+          "pathPoints": [
+            [
+              1035,
+              318
+            ],
+            [
+              1041,
+              273
+            ]
+          ],
+          "pixelSupport": null,
+          "maximumGap": null
+        },
+        {
+          "id": "f4",
+          "from": "openai_model",
+          "to": "ai_search",
+          "protocol": "unknown",
+          "trustBoundary": false,
+          "crossedBoundaryIds": [],
+          "confidence": 0.723,
+          "inferred": true,
+          "reviewStatus": "pending",
+          "evidence": "detected_line",
+          "directionEvidence": "top_to_bottom",
+          "directionConfidence": 0.5,
+          "arrowheadScores": {
+            "openai_model": 40.0,
+            "ai_search": 60.0
+          },
+          "pathPoints": [
+            [
+              1073,
+              692
+            ],
+            [
+              1143,
+              693
+            ]
+          ],
+          "pixelSupport": null,
+          "maximumGap": null
+        }
+      ],
+      "protocolFlows": [
+        {
+          "id": "foundry-1",
+          "from": "user",
+          "to": "app_service",
+          "protocol": "HTTPS",
+          "protocolEvidence": {
+            "text": "Ha https://domainname.azurewebsites.net",
+            "ocrConfidence": 0.715,
+            "bbox": [
+              136.5,
+              317.5,
+              510.0,
+              352.4
+            ],
+            "engine": "tesseract"
+          }
+        },
+        {
+          "id": "foundry-2",
+          "from": "app_service",
+          "to": "foundry_agent",
+          "protocol": "unknown"
+        },
+        {
+          "id": "foundry-3",
+          "from": "foundry_account",
+          "to": "foundry_agent",
+          "protocol": "unknown"
+        },
+        {
+          "id": "foundry-4",
+          "from": "foundry_agent",
+          "to": "openai_model",
+          "protocol": "unknown"
+        },
+        {
+          "id": "foundry-5",
+          "from": "foundry_agent",
+          "to": "ai_search",
+          "protocol": "unknown"
+        }
+      ]
+    },
+    {
+      "id": "aws-video-pipeline",
+      "provider": "aws",
+      "sourceGroup": "azure_vm_scale_sets_0001",
+      "image": "dataset/hybrid_v2/images/test/kaggle_unique_kaggle_azure_vm_scale_sets_0001_aug_6.png",
+      "annotationSize": [
+        2048,
+        1024
+      ],
+      "flowMetrics": {
+        "expected": 16,
+        "predicted": 16,
+        "directedTruePositive": 11,
+        "directedPrecision": 0.6875,
+        "directedRecall": 0.6875,
+        "directedF1": 0.6875,
+        "undirectedTruePositive": 13,
+        "undirectedPrecision": 0.8125,
+        "undirectedRecall": 0.8125,
+        "undirectedF1": 0.8125,
+        "directionAccuracyOnMatchedEdges": 0.8461538461538461,
+        "falsePositiveEdges": [
+          [
+            "business1",
+            "business2"
+          ],
+          [
+            "database",
+            "trigger3"
+          ],
+          [
+            "stage2",
+            "trigger3"
+          ]
+        ],
+        "missedEdges": [
+          [
+            "api",
+            "business1"
+          ],
+          [
+            "api",
+            "upload"
+          ],
+          [
+            "business1",
+            "email"
+          ]
+        ],
+        "reversedEdges": [
+          [
+            "mobile",
+            "cognito"
+          ],
+          [
+            "trigger3",
+            "business2"
+          ]
+        ]
+      },
+      "boundaryMetrics": {
+        "expected": 1,
+        "predicted": 1,
+        "truePositive": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "meanMatchedMemberJaccard": 0.0,
+        "matches": []
+      },
+      "protocolMetrics": {
+        "expected": 0,
+        "predicted": 0,
+        "truePositive": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "falsePositive": [],
+        "falseNegative": []
+      },
+      "diagnostics": {
+        "lineSegments": 1062,
+        "candidatePairs": 28,
+        "associatedSegments": 16,
+        "rejectedLowConfidencePairs": 12,
+        "blockedSegments": 0,
+        "pixelRecoveredFlows": 0
+      },
+      "ocrLineCount": 37,
+      "predictedBoundaries": [
+        {
+          "id": "tb1",
+          "name": "Detected trust zone 1",
+          "bbox": [
+            1087,
+            736,
+            2816,
+            1944
+          ],
+          "componentIds": [
+            "api",
+            "business1",
+            "stage1",
+            "trigger1",
+            "upload"
+          ],
+          "confidence": 0.528,
+          "inferred": true,
+          "reviewStatus": "pending",
+          "evidence": "rectangular_zone"
+        }
+      ],
+      "predictedFlows": [
+        {
+          "id": "f1",
+          "from": "mobile",
+          "to": "api",
+          "protocol": "unknown",
+          "trustBoundary": true,
+          "crossedBoundaryIds": [
+            "tb1"
+          ],
+          "confidence": 0.769,
+          "inferred": true,
+          "reviewStatus": "pending",
+          "evidence": "detected_line",
+          "directionEvidence": "semantic_source",
+          "directionConfidence": 0.5,
+          "arrowheadScores": {
+            "mobile": 60.0,
+            "api": 30.0
+          },
+          "pathPoints": [
+            [
+              655,
+              1177
+            ],
+            [
+              1392,
+              1189
+            ]
+          ],
+          "pixelSupport": null,
+          "maximumGap": null
+        },
+        {
+          "id": "f2",
+          "from": "stage3",
+          "to": "trigger3",
+          "protocol": "unknown",
+          "trustBoundary": false,
+          "crossedBoundaryIds": [],
+          "confidence": 0.764,
+          "inferred": true,
+          "reviewStatus": "pending",
+          "evidence": "detected_line",
+          "directionEvidence": "top_to_bottom",
+          "directionConfidence": 0.5,
+          "arrowheadScores": {
+            "trigger3": 80.0,
+            "stage3": 50.0
+          },
+          "pathPoints": [
+            [
+              4613,
+              1582
+            ],
+            [
+              4624,
+              957
+            ]
+          ],
+          "pixelSupport": null,
+          "maximumGap": null
+        },
+        {
+          "id": "f3",
+          "from": "business2",
+          "to": "trigger3",
+          "protocol": "unknown",
+          "trustBoundary": false,
+          "crossedBoundaryIds": [],
+          "confidence": 0.757,
+          "inferred": true,
+          "reviewStatus": "pending",
+          "evidence": "detected_line",
+          "directionEvidence": "left_to_right",
+          "directionConfidence": 0.5,
+          "arrowheadScores": {
+            "business2": 60.0,
+            "trigger3": 60.0
+          },
+          "pathPoints": [
+            [
+              3983,
+              1555
+            ],
+            [
+              4541,
+              1565
+            ]
+          ],
+          "pixelSupport": null,
+          "maximumGap": null
+        },
+        {
+          "id": "f4",
+          "from": "business1",
+          "to": "database",
+          "protocol": "unknown",
+          "trustBoundary": true,
+          "crossedBoundaryIds": [
+            "tb1"
+          ],
+          "confidence": 0.756,
+          "inferred": true,
+          "reviewStatus": "pending",
+          "evidence": "detected_line",
+          "directionEvidence": "visual_arrowhead",
+          "directionConfidence": 0.818,
+          "arrowheadScores": {
+            "business1": 40.0,
+            "database": 100.0
+          },
+          "pathPoints": [
+            [
+              2139,
+              1527
+            ],
+            [
+              2817,
+              1538
+            ]
+          ],
+          "pixelSupport": null,
+          "maximumGap": null
+        },
+        {
+          "id": "f5",
+          "from": "business2",
+          "to": "database",
+          "protocol": "unknown",
+          "trustBoundary": false,
+          "crossedBoundaryIds": [],
+          "confidence": 0.75,
+          "inferred": true,
+          "reviewStatus": "pending",
+          "evidence": "detected_line",
+          "directionEvidence": "visual_arrowhead",
+          "directionConfidence": 0.818,
+          "arrowheadScores": {
+            "database": 100.0,
+            "business2": 40.0
+          },
+          "pathPoints": [
+            [
+              3037,
+              1540
+            ],
+            [
+              3668,
+              1551
+            ]
+          ],
+          "pixelSupport": null,
+          "maximumGap": null
+        },
+        {
+          "id": "f6",
+          "from": "transcoder",
+          "to": "stage2",
+          "protocol": "unknown",
+          "trustBoundary": false,
+          "crossedBoundaryIds": [],
+          "confidence": 0.747,
+          "inferred": true,
+          "reviewStatus": "pending",
+          "evidence": "detected_line",
+          "directionEvidence": "left_to_right",
+          "directionConfidence": 0.5,
+          "arrowheadScores": {
+            "transcoder": 70.0,
+            "stage2": 100.0
+          },
+          "pathPoints": [
+            [
+              3105,
+              864
+            ],
+            [
+              3360,
+              868
+            ]
+          ],
+          "pixelSupport": null,
+          "maximumGap": null
+        },
+        {
+          "id": "f7",
+          "from": "stage1",
+          "to": "trigger1",
+          "protocol": "unknown",
+          "trustBoundary": false,
+          "crossedBoundaryIds": [],
+          "confidence": 0.747,
+          "inferred": true,
+          "reviewStatus": "pending",
+          "evidence": "detected_line",
+          "directionEvidence": "left_to_right",
+          "directionConfidence": 0.5,
+          "arrowheadScores": {
+            "stage1": 70.0,
+            "trigger1": 100.0
+          },
+          "pathPoints": [
+            [
+              2368,
+              854
+            ],
+            [
+              2608,
+              858
+            ]
+          ],
+          "pixelSupport": null,
+          "maximumGap": null
+        },
+        {
+          "id": "f8",
+          "from": "media",
+          "to": "stage3",
+          "protocol": "unknown",
+          "trustBoundary": false,
+          "crossedBoundaryIds": [],
+          "confidence": 0.744,
+          "inferred": true,
+          "reviewStatus": "pending",
+          "evidence": "detected_line",
+          "directionEvidence": "left_to_right",
+          "directionConfidence": 0.5,
+          "arrowheadScores": {
+            "media": 60.0,
+            "stage3": 100.0
+          },
+          "pathPoints": [
+            [
+              4334,
+              884
+            ],
+            [
+              4516,
+              887
+            ]
+          ],
+          "pixelSupport": null,
+          "maximumGap": null
+        },
+        {
+          "id": "f9",
+          "from": "stage2",
+          "to": "trigger2",
+          "protocol": "unknown",
+          "trustBoundary": false,
+          "crossedBoundaryIds": [],
+          "confidence": 0.743,
+          "inferred": true,
+          "reviewStatus": "pending",
+          "evidence": "detected_line",
+          "directionEvidence": "visual_arrowhead",
+          "directionConfidence": 0.818,
+          "arrowheadScores": {
+            "stage2": 40.0,
+            "trigger2": 100.0
+          },
+          "pathPoints": [
+            [
+              3581,
+              873
+            ],
+            [
+              3745,
+              876
+            ]
+          ],
+          "pixelSupport": null,
+          "maximumGap": null
+        },
+        {
+          "id": "f10",
+          "from": "upload",
+          "to": "stage1",
+          "protocol": "unknown",
+          "trustBoundary": false,
+          "crossedBoundaryIds": [],
+          "confidence": 0.743,
+          "inferred": true,
+          "reviewStatus": "pending",
+          "evidence": "detected_line",
+          "directionEvidence": "visual_arrowhead",
+          "directionConfidence": 0.851,
+          "arrowheadScores": {
+            "upload": 30.0,
+            "stage1": 100.0
+          },
+          "pathPoints": [
+            [
+              2095,
+              848
+            ],
+            [
+              2241,
+              850
+            ]
+          ],
+          "pixelSupport": null,
+          "maximumGap": null
+        },
+        {
+          "id": "f11",
+          "from": "trigger1",
+          "to": "transcoder",
+          "protocol": "unknown",
+          "trustBoundary": true,
+          "crossedBoundaryIds": [
+            "tb1"
+          ],
+          "confidence": 0.74,
+          "inferred": true,
+          "reviewStatus": "pending",
+          "evidence": "detected_line",
+          "directionEvidence": "visual_arrowhead",
+          "directionConfidence": 0.851,
+          "arrowheadScores": {
+            "trigger1": 30.0,
+            "transcoder": 100.0
+          },
+          "pathPoints": [
+            [
+              2845,
+              862
+            ],
+            [
+              2971,
+              862
+            ]
+          ],
+          "pixelSupport": null,
+          "maximumGap": null
+        },
+        {
+          "id": "f12",
+          "from": "trigger2",
+          "to": "media",
+          "protocol": "unknown",
+          "trustBoundary": false,
+          "crossedBoundaryIds": [],
+          "confidence": 0.735,
+          "inferred": true,
+          "reviewStatus": "pending",
+          "evidence": "detected_line",
+          "directionEvidence": "left_to_right",
+          "directionConfidence": 0.5,
+          "arrowheadScores": {
+            "trigger2": 40.0,
+            "media": 60.0
+          },
+          "pathPoints": [
+            [
+              3966,
+              875
+            ],
+            [
+              4080,
+              879
+            ]
+          ],
+          "pixelSupport": null,
+          "maximumGap": null
+        },
+        {
+          "id": "f13",
+          "from": "database",
+          "to": "trigger3",
+          "protocol": "unknown",
+          "trustBoundary": false,
+          "crossedBoundaryIds": [],
+          "confidence": 0.731,
+          "inferred": true,
+          "reviewStatus": "pending",
+          "evidence": "detected_line",
+          "directionEvidence": "left_to_right",
+          "directionConfidence": 0.5,
+          "arrowheadScores": {
+            "database": 60.0,
+            "trigger3": 40.0
+          },
+          "pathPoints": [
+            [
+              2942,
+              1226
+            ],
+            [
+              4715,
+              1256
+            ]
+          ],
+          "pixelSupport": null,
+          "maximumGap": null
+        },
+        {
+          "id": "f14",
+          "from": "business1",
+          "to": "business2",
+          "protocol": "unknown",
+          "trustBoundary": true,
+          "crossedBoundaryIds": [
+            "tb1"
+          ],
+          "confidence": 0.725,
+          "inferred": true,
+          "reviewStatus": "pending",
+          "evidence": "detected_line",
+          "directionEvidence": "left_to_right",
+          "directionConfidence": 0.5,
+          "arrowheadScores": {
+            "business1": 30.0,
+            "business2": 40.0
+          },
+          "pathPoints": [
+            [
+              2157,
+              1214
+            ],
+            [
+              3813,
+              1242
+            ]
+          ],
+          "pixelSupport": null,
+          "maximumGap": null
+        },
+        {
+          "id": "f15",
+          "from": "stage2",
+          "to": "trigger3",
+          "protocol": "unknown",
+          "trustBoundary": false,
+          "crossedBoundaryIds": [],
+          "confidence": 0.704,
+          "inferred": true,
+          "reviewStatus": "pending",
+          "evidence": "detected_line",
+          "directionEvidence": "left_to_right",
+          "directionConfidence": 0.5,
+          "arrowheadScores": {
+            "stage2": 50.0,
+            "trigger3": 40.0
+          },
+          "pathPoints": [
+            [
+              3399,
+              1233
+            ],
+            [
+              4792,
+              1257
+            ]
+          ],
+          "pixelSupport": null,
+          "maximumGap": null
+        },
+        {
+          "id": "f16",
+          "from": "cognito",
+          "to": "mobile",
+          "protocol": "unknown",
+          "trustBoundary": false,
+          "crossedBoundaryIds": [],
+          "confidence": 0.702,
+          "inferred": true,
+          "reviewStatus": "pending",
+          "evidence": "detected_line",
+          "directionEvidence": "top_to_bottom",
+          "directionConfidence": 0.5,
+          "arrowheadScores": {
+            "mobile": 60.0,
+            "cognito": 100.0
+          },
+          "pathPoints": [
+            [
+              911,
+              1181
+            ],
+            [
+              918,
+              756
+            ]
+          ],
+          "pixelSupport": null,
+          "maximumGap": null
+        }
+      ],
+      "protocolFlows": [
+        {
+          "id": "video-1",
+          "from": "mobile",
+          "to": "api",
+          "protocol": "unknown"
+        },
+        {
+          "id": "video-2",
+          "from": "mobile",
+          "to": "cognito",
+          "protocol": "unknown"
+        },
+        {
+          "id": "video-3",
+          "from": "api",
+          "to": "upload",
+          "protocol": "unknown"
+        },
+        {
+          "id": "video-4",
+          "from": "upload",
+          "to": "stage1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "video-5",
+          "from": "stage1",
+          "to": "trigger1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "video-6",
+          "from": "trigger1",
+          "to": "transcoder",
+          "protocol": "unknown"
+        },
+        {
+          "id": "video-7",
+          "from": "transcoder",
+          "to": "stage2",
+          "protocol": "unknown"
+        },
+        {
+          "id": "video-8",
+          "from": "stage2",
+          "to": "trigger2",
+          "protocol": "unknown"
+        },
+        {
+          "id": "video-9",
+          "from": "trigger2",
+          "to": "media",
+          "protocol": "unknown"
+        },
+        {
+          "id": "video-10",
+          "from": "media",
+          "to": "stage3",
+          "protocol": "unknown"
+        },
+        {
+          "id": "video-11",
+          "from": "stage3",
+          "to": "trigger3",
+          "protocol": "unknown"
+        },
+        {
+          "id": "video-12",
+          "from": "trigger3",
+          "to": "business2",
+          "protocol": "unknown"
+        },
+        {
+          "id": "video-13",
+          "from": "business2",
+          "to": "database",
+          "protocol": "unknown"
+        },
+        {
+          "id": "video-14",
+          "from": "api",
+          "to": "business1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "video-15",
+          "from": "business1",
+          "to": "database",
+          "protocol": "unknown"
+        },
+        {
+          "id": "video-16",
+          "from": "business1",
+          "to": "email",
+          "protocol": "unknown"
+        }
+      ]
+    }
+  ],
+  "interpretation": "This benchmark uses manually annotated primary architecture content from reserved real-image groups. Ground-truth component boxes isolate structure and OCR from component-detection quality."
+}

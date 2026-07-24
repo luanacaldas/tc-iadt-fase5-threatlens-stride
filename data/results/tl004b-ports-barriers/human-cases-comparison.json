@@ -1,0 +1,4403 @@
+{
+  "schemaVersion": "1.0",
+  "split": "development_tuning",
+  "requiredCases": [
+    "E03",
+    "E09",
+    "E10",
+    "E11",
+    "E15",
+    "E16"
+  ],
+  "requiredCasesEvaluated": true,
+  "cases": [
+    {
+      "caseId": "E01",
+      "requiredRegression": false,
+      "imageId": "aws-video-pipeline",
+      "humanCause": "structural_line",
+      "humanContributingCauses": [
+        "ambiguous_endpoint"
+      ],
+      "humanExpectedCorrection": "Descartar a linha superior como conector entre esses componentes e exigir que os endpoints de um fluxo estejam associados às portas ou bordas reais dos componentes. Preservar apenas as conexões adjacentes Trigger Function 3 → Business Logic Function e Business Logic Function → DocumentDB, sem criar uma conexão direta database → trigger3.",
+      "expectedEdges": [],
+      "decisions": [
+        {
+          "inventoryId": "isolated_ground_truth:aws-video-pipeline:predicted:6",
+          "imageId": "aws-video-pipeline",
+          "provider": "aws",
+          "evaluationStatus": "false_positive",
+          "legacyCandidate": {
+            "id": "f6",
+            "from": "database",
+            "to": "trigger3",
+            "protocol": "unknown",
+            "trustBoundary": false,
+            "crossedBoundaryIds": [],
+            "confidence": 0.753,
+            "inferred": true,
+            "reviewStatus": "pending",
+            "evidence": "segment_graph",
+            "directionEvidence": "left_to_right",
+            "directionConfidence": 0.5,
+            "arrowheadScores": {
+              "database": 60.0,
+              "trigger3": 40.0,
+              "classifier": {
+                "database": 0.0,
+                "trigger3": 0.0,
+                "model": "arrowhead-logistic"
+              }
+            },
+            "pathPoints": [
+              [
+                2942,
+                1226
+              ],
+              [
+                4715,
+                1256
+              ]
+            ],
+            "pixelSupport": null,
+            "maximumGap": null,
+            "segmentHops": 1,
+            "routeEfficiency": 0.902
+          },
+          "junctionAwareCandidate": {
+            "schemaVersion": "1.0",
+            "strategy": "junction_aware",
+            "strategyRevision": "tl004b-ports-barriers-v1",
+            "mode": "shadow",
+            "officialEligible": false,
+            "legacyFlow": {
+              "id": "f6",
+              "from": "database",
+              "to": "trigger3",
+              "protocol": "unknown",
+              "trustBoundary": false,
+              "crossedBoundaryIds": [],
+              "confidence": 0.753,
+              "inferred": true,
+              "reviewStatus": "pending",
+              "evidence": "segment_graph",
+              "directionEvidence": "left_to_right",
+              "directionConfidence": 0.5,
+              "arrowheadScores": {
+                "database": 60.0,
+                "trigger3": 40.0,
+                "classifier": {
+                  "database": 0.0,
+                  "trigger3": 0.0,
+                  "model": "arrowhead-logistic"
+                }
+              },
+              "pathPoints": [
+                [
+                  2942,
+                  1226
+                ],
+                [
+                  4715,
+                  1256
+                ]
+              ],
+              "pixelSupport": null,
+              "maximumGap": null,
+              "segmentHops": 1,
+              "routeEfficiency": 0.902
+            },
+            "experimentalFlow": null,
+            "edgeAction": "review_only",
+            "reasonCodes": [
+              "destination:no_contact",
+              "source:no_contact"
+            ],
+            "pathPointsReversed": false,
+            "normalAssociationCost": 375.0,
+            "reversedAssociationCost": 3280.031,
+            "reason": "original_order_retained",
+            "internalPathPoints": [
+              [
+                2942.0,
+                1226.0
+              ],
+              [
+                4715.0,
+                1256.0
+              ]
+            ],
+            "endpointDecisions": [
+              {
+                "role": "source",
+                "declaredComponentId": "database",
+                "endpoint": [
+                  2942.0,
+                  1226.0
+                ],
+                "classification": "no_contact",
+                "selectedComponentId": null,
+                "selectedPortId": null,
+                "coherentContactCandidates": [],
+                "nearestComponentId": "database",
+                "nearestComponentDistance": 192.0,
+                "secondComponentId": "transcoder",
+                "secondComponentDistance": 239.641,
+                "proximityTolerance": 8.5
+              },
+              {
+                "role": "destination",
+                "declaredComponentId": "trigger3",
+                "endpoint": [
+                  4715.0,
+                  1256.0
+                ],
+                "classification": "no_contact",
+                "selectedComponentId": null,
+                "selectedPortId": null,
+                "coherentContactCandidates": [],
+                "nearestComponentId": "trigger3",
+                "nearestComponentDistance": 183.0,
+                "secondComponentId": "stage3",
+                "secondComponentDistance": 245.0,
+                "proximityTolerance": 8.5
+              }
+            ],
+            "ports": [],
+            "barriers": [],
+            "firstIntermediateBarrier": null,
+            "contactSequence": [],
+            "adjacentRelations": [],
+            "inputMutation": false
+          },
+          "originalEndpoints": {
+            "from": "database",
+            "to": "trigger3"
+          },
+          "selectedEndpoint": null,
+          "barriersFound": [],
+          "officialResultChanged": false
+        }
+      ],
+      "evaluated": true,
+      "matchesHumanExpectation": null
+    },
+    {
+      "caseId": "E02",
+      "requiredRegression": false,
+      "imageId": "aws-video-pipeline",
+      "humanCause": "structural_line",
+      "humanContributingCauses": [
+        "ambiguous_endpoint"
+      ],
+      "humanExpectedCorrection": "Descartar a linha superior como conector entre as funções de negócio. Exigir que os endpoints estejam conectados às bordas ou portas reais dos componentes e preservar apenas os fluxos business1 → database e business2 → database, sem criar uma relação direta entre business1 e business2.",
+      "expectedEdges": [],
+      "decisions": [
+        {
+          "inventoryId": "isolated_ground_truth:aws-video-pipeline:predicted:7",
+          "imageId": "aws-video-pipeline",
+          "provider": "aws",
+          "evaluationStatus": "false_positive",
+          "legacyCandidate": {
+            "id": "f7",
+            "from": "business1",
+            "to": "business2",
+            "protocol": "unknown",
+            "trustBoundary": true,
+            "crossedBoundaryIds": [
+              "tb1"
+            ],
+            "confidence": 0.752,
+            "inferred": true,
+            "reviewStatus": "pending",
+            "evidence": "segment_graph",
+            "directionEvidence": "left_to_right",
+            "directionConfidence": 0.5,
+            "arrowheadScores": {
+              "business1": 30.0,
+              "business2": 40.0,
+              "classifier": {
+                "business1": 0.0,
+                "business2": 0.0,
+                "model": "arrowhead-logistic"
+              }
+            },
+            "pathPoints": [
+              [
+                2157,
+                1214
+              ],
+              [
+                3813,
+                1242
+              ]
+            ],
+            "pixelSupport": null,
+            "maximumGap": null,
+            "segmentHops": 1,
+            "routeEfficiency": 0.893
+          },
+          "junctionAwareCandidate": {
+            "schemaVersion": "1.0",
+            "strategy": "junction_aware",
+            "strategyRevision": "tl004b-ports-barriers-v1",
+            "mode": "shadow",
+            "officialEligible": false,
+            "legacyFlow": {
+              "id": "f7",
+              "from": "business1",
+              "to": "business2",
+              "protocol": "unknown",
+              "trustBoundary": true,
+              "crossedBoundaryIds": [
+                "tb1"
+              ],
+              "confidence": 0.752,
+              "inferred": true,
+              "reviewStatus": "pending",
+              "evidence": "segment_graph",
+              "directionEvidence": "left_to_right",
+              "directionConfidence": 0.5,
+              "arrowheadScores": {
+                "business1": 30.0,
+                "business2": 40.0,
+                "classifier": {
+                  "business1": 0.0,
+                  "business2": 0.0,
+                  "model": "arrowhead-logistic"
+                }
+              },
+              "pathPoints": [
+                [
+                  2157,
+                  1214
+                ],
+                [
+                  3813,
+                  1242
+                ]
+              ],
+              "pixelSupport": null,
+              "maximumGap": null,
+              "segmentHops": 1,
+              "routeEfficiency": 0.893
+            },
+            "experimentalFlow": null,
+            "edgeAction": "review_only",
+            "reasonCodes": [
+              "destination:no_contact",
+              "source:no_contact"
+            ],
+            "pathPointsReversed": false,
+            "normalAssociationCost": 381.275,
+            "reversedAssociationCost": 3313.519,
+            "reason": "original_order_retained",
+            "internalPathPoints": [
+              [
+                2157.0,
+                1214.0
+              ],
+              [
+                3813.0,
+                1242.0
+              ]
+            ],
+            "endpointDecisions": [
+              {
+                "role": "source",
+                "declaredComponentId": "business1",
+                "endpoint": [
+                  2157.0,
+                  1214.0
+                ],
+                "classification": "no_contact",
+                "selectedComponentId": null,
+                "selectedPortId": null,
+                "coherentContactCandidates": [],
+                "nearestComponentId": "business1",
+                "nearestComponentDistance": 198.275,
+                "secondComponentId": "stage1",
+                "secondComponentDistance": 249.84,
+                "proximityTolerance": 8.5
+              },
+              {
+                "role": "destination",
+                "declaredComponentId": "business2",
+                "endpoint": [
+                  3813.0,
+                  1242.0
+                ],
+                "classification": "no_contact",
+                "selectedComponentId": null,
+                "selectedPortId": null,
+                "coherentContactCandidates": [],
+                "nearestComponentId": "business2",
+                "nearestComponentDistance": 183.0,
+                "secondComponentId": "trigger2",
+                "secondComponentDistance": 243.0,
+                "proximityTolerance": 8.5
+              }
+            ],
+            "ports": [],
+            "barriers": [],
+            "firstIntermediateBarrier": null,
+            "contactSequence": [],
+            "adjacentRelations": [],
+            "inputMutation": false
+          },
+          "originalEndpoints": {
+            "from": "business1",
+            "to": "business2"
+          },
+          "selectedEndpoint": null,
+          "barriersFound": [],
+          "officialResultChanged": false
+        }
+      ],
+      "evaluated": true,
+      "matchesHumanExpectation": null
+    },
+    {
+      "caseId": "E03",
+      "requiredRegression": true,
+      "imageId": "aws-video-pipeline",
+      "humanCause": "transitive_shortcut",
+      "humanContributingCauses": [
+        "component_passthrough"
+      ],
+      "humanExpectedCorrection": "Interromper o caminho ao atingir a borda ou porta do componente stage3 e decompor a relação em duas conexões: media → stage3 e stage3 → trigger3. Não gerar a aresta direta media → trigger3.",
+      "expectedEdges": [
+        {
+          "from": "media",
+          "to": "stage3"
+        },
+        {
+          "from": "stage3",
+          "to": "trigger3"
+        }
+      ],
+      "decisions": [
+        {
+          "inventoryId": "isolated_ground_truth:aws-video-pipeline:predicted:31",
+          "imageId": "aws-video-pipeline",
+          "provider": "aws",
+          "evaluationStatus": "false_positive",
+          "legacyCandidate": {
+            "id": "f31",
+            "from": "media",
+            "to": "trigger3",
+            "protocol": "unknown",
+            "trustBoundary": false,
+            "crossedBoundaryIds": [],
+            "confidence": 0.743,
+            "inferred": true,
+            "reviewStatus": "pending",
+            "evidence": "segment_graph",
+            "directionEvidence": "top_to_bottom",
+            "directionConfidence": 0.5,
+            "arrowheadScores": {
+              "media": 50.0,
+              "trigger3": 80.0,
+              "classifier": {
+                "media": 0.0,
+                "trigger3": 0.0,
+                "model": "arrowhead-logistic"
+              }
+            },
+            "pathPoints": [
+              [
+                4625,
+                957
+              ],
+              [
+                4610,
+                1582
+              ]
+            ],
+            "pixelSupport": null,
+            "maximumGap": null,
+            "segmentHops": 1,
+            "routeEfficiency": 0.695
+          },
+          "junctionAwareCandidate": {
+            "schemaVersion": "1.0",
+            "strategy": "junction_aware",
+            "strategyRevision": "tl004b-ports-barriers-v1",
+            "mode": "shadow",
+            "officialEligible": false,
+            "legacyFlow": {
+              "id": "f31",
+              "from": "media",
+              "to": "trigger3",
+              "protocol": "unknown",
+              "trustBoundary": false,
+              "crossedBoundaryIds": [],
+              "confidence": 0.743,
+              "inferred": true,
+              "reviewStatus": "pending",
+              "evidence": "segment_graph",
+              "directionEvidence": "top_to_bottom",
+              "directionConfidence": 0.5,
+              "arrowheadScores": {
+                "media": 50.0,
+                "trigger3": 80.0,
+                "classifier": {
+                  "media": 0.0,
+                  "trigger3": 0.0,
+                  "model": "arrowhead-logistic"
+                }
+              },
+              "pathPoints": [
+                [
+                  4625,
+                  957
+                ],
+                [
+                  4610,
+                  1582
+                ]
+              ],
+              "pixelSupport": null,
+              "maximumGap": null,
+              "segmentHops": 1,
+              "routeEfficiency": 0.695
+            },
+            "experimentalFlow": {
+              "id": "f31",
+              "from": "stage3",
+              "to": "trigger3",
+              "protocol": "unknown",
+              "trustBoundary": false,
+              "crossedBoundaryIds": [],
+              "confidence": 0.743,
+              "inferred": true,
+              "reviewStatus": "pending",
+              "evidence": "segment_graph",
+              "directionEvidence": "top_to_bottom",
+              "directionConfidence": 0.5,
+              "arrowheadScores": {
+                "media": 50.0,
+                "trigger3": 80.0,
+                "classifier": {
+                  "media": 0.0,
+                  "trigger3": 0.0,
+                  "model": "arrowhead-logistic"
+                }
+              },
+              "pathPoints": [
+                [
+                  4625,
+                  957
+                ],
+                [
+                  4610,
+                  1582
+                ]
+              ],
+              "pixelSupport": null,
+              "maximumGap": null,
+              "segmentHops": 1,
+              "routeEfficiency": 0.695
+            },
+            "edgeAction": "redirected",
+            "reasonCodes": [
+              "source:wrong_component_contact"
+            ],
+            "pathPointsReversed": false,
+            "normalAssociationCost": 279.0,
+            "reversedAssociationCost": 1117.437,
+            "reason": "original_order_retained",
+            "internalPathPoints": [
+              [
+                4625.0,
+                957.0
+              ],
+              [
+                4610.0,
+                1582.0
+              ]
+            ],
+            "endpointDecisions": [
+              {
+                "role": "source",
+                "declaredComponentId": "media",
+                "endpoint": [
+                  4625.0,
+                  957.0
+                ],
+                "classification": "wrong_component_contact",
+                "selectedComponentId": "stage3",
+                "selectedPortId": "port-2f3c5e933fd3e46e",
+                "coherentContactCandidates": [
+                  "stage3"
+                ],
+                "nearestComponentId": "stage3",
+                "nearestComponentDistance": 0.0,
+                "secondComponentId": "media",
+                "secondComponentDistance": 279.0,
+                "proximityTolerance": 8.5
+              },
+              {
+                "role": "destination",
+                "declaredComponentId": "trigger3",
+                "endpoint": [
+                  4610.0,
+                  1582.0
+                ],
+                "classification": "confirmed_contact",
+                "selectedComponentId": "trigger3",
+                "selectedPortId": "port-6b825ab463f088b0",
+                "coherentContactCandidates": [
+                  "trigger3"
+                ],
+                "nearestComponentId": "trigger3",
+                "nearestComponentDistance": 0.0,
+                "secondComponentId": "stage3",
+                "secondComponentDistance": 571.0,
+                "proximityTolerance": 8.5
+              }
+            ],
+            "ports": [
+              {
+                "id": "port-2f3c5e933fd3e46e",
+                "componentId": "stage3",
+                "coordinates": [
+                  4623.704,
+                  1011.0
+                ],
+                "side": "bottom",
+                "distanceFromPathStart": 54.016,
+                "distanceFromPathEnd": 571.164,
+                "normalizedPathPosition": 0.0864,
+                "arrivalOrDepartureAngle": 91.375,
+                "segmentResponsible": "path-segment-0",
+                "sourceSegments": [
+                  "path-segment-0"
+                ],
+                "confidence": "high",
+                "contactStrength": "verified",
+                "geometricEvidence": {
+                  "eventIds": [
+                    "gev-04af6ceb3d1f5bbd"
+                  ],
+                  "eventTypes": [
+                    "component_boundary_intersection"
+                  ],
+                  "crossesComponentInterior": true,
+                  "endpointContactVerified": false,
+                  "dependency": "backend/geometric_events.py"
+                }
+              },
+              {
+                "id": "port-6b825ab463f088b0",
+                "componentId": "trigger3",
+                "coordinates": [
+                  4613.432,
+                  1439.0
+                ],
+                "side": "top",
+                "distanceFromPathStart": 482.139,
+                "distanceFromPathEnd": 143.041,
+                "normalizedPathPosition": 0.7712,
+                "arrivalOrDepartureAngle": 91.375,
+                "segmentResponsible": "path-segment-0",
+                "sourceSegments": [
+                  "path-segment-0"
+                ],
+                "confidence": "high",
+                "contactStrength": "verified",
+                "geometricEvidence": {
+                  "eventIds": [
+                    "gev-378ad14d86cef761"
+                  ],
+                  "eventTypes": [
+                    "component_boundary_intersection"
+                  ],
+                  "crossesComponentInterior": true,
+                  "endpointContactVerified": false,
+                  "dependency": "backend/geometric_events.py"
+                }
+              }
+            ],
+            "barriers": [
+              {
+                "id": "barrier-697b1325612ea194",
+                "componentId": "stage3",
+                "firstContact": [
+                  4623.704,
+                  1011.0
+                ],
+                "normalizedPathPosition": 0.0864,
+                "portId": "port-2f3c5e933fd3e46e",
+                "crossesComponentInterior": true,
+                "shadowOnly": true,
+                "isDeclaredEndpoint": false,
+                "terminatesExperimentalPath": false
+              },
+              {
+                "id": "barrier-4ee5ec48c97b01a0",
+                "componentId": "trigger3",
+                "firstContact": [
+                  4613.432,
+                  1439.0
+                ],
+                "normalizedPathPosition": 0.7712,
+                "portId": "port-6b825ab463f088b0",
+                "crossesComponentInterior": true,
+                "shadowOnly": true,
+                "isDeclaredEndpoint": true,
+                "terminatesExperimentalPath": false
+              }
+            ],
+            "firstIntermediateBarrier": null,
+            "contactSequence": [
+              {
+                "componentId": "stage3",
+                "firstPosition": 0.0864,
+                "lastPosition": 0.0864
+              },
+              {
+                "componentId": "trigger3",
+                "firstPosition": 0.7712,
+                "lastPosition": 0.7712
+              }
+            ],
+            "adjacentRelations": [
+              {
+                "from": "stage3",
+                "to": "trigger3",
+                "shadowOnly": true
+              }
+            ],
+            "inputMutation": false
+          },
+          "originalEndpoints": {
+            "from": "media",
+            "to": "trigger3"
+          },
+          "selectedEndpoint": {
+            "from": "stage3",
+            "to": "trigger3"
+          },
+          "barriersFound": [
+            "stage3",
+            "trigger3"
+          ],
+          "officialResultChanged": false
+        }
+      ],
+      "evaluated": true,
+      "matchesHumanExpectation": true
+    },
+    {
+      "caseId": "E04",
+      "requiredRegression": false,
+      "imageId": "azure-private-ai-platform",
+      "humanCause": "structural_line",
+      "humanContributingCauses": [
+        "crossing_without_junction",
+        "ambiguous_endpoint"
+      ],
+      "humanExpectedCorrection": "Não considerar bordas de subnets, containers ou áreas arquiteturais como conectores de fluxo. Cruzamentos entre essas bordas e conectores verticais não devem formar junções. Exigir que os endpoints estejam ligados a portas ou bordas funcionais dos componentes antes de criar uma aresta e remover a relação direta app_gateway → bastion.",
+      "expectedEdges": [],
+      "decisions": [
+        {
+          "inventoryId": "isolated_ground_truth:azure-private-ai-platform:predicted:2",
+          "imageId": "azure-private-ai-platform",
+          "provider": "azure",
+          "evaluationStatus": "false_positive",
+          "legacyCandidate": {
+            "id": "f2",
+            "from": "app_gateway",
+            "to": "bastion",
+            "protocol": "unknown",
+            "trustBoundary": false,
+            "crossedBoundaryIds": [],
+            "confidence": 0.755,
+            "inferred": true,
+            "reviewStatus": "pending",
+            "evidence": "segment_graph",
+            "directionEvidence": "visual_arrowhead",
+            "directionConfidence": 0.818,
+            "arrowheadScores": {
+              "app_gateway": 40.0,
+              "bastion": 100.0,
+              "classifier": {
+                "app_gateway": 0.0211,
+                "bastion": 0.0,
+                "model": "arrowhead-logistic"
+              }
+            },
+            "pathPoints": [
+              [
+                585,
+                965
+              ],
+              [
+                2032,
+                969
+              ]
+            ],
+            "pixelSupport": null,
+            "maximumGap": null,
+            "segmentHops": 1,
+            "routeEfficiency": 0.951
+          },
+          "junctionAwareCandidate": {
+            "schemaVersion": "1.0",
+            "strategy": "junction_aware",
+            "strategyRevision": "tl004b-ports-barriers-v1",
+            "mode": "shadow",
+            "officialEligible": false,
+            "legacyFlow": {
+              "id": "f2",
+              "from": "app_gateway",
+              "to": "bastion",
+              "protocol": "unknown",
+              "trustBoundary": false,
+              "crossedBoundaryIds": [],
+              "confidence": 0.755,
+              "inferred": true,
+              "reviewStatus": "pending",
+              "evidence": "segment_graph",
+              "directionEvidence": "visual_arrowhead",
+              "directionConfidence": 0.818,
+              "arrowheadScores": {
+                "app_gateway": 40.0,
+                "bastion": 100.0,
+                "classifier": {
+                  "app_gateway": 0.0211,
+                  "bastion": 0.0,
+                  "model": "arrowhead-logistic"
+                }
+              },
+              "pathPoints": [
+                [
+                  585,
+                  965
+                ],
+                [
+                  2032,
+                  969
+                ]
+              ],
+              "pixelSupport": null,
+              "maximumGap": null,
+              "segmentHops": 1,
+              "routeEfficiency": 0.951
+            },
+            "experimentalFlow": null,
+            "edgeAction": "review_only",
+            "reasonCodes": [
+              "destination:no_contact",
+              "source:no_contact"
+            ],
+            "pathPointsReversed": false,
+            "normalAssociationCost": 211.0,
+            "reversedAssociationCost": 2827.408,
+            "reason": "original_order_retained",
+            "internalPathPoints": [
+              [
+                585.0,
+                965.0
+              ],
+              [
+                2032.0,
+                969.0
+              ]
+            ],
+            "endpointDecisions": [
+              {
+                "role": "source",
+                "declaredComponentId": "app_gateway",
+                "endpoint": [
+                  585.0,
+                  965.0
+                ],
+                "classification": "no_contact",
+                "selectedComponentId": null,
+                "selectedPortId": null,
+                "coherentContactCandidates": [],
+                "nearestComponentId": "app_gateway",
+                "nearestComponentDistance": 77.0,
+                "secondComponentId": "app_service",
+                "secondComponentDistance": 198.0,
+                "proximityTolerance": 8.5
+              },
+              {
+                "role": "destination",
+                "declaredComponentId": "bastion",
+                "endpoint": [
+                  2032.0,
+                  969.0
+                ],
+                "classification": "no_contact",
+                "selectedComponentId": null,
+                "selectedPortId": null,
+                "coherentContactCandidates": [],
+                "nearestComponentId": "bastion",
+                "nearestComponentDistance": 134.0,
+                "secondComponentId": "build_agents",
+                "secondComponentDistance": 202.633,
+                "proximityTolerance": 8.5
+              }
+            ],
+            "ports": [],
+            "barriers": [],
+            "firstIntermediateBarrier": null,
+            "contactSequence": [],
+            "adjacentRelations": [],
+            "inputMutation": false
+          },
+          "originalEndpoints": {
+            "from": "app_gateway",
+            "to": "bastion"
+          },
+          "selectedEndpoint": null,
+          "barriersFound": [],
+          "officialResultChanged": false
+        }
+      ],
+      "evaluated": true,
+      "matchesHumanExpectation": null
+    },
+    {
+      "caseId": "E05",
+      "requiredRegression": false,
+      "imageId": "azure-private-ai-platform",
+      "humanCause": "structural_line",
+      "humanContributingCauses": [
+        "component_passthrough",
+        "ambiguous_endpoint"
+      ],
+      "humanExpectedCorrection": "Não promover linhas de agrupamento, bordas ou elementos textuais a conectores de fluxo. Um caminho que intersecta o interior de um componente deve terminar em uma porta ou borda válida desse componente, ou ser rejeitado. Remover a relação direta storage → cosmos e não criar automaticamente conexões com ai_search sem evidência visual de setas ou endpoints válidos.",
+      "expectedEdges": [],
+      "decisions": [
+        {
+          "inventoryId": "isolated_ground_truth:azure-private-ai-platform:predicted:4",
+          "imageId": "azure-private-ai-platform",
+          "provider": "azure",
+          "evaluationStatus": "false_positive",
+          "legacyCandidate": {
+            "id": "f4",
+            "from": "storage",
+            "to": "cosmos",
+            "protocol": "unknown",
+            "trustBoundary": false,
+            "crossedBoundaryIds": [],
+            "confidence": 0.749,
+            "inferred": true,
+            "reviewStatus": "pending",
+            "evidence": "segment_graph",
+            "directionEvidence": "left_to_right",
+            "directionConfidence": 0.5,
+            "arrowheadScores": {
+              "storage": 40.0,
+              "cosmos": 30.0,
+              "classifier": {
+                "storage": 0.0,
+                "cosmos": 0.0,
+                "model": "arrowhead-logistic"
+              }
+            },
+            "pathPoints": [
+              [
+                1309,
+                1272
+              ],
+              [
+                1751,
+                1272
+              ]
+            ],
+            "pixelSupport": null,
+            "maximumGap": null,
+            "segmentHops": 1,
+            "routeEfficiency": 0.829
+          },
+          "junctionAwareCandidate": {
+            "schemaVersion": "1.0",
+            "strategy": "junction_aware",
+            "strategyRevision": "tl004b-ports-barriers-v1",
+            "mode": "shadow",
+            "officialEligible": false,
+            "legacyFlow": {
+              "id": "f4",
+              "from": "storage",
+              "to": "cosmos",
+              "protocol": "unknown",
+              "trustBoundary": false,
+              "crossedBoundaryIds": [],
+              "confidence": 0.749,
+              "inferred": true,
+              "reviewStatus": "pending",
+              "evidence": "segment_graph",
+              "directionEvidence": "left_to_right",
+              "directionConfidence": 0.5,
+              "arrowheadScores": {
+                "storage": 40.0,
+                "cosmos": 30.0,
+                "classifier": {
+                  "storage": 0.0,
+                  "cosmos": 0.0,
+                  "model": "arrowhead-logistic"
+                }
+              },
+              "pathPoints": [
+                [
+                  1309,
+                  1272
+                ],
+                [
+                  1751,
+                  1272
+                ]
+              ],
+              "pixelSupport": null,
+              "maximumGap": null,
+              "segmentHops": 1,
+              "routeEfficiency": 0.829
+            },
+            "experimentalFlow": {
+              "id": "f4",
+              "from": "ai_search",
+              "to": "cosmos",
+              "protocol": "unknown",
+              "trustBoundary": false,
+              "crossedBoundaryIds": [],
+              "confidence": 0.749,
+              "inferred": true,
+              "reviewStatus": "pending",
+              "evidence": "segment_graph",
+              "directionEvidence": "left_to_right",
+              "directionConfidence": 0.5,
+              "arrowheadScores": {
+                "storage": 40.0,
+                "cosmos": 30.0,
+                "classifier": {
+                  "storage": 0.0,
+                  "cosmos": 0.0,
+                  "model": "arrowhead-logistic"
+                }
+              },
+              "pathPoints": [
+                [
+                  1309,
+                  1272
+                ],
+                [
+                  1751,
+                  1272
+                ]
+              ],
+              "pixelSupport": null,
+              "maximumGap": null,
+              "segmentHops": 1,
+              "routeEfficiency": 0.829
+            },
+            "edgeAction": "redirected",
+            "reasonCodes": [
+              "source:wrong_component_contact"
+            ],
+            "pathPointsReversed": false,
+            "normalAssociationCost": 97.0,
+            "reversedAssociationCost": 882.0,
+            "reason": "original_order_retained",
+            "internalPathPoints": [
+              [
+                1309.0,
+                1272.0
+              ],
+              [
+                1751.0,
+                1272.0
+              ]
+            ],
+            "endpointDecisions": [
+              {
+                "role": "source",
+                "declaredComponentId": "storage",
+                "endpoint": [
+                  1309.0,
+                  1272.0
+                ],
+                "classification": "wrong_component_contact",
+                "selectedComponentId": "ai_search",
+                "selectedPortId": "port-c38d7e9b6d6aa79d",
+                "coherentContactCandidates": [
+                  "ai_search"
+                ],
+                "nearestComponentId": "storage",
+                "nearestComponentDistance": 97.0,
+                "secondComponentId": "ai_search",
+                "secondComponentDistance": 143.0,
+                "proximityTolerance": 8.5
+              },
+              {
+                "role": "destination",
+                "declaredComponentId": "cosmos",
+                "endpoint": [
+                  1751.0,
+                  1272.0
+                ],
+                "classification": "confirmed_contact",
+                "selectedComponentId": "cosmos",
+                "selectedPortId": "port-075f9c6ec59f19ee",
+                "coherentContactCandidates": [
+                  "cosmos"
+                ],
+                "nearestComponentId": "cosmos",
+                "nearestComponentDistance": 0.0,
+                "secondComponentId": "ai_search",
+                "secondComponentDistance": 126.0,
+                "proximityTolerance": 8.5
+              }
+            ],
+            "ports": [
+              {
+                "id": "port-c38d7e9b6d6aa79d",
+                "componentId": "ai_search",
+                "coordinates": [
+                  1452.0,
+                  1272.0
+                ],
+                "side": "left",
+                "distanceFromPathStart": 143.0,
+                "distanceFromPathEnd": 299.0,
+                "normalizedPathPosition": 0.323529,
+                "arrivalOrDepartureAngle": 0.0,
+                "segmentResponsible": "path-segment-0",
+                "sourceSegments": [
+                  "path-segment-0"
+                ],
+                "confidence": "high",
+                "contactStrength": "verified",
+                "geometricEvidence": {
+                  "eventIds": [
+                    "gev-bbd3b8913be726d7"
+                  ],
+                  "eventTypes": [
+                    "component_boundary_intersection"
+                  ],
+                  "crossesComponentInterior": true,
+                  "endpointContactVerified": false,
+                  "dependency": "backend/geometric_events.py"
+                }
+              },
+              {
+                "id": "port-31c5ed1daffba12a",
+                "componentId": "ai_search",
+                "coordinates": [
+                  1625.0,
+                  1272.0
+                ],
+                "side": "right",
+                "distanceFromPathStart": 316.0,
+                "distanceFromPathEnd": 126.0,
+                "normalizedPathPosition": 0.714932,
+                "arrivalOrDepartureAngle": 0.0,
+                "segmentResponsible": "path-segment-0",
+                "sourceSegments": [
+                  "path-segment-0"
+                ],
+                "confidence": "high",
+                "contactStrength": "verified",
+                "geometricEvidence": {
+                  "eventIds": [
+                    "gev-56a48afaa47c9109"
+                  ],
+                  "eventTypes": [
+                    "component_boundary_intersection"
+                  ],
+                  "crossesComponentInterior": true,
+                  "endpointContactVerified": false,
+                  "dependency": "backend/geometric_events.py"
+                }
+              },
+              {
+                "id": "port-075f9c6ec59f19ee",
+                "componentId": "cosmos",
+                "coordinates": [
+                  1652.0,
+                  1272.0
+                ],
+                "side": "left",
+                "distanceFromPathStart": 343.0,
+                "distanceFromPathEnd": 99.0,
+                "normalizedPathPosition": 0.776018,
+                "arrivalOrDepartureAngle": 0.0,
+                "segmentResponsible": "path-segment-0",
+                "sourceSegments": [
+                  "path-segment-0"
+                ],
+                "confidence": "high",
+                "contactStrength": "verified",
+                "geometricEvidence": {
+                  "eventIds": [
+                    "gev-f0dc485e69a6bc78"
+                  ],
+                  "eventTypes": [
+                    "component_boundary_intersection"
+                  ],
+                  "crossesComponentInterior": true,
+                  "endpointContactVerified": false,
+                  "dependency": "backend/geometric_events.py"
+                }
+              }
+            ],
+            "barriers": [
+              {
+                "id": "barrier-cf3f4d87af0daf07",
+                "componentId": "ai_search",
+                "firstContact": [
+                  1452.0,
+                  1272.0
+                ],
+                "normalizedPathPosition": 0.323529,
+                "portId": "port-c38d7e9b6d6aa79d",
+                "crossesComponentInterior": true,
+                "shadowOnly": true,
+                "isDeclaredEndpoint": false,
+                "terminatesExperimentalPath": false
+              },
+              {
+                "id": "barrier-e553a28feb5c5780",
+                "componentId": "ai_search",
+                "firstContact": [
+                  1625.0,
+                  1272.0
+                ],
+                "normalizedPathPosition": 0.714932,
+                "portId": "port-31c5ed1daffba12a",
+                "crossesComponentInterior": true,
+                "shadowOnly": true,
+                "isDeclaredEndpoint": false,
+                "terminatesExperimentalPath": false
+              },
+              {
+                "id": "barrier-c2cc454c5fcf6b25",
+                "componentId": "cosmos",
+                "firstContact": [
+                  1652.0,
+                  1272.0
+                ],
+                "normalizedPathPosition": 0.776018,
+                "portId": "port-075f9c6ec59f19ee",
+                "crossesComponentInterior": true,
+                "shadowOnly": true,
+                "isDeclaredEndpoint": true,
+                "terminatesExperimentalPath": false
+              }
+            ],
+            "firstIntermediateBarrier": null,
+            "contactSequence": [
+              {
+                "componentId": "ai_search",
+                "firstPosition": 0.323529,
+                "lastPosition": 0.714932
+              },
+              {
+                "componentId": "cosmos",
+                "firstPosition": 0.776018,
+                "lastPosition": 0.776018
+              }
+            ],
+            "adjacentRelations": [
+              {
+                "from": "ai_search",
+                "to": "cosmos",
+                "shadowOnly": true
+              }
+            ],
+            "inputMutation": false
+          },
+          "originalEndpoints": {
+            "from": "storage",
+            "to": "cosmos"
+          },
+          "selectedEndpoint": {
+            "from": "ai_search",
+            "to": "cosmos"
+          },
+          "barriersFound": [
+            "ai_search",
+            "ai_search",
+            "cosmos"
+          ],
+          "officialResultChanged": false
+        }
+      ],
+      "evaluated": true,
+      "matchesHumanExpectation": null
+    },
+    {
+      "caseId": "E07",
+      "requiredRegression": false,
+      "imageId": "aws-eks-platform",
+      "humanCause": "structural_line",
+      "humanContributingCauses": [
+        "component_passthrough",
+        "ambiguous_endpoint"
+      ],
+      "humanExpectedCorrection": "Descartar bordas de agrupamentos e containers como conectores de fluxo. Exigir que o endpoint inicial esteja ligado visualmente à borda ou porta do componente Glue e impedir que um caminho atravesse o interior do DynamoDB sem terminar nele. Remover a relação direta glue → rds e não criar automaticamente glue → dynamo ou dynamo → rds sem evidência visual válida.",
+      "expectedEdges": [],
+      "decisions": [
+        {
+          "inventoryId": "isolated_ground_truth:aws-eks-platform:predicted:6",
+          "imageId": "aws-eks-platform",
+          "provider": "aws",
+          "evaluationStatus": "false_positive",
+          "legacyCandidate": {
+            "id": "f6",
+            "from": "glue",
+            "to": "rds",
+            "protocol": "unknown",
+            "trustBoundary": false,
+            "crossedBoundaryIds": [],
+            "confidence": 0.746,
+            "inferred": true,
+            "reviewStatus": "pending",
+            "evidence": "segment_graph",
+            "directionEvidence": "left_to_right",
+            "directionConfidence": 0.5,
+            "arrowheadScores": {
+              "glue": 70.0,
+              "rds": 40.0,
+              "classifier": {
+                "glue": 0.0,
+                "rds": 0.0,
+                "model": "arrowhead-logistic"
+              }
+            },
+            "pathPoints": [
+              [
+                1002,
+                639
+              ],
+              [
+                1271,
+                634
+              ]
+            ],
+            "pixelSupport": null,
+            "maximumGap": null,
+            "segmentHops": 1,
+            "routeEfficiency": 0.757
+          },
+          "junctionAwareCandidate": {
+            "schemaVersion": "1.0",
+            "strategy": "junction_aware",
+            "strategyRevision": "tl004b-ports-barriers-v1",
+            "mode": "shadow",
+            "officialEligible": false,
+            "legacyFlow": {
+              "id": "f6",
+              "from": "glue",
+              "to": "rds",
+              "protocol": "unknown",
+              "trustBoundary": false,
+              "crossedBoundaryIds": [],
+              "confidence": 0.746,
+              "inferred": true,
+              "reviewStatus": "pending",
+              "evidence": "segment_graph",
+              "directionEvidence": "left_to_right",
+              "directionConfidence": 0.5,
+              "arrowheadScores": {
+                "glue": 70.0,
+                "rds": 40.0,
+                "classifier": {
+                  "glue": 0.0,
+                  "rds": 0.0,
+                  "model": "arrowhead-logistic"
+                }
+              },
+              "pathPoints": [
+                [
+                  1002,
+                  639
+                ],
+                [
+                  1271,
+                  634
+                ]
+              ],
+              "pixelSupport": null,
+              "maximumGap": null,
+              "segmentHops": 1,
+              "routeEfficiency": 0.757
+            },
+            "experimentalFlow": {
+              "id": "f6",
+              "from": "dynamo",
+              "to": "rds",
+              "protocol": "unknown",
+              "trustBoundary": false,
+              "crossedBoundaryIds": [],
+              "confidence": 0.746,
+              "inferred": true,
+              "reviewStatus": "pending",
+              "evidence": "segment_graph",
+              "directionEvidence": "left_to_right",
+              "directionConfidence": 0.5,
+              "arrowheadScores": {
+                "glue": 70.0,
+                "rds": 40.0,
+                "classifier": {
+                  "glue": 0.0,
+                  "rds": 0.0,
+                  "model": "arrowhead-logistic"
+                }
+              },
+              "pathPoints": [
+                [
+                  1002,
+                  639
+                ],
+                [
+                  1271,
+                  634
+                ]
+              ],
+              "pixelSupport": null,
+              "maximumGap": null,
+              "segmentHops": 1,
+              "routeEfficiency": 0.757
+            },
+            "edgeAction": "redirected",
+            "reasonCodes": [
+              "source:wrong_component_contact"
+            ],
+            "pathPointsReversed": false,
+            "normalAssociationCost": 92.049,
+            "reversedAssociationCost": 520.614,
+            "reason": "original_order_retained",
+            "internalPathPoints": [
+              [
+                1002.0,
+                639.0
+              ],
+              [
+                1271.0,
+                634.0
+              ]
+            ],
+            "endpointDecisions": [
+              {
+                "role": "source",
+                "declaredComponentId": "glue",
+                "endpoint": [
+                  1002.0,
+                  639.0
+                ],
+                "classification": "wrong_component_contact",
+                "selectedComponentId": "dynamo",
+                "selectedPortId": "port-aff2a759f35f38e0",
+                "coherentContactCandidates": [
+                  "dynamo"
+                ],
+                "nearestComponentId": "dynamo",
+                "nearestComponentDistance": 34.0,
+                "secondComponentId": "glue",
+                "secondComponentDistance": 91.049,
+                "proximityTolerance": 8.5
+              },
+              {
+                "role": "destination",
+                "declaredComponentId": "rds",
+                "endpoint": [
+                  1271.0,
+                  634.0
+                ],
+                "classification": "confirmed_contact",
+                "selectedComponentId": "rds",
+                "selectedPortId": "port-761920ac35472f7f",
+                "coherentContactCandidates": [
+                  "rds"
+                ],
+                "nearestComponentId": "rds",
+                "nearestComponentDistance": 1.0,
+                "secondComponentId": "dynamo",
+                "secondComponentDistance": 102.005,
+                "proximityTolerance": 8.5
+              }
+            ],
+            "ports": [
+              {
+                "id": "port-aff2a759f35f38e0",
+                "componentId": "dynamo",
+                "coordinates": [
+                  1036.0,
+                  638.368
+                ],
+                "side": "left",
+                "distanceFromPathStart": 34.006,
+                "distanceFromPathEnd": 235.041,
+                "normalizedPathPosition": 0.126394,
+                "arrivalOrDepartureAngle": 358.935,
+                "segmentResponsible": "path-segment-0",
+                "sourceSegments": [
+                  "path-segment-0"
+                ],
+                "confidence": "high",
+                "contactStrength": "verified",
+                "geometricEvidence": {
+                  "eventIds": [
+                    "gev-976342c9d4dfbcc4"
+                  ],
+                  "eventTypes": [
+                    "component_boundary_intersection"
+                  ],
+                  "crossesComponentInterior": true,
+                  "endpointContactVerified": false,
+                  "dependency": "backend/geometric_events.py"
+                }
+              },
+              {
+                "id": "port-7e91687eac0945f0",
+                "componentId": "dynamo",
+                "coordinates": [
+                  1169.0,
+                  635.896
+                ],
+                "side": "right",
+                "distanceFromPathStart": 167.029,
+                "distanceFromPathEnd": 102.018,
+                "normalizedPathPosition": 0.620818,
+                "arrivalOrDepartureAngle": 358.935,
+                "segmentResponsible": "path-segment-0",
+                "sourceSegments": [
+                  "path-segment-0"
+                ],
+                "confidence": "high",
+                "contactStrength": "verified",
+                "geometricEvidence": {
+                  "eventIds": [
+                    "gev-efa00569682cfaab"
+                  ],
+                  "eventTypes": [
+                    "component_boundary_intersection"
+                  ],
+                  "crossesComponentInterior": true,
+                  "endpointContactVerified": false,
+                  "dependency": "backend/geometric_events.py"
+                }
+              },
+              {
+                "id": "port-4c4e35fe878f2d1a",
+                "componentId": "rds",
+                "coordinates": [
+                  1190.0,
+                  635.506
+                ],
+                "side": "left",
+                "distanceFromPathStart": 188.032,
+                "distanceFromPathEnd": 81.014,
+                "normalizedPathPosition": 0.698885,
+                "arrivalOrDepartureAngle": 358.935,
+                "segmentResponsible": "path-segment-0",
+                "sourceSegments": [
+                  "path-segment-0"
+                ],
+                "confidence": "high",
+                "contactStrength": "verified",
+                "geometricEvidence": {
+                  "eventIds": [
+                    "gev-8c567da475b6a59f"
+                  ],
+                  "eventTypes": [
+                    "component_boundary_intersection"
+                  ],
+                  "crossesComponentInterior": true,
+                  "endpointContactVerified": false,
+                  "dependency": "backend/geometric_events.py"
+                }
+              },
+              {
+                "id": "port-8523c197bcad8124",
+                "componentId": "rds",
+                "coordinates": [
+                  1217.2,
+                  635.0
+                ],
+                "side": "top",
+                "distanceFromPathStart": 215.237,
+                "distanceFromPathEnd": 53.809,
+                "normalizedPathPosition": 0.8,
+                "arrivalOrDepartureAngle": 358.935,
+                "segmentResponsible": "path-segment-0",
+                "sourceSegments": [
+                  "path-segment-0"
+                ],
+                "confidence": "high",
+                "contactStrength": "verified",
+                "geometricEvidence": {
+                  "eventIds": [
+                    "gev-e91d1839e5fdc06a"
+                  ],
+                  "eventTypes": [
+                    "component_boundary_intersection"
+                  ],
+                  "crossesComponentInterior": true,
+                  "endpointContactVerified": false,
+                  "dependency": "backend/geometric_events.py"
+                }
+              },
+              {
+                "id": "port-761920ac35472f7f",
+                "componentId": "rds",
+                "coordinates": [
+                  1271.0,
+                  634.0
+                ],
+                "side": "top",
+                "distanceFromPathStart": 269.046,
+                "distanceFromPathEnd": 0.0,
+                "normalizedPathPosition": 1.0,
+                "arrivalOrDepartureAngle": 358.935,
+                "segmentResponsible": "path-segment-0",
+                "sourceSegments": [
+                  "path-segment-0"
+                ],
+                "confidence": "high",
+                "contactStrength": "verified",
+                "geometricEvidence": {
+                  "eventIds": [
+                    "gev-3226f7c4929592ab"
+                  ],
+                  "eventTypes": [
+                    "component_port"
+                  ],
+                  "crossesComponentInterior": false,
+                  "endpointContactVerified": true,
+                  "dependency": "backend/geometric_events.py"
+                }
+              }
+            ],
+            "barriers": [
+              {
+                "id": "barrier-a1e677d16839d85b",
+                "componentId": "dynamo",
+                "firstContact": [
+                  1036.0,
+                  638.368
+                ],
+                "normalizedPathPosition": 0.126394,
+                "portId": "port-aff2a759f35f38e0",
+                "crossesComponentInterior": true,
+                "shadowOnly": true,
+                "isDeclaredEndpoint": false,
+                "terminatesExperimentalPath": false
+              },
+              {
+                "id": "barrier-d383f68296a1a007",
+                "componentId": "dynamo",
+                "firstContact": [
+                  1169.0,
+                  635.896
+                ],
+                "normalizedPathPosition": 0.620818,
+                "portId": "port-7e91687eac0945f0",
+                "crossesComponentInterior": true,
+                "shadowOnly": true,
+                "isDeclaredEndpoint": false,
+                "terminatesExperimentalPath": false
+              },
+              {
+                "id": "barrier-99c95926045bf047",
+                "componentId": "rds",
+                "firstContact": [
+                  1190.0,
+                  635.506
+                ],
+                "normalizedPathPosition": 0.698885,
+                "portId": "port-4c4e35fe878f2d1a",
+                "crossesComponentInterior": true,
+                "shadowOnly": true,
+                "isDeclaredEndpoint": true,
+                "terminatesExperimentalPath": false
+              },
+              {
+                "id": "barrier-54f1825cdd98ba60",
+                "componentId": "rds",
+                "firstContact": [
+                  1217.2,
+                  635.0
+                ],
+                "normalizedPathPosition": 0.8,
+                "portId": "port-8523c197bcad8124",
+                "crossesComponentInterior": true,
+                "shadowOnly": true,
+                "isDeclaredEndpoint": true,
+                "terminatesExperimentalPath": false
+              }
+            ],
+            "firstIntermediateBarrier": null,
+            "contactSequence": [
+              {
+                "componentId": "dynamo",
+                "firstPosition": 0.126394,
+                "lastPosition": 0.620818
+              },
+              {
+                "componentId": "rds",
+                "firstPosition": 0.698885,
+                "lastPosition": 1.0
+              }
+            ],
+            "adjacentRelations": [
+              {
+                "from": "dynamo",
+                "to": "rds",
+                "shadowOnly": true
+              }
+            ],
+            "inputMutation": false
+          },
+          "originalEndpoints": {
+            "from": "glue",
+            "to": "rds"
+          },
+          "selectedEndpoint": {
+            "from": "dynamo",
+            "to": "rds"
+          },
+          "barriersFound": [
+            "dynamo",
+            "dynamo",
+            "rds",
+            "rds"
+          ],
+          "officialResultChanged": false
+        }
+      ],
+      "evaluated": true,
+      "matchesHumanExpectation": null
+    },
+    {
+      "caseId": "E08",
+      "requiredRegression": false,
+      "imageId": "aws-eks-platform",
+      "humanCause": "ambiguous_endpoint",
+      "humanContributingCauses": [
+        "component_passthrough",
+        "structural_line"
+      ],
+      "humanExpectedCorrection": "Rejeitar candidatos cujos endpoints não estejam conectados às bordas ou portas dos componentes de origem e destino. Caminhos localizados predominantemente dentro de um componente intermediário não devem ser associados a componentes vizinhos. Também devem ser descartados traços internos de ícones, textos ou elementos decorativos interpretados como conectores. Não gerar o fluxo direto lambda → glue.",
+      "expectedEdges": [],
+      "decisions": [
+        {
+          "inventoryId": "isolated_ground_truth:aws-eks-platform:predicted:18",
+          "imageId": "aws-eks-platform",
+          "provider": "aws",
+          "evaluationStatus": "false_positive",
+          "legacyCandidate": {
+            "id": "f18",
+            "from": "lambda",
+            "to": "glue",
+            "protocol": "unknown",
+            "trustBoundary": false,
+            "crossedBoundaryIds": [],
+            "confidence": 0.723,
+            "inferred": true,
+            "reviewStatus": "pending",
+            "evidence": "segment_graph",
+            "directionEvidence": "top_to_bottom",
+            "directionConfidence": 0.5,
+            "arrowheadScores": {
+              "lambda": 100.0,
+              "glue": 100.0,
+              "classifier": {
+                "lambda": 0.9987,
+                "glue": 0.9912,
+                "model": "arrowhead-logistic"
+              }
+            },
+            "pathPoints": [
+              [
+                900,
+                380
+              ],
+              [
+                934,
+                383
+              ]
+            ],
+            "pixelSupport": null,
+            "maximumGap": null,
+            "segmentHops": 1,
+            "routeEfficiency": 0.289
+          },
+          "junctionAwareCandidate": {
+            "schemaVersion": "1.0",
+            "strategy": "junction_aware",
+            "strategyRevision": "tl004b-ports-barriers-v1",
+            "mode": "shadow",
+            "officialEligible": false,
+            "legacyFlow": {
+              "id": "f18",
+              "from": "lambda",
+              "to": "glue",
+              "protocol": "unknown",
+              "trustBoundary": false,
+              "crossedBoundaryIds": [],
+              "confidence": 0.723,
+              "inferred": true,
+              "reviewStatus": "pending",
+              "evidence": "segment_graph",
+              "directionEvidence": "top_to_bottom",
+              "directionConfidence": 0.5,
+              "arrowheadScores": {
+                "lambda": 100.0,
+                "glue": 100.0,
+                "classifier": {
+                  "lambda": 0.9987,
+                  "glue": 0.9912,
+                  "model": "arrowhead-logistic"
+                }
+              },
+              "pathPoints": [
+                [
+                  900,
+                  380
+                ],
+                [
+                  934,
+                  383
+                ]
+              ],
+              "pixelSupport": null,
+              "maximumGap": null,
+              "segmentHops": 1,
+              "routeEfficiency": 0.289
+            },
+            "experimentalFlow": null,
+            "edgeAction": "review_only",
+            "reasonCodes": [
+              "destination:no_contact",
+              "source:no_contact"
+            ],
+            "pathPointsReversed": false,
+            "normalAssociationCost": 167.0,
+            "reversedAssociationCost": 173.0,
+            "reason": "original_order_retained",
+            "internalPathPoints": [
+              [
+                900.0,
+                380.0
+              ],
+              [
+                934.0,
+                383.0
+              ]
+            ],
+            "endpointDecisions": [
+              {
+                "role": "source",
+                "declaredComponentId": "lambda",
+                "endpoint": [
+                  900.0,
+                  380.0
+                ],
+                "classification": "no_contact",
+                "selectedComponentId": null,
+                "selectedPortId": null,
+                "coherentContactCandidates": [],
+                "nearestComponentId": "microservices",
+                "nearestComponentDistance": 0.0,
+                "secondComponentId": "glue",
+                "secondComponentDistance": 85.0,
+                "proximityTolerance": 8.5
+              },
+              {
+                "role": "destination",
+                "declaredComponentId": "glue",
+                "endpoint": [
+                  934.0,
+                  383.0
+                ],
+                "classification": "no_contact",
+                "selectedComponentId": null,
+                "selectedPortId": null,
+                "coherentContactCandidates": [],
+                "nearestComponentId": "microservices",
+                "nearestComponentDistance": 0.0,
+                "secondComponentId": "glue",
+                "secondComponentDistance": 82.0,
+                "proximityTolerance": 8.5
+              }
+            ],
+            "ports": [],
+            "barriers": [],
+            "firstIntermediateBarrier": null,
+            "contactSequence": [],
+            "adjacentRelations": [],
+            "inputMutation": false
+          },
+          "originalEndpoints": {
+            "from": "lambda",
+            "to": "glue"
+          },
+          "selectedEndpoint": null,
+          "barriersFound": [],
+          "officialResultChanged": false
+        }
+      ],
+      "evaluated": true,
+      "matchesHumanExpectation": null
+    },
+    {
+      "caseId": "E09",
+      "requiredRegression": true,
+      "imageId": "gcp-secure-cloud-run",
+      "humanCause": "ambiguous_endpoint",
+      "humanContributingCauses": [
+        "component_passthrough"
+      ],
+      "humanExpectedCorrection": "Encerrar o caminho no primeiro componente cuja borda ou porta seja atingida. Neste caso, gerar internet → load_balancer e não criar internet → armor. O Cloud Armor somente deve ser conectado se existir um conector visual explícito entre ele e outro componente.",
+      "expectedEdges": [
+        {
+          "from": "internet",
+          "to": "load_balancer"
+        }
+      ],
+      "decisions": [
+        {
+          "inventoryId": "isolated_ground_truth:gcp-secure-cloud-run:predicted:3",
+          "imageId": "gcp-secure-cloud-run",
+          "provider": "gcp",
+          "evaluationStatus": "false_positive",
+          "legacyCandidate": {
+            "id": "f3",
+            "from": "internet",
+            "to": "armor",
+            "protocol": "unknown",
+            "trustBoundary": true,
+            "crossedBoundaryIds": [],
+            "confidence": 0.757,
+            "inferred": true,
+            "reviewStatus": "pending",
+            "evidence": "segment_graph",
+            "directionEvidence": "semantic_source",
+            "directionConfidence": 0.5,
+            "arrowheadScores": {
+              "internet": 60.0,
+              "armor": 90.0,
+              "classifier": {
+                "internet": 0.0001,
+                "armor": 0.3833,
+                "model": "arrowhead-logistic"
+              }
+            },
+            "pathPoints": [
+              [
+                97,
+                210
+              ],
+              [
+                294,
+                210
+              ]
+            ],
+            "pixelSupport": null,
+            "maximumGap": null,
+            "segmentHops": 1,
+            "routeEfficiency": 0.995
+          },
+          "junctionAwareCandidate": {
+            "schemaVersion": "1.0",
+            "strategy": "junction_aware",
+            "strategyRevision": "tl004b-ports-barriers-v1",
+            "mode": "shadow",
+            "officialEligible": false,
+            "legacyFlow": {
+              "id": "f3",
+              "from": "internet",
+              "to": "armor",
+              "protocol": "unknown",
+              "trustBoundary": true,
+              "crossedBoundaryIds": [],
+              "confidence": 0.757,
+              "inferred": true,
+              "reviewStatus": "pending",
+              "evidence": "segment_graph",
+              "directionEvidence": "semantic_source",
+              "directionConfidence": 0.5,
+              "arrowheadScores": {
+                "internet": 60.0,
+                "armor": 90.0,
+                "classifier": {
+                  "internet": 0.0001,
+                  "armor": 0.3833,
+                  "model": "arrowhead-logistic"
+                }
+              },
+              "pathPoints": [
+                [
+                  97,
+                  210
+                ],
+                [
+                  294,
+                  210
+                ]
+              ],
+              "pixelSupport": null,
+              "maximumGap": null,
+              "segmentHops": 1,
+              "routeEfficiency": 0.995
+            },
+            "experimentalFlow": {
+              "id": "f3",
+              "from": "internet",
+              "to": "load_balancer",
+              "protocol": "unknown",
+              "trustBoundary": true,
+              "crossedBoundaryIds": [],
+              "confidence": 0.757,
+              "inferred": true,
+              "reviewStatus": "pending",
+              "evidence": "segment_graph",
+              "directionEvidence": "semantic_source",
+              "directionConfidence": 0.5,
+              "arrowheadScores": {
+                "internet": 60.0,
+                "armor": 90.0,
+                "classifier": {
+                  "internet": 0.0001,
+                  "armor": 0.3833,
+                  "model": "arrowhead-logistic"
+                }
+              },
+              "pathPoints": [
+                [
+                  97,
+                  210
+                ],
+                [
+                  294,
+                  210
+                ]
+              ],
+              "pixelSupport": null,
+              "maximumGap": null,
+              "segmentHops": 1,
+              "routeEfficiency": 0.995
+            },
+            "edgeAction": "redirected",
+            "reasonCodes": [
+              "destination:wrong_component_contact"
+            ],
+            "pathPointsReversed": false,
+            "normalAssociationCost": 47.0,
+            "reversedAssociationCost": 395.556,
+            "reason": "original_order_retained",
+            "internalPathPoints": [
+              [
+                97.0,
+                210.0
+              ],
+              [
+                294.0,
+                210.0
+              ]
+            ],
+            "endpointDecisions": [
+              {
+                "role": "source",
+                "declaredComponentId": "internet",
+                "endpoint": [
+                  97.0,
+                  210.0
+                ],
+                "classification": "confirmed_contact",
+                "selectedComponentId": "internet",
+                "selectedPortId": "port-ec49bf6d94723407",
+                "coherentContactCandidates": [
+                  "internet"
+                ],
+                "nearestComponentId": "internet",
+                "nearestComponentDistance": 0.0,
+                "secondComponentId": "load_balancer",
+                "secondComponentDistance": 196.0,
+                "proximityTolerance": 8.5
+              },
+              {
+                "role": "destination",
+                "declaredComponentId": "armor",
+                "endpoint": [
+                  294.0,
+                  210.0
+                ],
+                "classification": "wrong_component_contact",
+                "selectedComponentId": "load_balancer",
+                "selectedPortId": "port-e7d58bf5299e9ea1",
+                "coherentContactCandidates": [
+                  "load_balancer"
+                ],
+                "nearestComponentId": "load_balancer",
+                "nearestComponentDistance": 0.0,
+                "secondComponentId": "armor",
+                "secondComponentDistance": 47.0,
+                "proximityTolerance": 8.5
+              }
+            ],
+            "ports": [
+              {
+                "id": "port-ec49bf6d94723407",
+                "componentId": "internet",
+                "coordinates": [
+                  100.0,
+                  210.0
+                ],
+                "side": "right",
+                "distanceFromPathStart": 3.0,
+                "distanceFromPathEnd": 194.0,
+                "normalizedPathPosition": 0.015228,
+                "arrivalOrDepartureAngle": 0.0,
+                "segmentResponsible": "path-segment-0",
+                "sourceSegments": [
+                  "path-segment-0"
+                ],
+                "confidence": "high",
+                "contactStrength": "verified",
+                "geometricEvidence": {
+                  "eventIds": [
+                    "gev-b5b3578550f7c9c9"
+                  ],
+                  "eventTypes": [
+                    "component_boundary_intersection"
+                  ],
+                  "crossesComponentInterior": true,
+                  "endpointContactVerified": false,
+                  "dependency": "backend/geometric_events.py"
+                }
+              },
+              {
+                "id": "port-1ad627ab1da3c55e",
+                "componentId": "load_balancer",
+                "coordinates": [
+                  293.0,
+                  210.0
+                ],
+                "side": "left",
+                "distanceFromPathStart": 196.0,
+                "distanceFromPathEnd": 1.0,
+                "normalizedPathPosition": 0.994924,
+                "arrivalOrDepartureAngle": 0.0,
+                "segmentResponsible": "path-segment-0",
+                "sourceSegments": [
+                  "path-segment-0"
+                ],
+                "confidence": "high",
+                "contactStrength": "verified",
+                "geometricEvidence": {
+                  "eventIds": [
+                    "gev-11adf962ffdc268e"
+                  ],
+                  "eventTypes": [
+                    "component_boundary_intersection"
+                  ],
+                  "crossesComponentInterior": true,
+                  "endpointContactVerified": false,
+                  "dependency": "backend/geometric_events.py"
+                }
+              },
+              {
+                "id": "port-e7d58bf5299e9ea1",
+                "componentId": "load_balancer",
+                "coordinates": [
+                  294.0,
+                  210.0
+                ],
+                "side": "left",
+                "distanceFromPathStart": 197.0,
+                "distanceFromPathEnd": 0.0,
+                "normalizedPathPosition": 1.0,
+                "arrivalOrDepartureAngle": 0.0,
+                "segmentResponsible": "path-segment-0",
+                "sourceSegments": [
+                  "path-segment-0"
+                ],
+                "confidence": "high",
+                "contactStrength": "verified",
+                "geometricEvidence": {
+                  "eventIds": [
+                    "gev-5a5a53985331d100",
+                    "gev-d541885f7eecfd8e"
+                  ],
+                  "eventTypes": [
+                    "component_boundary_intersection",
+                    "component_port"
+                  ],
+                  "crossesComponentInterior": true,
+                  "endpointContactVerified": true,
+                  "dependency": "backend/geometric_events.py"
+                }
+              }
+            ],
+            "barriers": [
+              {
+                "id": "barrier-b3afbf9315174fe8",
+                "componentId": "internet",
+                "firstContact": [
+                  100.0,
+                  210.0
+                ],
+                "normalizedPathPosition": 0.015228,
+                "portId": "port-ec49bf6d94723407",
+                "crossesComponentInterior": true,
+                "shadowOnly": true,
+                "isDeclaredEndpoint": true,
+                "terminatesExperimentalPath": false
+              },
+              {
+                "id": "barrier-eb7c0b3d64729fc2",
+                "componentId": "load_balancer",
+                "firstContact": [
+                  293.0,
+                  210.0
+                ],
+                "normalizedPathPosition": 0.994924,
+                "portId": "port-1ad627ab1da3c55e",
+                "crossesComponentInterior": true,
+                "shadowOnly": true,
+                "isDeclaredEndpoint": false,
+                "terminatesExperimentalPath": false
+              },
+              {
+                "id": "barrier-75e4f19041319e01",
+                "componentId": "load_balancer",
+                "firstContact": [
+                  294.0,
+                  210.0
+                ],
+                "normalizedPathPosition": 1.0,
+                "portId": "port-e7d58bf5299e9ea1",
+                "crossesComponentInterior": true,
+                "shadowOnly": true,
+                "isDeclaredEndpoint": false,
+                "terminatesExperimentalPath": false
+              }
+            ],
+            "firstIntermediateBarrier": null,
+            "contactSequence": [
+              {
+                "componentId": "internet",
+                "firstPosition": 0.015228,
+                "lastPosition": 0.015228
+              },
+              {
+                "componentId": "load_balancer",
+                "firstPosition": 0.994924,
+                "lastPosition": 1.0
+              }
+            ],
+            "adjacentRelations": [
+              {
+                "from": "internet",
+                "to": "load_balancer",
+                "shadowOnly": true
+              }
+            ],
+            "inputMutation": false
+          },
+          "originalEndpoints": {
+            "from": "internet",
+            "to": "armor"
+          },
+          "selectedEndpoint": {
+            "from": "internet",
+            "to": "load_balancer"
+          },
+          "barriersFound": [
+            "internet",
+            "load_balancer",
+            "load_balancer"
+          ],
+          "officialResultChanged": false
+        }
+      ],
+      "evaluated": true,
+      "matchesHumanExpectation": true
+    },
+    {
+      "caseId": "E10",
+      "requiredRegression": true,
+      "imageId": "gcp-secure-cloud-run",
+      "humanCause": "ambiguous_endpoint",
+      "humanContributingCauses": [
+        "component_passthrough"
+      ],
+      "humanExpectedCorrection": "Associar o endpoint inicial ao primeiro componente cuja borda ou porta é efetivamente tocada pelo caminho. Neste caso, gerar cloud_run → vpc_connector e não criar a relação direta load_balancer → vpc_connector. Um componente tocado pelo início do segmento não deve ser classificado apenas como componente atravessado.",
+      "expectedEdges": [
+        {
+          "from": "cloud_run",
+          "to": "vpc_connector"
+        }
+      ],
+      "decisions": [
+        {
+          "inventoryId": "isolated_ground_truth:gcp-secure-cloud-run:predicted:9",
+          "imageId": "gcp-secure-cloud-run",
+          "provider": "gcp",
+          "evaluationStatus": "false_positive",
+          "legacyCandidate": {
+            "id": "f9",
+            "from": "load_balancer",
+            "to": "vpc_connector",
+            "protocol": "unknown",
+            "trustBoundary": false,
+            "crossedBoundaryIds": [],
+            "confidence": 0.746,
+            "inferred": true,
+            "reviewStatus": "pending",
+            "evidence": "segment_graph",
+            "directionEvidence": "left_to_right",
+            "directionConfidence": 0.5,
+            "arrowheadScores": {
+              "load_balancer": 50.0,
+              "vpc_connector": 40.0,
+              "classifier": {
+                "load_balancer": 0.0,
+                "vpc_connector": 0.0,
+                "model": "arrowhead-logistic"
+              }
+            },
+            "pathPoints": [
+              [
+                293,
+                279
+              ],
+              [
+                423,
+                280
+              ]
+            ],
+            "pixelSupport": null,
+            "maximumGap": null,
+            "segmentHops": 1,
+            "routeEfficiency": 0.756
+          },
+          "junctionAwareCandidate": {
+            "schemaVersion": "1.0",
+            "strategy": "junction_aware",
+            "strategyRevision": "tl004b-ports-barriers-v1",
+            "mode": "shadow",
+            "officialEligible": false,
+            "legacyFlow": {
+              "id": "f9",
+              "from": "load_balancer",
+              "to": "vpc_connector",
+              "protocol": "unknown",
+              "trustBoundary": false,
+              "crossedBoundaryIds": [],
+              "confidence": 0.746,
+              "inferred": true,
+              "reviewStatus": "pending",
+              "evidence": "segment_graph",
+              "directionEvidence": "left_to_right",
+              "directionConfidence": 0.5,
+              "arrowheadScores": {
+                "load_balancer": 50.0,
+                "vpc_connector": 40.0,
+                "classifier": {
+                  "load_balancer": 0.0,
+                  "vpc_connector": 0.0,
+                  "model": "arrowhead-logistic"
+                }
+              },
+              "pathPoints": [
+                [
+                  293,
+                  279
+                ],
+                [
+                  423,
+                  280
+                ]
+              ],
+              "pixelSupport": null,
+              "maximumGap": null,
+              "segmentHops": 1,
+              "routeEfficiency": 0.756
+            },
+            "experimentalFlow": {
+              "id": "f9",
+              "from": "cloud_run",
+              "to": "vpc_connector",
+              "protocol": "unknown",
+              "trustBoundary": false,
+              "crossedBoundaryIds": [],
+              "confidence": 0.746,
+              "inferred": true,
+              "reviewStatus": "pending",
+              "evidence": "segment_graph",
+              "directionEvidence": "left_to_right",
+              "directionConfidence": 0.5,
+              "arrowheadScores": {
+                "load_balancer": 50.0,
+                "vpc_connector": 40.0,
+                "classifier": {
+                  "load_balancer": 0.0,
+                  "vpc_connector": 0.0,
+                  "model": "arrowhead-logistic"
+                }
+              },
+              "pathPoints": [
+                [
+                  293,
+                  279
+                ],
+                [
+                  423,
+                  280
+                ]
+              ],
+              "pixelSupport": null,
+              "maximumGap": null,
+              "segmentHops": 1,
+              "routeEfficiency": 0.756
+            },
+            "edgeAction": "redirected",
+            "reasonCodes": [
+              "destination:proximity_only",
+              "destination_approach_after_wrong_source_contact",
+              "source:wrong_component_contact"
+            ],
+            "pathPointsReversed": false,
+            "normalAssociationCost": 62.0,
+            "reversedAssociationCost": 193.0,
+            "reason": "original_order_retained",
+            "internalPathPoints": [
+              [
+                293.0,
+                279.0
+              ],
+              [
+                423.0,
+                280.0
+              ]
+            ],
+            "endpointDecisions": [
+              {
+                "role": "source",
+                "declaredComponentId": "load_balancer",
+                "endpoint": [
+                  293.0,
+                  279.0
+                ],
+                "classification": "wrong_component_contact",
+                "selectedComponentId": "cloud_run",
+                "selectedPortId": "port-15ecbcca45471623",
+                "coherentContactCandidates": [
+                  "cloud_run"
+                ],
+                "nearestComponentId": "cloud_run",
+                "nearestComponentDistance": 0.0,
+                "secondComponentId": "load_balancer",
+                "secondComponentDistance": 41.0,
+                "proximityTolerance": 8.5
+              },
+              {
+                "role": "destination",
+                "declaredComponentId": "vpc_connector",
+                "endpoint": [
+                  423.0,
+                  280.0
+                ],
+                "classification": "proximity_only",
+                "selectedComponentId": "vpc_connector",
+                "selectedPortId": null,
+                "coherentContactCandidates": [
+                  "cloud_run"
+                ],
+                "nearestComponentId": "cloud_run",
+                "nearestComponentDistance": 0.0,
+                "secondComponentId": "vpc_connector",
+                "secondComponentDistance": 21.0,
+                "proximityTolerance": 8.5
+              }
+            ],
+            "ports": [
+              {
+                "id": "port-15ecbcca45471623",
+                "componentId": "cloud_run",
+                "coordinates": [
+                  293.0,
+                  279.0
+                ],
+                "side": "left",
+                "distanceFromPathStart": 0.0,
+                "distanceFromPathEnd": 130.004,
+                "normalizedPathPosition": 0.0,
+                "arrivalOrDepartureAngle": 0.441,
+                "segmentResponsible": "path-segment-0",
+                "sourceSegments": [
+                  "path-segment-0"
+                ],
+                "confidence": "high",
+                "contactStrength": "verified",
+                "geometricEvidence": {
+                  "eventIds": [
+                    "gev-03f58e34c4e18bf2",
+                    "gev-71445843cd136d8d"
+                  ],
+                  "eventTypes": [
+                    "component_boundary_intersection",
+                    "component_port"
+                  ],
+                  "crossesComponentInterior": true,
+                  "endpointContactVerified": true,
+                  "dependency": "backend/geometric_events.py"
+                }
+              },
+              {
+                "id": "port-0300d8e0fe816ac6",
+                "componentId": "cloud_run",
+                "coordinates": [
+                  423.0,
+                  280.0
+                ],
+                "side": "right",
+                "distanceFromPathStart": 130.004,
+                "distanceFromPathEnd": 0.0,
+                "normalizedPathPosition": 1.0,
+                "arrivalOrDepartureAngle": 0.441,
+                "segmentResponsible": "path-segment-0",
+                "sourceSegments": [
+                  "path-segment-0"
+                ],
+                "confidence": "high",
+                "contactStrength": "verified",
+                "geometricEvidence": {
+                  "eventIds": [
+                    "gev-1d35526aa556c854",
+                    "gev-96a1e3d56f75379e"
+                  ],
+                  "eventTypes": [
+                    "component_boundary_intersection",
+                    "component_port"
+                  ],
+                  "crossesComponentInterior": true,
+                  "endpointContactVerified": true,
+                  "dependency": "backend/geometric_events.py"
+                }
+              }
+            ],
+            "barriers": [
+              {
+                "id": "barrier-95affce0905da9ac",
+                "componentId": "cloud_run",
+                "firstContact": [
+                  293.0,
+                  279.0
+                ],
+                "normalizedPathPosition": 0.0,
+                "portId": "port-15ecbcca45471623",
+                "crossesComponentInterior": true,
+                "shadowOnly": true,
+                "isDeclaredEndpoint": false,
+                "terminatesExperimentalPath": false
+              },
+              {
+                "id": "barrier-de9e94118e459cdb",
+                "componentId": "cloud_run",
+                "firstContact": [
+                  423.0,
+                  280.0
+                ],
+                "normalizedPathPosition": 1.0,
+                "portId": "port-0300d8e0fe816ac6",
+                "crossesComponentInterior": true,
+                "shadowOnly": true,
+                "isDeclaredEndpoint": false,
+                "terminatesExperimentalPath": false
+              }
+            ],
+            "firstIntermediateBarrier": null,
+            "contactSequence": [
+              {
+                "componentId": "cloud_run",
+                "firstPosition": 0.0,
+                "lastPosition": 1.0
+              }
+            ],
+            "adjacentRelations": [],
+            "inputMutation": false
+          },
+          "originalEndpoints": {
+            "from": "load_balancer",
+            "to": "vpc_connector"
+          },
+          "selectedEndpoint": {
+            "from": "cloud_run",
+            "to": "vpc_connector"
+          },
+          "barriersFound": [
+            "cloud_run",
+            "cloud_run"
+          ],
+          "officialResultChanged": false
+        }
+      ],
+      "evaluated": true,
+      "matchesHumanExpectation": true
+    },
+    {
+      "caseId": "E11",
+      "requiredRegression": true,
+      "imageId": "generic-cloud-api",
+      "humanCause": "ambiguous_endpoint",
+      "humanContributingCauses": [],
+      "humanExpectedCorrection": "Não associar o endpoint ao Database, pois o caminho não alcança sua borda ou uma porta válida. O endpoint deve ser vinculado ao componente que realmente origina a linha, provavelmente o Compute na imagem completa. Preservar a conexão correta desse componente com a API e remover o falso fluxo database → api.",
+      "expectedEdges": [
+        {
+          "from": "compute",
+          "to": "api"
+        }
+      ],
+      "decisions": [
+        {
+          "inventoryId": "isolated_ground_truth:generic-cloud-api:predicted:6",
+          "imageId": "generic-cloud-api",
+          "provider": "generic",
+          "evaluationStatus": "false_positive",
+          "legacyCandidate": {
+            "id": "f6",
+            "from": "database",
+            "to": "api",
+            "protocol": "unknown",
+            "trustBoundary": false,
+            "crossedBoundaryIds": [],
+            "confidence": 0.757,
+            "inferred": true,
+            "reviewStatus": "pending",
+            "evidence": "segment_graph",
+            "directionEvidence": "left_to_right",
+            "directionConfidence": 0.5,
+            "arrowheadScores": {
+              "api": 80.0,
+              "database": 80.0,
+              "classifier": {
+                "api": 0.1152,
+                "database": 0.0,
+                "model": "arrowhead-logistic"
+              }
+            },
+            "pathPoints": [
+              [
+                688,
+                189
+              ],
+              [
+                409,
+                234
+              ]
+            ],
+            "pixelSupport": null,
+            "maximumGap": null,
+            "segmentHops": 1,
+            "routeEfficiency": 0.997
+          },
+          "junctionAwareCandidate": {
+            "schemaVersion": "1.0",
+            "strategy": "junction_aware",
+            "strategyRevision": "tl004b-ports-barriers-v1",
+            "mode": "shadow",
+            "officialEligible": false,
+            "legacyFlow": {
+              "id": "f6",
+              "from": "database",
+              "to": "api",
+              "protocol": "unknown",
+              "trustBoundary": false,
+              "crossedBoundaryIds": [],
+              "confidence": 0.757,
+              "inferred": true,
+              "reviewStatus": "pending",
+              "evidence": "segment_graph",
+              "directionEvidence": "left_to_right",
+              "directionConfidence": 0.5,
+              "arrowheadScores": {
+                "api": 80.0,
+                "database": 80.0,
+                "classifier": {
+                  "api": 0.1152,
+                  "database": 0.0,
+                  "model": "arrowhead-logistic"
+                }
+              },
+              "pathPoints": [
+                [
+                  688,
+                  189
+                ],
+                [
+                  409,
+                  234
+                ]
+              ],
+              "pixelSupport": null,
+              "maximumGap": null,
+              "segmentHops": 1,
+              "routeEfficiency": 0.997
+            },
+            "experimentalFlow": null,
+            "edgeAction": "review_only",
+            "reasonCodes": [
+              "path_points_reversed_internally",
+              "source:wrong_component_contact"
+            ],
+            "pathPointsReversed": true,
+            "normalAssociationCost": 533.331,
+            "reversedAssociationCost": 36.0,
+            "reason": "lower_declared_endpoint_cost",
+            "internalPathPoints": [
+              [
+                409.0,
+                234.0
+              ],
+              [
+                688.0,
+                189.0
+              ]
+            ],
+            "endpointDecisions": [
+              {
+                "role": "source",
+                "declaredComponentId": "database",
+                "endpoint": [
+                  409.0,
+                  234.0
+                ],
+                "classification": "wrong_component_contact",
+                "selectedComponentId": "api",
+                "selectedPortId": "port-8cc9dff92e8e1889",
+                "coherentContactCandidates": [
+                  "api"
+                ],
+                "nearestComponentId": "cdn",
+                "nearestComponentDistance": 24.0,
+                "secondComponentId": "database",
+                "secondComponentDistance": 36.0,
+                "proximityTolerance": 8.5
+              },
+              {
+                "role": "destination",
+                "declaredComponentId": "api",
+                "endpoint": [
+                  688.0,
+                  189.0
+                ],
+                "classification": "confirmed_contact",
+                "selectedComponentId": "api",
+                "selectedPortId": "port-8cc9dff92e8e1889",
+                "coherentContactCandidates": [
+                  "api"
+                ],
+                "nearestComponentId": "api",
+                "nearestComponentDistance": 0.0,
+                "secondComponentId": "storage",
+                "secondComponentDistance": 81.0,
+                "proximityTolerance": 8.5
+              }
+            ],
+            "ports": [
+              {
+                "id": "port-8cc9dff92e8e1889",
+                "componentId": "api",
+                "coordinates": [
+                  688.0,
+                  189.0
+                ],
+                "side": "left",
+                "distanceFromPathStart": 282.606,
+                "distanceFromPathEnd": 0.0,
+                "normalizedPathPosition": 1.0,
+                "arrivalOrDepartureAngle": 350.838,
+                "segmentResponsible": "path-segment-0",
+                "sourceSegments": [
+                  "path-segment-0"
+                ],
+                "confidence": "high",
+                "contactStrength": "verified",
+                "geometricEvidence": {
+                  "eventIds": [
+                    "gev-ac7c08e85a3eba75",
+                    "gev-f030f2dad25a4f21"
+                  ],
+                  "eventTypes": [
+                    "component_boundary_intersection",
+                    "component_port"
+                  ],
+                  "crossesComponentInterior": false,
+                  "endpointContactVerified": true,
+                  "dependency": "backend/geometric_events.py"
+                }
+              }
+            ],
+            "barriers": [],
+            "firstIntermediateBarrier": null,
+            "contactSequence": [
+              {
+                "componentId": "api",
+                "firstPosition": 1.0,
+                "lastPosition": 1.0
+              }
+            ],
+            "adjacentRelations": [],
+            "inputMutation": false
+          },
+          "originalEndpoints": {
+            "from": "database",
+            "to": "api"
+          },
+          "selectedEndpoint": null,
+          "barriersFound": [],
+          "officialResultChanged": false
+        }
+      ],
+      "evaluated": true,
+      "matchesHumanExpectation": false
+    },
+    {
+      "caseId": "E12",
+      "requiredRegression": false,
+      "imageId": "generic-cloud-api",
+      "humanCause": "structural_line",
+      "humanContributingCauses": [
+        "crossing_without_junction",
+        "ambiguous_endpoint"
+      ],
+      "humanExpectedCorrection": "Descartar linhas da grade de fundo como candidatas a conectores. Cruzamentos entre linhas estruturais e conectores reais não devem criar nós ou junções. Exigir que os endpoints estejam conectados às bordas ou portas dos componentes antes de gerar uma aresta. Remover o fluxo monitoring → cdn e preservar apenas os conectores reais já presentes no diagrama.",
+      "expectedEdges": [],
+      "decisions": [
+        {
+          "inventoryId": "isolated_ground_truth:generic-cloud-api:predicted:13",
+          "imageId": "generic-cloud-api",
+          "provider": "generic",
+          "evaluationStatus": "false_positive",
+          "legacyCandidate": {
+            "id": "f13",
+            "from": "monitoring",
+            "to": "cdn",
+            "protocol": "unknown",
+            "trustBoundary": true,
+            "crossedBoundaryIds": [
+              "tb1"
+            ],
+            "confidence": 0.744,
+            "inferred": true,
+            "reviewStatus": "pending",
+            "evidence": "segment_graph",
+            "directionEvidence": "supervised_arrowhead",
+            "directionConfidence": 0.943,
+            "arrowheadScores": {
+              "cdn": 100.0,
+              "monitoring": 30.0,
+              "classifier": {
+                "cdn": 0.9768,
+                "monitoring": 0.0,
+                "model": "arrowhead-logistic"
+              }
+            },
+            "pathPoints": [
+              [
+                320,
+                242
+              ],
+              [
+                321,
+                358
+              ]
+            ],
+            "pixelSupport": null,
+            "maximumGap": null,
+            "segmentHops": 1,
+            "routeEfficiency": 0.721
+          },
+          "junctionAwareCandidate": {
+            "schemaVersion": "1.0",
+            "strategy": "junction_aware",
+            "strategyRevision": "tl004b-ports-barriers-v1",
+            "mode": "shadow",
+            "officialEligible": false,
+            "legacyFlow": {
+              "id": "f13",
+              "from": "monitoring",
+              "to": "cdn",
+              "protocol": "unknown",
+              "trustBoundary": true,
+              "crossedBoundaryIds": [
+                "tb1"
+              ],
+              "confidence": 0.744,
+              "inferred": true,
+              "reviewStatus": "pending",
+              "evidence": "segment_graph",
+              "directionEvidence": "supervised_arrowhead",
+              "directionConfidence": 0.943,
+              "arrowheadScores": {
+                "cdn": 100.0,
+                "monitoring": 30.0,
+                "classifier": {
+                  "cdn": 0.9768,
+                  "monitoring": 0.0,
+                  "model": "arrowhead-logistic"
+                }
+              },
+              "pathPoints": [
+                [
+                  320,
+                  242
+                ],
+                [
+                  321,
+                  358
+                ]
+              ],
+              "pixelSupport": null,
+              "maximumGap": null,
+              "segmentHops": 1,
+              "routeEfficiency": 0.721
+            },
+            "experimentalFlow": null,
+            "edgeAction": "review_only",
+            "reasonCodes": [
+              "destination:no_contact",
+              "path_points_reversed_internally",
+              "source:no_contact"
+            ],
+            "pathPointsReversed": true,
+            "normalAssociationCost": 308.501,
+            "reversedAssociationCost": 94.296,
+            "reason": "lower_declared_endpoint_cost",
+            "internalPathPoints": [
+              [
+                321.0,
+                358.0
+              ],
+              [
+                320.0,
+                242.0
+              ]
+            ],
+            "endpointDecisions": [
+              {
+                "role": "source",
+                "declaredComponentId": "monitoring",
+                "endpoint": [
+                  321.0,
+                  358.0
+                ],
+                "classification": "no_contact",
+                "selectedComponentId": null,
+                "selectedPortId": null,
+                "coherentContactCandidates": [],
+                "nearestComponentId": "database",
+                "nearestComponentDistance": 34.886,
+                "secondComponentId": "monitoring",
+                "secondComponentDistance": 49.041,
+                "proximityTolerance": 8.5
+              },
+              {
+                "role": "destination",
+                "declaredComponentId": "cdn",
+                "endpoint": [
+                  320.0,
+                  242.0
+                ],
+                "classification": "no_contact",
+                "selectedComponentId": null,
+                "selectedPortId": null,
+                "coherentContactCandidates": [],
+                "nearestComponentId": "database",
+                "nearestComponentDistance": 42.521,
+                "secondComponentId": "cdn",
+                "secondComponentDistance": 45.255,
+                "proximityTolerance": 8.5
+              }
+            ],
+            "ports": [],
+            "barriers": [],
+            "firstIntermediateBarrier": null,
+            "contactSequence": [],
+            "adjacentRelations": [],
+            "inputMutation": false
+          },
+          "originalEndpoints": {
+            "from": "monitoring",
+            "to": "cdn"
+          },
+          "selectedEndpoint": null,
+          "barriersFound": [],
+          "officialResultChanged": false
+        }
+      ],
+      "evaluated": true,
+      "matchesHumanExpectation": null
+    },
+    {
+      "caseId": "E13",
+      "requiredRegression": false,
+      "imageId": "azure-ai-foundry",
+      "humanCause": "ambiguous_endpoint",
+      "humanContributingCauses": [
+        "crossing_without_junction",
+        "parallel_connector_merge"
+      ],
+      "humanExpectedCorrection": "Rejeitar a relação direta foundry_account → openai_model. Exigir que os endpoints estejam conectados às portas ou bordas reais dos componentes. Em cruzamentos sem marcador de junção, preservar a continuidade das linhas sem permitir troca de ramo. Segmentos verticais paralelos ou próximos não devem ser combinados em um único caminho. Preservar somente as relações explicitamente suportadas pelos conectores do diagrama.",
+      "expectedEdges": [],
+      "decisions": [
+        {
+          "inventoryId": "isolated_ground_truth:azure-ai-foundry:predicted:4",
+          "imageId": "azure-ai-foundry",
+          "provider": "azure",
+          "evaluationStatus": "false_positive",
+          "legacyCandidate": {
+            "id": "f4",
+            "from": "foundry_account",
+            "to": "openai_model",
+            "protocol": "unknown",
+            "trustBoundary": false,
+            "crossedBoundaryIds": [],
+            "confidence": 0.742,
+            "inferred": true,
+            "reviewStatus": "pending",
+            "evidence": "segment_graph",
+            "directionEvidence": "top_to_bottom",
+            "directionConfidence": 0.5,
+            "arrowheadScores": {
+              "foundry_account": 30.0,
+              "openai_model": 60.0,
+              "classifier": {
+                "foundry_account": 0.0,
+                "openai_model": 0.0,
+                "model": "arrowhead-logistic"
+              }
+            },
+            "pathPoints": [
+              [
+                971,
+                325
+              ],
+              [
+                972,
+                473
+              ]
+            ],
+            "pixelSupport": null,
+            "maximumGap": null,
+            "segmentHops": 1,
+            "routeEfficiency": 0.68
+          },
+          "junctionAwareCandidate": {
+            "schemaVersion": "1.0",
+            "strategy": "junction_aware",
+            "strategyRevision": "tl004b-ports-barriers-v1",
+            "mode": "shadow",
+            "officialEligible": false,
+            "legacyFlow": {
+              "id": "f4",
+              "from": "foundry_account",
+              "to": "openai_model",
+              "protocol": "unknown",
+              "trustBoundary": false,
+              "crossedBoundaryIds": [],
+              "confidence": 0.742,
+              "inferred": true,
+              "reviewStatus": "pending",
+              "evidence": "segment_graph",
+              "directionEvidence": "top_to_bottom",
+              "directionConfidence": 0.5,
+              "arrowheadScores": {
+                "foundry_account": 30.0,
+                "openai_model": 60.0,
+                "classifier": {
+                  "foundry_account": 0.0,
+                  "openai_model": 0.0,
+                  "model": "arrowhead-logistic"
+                }
+              },
+              "pathPoints": [
+                [
+                  971,
+                  325
+                ],
+                [
+                  972,
+                  473
+                ]
+              ],
+              "pixelSupport": null,
+              "maximumGap": null,
+              "segmentHops": 1,
+              "routeEfficiency": 0.68
+            },
+            "experimentalFlow": null,
+            "edgeAction": "review_only",
+            "reasonCodes": [
+              "destination:no_contact",
+              "source:no_contact"
+            ],
+            "pathPointsReversed": false,
+            "normalAssociationCost": 136.314,
+            "reversedAssociationCost": 423.688,
+            "reason": "original_order_retained",
+            "internalPathPoints": [
+              [
+                971.0,
+                325.0
+              ],
+              [
+                972.0,
+                473.0
+              ]
+            ],
+            "endpointDecisions": [
+              {
+                "role": "source",
+                "declaredComponentId": "foundry_account",
+                "endpoint": [
+                  971.0,
+                  325.0
+                ],
+                "classification": "no_contact",
+                "selectedComponentId": null,
+                "selectedPortId": null,
+                "coherentContactCandidates": [],
+                "nearestComponentId": "foundry_agent",
+                "nearestComponentDistance": 17.0,
+                "secondComponentId": "foundry_account",
+                "secondComponentDistance": 74.726,
+                "proximityTolerance": 8.5
+              },
+              {
+                "role": "destination",
+                "declaredComponentId": "openai_model",
+                "endpoint": [
+                  972.0,
+                  473.0
+                ],
+                "classification": "no_contact",
+                "selectedComponentId": null,
+                "selectedPortId": null,
+                "coherentContactCandidates": [],
+                "nearestComponentId": "foundry_agent",
+                "nearestComponentDistance": 43.081,
+                "secondComponentId": "openai_model",
+                "secondComponentDistance": 61.587,
+                "proximityTolerance": 8.5
+              }
+            ],
+            "ports": [],
+            "barriers": [],
+            "firstIntermediateBarrier": null,
+            "contactSequence": [],
+            "adjacentRelations": [],
+            "inputMutation": false
+          },
+          "originalEndpoints": {
+            "from": "foundry_account",
+            "to": "openai_model"
+          },
+          "selectedEndpoint": null,
+          "barriersFound": [],
+          "officialResultChanged": false
+        }
+      ],
+      "evaluated": true,
+      "matchesHumanExpectation": null
+    },
+    {
+      "caseId": "E14",
+      "requiredRegression": false,
+      "imageId": "aws-serverless-async",
+      "humanCause": "transitive_shortcut",
+      "humanContributingCauses": [
+        "incorrect_bifurcation"
+      ],
+      "humanExpectedCorrection": "Remover a relação direta api_handler → worker. Decompor o tronco compartilhado em relações adjacentes, preservando conexões como api_handler → queue e queue → worker somente quando forem suportadas pelas setas e anotações do diagrama. Uma junção compartilhada não deve gerar automaticamente uma aresta entre todos os seus terminais.",
+      "expectedEdges": [],
+      "decisions": [
+        {
+          "inventoryId": "isolated_ground_truth:aws-serverless-async:predicted:6",
+          "imageId": "aws-serverless-async",
+          "provider": "aws",
+          "evaluationStatus": "false_positive",
+          "legacyCandidate": {
+            "id": "f6",
+            "from": "api_handler",
+            "to": "worker",
+            "protocol": "unknown",
+            "trustBoundary": true,
+            "crossedBoundaryIds": [
+              "tb1"
+            ],
+            "confidence": 0.737,
+            "inferred": true,
+            "reviewStatus": "pending",
+            "evidence": "segment_graph",
+            "directionEvidence": "left_to_right",
+            "directionConfidence": 0.5,
+            "arrowheadScores": {
+              "api_handler": 80.0,
+              "worker": 80.0,
+              "classifier": {
+                "api_handler": 0.0003,
+                "worker": 0.0004,
+                "model": "arrowhead-logistic"
+              }
+            },
+            "pathPoints": [
+              [
+                1808,
+                1459
+              ],
+              [
+                2045,
+                1447
+              ]
+            ],
+            "pixelSupport": null,
+            "maximumGap": null,
+            "segmentHops": 1,
+            "routeEfficiency": 0.563
+          },
+          "junctionAwareCandidate": {
+            "schemaVersion": "1.0",
+            "strategy": "junction_aware",
+            "strategyRevision": "tl004b-ports-barriers-v1",
+            "mode": "shadow",
+            "officialEligible": false,
+            "legacyFlow": {
+              "id": "f6",
+              "from": "api_handler",
+              "to": "worker",
+              "protocol": "unknown",
+              "trustBoundary": true,
+              "crossedBoundaryIds": [
+                "tb1"
+              ],
+              "confidence": 0.737,
+              "inferred": true,
+              "reviewStatus": "pending",
+              "evidence": "segment_graph",
+              "directionEvidence": "left_to_right",
+              "directionConfidence": 0.5,
+              "arrowheadScores": {
+                "api_handler": 80.0,
+                "worker": 80.0,
+                "classifier": {
+                  "api_handler": 0.0003,
+                  "worker": 0.0004,
+                  "model": "arrowhead-logistic"
+                }
+              },
+              "pathPoints": [
+                [
+                  1808,
+                  1459
+                ],
+                [
+                  2045,
+                  1447
+                ]
+              ],
+              "pixelSupport": null,
+              "maximumGap": null,
+              "segmentHops": 1,
+              "routeEfficiency": 0.563
+            },
+            "experimentalFlow": null,
+            "edgeAction": "review_only",
+            "reasonCodes": [
+              "destination:no_contact",
+              "source:no_contact"
+            ],
+            "pathPointsReversed": false,
+            "normalAssociationCost": 349.213,
+            "reversedAssociationCost": 699.645,
+            "reason": "original_order_retained",
+            "internalPathPoints": [
+              [
+                1808.0,
+                1459.0
+              ],
+              [
+                2045.0,
+                1447.0
+              ]
+            ],
+            "endpointDecisions": [
+              {
+                "role": "source",
+                "declaredComponentId": "api_handler",
+                "endpoint": [
+                  1808.0,
+                  1459.0
+                ],
+                "classification": "no_contact",
+                "selectedComponentId": null,
+                "selectedPortId": null,
+                "coherentContactCandidates": [],
+                "nearestComponentId": "api_handler",
+                "nearestComponentDistance": 190.213,
+                "secondComponentId": "worker",
+                "secondComponentDistance": 396.0,
+                "proximityTolerance": 8.5
+              },
+              {
+                "role": "destination",
+                "declaredComponentId": "worker",
+                "endpoint": [
+                  2045.0,
+                  1447.0
+                ],
+                "classification": "no_contact",
+                "selectedComponentId": null,
+                "selectedPortId": null,
+                "coherentContactCandidates": [],
+                "nearestComponentId": "worker",
+                "nearestComponentDistance": 159.0,
+                "secondComponentId": "api_handler",
+                "secondComponentDistance": 303.645,
+                "proximityTolerance": 8.5
+              }
+            ],
+            "ports": [],
+            "barriers": [],
+            "firstIntermediateBarrier": null,
+            "contactSequence": [],
+            "adjacentRelations": [],
+            "inputMutation": false
+          },
+          "originalEndpoints": {
+            "from": "api_handler",
+            "to": "worker"
+          },
+          "selectedEndpoint": null,
+          "barriersFound": [],
+          "officialResultChanged": false
+        }
+      ],
+      "evaluated": true,
+      "matchesHumanExpectation": null
+    },
+    {
+      "caseId": "E15",
+      "requiredRegression": true,
+      "imageId": "aws-eks-platform",
+      "humanCause": "ambiguous_endpoint",
+      "humanContributingCauses": [
+        "incorrect_bifurcation"
+      ],
+      "humanExpectedCorrection": "Remover a relação direta lambda → dynamo. Exigir que os endpoints de um caminho estejam conectados às portas ou bordas reais dos componentes de origem e destino. Em bifurcações, o grafo deve preservar a continuidade do ramo correto e não combinar um braço curto com um tronco pertencente a outra conexão. Caso o caminho pertença a outra relação, ele deve ser associado somente aos componentes realmente tocados.",
+      "expectedEdges": [],
+      "decisions": [
+        {
+          "inventoryId": "isolated_ground_truth:aws-eks-platform:predicted:13",
+          "imageId": "aws-eks-platform",
+          "provider": "aws",
+          "evaluationStatus": "false_positive",
+          "legacyCandidate": {
+            "id": "f13",
+            "from": "lambda",
+            "to": "dynamo",
+            "protocol": "unknown",
+            "trustBoundary": false,
+            "crossedBoundaryIds": [],
+            "confidence": 0.735,
+            "inferred": true,
+            "reviewStatus": "pending",
+            "evidence": "segment_graph",
+            "directionEvidence": "top_to_bottom",
+            "directionConfidence": 0.5,
+            "arrowheadScores": {
+              "lambda": 30.0,
+              "dynamo": 50.0,
+              "classifier": {
+                "lambda": 0.0004,
+                "dynamo": 0.0001,
+                "model": "arrowhead-logistic"
+              }
+            },
+            "pathPoints": [
+              [
+                1012,
+                310
+              ],
+              [
+                1061,
+                307
+              ],
+              [
+                1062,
+                347
+              ],
+              [
+                1061,
+                378
+              ],
+              [
+                1063,
+                550
+              ]
+            ],
+            "pixelSupport": null,
+            "maximumGap": null,
+            "segmentHops": 4,
+            "routeEfficiency": 0.687
+          },
+          "junctionAwareCandidate": {
+            "schemaVersion": "1.0",
+            "strategy": "junction_aware",
+            "strategyRevision": "tl004b-ports-barriers-v1",
+            "mode": "shadow",
+            "officialEligible": false,
+            "legacyFlow": {
+              "id": "f13",
+              "from": "lambda",
+              "to": "dynamo",
+              "protocol": "unknown",
+              "trustBoundary": false,
+              "crossedBoundaryIds": [],
+              "confidence": 0.735,
+              "inferred": true,
+              "reviewStatus": "pending",
+              "evidence": "segment_graph",
+              "directionEvidence": "top_to_bottom",
+              "directionConfidence": 0.5,
+              "arrowheadScores": {
+                "lambda": 30.0,
+                "dynamo": 50.0,
+                "classifier": {
+                  "lambda": 0.0004,
+                  "dynamo": 0.0001,
+                  "model": "arrowhead-logistic"
+                }
+              },
+              "pathPoints": [
+                [
+                  1012,
+                  310
+                ],
+                [
+                  1061,
+                  307
+                ],
+                [
+                  1062,
+                  347
+                ],
+                [
+                  1061,
+                  378
+                ],
+                [
+                  1063,
+                  550
+                ]
+              ],
+              "pixelSupport": null,
+              "maximumGap": null,
+              "segmentHops": 4,
+              "routeEfficiency": 0.687
+            },
+            "experimentalFlow": null,
+            "edgeAction": "review_only",
+            "reasonCodes": [
+              "destination:no_contact",
+              "source:no_contact"
+            ],
+            "pathPointsReversed": false,
+            "normalAssociationCost": 153.659,
+            "reversedAssociationCost": 606.864,
+            "reason": "original_order_retained",
+            "internalPathPoints": [
+              [
+                1012.0,
+                310.0
+              ],
+              [
+                1061.0,
+                307.0
+              ],
+              [
+                1062.0,
+                347.0
+              ],
+              [
+                1061.0,
+                378.0
+              ],
+              [
+                1063.0,
+                550.0
+              ]
+            ],
+            "endpointDecisions": [
+              {
+                "role": "source",
+                "declaredComponentId": "lambda",
+                "endpoint": [
+                  1012.0,
+                  310.0
+                ],
+                "classification": "no_contact",
+                "selectedComponentId": null,
+                "selectedPortId": null,
+                "coherentContactCandidates": [],
+                "nearestComponentId": "lambda",
+                "nearestComponentDistance": 68.659,
+                "secondComponentId": "microservices",
+                "secondComponentDistance": 68.884,
+                "proximityTolerance": 8.5
+              },
+              {
+                "role": "destination",
+                "declaredComponentId": "dynamo",
+                "endpoint": [
+                  1063.0,
+                  550.0
+                ],
+                "classification": "no_contact",
+                "selectedComponentId": null,
+                "selectedPortId": null,
+                "coherentContactCandidates": [],
+                "nearestComponentId": "dynamo",
+                "nearestComponentDistance": 85.0,
+                "secondComponentId": "glue",
+                "secondComponentDistance": 118.0,
+                "proximityTolerance": 8.5
+              }
+            ],
+            "ports": [],
+            "barriers": [],
+            "firstIntermediateBarrier": null,
+            "contactSequence": [],
+            "adjacentRelations": [],
+            "inputMutation": false
+          },
+          "originalEndpoints": {
+            "from": "lambda",
+            "to": "dynamo"
+          },
+          "selectedEndpoint": null,
+          "barriersFound": [],
+          "officialResultChanged": false
+        }
+      ],
+      "evaluated": true,
+      "matchesHumanExpectation": false
+    },
+    {
+      "caseId": "E16",
+      "requiredRegression": true,
+      "imageId": "aws-eks-platform",
+      "humanCause": "ambiguous_endpoint",
+      "humanContributingCauses": [
+        "incorrect_bifurcation"
+      ],
+      "humanExpectedCorrection": "Remover a relação comprehend → glue. Exigir que os endpoints estejam conectados às portas ou bordas reais dos componentes declarados. O ramo diagonal deve permanecer associado ao componente verde e à linha da qual realmente se origina, sem ser atribuído ao AWS Comprehend ou ao Glue ETL por proximidade.",
+      "expectedEdges": [],
+      "decisions": [
+        {
+          "inventoryId": "isolated_ground_truth:aws-eks-platform:predicted:12",
+          "imageId": "aws-eks-platform",
+          "provider": "aws",
+          "evaluationStatus": "false_positive",
+          "legacyCandidate": {
+            "id": "f12",
+            "from": "comprehend",
+            "to": "glue",
+            "protocol": "unknown",
+            "trustBoundary": false,
+            "crossedBoundaryIds": [],
+            "confidence": 0.737,
+            "inferred": true,
+            "reviewStatus": "pending",
+            "evidence": "segment_graph",
+            "directionEvidence": "visual_arrowhead",
+            "directionConfidence": 0.84,
+            "arrowheadScores": {
+              "comprehend": 20.0,
+              "glue": 60.0,
+              "classifier": {
+                "comprehend": 0.0,
+                "glue": 0.0127,
+                "model": "arrowhead-logistic"
+              }
+            },
+            "pathPoints": [
+              [
+                713,
+                308
+              ],
+              [
+                782,
+                386
+              ]
+            ],
+            "pixelSupport": null,
+            "maximumGap": null,
+            "segmentHops": 1,
+            "routeEfficiency": 0.561
+          },
+          "junctionAwareCandidate": {
+            "schemaVersion": "1.0",
+            "strategy": "junction_aware",
+            "strategyRevision": "tl004b-ports-barriers-v1",
+            "mode": "shadow",
+            "officialEligible": false,
+            "legacyFlow": {
+              "id": "f12",
+              "from": "comprehend",
+              "to": "glue",
+              "protocol": "unknown",
+              "trustBoundary": false,
+              "crossedBoundaryIds": [],
+              "confidence": 0.737,
+              "inferred": true,
+              "reviewStatus": "pending",
+              "evidence": "segment_graph",
+              "directionEvidence": "visual_arrowhead",
+              "directionConfidence": 0.84,
+              "arrowheadScores": {
+                "comprehend": 20.0,
+                "glue": 60.0,
+                "classifier": {
+                  "comprehend": 0.0,
+                  "glue": 0.0127,
+                  "model": "arrowhead-logistic"
+                }
+              },
+              "pathPoints": [
+                [
+                  713,
+                  308
+                ],
+                [
+                  782,
+                  386
+                ]
+              ],
+              "pixelSupport": null,
+              "maximumGap": null,
+              "segmentHops": 1,
+              "routeEfficiency": 0.561
+            },
+            "experimentalFlow": null,
+            "edgeAction": "review_only",
+            "reasonCodes": [
+              "destination:no_contact",
+              "source:no_contact"
+            ],
+            "pathPointsReversed": false,
+            "normalAssociationCost": 180.427,
+            "reversedAssociationCost": 352.817,
+            "reason": "original_order_retained",
+            "internalPathPoints": [
+              [
+                713.0,
+                308.0
+              ],
+              [
+                782.0,
+                386.0
+              ]
+            ],
+            "endpointDecisions": [
+              {
+                "role": "source",
+                "declaredComponentId": "comprehend",
+                "endpoint": [
+                  713.0,
+                  308.0
+                ],
+                "classification": "no_contact",
+                "selectedComponentId": null,
+                "selectedPortId": null,
+                "coherentContactCandidates": [],
+                "nearestComponentId": "comprehend",
+                "nearestComponentDistance": 90.0,
+                "secondComponentId": "sagemaker",
+                "secondComponentDistance": 102.474,
+                "proximityTolerance": 8.5
+              },
+              {
+                "role": "destination",
+                "declaredComponentId": "glue",
+                "endpoint": [
+                  782.0,
+                  386.0
+                ],
+                "classification": "no_contact",
+                "selectedComponentId": null,
+                "selectedPortId": null,
+                "coherentContactCandidates": [],
+                "nearestComponentId": "microservices",
+                "nearestComponentDistance": 44.0,
+                "secondComponentId": "glue",
+                "secondComponentDistance": 90.427,
+                "proximityTolerance": 8.5
+              }
+            ],
+            "ports": [],
+            "barriers": [],
+            "firstIntermediateBarrier": null,
+            "contactSequence": [],
+            "adjacentRelations": [],
+            "inputMutation": false
+          },
+          "originalEndpoints": {
+            "from": "comprehend",
+            "to": "glue"
+          },
+          "selectedEndpoint": null,
+          "barriersFound": [],
+          "officialResultChanged": false
+        }
+      ],
+      "evaluated": true,
+      "matchesHumanExpectation": false
+    },
+    {
+      "caseId": "E17",
+      "requiredRegression": false,
+      "imageId": "generic-cloud-api",
+      "humanCause": "structural_line",
+      "humanContributingCauses": [
+        "crossing_without_junction",
+        "ambiguous_endpoint"
+      ],
+      "humanExpectedCorrection": "Descartar linhas da grade de fundo como candidatas a conectores. Cruzamentos com conectores reais não devem formar junções sem evidência explícita. Exigir que os endpoints estejam conectados às bordas ou portas dos componentes antes de gerar uma aresta. Remover o falso fluxo user → database e preservar somente as conexões reais do diagrama.",
+      "expectedEdges": [],
+      "decisions": [
+        {
+          "inventoryId": "isolated_ground_truth:generic-cloud-api:predicted:14",
+          "imageId": "generic-cloud-api",
+          "provider": "generic",
+          "evaluationStatus": "false_positive",
+          "legacyCandidate": {
+            "id": "f14",
+            "from": "user",
+            "to": "database",
+            "protocol": "unknown",
+            "trustBoundary": true,
+            "crossedBoundaryIds": [],
+            "confidence": 0.743,
+            "inferred": true,
+            "reviewStatus": "pending",
+            "evidence": "segment_graph",
+            "directionEvidence": "semantic_source",
+            "directionConfidence": 0.5,
+            "arrowheadScores": {
+              "user": 30.0,
+              "database": 70.0,
+              "classifier": {
+                "user": 0.0,
+                "database": 0.0,
+                "model": "arrowhead-logistic"
+              }
+            },
+            "pathPoints": [
+              [
+                479,
+                121
+              ],
+              [
+                480,
+                239
+              ]
+            ],
+            "pixelSupport": null,
+            "maximumGap": null,
+            "segmentHops": 1,
+            "routeEfficiency": 0.69
+          },
+          "junctionAwareCandidate": {
+            "schemaVersion": "1.0",
+            "strategy": "junction_aware",
+            "strategyRevision": "tl004b-ports-barriers-v1",
+            "mode": "shadow",
+            "officialEligible": false,
+            "legacyFlow": {
+              "id": "f14",
+              "from": "user",
+              "to": "database",
+              "protocol": "unknown",
+              "trustBoundary": true,
+              "crossedBoundaryIds": [],
+              "confidence": 0.743,
+              "inferred": true,
+              "reviewStatus": "pending",
+              "evidence": "segment_graph",
+              "directionEvidence": "semantic_source",
+              "directionConfidence": 0.5,
+              "arrowheadScores": {
+                "user": 30.0,
+                "database": 70.0,
+                "classifier": {
+                  "user": 0.0,
+                  "database": 0.0,
+                  "model": "arrowhead-logistic"
+                }
+              },
+              "pathPoints": [
+                [
+                  479,
+                  121
+                ],
+                [
+                  480,
+                  239
+                ]
+              ],
+              "pixelSupport": null,
+              "maximumGap": null,
+              "segmentHops": 1,
+              "routeEfficiency": 0.69
+            },
+            "experimentalFlow": null,
+            "edgeAction": "review_only",
+            "reasonCodes": [
+              "destination:no_contact",
+              "source:no_contact"
+            ],
+            "pathPointsReversed": false,
+            "normalAssociationCost": 97.563,
+            "reversedAssociationCost": 316.34,
+            "reason": "original_order_retained",
+            "internalPathPoints": [
+              [
+                479.0,
+                121.0
+              ],
+              [
+                480.0,
+                239.0
+              ]
+            ],
+            "endpointDecisions": [
+              {
+                "role": "source",
+                "declaredComponentId": "user",
+                "endpoint": [
+                  479.0,
+                  121.0
+                ],
+                "classification": "no_contact",
+                "selectedComponentId": null,
+                "selectedPortId": null,
+                "coherentContactCandidates": [],
+                "nearestComponentId": "cdn",
+                "nearestComponentDistance": 38.601,
+                "secondComponentId": "user",
+                "secondComponentDistance": 53.009,
+                "proximityTolerance": 8.5
+              },
+              {
+                "role": "destination",
+                "declaredComponentId": "database",
+                "endpoint": [
+                  480.0,
+                  239.0
+                ],
+                "classification": "no_contact",
+                "selectedComponentId": null,
+                "selectedPortId": null,
+                "coherentContactCandidates": [],
+                "nearestComponentId": "cdn",
+                "nearestComponentDistance": 43.186,
+                "secondComponentId": "database",
+                "secondComponentDistance": 44.553,
+                "proximityTolerance": 8.5
+              }
+            ],
+            "ports": [],
+            "barriers": [],
+            "firstIntermediateBarrier": null,
+            "contactSequence": [],
+            "adjacentRelations": [],
+            "inputMutation": false
+          },
+          "originalEndpoints": {
+            "from": "user",
+            "to": "database"
+          },
+          "selectedEndpoint": null,
+          "barriersFound": [],
+          "officialResultChanged": false
+        }
+      ],
+      "evaluated": true,
+      "matchesHumanExpectation": null
+    },
+    {
+      "caseId": "E18",
+      "requiredRegression": false,
+      "imageId": "azure-private-ai-platform",
+      "humanCause": "structural_line",
+      "humanContributingCauses": [
+        "crossing_without_junction",
+        "ambiguous_endpoint"
+      ],
+      "humanExpectedCorrection": "Descartar bordas de subnets, containers e agrupamentos como candidatas a conectores. Cruzamentos dessas bordas com linhas funcionais não devem formar junções. Exigir que origem e destino estejam ligados às portas ou bordas reais dos componentes. Remover app_gateway → build_agents e não gerar outra relação com o Foundry Agent sem um conector visual explícito.",
+      "expectedEdges": [],
+      "decisions": [
+        {
+          "inventoryId": "isolated_ground_truth:azure-private-ai-platform:predicted:10",
+          "imageId": "azure-private-ai-platform",
+          "provider": "azure",
+          "evaluationStatus": "false_positive",
+          "legacyCandidate": {
+            "id": "f10",
+            "from": "app_gateway",
+            "to": "build_agents",
+            "protocol": "unknown",
+            "trustBoundary": false,
+            "crossedBoundaryIds": [],
+            "confidence": 0.741,
+            "inferred": true,
+            "reviewStatus": "pending",
+            "evidence": "segment_graph",
+            "directionEvidence": "supervised_arrowhead",
+            "directionConfidence": 0.943,
+            "arrowheadScores": {
+              "app_gateway": 60.0,
+              "build_agents": 100.0,
+              "classifier": {
+                "app_gateway": 0.0002,
+                "build_agents": 0.9773,
+                "model": "arrowhead-logistic"
+              }
+            },
+            "pathPoints": [
+              [
+                556,
+                638
+              ],
+              [
+                1262,
+                647
+              ],
+              [
+                1387,
+                652
+              ],
+              [
+                1386,
+                716
+              ],
+              [
+                1386,
+                607
+              ],
+              [
+                2305,
+                606
+              ]
+            ],
+            "pixelSupport": null,
+            "maximumGap": null,
+            "segmentHops": 5,
+            "routeEfficiency": 0.874
+          },
+          "junctionAwareCandidate": {
+            "schemaVersion": "1.0",
+            "strategy": "junction_aware",
+            "strategyRevision": "tl004b-ports-barriers-v1",
+            "mode": "shadow",
+            "officialEligible": false,
+            "legacyFlow": {
+              "id": "f10",
+              "from": "app_gateway",
+              "to": "build_agents",
+              "protocol": "unknown",
+              "trustBoundary": false,
+              "crossedBoundaryIds": [],
+              "confidence": 0.741,
+              "inferred": true,
+              "reviewStatus": "pending",
+              "evidence": "segment_graph",
+              "directionEvidence": "supervised_arrowhead",
+              "directionConfidence": 0.943,
+              "arrowheadScores": {
+                "app_gateway": 60.0,
+                "build_agents": 100.0,
+                "classifier": {
+                  "app_gateway": 0.0002,
+                  "build_agents": 0.9773,
+                  "model": "arrowhead-logistic"
+                }
+              },
+              "pathPoints": [
+                [
+                  556,
+                  638
+                ],
+                [
+                  1262,
+                  647
+                ],
+                [
+                  1387,
+                  652
+                ],
+                [
+                  1386,
+                  716
+                ],
+                [
+                  1386,
+                  607
+                ],
+                [
+                  2305,
+                  606
+                ]
+              ],
+              "pixelSupport": null,
+              "maximumGap": null,
+              "segmentHops": 5,
+              "routeEfficiency": 0.874
+            },
+            "experimentalFlow": null,
+            "edgeAction": "review_only",
+            "reasonCodes": [
+              "destination:no_contact",
+              "source:no_contact"
+            ],
+            "pathPointsReversed": false,
+            "normalAssociationCost": 159.0,
+            "reversedAssociationCost": 3351.36,
+            "reason": "original_order_retained",
+            "internalPathPoints": [
+              [
+                556.0,
+                638.0
+              ],
+              [
+                1262.0,
+                647.0
+              ],
+              [
+                1387.0,
+                652.0
+              ],
+              [
+                1386.0,
+                716.0
+              ],
+              [
+                1386.0,
+                607.0
+              ],
+              [
+                2305.0,
+                606.0
+              ]
+            ],
+            "endpointDecisions": [
+              {
+                "role": "source",
+                "declaredComponentId": "app_gateway",
+                "endpoint": [
+                  556.0,
+                  638.0
+                ],
+                "classification": "no_contact",
+                "selectedComponentId": null,
+                "selectedPortId": null,
+                "coherentContactCandidates": [],
+                "nearestComponentId": "app_gateway",
+                "nearestComponentDistance": 81.0,
+                "secondComponentId": "user",
+                "secondComponentDistance": 380.789,
+                "proximityTolerance": 8.5
+              },
+              {
+                "role": "destination",
+                "declaredComponentId": "build_agents",
+                "endpoint": [
+                  2305.0,
+                  606.0
+                ],
+                "classification": "no_contact",
+                "selectedComponentId": null,
+                "selectedPortId": null,
+                "coherentContactCandidates": [],
+                "nearestComponentId": "build_agents",
+                "nearestComponentDistance": 78.0,
+                "secondComponentId": "foundry_agent",
+                "secondComponentDistance": 133.0,
+                "proximityTolerance": 8.5
+              }
+            ],
+            "ports": [],
+            "barriers": [],
+            "firstIntermediateBarrier": null,
+            "contactSequence": [],
+            "adjacentRelations": [],
+            "inputMutation": false
+          },
+          "originalEndpoints": {
+            "from": "app_gateway",
+            "to": "build_agents"
+          },
+          "selectedEndpoint": null,
+          "barriersFound": [],
+          "officialResultChanged": false
+        }
+      ],
+      "evaluated": true,
+      "matchesHumanExpectation": null
+    },
+    {
+      "caseId": "E19",
+      "requiredRegression": false,
+      "imageId": "gcp-secure-cloud-run",
+      "humanCause": "structural_line",
+      "humanContributingCauses": [
+        "crossing_without_junction",
+        "ambiguous_endpoint"
+      ],
+      "humanExpectedCorrection": "Descartar bordas de projetos, subnets, containers e áreas arquiteturais como candidatas a conectores. O cruzamento entre uma borda estrutural e um fluxo real não deve gerar nó ou permitir troca de ramo. Exigir que os endpoints alcancem portas ou bordas funcionais dos componentes antes de criar uma aresta. Remover o fluxo armor → artifact_registry e preservar apenas as conexões explicitamente representadas no diagrama.",
+      "expectedEdges": [],
+      "decisions": [
+        {
+          "inventoryId": "isolated_ground_truth:gcp-secure-cloud-run:predicted:7",
+          "imageId": "gcp-secure-cloud-run",
+          "provider": "gcp",
+          "evaluationStatus": "false_positive",
+          "legacyCandidate": {
+            "id": "f7",
+            "from": "armor",
+            "to": "artifact_registry",
+            "protocol": "unknown",
+            "trustBoundary": false,
+            "crossedBoundaryIds": [],
+            "confidence": 0.751,
+            "inferred": true,
+            "reviewStatus": "pending",
+            "evidence": "segment_graph",
+            "directionEvidence": "top_to_bottom",
+            "directionConfidence": 0.5,
+            "arrowheadScores": {
+              "armor": 40.0,
+              "artifact_registry": 60.0,
+              "classifier": {
+                "armor": 0.0,
+                "artifact_registry": 0.0,
+                "model": "arrowhead-logistic"
+              }
+            },
+            "pathPoints": [
+              [
+                273,
+                62
+              ],
+              [
+                274,
+                355
+              ]
+            ],
+            "pixelSupport": null,
+            "maximumGap": null,
+            "segmentHops": 1,
+            "routeEfficiency": 0.855
+          },
+          "junctionAwareCandidate": {
+            "schemaVersion": "1.0",
+            "strategy": "junction_aware",
+            "strategyRevision": "tl004b-ports-barriers-v1",
+            "mode": "shadow",
+            "officialEligible": false,
+            "legacyFlow": {
+              "id": "f7",
+              "from": "armor",
+              "to": "artifact_registry",
+              "protocol": "unknown",
+              "trustBoundary": false,
+              "crossedBoundaryIds": [],
+              "confidence": 0.751,
+              "inferred": true,
+              "reviewStatus": "pending",
+              "evidence": "segment_graph",
+              "directionEvidence": "top_to_bottom",
+              "directionConfidence": 0.5,
+              "arrowheadScores": {
+                "armor": 40.0,
+                "artifact_registry": 60.0,
+                "classifier": {
+                  "armor": 0.0,
+                  "artifact_registry": 0.0,
+                  "model": "arrowhead-logistic"
+                }
+              },
+              "pathPoints": [
+                [
+                  273,
+                  62
+                ],
+                [
+                  274,
+                  355
+                ]
+              ],
+              "pixelSupport": null,
+              "maximumGap": null,
+              "segmentHops": 1,
+              "routeEfficiency": 0.855
+            },
+            "experimentalFlow": null,
+            "edgeAction": "review_only",
+            "reasonCodes": [
+              "destination:no_contact",
+              "source:no_contact"
+            ],
+            "pathPointsReversed": false,
+            "normalAssociationCost": 107.244,
+            "reversedAssociationCost": 543.938,
+            "reason": "original_order_retained",
+            "internalPathPoints": [
+              [
+                273.0,
+                62.0
+              ],
+              [
+                274.0,
+                355.0
+              ]
+            ],
+            "endpointDecisions": [
+              {
+                "role": "source",
+                "declaredComponentId": "armor",
+                "endpoint": [
+                  273.0,
+                  62.0
+                ],
+                "classification": "no_contact",
+                "selectedComponentId": null,
+                "selectedPortId": null,
+                "coherentContactCandidates": [],
+                "nearestComponentId": "armor",
+                "nearestComponentDistance": 49.244,
+                "secondComponentId": "load_balancer",
+                "secondComponentDistance": 122.642,
+                "proximityTolerance": 8.5
+              },
+              {
+                "role": "destination",
+                "declaredComponentId": "artifact_registry",
+                "endpoint": [
+                  274.0,
+                  355.0
+                ],
+                "classification": "no_contact",
+                "selectedComponentId": null,
+                "selectedPortId": null,
+                "coherentContactCandidates": [],
+                "nearestComponentId": "cloud_run",
+                "nearestComponentDistance": 28.32,
+                "secondComponentId": "artifact_registry",
+                "secondComponentDistance": 58.0,
+                "proximityTolerance": 8.5
+              }
+            ],
+            "ports": [],
+            "barriers": [],
+            "firstIntermediateBarrier": null,
+            "contactSequence": [],
+            "adjacentRelations": [],
+            "inputMutation": false
+          },
+          "originalEndpoints": {
+            "from": "armor",
+            "to": "artifact_registry"
+          },
+          "selectedEndpoint": null,
+          "barriersFound": [],
+          "officialResultChanged": false
+        }
+      ],
+      "evaluated": true,
+      "matchesHumanExpectation": null
+    },
+    {
+      "caseId": "E20",
+      "requiredRegression": false,
+      "imageId": "aws-video-pipeline",
+      "humanCause": "structural_line",
+      "humanContributingCauses": [
+        "crossing_without_junction",
+        "ambiguous_endpoint"
+      ],
+      "humanExpectedCorrection": "Descartar bordas de containers, agrupamentos e áreas arquiteturais como candidatas a conectores. Cruzamentos entre essas bordas e linhas funcionais não devem criar nós ou permitir troca de caminho. Exigir que os endpoints alcancem portas ou bordas funcionais dos componentes. Remover o fluxo direto transcoder → stage3 e preservar somente as conexões sequenciais explicitamente representadas pelas setas do diagrama.",
+      "expectedEdges": [],
+      "decisions": [
+        {
+          "inventoryId": "isolated_ground_truth:aws-video-pipeline:predicted:8",
+          "imageId": "aws-video-pipeline",
+          "provider": "aws",
+          "evaluationStatus": "false_positive",
+          "legacyCandidate": {
+            "id": "f8",
+            "from": "transcoder",
+            "to": "stage3",
+            "protocol": "unknown",
+            "trustBoundary": false,
+            "crossedBoundaryIds": [],
+            "confidence": 0.752,
+            "inferred": true,
+            "reviewStatus": "pending",
+            "evidence": "segment_graph",
+            "directionEvidence": "left_to_right",
+            "directionConfidence": 0.5,
+            "arrowheadScores": {
+              "transcoder": 60.0,
+              "stage3": 40.0,
+              "classifier": {
+                "transcoder": 0.0,
+                "stage3": 0.0,
+                "model": "arrowhead-logistic"
+              }
+            },
+            "pathPoints": [
+              [
+                2942,
+                1226
+              ],
+              [
+                4715,
+                1256
+              ]
+            ],
+            "pixelSupport": null,
+            "maximumGap": null,
+            "segmentHops": 1,
+            "routeEfficiency": 0.881
+          },
+          "junctionAwareCandidate": {
+            "schemaVersion": "1.0",
+            "strategy": "junction_aware",
+            "strategyRevision": "tl004b-ports-barriers-v1",
+            "mode": "shadow",
+            "officialEligible": false,
+            "legacyFlow": {
+              "id": "f8",
+              "from": "transcoder",
+              "to": "stage3",
+              "protocol": "unknown",
+              "trustBoundary": false,
+              "crossedBoundaryIds": [],
+              "confidence": 0.752,
+              "inferred": true,
+              "reviewStatus": "pending",
+              "evidence": "segment_graph",
+              "directionEvidence": "left_to_right",
+              "directionConfidence": 0.5,
+              "arrowheadScores": {
+                "transcoder": 60.0,
+                "stage3": 40.0,
+                "classifier": {
+                  "transcoder": 0.0,
+                  "stage3": 0.0,
+                  "model": "arrowhead-logistic"
+                }
+              },
+              "pathPoints": [
+                [
+                  2942,
+                  1226
+                ],
+                [
+                  4715,
+                  1256
+                ]
+              ],
+              "pixelSupport": null,
+              "maximumGap": null,
+              "segmentHops": 1,
+              "routeEfficiency": 0.881
+            },
+            "experimentalFlow": null,
+            "edgeAction": "review_only",
+            "reasonCodes": [
+              "destination:no_contact",
+              "source:no_contact"
+            ],
+            "pathPointsReversed": false,
+            "normalAssociationCost": 484.641,
+            "reversedAssociationCost": 3115.291,
+            "reason": "original_order_retained",
+            "internalPathPoints": [
+              [
+                2942.0,
+                1226.0
+              ],
+              [
+                4715.0,
+                1256.0
+              ]
+            ],
+            "endpointDecisions": [
+              {
+                "role": "source",
+                "declaredComponentId": "transcoder",
+                "endpoint": [
+                  2942.0,
+                  1226.0
+                ],
+                "classification": "no_contact",
+                "selectedComponentId": null,
+                "selectedPortId": null,
+                "coherentContactCandidates": [],
+                "nearestComponentId": "database",
+                "nearestComponentDistance": 192.0,
+                "secondComponentId": "transcoder",
+                "secondComponentDistance": 239.641,
+                "proximityTolerance": 8.5
+              },
+              {
+                "role": "destination",
+                "declaredComponentId": "stage3",
+                "endpoint": [
+                  4715.0,
+                  1256.0
+                ],
+                "classification": "no_contact",
+                "selectedComponentId": null,
+                "selectedPortId": null,
+                "coherentContactCandidates": [],
+                "nearestComponentId": "trigger3",
+                "nearestComponentDistance": 183.0,
+                "secondComponentId": "stage3",
+                "secondComponentDistance": 245.0,
+                "proximityTolerance": 8.5
+              }
+            ],
+            "ports": [],
+            "barriers": [],
+            "firstIntermediateBarrier": null,
+            "contactSequence": [],
+            "adjacentRelations": [],
+            "inputMutation": false
+          },
+          "originalEndpoints": {
+            "from": "transcoder",
+            "to": "stage3"
+          },
+          "selectedEndpoint": null,
+          "barriersFound": [],
+          "officialResultChanged": false
+        }
+      ],
+      "evaluated": true,
+      "matchesHumanExpectation": null
+    }
+  ]
+}

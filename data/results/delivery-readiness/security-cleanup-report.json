@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "1.0",
+  "generatedAt": "2026-07-21T22:35:57.615569+00:00",
+  "status": "PASS",
+  "localEnv": {
+    "present": true,
+    "configuredSecretVariableNames": [
+      "GEMINI_API_KEY",
+      "GROQ_API_KEY"
+    ],
+    "valuesRecorded": false,
+    "excludedByGitignore": true,
+    "excludedByDockerignore": true
+  },
+  "credentialLiteralScan": {
+    "findingCount": 0,
+    "findings": []
+  },
+  "cleanupPolicy": {
+    "gitIgnored": [
+      ".env",
+      ".venv",
+      "node_modules",
+      "__pycache__",
+      ".pytest_cache",
+      "tmp",
+      "*.log"
+    ],
+    "dockerExcluded": [
+      ".env",
+      "dataset",
+      "data/results",
+      "tmp",
+      "artifacts",
+      "runs",
+      "unregistered models"
+    ],
+    "protectedHistoricalArtifactsRemoved": false
+  }
+}

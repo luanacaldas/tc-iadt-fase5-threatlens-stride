@@ -1,0 +1,26 @@
+# ThreatLens AI — YOLOv8 Dataset Configuration
+# Coloque este arquivo em dataset/architecture.yaml
+# As imagens devem estar em dataset/images/{train,val,test}/
+# Os labels em dataset/labels/{train,val,test}/
+
+path: . # relativo a partir de onde o treinamento é executado (raiz do projeto)
+train: dataset/images/train
+val: dataset/images/val
+test: dataset/images/test
+
+nc: 14
+names:
+  0: api_gateway
+  1: backup
+  2: cdn
+  3: compute
+  4: database
+  5: identity_provider
+  6: internet
+  7: load_balancer
+  8: monitoring
+  9: queue
+  10: secrets_kms
+  11: storage
+  12: user
+  13: waf

@@ -1,0 +1,10 @@
+{
+  "schemaVersion": "1.0",
+  "generatedAt": "2026-07-21T22:35:57.615569+00:00",
+  "decision": "DELIVERY-001 bloqueada por execu\u00e7\u00e3o",
+  "readyForInterface": false,
+  "blockingChecks": [
+    "docker"
+  ],
+  "holdoutsExecuted": false
+}

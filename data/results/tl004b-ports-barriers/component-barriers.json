@@ -1,0 +1,2501 @@
+{
+  "schemaVersion": "1.0",
+  "split": "development_tuning",
+  "recordCount": 63,
+  "records": [
+    {
+      "inventoryId": "isolated_ground_truth:aws-eks-platform:predicted:1",
+      "imageId": "aws-eks-platform",
+      "legacyEdge": {
+        "from": "notebook",
+        "to": "sagemaker"
+      },
+      "firstIntermediateBarrier": null,
+      "barriers": [
+        {
+          "id": "barrier-5077dde80c26e595",
+          "componentId": "comprehend",
+          "firstContact": [
+            536.898,
+            282.0
+          ],
+          "normalizedPathPosition": 0.796612,
+          "portId": "port-727e3d1a98a10073",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": false,
+          "terminatesExperimentalPath": false
+        }
+      ],
+      "adjacentRelations": []
+    },
+    {
+      "inventoryId": "isolated_ground_truth:aws-eks-platform:predicted:2",
+      "imageId": "aws-eks-platform",
+      "legacyEdge": {
+        "from": "raw",
+        "to": "processed"
+      },
+      "firstIntermediateBarrier": null,
+      "barriers": [
+        {
+          "id": "barrier-63c5b1f693cb1ddd",
+          "componentId": "raw",
+          "firstContact": [
+            623.0,
+            643.0
+          ],
+          "normalizedPathPosition": 0.056338,
+          "portId": "port-6182de2aafa5a1cd",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": true,
+          "terminatesExperimentalPath": false
+        },
+        {
+          "id": "barrier-8131a52c62bd9897",
+          "componentId": "processed",
+          "firstContact": [
+            672.0,
+            643.0
+          ],
+          "normalizedPathPosition": 0.401408,
+          "portId": "port-64039ba28a83f907",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": true,
+          "terminatesExperimentalPath": false
+        }
+      ],
+      "adjacentRelations": [
+        {
+          "from": "raw",
+          "to": "processed",
+          "shadowOnly": true
+        }
+      ]
+    },
+    {
+      "inventoryId": "isolated_ground_truth:aws-eks-platform:predicted:20",
+      "imageId": "aws-eks-platform",
+      "legacyEdge": {
+        "from": "sql",
+        "to": "external"
+      },
+      "firstIntermediateBarrier": null,
+      "barriers": [
+        {
+          "id": "barrier-c3dfd4a938f86193",
+          "componentId": "sql",
+          "firstContact": [
+            134.123,
+            510.0
+          ],
+          "normalizedPathPosition": 0.235849,
+          "portId": "port-1d322620a6fdb7d0",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": true,
+          "terminatesExperimentalPath": false
+        }
+      ],
+      "adjacentRelations": []
+    },
+    {
+      "inventoryId": "isolated_ground_truth:aws-eks-platform:predicted:21",
+      "imageId": "aws-eks-platform",
+      "legacyEdge": {
+        "from": "glue",
+        "to": "processed"
+      },
+      "firstIntermediateBarrier": null,
+      "barriers": [
+        {
+          "id": "barrier-df449c48f1c96902",
+          "componentId": "processed",
+          "firstContact": [
+            819.0,
+            642.0
+          ],
+          "normalizedPathPosition": 0.44958,
+          "portId": "port-3eb5f52613b591d3",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": true,
+          "terminatesExperimentalPath": false
+        }
+      ],
+      "adjacentRelations": []
+    },
+    {
+      "inventoryId": "isolated_ground_truth:aws-eks-platform:predicted:3",
+      "imageId": "aws-eks-platform",
+      "legacyEdge": {
+        "from": "dynamo",
+        "to": "rds"
+      },
+      "firstIntermediateBarrier": null,
+      "barriers": [
+        {
+          "id": "barrier-9ad6fb13e1a33dde",
+          "componentId": "dynamo",
+          "firstContact": [
+            1036.0,
+            637.561
+          ],
+          "normalizedPathPosition": 0.109848,
+          "portId": "port-3aeac5cd39a58a00",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": true,
+          "terminatesExperimentalPath": false
+        },
+        {
+          "id": "barrier-7268bf1dd8b51267",
+          "componentId": "dynamo",
+          "firstContact": [
+            1169.0,
+            635.545
+          ],
+          "normalizedPathPosition": 0.613636,
+          "portId": "port-1672095cc01f0453",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": true,
+          "terminatesExperimentalPath": false
+        },
+        {
+          "id": "barrier-33f8f0e874a73ef9",
+          "componentId": "rds",
+          "firstContact": [
+            1190.0,
+            635.227
+          ],
+          "normalizedPathPosition": 0.693182,
+          "portId": "port-8a7c8cf198b9c897",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": true,
+          "terminatesExperimentalPath": false
+        },
+        {
+          "id": "barrier-3bf381dd8834a81e",
+          "componentId": "rds",
+          "firstContact": [
+            1205.0,
+            635.0
+          ],
+          "normalizedPathPosition": 0.75,
+          "portId": "port-2a78ffea939594cb",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": true,
+          "terminatesExperimentalPath": false
+        }
+      ],
+      "adjacentRelations": [
+        {
+          "from": "dynamo",
+          "to": "rds",
+          "shadowOnly": true
+        }
+      ]
+    },
+    {
+      "inventoryId": "isolated_ground_truth:aws-eks-platform:predicted:4",
+      "imageId": "aws-eks-platform",
+      "legacyEdge": {
+        "from": "sagemaker",
+        "to": "comprehend"
+      },
+      "firstIntermediateBarrier": null,
+      "barriers": [
+        {
+          "id": "barrier-ac9de1d8aa7a27b5",
+          "componentId": "sagemaker",
+          "firstContact": [
+            497.909,
+            259.0
+          ],
+          "normalizedPathPosition": 0.090909,
+          "portId": "port-c1c1472890b2fc82",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": true,
+          "terminatesExperimentalPath": false
+        },
+        {
+          "id": "barrier-a26cc58176e37cda",
+          "componentId": "comprehend",
+          "firstContact": [
+            502.788,
+            282.0
+          ],
+          "normalizedPathPosition": 0.323233,
+          "portId": "port-84f34b82be0fca27",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": true,
+          "terminatesExperimentalPath": false
+        }
+      ],
+      "adjacentRelations": [
+        {
+          "from": "sagemaker",
+          "to": "comprehend",
+          "shadowOnly": true
+        }
+      ]
+    },
+    {
+      "inventoryId": "isolated_ground_truth:aws-eks-platform:predicted:5",
+      "imageId": "aws-eks-platform",
+      "legacyEdge": {
+        "from": "microservices",
+        "to": "glue"
+      },
+      "firstIntermediateBarrier": null,
+      "barriers": [
+        {
+          "id": "barrier-1af0260440fa1908",
+          "componentId": "microservices",
+          "firstContact": [
+            881.316,
+            429.0
+          ],
+          "normalizedPathPosition": 0.105263,
+          "portId": "port-6dcdb82ddc7cf525",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": true,
+          "terminatesExperimentalPath": false
+        },
+        {
+          "id": "barrier-a733b12d1f977cb4",
+          "componentId": "glue",
+          "firstContact": [
+            882.737,
+            465.0
+          ],
+          "normalizedPathPosition": 0.578947,
+          "portId": "port-9ba5e0637f02564e",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": true,
+          "terminatesExperimentalPath": false
+        }
+      ],
+      "adjacentRelations": [
+        {
+          "from": "microservices",
+          "to": "glue",
+          "shadowOnly": true
+        }
+      ]
+    },
+    {
+      "inventoryId": "isolated_ground_truth:aws-eks-platform:predicted:6",
+      "imageId": "aws-eks-platform",
+      "legacyEdge": {
+        "from": "glue",
+        "to": "rds"
+      },
+      "firstIntermediateBarrier": null,
+      "barriers": [
+        {
+          "id": "barrier-a1e677d16839d85b",
+          "componentId": "dynamo",
+          "firstContact": [
+            1036.0,
+            638.368
+          ],
+          "normalizedPathPosition": 0.126394,
+          "portId": "port-aff2a759f35f38e0",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": false,
+          "terminatesExperimentalPath": false
+        },
+        {
+          "id": "barrier-d383f68296a1a007",
+          "componentId": "dynamo",
+          "firstContact": [
+            1169.0,
+            635.896
+          ],
+          "normalizedPathPosition": 0.620818,
+          "portId": "port-7e91687eac0945f0",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": false,
+          "terminatesExperimentalPath": false
+        },
+        {
+          "id": "barrier-99c95926045bf047",
+          "componentId": "rds",
+          "firstContact": [
+            1190.0,
+            635.506
+          ],
+          "normalizedPathPosition": 0.698885,
+          "portId": "port-4c4e35fe878f2d1a",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": true,
+          "terminatesExperimentalPath": false
+        },
+        {
+          "id": "barrier-54f1825cdd98ba60",
+          "componentId": "rds",
+          "firstContact": [
+            1217.2,
+            635.0
+          ],
+          "normalizedPathPosition": 0.8,
+          "portId": "port-8523c197bcad8124",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": true,
+          "terminatesExperimentalPath": false
+        }
+      ],
+      "adjacentRelations": [
+        {
+          "from": "dynamo",
+          "to": "rds",
+          "shadowOnly": true
+        }
+      ]
+    },
+    {
+      "inventoryId": "isolated_ground_truth:aws-eks-platform:predicted:7",
+      "imageId": "aws-eks-platform",
+      "legacyEdge": {
+        "from": "raw",
+        "to": "glue"
+      },
+      "firstIntermediateBarrier": null,
+      "barriers": [
+        {
+          "id": "barrier-33a8a9bd619df0f4",
+          "componentId": "processed",
+          "firstContact": [
+            819.0,
+            642.343
+          ],
+          "normalizedPathPosition": 0.552174,
+          "portId": "port-449a0b9a74cfd196",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": false,
+          "terminatesExperimentalPath": false
+        }
+      ],
+      "adjacentRelations": []
+    },
+    {
+      "inventoryId": "isolated_ground_truth:aws-eks-platform:predicted:9",
+      "imageId": "aws-eks-platform",
+      "legacyEdge": {
+        "from": "lambda",
+        "to": "microservices"
+      },
+      "firstIntermediateBarrier": null,
+      "barriers": [
+        {
+          "id": "barrier-6b11211db2561965",
+          "componentId": "microservices",
+          "firstContact": [
+            867.667,
+            326.0
+          ],
+          "normalizedPathPosition": 0.777782,
+          "portId": "port-b442820dc1b8a895",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": true,
+          "terminatesExperimentalPath": false
+        }
+      ],
+      "adjacentRelations": []
+    },
+    {
+      "inventoryId": "isolated_ground_truth:aws-serverless-async:predicted:1",
+      "imageId": "aws-serverless-async",
+      "legacyEdge": {
+        "from": "search_handler",
+        "to": "catalog"
+      },
+      "firstIntermediateBarrier": null,
+      "barriers": [
+        {
+          "id": "barrier-3c0c150a08aa1c8c",
+          "componentId": "search_handler",
+          "firstContact": [
+            974.584,
+            1285.0
+          ],
+          "normalizedPathPosition": 0.072422,
+          "portId": "port-ac1786b54c83f47b",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": true,
+          "terminatesExperimentalPath": false
+        }
+      ],
+      "adjacentRelations": []
+    },
+    {
+      "inventoryId": "isolated_ground_truth:aws-serverless-async:predicted:2",
+      "imageId": "aws-serverless-async",
+      "legacyEdge": {
+        "from": "cognito",
+        "to": "api"
+      },
+      "firstIntermediateBarrier": null,
+      "barriers": [
+        {
+          "id": "barrier-ec759711faec9b9d",
+          "componentId": "api",
+          "firstContact": [
+            1296.937,
+            452.0
+          ],
+          "normalizedPathPosition": 0.944882,
+          "portId": "port-afb63b4f33b34b11",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": true,
+          "terminatesExperimentalPath": false
+        }
+      ],
+      "adjacentRelations": []
+    },
+    {
+      "inventoryId": "isolated_ground_truth:aws-serverless-async:predicted:4",
+      "imageId": "aws-serverless-async",
+      "legacyEdge": {
+        "from": "waf",
+        "to": "api"
+      },
+      "firstIntermediateBarrier": null,
+      "barriers": [
+        {
+          "id": "barrier-a91bb8eff4faa168",
+          "componentId": "api",
+          "firstContact": [
+            1338.318,
+            243.0
+          ],
+          "normalizedPathPosition": 0.136363,
+          "portId": "port-53a0f3c42fe89c98",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": true,
+          "terminatesExperimentalPath": false
+        },
+        {
+          "id": "barrier-76a38154890e030a",
+          "componentId": "api",
+          "firstContact": [
+            1429.0,
+            319.0
+          ],
+          "normalizedPathPosition": 1.0,
+          "portId": "port-6f9ef62eeb5cd092",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": true,
+          "terminatesExperimentalPath": false
+        }
+      ],
+      "adjacentRelations": []
+    },
+    {
+      "inventoryId": "isolated_ground_truth:aws-serverless-async:predicted:8",
+      "imageId": "aws-serverless-async",
+      "legacyEdge": {
+        "from": "fargate",
+        "to": "database"
+      },
+      "firstIntermediateBarrier": null,
+      "barriers": [
+        {
+          "id": "barrier-879e83fa107849de",
+          "componentId": "database",
+          "firstContact": [
+            1866.0,
+            1940.693
+          ],
+          "normalizedPathPosition": 0.912892,
+          "portId": "port-6ee18f8e17472081",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": true,
+          "terminatesExperimentalPath": false
+        }
+      ],
+      "adjacentRelations": []
+    },
+    {
+      "inventoryId": "isolated_ground_truth:aws-video-pipeline:predicted:1",
+      "imageId": "aws-video-pipeline",
+      "legacyEdge": {
+        "from": "mobile",
+        "to": "api"
+      },
+      "firstIntermediateBarrier": null,
+      "barriers": [
+        {
+          "id": "barrier-b3042da79b792ec0",
+          "componentId": "mobile",
+          "firstContact": [
+            673.0,
+            1177.293
+          ],
+          "normalizedPathPosition": 0.024423,
+          "portId": "port-73cccd0cb610bd31",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": true,
+          "terminatesExperimentalPath": false
+        },
+        {
+          "id": "barrier-057024cfccd3dae1",
+          "componentId": "api",
+          "firstContact": [
+            1167.0,
+            1185.336
+          ],
+          "normalizedPathPosition": 0.694708,
+          "portId": "port-7b35a171c7902934",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": true,
+          "terminatesExperimentalPath": false
+        }
+      ],
+      "adjacentRelations": [
+        {
+          "from": "mobile",
+          "to": "api",
+          "shadowOnly": true
+        }
+      ]
+    },
+    {
+      "inventoryId": "isolated_ground_truth:aws-video-pipeline:predicted:2",
+      "imageId": "aws-video-pipeline",
+      "legacyEdge": {
+        "from": "stage3",
+        "to": "trigger3"
+      },
+      "firstIntermediateBarrier": null,
+      "barriers": [
+        {
+          "id": "barrier-398f8214c4965dc0",
+          "componentId": "stage3",
+          "firstContact": [
+            4623.05,
+            1011.0
+          ],
+          "normalizedPathPosition": 0.0864,
+          "portId": "port-1d22e113ff83e182",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": true,
+          "terminatesExperimentalPath": false
+        },
+        {
+          "id": "barrier-ca2c78437896c506",
+          "componentId": "trigger3",
+          "firstContact": [
+            4615.517,
+            1439.0
+          ],
+          "normalizedPathPosition": 0.7712,
+          "portId": "port-bc2a5bd38511185a",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": true,
+          "terminatesExperimentalPath": false
+        }
+      ],
+      "adjacentRelations": [
+        {
+          "from": "stage3",
+          "to": "trigger3",
+          "shadowOnly": true
+        }
+      ]
+    },
+    {
+      "inventoryId": "isolated_ground_truth:aws-video-pipeline:predicted:24",
+      "imageId": "aws-video-pipeline",
+      "legacyEdge": {
+        "from": "transcoder",
+        "to": "stage2"
+      },
+      "firstIntermediateBarrier": null,
+      "barriers": [
+        {
+          "id": "barrier-373ed8de6d1d26f5",
+          "componentId": "transcoder",
+          "firstContact": [
+            3207.0,
+            865.6
+          ],
+          "normalizedPathPosition": 0.4,
+          "portId": "port-e5fbd26724668323",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": true,
+          "terminatesExperimentalPath": false
+        },
+        {
+          "id": "barrier-95d3ca5356162435",
+          "componentId": "stage2",
+          "firstContact": [
+            3346.0,
+            867.78
+          ],
+          "normalizedPathPosition": 0.945098,
+          "portId": "port-b2223fc34302a961",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": true,
+          "terminatesExperimentalPath": false
+        }
+      ],
+      "adjacentRelations": [
+        {
+          "from": "transcoder",
+          "to": "stage2",
+          "shadowOnly": true
+        }
+      ]
+    },
+    {
+      "inventoryId": "isolated_ground_truth:aws-video-pipeline:predicted:28",
+      "imageId": "aws-video-pipeline",
+      "legacyEdge": {
+        "from": "stage1",
+        "to": "trigger1"
+      },
+      "firstIntermediateBarrier": null,
+      "barriers": [
+        {
+          "id": "barrier-2484a986cae4ae1b",
+          "componentId": "stage1",
+          "firstContact": [
+            2475.0,
+            855.783
+          ],
+          "normalizedPathPosition": 0.445833,
+          "portId": "port-36ed581c30e8f8bb",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": true,
+          "terminatesExperimentalPath": false
+        },
+        {
+          "id": "barrier-af122d6d5c0c9d5a",
+          "componentId": "trigger1",
+          "firstContact": [
+            2600.0,
+            857.867
+          ],
+          "normalizedPathPosition": 0.966667,
+          "portId": "port-560d1a9f89e04956",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": true,
+          "terminatesExperimentalPath": false
+        }
+      ],
+      "adjacentRelations": [
+        {
+          "from": "stage1",
+          "to": "trigger1",
+          "shadowOnly": true
+        }
+      ]
+    },
+    {
+      "inventoryId": "isolated_ground_truth:aws-video-pipeline:predicted:29",
+      "imageId": "aws-video-pipeline",
+      "legacyEdge": {
+        "from": "media",
+        "to": "stage3"
+      },
+      "firstIntermediateBarrier": null,
+      "barriers": [
+        {
+          "id": "barrier-c17e6bbbb9e7b9a0",
+          "componentId": "media",
+          "firstContact": [
+            4346.0,
+            884.198
+          ],
+          "normalizedPathPosition": 0.065934,
+          "portId": "port-f6912c9c849c306c",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": true,
+          "terminatesExperimentalPath": false
+        },
+        {
+          "id": "barrier-0bfa640191eb14d3",
+          "componentId": "stage3",
+          "firstContact": [
+            4511.0,
+            886.918
+          ],
+          "normalizedPathPosition": 0.972528,
+          "portId": "port-c9ff9c9dbf31ba15",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": true,
+          "terminatesExperimentalPath": false
+        }
+      ],
+      "adjacentRelations": [
+        {
+          "from": "media",
+          "to": "stage3",
+          "shadowOnly": true
+        }
+      ]
+    },
+    {
+      "inventoryId": "isolated_ground_truth:aws-video-pipeline:predicted:3",
+      "imageId": "aws-video-pipeline",
+      "legacyEdge": {
+        "from": "business2",
+        "to": "database"
+      },
+      "firstIntermediateBarrier": null,
+      "barriers": [
+        {
+          "id": "barrier-9e3723cf9c2cde62",
+          "componentId": "database",
+          "firstContact": [
+            3052.0,
+            1540.241
+          ],
+          "normalizedPathPosition": 0.978056,
+          "portId": "port-0d74202713fb296a",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": true,
+          "terminatesExperimentalPath": false
+        }
+      ],
+      "adjacentRelations": []
+    },
+    {
+      "inventoryId": "isolated_ground_truth:aws-video-pipeline:predicted:30",
+      "imageId": "aws-video-pipeline",
+      "legacyEdge": {
+        "from": "stage2",
+        "to": "trigger2"
+      },
+      "firstIntermediateBarrier": null,
+      "barriers": [
+        {
+          "id": "barrier-07a0a860b20ff5af",
+          "componentId": "stage2",
+          "firstContact": [
+            3588.0,
+            873.128
+          ],
+          "normalizedPathPosition": 0.042683,
+          "portId": "port-acbe3876cac6c5f8",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": true,
+          "terminatesExperimentalPath": false
+        },
+        {
+          "id": "barrier-e64c9c300b0deb2c",
+          "componentId": "trigger2",
+          "firstContact": [
+            3739.0,
+            875.89
+          ],
+          "normalizedPathPosition": 0.963415,
+          "portId": "port-5d23128cb135b612",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": true,
+          "terminatesExperimentalPath": false
+        }
+      ],
+      "adjacentRelations": [
+        {
+          "from": "stage2",
+          "to": "trigger2",
+          "shadowOnly": true
+        }
+      ]
+    },
+    {
+      "inventoryId": "isolated_ground_truth:aws-video-pipeline:predicted:31",
+      "imageId": "aws-video-pipeline",
+      "legacyEdge": {
+        "from": "media",
+        "to": "trigger3"
+      },
+      "firstIntermediateBarrier": null,
+      "barriers": [
+        {
+          "id": "barrier-697b1325612ea194",
+          "componentId": "stage3",
+          "firstContact": [
+            4623.704,
+            1011.0
+          ],
+          "normalizedPathPosition": 0.0864,
+          "portId": "port-2f3c5e933fd3e46e",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": false,
+          "terminatesExperimentalPath": false
+        },
+        {
+          "id": "barrier-4ee5ec48c97b01a0",
+          "componentId": "trigger3",
+          "firstContact": [
+            4613.432,
+            1439.0
+          ],
+          "normalizedPathPosition": 0.7712,
+          "portId": "port-6b825ab463f088b0",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": true,
+          "terminatesExperimentalPath": false
+        }
+      ],
+      "adjacentRelations": [
+        {
+          "from": "stage3",
+          "to": "trigger3",
+          "shadowOnly": true
+        }
+      ]
+    },
+    {
+      "inventoryId": "isolated_ground_truth:aws-video-pipeline:predicted:32",
+      "imageId": "aws-video-pipeline",
+      "legacyEdge": {
+        "from": "upload",
+        "to": "stage1"
+      },
+      "firstIntermediateBarrier": null,
+      "barriers": [
+        {
+          "id": "barrier-8b55faf5dab0772f",
+          "componentId": "upload",
+          "firstContact": [
+            2106.0,
+            848.151
+          ],
+          "normalizedPathPosition": 0.075342,
+          "portId": "port-240c450fcd161f88",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": true,
+          "terminatesExperimentalPath": false
+        },
+        {
+          "id": "barrier-82ab4035997c2c7e",
+          "componentId": "stage1",
+          "firstContact": [
+            2233.0,
+            849.89
+          ],
+          "normalizedPathPosition": 0.945205,
+          "portId": "port-fd14ba4d52f8830a",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": true,
+          "terminatesExperimentalPath": false
+        }
+      ],
+      "adjacentRelations": [
+        {
+          "from": "upload",
+          "to": "stage1",
+          "shadowOnly": true
+        }
+      ]
+    },
+    {
+      "inventoryId": "isolated_ground_truth:aws-video-pipeline:predicted:33",
+      "imageId": "aws-video-pipeline",
+      "legacyEdge": {
+        "from": "trigger1",
+        "to": "transcoder"
+      },
+      "firstIntermediateBarrier": null,
+      "barriers": [
+        {
+          "id": "barrier-336e32c4a8d5d693",
+          "componentId": "transcoder",
+          "firstContact": [
+            2970.0,
+            862.0
+          ],
+          "normalizedPathPosition": 0.992063,
+          "portId": "port-10ea295384514f95",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": true,
+          "terminatesExperimentalPath": false
+        },
+        {
+          "id": "barrier-719ecf0716d1c113",
+          "componentId": "transcoder",
+          "firstContact": [
+            2971.0,
+            862.0
+          ],
+          "normalizedPathPosition": 1.0,
+          "portId": "port-a1aa87d2976fdafd",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": true,
+          "terminatesExperimentalPath": false
+        }
+      ],
+      "adjacentRelations": []
+    },
+    {
+      "inventoryId": "isolated_ground_truth:aws-video-pipeline:predicted:37",
+      "imageId": "aws-video-pipeline",
+      "legacyEdge": {
+        "from": "trigger2",
+        "to": "media"
+      },
+      "firstIntermediateBarrier": null,
+      "barriers": [
+        {
+          "id": "barrier-6c221d8474bd11d9",
+          "componentId": "trigger2",
+          "firstContact": [
+            3979.0,
+            875.456
+          ],
+          "normalizedPathPosition": 0.114035,
+          "portId": "port-ec070ab9681cc14a",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": true,
+          "terminatesExperimentalPath": false
+        }
+      ],
+      "adjacentRelations": []
+    },
+    {
+      "inventoryId": "isolated_ground_truth:aws-video-pipeline:predicted:4",
+      "imageId": "aws-video-pipeline",
+      "legacyEdge": {
+        "from": "business2",
+        "to": "trigger3"
+      },
+      "firstIntermediateBarrier": null,
+      "barriers": [
+        {
+          "id": "barrier-0e93beb33138513e",
+          "componentId": "trigger3",
+          "firstContact": [
+            4537.0,
+            1564.928
+          ],
+          "normalizedPathPosition": 0.992832,
+          "portId": "port-251595f564022b5b",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": true,
+          "terminatesExperimentalPath": false
+        }
+      ],
+      "adjacentRelations": []
+    },
+    {
+      "inventoryId": "isolated_ground_truth:aws-video-pipeline:predicted:41",
+      "imageId": "aws-video-pipeline",
+      "legacyEdge": {
+        "from": "mobile",
+        "to": "cognito"
+      },
+      "firstIntermediateBarrier": null,
+      "barriers": [
+        {
+          "id": "barrier-4cfc50baef30ff97",
+          "componentId": "cognito",
+          "firstContact": [
+            917.901,
+            762.0
+          ],
+          "normalizedPathPosition": 0.985882,
+          "portId": "port-248343fb0c49cd05",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": true,
+          "terminatesExperimentalPath": false
+        }
+      ],
+      "adjacentRelations": []
+    },
+    {
+      "inventoryId": "isolated_ground_truth:aws-video-pipeline:predicted:5",
+      "imageId": "aws-video-pipeline",
+      "legacyEdge": {
+        "from": "business1",
+        "to": "database"
+      },
+      "firstIntermediateBarrier": null,
+      "barriers": [
+        {
+          "id": "barrier-227820ecf82dd1c3",
+          "componentId": "database",
+          "firstContact": [
+            2812.0,
+            1537.919
+          ],
+          "normalizedPathPosition": 0.992625,
+          "portId": "port-034d4138bf0c35b0",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": true,
+          "terminatesExperimentalPath": false
+        }
+      ],
+      "adjacentRelations": []
+    },
+    {
+      "inventoryId": "isolated_ground_truth:azure-ai-foundry:predicted:1",
+      "imageId": "azure-ai-foundry",
+      "legacyEdge": {
+        "from": "app_service",
+        "to": "foundry_agent"
+      },
+      "firstIntermediateBarrier": null,
+      "barriers": [
+        {
+          "id": "barrier-0f0030178d187435",
+          "componentId": "app_service",
+          "firstContact": [
+            765.0,
+            371.085
+          ],
+          "normalizedPathPosition": 0.021277,
+          "portId": "port-7ebd61576606ff13",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": true,
+          "terminatesExperimentalPath": false
+        },
+        {
+          "id": "barrier-3f3a7265aa062098",
+          "componentId": "foundry_agent",
+          "firstContact": [
+            988.0,
+            374.881
+          ],
+          "normalizedPathPosition": 0.970213,
+          "portId": "port-1b64649dc686c9be",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": true,
+          "terminatesExperimentalPath": false
+        }
+      ],
+      "adjacentRelations": [
+        {
+          "from": "app_service",
+          "to": "foundry_agent",
+          "shadowOnly": true
+        }
+      ]
+    },
+    {
+      "inventoryId": "isolated_ground_truth:azure-ai-foundry:predicted:2",
+      "imageId": "azure-ai-foundry",
+      "legacyEdge": {
+        "from": "foundry_agent",
+        "to": "openai_model"
+      },
+      "firstIntermediateBarrier": null,
+      "barriers": [
+        {
+          "id": "barrier-8a67ebef79c390ef",
+          "componentId": "foundry_agent",
+          "firstContact": [
+            1036.962,
+            433.0
+          ],
+          "normalizedPathPosition": 0.038461,
+          "portId": "port-0aaf966cc73fccb0",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": true,
+          "terminatesExperimentalPath": false
+        },
+        {
+          "id": "barrier-ea7159afb8cdca28",
+          "componentId": "openai_model",
+          "firstContact": [
+            1036.077,
+            525.0
+          ],
+          "normalizedPathPosition": 0.923077,
+          "portId": "port-30e31c9967881149",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": true,
+          "terminatesExperimentalPath": false
+        }
+      ],
+      "adjacentRelations": [
+        {
+          "from": "foundry_agent",
+          "to": "openai_model",
+          "shadowOnly": true
+        }
+      ]
+    },
+    {
+      "inventoryId": "isolated_ground_truth:azure-ai-foundry:predicted:3",
+      "imageId": "azure-ai-foundry",
+      "legacyEdge": {
+        "from": "foundry_agent",
+        "to": "ai_search"
+      },
+      "firstIntermediateBarrier": null,
+      "barriers": [
+        {
+          "id": "barrier-df09a98daa9c9895",
+          "componentId": "openai_model",
+          "firstContact": [
+            1082.225,
+            525.0
+          ],
+          "normalizedPathPosition": 0.075144,
+          "portId": "port-6634dcfb45ccc655",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": false,
+          "terminatesExperimentalPath": false
+        }
+      ],
+      "adjacentRelations": []
+    },
+    {
+      "inventoryId": "isolated_ground_truth:azure-ai-foundry:predicted:5",
+      "imageId": "azure-ai-foundry",
+      "legacyEdge": {
+        "from": "foundry_account",
+        "to": "foundry_agent"
+      },
+      "firstIntermediateBarrier": null,
+      "barriers": [
+        {
+          "id": "barrier-197654c40914a309",
+          "componentId": "foundry_agent",
+          "firstContact": [
+            1036.867,
+            304.0
+          ],
+          "normalizedPathPosition": 0.688888,
+          "portId": "port-9985db1d0cc2d51a",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": true,
+          "terminatesExperimentalPath": false
+        }
+      ],
+      "adjacentRelations": []
+    },
+    {
+      "inventoryId": "isolated_ground_truth:azure-container-edge:predicted:1",
+      "imageId": "azure-container-edge",
+      "legacyEdge": {
+        "from": "application_firewall",
+        "to": "azure_firewall"
+      },
+      "firstIntermediateBarrier": null,
+      "barriers": [
+        {
+          "id": "barrier-550a9e11d25fb0a2",
+          "componentId": "application_firewall",
+          "firstContact": [
+            490.0,
+            251.294
+          ],
+          "normalizedPathPosition": 0.235294,
+          "portId": "port-66cf205371ec3804",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": true,
+          "terminatesExperimentalPath": false
+        },
+        {
+          "id": "barrier-1979742ff2c7952e",
+          "componentId": "azure_firewall",
+          "firstContact": [
+            526.0,
+            249.176
+          ],
+          "normalizedPathPosition": 0.941177,
+          "portId": "port-9cdcab3b7104726c",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": true,
+          "terminatesExperimentalPath": false
+        }
+      ],
+      "adjacentRelations": [
+        {
+          "from": "application_firewall",
+          "to": "azure_firewall",
+          "shadowOnly": true
+        }
+      ]
+    },
+    {
+      "inventoryId": "isolated_ground_truth:azure-container-edge:predicted:2",
+      "imageId": "azure-container-edge",
+      "legacyEdge": {
+        "from": "load_balancer",
+        "to": "application_firewall"
+      },
+      "firstIntermediateBarrier": null,
+      "barriers": [
+        {
+          "id": "barrier-816ef1b74aca6cc1",
+          "componentId": "load_balancer",
+          "firstContact": [
+            353.0,
+            272.0
+          ],
+          "normalizedPathPosition": 0.0,
+          "portId": "port-6e06e7f3f218547c",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": true,
+          "terminatesExperimentalPath": false
+        },
+        {
+          "id": "barrier-4a389d62b3ea5eac",
+          "componentId": "load_balancer",
+          "firstContact": [
+            354.0,
+            271.969
+          ],
+          "normalizedPathPosition": 0.03125,
+          "portId": "port-1d65454e51674242",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": true,
+          "terminatesExperimentalPath": false
+        }
+      ],
+      "adjacentRelations": []
+    },
+    {
+      "inventoryId": "isolated_ground_truth:azure-hub-spoke:predicted:1",
+      "imageId": "azure-hub-spoke",
+      "legacyEdge": {
+        "from": "nonprod_vm",
+        "to": "nonprod2_vm"
+      },
+      "firstIntermediateBarrier": null,
+      "barriers": [
+        {
+          "id": "barrier-bc0b6d00f3544c9b",
+          "componentId": "nonprod_vm",
+          "firstContact": [
+            492.0,
+            452.847
+          ],
+          "normalizedPathPosition": 0.083522,
+          "portId": "port-0190be05ed19a7e2",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": true,
+          "terminatesExperimentalPath": false
+        },
+        {
+          "id": "barrier-bb3e3fd96d4ccfde",
+          "componentId": "nonprod_vm",
+          "firstContact": [
+            710.0,
+            487.293
+          ],
+          "normalizedPathPosition": 0.575621,
+          "portId": "port-c52a96e0bbb8a079",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": true,
+          "terminatesExperimentalPath": false
+        },
+        {
+          "id": "barrier-88453d9ff8e3074a",
+          "componentId": "nonprod2_vm",
+          "firstContact": [
+            787.0,
+            499.46
+          ],
+          "normalizedPathPosition": 0.749435,
+          "portId": "port-193ca16493f0aa4b",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": true,
+          "terminatesExperimentalPath": false
+        }
+      ],
+      "adjacentRelations": [
+        {
+          "from": "nonprod_vm",
+          "to": "nonprod2_vm",
+          "shadowOnly": true
+        }
+      ]
+    },
+    {
+      "inventoryId": "isolated_ground_truth:azure-hub-spoke:predicted:2",
+      "imageId": "azure-hub-spoke",
+      "legacyEdge": {
+        "from": "onprem",
+        "to": "firewall"
+      },
+      "firstIntermediateBarrier": null,
+      "barriers": [
+        {
+          "id": "barrier-3c5e0680e172713a",
+          "componentId": "onprem",
+          "firstContact": [
+            191.0,
+            259.0
+          ],
+          "normalizedPathPosition": 0.131313,
+          "portId": "port-424a855b70361d79",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": true,
+          "terminatesExperimentalPath": false
+        },
+        {
+          "id": "barrier-d5eed6f71d181704",
+          "componentId": "firewall",
+          "firstContact": [
+            268.0,
+            259.0
+          ],
+          "normalizedPathPosition": 0.909091,
+          "portId": "port-c6d5d7aa4128f211",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": true,
+          "terminatesExperimentalPath": false
+        }
+      ],
+      "adjacentRelations": [
+        {
+          "from": "onprem",
+          "to": "firewall",
+          "shadowOnly": true
+        }
+      ]
+    },
+    {
+      "inventoryId": "isolated_ground_truth:azure-hub-spoke:predicted:3",
+      "imageId": "azure-hub-spoke",
+      "legacyEdge": {
+        "from": "nonprod2_vm",
+        "to": "gateway"
+      },
+      "firstIntermediateBarrier": null,
+      "barriers": [
+        {
+          "id": "barrier-f9b6674f6e523b3f",
+          "componentId": "nonprod2_vm",
+          "firstContact": [
+            787.0,
+            500.384
+          ],
+          "normalizedPathPosition": 0.251572,
+          "portId": "port-219c21d271eb1ae9",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": true,
+          "terminatesExperimentalPath": false
+        },
+        {
+          "id": "barrier-ae1bb44514cdbf44",
+          "componentId": "nonprod_vm",
+          "firstContact": [
+            710.0,
+            488.438
+          ],
+          "normalizedPathPosition": 0.412998,
+          "portId": "port-750530c8bbbef102",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": false,
+          "terminatesExperimentalPath": false
+        },
+        {
+          "id": "barrier-6c0f381d3b5eb476",
+          "componentId": "nonprod_vm",
+          "firstContact": [
+            492.0,
+            454.618
+          ],
+          "normalizedPathPosition": 0.870021,
+          "portId": "port-80ae1510f889888a",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": false,
+          "terminatesExperimentalPath": false
+        }
+      ],
+      "adjacentRelations": [
+        {
+          "from": "nonprod2_vm",
+          "to": "nonprod_vm",
+          "shadowOnly": true
+        }
+      ]
+    },
+    {
+      "inventoryId": "isolated_ground_truth:azure-hub-spoke:predicted:7",
+      "imageId": "azure-hub-spoke",
+      "legacyEdge": {
+        "from": "firewall",
+        "to": "gateway"
+      },
+      "firstIntermediateBarrier": null,
+      "barriers": [
+        {
+          "id": "barrier-f056fbf45ff47d8d",
+          "componentId": "firewall",
+          "firstContact": [
+            319.0,
+            292.0
+          ],
+          "normalizedPathPosition": 0.0,
+          "portId": "port-0aeba19289f46027",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": true,
+          "terminatesExperimentalPath": false
+        },
+        {
+          "id": "barrier-8cce72ead3960e5f",
+          "componentId": "firewall",
+          "firstContact": [
+            319.346,
+            293.0
+          ],
+          "normalizedPathPosition": 0.03846,
+          "portId": "port-d2ba59e2cf9e2aef",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": true,
+          "terminatesExperimentalPath": false
+        }
+      ],
+      "adjacentRelations": []
+    },
+    {
+      "inventoryId": "isolated_ground_truth:azure-private-ai-platform:predicted:1",
+      "imageId": "azure-private-ai-platform",
+      "legacyEdge": {
+        "from": "build_agents",
+        "to": "foundry_agent"
+      },
+      "firstIntermediateBarrier": null,
+      "barriers": [
+        {
+          "id": "barrier-e7e2ef71baed6dcf",
+          "componentId": "build_agents",
+          "firstContact": [
+            2331.0,
+            704.0
+          ],
+          "normalizedPathPosition": 0.351438,
+          "portId": "port-1d73ae99da1cf937",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": true,
+          "terminatesExperimentalPath": false
+        },
+        {
+          "id": "barrier-18226dc11432cd3e",
+          "componentId": "foundry_agent",
+          "firstContact": [
+            2438.0,
+            704.0
+          ],
+          "normalizedPathPosition": 0.693291,
+          "portId": "port-ad60762be0e65be3",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": true,
+          "terminatesExperimentalPath": false
+        }
+      ],
+      "adjacentRelations": [
+        {
+          "from": "build_agents",
+          "to": "foundry_agent",
+          "shadowOnly": true
+        }
+      ]
+    },
+    {
+      "inventoryId": "isolated_ground_truth:azure-private-ai-platform:predicted:12",
+      "imageId": "azure-private-ai-platform",
+      "legacyEdge": {
+        "from": "key_vault",
+        "to": "storage"
+      },
+      "firstIntermediateBarrier": null,
+      "barriers": [
+        {
+          "id": "barrier-58821cb7d96b6c8d",
+          "componentId": "key_vault",
+          "firstContact": [
+            1039.0,
+            1168.0
+          ],
+          "normalizedPathPosition": 0.634409,
+          "portId": "port-9e9efb88d483fb3a",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": true,
+          "terminatesExperimentalPath": false
+        }
+      ],
+      "adjacentRelations": []
+    },
+    {
+      "inventoryId": "isolated_ground_truth:azure-private-ai-platform:predicted:13",
+      "imageId": "azure-private-ai-platform",
+      "legacyEdge": {
+        "from": "bastion",
+        "to": "ai_search"
+      },
+      "firstIntermediateBarrier": null,
+      "barriers": [
+        {
+          "id": "barrier-ab789059794eed14",
+          "componentId": "firewall",
+          "firstContact": [
+            1878.0,
+            825.026
+          ],
+          "normalizedPathPosition": 0.016817,
+          "portId": "port-a355cee371f0750a",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": false,
+          "terminatesExperimentalPath": false
+        },
+        {
+          "id": "barrier-4f0a9eeb55a7a195",
+          "componentId": "firewall",
+          "firstContact": [
+            1732.0,
+            825.316
+          ],
+          "normalizedPathPosition": 0.205687,
+          "portId": "port-d3f1aab1d2a9dcab",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": false,
+          "terminatesExperimentalPath": false
+        }
+      ],
+      "adjacentRelations": []
+    },
+    {
+      "inventoryId": "isolated_ground_truth:azure-private-ai-platform:predicted:14",
+      "imageId": "azure-private-ai-platform",
+      "legacyEdge": {
+        "from": "app_gateway",
+        "to": "app_service"
+      },
+      "firstIntermediateBarrier": null,
+      "barriers": [
+        {
+          "id": "barrier-a1e63969a44b953e",
+          "componentId": "app_service",
+          "firstContact": [
+            654.359,
+            1163.0
+          ],
+          "normalizedPathPosition": 0.688608,
+          "portId": "port-104a09b75b963c3a",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": true,
+          "terminatesExperimentalPath": false
+        }
+      ],
+      "adjacentRelations": []
+    },
+    {
+      "inventoryId": "isolated_ground_truth:azure-private-ai-platform:predicted:19",
+      "imageId": "azure-private-ai-platform",
+      "legacyEdge": {
+        "from": "foundry_agent",
+        "to": "bastion"
+      },
+      "firstIntermediateBarrier": null,
+      "barriers": [
+        {
+          "id": "barrier-8252425896303de5",
+          "componentId": "build_agents",
+          "firstContact": [
+            2331.0,
+            710.0
+          ],
+          "normalizedPathPosition": 0.0,
+          "portId": "port-4fa6ba83c6cfc284",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": false,
+          "terminatesExperimentalPath": false
+        }
+      ],
+      "adjacentRelations": []
+    },
+    {
+      "inventoryId": "isolated_ground_truth:azure-private-ai-platform:predicted:3",
+      "imageId": "azure-private-ai-platform",
+      "legacyEdge": {
+        "from": "ai_search",
+        "to": "cosmos"
+      },
+      "firstIntermediateBarrier": null,
+      "barriers": [
+        {
+          "id": "barrier-1fb1170dd7f17541",
+          "componentId": "ai_search",
+          "firstContact": [
+            1625.0,
+            1258.0
+          ],
+          "normalizedPathPosition": 0.80198,
+          "portId": "port-b495965705223c2e",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": true,
+          "terminatesExperimentalPath": false
+        },
+        {
+          "id": "barrier-0bf4e9e021dd2b4c",
+          "componentId": "cosmos",
+          "firstContact": [
+            1652.0,
+            1258.0
+          ],
+          "normalizedPathPosition": 0.935644,
+          "portId": "port-3ec6395d779e53df",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": true,
+          "terminatesExperimentalPath": false
+        }
+      ],
+      "adjacentRelations": [
+        {
+          "from": "ai_search",
+          "to": "cosmos",
+          "shadowOnly": true
+        }
+      ]
+    },
+    {
+      "inventoryId": "isolated_ground_truth:azure-private-ai-platform:predicted:4",
+      "imageId": "azure-private-ai-platform",
+      "legacyEdge": {
+        "from": "storage",
+        "to": "cosmos"
+      },
+      "firstIntermediateBarrier": null,
+      "barriers": [
+        {
+          "id": "barrier-cf3f4d87af0daf07",
+          "componentId": "ai_search",
+          "firstContact": [
+            1452.0,
+            1272.0
+          ],
+          "normalizedPathPosition": 0.323529,
+          "portId": "port-c38d7e9b6d6aa79d",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": false,
+          "terminatesExperimentalPath": false
+        },
+        {
+          "id": "barrier-e553a28feb5c5780",
+          "componentId": "ai_search",
+          "firstContact": [
+            1625.0,
+            1272.0
+          ],
+          "normalizedPathPosition": 0.714932,
+          "portId": "port-31c5ed1daffba12a",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": false,
+          "terminatesExperimentalPath": false
+        },
+        {
+          "id": "barrier-c2cc454c5fcf6b25",
+          "componentId": "cosmos",
+          "firstContact": [
+            1652.0,
+            1272.0
+          ],
+          "normalizedPathPosition": 0.776018,
+          "portId": "port-075f9c6ec59f19ee",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": true,
+          "terminatesExperimentalPath": false
+        }
+      ],
+      "adjacentRelations": [
+        {
+          "from": "ai_search",
+          "to": "cosmos",
+          "shadowOnly": true
+        }
+      ]
+    },
+    {
+      "inventoryId": "isolated_ground_truth:azure-private-ai-platform:predicted:5",
+      "imageId": "azure-private-ai-platform",
+      "legacyEdge": {
+        "from": "firewall",
+        "to": "bastion"
+      },
+      "firstIntermediateBarrier": null,
+      "barriers": [
+        {
+          "id": "barrier-97504798aafed59f",
+          "componentId": "firewall",
+          "firstContact": [
+            1878.0,
+            711.0
+          ],
+          "normalizedPathPosition": 0.623116,
+          "portId": "port-f8728588f5a7f941",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": true,
+          "terminatesExperimentalPath": false
+        }
+      ],
+      "adjacentRelations": []
+    },
+    {
+      "inventoryId": "isolated_ground_truth:azure-private-ai-platform:predicted:9",
+      "imageId": "azure-private-ai-platform",
+      "legacyEdge": {
+        "from": "build_agents",
+        "to": "openai"
+      },
+      "firstIntermediateBarrier": null,
+      "barriers": [
+        {
+          "id": "barrier-8115b27f4b924e4e",
+          "componentId": "openai",
+          "firstContact": [
+            2438.0,
+            897.0
+          ],
+          "normalizedPathPosition": 0.671053,
+          "portId": "port-90c533c5f69e9451",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": true,
+          "terminatesExperimentalPath": false
+        }
+      ],
+      "adjacentRelations": []
+    },
+    {
+      "inventoryId": "isolated_ground_truth:gcp-secure-cloud-run:predicted:10",
+      "imageId": "gcp-secure-cloud-run",
+      "legacyEdge": {
+        "from": "armor",
+        "to": "cloud_run"
+      },
+      "firstIntermediateBarrier": null,
+      "barriers": [
+        {
+          "id": "barrier-a3c40cf13ec9eb64",
+          "componentId": "load_balancer",
+          "firstContact": [
+            294.0,
+            184.0
+          ],
+          "normalizedPathPosition": 0.0,
+          "portId": "port-cbd58299859463b1",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": false,
+          "terminatesExperimentalPath": false
+        },
+        {
+          "id": "barrier-814bf5bdc2eabc4b",
+          "componentId": "load_balancer",
+          "firstContact": [
+            294.0,
+            236.0
+          ],
+          "normalizedPathPosition": 1.0,
+          "portId": "port-087481fef18d3bbe",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": false,
+          "terminatesExperimentalPath": false
+        }
+      ],
+      "adjacentRelations": []
+    },
+    {
+      "inventoryId": "isolated_ground_truth:gcp-secure-cloud-run:predicted:15",
+      "imageId": "gcp-secure-cloud-run",
+      "legacyEdge": {
+        "from": "artifact_registry",
+        "to": "secret_manager"
+      },
+      "firstIntermediateBarrier": null,
+      "barriers": [
+        {
+          "id": "barrier-a90a27d3357bb951",
+          "componentId": "kms",
+          "firstContact": [
+            296.0,
+            504.0
+          ],
+          "normalizedPathPosition": 0.0,
+          "portId": "port-dd1cd10a018feaeb",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": false,
+          "terminatesExperimentalPath": false
+        }
+      ],
+      "adjacentRelations": []
+    },
+    {
+      "inventoryId": "isolated_ground_truth:gcp-secure-cloud-run:predicted:2",
+      "imageId": "gcp-secure-cloud-run",
+      "legacyEdge": {
+        "from": "internet",
+        "to": "load_balancer"
+      },
+      "firstIntermediateBarrier": null,
+      "barriers": [
+        {
+          "id": "barrier-06e81e0c2113f68c",
+          "componentId": "internet",
+          "firstContact": [
+            100.0,
+            209.0
+          ],
+          "normalizedPathPosition": 0.015152,
+          "portId": "port-f906a7bf749e0c76",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": true,
+          "terminatesExperimentalPath": false
+        },
+        {
+          "id": "barrier-7568766199ec5de4",
+          "componentId": "load_balancer",
+          "firstContact": [
+            293.0,
+            209.0
+          ],
+          "normalizedPathPosition": 0.989899,
+          "portId": "port-6487d78d64587bf4",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": true,
+          "terminatesExperimentalPath": false
+        }
+      ],
+      "adjacentRelations": [
+        {
+          "from": "internet",
+          "to": "load_balancer",
+          "shadowOnly": true
+        }
+      ]
+    },
+    {
+      "inventoryId": "isolated_ground_truth:gcp-secure-cloud-run:predicted:3",
+      "imageId": "gcp-secure-cloud-run",
+      "legacyEdge": {
+        "from": "internet",
+        "to": "armor"
+      },
+      "firstIntermediateBarrier": null,
+      "barriers": [
+        {
+          "id": "barrier-b3afbf9315174fe8",
+          "componentId": "internet",
+          "firstContact": [
+            100.0,
+            210.0
+          ],
+          "normalizedPathPosition": 0.015228,
+          "portId": "port-ec49bf6d94723407",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": true,
+          "terminatesExperimentalPath": false
+        },
+        {
+          "id": "barrier-eb7c0b3d64729fc2",
+          "componentId": "load_balancer",
+          "firstContact": [
+            293.0,
+            210.0
+          ],
+          "normalizedPathPosition": 0.994924,
+          "portId": "port-1ad627ab1da3c55e",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": false,
+          "terminatesExperimentalPath": false
+        },
+        {
+          "id": "barrier-75e4f19041319e01",
+          "componentId": "load_balancer",
+          "firstContact": [
+            294.0,
+            210.0
+          ],
+          "normalizedPathPosition": 1.0,
+          "portId": "port-e7d58bf5299e9ea1",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": false,
+          "terminatesExperimentalPath": false
+        }
+      ],
+      "adjacentRelations": [
+        {
+          "from": "internet",
+          "to": "load_balancer",
+          "shadowOnly": true
+        }
+      ]
+    },
+    {
+      "inventoryId": "isolated_ground_truth:gcp-secure-cloud-run:predicted:9",
+      "imageId": "gcp-secure-cloud-run",
+      "legacyEdge": {
+        "from": "load_balancer",
+        "to": "vpc_connector"
+      },
+      "firstIntermediateBarrier": null,
+      "barriers": [
+        {
+          "id": "barrier-95affce0905da9ac",
+          "componentId": "cloud_run",
+          "firstContact": [
+            293.0,
+            279.0
+          ],
+          "normalizedPathPosition": 0.0,
+          "portId": "port-15ecbcca45471623",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": false,
+          "terminatesExperimentalPath": false
+        },
+        {
+          "id": "barrier-de9e94118e459cdb",
+          "componentId": "cloud_run",
+          "firstContact": [
+            423.0,
+            280.0
+          ],
+          "normalizedPathPosition": 1.0,
+          "portId": "port-0300d8e0fe816ac6",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": false,
+          "terminatesExperimentalPath": false
+        }
+      ],
+      "adjacentRelations": []
+    },
+    {
+      "inventoryId": "isolated_ground_truth:generic-cloud-api:predicted:1",
+      "imageId": "generic-cloud-api",
+      "legacyEdge": {
+        "from": "internet",
+        "to": "cdn"
+      },
+      "firstIntermediateBarrier": null,
+      "barriers": [
+        {
+          "id": "barrier-cb505eb2f3985071",
+          "componentId": "internet",
+          "firstContact": [
+            112.0,
+            199.0
+          ],
+          "normalizedPathPosition": 0.036,
+          "portId": "port-754e483402bbda7c",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": true,
+          "terminatesExperimentalPath": false
+        },
+        {
+          "id": "barrier-832edc5cffd6ad46",
+          "componentId": "cdn",
+          "firstContact": [
+            352.0,
+            199.0
+          ],
+          "normalizedPathPosition": 0.996,
+          "portId": "port-03cc3ae2030dcd25",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": true,
+          "terminatesExperimentalPath": false
+        },
+        {
+          "id": "barrier-eb793a5244d978e4",
+          "componentId": "cdn",
+          "firstContact": [
+            353.0,
+            199.0
+          ],
+          "normalizedPathPosition": 1.0,
+          "portId": "port-0739fade01719e7e",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": true,
+          "terminatesExperimentalPath": false
+        }
+      ],
+      "adjacentRelations": [
+        {
+          "from": "internet",
+          "to": "cdn",
+          "shadowOnly": true
+        }
+      ]
+    },
+    {
+      "inventoryId": "isolated_ground_truth:generic-cloud-api:predicted:10",
+      "imageId": "generic-cloud-api",
+      "legacyEdge": {
+        "from": "database",
+        "to": "cdn"
+      },
+      "firstIntermediateBarrier": null,
+      "barriers": [
+        {
+          "id": "barrier-437650f0e25ac9da",
+          "componentId": "cdn",
+          "firstContact": [
+            401.873,
+            210.0
+          ],
+          "normalizedPathPosition": 0.936508,
+          "portId": "port-887b1af8a69f0ea8",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": true,
+          "terminatesExperimentalPath": false
+        }
+      ],
+      "adjacentRelations": [
+        {
+          "from": "database",
+          "to": "cdn",
+          "shadowOnly": true
+        }
+      ]
+    },
+    {
+      "inventoryId": "isolated_ground_truth:generic-cloud-api:predicted:11",
+      "imageId": "generic-cloud-api",
+      "legacyEdge": {
+        "from": "internet",
+        "to": "compute"
+      },
+      "firstIntermediateBarrier": null,
+      "barriers": [
+        {
+          "id": "barrier-04600b7105d19c70",
+          "componentId": "internet",
+          "firstContact": [
+            80.952,
+            210.0
+          ],
+          "normalizedPathPosition": 0.048387,
+          "portId": "port-1d2d5d10f6a44c68",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": true,
+          "terminatesExperimentalPath": false
+        }
+      ],
+      "adjacentRelations": [
+        {
+          "from": "internet",
+          "to": "compute",
+          "shadowOnly": true
+        }
+      ]
+    },
+    {
+      "inventoryId": "isolated_ground_truth:generic-cloud-api:predicted:12",
+      "imageId": "generic-cloud-api",
+      "legacyEdge": {
+        "from": "api",
+        "to": "storage"
+      },
+      "firstIntermediateBarrier": null,
+      "barriers": [
+        {
+          "id": "barrier-50a0bc9aa923ed05",
+          "componentId": "api",
+          "firstContact": [
+            759.033,
+            210.0
+          ],
+          "normalizedPathPosition": 0.032787,
+          "portId": "port-90d4d2e3490a221f",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": true,
+          "terminatesExperimentalPath": false
+        }
+      ],
+      "adjacentRelations": [
+        {
+          "from": "api",
+          "to": "storage",
+          "shadowOnly": true
+        }
+      ]
+    },
+    {
+      "inventoryId": "isolated_ground_truth:generic-cloud-api:predicted:2",
+      "imageId": "generic-cloud-api",
+      "legacyEdge": {
+        "from": "database",
+        "to": "compute"
+      },
+      "firstIntermediateBarrier": null,
+      "barriers": [
+        {
+          "id": "barrier-a85b76fb4dc04db7",
+          "componentId": "database",
+          "firstContact": [
+            352.0,
+            319.0
+          ],
+          "normalizedPathPosition": 0.00823,
+          "portId": "port-5a1e955e106b7841",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": true,
+          "terminatesExperimentalPath": false
+        },
+        {
+          "id": "barrier-f2a7ae17559365e3",
+          "componentId": "compute",
+          "firstContact": [
+            112.0,
+            319.0
+          ],
+          "normalizedPathPosition": 0.995885,
+          "portId": "port-d1dc148a51b24685",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": true,
+          "terminatesExperimentalPath": false
+        },
+        {
+          "id": "barrier-f94a5541c1a33e7c",
+          "componentId": "compute",
+          "firstContact": [
+            111.0,
+            319.0
+          ],
+          "normalizedPathPosition": 1.0,
+          "portId": "port-f7d630f5e0b3aa31",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": true,
+          "terminatesExperimentalPath": false
+        }
+      ],
+      "adjacentRelations": [
+        {
+          "from": "database",
+          "to": "compute",
+          "shadowOnly": true
+        }
+      ]
+    },
+    {
+      "inventoryId": "isolated_ground_truth:generic-cloud-api:predicted:3",
+      "imageId": "generic-cloud-api",
+      "legacyEdge": {
+        "from": "cdn",
+        "to": "api"
+      },
+      "firstIntermediateBarrier": null,
+      "barriers": [
+        {
+          "id": "barrier-831dc2a3d6aab98e",
+          "componentId": "cdn",
+          "firstContact": [
+            448.0,
+            161.0
+          ],
+          "normalizedPathPosition": 0.00823,
+          "portId": "port-fc5211c96ffd68c0",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": true,
+          "terminatesExperimentalPath": false
+        },
+        {
+          "id": "barrier-fc5766b924922fad",
+          "componentId": "api",
+          "firstContact": [
+            688.0,
+            161.0
+          ],
+          "normalizedPathPosition": 0.995885,
+          "portId": "port-87a8cef8ecc41955",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": true,
+          "terminatesExperimentalPath": false
+        },
+        {
+          "id": "barrier-f9ac82d5c0a62865",
+          "componentId": "api",
+          "firstContact": [
+            689.0,
+            161.0
+          ],
+          "normalizedPathPosition": 1.0,
+          "portId": "port-e669a156d01df130",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": true,
+          "terminatesExperimentalPath": false
+        }
+      ],
+      "adjacentRelations": [
+        {
+          "from": "cdn",
+          "to": "api",
+          "shadowOnly": true
+        }
+      ]
+    },
+    {
+      "inventoryId": "isolated_ground_truth:generic-cloud-api:predicted:4",
+      "imageId": "generic-cloud-api",
+      "legacyEdge": {
+        "from": "database",
+        "to": "storage"
+      },
+      "firstIntermediateBarrier": null,
+      "barriers": [
+        {
+          "id": "barrier-f21ea5020f33d761",
+          "componentId": "storage",
+          "firstContact": [
+            688.0,
+            300.0
+          ],
+          "normalizedPathPosition": 0.987654,
+          "portId": "port-9dd13bae6fcd0e65",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": true,
+          "terminatesExperimentalPath": false
+        }
+      ],
+      "adjacentRelations": [
+        {
+          "from": "database",
+          "to": "storage",
+          "shadowOnly": true
+        }
+      ]
+    },
+    {
+      "inventoryId": "isolated_ground_truth:generic-cloud-api:predicted:5",
+      "imageId": "generic-cloud-api",
+      "legacyEdge": {
+        "from": "internet",
+        "to": "user"
+      },
+      "firstIntermediateBarrier": null,
+      "barriers": [
+        {
+          "id": "barrier-2d3fe213cdc98035",
+          "componentId": "user",
+          "firstContact": [
+            376.0,
+            71.285
+          ],
+          "normalizedPathPosition": 0.996236,
+          "portId": "port-d0aa142dd5abcfbd",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": true,
+          "terminatesExperimentalPath": false
+        },
+        {
+          "id": "barrier-39bcbb12922d2e4f",
+          "componentId": "user",
+          "firstContact": [
+            377.0,
+            71.0
+          ],
+          "normalizedPathPosition": 1.0,
+          "portId": "port-d06762c6df54b31e",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": true,
+          "terminatesExperimentalPath": false
+        }
+      ],
+      "adjacentRelations": []
+    },
+    {
+      "inventoryId": "isolated_ground_truth:generic-cloud-api:predicted:7",
+      "imageId": "generic-cloud-api",
+      "legacyEdge": {
+        "from": "user",
+        "to": "cdn"
+      },
+      "firstIntermediateBarrier": null,
+      "barriers": [
+        {
+          "id": "barrier-63948643eda3ab60",
+          "componentId": "user",
+          "firstContact": [
+            401.0,
+            77.0
+          ],
+          "normalizedPathPosition": 0.0,
+          "portId": "port-be5017ba2a276456",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": true,
+          "terminatesExperimentalPath": false
+        },
+        {
+          "id": "barrier-b0691355698312b0",
+          "componentId": "user",
+          "firstContact": [
+            401.0,
+            78.0
+          ],
+          "normalizedPathPosition": 0.014925,
+          "portId": "port-0614a0f898c7783c",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": true,
+          "terminatesExperimentalPath": false
+        }
+      ],
+      "adjacentRelations": [
+        {
+          "from": "user",
+          "to": "cdn",
+          "shadowOnly": true
+        }
+      ]
+    },
+    {
+      "inventoryId": "isolated_ground_truth:generic-cloud-api:predicted:8",
+      "imageId": "generic-cloud-api",
+      "legacyEdge": {
+        "from": "monitoring",
+        "to": "storage"
+      },
+      "firstIntermediateBarrier": null,
+      "barriers": [
+        {
+          "id": "barrier-bbeef8e88c77b59a",
+          "componentId": "monitoring",
+          "firstContact": [
+            448.0,
+            398.107
+          ],
+          "normalizedPathPosition": 0.014635,
+          "portId": "port-c20aafb555e1b75d",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": true,
+          "terminatesExperimentalPath": false
+        }
+      ],
+      "adjacentRelations": []
+    },
+    {
+      "inventoryId": "isolated_ground_truth:generic-cloud-api:predicted:9",
+      "imageId": "generic-cloud-api",
+      "legacyEdge": {
+        "from": "monitoring",
+        "to": "database"
+      },
+      "firstIntermediateBarrier": null,
+      "barriers": [
+        {
+          "id": "barrier-13b62592824f465d",
+          "componentId": "database",
+          "firstContact": [
+            439.0,
+            342.0
+          ],
+          "normalizedPathPosition": 0.828125,
+          "portId": "port-d05dd1fc37ed139a",
+          "crossesComponentInterior": true,
+          "shadowOnly": true,
+          "isDeclaredEndpoint": true,
+          "terminatesExperimentalPath": false
+        }
+      ],
+      "adjacentRelations": [
+        {
+          "from": "monitoring",
+          "to": "database",
+          "shadowOnly": true
+        }
+      ]
+    }
+  ]
+}

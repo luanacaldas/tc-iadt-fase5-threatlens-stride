@@ -1,0 +1,13 @@
+{
+  "schemaVersion": "1.0",
+  "decision": "WEB-MVP-001 concluída com pendência externa de Docker",
+  "frontendTests": "PASS",
+  "apiIntegration": "PASS",
+  "uiSmoke": "PASS",
+  "productionBuild": "PASS",
+  "backendProtected": true,
+  "defaultStrategy": "legacy",
+  "controlledStrategySelectable": true,
+  "holdoutsExecuted": false,
+  "dockerValidation": "PENDING_EXTERNAL_ENVIRONMENT"
+}

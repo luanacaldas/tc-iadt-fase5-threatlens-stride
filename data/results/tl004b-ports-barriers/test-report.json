@@ -1,0 +1,50 @@
+{
+  "schemaVersion": "1.0",
+  "scope": "TL-004B",
+  "split": "development_tuning",
+  "validation": {
+    "specificTests": {
+      "testsRun": 20,
+      "failures": 0,
+      "status": "PASS"
+    },
+    "fullSuite": {
+      "testsRun": 172,
+      "failures": 0,
+      "status": "PASS"
+    },
+    "v15Gate": {
+      "status": "PASS",
+      "artifact": "data/results/v15-regression-gate/20260721T190704Z/gate-report.json"
+    },
+    "projectVerification": {
+      "status": "PASS"
+    },
+    "prospectiveV12": {
+      "status": "PASS"
+    },
+    "tl004aIntegrity": {
+      "status": "PASS",
+      "files": {
+        "backend/geometric_events.py": {
+          "expected": "47e33d81208e744c46db37b58230277479ccb0630b74df1abd4d39ce9928c180",
+          "actual": "47e33d81208e744c46db37b58230277479ccb0630b74df1abd4d39ce9928c180"
+        },
+        "scripts/build_tl004a_artifacts.py": {
+          "expected": "c4cfff7861771c32fa22cb7dffa1c008016c77a5482034922301110ce5705b2f",
+          "actual": "c4cfff7861771c32fa22cb7dffa1c008016c77a5482034922301110ce5705b2f"
+        },
+        "tests/test_geometric_events.py": {
+          "expected": "c27e08a5ce3706e155e2fb03f3dc33a80364097162c278fd18d09eb0f6cfbbd2",
+          "actual": "c27e08a5ce3706e155e2fb03f3dc33a80364097162c278fd18d09eb0f6cfbbd2"
+        },
+        "tests/fixtures/tl004a_geometric_events.json": {
+          "expected": "b82893be3977f1db58728c86c82b23605838becd28d114df4d0ebddae48f691b",
+          "actual": "b82893be3977f1db58728c86c82b23605838becd28d114df4d0ebddae48f691b"
+        }
+      }
+    },
+    "holdoutExecutions": 0,
+    "status": "PASS"
+  }
+}

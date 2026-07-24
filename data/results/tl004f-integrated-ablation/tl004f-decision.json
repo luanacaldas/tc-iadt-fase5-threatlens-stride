@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0",
+  "scope": "TL-004F",
+  "criteria": {
+    "contractDocumented": true,
+    "fixturesPass": true,
+    "allAblationsExecuted": true,
+    "all27HumanCasesEvaluated": true,
+    "controlsC01ToC07Pass": true,
+    "legacySnapshotIdentical": true,
+    "officialLegacyFlowCount": 142,
+    "officialChanges": 0,
+    "defaultStrategy": "legacy",
+    "validationStatus": "PASS",
+    "holdoutExecutions": 0
+  },
+  "promotionRecommendation": "not_eligible_metrics",
+  "decision": "TL-004F concluída, permanecendo shadow-only",
+  "defaultStrategyChanged": false,
+  "structuralTaskStarted": false
+}

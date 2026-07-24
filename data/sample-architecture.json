@@ -1,0 +1,129 @@
+{
+  "name": "Sample Cloud API Architecture",
+  "sourceImage": null,
+  "components": [
+    {
+      "id": "user",
+      "name": "Customer",
+      "type": "user",
+      "provider": "generic",
+      "confidence": 0.96,
+      "bbox": [64, 120, 94, 170]
+    },
+    {
+      "id": "internet",
+      "name": "Internet",
+      "type": "internet",
+      "provider": "generic",
+      "confidence": 0.92,
+      "bbox": [150, 122, 205, 175]
+    },
+    {
+      "id": "waf",
+      "name": "AWS WAF",
+      "type": "waf",
+      "provider": "aws",
+      "confidence": 0.86,
+      "bbox": [260, 105, 320, 165]
+    },
+    {
+      "id": "api_gateway",
+      "name": "API Gateway",
+      "type": "api_gateway",
+      "provider": "aws",
+      "confidence": 0.91,
+      "bbox": [382, 110, 455, 172]
+    },
+    {
+      "id": "compute",
+      "name": "Application Service",
+      "type": "compute",
+      "provider": "aws",
+      "confidence": 0.88,
+      "bbox": [525, 112, 595, 170]
+    },
+    {
+      "id": "database",
+      "name": "Relational Database",
+      "type": "database",
+      "provider": "aws",
+      "confidence": 0.9,
+      "bbox": [675, 106, 745, 176]
+    },
+    {
+      "id": "monitoring",
+      "name": "Cloud Monitoring",
+      "type": "monitoring",
+      "provider": "aws",
+      "confidence": 0.81,
+      "bbox": [520, 245, 595, 315]
+    },
+    {
+      "id": "secrets",
+      "name": "Secrets Manager",
+      "type": "secrets_kms",
+      "provider": "aws",
+      "confidence": 0.78,
+      "bbox": [670, 245, 745, 315]
+    }
+  ],
+  "flows": [
+    {
+      "id": "f1",
+      "from": "user",
+      "to": "internet",
+      "protocol": "HTTPS",
+      "trustBoundary": true
+    },
+    {
+      "id": "f2",
+      "from": "internet",
+      "to": "waf",
+      "protocol": "HTTPS",
+      "trustBoundary": true
+    },
+    {
+      "id": "f3",
+      "from": "waf",
+      "to": "api_gateway",
+      "protocol": "HTTPS",
+      "trustBoundary": false
+    },
+    {
+      "id": "f4",
+      "from": "api_gateway",
+      "to": "compute",
+      "protocol": "HTTPS",
+      "trustBoundary": false
+    },
+    {
+      "id": "f5",
+      "from": "compute",
+      "to": "database",
+      "protocol": "TLS",
+      "trustBoundary": false
+    },
+    {
+      "id": "f6",
+      "from": "compute",
+      "to": "monitoring",
+      "protocol": "Logs",
+      "trustBoundary": false
+    },
+    {
+      "id": "f7",
+      "from": "compute",
+      "to": "secrets",
+      "protocol": "KMS",
+      "trustBoundary": false
+    }
+  ],
+  "trustBoundaries": [
+    {
+      "name": "Public Internet to Cloud Boundary"
+    }
+  ],
+  "notes": [
+    "This sample represents the JSON shape expected after computer vision inference and human review."
+  ]
+}

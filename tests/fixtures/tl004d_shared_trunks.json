@@ -1,0 +1,130 @@
+{
+  "schemaVersion": "1.0",
+  "fixtures": [
+    {
+      "id": "simple_fan_out",
+      "segments": [{"id":"s0","start":[-10,0],"end":[0,0]},{"id":"s1","start":[0,0],"end":[10,-6]},{"id":"s2","start":[0,0],"end":[10,6]}],
+      "ports": [{"componentId":"A","coordinates":[-10,0],"segmentId":"s0","direction":"outgoing","confidence":1,"reviewed":true},{"componentId":"B","coordinates":[10,-6],"segmentId":"s1","direction":"incoming","confidence":1,"reviewed":true},{"componentId":"C","coordinates":[10,6],"segmentId":"s2","direction":"incoming","confidence":1,"reviewed":true}],
+      "expectedClassifications": ["valid_fan_out"], "expectedRelations": [["A","B"],["A","C"]], "forbiddenRelations": [["B","C"],["C","B"]]
+    },
+    {
+      "id": "simple_fan_in",
+      "segments": [{"id":"s0","start":[-10,-6],"end":[0,0]},{"id":"s1","start":[-10,6],"end":[0,0]},{"id":"s2","start":[0,0],"end":[10,0]}],
+      "ports": [{"componentId":"A","coordinates":[-10,-6],"segmentId":"s0","direction":"outgoing","confidence":1,"reviewed":true},{"componentId":"B","coordinates":[-10,6],"segmentId":"s1","direction":"outgoing","confidence":1,"reviewed":true},{"componentId":"C","coordinates":[10,0],"segmentId":"s2","direction":"incoming","confidence":1,"reviewed":true}],
+      "expectedClassifications": ["valid_fan_in"], "expectedRelations": [["A","C"],["B","C"]], "forbiddenRelations": [["A","B"],["B","A"]]
+    },
+    {
+      "id": "t_trunk_two_destinations",
+      "segments": [{"id":"s0","start":[-12,0],"end":[0,0]},{"id":"s1","start":[0,0],"end":[12,0]},{"id":"s2","start":[0,0],"end":[0,10]}],
+      "ports": [{"componentId":"A","coordinates":[-12,0],"segmentId":"s0","direction":"outgoing","confidence":1,"reviewed":true},{"componentId":"B","coordinates":[12,0],"segmentId":"s1","direction":"incoming","confidence":1,"reviewed":true},{"componentId":"C","coordinates":[0,10],"segmentId":"s2","direction":"incoming","confidence":1,"reviewed":true}],
+      "expectedClassifications": ["valid_fan_out"], "expectedRelations": [["A","B"],["A","C"]], "forbiddenRelations": [["B","C"],["C","B"]]
+    },
+    {
+      "id": "y_trunk_two_destinations",
+      "segments": [{"id":"s0","start":[0,-12],"end":[0,0]},{"id":"s1","start":[0,0],"end":[-9,9]},{"id":"s2","start":[0,0],"end":[9,9]}],
+      "ports": [{"componentId":"A","coordinates":[0,-12],"segmentId":"s0","direction":"outgoing","confidence":1,"reviewed":true},{"componentId":"B","coordinates":[-9,9],"segmentId":"s1","direction":"incoming","confidence":1,"reviewed":true},{"componentId":"C","coordinates":[9,9],"segmentId":"s2","direction":"incoming","confidence":1,"reviewed":true}],
+      "expectedClassifications": ["valid_fan_out"], "expectedRelations": [["A","B"],["A","C"]], "forbiddenRelations": [["B","C"],["C","B"]]
+    },
+    {
+      "id": "three_components_unknown_direction",
+      "segments": [{"id":"s0","start":[-10,0],"end":[0,0]},{"id":"s1","start":[0,0],"end":[10,-5]},{"id":"s2","start":[0,0],"end":[10,5]}],
+      "ports": [{"componentId":"A","coordinates":[-10,0],"segmentId":"s0","direction":"unknown","confidence":0,"reviewed":true},{"componentId":"B","coordinates":[10,-5],"segmentId":"s1","direction":"unknown","confidence":0,"reviewed":true},{"componentId":"C","coordinates":[10,5],"segmentId":"s2","direction":"unknown","confidence":0,"reviewed":true}],
+      "expectedClassifications": ["ambiguous_shared_trunk"], "expectedRelations": [], "forbiddenRelations": [["A","B"],["A","C"],["B","C"]]
+    },
+    {
+      "id": "angled_fan_in",
+      "segments": [{"id":"s0","start":[-12,-8],"end":[0,0]},{"id":"s1","start":[-12,8],"end":[0,0]},{"id":"s2","start":[0,0],"end":[14,2]}],
+      "ports": [{"componentId":"A","coordinates":[-12,-8],"segmentId":"s0","direction":"outgoing","confidence":0.9,"reviewed":true},{"componentId":"B","coordinates":[-12,8],"segmentId":"s1","direction":"outgoing","confidence":0.9,"reviewed":true},{"componentId":"C","coordinates":[14,2],"segmentId":"s2","direction":"incoming","confidence":0.9,"reviewed":true}],
+      "expectedClassifications": ["valid_fan_in"], "expectedRelations": [["A","C"],["B","C"]], "forbiddenRelations": [["A","B"],["B","A"]]
+    },
+    {
+      "id": "fan_out_three_destinations",
+      "segments": [{"id":"s0","start":[-12,0],"end":[0,0]},{"id":"s1","start":[0,0],"end":[12,-8]},{"id":"s2","start":[0,0],"end":[12,0]},{"id":"s3","start":[0,0],"end":[12,8]}],
+      "explicitJunctions": [{"center":[0,0],"radius":2,"provenance":"fixture_dot"}],
+      "ports": [{"componentId":"A","coordinates":[-12,0],"segmentId":"s0","direction":"outgoing","confidence":1,"reviewed":true},{"componentId":"B","coordinates":[12,-8],"segmentId":"s1","direction":"incoming","confidence":1,"reviewed":true},{"componentId":"C","coordinates":[12,0],"segmentId":"s2","direction":"incoming","confidence":1,"reviewed":true},{"componentId":"D","coordinates":[12,8],"segmentId":"s3","direction":"incoming","confidence":1,"reviewed":true}],
+      "expectedClassifications": ["valid_fan_out"], "expectedRelations": [["A","B"],["A","C"],["A","D"]], "forbiddenRelations": [["B","C"],["C","D"],["D","B"]]
+    },
+    {
+      "id": "junction_without_direction",
+      "segments": [{"id":"s0","start":[-10,0],"end":[0,0]},{"id":"s1","start":[0,0],"end":[10,-6]},{"id":"s2","start":[0,0],"end":[10,6]}],
+      "ports": [{"componentId":"A","coordinates":[-10,0],"segmentId":"s0","direction":"unknown","confidence":0.2,"reviewed":true},{"componentId":"B","coordinates":[10,-6],"segmentId":"s1","direction":"unknown","confidence":0.2,"reviewed":true},{"componentId":"C","coordinates":[10,6],"segmentId":"s2","direction":"unknown","confidence":0.2,"reviewed":true}],
+      "expectedClassifications": ["ambiguous_shared_trunk"], "expectedRelations": []
+    },
+    {
+      "id": "almost_parallel_arms",
+      "segments": [{"id":"s0","start":[-10,0],"end":[0,0]},{"id":"s1","start":[-10,2.8],"end":[0,2.8]},{"id":"s2","start":[0,0],"end":[10,0]}],
+      "ports": [{"componentId":"A","coordinates":[-10,0],"segmentId":"s0","direction":"outgoing","confidence":1,"reviewed":true},{"componentId":"B","coordinates":[-10,2.8],"segmentId":"s1","direction":"outgoing","confidence":1,"reviewed":true},{"componentId":"C","coordinates":[10,0],"segmentId":"s2","direction":"incoming","confidence":1,"reviewed":true}],
+      "expectedRelations": [], "forbiddenRelations": [["A","C"],["B","C"]]
+    },
+    {
+      "id": "near_without_contact",
+      "segments": [{"id":"s0","start":[-10,0],"end":[0,0]},{"id":"s1","start":[3.5,0],"end":[12,0]}],
+      "ports": [{"componentId":"A","coordinates":[-10,0],"segmentId":"s0","direction":"outgoing","confidence":1,"reviewed":true},{"componentId":"B","coordinates":[12,0],"segmentId":"s1","direction":"incoming","confidence":1,"reviewed":true}],
+      "expectedRelations": [], "forbiddenRelations": [["A","B"]]
+    },
+    {
+      "id": "bifurcation_near_component",
+      "segments": [{"id":"s0","start":[-10,0],"end":[0,0]},{"id":"s1","start":[0,0],"end":[10,-5]},{"id":"s2","start":[0,0],"end":[10,5]}],
+      "components": [{"id":"A","bbox":[-12,-2,-9,2]}],
+      "ports": [{"componentId":"A","coordinates":[-10,0],"segmentId":"s0","direction":"outgoing","confidence":1,"reviewed":true},{"componentId":"B","coordinates":[10,-5],"segmentId":"s1","direction":"incoming","confidence":1,"reviewed":true},{"componentId":"C","coordinates":[10,5],"segmentId":"s2","direction":"incoming","confidence":1,"reviewed":true}],
+      "expectedClassifications": ["valid_fan_out"], "expectedRelations": [["A","B"],["A","C"]]
+    },
+    {
+      "id": "intermediate_component_barrier",
+      "segments": [{"id":"s0","start":[-12,0],"end":[0,0]},{"id":"s1","start":[0,0],"end":[12,0]}],
+      "ports": [{"componentId":"A","coordinates":[-12,0],"segmentId":"s0","direction":"outgoing","confidence":1,"reviewed":true},{"componentId":"B","coordinates":[0,0],"segmentId":"s0","direction":"bidirectional","confidence":1,"reviewed":true},{"componentId":"C","coordinates":[12,0],"segmentId":"s1","direction":"incoming","confidence":1,"reviewed":true}],
+      "barrierComponentIds": ["B"], "expectedClassifications": ["shared_trunk"], "expectedRelations": [["A","B"],["B","C"]], "forbiddenRelations": [["A","C"]]
+    },
+    {
+      "id": "crossing_without_junction",
+      "segments": [{"id":"h","start":[-10,0],"end":[10,0]},{"id":"v","start":[0,-10],"end":[0,10]}],
+      "ports": [{"componentId":"A","coordinates":[-10,0],"segmentId":"h","direction":"outgoing","confidence":1,"reviewed":true},{"componentId":"B","coordinates":[10,0],"segmentId":"h","direction":"incoming","confidence":1,"reviewed":true},{"componentId":"C","coordinates":[0,-10],"segmentId":"v","direction":"outgoing","confidence":1,"reviewed":true},{"componentId":"D","coordinates":[0,10],"segmentId":"v","direction":"incoming","confidence":1,"reviewed":true}],
+      "expectedRelations": [["A","B"],["C","D"]], "forbiddenRelations": [["A","D"],["C","B"]]
+    },
+    {
+      "id": "chain_without_shortcut",
+      "segments": [{"id":"s0","start":[-12,0],"end":[0,0]},{"id":"s1","start":[0,0],"end":[12,0]}],
+      "ports": [{"componentId":"A","coordinates":[-12,0],"segmentId":"s0","direction":"outgoing","confidence":1,"reviewed":true},{"componentId":"B","coordinates":[0,0],"segmentId":"s0","direction":"bidirectional","confidence":1,"reviewed":true},{"componentId":"C","coordinates":[12,0],"segmentId":"s1","direction":"incoming","confidence":1,"reviewed":true}],
+      "barrierComponentIds": ["B"], "expectedRelations": [["A","B"],["B","C"]], "forbiddenRelations": [["A","C"]]
+    },
+    {
+      "id": "two_nearby_trunks",
+      "segments": [{"id":"s0","start":[-10,0],"end":[10,0]},{"id":"s1","start":[-10,4],"end":[10,4]}],
+      "ports": [{"componentId":"A","coordinates":[-10,0],"segmentId":"s0","direction":"outgoing","confidence":1,"reviewed":true},{"componentId":"B","coordinates":[10,0],"segmentId":"s0","direction":"incoming","confidence":1,"reviewed":true},{"componentId":"C","coordinates":[-10,4],"segmentId":"s1","direction":"outgoing","confidence":1,"reviewed":true},{"componentId":"D","coordinates":[10,4],"segmentId":"s1","direction":"incoming","confidence":1,"reviewed":true}],
+      "expectedRelations": [["A","B"],["C","D"]], "forbiddenRelations": [["A","D"],["C","B"]]
+    },
+    {
+      "id": "fragmented_segments",
+      "segments": [{"id":"s0","start":[-10,0],"end":[-4,0]},{"id":"s1","start":[-4,0],"end":[0,0]},{"id":"s2","start":[0,0],"end":[10,-5]},{"id":"s3","start":[0,0],"end":[10,5]}],
+      "ports": [{"componentId":"A","coordinates":[-10,0],"segmentId":"s0","direction":"outgoing","confidence":1,"reviewed":true},{"componentId":"B","coordinates":[10,-5],"segmentId":"s2","direction":"incoming","confidence":1,"reviewed":true},{"componentId":"C","coordinates":[10,5],"segmentId":"s3","direction":"incoming","confidence":1,"reviewed":true}],
+      "expectedClassifications": ["valid_fan_out"], "expectedRelations": [["A","B"],["A","C"]]
+    },
+    {
+      "id": "different_segment_order",
+      "compareWith": "simple_fan_out",
+      "segments": [{"id":"s2","start":[0,0],"end":[10,6]},{"id":"s0","start":[-10,0],"end":[0,0]},{"id":"s1","start":[0,0],"end":[10,-6]}],
+      "ports": [{"componentId":"C","coordinates":[10,6],"segmentId":"s2","direction":"incoming","confidence":1,"reviewed":true},{"componentId":"A","coordinates":[-10,0],"segmentId":"s0","direction":"outgoing","confidence":1,"reviewed":true},{"componentId":"B","coordinates":[10,-6],"segmentId":"s1","direction":"incoming","confidence":1,"reviewed":true}],
+      "expectedRelations": [["A","B"],["A","C"]]
+    },
+    {
+      "id": "scaled_rotated_thick_fan_out",
+      "compareWith": "simple_fan_out",
+      "segments": [{"id":"s0","start":[-19.85,-2.44],"end":[0,0]},{"id":"s1","start":[0,0],"end":[21.31,-9.47]},{"id":"s2","start":[0,0],"end":[18.38,14.35]}],
+      "ports": [{"componentId":"A","coordinates":[-19.85,-2.44],"segmentId":"s0","direction":"outgoing","confidence":1,"reviewed":true},{"componentId":"B","coordinates":[21.31,-9.47],"segmentId":"s1","direction":"incoming","confidence":1,"reviewed":true},{"componentId":"C","coordinates":[18.38,14.35],"segmentId":"s2","direction":"incoming","confidence":1,"reviewed":true}],
+      "scale": 2, "lineWidth": 2, "expectedRelations": [["A","B"],["A","C"]]
+    },
+    {
+      "id": "simultaneous_fan_in_and_fan_out",
+      "segments": [{"id":"a0","start":[-20,0],"end":[-10,0]},{"id":"a1","start":[-10,0],"end":[0,-5]},{"id":"a2","start":[-10,0],"end":[0,5]},{"id":"b0","start":[20,-5],"end":[30,0]},{"id":"b1","start":[20,5],"end":[30,0]},{"id":"b2","start":[30,0],"end":[40,0]}],
+      "ports": [{"componentId":"A","coordinates":[-20,0],"segmentId":"a0","direction":"outgoing","confidence":1,"reviewed":true},{"componentId":"B","coordinates":[0,-5],"segmentId":"a1","direction":"incoming","confidence":1,"reviewed":true},{"componentId":"C","coordinates":[0,5],"segmentId":"a2","direction":"incoming","confidence":1,"reviewed":true},{"componentId":"D","coordinates":[20,-5],"segmentId":"b0","direction":"outgoing","confidence":1,"reviewed":true},{"componentId":"E","coordinates":[20,5],"segmentId":"b1","direction":"outgoing","confidence":1,"reviewed":true},{"componentId":"F","coordinates":[40,0],"segmentId":"b2","direction":"incoming","confidence":1,"reviewed":true}],
+      "expectedRelations": [["A","B"],["A","C"],["D","F"],["E","F"]], "forbiddenRelations": [["B","C"],["D","E"]]
+    },
+    {
+      "id": "explicit_clique_prevention",
+      "segments": [{"id":"s0","start":[-12,0],"end":[0,0]},{"id":"s1","start":[0,0],"end":[12,-8]},{"id":"s2","start":[0,0],"end":[12,0]},{"id":"s3","start":[0,0],"end":[12,8]}],
+      "explicitJunctions": [{"center":[0,0],"radius":2,"provenance":"fixture_dot"}],
+      "ports": [{"componentId":"A","coordinates":[-12,0],"segmentId":"s0","direction":"outgoing","confidence":1,"reviewed":true},{"componentId":"B","coordinates":[12,-8],"segmentId":"s1","direction":"incoming","confidence":1,"reviewed":true},{"componentId":"C","coordinates":[12,0],"segmentId":"s2","direction":"incoming","confidence":1,"reviewed":true},{"componentId":"D","coordinates":[12,8],"segmentId":"s3","direction":"incoming","confidence":1,"reviewed":true}],
+      "expectedRelations": [["A","B"],["A","C"],["A","D"]], "forbiddenRelations": [["B","C"],["C","B"],["B","D"],["D","B"],["C","D"],["D","C"]]
+    }
+  ]
+}

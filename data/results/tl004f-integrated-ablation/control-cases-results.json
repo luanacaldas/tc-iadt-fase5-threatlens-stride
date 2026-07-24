@@ -1,0 +1,228 @@
+{
+  "schemaVersion": "1.0",
+  "split": "development_tuning",
+  "allControlsPass": true,
+  "controls": [
+    {
+      "caseId": "C01",
+      "requiredEdges": [
+        [
+          "armor",
+          "load_balancer"
+        ],
+        [
+          "internet",
+          "load_balancer"
+        ]
+      ],
+      "forbiddenEdges": [
+        [
+          "armor",
+          "internet"
+        ],
+        [
+          "internet",
+          "armor"
+        ]
+      ],
+      "legacyResult": "present",
+      "experimentalResult": "preserved",
+      "responsibleModule": "human_controls",
+      "decisionIds": [
+        "integrated-4186cf746af78b58",
+        "integrated-c5f91d0f7254e5d4"
+      ],
+      "status": "PASS",
+      "preserved": true
+    },
+    {
+      "caseId": "C02",
+      "requiredEdges": [
+        [
+          "api_handler",
+          "database"
+        ],
+        [
+          "api_handler",
+          "queue"
+        ]
+      ],
+      "forbiddenEdges": [
+        [
+          "database",
+          "queue"
+        ],
+        [
+          "queue",
+          "database"
+        ]
+      ],
+      "legacyResult": "present",
+      "experimentalResult": "preserved",
+      "responsibleModule": "human_controls",
+      "decisionIds": [
+        "integrated-cf59227b1a4cafff",
+        "integrated-8d9eac070f91a875"
+      ],
+      "status": "PASS",
+      "preserved": true
+    },
+    {
+      "caseId": "C03",
+      "requiredEdges": [
+        [
+          "foundry_agent",
+          "ai_search"
+        ],
+        [
+          "foundry_agent",
+          "openai_model"
+        ]
+      ],
+      "forbiddenEdges": [
+        [
+          "ai_search",
+          "openai_model"
+        ],
+        [
+          "openai_model",
+          "ai_search"
+        ]
+      ],
+      "legacyResult": "present",
+      "experimentalResult": "preserved",
+      "responsibleModule": "human_controls",
+      "decisionIds": [
+        "integrated-6c4db62036b31f05",
+        "integrated-32b0e9691ed2a7a8"
+      ],
+      "status": "PASS",
+      "preserved": true
+    },
+    {
+      "caseId": "C04",
+      "requiredEdges": [
+        [
+          "app_service",
+          "key_vault"
+        ],
+        [
+          "app_service",
+          "storage"
+        ]
+      ],
+      "forbiddenEdges": [
+        [
+          "key_vault",
+          "storage"
+        ],
+        [
+          "storage",
+          "key_vault"
+        ]
+      ],
+      "legacyResult": "missing",
+      "experimentalResult": "supervised_shadow_recovery",
+      "responsibleModule": "TL-004D",
+      "decisionIds": [],
+      "status": "PASS",
+      "preserved": true
+    },
+    {
+      "caseId": "C05",
+      "requiredEdges": [
+        [
+          "database",
+          "storage"
+        ],
+        [
+          "monitoring",
+          "storage"
+        ]
+      ],
+      "forbiddenEdges": [
+        [
+          "database",
+          "monitoring"
+        ],
+        [
+          "monitoring",
+          "database"
+        ]
+      ],
+      "legacyResult": "present",
+      "experimentalResult": "preserved",
+      "responsibleModule": "human_controls",
+      "decisionIds": [
+        "integrated-75d797f40e0e5283",
+        "integrated-9081db3e5fbc4351"
+      ],
+      "status": "PASS",
+      "preserved": true
+    },
+    {
+      "caseId": "C06",
+      "requiredEdges": [
+        [
+          "app_service",
+          "foundry_agent"
+        ],
+        [
+          "foundry_account",
+          "foundry_agent"
+        ]
+      ],
+      "forbiddenEdges": [
+        [
+          "app_service",
+          "foundry_account"
+        ],
+        [
+          "foundry_account",
+          "app_service"
+        ]
+      ],
+      "legacyResult": "present",
+      "experimentalResult": "preserved",
+      "responsibleModule": "human_controls",
+      "decisionIds": [
+        "integrated-e2b66a66cab5f187",
+        "integrated-83276232d9fb2bc3"
+      ],
+      "status": "PASS",
+      "preserved": true
+    },
+    {
+      "caseId": "C07",
+      "requiredEdges": [
+        [
+          "mobile",
+          "api"
+        ],
+        [
+          "mobile",
+          "cognito"
+        ]
+      ],
+      "forbiddenEdges": [
+        [
+          "api",
+          "cognito"
+        ],
+        [
+          "cognito",
+          "api"
+        ]
+      ],
+      "legacyResult": "present",
+      "experimentalResult": "preserved",
+      "responsibleModule": "human_controls",
+      "decisionIds": [
+        "integrated-6db86fef2e2cd4ca",
+        "integrated-51971d5c501f347e"
+      ],
+      "status": "PASS",
+      "preserved": true
+    }
+  ]
+}

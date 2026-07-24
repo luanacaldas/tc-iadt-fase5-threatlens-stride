@@ -1,0 +1,20 @@
+path: E:/Tech Challenge IADT - Fase 5 - Hackathon/dataset/hybrid_v2
+train: images/train
+val: images/val
+test: E:/Tech Challenge IADT - Fase 5 - Hackathon/data/results/threatlens-hybrid-v2-source-slices/manifests/kaggle_unique/test.txt
+nc: 14
+names:
+  0: api_gateway
+  1: backup
+  2: cdn
+  3: compute
+  4: database
+  5: identity_provider
+  6: internet
+  7: load_balancer
+  8: monitoring
+  9: queue
+  10: secrets_kms
+  11: storage
+  12: user
+  13: waf

@@ -1,0 +1,188 @@
+{
+  "schemaVersion": "1.0",
+  "fixtureCount": 20,
+  "passedCount": 20,
+  "status": "PASS",
+  "results": [
+    {
+      "fixtureId": "simple_chain_adjacent_edge",
+      "expectedClassification": "adjacent_relation",
+      "observedClassification": "adjacent_relation",
+      "expectedAction": "keep",
+      "observedAction": "keep",
+      "inputMutation": false,
+      "passed": true
+    },
+    {
+      "fixtureId": "false_shortcut_in_chain",
+      "expectedClassification": "transitive_shortcut",
+      "observedClassification": "transitive_shortcut",
+      "expectedAction": "block",
+      "observedAction": "block",
+      "inputMutation": false,
+      "passed": true
+    },
+    {
+      "fixtureId": "valid_independent_direct_edge",
+      "expectedClassification": "direct_edge_confirmed",
+      "observedClassification": "direct_edge_confirmed",
+      "expectedAction": "keep",
+      "observedAction": "keep",
+      "inputMutation": false,
+      "passed": true
+    },
+    {
+      "fixtureId": "path_completely_through_b",
+      "expectedClassification": "intermediate_component_barrier",
+      "observedClassification": "intermediate_component_barrier",
+      "expectedAction": "decompose",
+      "observedAction": "decompose",
+      "inputMutation": false,
+      "passed": true
+    },
+    {
+      "fixtureId": "path_touches_b_port_and_continues",
+      "expectedClassification": "transitive_shortcut",
+      "observedClassification": "transitive_shortcut",
+      "expectedAction": "block",
+      "observedAction": "block",
+      "inputMutation": false,
+      "passed": true
+    },
+    {
+      "fixtureId": "adjacent_relations_share_segments",
+      "expectedClassification": "transitive_shortcut",
+      "observedClassification": "transitive_shortcut",
+      "expectedAction": "block",
+      "observedAction": "block",
+      "inputMutation": false,
+      "passed": true
+    },
+    {
+      "fixtureId": "opposite_direction_indirect_path",
+      "expectedClassification": "insufficient_evidence",
+      "observedClassification": "insufficient_evidence",
+      "expectedAction": "review",
+      "observedAction": "review",
+      "inputMutation": false,
+      "passed": true
+    },
+    {
+      "fixtureId": "four_component_chain",
+      "expectedClassification": "transitive_shortcut",
+      "observedClassification": "transitive_shortcut",
+      "expectedAction": "block",
+      "observedAction": "block",
+      "inputMutation": false,
+      "passed": true
+    },
+    {
+      "fixtureId": "multiple_indirect_paths",
+      "expectedClassification": "ambiguous_path",
+      "observedClassification": "ambiguous_path",
+      "expectedAction": "review",
+      "observedAction": "review",
+      "inputMutation": false,
+      "passed": true
+    },
+    {
+      "fixtureId": "ambiguous_junction_path",
+      "expectedClassification": "review_only",
+      "observedClassification": "review_only",
+      "expectedAction": "review",
+      "observedAction": "review",
+      "inputMutation": false,
+      "passed": true
+    },
+    {
+      "fixtureId": "valid_fan_out",
+      "expectedClassification": "adjacent_relation",
+      "observedClassification": "adjacent_relation",
+      "expectedAction": "keep",
+      "observedAction": "keep",
+      "inputMutation": false,
+      "passed": true
+    },
+    {
+      "fixtureId": "valid_fan_in",
+      "expectedClassification": "adjacent_relation",
+      "observedClassification": "adjacent_relation",
+      "expectedAction": "keep",
+      "observedAction": "keep",
+      "inputMutation": false,
+      "passed": true
+    },
+    {
+      "fixtureId": "shared_trunk_without_clique",
+      "expectedClassification": "adjacent_relation",
+      "observedClassification": "adjacent_relation",
+      "expectedAction": "keep",
+      "observedAction": "keep",
+      "inputMutation": false,
+      "passed": true
+    },
+    {
+      "fixtureId": "direct_edge_with_own_arrowhead",
+      "expectedClassification": "direct_edge_confirmed",
+      "observedClassification": "direct_edge_confirmed",
+      "expectedAction": "keep",
+      "observedAction": "keep",
+      "inputMutation": false,
+      "passed": true
+    },
+    {
+      "fixtureId": "direct_edge_independent_geometry_without_arrowhead",
+      "expectedClassification": "direct_edge_confirmed",
+      "observedClassification": "direct_edge_confirmed",
+      "expectedAction": "keep",
+      "observedAction": "keep",
+      "inputMutation": false,
+      "passed": true
+    },
+    {
+      "fixtureId": "near_parallel_paths",
+      "expectedClassification": "ambiguous_path",
+      "observedClassification": "ambiguous_path",
+      "expectedAction": "review",
+      "observedAction": "review",
+      "inputMutation": false,
+      "passed": true
+    },
+    {
+      "fixtureId": "different_segment_order",
+      "expectedClassification": "transitive_shortcut",
+      "observedClassification": "transitive_shortcut",
+      "expectedAction": "block",
+      "observedAction": "block",
+      "inputMutation": false,
+      "passed": true
+    },
+    {
+      "fixtureId": "scaled_rotated_thick_chain",
+      "expectedClassification": "transitive_shortcut",
+      "observedClassification": "transitive_shortcut",
+      "expectedAction": "block",
+      "observedAction": "block",
+      "inputMutation": false,
+      "passed": true
+    },
+    {
+      "fixtureId": "immutable_input_case",
+      "expectedClassification": "transitive_shortcut",
+      "observedClassification": "transitive_shortcut",
+      "expectedAction": "block",
+      "observedAction": "block",
+      "inputMutation": false,
+      "passed": true
+    },
+    {
+      "fixtureId": "deterministic_execution_case",
+      "expectedClassification": "transitive_shortcut",
+      "observedClassification": "transitive_shortcut",
+      "expectedAction": "block",
+      "observedAction": "block",
+      "inputMutation": false,
+      "passed": true
+    }
+  ]
+}

@@ -1,0 +1,158 @@
+{
+  "schemaVersion": "1.0",
+  "generatedAt": "2026-07-21T14:52:18Z",
+  "split": "development_tuning",
+  "holdoutsAllowed": false,
+  "strategies": {
+    "default": "legacy",
+    "experimental": "junction_aware",
+    "comparisonMode": "shadow"
+  },
+  "baselines": {
+    "isolatedStructural": {
+      "expectedEdgeCount": 71,
+      "predictedEdgeCount": 142,
+      "adjacencyCorrectCount": 52,
+      "falsePositiveEdgeCount": 90,
+      "missedEdgeCount": 19,
+      "reversedEdgeCount": 7,
+      "edgeExistencePrecision": 0.36619718309859156,
+      "edgeExistenceRecall": 0.7323943661971831,
+      "edgeExistenceF1": 0.48826291079812206,
+      "directedEdgeF1": 0.4225352112676057,
+      "directionAccuracy": 0.8653846153846154
+    },
+    "v15": {
+      "f1": 0.5296,
+      "precision": 0.4343,
+      "recall": 0.6786,
+      "correctThreats": 152,
+      "falsePositives": 198
+    }
+  },
+  "syntheticFixtures": [
+    {"id": "straight", "purpose": "preserve one direct connector"},
+    {"id": "elbow", "purpose": "preserve a multi-segment connector"},
+    {"id": "x_no_junction", "purpose": "pair collinear arms without switching branches"},
+    {"id": "x_with_junction", "purpose": "allow explicit four-arm junction"},
+    {"id": "t_junction", "purpose": "preserve valid T branching"},
+    {"id": "y_junction", "purpose": "preserve valid Y branching"},
+    {"id": "parallel_connectors", "purpose": "keep nearby parallel lines independent"},
+    {"id": "component_barrier", "purpose": "stop at the first component hit"},
+    {"id": "near_without_touch", "purpose": "reject endpoint association based only on proximity"},
+    {"id": "shared_trunk", "purpose": "decompose a trunk without terminal clique"},
+    {"id": "transitive_chain", "purpose": "emit A-B and B-C without A-C"},
+    {"id": "direct_plus_chain", "purpose": "preserve independent A-C when directly evidenced"}
+  ],
+  "humanErrorRegressions": {
+    "mustFixInsideTl004": [
+      {"caseId": "E03", "target": "remove transitive shortcut and stop at intermediate component"},
+      {"caseId": "E06", "target": "prevent branch switching and parallel connector merge"},
+      {"caseId": "E09", "target": "attach endpoint to first touched component"},
+      {"caseId": "E10", "target": "attach origin to touched component instead of nearest neighbor"},
+      {"caseId": "E11", "target": "reject endpoint that does not touch the assigned component"},
+      {"caseId": "E13", "target": "prevent crossing and parallel branch switch"},
+      {"caseId": "E14", "target": "suppress transitive shortcut"},
+      {"caseId": "E15", "target": "validate both endpoint contacts and branch continuity"},
+      {"caseId": "E16", "target": "reject proximity-only endpoint association"}
+    ],
+    "partialScopeTrackedForTl005": [
+      "E01", "E02", "E04", "E05", "E07", "E08", "E12", "E17", "E18", "E19", "E20"
+    ],
+    "partialScopePolicy": "Track in every ablation. Improvement is accepted, but unresolved structural-line extraction is assigned to TL-005 and cannot be misreported as a junction-aware failure alone."
+  },
+  "controlRegressions": [
+    {
+      "caseId": "C01",
+      "kind": "fan_in",
+      "requiredEdges": ["armor -> load_balancer", "internet -> load_balancer"],
+      "forbiddenEdges": ["armor -> internet", "internet -> armor"]
+    },
+    {
+      "caseId": "C02",
+      "kind": "fan_out",
+      "requiredEdges": ["api_handler -> queue", "api_handler -> database"],
+      "forbiddenEdges": ["queue -> database", "database -> queue"]
+    },
+    {
+      "caseId": "C03",
+      "kind": "dense_parallel_fan_out",
+      "requiredEdges": ["foundry_agent -> openai_model", "foundry_agent -> ai_search"],
+      "forbiddenEdges": ["openai_model -> ai_search", "ai_search -> openai_model"]
+    },
+    {
+      "caseId": "C04",
+      "kind": "shared_private_bus_recovery",
+      "requiredEdges": ["app_service -> key_vault", "app_service -> storage"],
+      "forbiddenEdges": ["key_vault -> storage", "storage -> key_vault"]
+    },
+    {
+      "caseId": "C05",
+      "kind": "dense_fan_in",
+      "requiredEdges": ["database -> storage", "monitoring -> storage"],
+      "forbiddenEdges": ["database -> monitoring", "monitoring -> database"]
+    },
+    {
+      "caseId": "C06",
+      "kind": "dense_fan_in",
+      "requiredEdges": ["app_service -> foundry_agent", "foundry_account -> foundry_agent"],
+      "forbiddenEdges": ["app_service -> foundry_account", "foundry_account -> app_service"]
+    },
+    {
+      "caseId": "C07",
+      "kind": "shared_trunk_fan_out",
+      "requiredEdges": ["mobile -> api", "mobile -> cognito"],
+      "forbiddenEdges": ["api -> cognito", "cognito -> api"]
+    }
+  ],
+  "testLayers": [
+    {
+      "layer": "unit_geometry",
+      "existingFile": "tests/test_backend_pipeline.py",
+      "checks": ["event determinism", "port contact", "component barrier", "X/T/Y classification", "shared trunk", "transitive suppression"]
+    },
+    {
+      "layer": "diagnostic_contract",
+      "existingFile": "tests/test_flow_diagnostics.py",
+      "checks": ["legacy snapshot equivalence", "event metadata", "relative artifact paths", "development_tuning only"]
+    },
+    {
+      "layer": "real_isolated_shadow",
+      "existingEvaluator": "scripts/diagnose_flow_errors.py::evaluate",
+      "checks": ["structural metrics", "E01-E20", "C01-C07", "strategy ablation"]
+    },
+    {
+      "layer": "real_end_to_end_development",
+      "existingEvaluator": "scripts/evaluate_real_architecture_benchmark.py::evaluate",
+      "checks": ["same supervised components", "legacy versus junction_aware", "no holdout"]
+    },
+    {
+      "layer": "v15_gate",
+      "existingFile": "tests/test_v15_regression_gate.py",
+      "existingGate": "scripts/check_v15_regression.py::run_gate",
+      "checks": ["threat metrics", "tests", "real benchmark integrity", "prospective v12 integrity"]
+    }
+  ],
+  "technicalAcceptance": {
+    "falsePositiveEdgeCount": {"operator": "<", "value": 90},
+    "adjacencyCorrectCount": {"operator": ">=", "value": 52},
+    "missedEdgeCount": {"operator": "<=", "value": 19},
+    "edgeExistenceRecall": {"operator": ">=", "value": 0.7324},
+    "edgeExistenceF1": {"operator": ">", "value": 0.4883},
+    "controlsPassed": {"operator": "==", "value": 7},
+    "holdoutExecutions": {"operator": "==", "value": 0},
+    "v15Gate": {"operator": "==", "value": "PASS"},
+    "prospectiveV12Integrity": {"operator": "==", "value": "PASS"},
+    "testFailures": {"operator": "==", "value": 0}
+  },
+  "promotionAcceptance": {
+    "falsePositiveEdgeCount": {"operator": "<=", "value": 81, "reason": "minimum 10 percent reduction from 90"},
+    "edgeExistenceF1": {"operator": ">=", "value": 0.5083, "reason": "minimum absolute gain of 0.02"},
+    "edgeExistenceRecall": {"operator": ">=", "value": 0.7324},
+    "directionAccuracy": {"operator": ">=", "value": 0.8654},
+    "reversedEdgeCount": {"operator": "<=", "value": 7},
+    "correctBaselineEdgeDirectionChanges": {"operator": "==", "value": 0},
+    "controlsPassed": {"operator": "==", "value": 7},
+    "manualPromotionDecisionRequired": true
+  }
+}

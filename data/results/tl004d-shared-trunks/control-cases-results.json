@@ -1,0 +1,262 @@
+{
+  "schemaVersion": "1.0",
+  "split": "development_tuning",
+  "requiredControls": [
+    "C01",
+    "C02",
+    "C03",
+    "C04",
+    "C05",
+    "C06",
+    "C07"
+  ],
+  "allControlsPreserved": true,
+  "controls": [
+    {
+      "caseId": "C01",
+      "imageId": "gcp-secure-cloud-run",
+      "requiredEdges": [
+        [
+          "armor",
+          "load_balancer"
+        ],
+        [
+          "internet",
+          "load_balancer"
+        ]
+      ],
+      "forbiddenEdges": [
+        [
+          "armor",
+          "internet"
+        ],
+        [
+          "internet",
+          "armor"
+        ]
+      ],
+      "experimentalRelations": [],
+      "forbiddenEdgesObserved": [],
+      "status": "preserved",
+      "reason": "all required legacy edges remain official and shadow adds no forbidden peer edge",
+      "confidence": "high",
+      "preserved": true,
+      "officialResultChanged": false
+    },
+    {
+      "caseId": "C02",
+      "imageId": "aws-serverless-async",
+      "requiredEdges": [
+        [
+          "api_handler",
+          "database"
+        ],
+        [
+          "api_handler",
+          "queue"
+        ]
+      ],
+      "forbiddenEdges": [
+        [
+          "database",
+          "queue"
+        ],
+        [
+          "queue",
+          "database"
+        ]
+      ],
+      "experimentalRelations": [
+        [
+          "api_handler",
+          "queue"
+        ]
+      ],
+      "forbiddenEdgesObserved": [],
+      "status": "preserved",
+      "reason": "all required legacy edges remain official and shadow adds no forbidden peer edge",
+      "confidence": "high",
+      "preserved": true,
+      "officialResultChanged": false
+    },
+    {
+      "caseId": "C03",
+      "imageId": "azure-ai-foundry",
+      "requiredEdges": [
+        [
+          "foundry_agent",
+          "ai_search"
+        ],
+        [
+          "foundry_agent",
+          "openai_model"
+        ]
+      ],
+      "forbiddenEdges": [
+        [
+          "ai_search",
+          "openai_model"
+        ],
+        [
+          "openai_model",
+          "ai_search"
+        ]
+      ],
+      "experimentalRelations": [
+        [
+          "foundry_agent",
+          "openai_model"
+        ]
+      ],
+      "forbiddenEdgesObserved": [],
+      "status": "preserved",
+      "reason": "all required legacy edges remain official and shadow adds no forbidden peer edge",
+      "confidence": "medium",
+      "preserved": true,
+      "officialResultChanged": false
+    },
+    {
+      "caseId": "C04",
+      "imageId": "azure-private-ai-platform",
+      "requiredEdges": [
+        [
+          "app_service",
+          "key_vault"
+        ],
+        [
+          "app_service",
+          "storage"
+        ]
+      ],
+      "forbiddenEdges": [
+        [
+          "key_vault",
+          "storage"
+        ],
+        [
+          "storage",
+          "key_vault"
+        ]
+      ],
+      "experimentalRelations": [
+        [
+          "app_service",
+          "key_vault"
+        ],
+        [
+          "app_service",
+          "storage"
+        ]
+      ],
+      "forbiddenEdgesObserved": [],
+      "status": "supervised_shadow_recovered",
+      "reason": "reviewed connector trace reconstructs the missing fan-out in supervised shadow",
+      "confidence": "high_reviewed_trace",
+      "preserved": true,
+      "officialResultChanged": false
+    },
+    {
+      "caseId": "C05",
+      "imageId": "generic-cloud-api",
+      "requiredEdges": [
+        [
+          "database",
+          "storage"
+        ],
+        [
+          "monitoring",
+          "storage"
+        ]
+      ],
+      "forbiddenEdges": [
+        [
+          "database",
+          "monitoring"
+        ],
+        [
+          "monitoring",
+          "database"
+        ]
+      ],
+      "experimentalRelations": [
+        [
+          "database",
+          "storage"
+        ]
+      ],
+      "forbiddenEdgesObserved": [],
+      "status": "preserved",
+      "reason": "all required legacy edges remain official and shadow adds no forbidden peer edge",
+      "confidence": "high",
+      "preserved": true,
+      "officialResultChanged": false
+    },
+    {
+      "caseId": "C06",
+      "imageId": "azure-ai-foundry",
+      "requiredEdges": [
+        [
+          "app_service",
+          "foundry_agent"
+        ],
+        [
+          "foundry_account",
+          "foundry_agent"
+        ]
+      ],
+      "forbiddenEdges": [
+        [
+          "app_service",
+          "foundry_account"
+        ],
+        [
+          "foundry_account",
+          "app_service"
+        ]
+      ],
+      "experimentalRelations": [
+        [
+          "app_service",
+          "foundry_agent"
+        ]
+      ],
+      "forbiddenEdgesObserved": [],
+      "status": "preserved",
+      "reason": "all required legacy edges remain official and shadow adds no forbidden peer edge",
+      "confidence": "high",
+      "preserved": true,
+      "officialResultChanged": false
+    },
+    {
+      "caseId": "C07",
+      "imageId": "aws-video-pipeline",
+      "requiredEdges": [
+        [
+          "mobile",
+          "api"
+        ],
+        [
+          "mobile",
+          "cognito"
+        ]
+      ],
+      "forbiddenEdges": [
+        [
+          "api",
+          "cognito"
+        ],
+        [
+          "cognito",
+          "api"
+        ]
+      ],
+      "experimentalRelations": [],
+      "forbiddenEdgesObserved": [],
+      "status": "preserved",
+      "reason": "all required legacy edges remain official and shadow adds no forbidden peer edge",
+      "confidence": "high",
+      "preserved": true,
+      "officialResultChanged": false
+    }
+  ]
+}

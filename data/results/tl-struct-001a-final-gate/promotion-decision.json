@@ -1,0 +1,9 @@
+{
+  "schemaVersion": "1.0",
+  "decision": "eligible_for_controlled_promotion",
+  "allCriteriaPassed": true,
+  "defaultStrategy": "legacy",
+  "defaultStrategyChanged": false,
+  "shadowOnly": true,
+  "holdoutExecutions": 0
+}

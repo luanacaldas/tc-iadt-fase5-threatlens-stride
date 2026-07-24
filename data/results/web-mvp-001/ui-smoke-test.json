@@ -1,0 +1,41 @@
+{
+  "schemaVersion": "1.0",
+  "browser": "Codex in-app browser",
+  "sample": "data/sample-diagrams/02-mixed-components.jpg",
+  "viewports": [
+    {
+      "width": 1280,
+      "height": 720,
+      "status": "PASS"
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "status": "PASS"
+    }
+  ],
+  "checks": {
+    "backendStatusVisible": true,
+    "sampleSelectionAndPreview": true,
+    "analysisCompleted": true,
+    "summaryMatchesApi": true,
+    "componentsRendered": true,
+    "flowsRendered": true,
+    "sixStrideGroupsRendered": true,
+    "criticalFilter23To1": true,
+    "invalidFileRejectedLocally": true,
+    "overlayMatchesRenderedImageWithinOnePixel": true,
+    "horizontalOverflowMobile": false,
+    "clippedTextMobile": false,
+    "consoleErrors": 0,
+    "jsonExportCommandInvoked": true,
+    "printStylesheetAndCommandVerified": true
+  },
+  "notes": [
+    "Progress phases are explicitly presented as estimated.",
+    "The browser download observer did not expose the generated blob; export behavior is also covered by a deterministic contract test.",
+    "The native print dialog is external to browser automation; window.print and the print stylesheet are contract-tested."
+  ],
+  "holdoutsExecuted": false,
+  "status": "PASS"
+}

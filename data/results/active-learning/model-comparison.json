@@ -1,0 +1,619 @@
+{
+  "schemaVersion": "1.0",
+  "evaluatedAt": "2026-07-18T01:57:41.646809+00:00",
+  "benchmark": "E:\\Tech Challenge IADT - Fase 5 - Hackathon\\data\\benchmarks\\real-architecture\\benchmark-expanded.json",
+  "confidence": 0.35,
+  "selectionRule": "Register refined model only if development typed recall improves without a material sealed-holdout precision regression.",
+  "splits": {
+    "development_tuning": {
+      "baseline": {
+        "path": "E:\\Tech Challenge IADT - Fase 5 - Hackathon\\models\\threatlens-hybrid-v2\\weights\\best.pt",
+        "sha256": "2aebcd0611927505d60a10d23ce11d0e5211cf2e91ca0c4394921fac006c865d",
+        "imageCount": 9,
+        "meanLocalizationRecall": 0.1884920634920635,
+        "meanTypedRecall": 0.1527777777777778,
+        "meanPrecision": 0.1824074074074074,
+        "perImage": [
+          {
+            "id": "azure-container-edge",
+            "matches": [],
+            "expected": 5,
+            "predicted": 4,
+            "localized": 0,
+            "typeCorrect": 0,
+            "localizationRecall": 0.0,
+            "typedRecall": 0.0,
+            "precision": 0.0
+          },
+          {
+            "id": "azure-ai-foundry",
+            "matches": [
+              {
+                "expectedId": "user",
+                "predictedId": "user_1",
+                "expectedType": "user",
+                "predictedType": "user",
+                "typeCorrect": true,
+                "iou": 0.6061
+              }
+            ],
+            "expected": 6,
+            "predicted": 8,
+            "localized": 1,
+            "typeCorrect": 1,
+            "localizationRecall": 0.16666666666666666,
+            "typedRecall": 0.16666666666666666,
+            "precision": 0.125
+          },
+          {
+            "id": "aws-video-pipeline",
+            "matches": [],
+            "expected": 16,
+            "predicted": 5,
+            "localized": 0,
+            "typeCorrect": 0,
+            "localizationRecall": 0.0,
+            "typedRecall": 0.0,
+            "precision": 0.0
+          },
+          {
+            "id": "gcp-secure-cloud-run",
+            "matches": [],
+            "expected": 12,
+            "predicted": 0,
+            "localized": 0,
+            "typeCorrect": 0,
+            "localizationRecall": 0.0,
+            "typedRecall": 0.0,
+            "precision": 0.0
+          },
+          {
+            "id": "generic-cloud-api",
+            "matches": [
+              {
+                "expectedId": "storage",
+                "predictedId": "storage_1",
+                "expectedType": "storage",
+                "predictedType": "storage",
+                "typeCorrect": true,
+                "iou": 0.9479
+              },
+              {
+                "expectedId": "compute",
+                "predictedId": "compute_1",
+                "expectedType": "compute",
+                "predictedType": "compute",
+                "typeCorrect": true,
+                "iou": 0.9219
+              },
+              {
+                "expectedId": "monitoring",
+                "predictedId": "monitoring_1",
+                "expectedType": "monitoring",
+                "predictedType": "monitoring",
+                "typeCorrect": true,
+                "iou": 0.9036
+              },
+              {
+                "expectedId": "api",
+                "predictedId": "api_gateway_1",
+                "expectedType": "api_gateway",
+                "predictedType": "api_gateway",
+                "typeCorrect": true,
+                "iou": 0.8761
+              },
+              {
+                "expectedId": "cdn",
+                "predictedId": "cdn_1",
+                "expectedType": "cdn",
+                "predictedType": "cdn",
+                "typeCorrect": true,
+                "iou": 0.8665
+              },
+              {
+                "expectedId": "database",
+                "predictedId": "database_1",
+                "expectedType": "database",
+                "predictedType": "database",
+                "typeCorrect": true,
+                "iou": 0.7797
+              },
+              {
+                "expectedId": "user",
+                "predictedId": "user_1",
+                "expectedType": "user",
+                "predictedType": "user",
+                "typeCorrect": true,
+                "iou": 0.6729
+              },
+              {
+                "expectedId": "internet",
+                "predictedId": "internet_1",
+                "expectedType": "internet",
+                "predictedType": "internet",
+                "typeCorrect": true,
+                "iou": 0.6505
+              }
+            ],
+            "expected": 8,
+            "predicted": 8,
+            "localized": 8,
+            "typeCorrect": 8,
+            "localizationRecall": 1.0,
+            "typedRecall": 1.0,
+            "precision": 1.0
+          },
+          {
+            "id": "aws-serverless-async",
+            "matches": [],
+            "expected": 11,
+            "predicted": 10,
+            "localized": 0,
+            "typeCorrect": 0,
+            "localizationRecall": 0.0,
+            "typedRecall": 0.0,
+            "precision": 0.0
+          },
+          {
+            "id": "aws-eks-platform",
+            "matches": [
+              {
+                "expectedId": "processed",
+                "predictedId": "queue_2",
+                "expectedType": "storage",
+                "predictedType": "queue",
+                "typeCorrect": false,
+                "iou": 0.507
+              }
+            ],
+            "expected": 14,
+            "predicted": 10,
+            "localized": 1,
+            "typeCorrect": 0,
+            "localizationRecall": 0.07142857142857142,
+            "typedRecall": 0.0,
+            "precision": 0.1
+          },
+          {
+            "id": "azure-private-ai-platform",
+            "matches": [
+              {
+                "expectedId": "bastion",
+                "predictedId": "compute_2",
+                "expectedType": "compute",
+                "predictedType": "compute",
+                "typeCorrect": true,
+                "iou": 0.2653
+              }
+            ],
+            "expected": 12,
+            "predicted": 12,
+            "localized": 1,
+            "typeCorrect": 1,
+            "localizationRecall": 0.08333333333333333,
+            "typedRecall": 0.08333333333333333,
+            "precision": 0.08333333333333333
+          },
+          {
+            "id": "azure-hub-spoke",
+            "matches": [
+              {
+                "expectedId": "bastion",
+                "predictedId": "compute_7",
+                "expectedType": "compute",
+                "predictedType": "compute",
+                "typeCorrect": true,
+                "iou": 0.5221
+              },
+              {
+                "expectedId": "firewall",
+                "predictedId": "compute_2",
+                "expectedType": "waf",
+                "predictedType": "compute",
+                "typeCorrect": false,
+                "iou": 0.4497
+              },
+              {
+                "expectedId": "gateway",
+                "predictedId": "storage_1",
+                "expectedType": "api_gateway",
+                "predictedType": "storage",
+                "typeCorrect": false,
+                "iou": 0.3234
+              }
+            ],
+            "expected": 8,
+            "predicted": 9,
+            "localized": 3,
+            "typeCorrect": 1,
+            "localizationRecall": 0.375,
+            "typedRecall": 0.125,
+            "precision": 0.3333333333333333
+          }
+        ]
+      },
+      "refined": {
+        "path": "E:\\Tech Challenge IADT - Fase 5 - Hackathon\\runs\\detect\\models\\threatlens-active-v3\\weights\\best.pt",
+        "sha256": "c47c1ccaea51f39b8a3205bc7b377480afa797516fdf82532253eaf799bd0a2c",
+        "imageCount": 9,
+        "meanLocalizationRecall": 0.1746031746031746,
+        "meanTypedRecall": 0.1388888888888889,
+        "meanPrecision": 0.17994227994227996,
+        "perImage": [
+          {
+            "id": "azure-container-edge",
+            "matches": [],
+            "expected": 5,
+            "predicted": 3,
+            "localized": 0,
+            "typeCorrect": 0,
+            "localizationRecall": 0.0,
+            "typedRecall": 0.0,
+            "precision": 0.0
+          },
+          {
+            "id": "azure-ai-foundry",
+            "matches": [
+              {
+                "expectedId": "user",
+                "predictedId": "user_1",
+                "expectedType": "user",
+                "predictedType": "user",
+                "typeCorrect": true,
+                "iou": 0.6706
+              }
+            ],
+            "expected": 6,
+            "predicted": 7,
+            "localized": 1,
+            "typeCorrect": 1,
+            "localizationRecall": 0.16666666666666666,
+            "typedRecall": 0.16666666666666666,
+            "precision": 0.14285714285714285
+          },
+          {
+            "id": "aws-video-pipeline",
+            "matches": [],
+            "expected": 16,
+            "predicted": 4,
+            "localized": 0,
+            "typeCorrect": 0,
+            "localizationRecall": 0.0,
+            "typedRecall": 0.0,
+            "precision": 0.0
+          },
+          {
+            "id": "gcp-secure-cloud-run",
+            "matches": [],
+            "expected": 12,
+            "predicted": 0,
+            "localized": 0,
+            "typeCorrect": 0,
+            "localizationRecall": 0.0,
+            "typedRecall": 0.0,
+            "precision": 0.0
+          },
+          {
+            "id": "generic-cloud-api",
+            "matches": [
+              {
+                "expectedId": "storage",
+                "predictedId": "storage_1",
+                "expectedType": "storage",
+                "predictedType": "storage",
+                "typeCorrect": true,
+                "iou": 0.9375
+              },
+              {
+                "expectedId": "compute",
+                "predictedId": "compute_1",
+                "expectedType": "compute",
+                "predictedType": "compute",
+                "typeCorrect": true,
+                "iou": 0.913
+              },
+              {
+                "expectedId": "monitoring",
+                "predictedId": "monitoring_1",
+                "expectedType": "monitoring",
+                "predictedType": "monitoring",
+                "typeCorrect": true,
+                "iou": 0.8788
+              },
+              {
+                "expectedId": "api",
+                "predictedId": "api_gateway_1",
+                "expectedType": "api_gateway",
+                "predictedType": "api_gateway",
+                "typeCorrect": true,
+                "iou": 0.8523
+              },
+              {
+                "expectedId": "cdn",
+                "predictedId": "cdn_1",
+                "expectedType": "cdn",
+                "predictedType": "cdn",
+                "typeCorrect": true,
+                "iou": 0.8523
+              },
+              {
+                "expectedId": "database",
+                "predictedId": "database_1",
+                "expectedType": "database",
+                "predictedType": "database",
+                "typeCorrect": true,
+                "iou": 0.7712
+              },
+              {
+                "expectedId": "user",
+                "predictedId": "user_1",
+                "expectedType": "user",
+                "predictedType": "user",
+                "typeCorrect": true,
+                "iou": 0.7199
+              },
+              {
+                "expectedId": "internet",
+                "predictedId": "internet_1",
+                "expectedType": "internet",
+                "predictedType": "internet",
+                "typeCorrect": true,
+                "iou": 0.6315
+              }
+            ],
+            "expected": 8,
+            "predicted": 8,
+            "localized": 8,
+            "typeCorrect": 8,
+            "localizationRecall": 1.0,
+            "typedRecall": 1.0,
+            "precision": 1.0
+          },
+          {
+            "id": "aws-serverless-async",
+            "matches": [],
+            "expected": 11,
+            "predicted": 9,
+            "localized": 0,
+            "typeCorrect": 0,
+            "localizationRecall": 0.0,
+            "typedRecall": 0.0,
+            "precision": 0.0
+          },
+          {
+            "id": "aws-eks-platform",
+            "matches": [
+              {
+                "expectedId": "processed",
+                "predictedId": "queue_2",
+                "expectedType": "storage",
+                "predictedType": "queue",
+                "typeCorrect": false,
+                "iou": 0.5125
+              }
+            ],
+            "expected": 14,
+            "predicted": 10,
+            "localized": 1,
+            "typeCorrect": 0,
+            "localizationRecall": 0.07142857142857142,
+            "typedRecall": 0.0,
+            "precision": 0.1
+          },
+          {
+            "id": "azure-private-ai-platform",
+            "matches": [
+              {
+                "expectedId": "bastion",
+                "predictedId": "compute_4",
+                "expectedType": "compute",
+                "predictedType": "compute",
+                "typeCorrect": true,
+                "iou": 0.2521
+              }
+            ],
+            "expected": 12,
+            "predicted": 11,
+            "localized": 1,
+            "typeCorrect": 1,
+            "localizationRecall": 0.08333333333333333,
+            "typedRecall": 0.08333333333333333,
+            "precision": 0.09090909090909091
+          },
+          {
+            "id": "azure-hub-spoke",
+            "matches": [
+              {
+                "expectedId": "firewall",
+                "predictedId": "compute_5",
+                "expectedType": "waf",
+                "predictedType": "compute",
+                "typeCorrect": false,
+                "iou": 0.4292
+              },
+              {
+                "expectedId": "gateway",
+                "predictedId": "storage_1",
+                "expectedType": "api_gateway",
+                "predictedType": "storage",
+                "typeCorrect": false,
+                "iou": 0.3179
+              }
+            ],
+            "expected": 8,
+            "predicted": 7,
+            "localized": 2,
+            "typeCorrect": 0,
+            "localizationRecall": 0.25,
+            "typedRecall": 0.0,
+            "precision": 0.2857142857142857
+          }
+        ]
+      },
+      "delta": {
+        "meanLocalizationRecall": -0.013888888888888895,
+        "meanTypedRecall": -0.013888888888888895,
+        "meanPrecision": -0.002465127465127448
+      }
+    },
+    "blind_holdout": {
+      "baseline": {
+        "path": "E:\\Tech Challenge IADT - Fase 5 - Hackathon\\models\\threatlens-hybrid-v2\\weights\\best.pt",
+        "sha256": "2aebcd0611927505d60a10d23ce11d0e5211cf2e91ca0c4394921fac006c865d",
+        "imageCount": 6,
+        "meanLocalizationRecall": 0.0,
+        "meanTypedRecall": 0.0,
+        "meanPrecision": 0.0,
+        "perImage": [
+          {
+            "id": "aws-notification-platform",
+            "matches": [],
+            "expected": 6,
+            "predicted": 6,
+            "localized": 0,
+            "typeCorrect": 0,
+            "localizationRecall": 0.0,
+            "typedRecall": 0.0,
+            "precision": 0.0
+          },
+          {
+            "id": "aws-network-load-balancer",
+            "matches": [],
+            "expected": 8,
+            "predicted": 5,
+            "localized": 0,
+            "typeCorrect": 0,
+            "localizationRecall": 0.0,
+            "typedRecall": 0.0,
+            "precision": 0.0
+          },
+          {
+            "id": "azure-kubernetes",
+            "matches": [],
+            "expected": 9,
+            "predicted": 5,
+            "localized": 0,
+            "typeCorrect": 0,
+            "localizationRecall": 0.0,
+            "typedRecall": 0.0,
+            "precision": 0.0
+          },
+          {
+            "id": "gcp-cicd-gke",
+            "matches": [],
+            "expected": 13,
+            "predicted": 1,
+            "localized": 0,
+            "typeCorrect": 0,
+            "localizationRecall": 0.0,
+            "typedRecall": 0.0,
+            "precision": 0.0
+          },
+          {
+            "id": "fiap-aws-multiaz",
+            "matches": [],
+            "expected": 17,
+            "predicted": 1,
+            "localized": 0,
+            "typeCorrect": 0,
+            "localizationRecall": 0.0,
+            "typedRecall": 0.0,
+            "precision": 0.0
+          },
+          {
+            "id": "fiap-azure-integration",
+            "matches": [],
+            "expected": 10,
+            "predicted": 2,
+            "localized": 0,
+            "typeCorrect": 0,
+            "localizationRecall": 0.0,
+            "typedRecall": 0.0,
+            "precision": 0.0
+          }
+        ]
+      },
+      "refined": {
+        "path": "E:\\Tech Challenge IADT - Fase 5 - Hackathon\\runs\\detect\\models\\threatlens-active-v3\\weights\\best.pt",
+        "sha256": "c47c1ccaea51f39b8a3205bc7b377480afa797516fdf82532253eaf799bd0a2c",
+        "imageCount": 6,
+        "meanLocalizationRecall": 0.0,
+        "meanTypedRecall": 0.0,
+        "meanPrecision": 0.0,
+        "perImage": [
+          {
+            "id": "aws-notification-platform",
+            "matches": [],
+            "expected": 6,
+            "predicted": 5,
+            "localized": 0,
+            "typeCorrect": 0,
+            "localizationRecall": 0.0,
+            "typedRecall": 0.0,
+            "precision": 0.0
+          },
+          {
+            "id": "aws-network-load-balancer",
+            "matches": [],
+            "expected": 8,
+            "predicted": 4,
+            "localized": 0,
+            "typeCorrect": 0,
+            "localizationRecall": 0.0,
+            "typedRecall": 0.0,
+            "precision": 0.0
+          },
+          {
+            "id": "azure-kubernetes",
+            "matches": [],
+            "expected": 9,
+            "predicted": 5,
+            "localized": 0,
+            "typeCorrect": 0,
+            "localizationRecall": 0.0,
+            "typedRecall": 0.0,
+            "precision": 0.0
+          },
+          {
+            "id": "gcp-cicd-gke",
+            "matches": [],
+            "expected": 13,
+            "predicted": 1,
+            "localized": 0,
+            "typeCorrect": 0,
+            "localizationRecall": 0.0,
+            "typedRecall": 0.0,
+            "precision": 0.0
+          },
+          {
+            "id": "fiap-aws-multiaz",
+            "matches": [],
+            "expected": 17,
+            "predicted": 1,
+            "localized": 0,
+            "typeCorrect": 0,
+            "localizationRecall": 0.0,
+            "typedRecall": 0.0,
+            "precision": 0.0
+          },
+          {
+            "id": "fiap-azure-integration",
+            "matches": [],
+            "expected": 10,
+            "predicted": 2,
+            "localized": 0,
+            "typeCorrect": 0,
+            "localizationRecall": 0.0,
+            "typedRecall": 0.0,
+            "precision": 0.0
+          }
+        ]
+      },
+      "delta": {
+        "meanLocalizationRecall": 0.0,
+        "meanTypedRecall": 0.0,
+        "meanPrecision": 0.0
+      }
+    }
+  }
+}

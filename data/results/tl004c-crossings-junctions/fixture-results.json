@@ -1,0 +1,167 @@
+{
+  "schemaVersion": "1.0",
+  "fixtureCount": 16,
+  "passedCount": 16,
+  "status": "PASS",
+  "results": [
+    {
+      "fixtureId": "x_without_marker",
+      "expectedClassification": "crossing_without_junction",
+      "expectedEventCount": null,
+      "observedClassifications": [
+        "crossing_without_junction"
+      ],
+      "eventCount": 1,
+      "passed": true
+    },
+    {
+      "fixtureId": "x_with_explicit_marker",
+      "expectedClassification": "explicit_junction",
+      "expectedEventCount": null,
+      "observedClassifications": [
+        "explicit_junction"
+      ],
+      "eventCount": 1,
+      "passed": true
+    },
+    {
+      "fixtureId": "x_with_ambiguous_marker",
+      "expectedClassification": "ambiguous_intersection",
+      "expectedEventCount": null,
+      "observedClassifications": [
+        "ambiguous_intersection"
+      ],
+      "eventCount": 1,
+      "passed": true
+    },
+    {
+      "fixtureId": "t_bifurcation",
+      "expectedClassification": "bifurcation",
+      "expectedEventCount": null,
+      "observedClassifications": [
+        "bifurcation"
+      ],
+      "eventCount": 1,
+      "passed": true
+    },
+    {
+      "fixtureId": "y_bifurcation",
+      "expectedClassification": "bifurcation",
+      "expectedEventCount": null,
+      "observedClassifications": [
+        "bifurcation"
+      ],
+      "eventCount": 1,
+      "passed": true
+    },
+    {
+      "fixtureId": "elbow",
+      "expectedClassification": "elbow",
+      "expectedEventCount": null,
+      "observedClassifications": [
+        "elbow"
+      ],
+      "eventCount": 1,
+      "passed": true
+    },
+    {
+      "fixtureId": "fragmented_continuation",
+      "expectedClassification": "continuation",
+      "expectedEventCount": null,
+      "observedClassifications": [
+        "continuation"
+      ],
+      "eventCount": 1,
+      "passed": true
+    },
+    {
+      "fixtureId": "near_parallel_lines",
+      "expectedClassification": "ambiguous_intersection",
+      "expectedEventCount": null,
+      "observedClassifications": [
+        "ambiguous_intersection",
+        "ambiguous_intersection"
+      ],
+      "eventCount": 2,
+      "passed": true
+    },
+    {
+      "fixtureId": "non_orthogonal_crossing",
+      "expectedClassification": "crossing_without_junction",
+      "expectedEventCount": null,
+      "observedClassifications": [
+        "crossing_without_junction"
+      ],
+      "eventCount": 1,
+      "passed": true
+    },
+    {
+      "fixtureId": "near_without_contact",
+      "expectedClassification": null,
+      "expectedEventCount": 0,
+      "observedClassifications": [],
+      "eventCount": 0,
+      "passed": true
+    },
+    {
+      "fixtureId": "four_arms_one_collinear_pair",
+      "expectedClassification": "ambiguous_intersection",
+      "expectedEventCount": null,
+      "observedClassifications": [
+        "ambiguous_intersection"
+      ],
+      "eventCount": 1,
+      "passed": true
+    },
+    {
+      "fixtureId": "crossing_near_component_boundary",
+      "expectedClassification": "crossing_without_junction",
+      "expectedEventCount": null,
+      "observedClassifications": [
+        "crossing_without_junction"
+      ],
+      "eventCount": 1,
+      "passed": true
+    },
+    {
+      "fixtureId": "junction_connected_to_port",
+      "expectedClassification": "explicit_junction",
+      "expectedEventCount": null,
+      "observedClassifications": [
+        "explicit_junction"
+      ],
+      "eventCount": 1,
+      "passed": true
+    },
+    {
+      "fixtureId": "crossing_on_component_barrier",
+      "expectedClassification": "crossing_without_junction",
+      "expectedEventCount": null,
+      "observedClassifications": [
+        "crossing_without_junction"
+      ],
+      "eventCount": 1,
+      "passed": true
+    },
+    {
+      "fixtureId": "different_segment_order",
+      "expectedClassification": "crossing_without_junction",
+      "expectedEventCount": null,
+      "observedClassifications": [
+        "crossing_without_junction"
+      ],
+      "eventCount": 1,
+      "passed": true
+    },
+    {
+      "fixtureId": "scaled_rotated_thick_crossing",
+      "expectedClassification": "crossing_without_junction",
+      "expectedEventCount": null,
+      "observedClassifications": [
+        "crossing_without_junction"
+      ],
+      "eventCount": 1,
+      "passed": true
+    }
+  ]
+}

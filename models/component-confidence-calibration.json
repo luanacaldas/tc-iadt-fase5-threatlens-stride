@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0",
+  "method": "platt_logistic_with_area",
+  "trainedAt": "2026-07-18T02:35:05.766195+00:00",
+  "seed": 42,
+  "modelPath": "models/threatlens-hybrid-v2/weights/best.pt",
+  "benchmarkPath": "data/benchmarks/real-architecture/benchmark-expanded.json",
+  "split": "development_tuning",
+  "featureNames": [
+    "confidence_logit",
+    "log_bbox_area_ratio"
+  ],
+  "coef": [
+    0.3837284326427975,
+    0.5300832159222347
+  ],
+  "intercept": 0.05550161965834449,
+  "automaticAcceptanceThreshold": 0.9,
+  "trainingRecords": 88,
+  "positiveRecords": 12
+}

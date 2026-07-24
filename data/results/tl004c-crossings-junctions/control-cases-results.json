@@ -1,0 +1,253 @@
+{
+  "schemaVersion": "1.0",
+  "split": "development_tuning",
+  "requiredControls": [
+    "C01",
+    "C02",
+    "C03",
+    "C04",
+    "C05",
+    "C06",
+    "C07"
+  ],
+  "allControlsPreserved": true,
+  "controls": [
+    {
+      "caseId": "C01",
+      "imageId": "gcp-secure-cloud-run",
+      "recordIds": [
+        "isolated_ground_truth:gcp-secure-cloud-run:predicted:1",
+        "isolated_ground_truth:gcp-secure-cloud-run:predicted:2"
+      ],
+      "candidateDecisions": [
+        {
+          "eventId": "int-18d1dbcafa7a46ef",
+          "candidateRecordId": "isolated_ground_truth:gcp-secure-cloud-run:predicted:2",
+          "candidateArmIds": [
+            "arm-00b01fed61fc87cd",
+            "arm-21f62564435ec67e"
+          ],
+          "candidateBranchPairs": [
+            [
+              "arm-00b01fed61fc87cd",
+              "arm-21f62564435ec67e"
+            ]
+          ],
+          "shadowAction": "shadow_preserve_candidate_continuity",
+          "reason": "candidate follows locally allowed branch continuity",
+          "officialAction": "unchanged"
+        },
+        {
+          "eventId": "int-38b3130546897bc1",
+          "candidateRecordId": "isolated_ground_truth:gcp-secure-cloud-run:predicted:2",
+          "candidateArmIds": [
+            "arm-39dbc3234c0e66cb"
+          ],
+          "candidateBranchPairs": [],
+          "shadowAction": "review_only",
+          "reason": "intersection evidence is ambiguous",
+          "officialAction": "unchanged"
+        },
+        {
+          "eventId": "int-4ffa944d79233560",
+          "candidateRecordId": "isolated_ground_truth:gcp-secure-cloud-run:predicted:2",
+          "candidateArmIds": [
+            "arm-99c1161acbf4e654"
+          ],
+          "candidateBranchPairs": [],
+          "shadowAction": "review_only",
+          "reason": "intersection evidence is ambiguous",
+          "officialAction": "unchanged"
+        }
+      ],
+      "invalidatedCandidateCount": 0,
+      "futureReconstructionBlocked": false,
+      "preserved": true,
+      "status": "evaluated",
+      "officialResultChanged": false
+    },
+    {
+      "caseId": "C02",
+      "imageId": "aws-serverless-async",
+      "recordIds": [
+        "isolated_ground_truth:aws-serverless-async:predicted:3",
+        "isolated_ground_truth:aws-serverless-async:predicted:5"
+      ],
+      "candidateDecisions": [
+        {
+          "eventId": "int-2b5bb0285cc745f8",
+          "candidateRecordId": "isolated_ground_truth:aws-serverless-async:predicted:3",
+          "candidateArmIds": [
+            "arm-42a507a37ccb93e0",
+            "arm-6dfd4146b886581a"
+          ],
+          "candidateBranchPairs": [
+            [
+              "arm-42a507a37ccb93e0",
+              "arm-6dfd4146b886581a"
+            ]
+          ],
+          "shadowAction": "shadow_preserve_candidate_continuity",
+          "reason": "candidate follows locally allowed branch continuity",
+          "officialAction": "unchanged"
+        },
+        {
+          "eventId": "int-d58464b8bc6313a7",
+          "candidateRecordId": "isolated_ground_truth:aws-serverless-async:predicted:3",
+          "candidateArmIds": [
+            "arm-47186cc60132a5da",
+            "arm-91f5d864ba3c7331"
+          ],
+          "candidateBranchPairs": [
+            [
+              "arm-47186cc60132a5da",
+              "arm-91f5d864ba3c7331"
+            ]
+          ],
+          "shadowAction": "shadow_preserve_candidate_continuity",
+          "reason": "candidate follows locally allowed branch continuity",
+          "officialAction": "unchanged"
+        },
+        {
+          "eventId": "int-aec7109cab900993",
+          "candidateRecordId": "isolated_ground_truth:aws-serverless-async:predicted:5",
+          "candidateArmIds": [
+            "arm-7bb1dc1700ca7ae7",
+            "arm-8d3b20fbcc3e4727"
+          ],
+          "candidateBranchPairs": [
+            [
+              "arm-7bb1dc1700ca7ae7",
+              "arm-8d3b20fbcc3e4727"
+            ]
+          ],
+          "shadowAction": "shadow_preserve_candidate_continuity",
+          "reason": "candidate follows locally allowed branch continuity",
+          "officialAction": "unchanged"
+        }
+      ],
+      "invalidatedCandidateCount": 0,
+      "futureReconstructionBlocked": false,
+      "preserved": true,
+      "status": "evaluated",
+      "officialResultChanged": false
+    },
+    {
+      "caseId": "C03",
+      "imageId": "azure-ai-foundry",
+      "recordIds": [
+        "isolated_ground_truth:azure-ai-foundry:predicted:2",
+        "isolated_ground_truth:azure-ai-foundry:predicted:3"
+      ],
+      "candidateDecisions": [],
+      "invalidatedCandidateCount": 0,
+      "futureReconstructionBlocked": false,
+      "preserved": true,
+      "status": "monitored_reconstructable",
+      "officialResultChanged": false
+    },
+    {
+      "caseId": "C04",
+      "imageId": "azure-private-ai-platform",
+      "recordIds": [
+        "isolated_ground_truth:azure-private-ai-platform:missed:3",
+        "isolated_ground_truth:azure-private-ai-platform:missed:4"
+      ],
+      "candidateDecisions": [],
+      "invalidatedCandidateCount": 0,
+      "futureReconstructionBlocked": false,
+      "preserved": true,
+      "status": "monitored_reconstructable",
+      "officialResultChanged": false
+    },
+    {
+      "caseId": "C05",
+      "imageId": "generic-cloud-api",
+      "recordIds": [
+        "isolated_ground_truth:generic-cloud-api:predicted:4",
+        "isolated_ground_truth:generic-cloud-api:predicted:8"
+      ],
+      "candidateDecisions": [],
+      "invalidatedCandidateCount": 0,
+      "futureReconstructionBlocked": false,
+      "preserved": true,
+      "status": "monitored_reconstructable",
+      "officialResultChanged": false
+    },
+    {
+      "caseId": "C06",
+      "imageId": "azure-ai-foundry",
+      "recordIds": [
+        "isolated_ground_truth:azure-ai-foundry:predicted:1",
+        "isolated_ground_truth:azure-ai-foundry:predicted:5"
+      ],
+      "candidateDecisions": [
+        {
+          "eventId": "int-4dde3be32d76de6f",
+          "candidateRecordId": "isolated_ground_truth:azure-ai-foundry:predicted:1",
+          "candidateArmIds": [
+            "arm-440087953f0a9b72",
+            "arm-f85d2ceaa28f5cf7"
+          ],
+          "candidateBranchPairs": [
+            [
+              "arm-440087953f0a9b72",
+              "arm-f85d2ceaa28f5cf7"
+            ]
+          ],
+          "shadowAction": "shadow_preserve_candidate_continuity",
+          "reason": "candidate follows locally allowed branch continuity",
+          "officialAction": "unchanged"
+        }
+      ],
+      "invalidatedCandidateCount": 0,
+      "futureReconstructionBlocked": false,
+      "preserved": true,
+      "status": "evaluated",
+      "officialResultChanged": false
+    },
+    {
+      "caseId": "C07",
+      "imageId": "aws-video-pipeline",
+      "recordIds": [
+        "isolated_ground_truth:aws-video-pipeline:predicted:1",
+        "isolated_ground_truth:aws-video-pipeline:predicted:41"
+      ],
+      "candidateDecisions": [
+        {
+          "eventId": "int-2c342931fc2a28b6",
+          "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:1",
+          "candidateArmIds": [
+            "arm-335d018c0570d7ab",
+            "arm-c0af3da32e205719"
+          ],
+          "candidateBranchPairs": [
+            [
+              "arm-335d018c0570d7ab",
+              "arm-c0af3da32e205719"
+            ]
+          ],
+          "shadowAction": "shadow_preserve_candidate_continuity",
+          "reason": "candidate follows locally allowed branch continuity",
+          "officialAction": "unchanged"
+        },
+        {
+          "eventId": "int-2c342931fc2a28b6",
+          "candidateRecordId": "isolated_ground_truth:aws-video-pipeline:predicted:41",
+          "candidateArmIds": [
+            "arm-4d81137150cc91dc"
+          ],
+          "candidateBranchPairs": [],
+          "shadowAction": "shadow_record_local_junction",
+          "reason": "local junction is representable but decomposition is deferred",
+          "officialAction": "unchanged"
+        }
+      ],
+      "invalidatedCandidateCount": 0,
+      "futureReconstructionBlocked": false,
+      "preserved": true,
+      "status": "evaluated",
+      "officialResultChanged": false
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "schemaVersion": "1.0",
+  "modelType": "logistic_regression",
+  "trainedAt": "2026-07-18T01:40:55.391349+00:00",
+  "seed": 42,
+  "samples": 1600,
+  "featureNames": [
+    "ray_left_032",
+    "ray_right_032",
+    "ray_left_045",
+    "ray_right_045",
+    "local_density",
+    "bilateral_support"
+  ],
+  "scaler": {
+    "mean": [
+      0.8401666666666635,
+      0.8361666666666641,
+      0.7606666666666653,
+      0.7573333333333323,
+      0.29209183673469385,
+      0.8278333333333286
+    ],
+    "scale": [
+      0.1794527947833525,
+      0.18048630295830154,
+      0.2619851564921598,
+      0.2606969291896014,
+      0.1342548665279959,
+      0.19585361597093076
+    ]
+  },
+  "coefficients": [
+    -1.179473757466965,
+    -1.685142895666899,
+    4.241905067246113,
+    3.769042569484418,
+    -2.115630018687928,
+    1.8579040544604075
+  ],
+  "intercept": -2.129194595993604,
+  "threshold": 0.5,
+  "holdoutMetrics": {
+    "accuracy": 0.975,
+    "precision": 0.9846938775510204,
+    "recall": 0.965,
+    "f1": 0.9747474747474747,
+    "rocAuc": 0.9897,
+    "count": 400
+  },
+  "limitations": [
+    "Training samples are programmatically rendered connectors, not a substitute for real arrowhead annotations.",
+    "The model is a direction cue and low-confidence cases remain subject to human review."
+  ]
+}

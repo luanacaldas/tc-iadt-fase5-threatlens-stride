@@ -1,0 +1,141 @@
+{
+  "schemaVersion": 1,
+  "task": "MVP-HARDENING-001",
+  "scope": {
+    "retrainedModel": false,
+    "datasetAdjusted": false,
+    "holdoutsExecuted": [],
+    "flowStrategyChanged": false
+  },
+  "input": {
+    "fileName": "teste_aws.png",
+    "sha256": "5173929ebbc454e58ec5fbbd63dcd8c71136bf03d3b2138f84b349b5cebfe909"
+  },
+  "observed": {
+    "inputComponentCount": 5,
+    "inputFlowCount": 1,
+    "outputFlowCount": 0,
+    "blockedFlowIds": [
+      "f1"
+    ]
+  },
+  "analysisQuality": {
+    "status": "rejected",
+    "score": 0.0,
+    "reasons": [
+      {
+        "code": "suspicious_duplicate_components",
+        "severity": "warning",
+        "message": "Componentes com o mesmo nome e tipo aparecem mais de uma vez.",
+        "evidence": {
+          "groups": [
+            {
+              "normalizedName": "amazon managed kms key",
+              "type": "secrets_kms",
+              "componentIds": [
+                "secrets_kms_ocr_1",
+                "secrets_kms_ocr_2"
+              ]
+            },
+            {
+              "normalizedName": "b central backup account",
+              "type": "backup",
+              "componentIds": [
+                "backup_ocr_3",
+                "backup_ocr_1"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "code": "multiple_diagrams_suspected",
+        "severity": "critical",
+        "message": "A imagem parece conter dois ou mais diagramas comparativos.",
+        "evidence": {
+          "axis": "vertical",
+          "alignedDuplicateGroups": [
+            {
+              "componentIds": [
+                "secrets_kms_ocr_1",
+                "secrets_kms_ocr_2"
+              ],
+              "axis": "vertical",
+              "distance": 279.5,
+              "offAxisDistance": 1.5
+            },
+            {
+              "componentIds": [
+                "backup_ocr_3",
+                "backup_ocr_1"
+              ],
+              "axis": "vertical",
+              "distance": 260.0,
+              "offAxisDistance": 0.0
+            }
+          ]
+        }
+      },
+      {
+        "code": "grouping_labels_as_components",
+        "severity": "warning",
+        "message": "Limites ou agrupamentos podem ter sido classificados como componentes ativos.",
+        "evidence": {
+          "componentIds": [
+            "backup_ocr_3",
+            "backup_ocr_1"
+          ]
+        }
+      },
+      {
+        "code": "provider_inconsistency",
+        "severity": "warning",
+        "message": "Foram encontrados providers incompatíveis com as evidências textuais do diagrama.",
+        "evidence": {
+          "dominantProvider": "aws",
+          "providerMentions": {
+            "aws": 4,
+            "azure": 0,
+            "gcp": 0
+          },
+          "inconsistentComponents": [
+            {
+              "componentId": "backup_ocr_3",
+              "assignedProvider": "azure"
+            },
+            {
+              "componentId": "backup_ocr_1",
+              "assignedProvider": "azure"
+            }
+          ]
+        }
+      },
+      {
+        "code": "semantic_self_loop_blocked",
+        "severity": "warning",
+        "message": "Fluxos entre detecções semanticamente idênticas foram bloqueados por falta de confirmação explícita.",
+        "evidence": {
+          "flowIds": [
+            "f1"
+          ]
+        }
+      }
+    ],
+    "recommendedAction": "Envie um único diagrama por imagem. Recorte painéis comparativos, cabeçalhos e legendas, depois revise componentes e conexões antes de gerar o relatório.",
+    "gateVersion": "mvp-hardening-001",
+    "blockedFlowIds": [
+      "f1"
+    ]
+  },
+  "safetyDecision": {
+    "threatGenerationAllowed": false,
+    "riskCalculationAllowed": false,
+    "reportGenerationAllowed": false
+  },
+  "checks": {
+    "multipleDiagramSignal": true,
+    "unconfirmedSelfLoopBlocked": true,
+    "providerInconsistencyDetected": true,
+    "invalidReportSuppressed": true
+  }
+}

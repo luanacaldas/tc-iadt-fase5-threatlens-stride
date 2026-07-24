@@ -1,0 +1,1201 @@
+{
+  "schemaVersion": "1.0",
+  "split": "development_tuning",
+  "benchmarkAdjacentRelationCount": 71,
+  "preservedAdjacentRelationCount": 11,
+  "preservedAdjacentRelations": [
+    {
+      "from": "api_handler",
+      "to": "queue"
+    },
+    {
+      "from": "armor",
+      "to": "load_balancer"
+    },
+    {
+      "from": "cloud_run",
+      "to": "vpc_connector"
+    },
+    {
+      "from": "glue",
+      "to": "processed"
+    },
+    {
+      "from": "lambda",
+      "to": "microservices"
+    },
+    {
+      "from": "load_balancer",
+      "to": "cloud_run"
+    },
+    {
+      "from": "media",
+      "to": "stage3"
+    },
+    {
+      "from": "microservices",
+      "to": "dynamo"
+    },
+    {
+      "from": "queue",
+      "to": "worker"
+    },
+    {
+      "from": "raw",
+      "to": "glue"
+    },
+    {
+      "from": "stage3",
+      "to": "trigger3"
+    }
+  ],
+  "relations": [
+    {
+      "id": "eks-1",
+      "from": "warehouse",
+      "to": "sagemaker",
+      "source": "benchmark",
+      "imageId": "aws-eks-platform"
+    },
+    {
+      "id": "eks-2",
+      "from": "sql",
+      "to": "sagemaker",
+      "source": "benchmark",
+      "imageId": "aws-eks-platform"
+    },
+    {
+      "id": "eks-3",
+      "from": "sagemaker",
+      "to": "raw",
+      "source": "benchmark",
+      "imageId": "aws-eks-platform"
+    },
+    {
+      "id": "eks-4",
+      "from": "notebook",
+      "to": "raw",
+      "source": "benchmark",
+      "imageId": "aws-eks-platform"
+    },
+    {
+      "id": "eks-5",
+      "from": "raw",
+      "to": "glue",
+      "source": "benchmark",
+      "pathPoints": [
+        [
+          692,
+          644
+        ],
+        [
+          922,
+          641
+        ]
+      ],
+      "segmentIds": [
+        "isolated_ground_truth:aws-eks-platform:predicted:7:segment:0"
+      ],
+      "imageId": "aws-eks-platform"
+    },
+    {
+      "id": "eks-6",
+      "from": "glue",
+      "to": "processed",
+      "source": "benchmark",
+      "pathPoints": [
+        [
+          688,
+          642
+        ],
+        [
+          926,
+          642
+        ]
+      ],
+      "segmentIds": [
+        "isolated_ground_truth:aws-eks-platform:predicted:21:segment:0"
+      ],
+      "imageId": "aws-eks-platform"
+    },
+    {
+      "id": "eks-7",
+      "from": "lambda",
+      "to": "microservices",
+      "source": "benchmark",
+      "pathPoints": [
+        [
+          821,
+          298
+        ],
+        [
+          881,
+          334
+        ]
+      ],
+      "segmentIds": [
+        "isolated_ground_truth:aws-eks-platform:predicted:9:segment:0"
+      ],
+      "imageId": "aws-eks-platform"
+    },
+    {
+      "id": "eks-8",
+      "from": "microservices",
+      "to": "dynamo",
+      "source": "benchmark",
+      "pathPoints": [
+        [
+          1012,
+          310
+        ],
+        [
+          1061,
+          307
+        ],
+        [
+          1062,
+          347
+        ],
+        [
+          1061,
+          378
+        ],
+        [
+          1063,
+          550
+        ]
+      ],
+      "segmentIds": [
+        "isolated_ground_truth:aws-eks-platform:predicted:14:segment:0",
+        "isolated_ground_truth:aws-eks-platform:predicted:14:segment:1",
+        "isolated_ground_truth:aws-eks-platform:predicted:14:segment:2",
+        "isolated_ground_truth:aws-eks-platform:predicted:14:segment:3"
+      ],
+      "imageId": "aws-eks-platform"
+    },
+    {
+      "id": "eks-9",
+      "from": "microservices",
+      "to": "rds",
+      "source": "benchmark",
+      "imageId": "aws-eks-platform"
+    },
+    {
+      "id": "eks-10",
+      "from": "rds",
+      "to": "visualization",
+      "source": "benchmark",
+      "imageId": "aws-eks-platform"
+    },
+    {
+      "id": "async-1",
+      "from": "api",
+      "to": "cognito",
+      "source": "benchmark",
+      "imageId": "aws-serverless-async"
+    },
+    {
+      "id": "async-2",
+      "from": "cognito",
+      "to": "search_handler",
+      "source": "benchmark",
+      "imageId": "aws-serverless-async"
+    },
+    {
+      "id": "async-3",
+      "from": "cognito",
+      "to": "api_handler",
+      "source": "benchmark",
+      "pathPoints": [
+        [
+          1527,
+          950
+        ],
+        [
+          1607,
+          1039
+        ]
+      ],
+      "segmentIds": [
+        "isolated_ground_truth:aws-serverless-async:predicted:11:segment:0"
+      ],
+      "imageId": "aws-serverless-async"
+    },
+    {
+      "id": "async-4",
+      "from": "api_handler",
+      "to": "queue",
+      "source": "benchmark",
+      "pathPoints": [
+        [
+          1874,
+          1094
+        ],
+        [
+          2104,
+          1092
+        ],
+        [
+          2337,
+          1077
+        ],
+        [
+          2587,
+          1063
+        ]
+      ],
+      "segmentIds": [
+        "isolated_ground_truth:aws-serverless-async:predicted:3:segment:0",
+        "isolated_ground_truth:aws-serverless-async:predicted:3:segment:1",
+        "isolated_ground_truth:aws-serverless-async:predicted:3:segment:2"
+      ],
+      "imageId": "aws-serverless-async"
+    },
+    {
+      "id": "async-5",
+      "from": "queue",
+      "to": "worker",
+      "source": "benchmark",
+      "imageId": "aws-serverless-async"
+    },
+    {
+      "id": "async-6",
+      "from": "worker",
+      "to": "fargate",
+      "source": "benchmark",
+      "pathPoints": [
+        [
+          2295,
+          1664
+        ],
+        [
+          2305,
+          1870
+        ]
+      ],
+      "segmentIds": [
+        "isolated_ground_truth:aws-serverless-async:predicted:10:segment:0"
+      ],
+      "imageId": "aws-serverless-async"
+    },
+    {
+      "id": "async-7",
+      "from": "fargate",
+      "to": "database",
+      "source": "benchmark",
+      "pathPoints": [
+        [
+          1841,
+          1942
+        ],
+        [
+          2128,
+          1927
+        ]
+      ],
+      "segmentIds": [
+        "isolated_ground_truth:aws-serverless-async:predicted:8:segment:0"
+      ],
+      "imageId": "aws-serverless-async"
+    },
+    {
+      "id": "async-8",
+      "from": "api_handler",
+      "to": "database",
+      "source": "benchmark",
+      "pathPoints": [
+        [
+          1722,
+          1422
+        ],
+        [
+          1734,
+          1627
+        ],
+        [
+          1738,
+          1723
+        ]
+      ],
+      "segmentIds": [
+        "isolated_ground_truth:aws-serverless-async:predicted:5:segment:0",
+        "isolated_ground_truth:aws-serverless-async:predicted:5:segment:1"
+      ],
+      "imageId": "aws-serverless-async"
+    },
+    {
+      "id": "async-9",
+      "from": "search_handler",
+      "to": "catalog",
+      "source": "benchmark",
+      "pathPoints": [
+        [
+          972,
+          1248
+        ],
+        [
+          1000,
+          1649
+        ],
+        [
+          1006,
+          1759
+        ]
+      ],
+      "segmentIds": [
+        "isolated_ground_truth:aws-serverless-async:predicted:1:segment:0",
+        "isolated_ground_truth:aws-serverless-async:predicted:1:segment:1"
+      ],
+      "imageId": "aws-serverless-async"
+    },
+    {
+      "id": "video-1",
+      "from": "mobile",
+      "to": "api",
+      "source": "benchmark",
+      "pathPoints": [
+        [
+          655,
+          1177
+        ],
+        [
+          1392,
+          1189
+        ]
+      ],
+      "segmentIds": [
+        "isolated_ground_truth:aws-video-pipeline:predicted:1:segment:0"
+      ],
+      "imageId": "aws-video-pipeline"
+    },
+    {
+      "id": "video-2",
+      "from": "mobile",
+      "to": "cognito",
+      "source": "benchmark",
+      "pathPoints": [
+        [
+          911,
+          1181
+        ],
+        [
+          918,
+          756
+        ]
+      ],
+      "segmentIds": [
+        "isolated_ground_truth:aws-video-pipeline:predicted:41:segment:0"
+      ],
+      "imageId": "aws-video-pipeline"
+    },
+    {
+      "id": "video-3",
+      "from": "api",
+      "to": "upload",
+      "source": "benchmark",
+      "imageId": "aws-video-pipeline"
+    },
+    {
+      "id": "video-4",
+      "from": "upload",
+      "to": "stage1",
+      "source": "benchmark",
+      "pathPoints": [
+        [
+          2095,
+          848
+        ],
+        [
+          2241,
+          850
+        ]
+      ],
+      "segmentIds": [
+        "isolated_ground_truth:aws-video-pipeline:predicted:32:segment:0"
+      ],
+      "imageId": "aws-video-pipeline"
+    },
+    {
+      "id": "video-5",
+      "from": "stage1",
+      "to": "trigger1",
+      "source": "benchmark",
+      "pathPoints": [
+        [
+          2368,
+          854
+        ],
+        [
+          2608,
+          858
+        ]
+      ],
+      "segmentIds": [
+        "isolated_ground_truth:aws-video-pipeline:predicted:28:segment:0"
+      ],
+      "imageId": "aws-video-pipeline"
+    },
+    {
+      "id": "video-6",
+      "from": "trigger1",
+      "to": "transcoder",
+      "source": "benchmark",
+      "pathPoints": [
+        [
+          2845,
+          862
+        ],
+        [
+          2971,
+          862
+        ]
+      ],
+      "segmentIds": [
+        "isolated_ground_truth:aws-video-pipeline:predicted:33:segment:0"
+      ],
+      "imageId": "aws-video-pipeline"
+    },
+    {
+      "id": "video-7",
+      "from": "transcoder",
+      "to": "stage2",
+      "source": "benchmark",
+      "pathPoints": [
+        [
+          3105,
+          864
+        ],
+        [
+          3360,
+          868
+        ]
+      ],
+      "segmentIds": [
+        "isolated_ground_truth:aws-video-pipeline:predicted:24:segment:0"
+      ],
+      "imageId": "aws-video-pipeline"
+    },
+    {
+      "id": "video-8",
+      "from": "stage2",
+      "to": "trigger2",
+      "source": "benchmark",
+      "pathPoints": [
+        [
+          3581,
+          873
+        ],
+        [
+          3745,
+          876
+        ]
+      ],
+      "segmentIds": [
+        "isolated_ground_truth:aws-video-pipeline:predicted:30:segment:0"
+      ],
+      "imageId": "aws-video-pipeline"
+    },
+    {
+      "id": "video-9",
+      "from": "trigger2",
+      "to": "media",
+      "source": "benchmark",
+      "pathPoints": [
+        [
+          3966,
+          875
+        ],
+        [
+          4080,
+          879
+        ]
+      ],
+      "segmentIds": [
+        "isolated_ground_truth:aws-video-pipeline:predicted:37:segment:0"
+      ],
+      "imageId": "aws-video-pipeline"
+    },
+    {
+      "id": "video-10",
+      "from": "media",
+      "to": "stage3",
+      "source": "benchmark",
+      "pathPoints": [
+        [
+          4334,
+          884
+        ],
+        [
+          4516,
+          887
+        ]
+      ],
+      "segmentIds": [
+        "isolated_ground_truth:aws-video-pipeline:predicted:29:segment:0"
+      ],
+      "imageId": "aws-video-pipeline"
+    },
+    {
+      "id": "video-11",
+      "from": "stage3",
+      "to": "trigger3",
+      "source": "benchmark",
+      "pathPoints": [
+        [
+          4613,
+          1582
+        ],
+        [
+          4624,
+          957
+        ]
+      ],
+      "segmentIds": [
+        "isolated_ground_truth:aws-video-pipeline:predicted:2:segment:0"
+      ],
+      "imageId": "aws-video-pipeline"
+    },
+    {
+      "id": "video-12",
+      "from": "trigger3",
+      "to": "business2",
+      "source": "benchmark",
+      "imageId": "aws-video-pipeline"
+    },
+    {
+      "id": "video-13",
+      "from": "business2",
+      "to": "database",
+      "source": "benchmark",
+      "pathPoints": [
+        [
+          3038,
+          1540
+        ],
+        [
+          3676,
+          1551
+        ]
+      ],
+      "segmentIds": [
+        "isolated_ground_truth:aws-video-pipeline:predicted:3:segment:0"
+      ],
+      "imageId": "aws-video-pipeline"
+    },
+    {
+      "id": "video-14",
+      "from": "api",
+      "to": "business1",
+      "source": "benchmark",
+      "imageId": "aws-video-pipeline"
+    },
+    {
+      "id": "video-15",
+      "from": "business1",
+      "to": "database",
+      "source": "benchmark",
+      "pathPoints": [
+        [
+          2139,
+          1527
+        ],
+        [
+          2817,
+          1538
+        ]
+      ],
+      "segmentIds": [
+        "isolated_ground_truth:aws-video-pipeline:predicted:5:segment:0"
+      ],
+      "imageId": "aws-video-pipeline"
+    },
+    {
+      "id": "video-16",
+      "from": "business1",
+      "to": "email",
+      "source": "benchmark",
+      "imageId": "aws-video-pipeline"
+    },
+    {
+      "id": "foundry-1",
+      "from": "user",
+      "to": "app_service",
+      "source": "benchmark",
+      "pathPoints": [
+        [
+          260,
+          326
+        ],
+        [
+          334,
+          328
+        ],
+        [
+          414,
+          328
+        ],
+        [
+          494,
+          330
+        ],
+        [
+          527,
+          331
+        ],
+        [
+          530,
+          278
+        ],
+        [
+          534,
+          207
+        ],
+        [
+          628,
+          240
+        ]
+      ],
+      "segmentIds": [
+        "isolated_ground_truth:azure-ai-foundry:predicted:6:segment:0",
+        "isolated_ground_truth:azure-ai-foundry:predicted:6:segment:1",
+        "isolated_ground_truth:azure-ai-foundry:predicted:6:segment:2",
+        "isolated_ground_truth:azure-ai-foundry:predicted:6:segment:3",
+        "isolated_ground_truth:azure-ai-foundry:predicted:6:segment:4",
+        "isolated_ground_truth:azure-ai-foundry:predicted:6:segment:5",
+        "isolated_ground_truth:azure-ai-foundry:predicted:6:segment:6"
+      ],
+      "imageId": "azure-ai-foundry"
+    },
+    {
+      "id": "foundry-2",
+      "from": "app_service",
+      "to": "foundry_agent",
+      "source": "benchmark",
+      "pathPoints": [
+        [
+          760,
+          371
+        ],
+        [
+          995,
+          375
+        ]
+      ],
+      "segmentIds": [
+        "isolated_ground_truth:azure-ai-foundry:predicted:1:segment:0"
+      ],
+      "imageId": "azure-ai-foundry"
+    },
+    {
+      "id": "foundry-3",
+      "from": "foundry_account",
+      "to": "foundry_agent",
+      "source": "benchmark",
+      "pathPoints": [
+        [
+          1035,
+          318
+        ],
+        [
+          1041,
+          273
+        ]
+      ],
+      "segmentIds": [
+        "isolated_ground_truth:azure-ai-foundry:predicted:5:segment:0"
+      ],
+      "imageId": "azure-ai-foundry"
+    },
+    {
+      "id": "foundry-4",
+      "from": "foundry_agent",
+      "to": "openai_model",
+      "source": "benchmark",
+      "pathPoints": [
+        [
+          1036,
+          533
+        ],
+        [
+          1037,
+          429
+        ]
+      ],
+      "segmentIds": [
+        "isolated_ground_truth:azure-ai-foundry:predicted:2:segment:0"
+      ],
+      "imageId": "azure-ai-foundry"
+    },
+    {
+      "id": "foundry-5",
+      "from": "foundry_agent",
+      "to": "ai_search",
+      "source": "benchmark",
+      "pathPoints": [
+        [
+          1082,
+          512
+        ],
+        [
+          1085,
+          685
+        ]
+      ],
+      "segmentIds": [
+        "isolated_ground_truth:azure-ai-foundry:predicted:3:segment:0"
+      ],
+      "imageId": "azure-ai-foundry"
+    },
+    {
+      "id": "edge-1",
+      "from": "clients",
+      "to": "load_balancer",
+      "source": "benchmark",
+      "pathPoints": [
+        [
+          182,
+          241
+        ],
+        [
+          227,
+          240
+        ]
+      ],
+      "segmentIds": [
+        "isolated_ground_truth:azure-container-edge:predicted:3:segment:0"
+      ],
+      "imageId": "azure-container-edge"
+    },
+    {
+      "id": "edge-2",
+      "from": "load_balancer",
+      "to": "application_firewall",
+      "source": "benchmark",
+      "pathPoints": [
+        [
+          353,
+          272
+        ],
+        [
+          385,
+          271
+        ]
+      ],
+      "segmentIds": [
+        "isolated_ground_truth:azure-container-edge:predicted:2:segment:0"
+      ],
+      "imageId": "azure-container-edge"
+    },
+    {
+      "id": "edge-3",
+      "from": "application_firewall",
+      "to": "azure_firewall",
+      "source": "benchmark",
+      "pathPoints": [
+        [
+          478,
+          252
+        ],
+        [
+          529,
+          249
+        ]
+      ],
+      "segmentIds": [
+        "isolated_ground_truth:azure-container-edge:predicted:1:segment:0"
+      ],
+      "imageId": "azure-container-edge"
+    },
+    {
+      "id": "edge-4",
+      "from": "azure_firewall",
+      "to": "virtual_machines",
+      "source": "benchmark",
+      "pathPoints": [
+        [
+          667,
+          220
+        ],
+        [
+          706,
+          221
+        ]
+      ],
+      "segmentIds": [
+        "isolated_ground_truth:azure-container-edge:predicted:4:segment:0"
+      ],
+      "imageId": "azure-container-edge"
+    },
+    {
+      "id": "hub-1",
+      "from": "onprem",
+      "to": "gateway",
+      "source": "benchmark",
+      "pathPoints": [
+        [
+          220,
+          423
+        ],
+        [
+          259,
+          423
+        ]
+      ],
+      "segmentIds": [
+        "isolated_ground_truth:azure-hub-spoke:predicted:8:segment:0"
+      ],
+      "imageId": "azure-hub-spoke"
+    },
+    {
+      "id": "hub-2",
+      "from": "gateway",
+      "to": "firewall",
+      "source": "benchmark",
+      "imageId": "azure-hub-spoke"
+    },
+    {
+      "id": "hub-3",
+      "from": "firewall",
+      "to": "prod_vm",
+      "source": "benchmark",
+      "imageId": "azure-hub-spoke"
+    },
+    {
+      "id": "hub-4",
+      "from": "firewall",
+      "to": "prod2_vm",
+      "source": "benchmark",
+      "imageId": "azure-hub-spoke"
+    },
+    {
+      "id": "hub-5",
+      "from": "gateway",
+      "to": "nonprod_vm",
+      "source": "benchmark",
+      "pathPoints": [
+        [
+          384,
+          409
+        ],
+        [
+          520,
+          409
+        ]
+      ],
+      "segmentIds": [
+        "isolated_ground_truth:azure-hub-spoke:predicted:6:segment:0"
+      ],
+      "imageId": "azure-hub-spoke"
+    },
+    {
+      "id": "hub-6",
+      "from": "gateway",
+      "to": "nonprod2_vm",
+      "source": "benchmark",
+      "imageId": "azure-hub-spoke"
+    },
+    {
+      "id": "ai-1",
+      "from": "user",
+      "to": "app_gateway",
+      "source": "benchmark",
+      "pathPoints": [
+        [
+          193,
+          755
+        ],
+        [
+          382,
+          755
+        ]
+      ],
+      "segmentIds": [
+        "isolated_ground_truth:azure-private-ai-platform:predicted:15:segment:0"
+      ],
+      "imageId": "azure-private-ai-platform"
+    },
+    {
+      "id": "ai-2",
+      "from": "app_gateway",
+      "to": "app_service",
+      "source": "benchmark",
+      "pathPoints": [
+        [
+          650,
+          1286
+        ],
+        [
+          664,
+          891
+        ]
+      ],
+      "segmentIds": [
+        "isolated_ground_truth:azure-private-ai-platform:predicted:14:segment:0"
+      ],
+      "imageId": "azure-private-ai-platform"
+    },
+    {
+      "id": "ai-3",
+      "from": "app_service",
+      "to": "key_vault",
+      "source": "benchmark",
+      "imageId": "azure-private-ai-platform"
+    },
+    {
+      "id": "ai-4",
+      "from": "app_service",
+      "to": "storage",
+      "source": "benchmark",
+      "imageId": "azure-private-ai-platform"
+    },
+    {
+      "id": "ai-5",
+      "from": "app_service",
+      "to": "ai_search",
+      "source": "benchmark",
+      "imageId": "azure-private-ai-platform"
+    },
+    {
+      "id": "ai-6",
+      "from": "app_service",
+      "to": "cosmos",
+      "source": "benchmark",
+      "imageId": "azure-private-ai-platform"
+    },
+    {
+      "id": "ai-7",
+      "from": "app_service",
+      "to": "foundry_agent",
+      "source": "benchmark",
+      "imageId": "azure-private-ai-platform"
+    },
+    {
+      "id": "ai-8",
+      "from": "foundry_agent",
+      "to": "openai",
+      "source": "benchmark",
+      "imageId": "azure-private-ai-platform"
+    },
+    {
+      "id": "gcp-1",
+      "from": "internet",
+      "to": "load_balancer",
+      "source": "benchmark",
+      "pathPoints": [
+        [
+          97,
+          209
+        ],
+        [
+          295,
+          209
+        ]
+      ],
+      "segmentIds": [
+        "isolated_ground_truth:gcp-secure-cloud-run:predicted:2:segment:0"
+      ],
+      "imageId": "gcp-secure-cloud-run"
+    },
+    {
+      "id": "gcp-2",
+      "from": "armor",
+      "to": "load_balancer",
+      "source": "benchmark",
+      "pathPoints": [
+        [
+          358,
+          163
+        ],
+        [
+          358,
+          183
+        ]
+      ],
+      "segmentIds": [
+        "isolated_ground_truth:gcp-secure-cloud-run:predicted:1:segment:0"
+      ],
+      "imageId": "gcp-secure-cloud-run"
+    },
+    {
+      "id": "gcp-3",
+      "from": "load_balancer",
+      "to": "cloud_run",
+      "source": "benchmark",
+      "pathPoints": [
+        [
+          358,
+          276
+        ],
+        [
+          358,
+          238
+        ]
+      ],
+      "segmentIds": [
+        "isolated_ground_truth:gcp-secure-cloud-run:predicted:11:segment:0"
+      ],
+      "imageId": "gcp-secure-cloud-run"
+    },
+    {
+      "id": "gcp-4",
+      "from": "cloud_run",
+      "to": "vpc_connector",
+      "source": "benchmark",
+      "pathPoints": [
+        [
+          274,
+          355
+        ],
+        [
+          646,
+          355
+        ]
+      ],
+      "segmentIds": [
+        "isolated_ground_truth:gcp-secure-cloud-run:predicted:12:segment:0"
+      ],
+      "imageId": "gcp-secure-cloud-run"
+    },
+    {
+      "id": "gcp-5",
+      "from": "vpc_connector",
+      "to": "firewall",
+      "source": "benchmark",
+      "pathPoints": [
+        [
+          525,
+          336
+        ],
+        [
+          525,
+          392
+        ]
+      ],
+      "segmentIds": [
+        "isolated_ground_truth:gcp-secure-cloud-run:predicted:4:segment:0"
+      ],
+      "imageId": "gcp-secure-cloud-run"
+    },
+    {
+      "id": "gcp-6",
+      "from": "firewall",
+      "to": "resource",
+      "source": "benchmark",
+      "pathPoints": [
+        [
+          521,
+          519
+        ],
+        [
+          522,
+          482
+        ]
+      ],
+      "segmentIds": [
+        "isolated_ground_truth:gcp-secure-cloud-run:predicted:13:segment:0"
+      ],
+      "imageId": "gcp-secure-cloud-run"
+    },
+    {
+      "id": "generic-1",
+      "from": "user",
+      "to": "internet",
+      "source": "benchmark",
+      "imageId": "generic-cloud-api"
+    },
+    {
+      "id": "generic-2",
+      "from": "internet",
+      "to": "cdn",
+      "source": "benchmark",
+      "pathPoints": [
+        [
+          103,
+          199
+        ],
+        [
+          353,
+          199
+        ]
+      ],
+      "segmentIds": [
+        "isolated_ground_truth:generic-cloud-api:predicted:1:segment:0"
+      ],
+      "imageId": "generic-cloud-api"
+    },
+    {
+      "id": "generic-3",
+      "from": "cdn",
+      "to": "api",
+      "source": "benchmark",
+      "pathPoints": [
+        [
+          446,
+          161
+        ],
+        [
+          689,
+          161
+        ]
+      ],
+      "segmentIds": [
+        "isolated_ground_truth:generic-cloud-api:predicted:3:segment:0"
+      ],
+      "imageId": "generic-cloud-api"
+    },
+    {
+      "id": "generic-4",
+      "from": "compute",
+      "to": "api",
+      "source": "benchmark",
+      "imageId": "generic-cloud-api"
+    },
+    {
+      "id": "generic-5",
+      "from": "compute",
+      "to": "database",
+      "source": "benchmark",
+      "imageId": "generic-cloud-api"
+    },
+    {
+      "id": "generic-6",
+      "from": "database",
+      "to": "storage",
+      "source": "benchmark",
+      "pathPoints": [
+        [
+          448,
+          300
+        ],
+        [
+          691,
+          300
+        ]
+      ],
+      "segmentIds": [
+        "isolated_ground_truth:generic-cloud-api:predicted:4:segment:0"
+      ],
+      "imageId": "generic-cloud-api"
+    },
+    {
+      "id": "generic-7",
+      "from": "monitoring",
+      "to": "storage",
+      "source": "benchmark",
+      "pathPoints": [
+        [
+          650,
+          338
+        ],
+        [
+          445,
+          399
+        ]
+      ],
+      "segmentIds": [
+        "isolated_ground_truth:generic-cloud-api:predicted:8:segment:0"
+      ],
+      "imageId": "generic-cloud-api"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "1.0",
+  "sample": "data/sample-diagrams/02-mixed-components.jpg",
+  "endpoint": "/api/analyze/full",
+  "httpStatus": 200,
+  "strategy": "legacy",
+  "components": 8,
+  "flows": 13,
+  "threats": 23,
+  "criticalThreats": 1,
+  "detectionAlternatives": 0,
+  "sixStrideCategoriesRendered": true,
+  "holdoutsExecuted": false,
+  "status": "PASS"
+}

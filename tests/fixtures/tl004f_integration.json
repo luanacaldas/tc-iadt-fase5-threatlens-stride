@@ -1,0 +1,58 @@
+{
+  "schemaVersion": "1.0",
+  "fixtures": [
+    {
+      "id": "transitive_block_precedes_redirect",
+      "components": [{"id":"A","bbox":[0,-2,2,2]},{"id":"B","bbox":[8,-2,12,2]},{"id":"C","bbox":[18,-2,22,2]}],
+      "legacyFlows": [{"id":"f1","from":"A","to":"C","pathPoints":[[8,0],[20,0]],"directionConfidence":1}],
+      "adjacentRelations": [{"from":"A","to":"B"},{"from":"B","to":"C"}],
+      "humanConfirmedShortcuts": [{"from":"A","to":"C","source":"human_review"}],
+      "expectedAction":"block","expectedConflict":true
+    },
+    {
+      "id": "reliable_redirect",
+      "components": [{"id":"A","bbox":[0,-2,2,2]},{"id":"B","bbox":[8,-2,12,2]},{"id":"C","bbox":[18,-2,22,2]}],
+      "legacyFlows": [{"id":"f1","from":"A","to":"C","pathPoints":[[8,0],[20,0]],"directionConfidence":1}],
+      "expectedAction":"redirect","expectedFrom":"B","expectedTo":"C"
+    },
+    {
+      "id": "low_confidence_review",
+      "components": [{"id":"A","bbox":[0,-2,2,2]},{"id":"B","bbox":[18,-2,22,2]}],
+      "legacyFlows": [{"id":"f1","from":"A","to":"B","pathPoints":[[7,8],[14,8]],"directionConfidence":0}],
+      "expectedAction":"review_only"
+    },
+    {
+      "id": "structural_line_review",
+      "components": [{"id":"A","bbox":[0,-2,2,2]},{"id":"B","bbox":[18,-2,22,2]}],
+      "legacyFlows": [{"id":"f1","from":"A","to":"B","pathPoints":[[2,0],[20,0]],"directionConfidence":1}],
+      "structuralCandidateIds":["f1"],"expectedAction":"review_only"
+    },
+    {
+      "id": "protected_keep",
+      "components": [{"id":"A","bbox":[0,-2,2,2]},{"id":"B","bbox":[18,-2,22,2]}],
+      "legacyFlows": [{"id":"f1","from":"A","to":"B","pathPoints":[[2,0],[20,0]],"directionConfidence":1}],
+      "protectedEdges":[["A","B"]],"expectedAction":"keep"
+    },
+    {
+      "id": "autonomous_recovery",
+      "components": [],
+      "legacyFlows": [],
+      "recoveryCandidates":[{"id":"r1","from":"A","to":"B","confidence":"high","geometricSupport":true,"topologicalSupport":true,"supervised":false}],
+      "expectedRecoveryAction":"recover"
+    },
+    {
+      "id": "supervised_recovery_review",
+      "components": [],
+      "legacyFlows": [],
+      "recoveryCandidates":[{"id":"r1","from":"A","to":"B","confidence":"high","geometricSupport":true,"topologicalSupport":true,"supervised":true}],
+      "expectedRecoveryAction":"review_only"
+    },
+    {
+      "id": "recovery_barrier_conflict",
+      "components": [],
+      "legacyFlows": [],
+      "recoveryCandidates":[{"id":"r1","from":"A","to":"B","confidence":"high","geometricSupport":true,"topologicalSupport":true,"barrierConflict":true,"supervised":false}],
+      "expectedRecoveryAction":"review_only","expectedConflict":true
+    }
+  ]
+}

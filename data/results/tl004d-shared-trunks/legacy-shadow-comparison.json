@@ -1,0 +1,161 @@
+{
+  "schemaVersion": "1.0",
+  "split": "development_tuning",
+  "officialStrategy": "legacy",
+  "shadowStrategy": "junction_aware_shared_trunks",
+  "legacyCandidateCount": 142,
+  "shadowTrunkCount": 115,
+  "shadowExperimentalRelationCount": 42,
+  "officialEdgesChanged": 0,
+  "officialDirectionChanges": 0,
+  "feedsStride": "legacy_only",
+  "legacySnapshot": {
+    "schemaVersion": "1.0",
+    "comparison": "legacy_before_vs_legacy_after_tl004a",
+    "split": "development_tuning",
+    "holdoutUsed": false,
+    "before": {
+      "source": "data/results/flow-diagnostics-v1/isolated-ground-truth/flow-diagnostics-summary.json",
+      "snapshotSha256": "fbfdf20d136141a3759ee148d37682a4b35b9dd72e4725499d705413088ee8c2",
+      "metrics": {
+        "predictedEdgeCount": 142,
+        "expectedEdgeCount": 71,
+        "falsePositiveEdgeCount": 90,
+        "missedEdgeCount": 19,
+        "reversedEdgeCount": 7,
+        "edgeExistencePrecision": 0.36619718309859156,
+        "edgeExistenceRecall": 0.7323943661971831,
+        "edgeExistenceF1": 0.48826291079812206,
+        "directedEdgeF1": 0.4225352112676057,
+        "directionAccuracy": 0.8653846153846154
+      }
+    },
+    "after": {
+      "source": "data/results/tl004a-geometric-events/legacy-after/flow-diagnostics-summary.json",
+      "snapshotSha256": "fbfdf20d136141a3759ee148d37682a4b35b9dd72e4725499d705413088ee8c2",
+      "metrics": {
+        "predictedEdgeCount": 142,
+        "expectedEdgeCount": 71,
+        "falsePositiveEdgeCount": 90,
+        "missedEdgeCount": 19,
+        "reversedEdgeCount": 7,
+        "edgeExistencePrecision": 0.36619718309859156,
+        "edgeExistenceRecall": 0.7323943661971831,
+        "edgeExistenceF1": 0.48826291079812206,
+        "directedEdgeF1": 0.4225352112676057,
+        "directionAccuracy": 0.8653846153846154
+      }
+    },
+    "checks": {
+      "snapshotEquivalent": true,
+      "metricsEquivalent": true,
+      "edgeCountDelta": 0,
+      "addedEdges": 0,
+      "removedEdges": 0,
+      "reversedEdgeDelta": 0,
+      "legacyBehaviorPreserved": true
+    },
+    "status": "PASS"
+  },
+  "images": [
+    {
+      "imageId": "aws-eks-platform",
+      "provider": "aws",
+      "legacyFlowCount": 21,
+      "trunkCount": 18,
+      "experimentalRelationCount": 9,
+      "reviewOnlyCount": 36,
+      "preventedCliqueCount": 47,
+      "officialFlowsChanged": false,
+      "officialDirectionChanges": 0
+    },
+    {
+      "imageId": "aws-serverless-async",
+      "provider": "aws",
+      "legacyFlowCount": 11,
+      "trunkCount": 11,
+      "experimentalRelationCount": 4,
+      "reviewOnlyCount": 14,
+      "preventedCliqueCount": 18,
+      "officialFlowsChanged": false,
+      "officialDirectionChanges": 0
+    },
+    {
+      "imageId": "aws-video-pipeline",
+      "provider": "aws",
+      "legacyFlowCount": 41,
+      "trunkCount": 23,
+      "experimentalRelationCount": 11,
+      "reviewOnlyCount": 134,
+      "preventedCliqueCount": 145,
+      "officialFlowsChanged": false,
+      "officialDirectionChanges": 0
+    },
+    {
+      "imageId": "azure-ai-foundry",
+      "provider": "azure",
+      "legacyFlowCount": 7,
+      "trunkCount": 7,
+      "experimentalRelationCount": 2,
+      "reviewOnlyCount": 14,
+      "preventedCliqueCount": 16,
+      "officialFlowsChanged": false,
+      "officialDirectionChanges": 0
+    },
+    {
+      "imageId": "azure-container-edge",
+      "provider": "azure",
+      "legacyFlowCount": 4,
+      "trunkCount": 4,
+      "experimentalRelationCount": 1,
+      "reviewOnlyCount": 6,
+      "preventedCliqueCount": 7,
+      "officialFlowsChanged": false,
+      "officialDirectionChanges": 0
+    },
+    {
+      "imageId": "azure-hub-spoke",
+      "provider": "azure",
+      "legacyFlowCount": 8,
+      "trunkCount": 8,
+      "experimentalRelationCount": 3,
+      "reviewOnlyCount": 14,
+      "preventedCliqueCount": 17,
+      "officialFlowsChanged": false,
+      "officialDirectionChanges": 0
+    },
+    {
+      "imageId": "azure-private-ai-platform",
+      "provider": "azure",
+      "legacyFlowCount": 21,
+      "trunkCount": 19,
+      "experimentalRelationCount": 3,
+      "reviewOnlyCount": 44,
+      "preventedCliqueCount": 47,
+      "officialFlowsChanged": false,
+      "officialDirectionChanges": 0
+    },
+    {
+      "imageId": "gcp-secure-cloud-run",
+      "provider": "gcp",
+      "legacyFlowCount": 15,
+      "trunkCount": 11,
+      "experimentalRelationCount": 3,
+      "reviewOnlyCount": 60,
+      "preventedCliqueCount": 63,
+      "officialFlowsChanged": false,
+      "officialDirectionChanges": 0
+    },
+    {
+      "imageId": "generic-cloud-api",
+      "provider": "generic",
+      "legacyFlowCount": 14,
+      "trunkCount": 14,
+      "experimentalRelationCount": 6,
+      "reviewOnlyCount": 16,
+      "preventedCliqueCount": 22,
+      "officialFlowsChanged": false,
+      "officialDirectionChanges": 0
+    }
+  ]
+}

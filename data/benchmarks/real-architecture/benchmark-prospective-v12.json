@@ -1,0 +1,119 @@
+{
+  "schemaVersion": "1.0",
+  "builtAt": "2026-07-20T23:00:18.1725445Z",
+  "sealedAt": "2026-07-20T23:00:18.1725445Z",
+  "evaluationStatus": "prospective_holdout_sealed_before_first_inference",
+  "detectorSha256": "10da2309905204a569b9a7719299dbe3d9e2ded1dbda0e23fe3d129272196635",
+  "imageCount": 3,
+  "splitCounts": {
+    "prospective_holdout": 3
+  },
+  "providers": ["aws", "azure"],
+  "annotationProtocol": "Manual visual annotation of visible architectural components and flows without detector output. Augmentation distractors without architectural labels or connections were excluded.",
+  "entries": [
+    {
+      "id": "prospective-aws-sagemaker-lifecycle",
+      "provider": "aws",
+      "sourceGroup": "aws_auto_scaling_0001",
+      "split": "prospective_holdout",
+      "image": "dataset/kaggle_curated_unique/images/test/kaggle_aws_auto_scaling_0001_aug_9.png",
+      "imageSha256": "44bf726689e120600f8e7faea8f47cce78de162bf057f749f97118e0bef0e676",
+      "annotationStatus": "human_verified_pre_inference",
+      "components": [
+        {"id": "s3", "name": "Amazon S3", "type": "storage", "bboxNormalized": [0.045, 0.30, 0.19, 0.54]},
+        {"id": "lambda", "name": "AWS Lambda", "type": "compute", "bboxNormalized": [0.035, 0.10, 0.17, 0.265]},
+        {"id": "ground_truth", "name": "SageMaker Ground Truth", "type": "compute", "bboxNormalized": [0.35, 0.075, 0.50, 0.32]},
+        {"id": "training", "name": "SageMaker Training", "type": "compute", "bboxNormalized": [0.69, 0.07, 0.85, 0.29]},
+        {"id": "model_validation", "name": "SageMaker Model Validation", "type": "compute", "bboxNormalized": [0.70, 0.34, 0.86, 0.55]},
+        {"id": "model_endpoint", "name": "SageMaker Model Endpoint", "type": "compute", "bboxNormalized": [0.71, 0.60, 0.87, 0.84]}
+      ],
+      "flows": [
+        {"id": "ml-1", "from": "s3", "to": "lambda", "protocol": "unknown"},
+        {"id": "ml-2", "from": "lambda", "to": "ground_truth", "protocol": "unknown"},
+        {"id": "ml-3", "from": "ground_truth", "to": "training", "protocol": "unknown"},
+        {"id": "ml-4", "from": "training", "to": "model_validation", "protocol": "unknown"},
+        {"id": "ml-5", "from": "model_validation", "to": "model_endpoint", "protocol": "unknown"}
+      ],
+      "boundaries": []
+    },
+    {
+      "id": "prospective-aws-cqrs-events",
+      "provider": "aws",
+      "sourceGroup": "azure_databricks_0001",
+      "split": "prospective_holdout",
+      "image": "dataset/kaggle_curated_unique/images/test/kaggle_azure_databricks_0001_aug_4.png",
+      "imageSha256": "363665f3446c389dbad937e74697e808bffff2d0f299dde45c924a76757e6f3c",
+      "annotationStatus": "human_verified_pre_inference",
+      "components": [
+        {"id": "event_stream", "name": "Amazon Kinesis Data Streams", "type": "queue", "bboxNormalized": [0.15, 0.03, 0.30, 0.20]},
+        {"id": "event_store", "name": "Amazon S3 Event Store", "type": "storage", "bboxNormalized": [0.39, 0.03, 0.56, 0.20]},
+        {"id": "command_gateway", "name": "Command API Gateway", "type": "api_gateway", "bboxNormalized": [0.08, 0.41, 0.18, 0.55]},
+        {"id": "command_handler", "name": "Command Lambda", "type": "compute", "bboxNormalized": [0.08, 0.55, 0.21, 0.72]},
+        {"id": "command_db", "name": "Amazon DynamoDB", "type": "database", "bboxNormalized": [0.20, 0.73, 0.34, 0.91]},
+        {"id": "write_gateway", "name": "Write API Gateway", "type": "api_gateway", "bboxNormalized": [0.22, 0.28, 0.40, 0.52]},
+        {"id": "write_handler", "name": "Write Lambda", "type": "compute", "bboxNormalized": [0.26, 0.52, 0.42, 0.72]},
+        {"id": "query_gateway", "name": "Query API Gateway", "type": "api_gateway", "bboxNormalized": [0.47, 0.38, 0.61, 0.55]},
+        {"id": "query_handler", "name": "Query Lambda", "type": "compute", "bboxNormalized": [0.53, 0.50, 0.68, 0.72]},
+        {"id": "query_db", "name": "Amazon Aurora", "type": "database", "bboxNormalized": [0.50, 0.68, 0.68, 0.91]},
+        {"id": "service_gateway", "name": "Microservice API Gateway", "type": "api_gateway", "bboxNormalized": [0.66, 0.40, 0.79, 0.56]},
+        {"id": "service_handler", "name": "Microservice Lambda", "type": "compute", "bboxNormalized": [0.67, 0.57, 0.79, 0.76]},
+        {"id": "process_store", "name": "Process Event Store", "type": "database", "bboxNormalized": [0.62, 0.67, 0.75, 0.88]}
+      ],
+      "flows": [
+        {"id": "cqrs-1", "from": "command_gateway", "to": "command_handler", "protocol": "HTTPS"},
+        {"id": "cqrs-2", "from": "command_handler", "to": "command_db", "protocol": "unknown"},
+        {"id": "cqrs-3", "from": "write_gateway", "to": "write_handler", "protocol": "HTTPS"},
+        {"id": "cqrs-4", "from": "write_handler", "to": "event_stream", "protocol": "unknown"},
+        {"id": "cqrs-5", "from": "event_stream", "to": "event_store", "protocol": "unknown"},
+        {"id": "cqrs-6", "from": "query_gateway", "to": "query_handler", "protocol": "HTTPS"},
+        {"id": "cqrs-7", "from": "query_handler", "to": "query_db", "protocol": "unknown"},
+        {"id": "cqrs-8", "from": "service_gateway", "to": "service_handler", "protocol": "HTTPS"},
+        {"id": "cqrs-9", "from": "service_handler", "to": "process_store", "protocol": "unknown"}
+      ],
+      "boundaries": []
+    },
+    {
+      "id": "prospective-azure-aks-microservices",
+      "provider": "azure",
+      "sourceGroup": "gcp_pubsub_0006",
+      "split": "prospective_holdout",
+      "image": "dataset/kaggle_curated_unique/images/test/kaggle_gcp_pubsub_0006_aug_6.png",
+      "imageSha256": "47c7b230e0bf3065eaac21aef851525df8628a3bf6e6a0d556c518af43b259ed",
+      "annotationStatus": "human_verified_pre_inference",
+      "components": [
+        {"id": "public_ip", "name": "Public IP Address", "type": "internet", "bboxNormalized": [0.28, 0.08, 0.38, 0.23]},
+        {"id": "load_balancer", "name": "Azure Load Balancer", "type": "load_balancer", "bboxNormalized": [0.29, 0.27, 0.38, 0.41]},
+        {"id": "pipelines", "name": "Azure Pipelines", "type": "compute", "bboxNormalized": [0.16, 0.43, 0.25, 0.60]},
+        {"id": "registry", "name": "Container Registry", "type": "storage", "bboxNormalized": [0.29, 0.51, 0.38, 0.66]},
+        {"id": "aks", "name": "Azure Kubernetes Service", "type": "compute", "bboxNormalized": [0.41, 0.18, 0.82, 0.59]},
+        {"id": "cosmos_mongo", "name": "Azure Cosmos DB for MongoDB", "type": "database", "bboxNormalized": [0.88, 0.22, 0.97, 0.36]},
+        {"id": "cosmos", "name": "Azure Cosmos DB", "type": "database", "bboxNormalized": [0.88, 0.36, 0.97, 0.49]},
+        {"id": "redis", "name": "Azure Cache for Redis", "type": "database", "bboxNormalized": [0.88, 0.48, 0.97, 0.61]},
+        {"id": "service_bus", "name": "Azure Service Bus", "type": "queue", "bboxNormalized": [0.88, 0.60, 0.97, 0.74]},
+        {"id": "entra", "name": "Microsoft Entra ID", "type": "identity_provider", "bboxNormalized": [0.43, 0.68, 0.52, 0.86]},
+        {"id": "log_analytics", "name": "Log Analytics Workspace", "type": "monitoring", "bboxNormalized": [0.53, 0.67, 0.61, 0.84]},
+        {"id": "insights", "name": "Application Insights", "type": "monitoring", "bboxNormalized": [0.62, 0.67, 0.69, 0.85]},
+        {"id": "key_vault", "name": "Azure Key Vault", "type": "secrets_kms", "bboxNormalized": [0.68, 0.67, 0.76, 0.84]},
+        {"id": "monitor", "name": "Azure Monitor", "type": "monitoring", "bboxNormalized": [0.75, 0.67, 0.83, 0.85]}
+      ],
+      "flows": [
+        {"id": "aks-1", "from": "public_ip", "to": "load_balancer", "protocol": "HTTPS"},
+        {"id": "aks-2", "from": "load_balancer", "to": "aks", "protocol": "HTTPS"},
+        {"id": "aks-3", "from": "pipelines", "to": "registry", "protocol": "unknown"},
+        {"id": "aks-4", "from": "registry", "to": "aks", "protocol": "unknown"},
+        {"id": "aks-5", "from": "aks", "to": "cosmos_mongo", "protocol": "unknown"},
+        {"id": "aks-6", "from": "aks", "to": "cosmos", "protocol": "unknown"},
+        {"id": "aks-7", "from": "aks", "to": "redis", "protocol": "unknown"},
+        {"id": "aks-8", "from": "aks", "to": "service_bus", "protocol": "unknown"},
+        {"id": "aks-9", "from": "entra", "to": "aks", "protocol": "unknown"},
+        {"id": "aks-10", "from": "aks", "to": "log_analytics", "protocol": "unknown"},
+        {"id": "aks-11", "from": "aks", "to": "insights", "protocol": "unknown"},
+        {"id": "aks-12", "from": "aks", "to": "key_vault", "protocol": "unknown"},
+        {"id": "aks-13", "from": "aks", "to": "monitor", "protocol": "unknown"}
+      ],
+      "boundaries": [
+        {"id": "aks-cluster", "name": "Azure Kubernetes cluster", "componentIds": ["aks"]}
+      ]
+    }
+  ]
+}

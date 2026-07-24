@@ -1,0 +1,660 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ThreatLens - Revisao TL-004</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f5f7f8;
+      --surface: #ffffff;
+      --surface-muted: #eef2f3;
+      --line: #cbd5d8;
+      --line-strong: #8fa0a5;
+      --text: #162126;
+      --muted: #596a70;
+      --teal: #087f72;
+      --teal-dark: #075f56;
+      --red: #b42318;
+      --amber: #a15c00;
+      --green: #237a45;
+      --purple: #6d42a6;
+      --focus: #136f9a;
+      font-family: Inter, "Segoe UI", Arial, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--text); }
+    button, input, select, textarea { font: inherit; letter-spacing: 0; }
+    button { cursor: pointer; }
+    .topbar {
+      min-height: 64px;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      padding: 10px 22px;
+      background: #17272d;
+      color: #fff;
+      border-bottom: 3px solid var(--teal);
+    }
+    .brand { min-width: 230px; }
+    .brand strong { display: block; font-size: 17px; }
+    .brand span { color: #c7d5d8; font-size: 12px; }
+    .progress-wrap { flex: 1; min-width: 140px; }
+    .progress-label { display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 5px; }
+    .progress-track { height: 8px; background: #41545b; overflow: hidden; }
+    .progress-bar { height: 100%; width: 0; background: #4fd1bd; transition: width 180ms ease; }
+    .command {
+      min-height: 38px;
+      padding: 8px 13px;
+      border: 1px solid #6b8087;
+      background: transparent;
+      color: #fff;
+      border-radius: 4px;
+      font-weight: 650;
+    }
+    .command.primary { background: var(--teal); border-color: var(--teal); }
+    .command:hover { border-color: #fff; }
+    .command-wrap { display: grid; justify-items: end; gap: 4px; }
+    .command-actions { display: flex; gap: 7px; }
+    .export-status { min-height: 14px; max-width: 330px; color: #c7d5d8; font-size: 11px; text-align: right; }
+    .layout { display: grid; grid-template-columns: 280px minmax(0, 1fr); min-height: calc(100vh - 64px); }
+    .case-nav { background: var(--surface); border-right: 1px solid var(--line); overflow-y: auto; }
+    .nav-heading {
+      position: sticky;
+      top: 0;
+      z-index: 2;
+      padding: 13px 15px 9px;
+      background: var(--surface);
+      border-bottom: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .case-button {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 34px minmax(0, 1fr) 10px;
+      gap: 9px;
+      align-items: center;
+      padding: 10px 14px;
+      border: 0;
+      border-bottom: 1px solid #e5eaec;
+      background: #fff;
+      color: var(--text);
+      text-align: left;
+    }
+    .case-button:hover { background: #f0f6f5; }
+    .case-button.active { background: #e4f2f0; box-shadow: inset 4px 0 var(--teal); }
+    .case-code { font-weight: 800; color: var(--muted); }
+    .case-copy { min-width: 0; }
+    .case-copy strong { display: block; font-size: 13px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .case-copy span { display: block; margin-top: 3px; color: var(--muted); font-size: 11px; }
+    .status-dot { width: 9px; height: 9px; border-radius: 50%; background: #aab7bb; }
+    .case-button.complete .status-dot { background: var(--green); }
+    .main { min-width: 0; }
+    .case-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 18px 22px 14px;
+      background: var(--surface);
+      border-bottom: 1px solid var(--line);
+    }
+    .case-header h1 { margin: 0 0 6px; font-size: 22px; line-height: 1.2; }
+    .meta { color: var(--muted); font-size: 12px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 10px; }
+    .tag { padding: 3px 6px; border: 1px solid var(--line); border-radius: 3px; background: #f8fafb; font-size: 11px; }
+    .tag.error { color: var(--red); border-color: #e5a59f; background: #fff4f2; }
+    .tag.control { color: var(--green); border-color: #99c6a9; background: #effaf2; }
+    .source-link { color: var(--focus); font-size: 12px; font-weight: 650; text-decoration: none; white-space: nowrap; }
+    .workspace { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(350px, 0.75fr); align-items: start; }
+    .evidence { min-width: 0; padding: 18px 22px 24px; }
+    .review { min-width: 0; padding: 18px 20px 26px; border-left: 1px solid var(--line); background: #fbfcfc; }
+    .visual {
+      width: 100%;
+      min-height: 300px;
+      max-height: 68vh;
+      object-fit: contain;
+      object-position: center;
+      background: #e8edef;
+      border: 1px solid var(--line-strong);
+    }
+    .legend { display: flex; flex-wrap: wrap; gap: 12px; margin: 8px 0 18px; color: var(--muted); font-size: 11px; }
+    .legend span::before { content: ""; display: inline-block; width: 16px; height: 4px; margin-right: 5px; vertical-align: 2px; background: currentColor; }
+    .legend .pred { color: #c62828; }
+    .legend .target { color: #e65100; }
+    .legend .through { color: #7c3aed; }
+    .legend .expected { color: #087f5b; }
+    .section-title { margin: 18px 0 8px; font-size: 13px; text-transform: uppercase; color: #42545a; }
+    .flow-table { width: 100%; border-collapse: collapse; table-layout: fixed; font-size: 12px; }
+    .flow-table th, .flow-table td { padding: 8px; border: 1px solid var(--line); vertical-align: top; overflow-wrap: anywhere; }
+    .flow-table th { background: var(--surface-muted); text-align: left; }
+    .components { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 7px; }
+    .component { border-left: 4px solid var(--focus); padding: 7px 9px; background: var(--surface); font-size: 12px; }
+    .component.traversed { border-left-color: var(--purple); }
+    .component span { display: block; color: var(--muted); margin-top: 2px; }
+    fieldset { margin: 0 0 15px; padding: 0; border: 0; }
+    legend, label.field-label { display: block; margin-bottom: 7px; color: #34474e; font-size: 12px; font-weight: 750; }
+    select, textarea, input[type="text"] {
+      width: 100%;
+      border: 1px solid var(--line-strong);
+      border-radius: 3px;
+      background: #fff;
+      color: var(--text);
+      padding: 9px 10px;
+    }
+    textarea { min-height: 82px; resize: vertical; }
+    select:focus, textarea:focus, input:focus, button:focus-visible { outline: 3px solid rgba(19, 111, 154, 0.25); outline-offset: 1px; }
+    .segments { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border: 1px solid var(--line-strong); }
+    .segments label { position: relative; min-width: 0; }
+    .segments label + label { border-left: 1px solid var(--line); }
+    .segments input { position: absolute; opacity: 0; pointer-events: none; }
+    .segments span { display: block; min-height: 38px; padding: 9px 5px; text-align: center; font-size: 11px; background: #fff; overflow-wrap: anywhere; }
+    .segments input:checked + span { background: #dcefeb; color: var(--teal-dark); box-shadow: inset 0 -3px var(--teal); font-weight: 750; }
+    .checks { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 10px; }
+    .checks label { display: grid; grid-template-columns: 18px 1fr; align-items: start; gap: 6px; font-size: 11px; }
+    .checks input { margin: 2px 0 0; }
+    .hypotheses { margin: 0; padding-left: 18px; color: var(--muted); font-size: 12px; }
+    .hypotheses li { margin: 4px 0; overflow-wrap: anywhere; }
+    .review-actions { display: flex; justify-content: space-between; gap: 8px; padding-top: 4px; }
+    .review-actions button { min-height: 38px; padding: 8px 12px; border: 1px solid var(--line-strong); border-radius: 3px; background: #fff; color: var(--text); font-weight: 700; }
+    .review-actions .next { background: var(--teal); border-color: var(--teal); color: #fff; }
+    .batch-assessment { padding: 22px; border-top: 3px solid var(--amber); background: #fffaf1; }
+    .batch-assessment h2 { margin: 0 0 14px; font-size: 18px; }
+    .assessment-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 15px 22px; }
+    .submission-actions { display: flex; align-items: center; justify-content: flex-end; gap: 12px; margin-top: 16px; padding-top: 15px; border-top: 1px solid #d7c9ac; }
+    .submission-actions button { min-height: 42px; padding: 9px 16px; border: 1px solid var(--teal); border-radius: 4px; background: var(--teal); color: #fff; font-weight: 750; }
+    .submission-status { min-height: 16px; color: var(--muted); font-size: 12px; text-align: right; overflow-wrap: anywhere; }
+    .full { grid-column: 1 / -1; }
+    .footer { padding: 12px 22px 24px; color: var(--muted); font-size: 11px; background: #fffaf1; }
+    .json-recovery { padding: 18px 22px; border-top: 1px solid var(--line); background: var(--surface); }
+    .json-recovery textarea { min-height: 220px; font-family: Consolas, "Courier New", monospace; font-size: 11px; }
+    @media (max-width: 1050px) {
+      .workspace { grid-template-columns: 1fr; }
+      .review { border-left: 0; border-top: 1px solid var(--line); }
+    }
+    @media (max-width: 760px) {
+      .topbar { align-items: stretch; flex-wrap: wrap; }
+      .brand { min-width: 0; flex: 1; }
+      .progress-wrap { order: 3; flex-basis: 100%; }
+      .command-wrap { justify-items: stretch; }
+      .command-actions { flex-wrap: wrap; }
+      .export-status { max-width: none; text-align: left; }
+      .layout { display: block; }
+      .case-nav { display: flex; overflow-x: auto; border-right: 0; border-bottom: 1px solid var(--line); }
+      .nav-heading { display: none; }
+      .case-button { min-width: 190px; border-right: 1px solid var(--line); }
+      .case-header { padding: 14px; }
+      .case-header h1 { font-size: 18px; }
+      .evidence, .review, .batch-assessment { padding: 14px; }
+      .visual { min-height: 220px; max-height: 52vh; }
+      .checks, .assessment-grid { grid-template-columns: 1fr; }
+      .submission-actions { align-items: stretch; flex-direction: column; }
+      .submission-status { text-align: left; }
+      .segments span { font-size: 10px; }
+      .full { grid-column: auto; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <strong>ThreatLens | Revisao TL-004</strong>
+      <span id="batch-label"></span>
+    </div>
+    <div class="progress-wrap">
+      <div class="progress-label"><span>Progresso</span><span id="progress-text">0/0</span></div>
+      <div class="progress-track"><div class="progress-bar" id="progress-bar"></div></div>
+    </div>
+    <div class="command-wrap">
+      <div class="command-actions">
+        <button class="command" id="send-button" type="button">Enviar ao projeto</button>
+        <button class="command" id="copy-button" type="button">Copiar JSON</button>
+        <button class="command primary" id="export-button" type="button">Exportar JSON</button>
+      </div>
+      <span class="export-status" id="export-status" role="status" aria-live="polite"></span>
+    </div>
+  </header>
+
+  <div class="layout">
+    <nav class="case-nav" id="case-nav" aria-label="Casos de revisao">
+      <div class="nav-heading">Lote inicial</div>
+    </nav>
+    <main class="main">
+      <section class="case-header">
+        <div>
+          <h1 id="case-title"></h1>
+          <div class="meta" id="case-meta"></div>
+          <div class="tags" id="case-tags"></div>
+        </div>
+        <a class="source-link" id="source-link" target="_blank" rel="noreferrer">Abrir imagem original</a>
+      </section>
+
+      <div class="workspace">
+        <section class="evidence">
+          <img class="visual" id="case-image" alt="Recorte anotado do caso">
+          <div class="legend">
+            <span class="pred">origem e caminho previsto</span>
+            <span class="target">destino previsto</span>
+            <span class="through">componente atravessado</span>
+            <span class="expected">relacao esperada sem caminho detectado</span>
+          </div>
+          <h2 class="section-title">Fluxos e evidencias</h2>
+          <div id="flow-content"></div>
+          <h2 class="section-title">Componentes envolvidos</h2>
+          <div class="components" id="component-content"></div>
+        </section>
+
+        <form class="review" id="review-form">
+          <h2 class="section-title">Hipoteses automaticas</h2>
+          <ul class="hypotheses" id="hypotheses"></ul>
+
+          <fieldset>
+            <legend>Decisao humana</legend>
+            <div class="segments" data-field="decision">
+              <label><input type="radio" name="decision" value="confirmed_false_positive"><span>Falso fluxo</span></label>
+              <label><input type="radio" name="decision" value="valid_connection"><span>Conexao valida</span></label>
+              <label><input type="radio" name="decision" value="ambiguous"><span>Ambiguo</span></label>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <label class="field-label" for="primary-cause">Causa principal</label>
+            <select id="primary-cause" name="primaryCause"></select>
+          </fieldset>
+
+          <fieldset>
+            <legend>Causas contribuintes</legend>
+            <div class="checks" id="contributing-causes"></div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Escopo da TL-004</legend>
+            <div class="segments" data-field="tl004Scope">
+              <label><input type="radio" name="tl004Scope" value="inside"><span>Dentro</span></label>
+              <label><input type="radio" name="tl004Scope" value="partial"><span>Parcial</span></label>
+              <label><input type="radio" name="tl004Scope" value="outside"><span>Fora</span></label>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Confianca da revisao</legend>
+            <div class="segments" data-field="confidence">
+              <label><input type="radio" name="confidence" value="low"><span>Baixa</span></label>
+              <label><input type="radio" name="confidence" value="medium"><span>Media</span></label>
+              <label><input type="radio" name="confidence" value="high"><span>Alta</span></label>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <label class="field-label" for="new-category">Nova categoria, se houver</label>
+            <input id="new-category" name="newCategory" type="text" autocomplete="off">
+          </fieldset>
+
+          <fieldset>
+            <label class="field-label" for="observations">Observacoes</label>
+            <textarea id="observations" name="observations"></textarea>
+          </fieldset>
+
+          <fieldset>
+            <label class="field-label" for="correction">Correcao estrutural esperada</label>
+            <textarea id="correction" name="expectedStructuralCorrection"></textarea>
+          </fieldset>
+
+          <div class="review-actions">
+            <button type="button" id="previous-button">Anterior</button>
+            <button class="next" type="button" id="next-button">Proximo caso</button>
+          </div>
+        </form>
+      </div>
+
+      <section class="batch-assessment">
+        <h2>Avaliacao do lote</h2>
+        <div class="assessment-grid">
+          <fieldset>
+            <label class="field-label" for="reviewer">Revisor ou revisora</label>
+            <input id="reviewer" data-assessment="reviewer" type="text" autocomplete="name">
+          </fieldset>
+          <fieldset>
+            <label class="field-label" for="new-causes-found">Surgiram novas causas relevantes?</label>
+            <select id="new-causes-found" data-assessment="newRelevantCategoriesFound">
+              <option value="">Selecione</option>
+              <option value="true">Sim</option>
+              <option value="false">Nao</option>
+            </select>
+          </fieldset>
+          <fieldset class="full">
+            <label class="field-label" for="new-causes">Novas categorias encontradas</label>
+            <textarea id="new-causes" data-assessment="newCategories"></textarea>
+          </fieldset>
+          <fieldset>
+            <label class="field-label" for="coverage-gaps">Categorias que precisam de mais exemplos</label>
+            <textarea id="coverage-gaps" data-assessment="categoriesNeedingMoreExamples"></textarea>
+          </fieldset>
+          <fieldset>
+            <label class="field-label" for="distinction-resolved">Foi possivel distinguir erros de conexoes validas?</label>
+            <select id="distinction-resolved" data-assessment="validInvalidDistinctionResolved">
+              <option value="">Selecione</option>
+              <option value="true">Sim</option>
+              <option value="false">Nao</option>
+            </select>
+          </fieldset>
+          <fieldset class="full">
+            <label class="field-label" for="batch-observations">Observacoes do lote</label>
+            <textarea id="batch-observations" data-assessment="observations"></textarea>
+          </fieldset>
+        </div>
+        <div class="submission-actions">
+          <span class="submission-status" id="assessment-submit-status" role="status" aria-live="polite"></span>
+          <button id="assessment-send-button" type="button">Enviar revisao ao projeto</button>
+        </div>
+      </section>
+      <section class="json-recovery" id="json-recovery" hidden>
+        <label class="field-label" for="json-recovery-text">JSON da revisao para copia manual</label>
+        <textarea id="json-recovery-text" readonly></textarea>
+      </section>
+      <footer class="footer" id="footer-copy"></footer>
+    </main>
+  </div>
+
+  <script>
+    const BATCH = __BATCH_DATA__;
+    const reviewNamespace = new URLSearchParams(window.location.search).get("namespace") || "human";
+    const STORAGE_KEY = `threatlens-review:${BATCH.batchId}:${BATCH.schemaVersion}:${reviewNamespace}`;
+    const ROOT_PREFIX = "../../../../";
+    const defaultResponses = Object.fromEntries(
+      BATCH.cases.map((item) => [item.caseId, structuredClone(item.humanReview)])
+    );
+    let state = loadState();
+    let activeIndex = 0;
+
+    function loadState() {
+      try {
+        const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || "null");
+        if (!saved) throw new Error("empty");
+        return {
+          responses: { ...defaultResponses, ...(saved.responses || {}) },
+          batchAssessment: { ...BATCH.batchAssessment, ...(saved.batchAssessment || {}) },
+        };
+      } catch (_) {
+        return { responses: defaultResponses, batchAssessment: structuredClone(BATCH.batchAssessment) };
+      }
+    }
+
+    function saveState() {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+      renderNavigation();
+      renderProgress();
+    }
+
+    function escapeHtml(value) {
+      return String(value ?? "")
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;");
+    }
+
+    function isComplete(response) {
+      return Boolean(response.decision && response.primaryCause && response.tl004Scope && response.confidence);
+    }
+
+    function renderNavigation() {
+      const nav = document.getElementById("case-nav");
+      nav.querySelectorAll(".case-button").forEach((item) => item.remove());
+      BATCH.cases.forEach((item, index) => {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = `case-button${index === activeIndex ? " active" : ""}${isComplete(state.responses[item.caseId]) ? " complete" : ""}`;
+        button.innerHTML = `
+          <span class="case-code">${escapeHtml(item.caseId)}</span>
+          <span class="case-copy"><strong>${escapeHtml(item.title)}</strong><span>${escapeHtml(item.imageId)}</span></span>
+          <span class="status-dot" aria-hidden="true"></span>`;
+        button.addEventListener("click", () => selectCase(index));
+        nav.appendChild(button);
+      });
+    }
+
+    function renderProgress() {
+      const complete = BATCH.cases.filter((item) => isComplete(state.responses[item.caseId])).length;
+      const percent = Math.round((complete / BATCH.cases.length) * 100);
+      document.getElementById("progress-text").textContent = `${complete}/${BATCH.cases.length}`;
+      document.getElementById("progress-bar").style.width = `${percent}%`;
+    }
+
+    function pathText(path) {
+      if (!path || !path.length) return "sem caminho detectado";
+      return path.map((point) => `(${point[0]}, ${point[1]})`).join(" -> ");
+    }
+
+    function renderFlows(item) {
+      const rows = item.records.map((record) => `
+        <tr>
+          <td>${escapeHtml(record.predictedFlowText)}</td>
+          <td>${escapeHtml(record.expectedFlowText)}</td>
+          <td>${escapeHtml(record.evidence || "nao disponivel")}</td>
+          <td>${escapeHtml(pathText(record.detectedPath))}</td>
+          <td>${escapeHtml(record.componentsTraversedByPath.join(", ") || "nenhum")}</td>
+        </tr>`).join("");
+      document.getElementById("flow-content").innerHTML = `
+        <table class="flow-table">
+          <thead><tr><th>Previsto</th><th>Esperado</th><th>Evidencia</th><th>Caminho</th><th>Atravessados</th></tr></thead>
+          <tbody>${rows}</tbody>
+        </table>`;
+    }
+
+    function renderComponents(item) {
+      document.getElementById("component-content").innerHTML = item.components.map((component) => `
+        <div class="component ${escapeHtml(component.role)}">
+          <strong>${escapeHtml(component.id)}</strong>
+          <span>${escapeHtml(component.name)} | ${escapeHtml(component.type)}</span>
+        </div>`).join("");
+    }
+
+    function fillForm(item) {
+      const response = state.responses[item.caseId];
+      document.querySelectorAll('#review-form input[type="radio"]').forEach((input) => {
+        input.checked = response[input.name] === input.value;
+      });
+      document.getElementById("primary-cause").value = response.primaryCause || "";
+      document.querySelectorAll('#contributing-causes input[type="checkbox"]').forEach((input) => {
+        input.checked = (response.contributingCauses || []).includes(input.value);
+      });
+      document.getElementById("new-category").value = response.newCategory || "";
+      document.getElementById("observations").value = response.observations || "";
+      document.getElementById("correction").value = response.expectedStructuralCorrection || "";
+    }
+
+    function renderCase() {
+      const item = BATCH.cases[activeIndex];
+      document.getElementById("case-title").textContent = `${item.caseId} | ${item.title}`;
+      document.getElementById("case-meta").textContent = `${item.group === "error" ? "Erro amostral" : "Controle valido"} | ${item.provider} | densidade ${item.densityStratum}`;
+      document.getElementById("case-tags").innerHTML = [item.group, ...item.focus].map((tag, index) =>
+        `<span class="tag ${index === 0 ? item.group : ""}">${escapeHtml(tag)}</span>`
+      ).join("");
+      document.getElementById("case-image").src = item.visualization;
+      document.getElementById("case-image").alt = `Recorte anotado ${item.caseId}: ${item.title}`;
+      document.getElementById("source-link").href = ROOT_PREFIX + item.sourceImage;
+      document.getElementById("hypotheses").innerHTML = (item.automaticHypotheses.length ? item.automaticHypotheses : ["nenhum rotulo automatico"]) 
+        .map((label) => `<li>${escapeHtml(label)}</li>`).join("");
+      renderFlows(item);
+      renderComponents(item);
+      fillForm(item);
+      document.getElementById("previous-button").disabled = activeIndex === 0;
+      document.getElementById("next-button").textContent = activeIndex === BATCH.cases.length - 1 ? "Ir para avaliacao" : "Proximo caso";
+      renderNavigation();
+    }
+
+    function selectCase(index) {
+      activeIndex = Math.max(0, Math.min(BATCH.cases.length - 1, index));
+      renderCase();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function updateCurrentResponse(event) {
+      const item = BATCH.cases[activeIndex];
+      const response = state.responses[item.caseId];
+      const target = event.target;
+      if (target.type === "checkbox") {
+        response.contributingCauses = Array.from(
+          document.querySelectorAll('#contributing-causes input[type="checkbox"]:checked')
+        ).map((input) => input.value);
+      } else if (target.name) {
+        response[target.name] = target.value || null;
+      }
+      response.reviewedAt = new Date().toISOString();
+      saveState();
+    }
+
+    function renderCauseControls() {
+      const select = document.getElementById("primary-cause");
+      select.innerHTML = '<option value="">Selecione</option>' + BATCH.causeOptions.map((item) =>
+        `<option value="${escapeHtml(item.value)}">${escapeHtml(item.label)}</option>`
+      ).join("");
+      document.getElementById("contributing-causes").innerHTML = BATCH.causeOptions
+        .filter((item) => !["new_category", "inconclusive"].includes(item.value))
+        .map((item) => `<label><input type="checkbox" value="${escapeHtml(item.value)}"><span>${escapeHtml(item.label)}</span></label>`)
+        .join("");
+    }
+
+    function renderAssessment() {
+      document.querySelectorAll("[data-assessment]").forEach((field) => {
+        const key = field.dataset.assessment;
+        const value = state.batchAssessment[key];
+        field.value = typeof value === "boolean" ? String(value) : (value || "");
+        field.addEventListener("input", () => {
+          if (field.value === "true" || field.value === "false") {
+            state.batchAssessment[key] = field.value === "true";
+          } else {
+            state.batchAssessment[key] = field.value || null;
+          }
+          saveState();
+        });
+      });
+    }
+
+    function recommendation() {
+      const responses = Object.values(state.responses);
+      const incomplete = responses.filter((item) => !isComplete(item)).length;
+      const ambiguous = responses.filter((item) => item.decision === "ambiguous" || item.primaryCause === "inconclusive").length;
+      const newCategoryCases = responses.filter((item) => item.primaryCause === "new_category" || item.newCategory).length;
+      if (incomplete) return { action: "complete_current_batch", reason: `${incomplete} casos incompletos` };
+      if (
+        state.batchAssessment.newRelevantCategoriesFound === true ||
+        state.batchAssessment.validInvalidDistinctionResolved === false ||
+        ambiguous > 0 ||
+        newCategoryCases > 0 ||
+        state.batchAssessment.categoriesNeedingMoreExamples
+      ) {
+        return { action: "generate_batch_02", reason: "Ha ambiguidade, nova categoria ou lacuna de cobertura." };
+      }
+      return { action: "no_new_category_streak_1", reason: "Primeiro lote sem nova causa relevante; ainda falta um segundo lote consecutivo para encerrar." };
+    }
+
+    function reviewPayload() {
+      return {
+        schemaVersion: "1.0",
+        batchId: BATCH.batchId,
+        sourceManifest: "review-manifest.json",
+        exportedAt: new Date().toISOString(),
+        split: BATCH.split,
+        responses: BATCH.cases.map((item) => ({
+          caseId: item.caseId,
+          group: item.group,
+          imageId: item.imageId,
+          recordIds: item.records.map((record) => record.inventoryId),
+          review: state.responses[item.caseId],
+        })),
+        batchAssessment: { ...state.batchAssessment, completedAt: new Date().toISOString() },
+        nextStepRecommendation: recommendation(),
+      };
+    }
+
+    function setExportStatus(message) {
+      document.getElementById("export-status").textContent = message;
+      document.getElementById("assessment-submit-status").textContent = message;
+    }
+
+    function exportReview() {
+      const fileName = `${BATCH.batchId}-review-result.json`;
+      const blob = new Blob([JSON.stringify(reviewPayload(), null, 2)], { type: "application/json" });
+      const url = URL.createObjectURL(blob);
+      const anchor = document.createElement("a");
+      anchor.href = url;
+      anchor.download = fileName;
+      anchor.click();
+      URL.revokeObjectURL(url);
+      setExportStatus(`Arquivo enviado para Downloads: ${fileName}`);
+    }
+
+    async function copyReview() {
+      const text = JSON.stringify(reviewPayload(), null, 2);
+      try {
+        if (!navigator.clipboard) throw new Error("clipboard unavailable");
+        await navigator.clipboard.writeText(text);
+        setExportStatus("JSON copiado. Cole-o na conversa ou em um arquivo.");
+      } catch (_) {
+        const recovery = document.getElementById("json-recovery");
+        const output = document.getElementById("json-recovery-text");
+        recovery.hidden = false;
+        output.value = text;
+        output.focus();
+        output.select();
+        let copied = false;
+        try { copied = document.execCommand("copy"); } catch (_) { copied = false; }
+        setExportStatus(copied ? "JSON copiado." : "Selecione e copie o JSON exibido ao final da pagina.");
+        recovery.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }
+
+    async function sendReview() {
+      const buttons = [
+        document.getElementById("send-button"),
+        document.getElementById("assessment-send-button"),
+      ];
+      const endpoint = location.protocol === "file:"
+        ? "http://127.0.0.1:8000/reviews/tl004"
+        : "/api/reviews/tl004";
+      buttons.forEach((button) => { button.disabled = true; });
+      setExportStatus("Enviando e validando a revisao...");
+      try {
+        const response = await fetch(endpoint, {
+          method: "POST",
+          headers: { "Content-Type": "text/plain;charset=UTF-8" },
+          body: JSON.stringify({
+            submissionToken: BATCH.submissionToken,
+            review: reviewPayload(),
+          }),
+        });
+        const result = await response.json();
+        if (!response.ok) throw new Error(result.detail || `Falha HTTP ${response.status}`);
+        setExportStatus(`Enviado: ${result.artifact} | ${result.completedCaseCount} casos`);
+      } catch (error) {
+        setExportStatus(`Envio falhou: ${error.message}. Use Copiar JSON como alternativa.`);
+      } finally {
+        buttons.forEach((button) => { button.disabled = false; });
+      }
+    }
+
+    renderCauseControls();
+    renderAssessment();
+    document.getElementById("batch-label").textContent = `${BATCH.batchId} | ${BATCH.split}`;
+    document.getElementById("footer-copy").textContent = BATCH.selectionPolicy.stopRule;
+    document.getElementById("review-form").addEventListener("input", updateCurrentResponse);
+    document.getElementById("previous-button").addEventListener("click", () => selectCase(activeIndex - 1));
+    document.getElementById("next-button").addEventListener("click", () => {
+      if (activeIndex < BATCH.cases.length - 1) selectCase(activeIndex + 1);
+      else document.querySelector(".batch-assessment").scrollIntoView({ behavior: "smooth" });
+    });
+    document.getElementById("export-button").addEventListener("click", exportReview);
+    document.getElementById("copy-button").addEventListener("click", copyReview);
+    document.getElementById("send-button").addEventListener("click", sendReview);
+    document.getElementById("assessment-send-button").addEventListener("click", sendReview);
+    renderProgress();
+    renderCase();
+  </script>
+</body>
+</html>

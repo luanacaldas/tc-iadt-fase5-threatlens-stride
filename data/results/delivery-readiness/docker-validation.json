@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "1.0",
+  "generatedAt": "2026-07-21T22:35:57.615569+00:00",
+  "status": "BLOCKED",
+  "dockerCommandAvailable": true,
+  "buildExecuted": false,
+  "composeExecuted": false,
+  "healthValidated": false,
+  "detail": "Docker CLI unavailable; Docker Desktop installation could not complete because WSL is not installed and wsl --install was rejected by the host environment. Docker build and Compose were not executed.",
+  "packagingChecks": {
+    "dockerfilePresent": true,
+    "composePresent": true,
+    "defaultStrategyLegacy": true,
+    "healthcheckUsesLightEndpoint": true
+  }
+}

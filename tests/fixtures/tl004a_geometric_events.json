@@ -1,0 +1,122 @@
+{
+  "schemaVersion": "1.0",
+  "parameters": {
+    "scale": 1.0,
+    "lineWidth": 1.0
+  },
+  "fixtures": [
+    {
+      "id": "straight_line",
+      "title": "Linha reta fragmentada em dois segmentos",
+      "segments": [[0, 10, 10, 10], [10, 10, 20, 10]],
+      "expected": {"required": {"continuation": 1, "endpoint": 2}}
+    },
+    {
+      "id": "elbow",
+      "title": "Cotovelo ortogonal",
+      "segments": [[0, 10, 10, 10], [10, 10, 10, 20]],
+      "expected": {"required": {"elbow": 1, "endpoint": 2}}
+    },
+    {
+      "id": "x_without_junction",
+      "title": "Cruzamento em X sem marcador de junção",
+      "segments": [[0, 0, 20, 20], [0, 20, 20, 0]],
+      "expected": {"required": {"crossing": 1}, "forbidden": ["explicit_junction"]}
+    },
+    {
+      "id": "x_with_explicit_junction",
+      "title": "Cruzamento em X com marcador explícito",
+      "segments": [[0, 0, 20, 20], [0, 20, 20, 0]],
+      "explicitJunctions": [{"center": [10, 10], "radius": 2, "provenance": "fixture_dot"}],
+      "expected": {"required": {"explicit_junction": 1}, "forbidden": ["crossing"]}
+    },
+    {
+      "id": "t_bifurcation",
+      "title": "Bifurcação em T",
+      "segments": [
+        {"id": "t-left", "start": [0, 10], "end": [10, 10], "provenance": "fixture"},
+        {"id": "t-right", "start": [10, 10], "end": [20, 10], "provenance": "fixture"},
+        {"id": "t-down", "start": [10, 10], "end": [10, 20], "provenance": "fixture"}
+      ],
+      "expected": {"required": {"bifurcation": 1, "endpoint": 3}}
+    },
+    {
+      "id": "y_bifurcation",
+      "title": "Bifurcação em Y",
+      "segments": [[10, 10, 0, 0], [10, 10, 20, 0], [10, 10, 10, 20]],
+      "expected": {"required": {"bifurcation": 1, "endpoint": 3}}
+    },
+    {
+      "id": "parallel_lines",
+      "title": "Linhas paralelas independentes",
+      "segments": [[0, 0, 20, 0], [0, 6, 20, 6]],
+      "expected": {
+        "required": {"endpoint": 4},
+        "forbidden": ["continuation", "elbow", "crossing", "explicit_junction", "bifurcation"]
+      }
+    },
+    {
+      "id": "endpoint_touching_component",
+      "title": "Endpoint tocando a borda de componente",
+      "segments": [[0, 5, 10, 5]],
+      "components": [{"id": "component-a", "bbox": [10, 0, 20, 10]}],
+      "expected": {"required": {"component_port": 1}}
+    },
+    {
+      "id": "endpoint_near_component",
+      "title": "Endpoint próximo sem contato",
+      "segments": [[0, 5, 8, 5]],
+      "components": [{"id": "component-a", "bbox": [10, 0, 20, 10]}],
+      "expected": {"forbidden": ["component_port", "component_boundary_intersection"]}
+    },
+    {
+      "id": "path_through_component",
+      "title": "Caminho atravessando componente",
+      "segments": [[0, 5, 30, 5]],
+      "components": [{"id": "component-a", "bbox": [10, 0, 20, 10]}],
+      "expected": {"required": {"component_boundary_intersection": 2}}
+    },
+    {
+      "id": "shared_trunk_fan_in",
+      "title": "Tronco compartilhado com fan-in",
+      "topologyRole": "fan_in",
+      "segments": [[0, 0, 10, 10], [0, 20, 10, 10], [10, 10, 20, 10]],
+      "expected": {"required": {"bifurcation": 1}}
+    },
+    {
+      "id": "shared_trunk_fan_out",
+      "title": "Tronco compartilhado com fan-out",
+      "topologyRole": "fan_out",
+      "segments": [[0, 10, 10, 10], [10, 10, 20, 0], [10, 10, 20, 20]],
+      "expected": {"required": {"bifurcation": 1}}
+    },
+    {
+      "id": "chain_a_b_c",
+      "title": "Cadeia A para B para C sem atalho",
+      "segments": [[10, 5, 20, 5], [30, 5, 40, 5]],
+      "components": [
+        {"id": "A", "bbox": [0, 0, 10, 10]},
+        {"id": "B", "bbox": [20, 0, 30, 10]},
+        {"id": "C", "bbox": [40, 0, 50, 10]}
+      ],
+      "expected": {"required": {"component_port": 4}, "forbiddenComponentPair": ["A", "C"]}
+    },
+    {
+      "id": "duplicate_and_fragmented",
+      "title": "Segmentos duplicados, invertidos e fragmentados",
+      "segments": [[0, 10, 10, 10], [10, 10, 0, 10], [10.4, 10, 20, 10]],
+      "expected": {"required": {"continuation": 1}, "canonicalSegmentCount": 2, "inputSegmentCount": 3}
+    },
+    {
+      "id": "different_segment_order",
+      "title": "Mesma bifurcação em T com ordem diferente",
+      "compareWith": "t_bifurcation",
+      "segments": [
+        {"id": "t-down", "start": [10, 10], "end": [10, 20], "provenance": "fixture"},
+        {"id": "t-left", "start": [0, 10], "end": [10, 10], "provenance": "fixture"},
+        {"id": "t-right", "start": [10, 10], "end": [20, 10], "provenance": "fixture"}
+      ],
+      "expected": {"required": {"bifurcation": 1, "endpoint": 3}}
+    }
+  ]
+}

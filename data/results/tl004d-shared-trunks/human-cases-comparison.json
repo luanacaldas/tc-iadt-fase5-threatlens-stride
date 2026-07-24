@@ -1,0 +1,111 @@
+{
+  "schemaVersion": "1.0",
+  "split": "development_tuning",
+  "requiredCases": [
+    "E06",
+    "E13",
+    "E15",
+    "E16"
+  ],
+  "allRequiredCasesEvaluated": true,
+  "cases": [
+    {
+      "caseId": "E06",
+      "imageId": "azure-private-ai-platform",
+      "humanPrimaryCause": "incorrect_bifurcation",
+      "humanContributingCauses": [
+        "crossing_without_junction",
+        "parallel_connector_merge"
+      ],
+      "recordIds": [
+        "isolated_ground_truth:azure-private-ai-platform:predicted:20"
+      ],
+      "relatedTrunkIds": [
+        "trunk-5c3d58190cab6801",
+        "trunk-5e4ce9494eb4f01c",
+        "trunk-aa0c82058cb989e4"
+      ],
+      "classifications": [
+        "insufficient_branch_evidence",
+        "invalid_branch_pairing"
+      ],
+      "experimentalRelations": [],
+      "falsePositiveStillGeneratedInShadow": false,
+      "status": "not_reconstructed_by_trunk_pairing",
+      "evaluated": true,
+      "officialResultChanged": false
+    },
+    {
+      "caseId": "E13",
+      "imageId": "azure-ai-foundry",
+      "humanPrimaryCause": "ambiguous_endpoint",
+      "humanContributingCauses": [
+        "crossing_without_junction",
+        "parallel_connector_merge"
+      ],
+      "recordIds": [
+        "isolated_ground_truth:azure-ai-foundry:predicted:4"
+      ],
+      "relatedTrunkIds": [
+        "trunk-c8c8725097c75c07"
+      ],
+      "classifications": [
+        "insufficient_branch_evidence"
+      ],
+      "experimentalRelations": [],
+      "falsePositiveStillGeneratedInShadow": false,
+      "status": "not_reconstructed_by_trunk_pairing",
+      "evaluated": true,
+      "officialResultChanged": false
+    },
+    {
+      "caseId": "E15",
+      "imageId": "aws-eks-platform",
+      "humanPrimaryCause": "ambiguous_endpoint",
+      "humanContributingCauses": [
+        "incorrect_bifurcation"
+      ],
+      "recordIds": [
+        "isolated_ground_truth:aws-eks-platform:predicted:13"
+      ],
+      "relatedTrunkIds": [
+        "trunk-e429e2ba8ae04d15"
+      ],
+      "classifications": [
+        "ambiguous_shared_trunk"
+      ],
+      "experimentalRelations": [],
+      "falsePositiveStillGeneratedInShadow": false,
+      "status": "not_reconstructed_by_trunk_pairing",
+      "evaluated": true,
+      "officialResultChanged": false
+    },
+    {
+      "caseId": "E16",
+      "imageId": "aws-eks-platform",
+      "humanPrimaryCause": "ambiguous_endpoint",
+      "humanContributingCauses": [
+        "incorrect_bifurcation"
+      ],
+      "recordIds": [
+        "isolated_ground_truth:aws-eks-platform:predicted:12"
+      ],
+      "relatedTrunkIds": [
+        "trunk-a50013e80a012c8b"
+      ],
+      "classifications": [
+        "shared_trunk"
+      ],
+      "experimentalRelations": [
+        [
+          "comprehend",
+          "glue"
+        ]
+      ],
+      "falsePositiveStillGeneratedInShadow": true,
+      "status": "still_requires_later_filter",
+      "evaluated": true,
+      "officialResultChanged": false
+    }
+  ]
+}

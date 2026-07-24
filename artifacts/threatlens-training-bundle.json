@@ -1,0 +1,9 @@
+{
+  "bundle": "E:\\Tech Challenge IADT - Fase 5 - Hackathon\\artifacts\\threatlens-training-bundle.zip",
+  "dataset": "E:\\Tech Challenge IADT - Fase 5 - Hackathon\\dataset\\hybrid_v2",
+  "images": 373,
+  "labels": 373,
+  "files_in_zip": 756,
+  "size_bytes": 73267445,
+  "sha256": "076319683ddc1c731179f6fe6d1ef5ee62e82985bc286d59857356e24dd6cfee"
+}

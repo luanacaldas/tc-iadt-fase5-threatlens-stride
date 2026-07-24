@@ -1,0 +1,106 @@
+{
+  "schemaVersion": "1.0",
+  "description": "Hand-authored acceptance scenarios for the deterministic STRIDE architecture rules.",
+  "scenarios": [
+    {
+      "id": "public-api-unknown-boundary-protocol",
+      "description": "An Internet-facing API crosses a trust boundary without a WAF, while the transport protocol is unknown.",
+      "architecture": {
+        "name": "Public API with unverified transport",
+        "components": [
+          {"id": "internet", "name": "Internet", "type": "internet", "confidence": 1.0},
+          {"id": "api", "name": "API Gateway", "type": "api_gateway", "confidence": 1.0},
+          {"id": "logs", "name": "Central monitoring", "type": "monitoring", "confidence": 1.0}
+        ],
+        "flows": [
+          {"id": "public-api", "from": "internet", "to": "api", "protocol": "unknown", "trustBoundary": true, "confidence": 1.0}
+        ]
+      },
+      "expectedRuleIds": [
+        "unknown-protocol-crosses-trust-boundary",
+        "external-entry-without-waf",
+        "internet-to-api"
+      ]
+    },
+    {
+      "id": "plaintext-edge-with-waf",
+      "description": "A WAF exists, but the external boundary flow explicitly uses plaintext HTTP.",
+      "architecture": {
+        "name": "Plaintext edge",
+        "components": [
+          {"id": "internet", "name": "Internet", "type": "internet", "confidence": 1.0},
+          {"id": "waf", "name": "WAF", "type": "waf", "confidence": 1.0},
+          {"id": "api", "name": "API Gateway", "type": "api_gateway", "confidence": 1.0},
+          {"id": "logs", "name": "Central monitoring", "type": "monitoring", "confidence": 1.0}
+        ],
+        "flows": [
+          {"id": "edge", "from": "internet", "to": "waf", "protocol": "HTTP", "trustBoundary": true, "confidence": 1.0},
+          {"id": "internal", "from": "waf", "to": "api", "protocol": "HTTPS", "trustBoundary": false, "confidence": 1.0}
+        ]
+      },
+      "expectedRuleIds": ["insecure-protocol-crosses-trust-boundary"]
+    },
+    {
+      "id": "database-without-backup",
+      "description": "A monitored compute tier reaches a database, but no recovery component is represented.",
+      "architecture": {
+        "name": "Data tier without recovery",
+        "components": [
+          {"id": "app", "name": "Application", "type": "compute", "confidence": 1.0},
+          {"id": "db", "name": "Primary database", "type": "database", "confidence": 1.0},
+          {"id": "logs", "name": "Central monitoring", "type": "monitoring", "confidence": 1.0}
+        ],
+        "flows": [
+          {"id": "data", "from": "app", "to": "db", "protocol": "TLS", "trustBoundary": false, "confidence": 1.0}
+        ]
+      },
+      "expectedRuleIds": ["compute-to-database", "missing-backup-for-database"]
+    },
+    {
+      "id": "resilient-observed-data-tier",
+      "description": "Monitoring and backup controls suppress absence findings while the sensitive data flow remains reportable.",
+      "architecture": {
+        "name": "Observed and recoverable data tier",
+        "components": [
+          {"id": "app", "name": "Application", "type": "compute", "confidence": 1.0},
+          {"id": "db", "name": "Primary database", "type": "database", "confidence": 1.0},
+          {"id": "backup", "name": "Backup vault", "type": "backup", "confidence": 1.0},
+          {"id": "logs", "name": "Central monitoring", "type": "monitoring", "confidence": 1.0}
+        ],
+        "flows": [
+          {"id": "data", "from": "app", "to": "db", "protocol": "TLS", "trustBoundary": false, "confidence": 1.0}
+        ]
+      },
+      "expectedRuleIds": ["compute-to-database"]
+    },
+    {
+      "id": "protected-public-api",
+      "description": "A public API with WAF, HTTPS, and monitoring should retain the authentication finding without absence or transport findings.",
+      "architecture": {
+        "name": "Protected public API",
+        "components": [
+          {"id": "internet", "name": "Internet", "type": "internet", "confidence": 1.0},
+          {"id": "waf", "name": "WAF", "type": "waf", "confidence": 1.0},
+          {"id": "api", "name": "API Gateway", "type": "api_gateway", "confidence": 1.0},
+          {"id": "logs", "name": "Central monitoring", "type": "monitoring", "confidence": 1.0}
+        ],
+        "flows": [
+          {"id": "public-api", "from": "internet", "to": "api", "protocol": "HTTPS", "trustBoundary": true, "confidence": 1.0}
+        ]
+      },
+      "expectedRuleIds": ["internet-to-api"]
+    },
+    {
+      "id": "unmonitored-worker",
+      "description": "An internal worker without monitoring should produce only the missing-observability architecture rule.",
+      "architecture": {
+        "name": "Unmonitored worker",
+        "components": [
+          {"id": "worker", "name": "Background worker", "type": "compute", "confidence": 1.0}
+        ],
+        "flows": []
+      },
+      "expectedRuleIds": ["missing-monitoring"]
+    }
+  ]
+}

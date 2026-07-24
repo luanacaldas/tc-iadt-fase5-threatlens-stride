@@ -1,0 +1,24 @@
+{
+  "schemaVersion": "1.0",
+  "selectionPolicy": "One image per source group. Blind holdout groups were not used for flow calibration or detector training; FIAP samples come from the official challenge PDF.",
+  "entries": [
+    {"id": "azure-container-edge", "provider": "azure", "sourceGroup": "azure_container_instances_0004", "split": "development_tuning", "image": "dataset/hybrid_v2/images/test/kaggle_unique_kaggle_azure_container_instances_0004_aug_2.png"},
+    {"id": "azure-ai-foundry", "provider": "azure", "sourceGroup": "azure_sql_database_0007", "split": "development_tuning", "image": "dataset/raw_kaggle_selected/azure_sql_database_0007_aug_0.png"},
+    {"id": "aws-video-pipeline", "provider": "aws", "sourceGroup": "azure_vm_scale_sets_0001", "split": "development_tuning", "image": "dataset/hybrid_v2/images/test/kaggle_unique_kaggle_azure_vm_scale_sets_0001_aug_6.png"},
+    {"id": "aws-serverless-async", "provider": "aws", "sourceGroup": "aws_amazon_elastic_container_service_0001", "split": "development_tuning", "image": "dataset/raw_kaggle_selected/aws_amazon_elastic_container_service_0001_aug_3.png"},
+    {"id": "aws-eks-platform", "provider": "aws", "sourceGroup": "aws_amazon_elastic_kubernetes_service_0005", "split": "development_tuning", "image": "dataset/raw_kaggle_selected/aws_amazon_elastic_kubernetes_service_0005_aug_4.png"},
+    {"id": "azure-api-management", "provider": "azure", "sourceGroup": "azure_api_management_services_0006", "split": "development_tuning", "image": "dataset/raw_kaggle_selected/azure_api_management_services_0006_aug_0.png"},
+    {"id": "azure-private-ai-platform", "provider": "azure", "sourceGroup": "aws_amazon_rds_0005", "split": "development_tuning", "image": "dataset/raw_kaggle_selected/aws_amazon_rds_0005_aug_0.png", "sourceType": "kaggle_primary_diagram_provider_corrected"},
+    {"id": "gcp-secure-cloud-run", "provider": "gcp", "sourceGroup": "google_cloud_official_serverless_blueprint", "split": "development_tuning", "image": "data/benchmarks/real-architecture/images/gcp-secure-cloud-run.png", "sourceType": "official_reference"},
+    {"id": "generic-cloud-api", "provider": "generic", "sourceGroup": "current_arch_test_0000", "split": "development_tuning", "image": "dataset/hybrid_v2/images/test/current_arch_test_0000.jpg", "sourceType": "project_generated_generic"},
+    {"id": "azure-hub-spoke", "provider": "azure", "sourceGroup": "gcp_google_kubernetes_engine_0004", "split": "development_tuning", "image": "dataset/raw_kaggle_selected/gcp_google_kubernetes_engine_0004_aug_2.png", "sourceType": "kaggle_primary_diagram_provider_corrected"},
+    {"id": "aws-notification-platform", "provider": "aws", "sourceGroup": "aws_amazon_simple_notification_service_0008", "split": "blind_holdout", "image": "dataset/kaggle_curated_unique/images/test/kaggle_aws_amazon_simple_notification_service_0008_aug_7.png"},
+    {"id": "aws-auto-scaling", "provider": "aws", "sourceGroup": "aws_auto_scaling_0001", "split": "blind_holdout", "image": "dataset/kaggle_curated_unique/images/test/kaggle_aws_auto_scaling_0001_aug_9.png"},
+    {"id": "aws-network-load-balancer", "provider": "aws", "sourceGroup": "aws_elastic_load_balancing_network_load_balancer_0004", "split": "blind_holdout", "image": "dataset/kaggle_curated_unique/images/test/kaggle_aws_elastic_load_balancing_network_load_balancer_0004_aug_7.png"},
+    {"id": "azure-databricks", "provider": "azure", "sourceGroup": "azure_databricks_0001", "split": "blind_holdout", "image": "dataset/kaggle_curated_unique/images/test/kaggle_azure_databricks_0001_aug_4.png"},
+    {"id": "azure-kubernetes", "provider": "azure", "sourceGroup": "azure_kubernetes_services_0003", "split": "blind_holdout", "image": "dataset/kaggle_curated_unique/images/test/kaggle_azure_kubernetes_services_0003_aug_7.png"},
+    {"id": "gcp-cicd-gke", "provider": "gcp", "sourceGroup": "google_cloud_official_cicd_gke", "split": "blind_holdout", "image": "data/benchmarks/real-architecture/images/gcp-cicd-gke.png", "sourceType": "official_reference"},
+    {"id": "fiap-aws-multiaz", "provider": "aws", "sourceGroup": "fiap_architecture_1", "split": "blind_holdout", "image": "data/benchmarks/real-architecture/images/fiap-architecture-1.png"},
+    {"id": "fiap-azure-integration", "provider": "azure", "sourceGroup": "fiap_architecture_2", "split": "blind_holdout", "image": "data/benchmarks/real-architecture/images/fiap-architecture-2.png"}
+  ]
+}

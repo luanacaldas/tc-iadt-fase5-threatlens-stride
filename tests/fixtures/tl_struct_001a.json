@@ -1,0 +1,71 @@
+{
+  "schemaVersion": "1.0",
+  "fixtures": [
+    {
+      "id": "container_border_without_ports",
+      "kind": "container_border",
+      "expectedAction": "block",
+      "evidence": {"sourcePortConfirmed": false, "destinationPortConfirmed": false, "structuralAlignment": {"aligned": true, "kind": "container_border", "confidence": "high", "source": "geometric"}, "connectorContinuity": {"present": false, "confidence": "low"}, "arrowheadPresent": false, "unmarkedCrossingCount": 2}
+    },
+    {
+      "id": "grid_line",
+      "kind": "grid_line",
+      "expectedAction": "block",
+      "evidence": {"sourcePortConfirmed": false, "destinationPortConfirmed": false, "structuralAlignment": {"aligned": true, "kind": "grid_line", "confidence": "high", "source": "geometric"}, "connectorContinuity": {"present": false, "confidence": "low"}, "arrowheadPresent": false, "unmarkedCrossingCount": 3}
+    },
+    {
+      "id": "subnet_border",
+      "kind": "subnet_border",
+      "expectedAction": "block",
+      "evidence": {"sourcePortConfirmed": false, "destinationPortConfirmed": false, "structuralAlignment": {"aligned": true, "kind": "subnet_border", "confidence": "high", "source": "geometric"}, "connectorContinuity": {"present": false, "confidence": "low"}, "arrowheadPresent": false, "unmarkedCrossingCount": 1}
+    },
+    {
+      "id": "icon_internal_stroke",
+      "kind": "icon_internal_stroke",
+      "expectedAction": "block",
+      "evidence": {"sourcePortConfirmed": false, "destinationPortConfirmed": false, "structuralAlignment": {"aligned": true, "kind": "icon_internal_stroke", "confidence": "high", "source": "geometric"}, "connectorContinuity": {"present": false, "confidence": "low"}, "arrowheadPresent": false, "unmarkedCrossingCount": 1}
+    },
+    {
+      "id": "real_connector_parallel_to_border",
+      "kind": "container_border",
+      "expectedAction": "no_change",
+      "baseAction": "keep",
+      "evidence": {"sourcePortConfirmed": true, "destinationPortConfirmed": true, "structuralAlignment": {"aligned": true, "kind": "container_border", "confidence": "high", "source": "geometric"}, "connectorContinuity": {"present": true, "confidence": "high"}, "arrowheadPresent": true, "unmarkedCrossingCount": 0}
+    },
+    {
+      "id": "real_connector_crossing_border",
+      "kind": "area_border",
+      "expectedAction": "no_change",
+      "baseAction": "keep",
+      "evidence": {"sourcePortConfirmed": true, "destinationPortConfirmed": true, "structuralAlignment": {"aligned": false, "kind": "area_border", "confidence": "low", "source": "geometric"}, "connectorContinuity": {"present": true, "confidence": "high"}, "arrowheadPresent": true, "unmarkedCrossingCount": 1}
+    },
+    {
+      "id": "fan_in_near_container",
+      "kind": "container_border",
+      "expectedAction": "no_change",
+      "baseAction": "keep",
+      "protected": true,
+      "evidence": {"sourcePortConfirmed": true, "destinationPortConfirmed": true, "controlProtected": true, "structuralAlignment": {"aligned": true, "kind": "container_border", "confidence": "high", "source": "geometric"}, "connectorContinuity": {"present": true, "confidence": "high"}, "arrowheadPresent": true, "unmarkedCrossingCount": 1}
+    },
+    {
+      "id": "fan_out_near_container",
+      "kind": "container_border",
+      "expectedAction": "no_change",
+      "baseAction": "keep",
+      "protected": true,
+      "evidence": {"sourcePortConfirmed": true, "destinationPortConfirmed": true, "controlProtected": true, "structuralAlignment": {"aligned": true, "kind": "container_border", "confidence": "high", "source": "geometric"}, "connectorContinuity": {"present": true, "confidence": "high"}, "arrowheadPresent": true, "unmarkedCrossingCount": 1}
+    },
+    {
+      "id": "low_confidence_structural_signal",
+      "kind": "project_border",
+      "expectedAction": "review_only",
+      "evidence": {"sourcePortConfirmed": false, "destinationPortConfirmed": false, "structuralAlignment": {"aligned": true, "kind": "project_border", "confidence": "low", "source": "geometric"}, "connectorContinuity": {"present": false, "confidence": "low"}, "arrowheadPresent": false, "unmarkedCrossingCount": 1}
+    },
+    {
+      "id": "proximity_only_is_insufficient",
+      "kind": "area_border",
+      "expectedAction": "review_only",
+      "evidence": {"sourcePortConfirmed": false, "destinationPortConfirmed": false, "structuralAlignment": {"aligned": false, "kind": "area_border", "confidence": "high", "source": "geometric"}, "connectorContinuity": {"present": false, "confidence": "low"}, "arrowheadPresent": false, "unmarkedCrossingCount": 2}
+    }
+  ]
+}

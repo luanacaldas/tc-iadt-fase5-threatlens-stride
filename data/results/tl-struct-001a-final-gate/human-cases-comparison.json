@@ -1,0 +1,388 @@
+{
+  "schemaVersion": "1.0",
+  "split": "development_tuning",
+  "priorityShortcutsBlocked": true,
+  "ambiguousCasesRemainReviewOnly": true,
+  "cases": [
+    {
+      "caseId": "E01",
+      "imageId": "aws-video-pipeline",
+      "humanPrimaryCause": "structural_line",
+      "humanConfidence": "high",
+      "baseActions": [
+        "review_only"
+      ],
+      "structuralGateActions": [
+        "block"
+      ],
+      "finalActions": [
+        "block"
+      ],
+      "recordIds": [
+        "isolated_ground_truth:aws-video-pipeline:predicted:6"
+      ],
+      "expectedStructuralCorrection": "Descartar a linha superior como conector entre esses componentes e exigir que os endpoints de um fluxo estejam associados às portas ou bordas reais dos componentes. Preservar apenas as conexões adjacentes Trigger Function 3 → Business Logic Function e Business Logic Function → DocumentDB, sem criar uma conexão direta database → trigger3."
+    },
+    {
+      "caseId": "E02",
+      "imageId": "aws-video-pipeline",
+      "humanPrimaryCause": "structural_line",
+      "humanConfidence": "high",
+      "baseActions": [
+        "review_only"
+      ],
+      "structuralGateActions": [
+        "block"
+      ],
+      "finalActions": [
+        "block"
+      ],
+      "recordIds": [
+        "isolated_ground_truth:aws-video-pipeline:predicted:7"
+      ],
+      "expectedStructuralCorrection": "Descartar a linha superior como conector entre as funções de negócio. Exigir que os endpoints estejam conectados às bordas ou portas reais dos componentes e preservar apenas os fluxos business1 → database e business2 → database, sem criar uma relação direta entre business1 e business2."
+    },
+    {
+      "caseId": "E03",
+      "imageId": "aws-video-pipeline",
+      "humanPrimaryCause": "transitive_shortcut",
+      "humanConfidence": "high",
+      "baseActions": [
+        "block"
+      ],
+      "structuralGateActions": [
+        "no_change"
+      ],
+      "finalActions": [
+        "block"
+      ],
+      "recordIds": [
+        "isolated_ground_truth:aws-video-pipeline:predicted:31"
+      ],
+      "expectedStructuralCorrection": "Interromper o caminho ao atingir a borda ou porta do componente stage3 e decompor a relação em duas conexões: media → stage3 e stage3 → trigger3. Não gerar a aresta direta media → trigger3."
+    },
+    {
+      "caseId": "E04",
+      "imageId": "azure-private-ai-platform",
+      "humanPrimaryCause": "structural_line",
+      "humanConfidence": "high",
+      "baseActions": [
+        "review_only"
+      ],
+      "structuralGateActions": [
+        "block"
+      ],
+      "finalActions": [
+        "block"
+      ],
+      "recordIds": [
+        "isolated_ground_truth:azure-private-ai-platform:predicted:2"
+      ],
+      "expectedStructuralCorrection": "Não considerar bordas de subnets, containers ou áreas arquiteturais como conectores de fluxo. Cruzamentos entre essas bordas e conectores verticais não devem formar junções. Exigir que os endpoints estejam ligados a portas ou bordas funcionais dos componentes antes de criar uma aresta e remover a relação direta app_gateway → bastion."
+    },
+    {
+      "caseId": "E05",
+      "imageId": "azure-private-ai-platform",
+      "humanPrimaryCause": "structural_line",
+      "humanConfidence": "high",
+      "baseActions": [
+        "review_only"
+      ],
+      "structuralGateActions": [
+        "block"
+      ],
+      "finalActions": [
+        "block"
+      ],
+      "recordIds": [
+        "isolated_ground_truth:azure-private-ai-platform:predicted:4"
+      ],
+      "expectedStructuralCorrection": "Não promover linhas de agrupamento, bordas ou elementos textuais a conectores de fluxo. Um caminho que intersecta o interior de um componente deve terminar em uma porta ou borda válida desse componente, ou ser rejeitado. Remover a relação direta storage → cosmos e não criar automaticamente conexões com ai_search sem evidência visual de setas ou endpoints válidos."
+    },
+    {
+      "caseId": "E06",
+      "imageId": "azure-private-ai-platform",
+      "humanPrimaryCause": "incorrect_bifurcation",
+      "humanConfidence": "medium",
+      "baseActions": [
+        "review_only"
+      ],
+      "structuralGateActions": [
+        "review_only"
+      ],
+      "finalActions": [
+        "review_only"
+      ],
+      "recordIds": [
+        "isolated_ground_truth:azure-private-ai-platform:predicted:20"
+      ],
+      "expectedStructuralCorrection": "Remover a relação direta firewall → foundry_agent. Em cruzamentos e bifurcações, o grafo deve preservar a continuidade geométrica do conector e somente permitir a troca de ramo quando houver evidência explícita de junção. Segmentos paralelos ou apenas sobrepostos visualmente não devem ser combinados em um único caminho. Limitar a formação de rotas longas que atravessam múltiplas junções sem uma conexão visual contínua entre origem e destino."
+    },
+    {
+      "caseId": "E07",
+      "imageId": "aws-eks-platform",
+      "humanPrimaryCause": "structural_line",
+      "humanConfidence": "medium",
+      "baseActions": [
+        "review_only"
+      ],
+      "structuralGateActions": [
+        "review_only"
+      ],
+      "finalActions": [
+        "review_only"
+      ],
+      "recordIds": [
+        "isolated_ground_truth:aws-eks-platform:predicted:6"
+      ],
+      "expectedStructuralCorrection": "Descartar bordas de agrupamentos e containers como conectores de fluxo. Exigir que o endpoint inicial esteja ligado visualmente à borda ou porta do componente Glue e impedir que um caminho atravesse o interior do DynamoDB sem terminar nele. Remover a relação direta glue → rds e não criar automaticamente glue → dynamo ou dynamo → rds sem evidência visual válida."
+    },
+    {
+      "caseId": "E08",
+      "imageId": "aws-eks-platform",
+      "humanPrimaryCause": "ambiguous_endpoint",
+      "humanConfidence": "high",
+      "baseActions": [
+        "review_only"
+      ],
+      "structuralGateActions": [
+        "review_only"
+      ],
+      "finalActions": [
+        "review_only"
+      ],
+      "recordIds": [
+        "isolated_ground_truth:aws-eks-platform:predicted:18"
+      ],
+      "expectedStructuralCorrection": "Rejeitar candidatos cujos endpoints não estejam conectados às bordas ou portas dos componentes de origem e destino. Caminhos localizados predominantemente dentro de um componente intermediário não devem ser associados a componentes vizinhos. Também devem ser descartados traços internos de ícones, textos ou elementos decorativos interpretados como conectores. Não gerar o fluxo direto lambda → glue."
+    },
+    {
+      "caseId": "E09",
+      "imageId": "gcp-secure-cloud-run",
+      "humanPrimaryCause": "ambiguous_endpoint",
+      "humanConfidence": "high",
+      "baseActions": [
+        "review_only"
+      ],
+      "structuralGateActions": [
+        "review_only"
+      ],
+      "finalActions": [
+        "review_only"
+      ],
+      "recordIds": [
+        "isolated_ground_truth:gcp-secure-cloud-run:predicted:3"
+      ],
+      "expectedStructuralCorrection": "Encerrar o caminho no primeiro componente cuja borda ou porta seja atingida. Neste caso, gerar internet → load_balancer e não criar internet → armor. O Cloud Armor somente deve ser conectado se existir um conector visual explícito entre ele e outro componente."
+    },
+    {
+      "caseId": "E10",
+      "imageId": "gcp-secure-cloud-run",
+      "humanPrimaryCause": "ambiguous_endpoint",
+      "humanConfidence": "high",
+      "baseActions": [
+        "block"
+      ],
+      "structuralGateActions": [
+        "no_change"
+      ],
+      "finalActions": [
+        "block"
+      ],
+      "recordIds": [
+        "isolated_ground_truth:gcp-secure-cloud-run:predicted:9"
+      ],
+      "expectedStructuralCorrection": "Associar o endpoint inicial ao primeiro componente cuja borda ou porta é efetivamente tocada pelo caminho. Neste caso, gerar cloud_run → vpc_connector e não criar a relação direta load_balancer → vpc_connector. Um componente tocado pelo início do segmento não deve ser classificado apenas como componente atravessado."
+    },
+    {
+      "caseId": "E11",
+      "imageId": "generic-cloud-api",
+      "humanPrimaryCause": "ambiguous_endpoint",
+      "humanConfidence": "high",
+      "baseActions": [
+        "review_only"
+      ],
+      "structuralGateActions": [
+        "review_only"
+      ],
+      "finalActions": [
+        "review_only"
+      ],
+      "recordIds": [
+        "isolated_ground_truth:generic-cloud-api:predicted:6"
+      ],
+      "expectedStructuralCorrection": "Não associar o endpoint ao Database, pois o caminho não alcança sua borda ou uma porta válida. O endpoint deve ser vinculado ao componente que realmente origina a linha, provavelmente o Compute na imagem completa. Preservar a conexão correta desse componente com a API e remover o falso fluxo database → api."
+    },
+    {
+      "caseId": "E12",
+      "imageId": "generic-cloud-api",
+      "humanPrimaryCause": "structural_line",
+      "humanConfidence": "high",
+      "baseActions": [
+        "review_only"
+      ],
+      "structuralGateActions": [
+        "block"
+      ],
+      "finalActions": [
+        "block"
+      ],
+      "recordIds": [
+        "isolated_ground_truth:generic-cloud-api:predicted:13"
+      ],
+      "expectedStructuralCorrection": "Descartar linhas da grade de fundo como candidatas a conectores. Cruzamentos entre linhas estruturais e conectores reais não devem criar nós ou junções. Exigir que os endpoints estejam conectados às bordas ou portas dos componentes antes de gerar uma aresta. Remover o fluxo monitoring → cdn e preservar apenas os conectores reais já presentes no diagrama."
+    },
+    {
+      "caseId": "E13",
+      "imageId": "azure-ai-foundry",
+      "humanPrimaryCause": "ambiguous_endpoint",
+      "humanConfidence": "medium",
+      "baseActions": [
+        "review_only"
+      ],
+      "structuralGateActions": [
+        "review_only"
+      ],
+      "finalActions": [
+        "review_only"
+      ],
+      "recordIds": [
+        "isolated_ground_truth:azure-ai-foundry:predicted:4"
+      ],
+      "expectedStructuralCorrection": "Rejeitar a relação direta foundry_account → openai_model. Exigir que os endpoints estejam conectados às portas ou bordas reais dos componentes. Em cruzamentos sem marcador de junção, preservar a continuidade das linhas sem permitir troca de ramo. Segmentos verticais paralelos ou próximos não devem ser combinados em um único caminho. Preservar somente as relações explicitamente suportadas pelos conectores do diagrama."
+    },
+    {
+      "caseId": "E14",
+      "imageId": "aws-serverless-async",
+      "humanPrimaryCause": "transitive_shortcut",
+      "humanConfidence": "medium",
+      "baseActions": [
+        "block"
+      ],
+      "structuralGateActions": [
+        "no_change"
+      ],
+      "finalActions": [
+        "block"
+      ],
+      "recordIds": [
+        "isolated_ground_truth:aws-serverless-async:predicted:6"
+      ],
+      "expectedStructuralCorrection": "Remover a relação direta api_handler → worker. Decompor o tronco compartilhado em relações adjacentes, preservando conexões como api_handler → queue e queue → worker somente quando forem suportadas pelas setas e anotações do diagrama. Uma junção compartilhada não deve gerar automaticamente uma aresta entre todos os seus terminais."
+    },
+    {
+      "caseId": "E15",
+      "imageId": "aws-eks-platform",
+      "humanPrimaryCause": "ambiguous_endpoint",
+      "humanConfidence": "medium",
+      "baseActions": [
+        "block"
+      ],
+      "structuralGateActions": [
+        "no_change"
+      ],
+      "finalActions": [
+        "block"
+      ],
+      "recordIds": [
+        "isolated_ground_truth:aws-eks-platform:predicted:13"
+      ],
+      "expectedStructuralCorrection": "Remover a relação direta lambda → dynamo. Exigir que os endpoints de um caminho estejam conectados às portas ou bordas reais dos componentes de origem e destino. Em bifurcações, o grafo deve preservar a continuidade do ramo correto e não combinar um braço curto com um tronco pertencente a outra conexão. Caso o caminho pertença a outra relação, ele deve ser associado somente aos componentes realmente tocados."
+    },
+    {
+      "caseId": "E16",
+      "imageId": "aws-eks-platform",
+      "humanPrimaryCause": "ambiguous_endpoint",
+      "humanConfidence": "high",
+      "baseActions": [
+        "review_only"
+      ],
+      "structuralGateActions": [
+        "review_only"
+      ],
+      "finalActions": [
+        "review_only"
+      ],
+      "recordIds": [
+        "isolated_ground_truth:aws-eks-platform:predicted:12"
+      ],
+      "expectedStructuralCorrection": "Remover a relação comprehend → glue. Exigir que os endpoints estejam conectados às portas ou bordas reais dos componentes declarados. O ramo diagonal deve permanecer associado ao componente verde e à linha da qual realmente se origina, sem ser atribuído ao AWS Comprehend ou ao Glue ETL por proximidade."
+    },
+    {
+      "caseId": "E17",
+      "imageId": "generic-cloud-api",
+      "humanPrimaryCause": "structural_line",
+      "humanConfidence": "high",
+      "baseActions": [
+        "review_only"
+      ],
+      "structuralGateActions": [
+        "block"
+      ],
+      "finalActions": [
+        "block"
+      ],
+      "recordIds": [
+        "isolated_ground_truth:generic-cloud-api:predicted:14"
+      ],
+      "expectedStructuralCorrection": "Descartar linhas da grade de fundo como candidatas a conectores. Cruzamentos com conectores reais não devem formar junções sem evidência explícita. Exigir que os endpoints estejam conectados às bordas ou portas dos componentes antes de gerar uma aresta. Remover o falso fluxo user → database e preservar somente as conexões reais do diagrama."
+    },
+    {
+      "caseId": "E18",
+      "imageId": "azure-private-ai-platform",
+      "humanPrimaryCause": "structural_line",
+      "humanConfidence": "high",
+      "baseActions": [
+        "review_only"
+      ],
+      "structuralGateActions": [
+        "block"
+      ],
+      "finalActions": [
+        "block"
+      ],
+      "recordIds": [
+        "isolated_ground_truth:azure-private-ai-platform:predicted:10"
+      ],
+      "expectedStructuralCorrection": "Descartar bordas de subnets, containers e agrupamentos como candidatas a conectores. Cruzamentos dessas bordas com linhas funcionais não devem formar junções. Exigir que origem e destino estejam ligados às portas ou bordas reais dos componentes. Remover app_gateway → build_agents e não gerar outra relação com o Foundry Agent sem um conector visual explícito."
+    },
+    {
+      "caseId": "E19",
+      "imageId": "gcp-secure-cloud-run",
+      "humanPrimaryCause": "structural_line",
+      "humanConfidence": "high",
+      "baseActions": [
+        "review_only"
+      ],
+      "structuralGateActions": [
+        "block"
+      ],
+      "finalActions": [
+        "block"
+      ],
+      "recordIds": [
+        "isolated_ground_truth:gcp-secure-cloud-run:predicted:7"
+      ],
+      "expectedStructuralCorrection": "Descartar bordas de projetos, subnets, containers e áreas arquiteturais como candidatas a conectores. O cruzamento entre uma borda estrutural e um fluxo real não deve gerar nó ou permitir troca de ramo. Exigir que os endpoints alcancem portas ou bordas funcionais dos componentes antes de criar uma aresta. Remover o fluxo armor → artifact_registry e preservar apenas as conexões explicitamente representadas no diagrama."
+    },
+    {
+      "caseId": "E20",
+      "imageId": "aws-video-pipeline",
+      "humanPrimaryCause": "structural_line",
+      "humanConfidence": "high",
+      "baseActions": [
+        "review_only"
+      ],
+      "structuralGateActions": [
+        "block"
+      ],
+      "finalActions": [
+        "block"
+      ],
+      "recordIds": [
+        "isolated_ground_truth:aws-video-pipeline:predicted:8"
+      ],
+      "expectedStructuralCorrection": "Descartar bordas de containers, agrupamentos e áreas arquiteturais como candidatas a conectores. Cruzamentos entre essas bordas e linhas funcionais não devem criar nós ou permitir troca de caminho. Exigir que os endpoints alcancem portas ou bordas funcionais dos componentes. Remover o fluxo direto transcoder → stage3 e preservar somente as conexões sequenciais explicitamente representadas pelas setas do diagrama."
+    }
+  ]
+}

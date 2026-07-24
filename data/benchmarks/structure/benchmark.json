@@ -1,0 +1,3874 @@
+{
+  "schemaVersion": "1.0",
+  "createdAt": "2026-07-17T21:10:40.682295+00:00",
+  "purpose": "Structure-only benchmark using known generated graph ground truth.",
+  "limitations": [
+    "This initial slice is generated and does not replace manually annotated real diagrams.",
+    "The benchmark isolates structure extraction by using ground-truth component boxes.",
+    "The generated diagrams contain no trust-boundary ground truth."
+  ],
+  "imageCount": 30,
+  "flowCount": 200,
+  "entries": [
+    {
+      "id": "current_arch_test_0000",
+      "image": "E:/Tech Challenge IADT - Fase 5 - Hackathon/dataset/hybrid_v2/images/test/current_arch_test_0000.jpg",
+      "imageSha256": "2dabc06f76b9365877fe0860d162407be318329250c0e2e39b3639b6c7d3f124",
+      "source": "generated_known_graph",
+      "seed": 42270,
+      "components": [
+        {
+          "id": "user_1",
+          "type": "user",
+          "bbox": [
+            355,
+            20,
+            445,
+            80
+          ]
+        },
+        {
+          "id": "internet_1",
+          "type": "internet",
+          "bbox": [
+            20,
+            145,
+            110,
+            205
+          ]
+        },
+        {
+          "id": "cdn_1",
+          "type": "cdn",
+          "bbox": [
+            355,
+            145,
+            445,
+            205
+          ]
+        },
+        {
+          "id": "api_gateway_1",
+          "type": "api_gateway",
+          "bbox": [
+            690,
+            145,
+            780,
+            205
+          ]
+        },
+        {
+          "id": "compute_1",
+          "type": "compute",
+          "bbox": [
+            20,
+            270,
+            110,
+            330
+          ]
+        },
+        {
+          "id": "database_1",
+          "type": "database",
+          "bbox": [
+            355,
+            270,
+            445,
+            330
+          ]
+        },
+        {
+          "id": "storage_1",
+          "type": "storage",
+          "bbox": [
+            690,
+            270,
+            780,
+            330
+          ]
+        },
+        {
+          "id": "monitoring_1",
+          "type": "monitoring",
+          "bbox": [
+            355,
+            395,
+            445,
+            455
+          ]
+        }
+      ],
+      "flows": [
+        {
+          "id": "f1",
+          "from": "user_1",
+          "to": "internet_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f2",
+          "from": "internet_1",
+          "to": "cdn_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f3",
+          "from": "cdn_1",
+          "to": "api_gateway_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f4",
+          "from": "api_gateway_1",
+          "to": "compute_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f5",
+          "from": "compute_1",
+          "to": "database_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f6",
+          "from": "database_1",
+          "to": "storage_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f7",
+          "from": "storage_1",
+          "to": "monitoring_1",
+          "protocol": "unknown"
+        }
+      ],
+      "trustBoundaries": []
+    },
+    {
+      "id": "current_arch_test_0001",
+      "image": "E:/Tech Challenge IADT - Fase 5 - Hackathon/dataset/hybrid_v2/images/test/current_arch_test_0001.jpg",
+      "imageSha256": "03917fa385e5ade4f8550ed2d3e0bc17e8ed35e01804a45edf0a2f8bc4e45292",
+      "source": "generated_known_graph",
+      "seed": 42271,
+      "components": [
+        {
+          "id": "user_1",
+          "type": "user",
+          "bbox": [
+            355,
+            270,
+            445,
+            330
+          ]
+        },
+        {
+          "id": "internet_1",
+          "type": "internet",
+          "bbox": [
+            565,
+            270,
+            655,
+            330
+          ]
+        },
+        {
+          "id": "api_gateway_1",
+          "type": "api_gateway",
+          "bbox": [
+            419,
+            469,
+            509,
+            529
+          ]
+        },
+        {
+          "id": "compute_1",
+          "type": "compute",
+          "bbox": [
+            185,
+            393,
+            275,
+            453
+          ]
+        },
+        {
+          "id": "database_1",
+          "type": "database",
+          "bbox": [
+            185,
+            146,
+            275,
+            206
+          ]
+        },
+        {
+          "id": "secrets_kms_1",
+          "type": "secrets_kms",
+          "bbox": [
+            419,
+            70,
+            509,
+            130
+          ]
+        }
+      ],
+      "flows": [
+        {
+          "id": "f1",
+          "from": "user_1",
+          "to": "internet_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f2",
+          "from": "internet_1",
+          "to": "api_gateway_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f3",
+          "from": "api_gateway_1",
+          "to": "compute_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f4",
+          "from": "compute_1",
+          "to": "database_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f5",
+          "from": "database_1",
+          "to": "secrets_kms_1",
+          "protocol": "unknown"
+        }
+      ],
+      "trustBoundaries": []
+    },
+    {
+      "id": "current_arch_test_0002",
+      "image": "E:/Tech Challenge IADT - Fase 5 - Hackathon/dataset/hybrid_v2/images/test/current_arch_test_0002.jpg",
+      "imageSha256": "7562c20fa6590c6e4ab8ac5ff2d90775285a8d700683eecfd82111bfa5b84cbf",
+      "source": "generated_known_graph",
+      "seed": 42272,
+      "components": [
+        {
+          "id": "user_1",
+          "type": "user",
+          "bbox": [
+            355,
+            270,
+            445,
+            330
+          ]
+        },
+        {
+          "id": "internet_1",
+          "type": "internet",
+          "bbox": [
+            565,
+            270,
+            655,
+            330
+          ]
+        },
+        {
+          "id": "waf_1",
+          "type": "waf",
+          "bbox": [
+            419,
+            469,
+            509,
+            529
+          ]
+        },
+        {
+          "id": "api_gateway_1",
+          "type": "api_gateway",
+          "bbox": [
+            185,
+            393,
+            275,
+            453
+          ]
+        },
+        {
+          "id": "compute_1",
+          "type": "compute",
+          "bbox": [
+            185,
+            146,
+            275,
+            206
+          ]
+        },
+        {
+          "id": "database_1",
+          "type": "database",
+          "bbox": [
+            419,
+            70,
+            509,
+            130
+          ]
+        }
+      ],
+      "flows": [
+        {
+          "id": "f1",
+          "from": "user_1",
+          "to": "internet_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f2",
+          "from": "internet_1",
+          "to": "waf_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f3",
+          "from": "waf_1",
+          "to": "api_gateway_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f4",
+          "from": "api_gateway_1",
+          "to": "compute_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f5",
+          "from": "compute_1",
+          "to": "database_1",
+          "protocol": "unknown"
+        }
+      ],
+      "trustBoundaries": []
+    },
+    {
+      "id": "current_arch_test_0003",
+      "image": "E:/Tech Challenge IADT - Fase 5 - Hackathon/dataset/hybrid_v2/images/test/current_arch_test_0003.jpg",
+      "imageSha256": "906229837e547d2e66bca05eb8ab2ff23c2fe22067a9ebc819a85f25e5c07d0b",
+      "source": "generated_known_graph",
+      "seed": 42273,
+      "components": [
+        {
+          "id": "user_1",
+          "type": "user",
+          "bbox": [
+            355,
+            270,
+            445,
+            330
+          ]
+        },
+        {
+          "id": "internet_1",
+          "type": "internet",
+          "bbox": [
+            565,
+            270,
+            655,
+            330
+          ]
+        },
+        {
+          "id": "waf_1",
+          "type": "waf",
+          "bbox": [
+            485,
+            434,
+            575,
+            494
+          ]
+        },
+        {
+          "id": "load_balancer_1",
+          "type": "load_balancer",
+          "bbox": [
+            308,
+            474,
+            398,
+            534
+          ]
+        },
+        {
+          "id": "compute_1",
+          "type": "compute",
+          "bbox": [
+            165,
+            361,
+            255,
+            421
+          ]
+        },
+        {
+          "id": "queue_1",
+          "type": "queue",
+          "bbox": [
+            165,
+            178,
+            255,
+            238
+          ]
+        },
+        {
+          "id": "database_1",
+          "type": "database",
+          "bbox": [
+            308,
+            65,
+            398,
+            125
+          ]
+        },
+        {
+          "id": "storage_1",
+          "type": "storage",
+          "bbox": [
+            485,
+            105,
+            575,
+            165
+          ]
+        }
+      ],
+      "flows": [
+        {
+          "id": "f1",
+          "from": "user_1",
+          "to": "internet_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f2",
+          "from": "internet_1",
+          "to": "waf_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f3",
+          "from": "waf_1",
+          "to": "load_balancer_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f4",
+          "from": "load_balancer_1",
+          "to": "compute_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f5",
+          "from": "compute_1",
+          "to": "queue_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f6",
+          "from": "queue_1",
+          "to": "database_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f7",
+          "from": "database_1",
+          "to": "storage_1",
+          "protocol": "unknown"
+        }
+      ],
+      "trustBoundaries": []
+    },
+    {
+      "id": "current_arch_test_0004",
+      "image": "E:/Tech Challenge IADT - Fase 5 - Hackathon/dataset/hybrid_v2/images/test/current_arch_test_0004.jpg",
+      "imageSha256": "0deafe388754c7fcb5ccc51d3e98bb2c23e14815f79458ee622798beabeef5f0",
+      "source": "generated_known_graph",
+      "seed": 42274,
+      "components": [
+        {
+          "id": "user_1",
+          "type": "user",
+          "bbox": [
+            355,
+            270,
+            445,
+            330
+          ]
+        },
+        {
+          "id": "internet_1",
+          "type": "internet",
+          "bbox": [
+            565,
+            270,
+            655,
+            330
+          ]
+        },
+        {
+          "id": "queue_1",
+          "type": "queue",
+          "bbox": [
+            419,
+            469,
+            509,
+            529
+          ]
+        },
+        {
+          "id": "waf_1",
+          "type": "waf",
+          "bbox": [
+            185,
+            393,
+            275,
+            453
+          ]
+        },
+        {
+          "id": "api_gateway_1",
+          "type": "api_gateway",
+          "bbox": [
+            185,
+            146,
+            275,
+            206
+          ]
+        },
+        {
+          "id": "database_1",
+          "type": "database",
+          "bbox": [
+            419,
+            70,
+            509,
+            130
+          ]
+        }
+      ],
+      "flows": [
+        {
+          "id": "f1",
+          "from": "user_1",
+          "to": "internet_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f2",
+          "from": "internet_1",
+          "to": "queue_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f3",
+          "from": "queue_1",
+          "to": "waf_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f4",
+          "from": "waf_1",
+          "to": "api_gateway_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f5",
+          "from": "api_gateway_1",
+          "to": "database_1",
+          "protocol": "unknown"
+        }
+      ],
+      "trustBoundaries": []
+    },
+    {
+      "id": "current_arch_test_0005",
+      "image": "E:/Tech Challenge IADT - Fase 5 - Hackathon/dataset/hybrid_v2/images/test/current_arch_test_0005.jpg",
+      "imageSha256": "a8489829cf220f29fb912becfb2c15d8a1dec0a3a02ab968a63cafb2934c7c0a",
+      "source": "generated_known_graph",
+      "seed": 42275,
+      "components": [
+        {
+          "id": "user_1",
+          "type": "user",
+          "bbox": [
+            20,
+            20,
+            110,
+            80
+          ]
+        },
+        {
+          "id": "compute_1",
+          "type": "compute",
+          "bbox": [
+            355,
+            20,
+            445,
+            80
+          ]
+        },
+        {
+          "id": "internet_1",
+          "type": "internet",
+          "bbox": [
+            690,
+            20,
+            780,
+            80
+          ]
+        },
+        {
+          "id": "cdn_1",
+          "type": "cdn",
+          "bbox": [
+            20,
+            145,
+            110,
+            205
+          ]
+        },
+        {
+          "id": "waf_1",
+          "type": "waf",
+          "bbox": [
+            243,
+            145,
+            333,
+            205
+          ]
+        },
+        {
+          "id": "api_gateway_1",
+          "type": "api_gateway",
+          "bbox": [
+            466,
+            145,
+            556,
+            205
+          ]
+        },
+        {
+          "id": "load_balancer_1",
+          "type": "load_balancer",
+          "bbox": [
+            689,
+            145,
+            779,
+            205
+          ]
+        },
+        {
+          "id": "database_1",
+          "type": "database",
+          "bbox": [
+            355,
+            270,
+            445,
+            330
+          ]
+        },
+        {
+          "id": "monitoring_1",
+          "type": "monitoring",
+          "bbox": [
+            355,
+            395,
+            445,
+            455
+          ]
+        }
+      ],
+      "flows": [
+        {
+          "id": "f1",
+          "from": "user_1",
+          "to": "compute_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f2",
+          "from": "compute_1",
+          "to": "internet_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f3",
+          "from": "internet_1",
+          "to": "cdn_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f4",
+          "from": "cdn_1",
+          "to": "waf_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f5",
+          "from": "waf_1",
+          "to": "api_gateway_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f6",
+          "from": "api_gateway_1",
+          "to": "load_balancer_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f7",
+          "from": "load_balancer_1",
+          "to": "database_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f8",
+          "from": "database_1",
+          "to": "monitoring_1",
+          "protocol": "unknown"
+        }
+      ],
+      "trustBoundaries": []
+    },
+    {
+      "id": "current_arch_test_0006",
+      "image": "E:/Tech Challenge IADT - Fase 5 - Hackathon/dataset/hybrid_v2/images/test/current_arch_test_0006.jpg",
+      "imageSha256": "5e2f01773329ea4c6f5e24bd09122f33c6a8320d0a171515e264e0c70cc3a9a9",
+      "source": "generated_known_graph",
+      "seed": 42276,
+      "components": [
+        {
+          "id": "user_1",
+          "type": "user",
+          "bbox": [
+            355,
+            270,
+            445,
+            330
+          ]
+        },
+        {
+          "id": "internet_1",
+          "type": "internet",
+          "bbox": [
+            565,
+            270,
+            655,
+            330
+          ]
+        },
+        {
+          "id": "cdn_1",
+          "type": "cdn",
+          "bbox": [
+            485,
+            434,
+            575,
+            494
+          ]
+        },
+        {
+          "id": "waf_1",
+          "type": "waf",
+          "bbox": [
+            308,
+            474,
+            398,
+            534
+          ]
+        },
+        {
+          "id": "api_gateway_1",
+          "type": "api_gateway",
+          "bbox": [
+            165,
+            361,
+            255,
+            421
+          ]
+        },
+        {
+          "id": "load_balancer_1",
+          "type": "load_balancer",
+          "bbox": [
+            165,
+            178,
+            255,
+            238
+          ]
+        },
+        {
+          "id": "database_1",
+          "type": "database",
+          "bbox": [
+            308,
+            65,
+            398,
+            125
+          ]
+        },
+        {
+          "id": "monitoring_1",
+          "type": "monitoring",
+          "bbox": [
+            485,
+            105,
+            575,
+            165
+          ]
+        }
+      ],
+      "flows": [
+        {
+          "id": "f1",
+          "from": "user_1",
+          "to": "internet_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f2",
+          "from": "internet_1",
+          "to": "cdn_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f3",
+          "from": "cdn_1",
+          "to": "waf_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f4",
+          "from": "waf_1",
+          "to": "api_gateway_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f5",
+          "from": "api_gateway_1",
+          "to": "load_balancer_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f6",
+          "from": "load_balancer_1",
+          "to": "database_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f7",
+          "from": "database_1",
+          "to": "monitoring_1",
+          "protocol": "unknown"
+        }
+      ],
+      "trustBoundaries": []
+    },
+    {
+      "id": "current_arch_test_0007",
+      "image": "E:/Tech Challenge IADT - Fase 5 - Hackathon/dataset/hybrid_v2/images/test/current_arch_test_0007.jpg",
+      "imageSha256": "9fc0c76d522444281246f798bd18717136b50261fcfeee1bf83ceddf0920aa58",
+      "source": "generated_known_graph",
+      "seed": 42277,
+      "components": [
+        {
+          "id": "user_1",
+          "type": "user",
+          "bbox": [
+            20,
+            20,
+            110,
+            80
+          ]
+        },
+        {
+          "id": "internet_1",
+          "type": "internet",
+          "bbox": [
+            243,
+            20,
+            333,
+            80
+          ]
+        },
+        {
+          "id": "waf_1",
+          "type": "waf",
+          "bbox": [
+            466,
+            20,
+            556,
+            80
+          ]
+        },
+        {
+          "id": "api_gateway_1",
+          "type": "api_gateway",
+          "bbox": [
+            689,
+            20,
+            779,
+            80
+          ]
+        },
+        {
+          "id": "compute_1",
+          "type": "compute",
+          "bbox": [
+            20,
+            270,
+            110,
+            330
+          ]
+        },
+        {
+          "id": "database_1",
+          "type": "database",
+          "bbox": [
+            690,
+            270,
+            780,
+            330
+          ]
+        }
+      ],
+      "flows": [
+        {
+          "id": "f1",
+          "from": "user_1",
+          "to": "internet_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f2",
+          "from": "internet_1",
+          "to": "waf_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f3",
+          "from": "waf_1",
+          "to": "api_gateway_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f4",
+          "from": "api_gateway_1",
+          "to": "compute_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f5",
+          "from": "compute_1",
+          "to": "database_1",
+          "protocol": "unknown"
+        }
+      ],
+      "trustBoundaries": []
+    },
+    {
+      "id": "current_arch_test_0008",
+      "image": "E:/Tech Challenge IADT - Fase 5 - Hackathon/dataset/hybrid_v2/images/test/current_arch_test_0008.jpg",
+      "imageSha256": "79aa10034518581397196241bc37cc9bbd80e243cef313c3fcbdb30806066e77",
+      "source": "generated_known_graph",
+      "seed": 42278,
+      "components": [
+        {
+          "id": "user_1",
+          "type": "user",
+          "bbox": [
+            355,
+            20,
+            445,
+            80
+          ]
+        },
+        {
+          "id": "internet_1",
+          "type": "internet",
+          "bbox": [
+            20,
+            103,
+            110,
+            163
+          ]
+        },
+        {
+          "id": "waf_1",
+          "type": "waf",
+          "bbox": [
+            690,
+            103,
+            780,
+            163
+          ]
+        },
+        {
+          "id": "load_balancer_1",
+          "type": "load_balancer",
+          "bbox": [
+            355,
+            186,
+            445,
+            246
+          ]
+        },
+        {
+          "id": "compute_1",
+          "type": "compute",
+          "bbox": [
+            355,
+            269,
+            445,
+            329
+          ]
+        },
+        {
+          "id": "queue_1",
+          "type": "queue",
+          "bbox": [
+            20,
+            352,
+            110,
+            412
+          ]
+        },
+        {
+          "id": "database_1",
+          "type": "database",
+          "bbox": [
+            690,
+            352,
+            780,
+            412
+          ]
+        },
+        {
+          "id": "storage_1",
+          "type": "storage",
+          "bbox": [
+            355,
+            435,
+            445,
+            495
+          ]
+        }
+      ],
+      "flows": [
+        {
+          "id": "f1",
+          "from": "user_1",
+          "to": "internet_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f2",
+          "from": "internet_1",
+          "to": "waf_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f3",
+          "from": "waf_1",
+          "to": "load_balancer_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f4",
+          "from": "load_balancer_1",
+          "to": "compute_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f5",
+          "from": "compute_1",
+          "to": "queue_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f6",
+          "from": "queue_1",
+          "to": "database_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f7",
+          "from": "database_1",
+          "to": "storage_1",
+          "protocol": "unknown"
+        }
+      ],
+      "trustBoundaries": []
+    },
+    {
+      "id": "current_arch_test_0009",
+      "image": "E:/Tech Challenge IADT - Fase 5 - Hackathon/dataset/hybrid_v2/images/test/current_arch_test_0009.jpg",
+      "imageSha256": "39314376778828fa2ba70bd1f4a7172742f16b320578c410159b22d55cc00015",
+      "source": "generated_known_graph",
+      "seed": 42279,
+      "components": [
+        {
+          "id": "user_1",
+          "type": "user",
+          "bbox": [
+            20,
+            20,
+            110,
+            80
+          ]
+        },
+        {
+          "id": "internet_1",
+          "type": "internet",
+          "bbox": [
+            243,
+            20,
+            333,
+            80
+          ]
+        },
+        {
+          "id": "waf_1",
+          "type": "waf",
+          "bbox": [
+            466,
+            20,
+            556,
+            80
+          ]
+        },
+        {
+          "id": "api_gateway_1",
+          "type": "api_gateway",
+          "bbox": [
+            689,
+            20,
+            779,
+            80
+          ]
+        },
+        {
+          "id": "identity_provider_1",
+          "type": "identity_provider",
+          "bbox": [
+            20,
+            145,
+            110,
+            205
+          ]
+        },
+        {
+          "id": "compute_1",
+          "type": "compute",
+          "bbox": [
+            355,
+            145,
+            445,
+            205
+          ]
+        },
+        {
+          "id": "database_1",
+          "type": "database",
+          "bbox": [
+            690,
+            145,
+            780,
+            205
+          ]
+        },
+        {
+          "id": "secrets_kms_1",
+          "type": "secrets_kms",
+          "bbox": [
+            355,
+            270,
+            445,
+            330
+          ]
+        },
+        {
+          "id": "backup_1",
+          "type": "backup",
+          "bbox": [
+            355,
+            395,
+            445,
+            455
+          ]
+        }
+      ],
+      "flows": [
+        {
+          "id": "f1",
+          "from": "user_1",
+          "to": "internet_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f2",
+          "from": "internet_1",
+          "to": "waf_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f3",
+          "from": "waf_1",
+          "to": "api_gateway_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f4",
+          "from": "api_gateway_1",
+          "to": "identity_provider_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f5",
+          "from": "identity_provider_1",
+          "to": "compute_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f6",
+          "from": "compute_1",
+          "to": "database_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f7",
+          "from": "database_1",
+          "to": "secrets_kms_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f8",
+          "from": "secrets_kms_1",
+          "to": "backup_1",
+          "protocol": "unknown"
+        }
+      ],
+      "trustBoundaries": []
+    },
+    {
+      "id": "current_arch_test_0010",
+      "image": "E:/Tech Challenge IADT - Fase 5 - Hackathon/dataset/hybrid_v2/images/test/current_arch_test_0010.jpg",
+      "imageSha256": "a37810752a610ea93d242e2d49250df3aaaae8e4116af95c766865d1e0dcb0c5",
+      "source": "generated_known_graph",
+      "seed": 42280,
+      "components": [
+        {
+          "id": "user_1",
+          "type": "user",
+          "bbox": [
+            355,
+            20,
+            445,
+            80
+          ]
+        },
+        {
+          "id": "internet_1",
+          "type": "internet",
+          "bbox": [
+            355,
+            120,
+            445,
+            180
+          ]
+        },
+        {
+          "id": "waf_1",
+          "type": "waf",
+          "bbox": [
+            20,
+            220,
+            110,
+            280
+          ]
+        },
+        {
+          "id": "api_gateway_1",
+          "type": "api_gateway",
+          "bbox": [
+            690,
+            220,
+            780,
+            280
+          ]
+        },
+        {
+          "id": "compute_1",
+          "type": "compute",
+          "bbox": [
+            355,
+            320,
+            445,
+            380
+          ]
+        },
+        {
+          "id": "database_1",
+          "type": "database",
+          "bbox": [
+            355,
+            420,
+            445,
+            480
+          ]
+        }
+      ],
+      "flows": [
+        {
+          "id": "f1",
+          "from": "user_1",
+          "to": "internet_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f2",
+          "from": "internet_1",
+          "to": "waf_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f3",
+          "from": "waf_1",
+          "to": "api_gateway_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f4",
+          "from": "api_gateway_1",
+          "to": "compute_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f5",
+          "from": "compute_1",
+          "to": "database_1",
+          "protocol": "unknown"
+        }
+      ],
+      "trustBoundaries": []
+    },
+    {
+      "id": "current_arch_test_0011",
+      "image": "E:/Tech Challenge IADT - Fase 5 - Hackathon/dataset/hybrid_v2/images/test/current_arch_test_0011.jpg",
+      "imageSha256": "57ed3e8aa79796644ef9ebf7607ce9624a5c13a91b27d41990ad91a3168485a7",
+      "source": "generated_known_graph",
+      "seed": 42281,
+      "components": [
+        {
+          "id": "user_1",
+          "type": "user",
+          "bbox": [
+            20,
+            20,
+            110,
+            80
+          ]
+        },
+        {
+          "id": "internet_1",
+          "type": "internet",
+          "bbox": [
+            690,
+            20,
+            780,
+            80
+          ]
+        },
+        {
+          "id": "waf_1",
+          "type": "waf",
+          "bbox": [
+            20,
+            145,
+            110,
+            205
+          ]
+        },
+        {
+          "id": "cdn_1",
+          "type": "cdn",
+          "bbox": [
+            690,
+            145,
+            780,
+            205
+          ]
+        },
+        {
+          "id": "load_balancer_1",
+          "type": "load_balancer",
+          "bbox": [
+            20,
+            270,
+            110,
+            330
+          ]
+        },
+        {
+          "id": "compute_1",
+          "type": "compute",
+          "bbox": [
+            355,
+            270,
+            445,
+            330
+          ]
+        },
+        {
+          "id": "queue_1",
+          "type": "queue",
+          "bbox": [
+            690,
+            270,
+            780,
+            330
+          ]
+        },
+        {
+          "id": "database_1",
+          "type": "database",
+          "bbox": [
+            20,
+            395,
+            110,
+            455
+          ]
+        },
+        {
+          "id": "storage_1",
+          "type": "storage",
+          "bbox": [
+            690,
+            395,
+            780,
+            455
+          ]
+        }
+      ],
+      "flows": [
+        {
+          "id": "f1",
+          "from": "user_1",
+          "to": "internet_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f2",
+          "from": "internet_1",
+          "to": "waf_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f3",
+          "from": "waf_1",
+          "to": "cdn_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f4",
+          "from": "cdn_1",
+          "to": "load_balancer_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f5",
+          "from": "load_balancer_1",
+          "to": "compute_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f6",
+          "from": "compute_1",
+          "to": "queue_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f7",
+          "from": "queue_1",
+          "to": "database_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f8",
+          "from": "database_1",
+          "to": "storage_1",
+          "protocol": "unknown"
+        }
+      ],
+      "trustBoundaries": []
+    },
+    {
+      "id": "current_arch_test_0012",
+      "image": "E:/Tech Challenge IADT - Fase 5 - Hackathon/dataset/hybrid_v2/images/test/current_arch_test_0012.jpg",
+      "imageSha256": "cb22bc75a10ae2534465e96d13f4cf0e3650cb13c9b0627fea69b34628ba49a1",
+      "source": "generated_known_graph",
+      "seed": 42282,
+      "components": [
+        {
+          "id": "user_1",
+          "type": "user",
+          "bbox": [
+            355,
+            270,
+            445,
+            330
+          ]
+        },
+        {
+          "id": "internet_1",
+          "type": "internet",
+          "bbox": [
+            565,
+            270,
+            655,
+            330
+          ]
+        },
+        {
+          "id": "waf_1",
+          "type": "waf",
+          "bbox": [
+            485,
+            434,
+            575,
+            494
+          ]
+        },
+        {
+          "id": "load_balancer_1",
+          "type": "load_balancer",
+          "bbox": [
+            308,
+            474,
+            398,
+            534
+          ]
+        },
+        {
+          "id": "compute_1",
+          "type": "compute",
+          "bbox": [
+            165,
+            361,
+            255,
+            421
+          ]
+        },
+        {
+          "id": "queue_1",
+          "type": "queue",
+          "bbox": [
+            165,
+            178,
+            255,
+            238
+          ]
+        },
+        {
+          "id": "database_1",
+          "type": "database",
+          "bbox": [
+            308,
+            65,
+            398,
+            125
+          ]
+        },
+        {
+          "id": "storage_1",
+          "type": "storage",
+          "bbox": [
+            485,
+            105,
+            575,
+            165
+          ]
+        }
+      ],
+      "flows": [
+        {
+          "id": "f1",
+          "from": "user_1",
+          "to": "internet_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f2",
+          "from": "internet_1",
+          "to": "waf_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f3",
+          "from": "waf_1",
+          "to": "load_balancer_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f4",
+          "from": "load_balancer_1",
+          "to": "compute_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f5",
+          "from": "compute_1",
+          "to": "queue_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f6",
+          "from": "queue_1",
+          "to": "database_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f7",
+          "from": "database_1",
+          "to": "storage_1",
+          "protocol": "unknown"
+        }
+      ],
+      "trustBoundaries": []
+    },
+    {
+      "id": "current_arch_test_0013",
+      "image": "E:/Tech Challenge IADT - Fase 5 - Hackathon/dataset/hybrid_v2/images/test/current_arch_test_0013.jpg",
+      "imageSha256": "5affd0f250976d6dae1e33edb2e4bc2303d96a993ff7deaf03cdc2cac8807794",
+      "source": "generated_known_graph",
+      "seed": 42283,
+      "components": [
+        {
+          "id": "user_1",
+          "type": "user",
+          "bbox": [
+            355,
+            270,
+            445,
+            330
+          ]
+        },
+        {
+          "id": "internet_1",
+          "type": "internet",
+          "bbox": [
+            565,
+            270,
+            655,
+            330
+          ]
+        },
+        {
+          "id": "waf_1",
+          "type": "waf",
+          "bbox": [
+            503,
+            418,
+            593,
+            478
+          ]
+        },
+        {
+          "id": "api_gateway_1",
+          "type": "api_gateway",
+          "bbox": [
+            355,
+            480,
+            445,
+            540
+          ]
+        },
+        {
+          "id": "identity_provider_1",
+          "type": "identity_provider",
+          "bbox": [
+            206,
+            418,
+            296,
+            478
+          ]
+        },
+        {
+          "id": "compute_1",
+          "type": "compute",
+          "bbox": [
+            145,
+            270,
+            235,
+            330
+          ]
+        },
+        {
+          "id": "database_1",
+          "type": "database",
+          "bbox": [
+            206,
+            121,
+            296,
+            181
+          ]
+        },
+        {
+          "id": "secrets_kms_1",
+          "type": "secrets_kms",
+          "bbox": [
+            354,
+            60,
+            444,
+            120
+          ]
+        },
+        {
+          "id": "backup_1",
+          "type": "backup",
+          "bbox": [
+            503,
+            121,
+            593,
+            181
+          ]
+        }
+      ],
+      "flows": [
+        {
+          "id": "f1",
+          "from": "user_1",
+          "to": "internet_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f2",
+          "from": "internet_1",
+          "to": "waf_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f3",
+          "from": "waf_1",
+          "to": "api_gateway_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f4",
+          "from": "api_gateway_1",
+          "to": "identity_provider_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f5",
+          "from": "identity_provider_1",
+          "to": "compute_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f6",
+          "from": "compute_1",
+          "to": "database_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f7",
+          "from": "database_1",
+          "to": "secrets_kms_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f8",
+          "from": "secrets_kms_1",
+          "to": "backup_1",
+          "protocol": "unknown"
+        }
+      ],
+      "trustBoundaries": []
+    },
+    {
+      "id": "current_arch_test_0014",
+      "image": "E:/Tech Challenge IADT - Fase 5 - Hackathon/dataset/hybrid_v2/images/test/current_arch_test_0014.jpg",
+      "imageSha256": "17db7a475afd87b3367a03ae29e9c503a0e72141426fff26cdeef4d249590932",
+      "source": "generated_known_graph",
+      "seed": 42284,
+      "components": [
+        {
+          "id": "user_1",
+          "type": "user",
+          "bbox": [
+            20,
+            20,
+            110,
+            80
+          ]
+        },
+        {
+          "id": "internet_1",
+          "type": "internet",
+          "bbox": [
+            243,
+            20,
+            333,
+            80
+          ]
+        },
+        {
+          "id": "cdn_1",
+          "type": "cdn",
+          "bbox": [
+            466,
+            20,
+            556,
+            80
+          ]
+        },
+        {
+          "id": "waf_1",
+          "type": "waf",
+          "bbox": [
+            689,
+            20,
+            779,
+            80
+          ]
+        },
+        {
+          "id": "storage_1",
+          "type": "storage",
+          "bbox": [
+            20,
+            186,
+            110,
+            246
+          ]
+        },
+        {
+          "id": "api_gateway_1",
+          "type": "api_gateway",
+          "bbox": [
+            243,
+            186,
+            333,
+            246
+          ]
+        },
+        {
+          "id": "compute_1",
+          "type": "compute",
+          "bbox": [
+            466,
+            186,
+            556,
+            246
+          ]
+        },
+        {
+          "id": "database_1",
+          "type": "database",
+          "bbox": [
+            689,
+            186,
+            779,
+            246
+          ]
+        },
+        {
+          "id": "monitoring_1",
+          "type": "monitoring",
+          "bbox": [
+            355,
+            352,
+            445,
+            412
+          ]
+        }
+      ],
+      "flows": [
+        {
+          "id": "f1",
+          "from": "user_1",
+          "to": "internet_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f2",
+          "from": "internet_1",
+          "to": "cdn_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f3",
+          "from": "cdn_1",
+          "to": "waf_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f4",
+          "from": "waf_1",
+          "to": "storage_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f5",
+          "from": "storage_1",
+          "to": "api_gateway_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f6",
+          "from": "api_gateway_1",
+          "to": "compute_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f7",
+          "from": "compute_1",
+          "to": "database_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f8",
+          "from": "database_1",
+          "to": "monitoring_1",
+          "protocol": "unknown"
+        }
+      ],
+      "trustBoundaries": []
+    },
+    {
+      "id": "current_arch_test_0015",
+      "image": "E:/Tech Challenge IADT - Fase 5 - Hackathon/dataset/hybrid_v2/images/test/current_arch_test_0015.jpg",
+      "imageSha256": "99d3929a74c45eb1a803bc15d819c3bb344d2e4bb1290095b4c859722d1cf85c",
+      "source": "generated_known_graph",
+      "seed": 42285,
+      "components": [
+        {
+          "id": "user_1",
+          "type": "user",
+          "bbox": [
+            355,
+            270,
+            445,
+            330
+          ]
+        },
+        {
+          "id": "internet_1",
+          "type": "internet",
+          "bbox": [
+            565,
+            270,
+            655,
+            330
+          ]
+        },
+        {
+          "id": "api_gateway_1",
+          "type": "api_gateway",
+          "bbox": [
+            419,
+            469,
+            509,
+            529
+          ]
+        },
+        {
+          "id": "compute_1",
+          "type": "compute",
+          "bbox": [
+            185,
+            393,
+            275,
+            453
+          ]
+        },
+        {
+          "id": "database_1",
+          "type": "database",
+          "bbox": [
+            185,
+            146,
+            275,
+            206
+          ]
+        },
+        {
+          "id": "secrets_kms_1",
+          "type": "secrets_kms",
+          "bbox": [
+            419,
+            70,
+            509,
+            130
+          ]
+        }
+      ],
+      "flows": [
+        {
+          "id": "f1",
+          "from": "user_1",
+          "to": "internet_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f2",
+          "from": "internet_1",
+          "to": "api_gateway_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f3",
+          "from": "api_gateway_1",
+          "to": "compute_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f4",
+          "from": "compute_1",
+          "to": "database_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f5",
+          "from": "database_1",
+          "to": "secrets_kms_1",
+          "protocol": "unknown"
+        }
+      ],
+      "trustBoundaries": []
+    },
+    {
+      "id": "current_arch_test_0016",
+      "image": "E:/Tech Challenge IADT - Fase 5 - Hackathon/dataset/hybrid_v2/images/test/current_arch_test_0016.jpg",
+      "imageSha256": "08fffe0769fbe23e5c478027d72794fad04efcf80dcba502e8ae5db9c87d948e",
+      "source": "generated_known_graph",
+      "seed": 42286,
+      "components": [
+        {
+          "id": "user_1",
+          "type": "user",
+          "bbox": [
+            355,
+            20,
+            445,
+            80
+          ]
+        },
+        {
+          "id": "internet_1",
+          "type": "internet",
+          "bbox": [
+            20,
+            145,
+            110,
+            205
+          ]
+        },
+        {
+          "id": "waf_1",
+          "type": "waf",
+          "bbox": [
+            690,
+            145,
+            780,
+            205
+          ]
+        },
+        {
+          "id": "api_gateway_1",
+          "type": "api_gateway",
+          "bbox": [
+            355,
+            270,
+            445,
+            330
+          ]
+        },
+        {
+          "id": "database_1",
+          "type": "database",
+          "bbox": [
+            355,
+            395,
+            445,
+            455
+          ]
+        }
+      ],
+      "flows": [
+        {
+          "id": "f1",
+          "from": "user_1",
+          "to": "internet_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f2",
+          "from": "internet_1",
+          "to": "waf_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f3",
+          "from": "waf_1",
+          "to": "api_gateway_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f4",
+          "from": "api_gateway_1",
+          "to": "database_1",
+          "protocol": "unknown"
+        }
+      ],
+      "trustBoundaries": []
+    },
+    {
+      "id": "current_arch_test_0017",
+      "image": "E:/Tech Challenge IADT - Fase 5 - Hackathon/dataset/hybrid_v2/images/test/current_arch_test_0017.jpg",
+      "imageSha256": "ef5fadfa3abf1f7483ef2f7af1cfbc3fc4b9bd89b9534d1503c9da5f752eeb5d",
+      "source": "generated_known_graph",
+      "seed": 42287,
+      "components": [
+        {
+          "id": "user_1",
+          "type": "user",
+          "bbox": [
+            355,
+            20,
+            445,
+            80
+          ]
+        },
+        {
+          "id": "identity_provider_1",
+          "type": "identity_provider",
+          "bbox": [
+            355,
+            120,
+            445,
+            180
+          ]
+        },
+        {
+          "id": "api_gateway_1",
+          "type": "api_gateway",
+          "bbox": [
+            20,
+            220,
+            110,
+            280
+          ]
+        },
+        {
+          "id": "compute_1",
+          "type": "compute",
+          "bbox": [
+            355,
+            220,
+            445,
+            280
+          ]
+        },
+        {
+          "id": "database_1",
+          "type": "database",
+          "bbox": [
+            690,
+            220,
+            780,
+            280
+          ]
+        },
+        {
+          "id": "monitoring_1",
+          "type": "monitoring",
+          "bbox": [
+            355,
+            320,
+            445,
+            380
+          ]
+        },
+        {
+          "id": "backup_1",
+          "type": "backup",
+          "bbox": [
+            355,
+            420,
+            445,
+            480
+          ]
+        }
+      ],
+      "flows": [
+        {
+          "id": "f1",
+          "from": "user_1",
+          "to": "identity_provider_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f2",
+          "from": "identity_provider_1",
+          "to": "api_gateway_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f3",
+          "from": "api_gateway_1",
+          "to": "compute_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f4",
+          "from": "compute_1",
+          "to": "database_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f5",
+          "from": "database_1",
+          "to": "monitoring_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f6",
+          "from": "monitoring_1",
+          "to": "backup_1",
+          "protocol": "unknown"
+        }
+      ],
+      "trustBoundaries": []
+    },
+    {
+      "id": "current_arch_test_0018",
+      "image": "E:/Tech Challenge IADT - Fase 5 - Hackathon/dataset/hybrid_v2/images/test/current_arch_test_0018.jpg",
+      "imageSha256": "8bb25a6e351d0786aa2a97ef315c1500e2e426c7a581845593c2845bf4f95a13",
+      "source": "generated_known_graph",
+      "seed": 42288,
+      "components": [
+        {
+          "id": "user_1",
+          "type": "user",
+          "bbox": [
+            355,
+            270,
+            445,
+            330
+          ]
+        },
+        {
+          "id": "internet_1",
+          "type": "internet",
+          "bbox": [
+            565,
+            270,
+            655,
+            330
+          ]
+        },
+        {
+          "id": "waf_1",
+          "type": "waf",
+          "bbox": [
+            460,
+            451,
+            550,
+            511
+          ]
+        },
+        {
+          "id": "compute_1",
+          "type": "compute",
+          "bbox": [
+            250,
+            451,
+            340,
+            511
+          ]
+        },
+        {
+          "id": "queue_1",
+          "type": "queue",
+          "bbox": [
+            145,
+            270,
+            235,
+            330
+          ]
+        },
+        {
+          "id": "database_1",
+          "type": "database",
+          "bbox": [
+            249,
+            88,
+            339,
+            148
+          ]
+        },
+        {
+          "id": "storage_1",
+          "type": "storage",
+          "bbox": [
+            460,
+            88,
+            550,
+            148
+          ]
+        }
+      ],
+      "flows": [
+        {
+          "id": "f1",
+          "from": "user_1",
+          "to": "internet_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f2",
+          "from": "internet_1",
+          "to": "waf_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f3",
+          "from": "waf_1",
+          "to": "compute_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f4",
+          "from": "compute_1",
+          "to": "queue_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f5",
+          "from": "queue_1",
+          "to": "database_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f6",
+          "from": "database_1",
+          "to": "storage_1",
+          "protocol": "unknown"
+        }
+      ],
+      "trustBoundaries": []
+    },
+    {
+      "id": "current_arch_test_0019",
+      "image": "E:/Tech Challenge IADT - Fase 5 - Hackathon/dataset/hybrid_v2/images/test/current_arch_test_0019.jpg",
+      "imageSha256": "1c2c9f6aa4dbbd46c2f42ca2f8f1c424a4ac705c8268ab60201f346dfd5ec5fe",
+      "source": "generated_known_graph",
+      "seed": 42289,
+      "components": [
+        {
+          "id": "user_1",
+          "type": "user",
+          "bbox": [
+            355,
+            20,
+            445,
+            80
+          ]
+        },
+        {
+          "id": "internet_1",
+          "type": "internet",
+          "bbox": [
+            20,
+            186,
+            110,
+            246
+          ]
+        },
+        {
+          "id": "api_gateway_1",
+          "type": "api_gateway",
+          "bbox": [
+            355,
+            186,
+            445,
+            246
+          ]
+        },
+        {
+          "id": "compute_1",
+          "type": "compute",
+          "bbox": [
+            690,
+            186,
+            780,
+            246
+          ]
+        },
+        {
+          "id": "database_1",
+          "type": "database",
+          "bbox": [
+            20,
+            352,
+            110,
+            412
+          ]
+        },
+        {
+          "id": "waf_1",
+          "type": "waf",
+          "bbox": [
+            355,
+            352,
+            445,
+            412
+          ]
+        },
+        {
+          "id": "secrets_kms_1",
+          "type": "secrets_kms",
+          "bbox": [
+            690,
+            352,
+            780,
+            412
+          ]
+        }
+      ],
+      "flows": [
+        {
+          "id": "f1",
+          "from": "user_1",
+          "to": "internet_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f2",
+          "from": "internet_1",
+          "to": "api_gateway_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f3",
+          "from": "api_gateway_1",
+          "to": "compute_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f4",
+          "from": "compute_1",
+          "to": "database_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f5",
+          "from": "database_1",
+          "to": "waf_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f6",
+          "from": "waf_1",
+          "to": "secrets_kms_1",
+          "protocol": "unknown"
+        }
+      ],
+      "trustBoundaries": []
+    },
+    {
+      "id": "current_arch_test_0020",
+      "image": "E:/Tech Challenge IADT - Fase 5 - Hackathon/dataset/hybrid_v2/images/test/current_arch_test_0020.jpg",
+      "imageSha256": "3acd96ab3fe8607f360963f0869026ab85fbb3a07c9a56fcf15803743372e3b8",
+      "source": "generated_known_graph",
+      "seed": 42290,
+      "components": [
+        {
+          "id": "user_1",
+          "type": "user",
+          "bbox": [
+            20,
+            20,
+            110,
+            80
+          ]
+        },
+        {
+          "id": "internet_1",
+          "type": "internet",
+          "bbox": [
+            690,
+            20,
+            780,
+            80
+          ]
+        },
+        {
+          "id": "waf_1",
+          "type": "waf",
+          "bbox": [
+            20,
+            120,
+            110,
+            180
+          ]
+        },
+        {
+          "id": "load_balancer_1",
+          "type": "load_balancer",
+          "bbox": [
+            690,
+            120,
+            780,
+            180
+          ]
+        },
+        {
+          "id": "compute_1",
+          "type": "compute",
+          "bbox": [
+            20,
+            220,
+            110,
+            280
+          ]
+        },
+        {
+          "id": "queue_1",
+          "type": "queue",
+          "bbox": [
+            690,
+            220,
+            780,
+            280
+          ]
+        },
+        {
+          "id": "database_1",
+          "type": "database",
+          "bbox": [
+            355,
+            320,
+            445,
+            380
+          ]
+        },
+        {
+          "id": "storage_1",
+          "type": "storage",
+          "bbox": [
+            355,
+            420,
+            445,
+            480
+          ]
+        }
+      ],
+      "flows": [
+        {
+          "id": "f1",
+          "from": "user_1",
+          "to": "internet_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f2",
+          "from": "internet_1",
+          "to": "waf_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f3",
+          "from": "waf_1",
+          "to": "load_balancer_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f4",
+          "from": "load_balancer_1",
+          "to": "compute_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f5",
+          "from": "compute_1",
+          "to": "queue_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f6",
+          "from": "queue_1",
+          "to": "database_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f7",
+          "from": "database_1",
+          "to": "storage_1",
+          "protocol": "unknown"
+        }
+      ],
+      "trustBoundaries": []
+    },
+    {
+      "id": "current_arch_test_0021",
+      "image": "E:/Tech Challenge IADT - Fase 5 - Hackathon/dataset/hybrid_v2/images/test/current_arch_test_0021.jpg",
+      "imageSha256": "18227bccf9884046fd7aa3adaf990ee28ccfaa83fe033ad1e9f8b9539ac9940a",
+      "source": "generated_known_graph",
+      "seed": 42291,
+      "components": [
+        {
+          "id": "user_1",
+          "type": "user",
+          "bbox": [
+            355,
+            270,
+            445,
+            330
+          ]
+        },
+        {
+          "id": "internet_1",
+          "type": "internet",
+          "bbox": [
+            565,
+            270,
+            655,
+            330
+          ]
+        },
+        {
+          "id": "cdn_1",
+          "type": "cdn",
+          "bbox": [
+            485,
+            434,
+            575,
+            494
+          ]
+        },
+        {
+          "id": "api_gateway_1",
+          "type": "api_gateway",
+          "bbox": [
+            308,
+            474,
+            398,
+            534
+          ]
+        },
+        {
+          "id": "compute_1",
+          "type": "compute",
+          "bbox": [
+            165,
+            361,
+            255,
+            421
+          ]
+        },
+        {
+          "id": "database_1",
+          "type": "database",
+          "bbox": [
+            165,
+            178,
+            255,
+            238
+          ]
+        },
+        {
+          "id": "storage_1",
+          "type": "storage",
+          "bbox": [
+            308,
+            65,
+            398,
+            125
+          ]
+        },
+        {
+          "id": "monitoring_1",
+          "type": "monitoring",
+          "bbox": [
+            485,
+            105,
+            575,
+            165
+          ]
+        }
+      ],
+      "flows": [
+        {
+          "id": "f1",
+          "from": "user_1",
+          "to": "internet_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f2",
+          "from": "internet_1",
+          "to": "cdn_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f3",
+          "from": "cdn_1",
+          "to": "api_gateway_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f4",
+          "from": "api_gateway_1",
+          "to": "compute_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f5",
+          "from": "compute_1",
+          "to": "database_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f6",
+          "from": "database_1",
+          "to": "storage_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f7",
+          "from": "storage_1",
+          "to": "monitoring_1",
+          "protocol": "unknown"
+        }
+      ],
+      "trustBoundaries": []
+    },
+    {
+      "id": "current_arch_test_0022",
+      "image": "E:/Tech Challenge IADT - Fase 5 - Hackathon/dataset/hybrid_v2/images/test/current_arch_test_0022.jpg",
+      "imageSha256": "14304b8e3aaa937c05fdb8860d76eaab3391112b129085098cc5c4e95be75368",
+      "source": "generated_known_graph",
+      "seed": 42292,
+      "components": [
+        {
+          "id": "user_1",
+          "type": "user",
+          "bbox": [
+            20,
+            20,
+            110,
+            80
+          ]
+        },
+        {
+          "id": "internet_1",
+          "type": "internet",
+          "bbox": [
+            243,
+            20,
+            333,
+            80
+          ]
+        },
+        {
+          "id": "cdn_1",
+          "type": "cdn",
+          "bbox": [
+            466,
+            20,
+            556,
+            80
+          ]
+        },
+        {
+          "id": "identity_provider_1",
+          "type": "identity_provider",
+          "bbox": [
+            689,
+            20,
+            779,
+            80
+          ]
+        },
+        {
+          "id": "waf_1",
+          "type": "waf",
+          "bbox": [
+            20,
+            120,
+            110,
+            180
+          ]
+        },
+        {
+          "id": "api_gateway_1",
+          "type": "api_gateway",
+          "bbox": [
+            355,
+            120,
+            445,
+            180
+          ]
+        },
+        {
+          "id": "load_balancer_1",
+          "type": "load_balancer",
+          "bbox": [
+            690,
+            120,
+            780,
+            180
+          ]
+        },
+        {
+          "id": "compute_1",
+          "type": "compute",
+          "bbox": [
+            355,
+            220,
+            445,
+            280
+          ]
+        },
+        {
+          "id": "database_1",
+          "type": "database",
+          "bbox": [
+            355,
+            320,
+            445,
+            380
+          ]
+        },
+        {
+          "id": "monitoring_1",
+          "type": "monitoring",
+          "bbox": [
+            355,
+            420,
+            445,
+            480
+          ]
+        }
+      ],
+      "flows": [
+        {
+          "id": "f1",
+          "from": "user_1",
+          "to": "internet_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f2",
+          "from": "internet_1",
+          "to": "cdn_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f3",
+          "from": "cdn_1",
+          "to": "identity_provider_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f4",
+          "from": "identity_provider_1",
+          "to": "waf_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f5",
+          "from": "waf_1",
+          "to": "api_gateway_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f6",
+          "from": "api_gateway_1",
+          "to": "load_balancer_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f7",
+          "from": "load_balancer_1",
+          "to": "compute_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f8",
+          "from": "compute_1",
+          "to": "database_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f9",
+          "from": "database_1",
+          "to": "monitoring_1",
+          "protocol": "unknown"
+        }
+      ],
+      "trustBoundaries": []
+    },
+    {
+      "id": "current_arch_test_0023",
+      "image": "E:/Tech Challenge IADT - Fase 5 - Hackathon/dataset/hybrid_v2/images/test/current_arch_test_0023.jpg",
+      "imageSha256": "c4361cd601c85d0aafa3dd5b5e410ebb92c4a49bbb630f72fa1612b4775b80d9",
+      "source": "generated_known_graph",
+      "seed": 42293,
+      "components": [
+        {
+          "id": "user_1",
+          "type": "user",
+          "bbox": [
+            20,
+            20,
+            110,
+            80
+          ]
+        },
+        {
+          "id": "internet_1",
+          "type": "internet",
+          "bbox": [
+            690,
+            20,
+            780,
+            80
+          ]
+        },
+        {
+          "id": "api_gateway_1",
+          "type": "api_gateway",
+          "bbox": [
+            355,
+            145,
+            445,
+            205
+          ]
+        },
+        {
+          "id": "database_1",
+          "type": "database",
+          "bbox": [
+            355,
+            270,
+            445,
+            330
+          ]
+        },
+        {
+          "id": "identity_provider_1",
+          "type": "identity_provider",
+          "bbox": [
+            20,
+            395,
+            110,
+            455
+          ]
+        },
+        {
+          "id": "secrets_kms_1",
+          "type": "secrets_kms",
+          "bbox": [
+            690,
+            395,
+            780,
+            455
+          ]
+        }
+      ],
+      "flows": [
+        {
+          "id": "f1",
+          "from": "user_1",
+          "to": "internet_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f2",
+          "from": "internet_1",
+          "to": "api_gateway_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f3",
+          "from": "api_gateway_1",
+          "to": "database_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f4",
+          "from": "database_1",
+          "to": "identity_provider_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f5",
+          "from": "identity_provider_1",
+          "to": "secrets_kms_1",
+          "protocol": "unknown"
+        }
+      ],
+      "trustBoundaries": []
+    },
+    {
+      "id": "current_arch_test_0024",
+      "image": "E:/Tech Challenge IADT - Fase 5 - Hackathon/dataset/hybrid_v2/images/test/current_arch_test_0024.jpg",
+      "imageSha256": "ac1161129c9236c21b3b9b81af328a8b5c626202a8ba75e34abbd7ee990c210e",
+      "source": "generated_known_graph",
+      "seed": 42294,
+      "components": [
+        {
+          "id": "user_1",
+          "type": "user",
+          "bbox": [
+            20,
+            20,
+            110,
+            80
+          ]
+        },
+        {
+          "id": "identity_provider_1",
+          "type": "identity_provider",
+          "bbox": [
+            355,
+            20,
+            445,
+            80
+          ]
+        },
+        {
+          "id": "api_gateway_1",
+          "type": "api_gateway",
+          "bbox": [
+            690,
+            20,
+            780,
+            80
+          ]
+        },
+        {
+          "id": "compute_1",
+          "type": "compute",
+          "bbox": [
+            355,
+            120,
+            445,
+            180
+          ]
+        },
+        {
+          "id": "load_balancer_1",
+          "type": "load_balancer",
+          "bbox": [
+            20,
+            220,
+            110,
+            280
+          ]
+        },
+        {
+          "id": "database_1",
+          "type": "database",
+          "bbox": [
+            690,
+            220,
+            780,
+            280
+          ]
+        },
+        {
+          "id": "monitoring_1",
+          "type": "monitoring",
+          "bbox": [
+            355,
+            320,
+            445,
+            380
+          ]
+        },
+        {
+          "id": "backup_1",
+          "type": "backup",
+          "bbox": [
+            355,
+            420,
+            445,
+            480
+          ]
+        }
+      ],
+      "flows": [
+        {
+          "id": "f1",
+          "from": "user_1",
+          "to": "identity_provider_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f2",
+          "from": "identity_provider_1",
+          "to": "api_gateway_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f3",
+          "from": "api_gateway_1",
+          "to": "compute_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f4",
+          "from": "compute_1",
+          "to": "load_balancer_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f5",
+          "from": "load_balancer_1",
+          "to": "database_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f6",
+          "from": "database_1",
+          "to": "monitoring_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f7",
+          "from": "monitoring_1",
+          "to": "backup_1",
+          "protocol": "unknown"
+        }
+      ],
+      "trustBoundaries": []
+    },
+    {
+      "id": "current_arch_test_0025",
+      "image": "E:/Tech Challenge IADT - Fase 5 - Hackathon/dataset/hybrid_v2/images/test/current_arch_test_0025.jpg",
+      "imageSha256": "827f3c7f2c7e39c62337731fd68573d9de62c67a19cdeec518b5376ee497f611",
+      "source": "generated_known_graph",
+      "seed": 42295,
+      "components": [
+        {
+          "id": "user_1",
+          "type": "user",
+          "bbox": [
+            20,
+            20,
+            110,
+            80
+          ]
+        },
+        {
+          "id": "internet_1",
+          "type": "internet",
+          "bbox": [
+            690,
+            20,
+            780,
+            80
+          ]
+        },
+        {
+          "id": "api_gateway_1",
+          "type": "api_gateway",
+          "bbox": [
+            20,
+            186,
+            110,
+            246
+          ]
+        },
+        {
+          "id": "compute_1",
+          "type": "compute",
+          "bbox": [
+            690,
+            186,
+            780,
+            246
+          ]
+        },
+        {
+          "id": "database_1",
+          "type": "database",
+          "bbox": [
+            20,
+            352,
+            110,
+            412
+          ]
+        },
+        {
+          "id": "secrets_kms_1",
+          "type": "secrets_kms",
+          "bbox": [
+            355,
+            352,
+            445,
+            412
+          ]
+        },
+        {
+          "id": "storage_1",
+          "type": "storage",
+          "bbox": [
+            690,
+            352,
+            780,
+            412
+          ]
+        }
+      ],
+      "flows": [
+        {
+          "id": "f1",
+          "from": "user_1",
+          "to": "internet_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f2",
+          "from": "internet_1",
+          "to": "api_gateway_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f3",
+          "from": "api_gateway_1",
+          "to": "compute_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f4",
+          "from": "compute_1",
+          "to": "database_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f5",
+          "from": "database_1",
+          "to": "secrets_kms_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f6",
+          "from": "secrets_kms_1",
+          "to": "storage_1",
+          "protocol": "unknown"
+        }
+      ],
+      "trustBoundaries": []
+    },
+    {
+      "id": "current_arch_test_0026",
+      "image": "E:/Tech Challenge IADT - Fase 5 - Hackathon/dataset/hybrid_v2/images/test/current_arch_test_0026.jpg",
+      "imageSha256": "cf428b3093942adeab9eba66e015f6c09e7465f43195deb360c726eb72396f49",
+      "source": "generated_known_graph",
+      "seed": 42296,
+      "components": [
+        {
+          "id": "user_1",
+          "type": "user",
+          "bbox": [
+            20,
+            20,
+            110,
+            80
+          ]
+        },
+        {
+          "id": "internet_1",
+          "type": "internet",
+          "bbox": [
+            355,
+            20,
+            445,
+            80
+          ]
+        },
+        {
+          "id": "cdn_1",
+          "type": "cdn",
+          "bbox": [
+            690,
+            20,
+            780,
+            80
+          ]
+        },
+        {
+          "id": "api_gateway_1",
+          "type": "api_gateway",
+          "bbox": [
+            20,
+            186,
+            110,
+            246
+          ]
+        },
+        {
+          "id": "compute_1",
+          "type": "compute",
+          "bbox": [
+            690,
+            186,
+            780,
+            246
+          ]
+        },
+        {
+          "id": "identity_provider_1",
+          "type": "identity_provider",
+          "bbox": [
+            20,
+            352,
+            110,
+            412
+          ]
+        },
+        {
+          "id": "database_1",
+          "type": "database",
+          "bbox": [
+            243,
+            352,
+            333,
+            412
+          ]
+        },
+        {
+          "id": "storage_1",
+          "type": "storage",
+          "bbox": [
+            466,
+            352,
+            556,
+            412
+          ]
+        },
+        {
+          "id": "monitoring_1",
+          "type": "monitoring",
+          "bbox": [
+            689,
+            352,
+            779,
+            412
+          ]
+        }
+      ],
+      "flows": [
+        {
+          "id": "f1",
+          "from": "user_1",
+          "to": "internet_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f2",
+          "from": "internet_1",
+          "to": "cdn_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f3",
+          "from": "cdn_1",
+          "to": "api_gateway_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f4",
+          "from": "api_gateway_1",
+          "to": "compute_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f5",
+          "from": "compute_1",
+          "to": "identity_provider_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f6",
+          "from": "identity_provider_1",
+          "to": "database_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f7",
+          "from": "database_1",
+          "to": "storage_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f8",
+          "from": "storage_1",
+          "to": "monitoring_1",
+          "protocol": "unknown"
+        }
+      ],
+      "trustBoundaries": []
+    },
+    {
+      "id": "current_arch_test_0027",
+      "image": "E:/Tech Challenge IADT - Fase 5 - Hackathon/dataset/hybrid_v2/images/test/current_arch_test_0027.jpg",
+      "imageSha256": "11a1cafd94b5eef5a102d1448827f291af0b9083421ba104457a9f6bc262b93b",
+      "source": "generated_known_graph",
+      "seed": 42297,
+      "components": [
+        {
+          "id": "user_1",
+          "type": "user",
+          "bbox": [
+            355,
+            20,
+            445,
+            80
+          ]
+        },
+        {
+          "id": "internet_1",
+          "type": "internet",
+          "bbox": [
+            20,
+            120,
+            110,
+            180
+          ]
+        },
+        {
+          "id": "cdn_1",
+          "type": "cdn",
+          "bbox": [
+            355,
+            120,
+            445,
+            180
+          ]
+        },
+        {
+          "id": "waf_1",
+          "type": "waf",
+          "bbox": [
+            690,
+            120,
+            780,
+            180
+          ]
+        },
+        {
+          "id": "api_gateway_1",
+          "type": "api_gateway",
+          "bbox": [
+            20,
+            220,
+            110,
+            280
+          ]
+        },
+        {
+          "id": "load_balancer_1",
+          "type": "load_balancer",
+          "bbox": [
+            355,
+            220,
+            445,
+            280
+          ]
+        },
+        {
+          "id": "compute_1",
+          "type": "compute",
+          "bbox": [
+            690,
+            220,
+            780,
+            280
+          ]
+        },
+        {
+          "id": "database_1",
+          "type": "database",
+          "bbox": [
+            355,
+            320,
+            445,
+            380
+          ]
+        },
+        {
+          "id": "monitoring_1",
+          "type": "monitoring",
+          "bbox": [
+            355,
+            420,
+            445,
+            480
+          ]
+        }
+      ],
+      "flows": [
+        {
+          "id": "f1",
+          "from": "user_1",
+          "to": "internet_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f2",
+          "from": "internet_1",
+          "to": "cdn_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f3",
+          "from": "cdn_1",
+          "to": "waf_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f4",
+          "from": "waf_1",
+          "to": "api_gateway_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f5",
+          "from": "api_gateway_1",
+          "to": "load_balancer_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f6",
+          "from": "load_balancer_1",
+          "to": "compute_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f7",
+          "from": "compute_1",
+          "to": "database_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f8",
+          "from": "database_1",
+          "to": "monitoring_1",
+          "protocol": "unknown"
+        }
+      ],
+      "trustBoundaries": []
+    },
+    {
+      "id": "current_arch_test_0028",
+      "image": "E:/Tech Challenge IADT - Fase 5 - Hackathon/dataset/hybrid_v2/images/test/current_arch_test_0028.jpg",
+      "imageSha256": "02ce3df5d2fbf24832f34f0bffa4024543495be388bf88f4a1934a117a48f17d",
+      "source": "generated_known_graph",
+      "seed": 42298,
+      "components": [
+        {
+          "id": "user_1",
+          "type": "user",
+          "bbox": [
+            20,
+            20,
+            110,
+            80
+          ]
+        },
+        {
+          "id": "internet_1",
+          "type": "internet",
+          "bbox": [
+            243,
+            20,
+            333,
+            80
+          ]
+        },
+        {
+          "id": "waf_1",
+          "type": "waf",
+          "bbox": [
+            466,
+            20,
+            556,
+            80
+          ]
+        },
+        {
+          "id": "identity_provider_1",
+          "type": "identity_provider",
+          "bbox": [
+            689,
+            20,
+            779,
+            80
+          ]
+        },
+        {
+          "id": "compute_1",
+          "type": "compute",
+          "bbox": [
+            355,
+            145,
+            445,
+            205
+          ]
+        },
+        {
+          "id": "database_1",
+          "type": "database",
+          "bbox": [
+            20,
+            270,
+            110,
+            330
+          ]
+        },
+        {
+          "id": "secrets_kms_1",
+          "type": "secrets_kms",
+          "bbox": [
+            690,
+            270,
+            780,
+            330
+          ]
+        },
+        {
+          "id": "backup_1",
+          "type": "backup",
+          "bbox": [
+            355,
+            395,
+            445,
+            455
+          ]
+        }
+      ],
+      "flows": [
+        {
+          "id": "f1",
+          "from": "user_1",
+          "to": "internet_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f2",
+          "from": "internet_1",
+          "to": "waf_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f3",
+          "from": "waf_1",
+          "to": "identity_provider_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f4",
+          "from": "identity_provider_1",
+          "to": "compute_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f5",
+          "from": "compute_1",
+          "to": "database_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f6",
+          "from": "database_1",
+          "to": "secrets_kms_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f7",
+          "from": "secrets_kms_1",
+          "to": "backup_1",
+          "protocol": "unknown"
+        }
+      ],
+      "trustBoundaries": []
+    },
+    {
+      "id": "current_arch_test_0029",
+      "image": "E:/Tech Challenge IADT - Fase 5 - Hackathon/dataset/hybrid_v2/images/test/current_arch_test_0029.jpg",
+      "imageSha256": "d5198bd65a66c3c0d78ae1c026aeb55211ecd188605f36ef3f569b1a1a30af86",
+      "source": "generated_known_graph",
+      "seed": 42299,
+      "components": [
+        {
+          "id": "user_1",
+          "type": "user",
+          "bbox": [
+            355,
+            270,
+            445,
+            330
+          ]
+        },
+        {
+          "id": "internet_1",
+          "type": "internet",
+          "bbox": [
+            565,
+            270,
+            655,
+            330
+          ]
+        },
+        {
+          "id": "waf_1",
+          "type": "waf",
+          "bbox": [
+            515,
+            404,
+            605,
+            464
+          ]
+        },
+        {
+          "id": "api_gateway_1",
+          "type": "api_gateway",
+          "bbox": [
+            391,
+            476,
+            481,
+            536
+          ]
+        },
+        {
+          "id": "identity_provider_1",
+          "type": "identity_provider",
+          "bbox": [
+            250,
+            451,
+            340,
+            511
+          ]
+        },
+        {
+          "id": "compute_1",
+          "type": "compute",
+          "bbox": [
+            157,
+            341,
+            247,
+            401
+          ]
+        },
+        {
+          "id": "database_1",
+          "type": "database",
+          "bbox": [
+            157,
+            198,
+            247,
+            258
+          ]
+        },
+        {
+          "id": "cdn_1",
+          "type": "cdn",
+          "bbox": [
+            249,
+            88,
+            339,
+            148
+          ]
+        },
+        {
+          "id": "secrets_kms_1",
+          "type": "secrets_kms",
+          "bbox": [
+            391,
+            63,
+            481,
+            123
+          ]
+        },
+        {
+          "id": "backup_1",
+          "type": "backup",
+          "bbox": [
+            515,
+            135,
+            605,
+            195
+          ]
+        }
+      ],
+      "flows": [
+        {
+          "id": "f1",
+          "from": "user_1",
+          "to": "internet_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f2",
+          "from": "internet_1",
+          "to": "waf_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f3",
+          "from": "waf_1",
+          "to": "api_gateway_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f4",
+          "from": "api_gateway_1",
+          "to": "identity_provider_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f5",
+          "from": "identity_provider_1",
+          "to": "compute_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f6",
+          "from": "compute_1",
+          "to": "database_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f7",
+          "from": "database_1",
+          "to": "cdn_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f8",
+          "from": "cdn_1",
+          "to": "secrets_kms_1",
+          "protocol": "unknown"
+        },
+        {
+          "id": "f9",
+          "from": "secrets_kms_1",
+          "to": "backup_1",
+          "protocol": "unknown"
+        }
+      ],
+      "trustBoundaries": []
+    }
+  ]
+}

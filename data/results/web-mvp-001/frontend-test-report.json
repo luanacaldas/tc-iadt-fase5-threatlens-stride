@@ -1,0 +1,9 @@
+{
+  "schemaVersion": "1.0",
+  "command": "npm.cmd run test:web",
+  "tests": 28,
+  "passed": 28,
+  "failed": 0,
+  "requiredContracts": 25,
+  "status": "PASS"
+}

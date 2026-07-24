@@ -1,0 +1,660 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ThreatLens - Revisao TL-004</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f5f7f8;
+      --surface: #ffffff;
+      --surface-muted: #eef2f3;
+      --line: #cbd5d8;
+      --line-strong: #8fa0a5;
+      --text: #162126;
+      --muted: #596a70;
+      --teal: #087f72;
+      --teal-dark: #075f56;
+      --red: #b42318;
+      --amber: #a15c00;
+      --green: #237a45;
+      --purple: #6d42a6;
+      --focus: #136f9a;
+      font-family: Inter, "Segoe UI", Arial, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--text); }
+    button, input, select, textarea { font: inherit; letter-spacing: 0; }
+    button { cursor: pointer; }
+    .topbar {
+      min-height: 64px;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      padding: 10px 22px;
+      background: #17272d;
+      color: #fff;
+      border-bottom: 3px solid var(--teal);
+    }
+    .brand { min-width: 230px; }
+    .brand strong { display: block; font-size: 17px; }
+    .brand span { color: #c7d5d8; font-size: 12px; }
+    .progress-wrap { flex: 1; min-width: 140px; }
+    .progress-label { display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 5px; }
+    .progress-track { height: 8px; background: #41545b; overflow: hidden; }
+    .progress-bar { height: 100%; width: 0; background: #4fd1bd; transition: width 180ms ease; }
+    .command {
+      min-height: 38px;
+      padding: 8px 13px;
+      border: 1px solid #6b8087;
+      background: transparent;
+      color: #fff;
+      border-radius: 4px;
+      font-weight: 650;
+    }
+    .command.primary { background: var(--teal); border-color: var(--teal); }
+    .command:hover { border-color: #fff; }
+    .command-wrap { display: grid; justify-items: end; gap: 4px; }
+    .command-actions { display: flex; gap: 7px; }
+    .export-status { min-height: 14px; max-width: 330px; color: #c7d5d8; font-size: 11px; text-align: right; }
+    .layout { display: grid; grid-template-columns: 280px minmax(0, 1fr); min-height: calc(100vh - 64px); }
+    .case-nav { background: var(--surface); border-right: 1px solid var(--line); overflow-y: auto; }
+    .nav-heading {
+      position: sticky;
+      top: 0;
+      z-index: 2;
+      padding: 13px 15px 9px;
+      background: var(--surface);
+      border-bottom: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .case-button {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 34px minmax(0, 1fr) 10px;
+      gap: 9px;
+      align-items: center;
+      padding: 10px 14px;
+      border: 0;
+      border-bottom: 1px solid #e5eaec;
+      background: #fff;
+      color: var(--text);
+      text-align: left;
+    }
+    .case-button:hover { background: #f0f6f5; }
+    .case-button.active { background: #e4f2f0; box-shadow: inset 4px 0 var(--teal); }
+    .case-code { font-weight: 800; color: var(--muted); }
+    .case-copy { min-width: 0; }
+    .case-copy strong { display: block; font-size: 13px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .case-copy span { display: block; margin-top: 3px; color: var(--muted); font-size: 11px; }
+    .status-dot { width: 9px; height: 9px; border-radius: 50%; background: #aab7bb; }
+    .case-button.complete .status-dot { background: var(--green); }
+    .main { min-width: 0; }
+    .case-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 18px 22px 14px;
+      background: var(--surface);
+      border-bottom: 1px solid var(--line);
+    }
+    .case-header h1 { margin: 0 0 6px; font-size: 22px; line-height: 1.2; }
+    .meta { color: var(--muted); font-size: 12px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 10px; }
+    .tag { padding: 3px 6px; border: 1px solid var(--line); border-radius: 3px; background: #f8fafb; font-size: 11px; }
+    .tag.error { color: var(--red); border-color: #e5a59f; background: #fff4f2; }
+    .tag.control { color: var(--green); border-color: #99c6a9; background: #effaf2; }
+    .source-link { color: var(--focus); font-size: 12px; font-weight: 650; text-decoration: none; white-space: nowrap; }
+    .workspace { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(350px, 0.75fr); align-items: start; }
+    .evidence { min-width: 0; padding: 18px 22px 24px; }
+    .review { min-width: 0; padding: 18px 20px 26px; border-left: 1px solid var(--line); background: #fbfcfc; }
+    .visual {
+      width: 100%;
+      min-height: 300px;
+      max-height: 68vh;
+      object-fit: contain;
+      object-position: center;
+      background: #e8edef;
+      border: 1px solid var(--line-strong);
+    }
+    .legend { display: flex; flex-wrap: wrap; gap: 12px; margin: 8px 0 18px; color: var(--muted); font-size: 11px; }
+    .legend span::before { content: ""; display: inline-block; width: 16px; height: 4px; margin-right: 5px; vertical-align: 2px; background: currentColor; }
+    .legend .pred { color: #c62828; }
+    .legend .target { color: #e65100; }
+    .legend .through { color: #7c3aed; }
+    .legend .expected { color: #087f5b; }
+    .section-title { margin: 18px 0 8px; font-size: 13px; text-transform: uppercase; color: #42545a; }
+    .flow-table { width: 100%; border-collapse: collapse; table-layout: fixed; font-size: 12px; }
+    .flow-table th, .flow-table td { padding: 8px; border: 1px solid var(--line); vertical-align: top; overflow-wrap: anywhere; }
+    .flow-table th { background: var(--surface-muted); text-align: left; }
+    .components { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 7px; }
+    .component { border-left: 4px solid var(--focus); padding: 7px 9px; background: var(--surface); font-size: 12px; }
+    .component.traversed { border-left-color: var(--purple); }
+    .component span { display: block; color: var(--muted); margin-top: 2px; }
+    fieldset { margin: 0 0 15px; padding: 0; border: 0; }
+    legend, label.field-label { display: block; margin-bottom: 7px; color: #34474e; font-size: 12px; font-weight: 750; }
+    select, textarea, input[type="text"] {
+      width: 100%;
+      border: 1px solid var(--line-strong);
+      border-radius: 3px;
+      background: #fff;
+      color: var(--text);
+      padding: 9px 10px;
+    }
+    textarea { min-height: 82px; resize: vertical; }
+    select:focus, textarea:focus, input:focus, button:focus-visible { outline: 3px solid rgba(19, 111, 154, 0.25); outline-offset: 1px; }
+    .segments { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border: 1px solid var(--line-strong); }
+    .segments label { position: relative; min-width: 0; }
+    .segments label + label { border-left: 1px solid var(--line); }
+    .segments input { position: absolute; opacity: 0; pointer-events: none; }
+    .segments span { display: block; min-height: 38px; padding: 9px 5px; text-align: center; font-size: 11px; background: #fff; overflow-wrap: anywhere; }
+    .segments input:checked + span { background: #dcefeb; color: var(--teal-dark); box-shadow: inset 0 -3px var(--teal); font-weight: 750; }
+    .checks { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 10px; }
+    .checks label { display: grid; grid-template-columns: 18px 1fr; align-items: start; gap: 6px; font-size: 11px; }
+    .checks input { margin: 2px 0 0; }
+    .hypotheses { margin: 0; padding-left: 18px; color: var(--muted); font-size: 12px; }
+    .hypotheses li { margin: 4px 0; overflow-wrap: anywhere; }
+    .review-actions { display: flex; justify-content: space-between; gap: 8px; padding-top: 4px; }
+    .review-actions button { min-height: 38px; padding: 8px 12px; border: 1px solid var(--line-strong); border-radius: 3px; background: #fff; color: var(--text); font-weight: 700; }
+    .review-actions .next { background: var(--teal); border-color: var(--teal); color: #fff; }
+    .batch-assessment { padding: 22px; border-top: 3px solid var(--amber); background: #fffaf1; }
+    .batch-assessment h2 { margin: 0 0 14px; font-size: 18px; }
+    .assessment-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 15px 22px; }
+    .submission-actions { display: flex; align-items: center; justify-content: flex-end; gap: 12px; margin-top: 16px; padding-top: 15px; border-top: 1px solid #d7c9ac; }
+    .submission-actions button { min-height: 42px; padding: 9px 16px; border: 1px solid var(--teal); border-radius: 4px; background: var(--teal); color: #fff; font-weight: 750; }
+    .submission-status { min-height: 16px; color: var(--muted); font-size: 12px; text-align: right; overflow-wrap: anywhere; }
+    .full { grid-column: 1 / -1; }
+    .footer { padding: 12px 22px 24px; color: var(--muted); font-size: 11px; background: #fffaf1; }
+    .json-recovery { padding: 18px 22px; border-top: 1px solid var(--line); background: var(--surface); }
+    .json-recovery textarea { min-height: 220px; font-family: Consolas, "Courier New", monospace; font-size: 11px; }
+    @media (max-width: 1050px) {
+      .workspace { grid-template-columns: 1fr; }
+      .review { border-left: 0; border-top: 1px solid var(--line); }
+    }
+    @media (max-width: 760px) {
+      .topbar { align-items: stretch; flex-wrap: wrap; }
+      .brand { min-width: 0; flex: 1; }
+      .progress-wrap { order: 3; flex-basis: 100%; }
+      .command-wrap { justify-items: stretch; }
+      .command-actions { flex-wrap: wrap; }
+      .export-status { max-width: none; text-align: left; }
+      .layout { display: block; }
+      .case-nav { display: flex; overflow-x: auto; border-right: 0; border-bottom: 1px solid var(--line); }
+      .nav-heading { display: none; }
+      .case-button { min-width: 190px; border-right: 1px solid var(--line); }
+      .case-header { padding: 14px; }
+      .case-header h1 { font-size: 18px; }
+      .evidence, .review, .batch-assessment { padding: 14px; }
+      .visual { min-height: 220px; max-height: 52vh; }
+      .checks, .assessment-grid { grid-template-columns: 1fr; }
+      .submission-actions { align-items: stretch; flex-direction: column; }
+      .submission-status { text-align: left; }
+      .segments span { font-size: 10px; }
+      .full { grid-column: auto; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <strong>ThreatLens | Revisao TL-004</strong>
+      <span id="batch-label"></span>
+    </div>
+    <div class="progress-wrap">
+      <div class="progress-label"><span>Progresso</span><span id="progress-text">0/0</span></div>
+      <div class="progress-track"><div class="progress-bar" id="progress-bar"></div></div>
+    </div>
+    <div class="command-wrap">
+      <div class="command-actions">
+        <button class="command" id="send-button" type="button">Enviar ao projeto</button>
+        <button class="command" id="copy-button" type="button">Copiar JSON</button>
+        <button class="command primary" id="export-button" type="button">Exportar JSON</button>
+      </div>
+      <span class="export-status" id="export-status" role="status" aria-live="polite"></span>
+    </div>
+  </header>
+
+  <div class="layout">
+    <nav class="case-nav" id="case-nav" aria-label="Casos de revisao">
+      <div class="nav-heading">Lote inicial</div>
+    </nav>
+    <main class="main">
+      <section class="case-header">
+        <div>
+          <h1 id="case-title"></h1>
+          <div class="meta" id="case-meta"></div>
+          <div class="tags" id="case-tags"></div>
+        </div>
+        <a class="source-link" id="source-link" target="_blank" rel="noreferrer">Abrir imagem original</a>
+      </section>
+
+      <div class="workspace">
+        <section class="evidence">
+          <img class="visual" id="case-image" alt="Recorte anotado do caso">
+          <div class="legend">
+            <span class="pred">origem e caminho previsto</span>
+            <span class="target">destino previsto</span>
+            <span class="through">componente atravessado</span>
+            <span class="expected">relacao esperada sem caminho detectado</span>
+          </div>
+          <h2 class="section-title">Fluxos e evidencias</h2>
+          <div id="flow-content"></div>
+          <h2 class="section-title">Componentes envolvidos</h2>
+          <div class="components" id="component-content"></div>
+        </section>
+
+        <form class="review" id="review-form">
+          <h2 class="section-title">Hipoteses automaticas</h2>
+          <ul class="hypotheses" id="hypotheses"></ul>
+
+          <fieldset>
+            <legend>Decisao humana</legend>
+            <div class="segments" data-field="decision">
+              <label><input type="radio" name="decision" value="confirmed_false_positive"><span>Falso fluxo</span></label>
+              <label><input type="radio" name="decision" value="valid_connection"><span>Conexao valida</span></label>
+              <label><input type="radio" name="decision" value="ambiguous"><span>Ambiguo</span></label>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <label class="field-label" for="primary-cause">Causa principal</label>
+            <select id="primary-cause" name="primaryCause"></select>
+          </fieldset>
+
+          <fieldset>
+            <legend>Causas contribuintes</legend>
+            <div class="checks" id="contributing-causes"></div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Escopo da TL-004</legend>
+            <div class="segments" data-field="tl004Scope">
+              <label><input type="radio" name="tl004Scope" value="inside"><span>Dentro</span></label>
+              <label><input type="radio" name="tl004Scope" value="partial"><span>Parcial</span></label>
+              <label><input type="radio" name="tl004Scope" value="outside"><span>Fora</span></label>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Confianca da revisao</legend>
+            <div class="segments" data-field="confidence">
+              <label><input type="radio" name="confidence" value="low"><span>Baixa</span></label>
+              <label><input type="radio" name="confidence" value="medium"><span>Media</span></label>
+              <label><input type="radio" name="confidence" value="high"><span>Alta</span></label>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <label class="field-label" for="new-category">Nova categoria, se houver</label>
+            <input id="new-category" name="newCategory" type="text" autocomplete="off">
+          </fieldset>
+
+          <fieldset>
+            <label class="field-label" for="observations">Observacoes</label>
+            <textarea id="observations" name="observations"></textarea>
+          </fieldset>
+
+          <fieldset>
+            <label class="field-label" for="correction">Correcao estrutural esperada</label>
+            <textarea id="correction" name="expectedStructuralCorrection"></textarea>
+          </fieldset>
+
+          <div class="review-actions">
+            <button type="button" id="previous-button">Anterior</button>
+            <button class="next" type="button" id="next-button">Proximo caso</button>
+          </div>
+        </form>
+      </div>
+
+      <section class="batch-assessment">
+        <h2>Avaliacao do lote</h2>
+        <div class="assessment-grid">
+          <fieldset>
+            <label class="field-label" for="reviewer">Revisor ou revisora</label>
+            <input id="reviewer" data-assessment="reviewer" type="text" autocomplete="name">
+          </fieldset>
+          <fieldset>
+            <label class="field-label" for="new-causes-found">Surgiram novas causas relevantes?</label>
+            <select id="new-causes-found" data-assessment="newRelevantCategoriesFound">
+              <option value="">Selecione</option>
+              <option value="true">Sim</option>
+              <option value="false">Nao</option>
+            </select>
+          </fieldset>
+          <fieldset class="full">
+            <label class="field-label" for="new-causes">Novas categorias encontradas</label>
+            <textarea id="new-causes" data-assessment="newCategories"></textarea>
+          </fieldset>
+          <fieldset>
+            <label class="field-label" for="coverage-gaps">Categorias que precisam de mais exemplos</label>
+            <textarea id="coverage-gaps" data-assessment="categoriesNeedingMoreExamples"></textarea>
+          </fieldset>
+          <fieldset>
+            <label class="field-label" for="distinction-resolved">Foi possivel distinguir erros de conexoes validas?</label>
+            <select id="distinction-resolved" data-assessment="validInvalidDistinctionResolved">
+              <option value="">Selecione</option>
+              <option value="true">Sim</option>
+              <option value="false">Nao</option>
+            </select>
+          </fieldset>
+          <fieldset class="full">
+            <label class="field-label" for="batch-observations">Observacoes do lote</label>
+            <textarea id="batch-observations" data-assessment="observations"></textarea>
+          </fieldset>
+        </div>
+        <div class="submission-actions">
+          <span class="submission-status" id="assessment-submit-status" role="status" aria-live="polite"></span>
+          <button id="assessment-send-button" type="button">Enviar revisao ao projeto</button>
+        </div>
+      </section>
+      <section class="json-recovery" id="json-recovery" hidden>
+        <label class="field-label" for="json-recovery-text">JSON da revisao para copia manual</label>
+        <textarea id="json-recovery-text" readonly></textarea>
+      </section>
+      <footer class="footer" id="footer-copy"></footer>
+    </main>
+  </div>
+
+  <script>
+    const BATCH = {"schemaVersion": "1.0", "batchId": "tl004-junction-review-batch-01", "submissionToken": "jDNIM6VMOso3Xo_dNrpN8n5y8VM0xjiPYUBq5i4SM4o", "generatedAt": "2026-07-21T14:24:39.475592+00:00", "split": "development_tuning", "sourceInventory": "data/results/flow-diagnostics-v1/isolated-ground-truth/flow-inventory.json", "sourceBenchmark": "data/benchmarks/real-architecture/benchmark-expanded.json", "selectionPolicy": {"type": "stratified_initial_batch", "allErrorCasesUseSegmentGraph": true, "humanCausePreselected": false, "secondBatchSize": "8-10", "secondBatchConditions": ["underrepresented_categories", "ambiguous_causes", "new_patterns", "valid_and_invalid_connections_not_distinguishable"], "stopRule": "Stop after two consecutive completed batches reveal no relevant new cause."}, "coverage": {"errorCaseCount": 14, "controlCaseCount": 4, "totalCaseCount": 18, "topImageErrorCaseCount": 8, "coveredFocus": ["ambiguous_endpoint", "component_passthrough", "crossing", "excessive_hops", "fan_in_protection", "incorrect_bifurcation", "junction_protection", "missing_fan_out", "parallel_branch_protection", "parallel_connectors", "shared_trunk_protection", "structural_line", "transitive_shortcut", "valid_fan_in", "valid_fan_out", "valid_junction"]}, "causeOptions": [{"value": "crossing_without_junction", "label": "Cruzamento sem juncao"}, {"value": "transitive_shortcut", "label": "Atalho transitivo"}, {"value": "component_passthrough", "label": "Passagem atraves de componente"}, {"value": "incorrect_bifurcation", "label": "Bifurcacao incorreta"}, {"value": "parallel_connector_merge", "label": "Mescla de conectores paralelos"}, {"value": "ambiguous_endpoint", "label": "Associacao ambigua de endpoint"}, {"value": "structural_line", "label": "Grade, borda ou linha estrutural"}, {"value": "valid_junction_or_branch", "label": "Juncao, fan-in ou fan-out valido"}, {"value": "annotation_or_ontology", "label": "Problema de anotacao ou ontologia"}, {"value": "outside_tl004", "label": "Fora do escopo da TL-004"}, {"value": "new_category", "label": "Nova categoria"}, {"value": "inconclusive", "label": "Inconclusivo"}], "cases": [{"caseId": "E01", "order": 1, "group": "error", "title": "Caminho compartilhado entre banco e trigger", "imageId": "aws-video-pipeline", "provider": "aws", "densityStratum": "medium", "sourceImage": "dataset/hybrid_v2/images/test/kaggle_unique_kaggle_azure_vm_scale_sets_0001_aug_6.png", "visualization": "crops/E01.png", "visualizationMetadata": {"cropBox": [2575, 1143, 4819, 1769], "sourceImageSize": [4819, 2408], "renderedImageSize": [1600, 446]}, "focus": ["incorrect_bifurcation", "parallel_connectors", "ambiguous_endpoint"], "records": [{"inventoryId": "isolated_ground_truth:aws-video-pipeline:predicted:6", "status": "false_positive", "predictedFlow": {"id": "f6", "from": "database", "to": "trigger3", "protocol": "unknown", "trustBoundary": false, "crossedBoundaryIds": [], "confidence": 0.753, "inferred": true, "reviewStatus": "pending", "evidence": "segment_graph", "directionEvidence": "left_to_right", "directionConfidence": 0.5, "arrowheadScores": {"database": 60.0, "trigger3": 40.0, "classifier": {"database": 0.0, "trigger3": 0.0, "model": "arrowhead-logistic"}}, "pathPoints": [[2942, 1226], [4715, 1256]], "pixelSupport": null, "maximumGap": null, "segmentHops": 1, "routeEfficiency": 0.902}, "predictedFlowText": "database -> trigger3", "expectedFlow": null, "expectedFlowText": "nenhum fluxo", "detectedPath": [[2942, 1226], [4715, 1256]], "evidence": "segment_graph", "candidateLabels": ["incorrect_bifurcation", "geometric_proximity", "parallel_connectors"], "componentsTraversedByPath": [], "segmentHops": 1, "routeEfficiency": 0.902, "endpointAssociation": {"status": "available", "endpoints": {"database": {"status": "available", "attachmentPoint": [2942.0, 1226.0], "assignedComponentDistance": 192.0, "nearestCandidateId": "database", "nearestCandidateDistance": 192.0, "secondCandidateId": "transcoder", "secondCandidateDistance": 239.641, "candidateMargin": 47.641}, "trigger3": {"status": "available", "attachmentPoint": [4715.0, 1256.0], "assignedComponentDistance": 183.0, "nearestCandidateId": "trigger3", "nearestCandidateDistance": 183.0, "secondCandidateId": "stage3", "secondCandidateDistance": 245.0, "candidateMargin": 62.0}}, "minimumCandidateMargin": 47.641}}], "components": [{"id": "database", "name": "DocumentDB", "type": "database", "bbox": [2812, 1418, 3052, 1667], "role": "endpoint"}, {"id": "trigger3", "name": "Trigger Function 3", "type": "compute", "bbox": [4537, 1439, 4779, 1686], "role": "endpoint"}], "automaticHypotheses": ["geometric_proximity", "incorrect_bifurcation", "parallel_connectors"], "humanReview": {"decision": null, "primaryCause": null, "contributingCauses": [], "tl004Scope": null, "confidence": null, "observations": "", "expectedStructuralCorrection": "", "newCategory": "", "reviewer": "", "reviewedAt": null}}, {"caseId": "E02", "order": 2, "group": "error", "title": "Cruzamento entre funcoes de negocio", "imageId": "aws-video-pipeline", "provider": "aws", "densityStratum": "medium", "sourceImage": "dataset/hybrid_v2/images/test/kaggle_unique_kaggle_azure_vm_scale_sets_0001_aug_6.png", "visualization": "crops/E02.png", "visualizationMetadata": {"cropBox": [1603, 1130, 4220, 1760], "sourceImageSize": [4819, 2408], "renderedImageSize": [1600, 385]}, "focus": ["crossing", "incorrect_bifurcation", "parallel_connectors"], "records": [{"inventoryId": "isolated_ground_truth:aws-video-pipeline:predicted:7", "status": "false_positive", "predictedFlow": {"id": "f7", "from": "business1", "to": "business2", "protocol": "unknown", "trustBoundary": true, "crossedBoundaryIds": ["tb1"], "confidence": 0.752, "inferred": true, "reviewStatus": "pending", "evidence": "segment_graph", "directionEvidence": "left_to_right", "directionConfidence": 0.5, "arrowheadScores": {"business1": 30.0, "business2": 40.0, "classifier": {"business1": 0.0, "business2": 0.0, "model": "arrowhead-logistic"}}, "pathPoints": [[2157, 1214], [3813, 1242]], "pixelSupport": null, "maximumGap": null, "segmentHops": 1, "routeEfficiency": 0.893}, "predictedFlowText": "business1 -> business2", "expectedFlow": null, "expectedFlowText": "nenhum fluxo", "detectedPath": [[2157, 1214], [3813, 1242]], "evidence": "segment_graph", "candidateLabels": ["crossing_as_connection", "incorrect_bifurcation", "geometric_proximity", "parallel_connectors"], "componentsTraversedByPath": [], "segmentHops": 1, "routeEfficiency": 0.893, "endpointAssociation": {"status": "available", "endpoints": {"business1": {"status": "available", "attachmentPoint": [2157.0, 1214.0], "assignedComponentDistance": 198.275, "nearestCandidateId": "business1", "nearestCandidateDistance": 198.275, "secondCandidateId": "stage1", "secondCandidateDistance": 249.84, "candidateMargin": 51.565}, "business2": {"status": "available", "attachmentPoint": [3813.0, 1242.0], "assignedComponentDistance": 183.0, "nearestCandidateId": "business2", "nearestCandidateDistance": 183.0, "secondCandidateId": "trigger2", "secondCandidateDistance": 243.0, "candidateMargin": 60.0}}, "minimumCandidateMargin": 51.565}}], "components": [{"id": "business1", "name": "Business Logic Function 1", "type": "compute", "bbox": [1857, 1402, 2094, 1648], "role": "endpoint"}, {"id": "business2", "name": "Business Logic Function 2", "type": "compute", "bbox": [3730, 1425, 3967, 1677], "role": "endpoint"}], "automaticHypotheses": ["crossing_as_connection", "geometric_proximity", "incorrect_bifurcation", "parallel_connectors"], "humanReview": {"decision": null, "primaryCause": null, "contributingCauses": [], "tl004Scope": null, "confidence": null, "observations": "", "expectedStructuralCorrection": "", "newCategory": "", "reviewer": "", "reviewedAt": null}}, {"caseId": "E03", "order": 3, "group": "error", "title": "Atalho atravessando o terceiro estagio", "imageId": "aws-video-pipeline", "provider": "aws", "densityStratum": "medium", "sourceImage": "dataset/hybrid_v2/images/test/kaggle_unique_kaggle_azure_vm_scale_sets_0001_aug_6.png", "visualization": "crops/E03.png", "visualizationMetadata": {"cropBox": [4025, 589, 4819, 1853], "sourceImageSize": [4819, 2408], "renderedImageSize": [628, 1000]}, "focus": ["component_passthrough", "transitive_shortcut", "parallel_connectors"], "records": [{"inventoryId": "isolated_ground_truth:aws-video-pipeline:predicted:31", "status": "false_positive", "predictedFlow": {"id": "f31", "from": "media", "to": "trigger3", "protocol": "unknown", "trustBoundary": false, "crossedBoundaryIds": [], "confidence": 0.743, "inferred": true, "reviewStatus": "pending", "evidence": "segment_graph", "directionEvidence": "top_to_bottom", "directionConfidence": 0.5, "arrowheadScores": {"media": 50.0, "trigger3": 80.0, "classifier": {"media": 0.0, "trigger3": 0.0, "model": "arrowhead-logistic"}}, "pathPoints": [[4625, 957], [4610, 1582]], "pixelSupport": null, "maximumGap": null, "segmentHops": 1, "routeEfficiency": 0.695}, "predictedFlowText": "media -> trigger3", "expectedFlow": null, "expectedFlowText": "nenhum fluxo", "detectedPath": [[4625, 957], [4610, 1582]], "evidence": "segment_graph", "candidateLabels": ["crossing_as_connection", "incorrect_bifurcation", "parallel_connectors", "connection_through_component"], "componentsTraversedByPath": ["stage3"], "segmentHops": 1, "routeEfficiency": 0.695, "endpointAssociation": {"status": "available", "endpoints": {"media": {"status": "available", "attachmentPoint": [4625.0, 957.0], "assignedComponentDistance": 279.0, "nearestCandidateId": "stage3", "nearestCandidateDistance": 0.0, "secondCandidateId": "media", "secondCandidateDistance": 279.0, "candidateMargin": 279.0}, "trigger3": {"status": "available", "attachmentPoint": [4610.0, 1582.0], "assignedComponentDistance": 0.0, "nearestCandidateId": "trigger3", "nearestCandidateDistance": 0.0, "secondCandidateId": "stage3", "secondCandidateDistance": 571.0, "candidateMargin": 571.0}}, "minimumCandidateMargin": 279.0}}], "components": [{"id": "media", "name": "AWS Elemental MediaConvert", "type": "compute", "bbox": [4106, 757, 4346, 1004], "role": "endpoint"}, {"id": "stage3", "name": "Lake Stage Bucket 3", "type": "storage", "bbox": [4511, 764, 4753, 1011], "role": "traversed"}, {"id": "trigger3", "name": "Trigger Function 3", "type": "compute", "bbox": [4537, 1439, 4779, 1686], "role": "endpoint"}], "automaticHypotheses": ["connection_through_component", "crossing_as_connection", "incorrect_bifurcation", "parallel_connectors"], "humanReview": {"decision": null, "primaryCause": null, "contributingCauses": [], "tl004Scope": null, "confidence": null, "observations": "", "expectedStructuralCorrection": "", "newCategory": "", "reviewer": "", "reviewedAt": null}}, {"caseId": "E04", "order": 4, "group": "error", "title": "Tronco privado associado ao Bastion", "imageId": "azure-private-ai-platform", "provider": "azure", "densityStratum": "medium", "sourceImage": "dataset/raw_kaggle_selected/aws_amazon_rds_0005_aug_0.png", "visualization": "crops/E04.png", "visualizationMetadata": {"cropBox": [208, 614, 2323, 1039], "sourceImageSize": [2664, 1776], "renderedImageSize": [1600, 322]}, "focus": ["crossing", "incorrect_bifurcation", "ambiguous_endpoint"], "records": [{"inventoryId": "isolated_ground_truth:azure-private-ai-platform:predicted:2", "status": "false_positive", "predictedFlow": {"id": "f2", "from": "app_gateway", "to": "bastion", "protocol": "unknown", "trustBoundary": false, "crossedBoundaryIds": [], "confidence": 0.755, "inferred": true, "reviewStatus": "pending", "evidence": "segment_graph", "directionEvidence": "visual_arrowhead", "directionConfidence": 0.818, "arrowheadScores": {"app_gateway": 40.0, "bastion": 100.0, "classifier": {"app_gateway": 0.0211, "bastion": 0.0, "model": "arrowhead-logistic"}}, "pathPoints": [[585, 965], [2032, 969]], "pixelSupport": null, "maximumGap": null, "segmentHops": 1, "routeEfficiency": 0.951}, "predictedFlowText": "app_gateway -> bastion", "expectedFlow": null, "expectedFlowText": "nenhum fluxo", "detectedPath": [[585, 965], [2032, 969]], "evidence": "segment_graph", "candidateLabels": ["crossing_as_connection", "incorrect_bifurcation", "parallel_connectors"], "componentsTraversedByPath": [], "segmentHops": 1, "routeEfficiency": 0.951, "endpointAssociation": {"status": "available", "endpoints": {"app_gateway": {"status": "available", "attachmentPoint": [585.0, 965.0], "assignedComponentDistance": 77.0, "nearestCandidateId": "app_gateway", "nearestCandidateDistance": 77.0, "secondCandidateId": "app_service", "secondCandidateDistance": 198.0, "candidateMargin": 121.0}, "bastion": {"status": "available", "attachmentPoint": [2032.0, 969.0], "assignedComponentDistance": 134.0, "nearestCandidateId": "bastion", "nearestCandidateDistance": 134.0, "secondCandidateId": "build_agents", "secondCandidateDistance": 202.633, "candidateMargin": 68.633}}, "minimumCandidateMargin": 68.633}}], "components": [{"id": "app_gateway", "name": "Application Gateway with WAF", "type": "waf", "bbox": [413, 719, 586, 888], "role": "endpoint"}, {"id": "bastion", "name": "Azure Bastion", "type": "compute", "bbox": [1958, 684, 2118, 835], "role": "endpoint"}], "automaticHypotheses": ["crossing_as_connection", "incorrect_bifurcation", "parallel_connectors"], "humanReview": {"decision": null, "primaryCause": null, "contributingCauses": [], "tl004Scope": null, "confidence": null, "observations": "", "expectedStructuralCorrection": "", "newCategory": "", "reviewer": "", "reviewedAt": null}}, {"caseId": "E05", "order": 5, "group": "error", "title": "Conector atravessando AI Search", "imageId": "azure-private-ai-platform", "provider": "azure", "densityStratum": "medium", "sourceImage": "dataset/raw_kaggle_selected/aws_amazon_rds_0005_aug_0.png", "visualization": "crops/E05.png", "visualizationMetadata": {"cropBox": [991, 1051, 1900, 1471], "sourceImageSize": [2664, 1776], "renderedImageSize": [909, 420]}, "focus": ["component_passthrough", "parallel_connectors"], "records": [{"inventoryId": "isolated_ground_truth:azure-private-ai-platform:predicted:4", "status": "false_positive", "predictedFlow": {"id": "f4", "from": "storage", "to": "cosmos", "protocol": "unknown", "trustBoundary": false, "crossedBoundaryIds": [], "confidence": 0.749, "inferred": true, "reviewStatus": "pending", "evidence": "segment_graph", "directionEvidence": "left_to_right", "directionConfidence": 0.5, "arrowheadScores": {"storage": 40.0, "cosmos": 30.0, "classifier": {"storage": 0.0, "cosmos": 0.0, "model": "arrowhead-logistic"}}, "pathPoints": [[1309, 1272], [1751, 1272]], "pixelSupport": null, "maximumGap": null, "segmentHops": 1, "routeEfficiency": 0.829}, "predictedFlowText": "storage -> cosmos", "expectedFlow": null, "expectedFlowText": "nenhum fluxo", "detectedPath": [[1309, 1272], [1751, 1272]], "evidence": "segment_graph", "candidateLabels": ["incorrect_bifurcation", "parallel_connectors", "connection_through_component"], "componentsTraversedByPath": ["ai_search"], "segmentHops": 1, "routeEfficiency": 0.829, "endpointAssociation": {"status": "available", "endpoints": {"storage": {"status": "available", "attachmentPoint": [1309.0, 1272.0], "assignedComponentDistance": 97.0, "nearestCandidateId": "storage", "nearestCandidateDistance": 97.0, "secondCandidateId": "ai_search", "secondCandidateDistance": 143.0, "candidateMargin": 46.0}, "cosmos": {"status": "available", "attachmentPoint": [1751.0, 1272.0], "assignedComponentDistance": 0.0, "nearestCandidateId": "cosmos", "nearestCandidateDistance": 0.0, "secondCandidateId": "ai_search", "secondCandidateDistance": 126.0, "candidateMargin": 126.0}}, "minimumCandidateMargin": 46.0}}], "components": [{"id": "storage", "name": "Azure Storage", "type": "storage", "bbox": [1079, 1163, 1212, 1359], "role": "endpoint"}, {"id": "ai_search", "name": "Azure AI Search", "type": "storage", "bbox": [1452, 1163, 1625, 1359], "role": "traversed"}, {"id": "cosmos", "name": "Azure Cosmos DB", "type": "database", "bbox": [1652, 1163, 1812, 1359], "role": "endpoint"}], "automaticHypotheses": ["connection_through_component", "incorrect_bifurcation", "parallel_connectors"], "humanReview": {"decision": null, "primaryCause": null, "contributingCauses": [], "tl004Scope": null, "confidence": null, "observations": "", "expectedStructuralCorrection": "", "newCategory": "", "reviewer": "", "reviewedAt": null}}, {"caseId": "E06", "order": 6, "group": "error", "title": "Rota longa entre Firewall e Foundry Agent", "imageId": "azure-private-ai-platform", "provider": "azure", "densityStratum": "medium", "sourceImage": "dataset/raw_kaggle_selected/aws_amazon_rds_0005_aug_0.png", "visualization": "crops/E06.png", "visualizationMetadata": {"cropBox": [1243, 478, 2664, 899], "sourceImageSize": [2664, 1776], "renderedImageSize": [1421, 421]}, "focus": ["crossing", "incorrect_bifurcation", "excessive_hops"], "records": [{"inventoryId": "isolated_ground_truth:azure-private-ai-platform:predicted:20", "status": "false_positive", "predictedFlow": {"id": "f20", "from": "firewall", "to": "foundry_agent", "protocol": "unknown", "trustBoundary": false, "crossedBoundaryIds": [], "confidence": 0.715, "inferred": true, "reviewStatus": "pending", "evidence": "segment_graph", "directionEvidence": "supervised_arrowhead", "directionConfidence": 0.923, "arrowheadScores": {"firewall": 30.0, "foundry_agent": 100.0, "classifier": {"firewall": 0.0, "foundry_agent": 0.9104, "model": "arrowhead-logistic"}}, "pathPoints": [[1713, 677], [1628, 676], [1519, 659], [1387, 652], [1386, 716], [1386, 607], [2305, 606]], "pixelSupport": null, "maximumGap": null, "segmentHops": 6, "routeEfficiency": 0.418}, "predictedFlowText": "firewall -> foundry_agent", "expectedFlow": null, "expectedFlowText": "nenhum fluxo", "detectedPath": [[1713, 677], [1628, 676], [1519, 659], [1387, 652], [1386, 716], [1386, 607], [2305, 606]], "evidence": "segment_graph", "candidateLabels": ["crossing_as_connection", "incorrect_bifurcation", "excessive_hops", "parallel_connectors"], "componentsTraversedByPath": [], "segmentHops": 6, "routeEfficiency": 0.418, "endpointAssociation": {"status": "available", "endpoints": {"firewall": {"status": "available", "attachmentPoint": [1713.0, 677.0], "assignedComponentDistance": 20.248, "nearestCandidateId": "firewall", "nearestCandidateDistance": 20.248, "secondCandidateId": "bastion", "secondCandidateDistance": 245.1, "candidateMargin": 224.852}, "foundry_agent": {"status": "available", "attachmentPoint": [2305.0, 606.0], "assignedComponentDistance": 133.0, "nearestCandidateId": "build_agents", "nearestCandidateDistance": 78.0, "secondCandidateId": "foundry_agent", "secondCandidateDistance": 133.0, "candidateMargin": 55.0}}, "minimumCandidateMargin": 55.0}}], "components": [{"id": "firewall", "name": "Azure Firewall", "type": "waf", "bbox": [1732, 684, 1878, 826], "role": "endpoint"}, {"id": "foundry_agent", "name": "Foundry Agent Service", "type": "compute", "bbox": [2438, 551, 2571, 710], "role": "endpoint"}], "automaticHypotheses": ["crossing_as_connection", "excessive_hops", "incorrect_bifurcation", "parallel_connectors"], "humanReview": {"decision": null, "primaryCause": null, "contributingCauses": [], "tl004Scope": null, "confidence": null, "observations": "", "expectedStructuralCorrection": "", "newCategory": "", "reviewer": "", "reviewedAt": null}}, {"caseId": "E07", "order": 7, "group": "error", "title": "Glue conectado ao RDS atraves do DynamoDB", "imageId": "aws-eks-platform", "provider": "aws", "densityStratum": "high", "sourceImage": "dataset/raw_kaggle_selected/aws_amazon_elastic_kubernetes_service_0005_aug_4.png", "visualization": "crops/E07.png", "visualizationMetadata": {"cropBox": [756, 395, 1393, 825], "sourceImageSize": [1400, 894], "renderedImageSize": [637, 430]}, "focus": ["component_passthrough", "transitive_shortcut", "parallel_connectors"], "records": [{"inventoryId": "isolated_ground_truth:aws-eks-platform:predicted:6", "status": "false_positive", "predictedFlow": {"id": "f6", "from": "glue", "to": "rds", "protocol": "unknown", "trustBoundary": false, "crossedBoundaryIds": [], "confidence": 0.746, "inferred": true, "reviewStatus": "pending", "evidence": "segment_graph", "directionEvidence": "left_to_right", "directionConfidence": 0.5, "arrowheadScores": {"glue": 70.0, "rds": 40.0, "classifier": {"glue": 0.0, "rds": 0.0, "model": "arrowhead-logistic"}}, "pathPoints": [[1002, 639], [1271, 634]], "pixelSupport": null, "maximumGap": null, "segmentHops": 1, "routeEfficiency": 0.757}, "predictedFlowText": "glue -> rds", "expectedFlow": null, "expectedFlowText": "nenhum fluxo", "detectedPath": [[1002, 639], [1271, 634]], "evidence": "segment_graph", "candidateLabels": ["incorrect_bifurcation", "parallel_connectors", "connection_through_component", "high_density_context"], "componentsTraversedByPath": ["dynamo"], "segmentHops": 1, "routeEfficiency": 0.757, "endpointAssociation": {"status": "available", "endpoints": {"glue": {"status": "available", "attachmentPoint": [1002.0, 639.0], "assignedComponentDistance": 91.049, "nearestCandidateId": "dynamo", "nearestCandidateDistance": 34.0, "secondCandidateId": "glue", "secondCandidateDistance": 91.049, "candidateMargin": 57.049}, "rds": {"status": "available", "attachmentPoint": [1271.0, 634.0], "assignedComponentDistance": 1.0, "nearestCandidateId": "rds", "nearestCandidateDistance": 1.0, "secondCandidateId": "dynamo", "secondCandidateDistance": 102.005, "candidateMargin": 101.005}}, "minimumCandidateMargin": 57.049}}], "components": [{"id": "glue", "name": "Glue ETL", "type": "compute", "bbox": [826, 465, 945, 568], "role": "endpoint"}, {"id": "dynamo", "name": "DynamoDB", "type": "database", "bbox": [1036, 635, 1169, 755], "role": "traversed"}, {"id": "rds", "name": "RDS", "type": "database", "bbox": [1190, 635, 1323, 755], "role": "endpoint"}], "automaticHypotheses": ["connection_through_component", "high_density_context", "incorrect_bifurcation", "parallel_connectors"], "humanReview": {"decision": null, "primaryCause": null, "contributingCauses": [], "tl004Scope": null, "confidence": null, "observations": "", "expectedStructuralCorrection": "", "newCategory": "", "reviewer": "", "reviewedAt": null}}, {"caseId": "E08", "order": 8, "group": "error", "title": "Lambda conectado ao Glue atraves de Microservices", "imageId": "aws-eks-platform", "provider": "aws", "densityStratum": "high", "sourceImage": "dataset/raw_kaggle_selected/aws_amazon_elastic_kubernetes_service_0005_aug_4.png", "visualization": "crops/E08.png", "visualizationMetadata": {"cropBox": [575, 122, 1196, 638], "sourceImageSize": [1400, 894], "renderedImageSize": [621, 516]}, "focus": ["component_passthrough", "transitive_shortcut", "incorrect_bifurcation"], "records": [{"inventoryId": "isolated_ground_truth:aws-eks-platform:predicted:18", "status": "false_positive", "predictedFlow": {"id": "f18", "from": "lambda", "to": "glue", "protocol": "unknown", "trustBoundary": false, "crossedBoundaryIds": [], "confidence": 0.723, "inferred": true, "reviewStatus": "pending", "evidence": "segment_graph", "directionEvidence": "top_to_bottom", "directionConfidence": 0.5, "arrowheadScores": {"lambda": 100.0, "glue": 100.0, "classifier": {"lambda": 0.9987, "glue": 0.9912, "model": "arrowhead-logistic"}}, "pathPoints": [[900, 380], [934, 383]], "pixelSupport": null, "maximumGap": null, "segmentHops": 1, "routeEfficiency": 0.289}, "predictedFlowText": "lambda -> glue", "expectedFlow": null, "expectedFlowText": "nenhum fluxo", "detectedPath": [[900, 380], [934, 383]], "evidence": "segment_graph", "candidateLabels": ["incorrect_bifurcation", "connection_through_component", "high_density_context"], "componentsTraversedByPath": ["microservices"], "segmentHops": 1, "routeEfficiency": 0.289, "endpointAssociation": {"status": "available", "endpoints": {"lambda": {"status": "available", "attachmentPoint": [900.0, 380.0], "assignedComponentDistance": 85.0, "nearestCandidateId": "microservices", "nearestCandidateDistance": 0.0, "secondCandidateId": "glue", "secondCandidateDistance": 85.0, "candidateMargin": 85.0}, "glue": {"status": "available", "attachmentPoint": [934.0, 383.0], "assignedComponentDistance": 82.0, "nearestCandidateId": "microservices", "nearestCandidateDistance": 0.0, "secondCandidateId": "glue", "secondCandidateDistance": 82.0, "candidateMargin": 82.0}}, "minimumCandidateMargin": 82.0}}], "components": [{"id": "lambda", "name": "Functions", "type": "compute", "bbox": [826, 192, 945, 295], "role": "endpoint"}, {"id": "microservices", "name": "Microservices", "type": "compute", "bbox": [826, 326, 945, 429], "role": "traversed"}, {"id": "glue", "name": "Glue ETL", "type": "compute", "bbox": [826, 465, 945, 568], "role": "endpoint"}], "automaticHypotheses": ["connection_through_component", "high_density_context", "incorrect_bifurcation"], "humanReview": {"decision": null, "primaryCause": null, "contributingCauses": [], "tl004Scope": null, "confidence": null, "observations": "", "expectedStructuralCorrection": "", "newCategory": "", "reviewer": "", "reviewedAt": null}}, {"caseId": "E09", "order": 9, "group": "error", "title": "Internet conectada diretamente ao Cloud Armor", "imageId": "gcp-secure-cloud-run", "provider": "gcp", "densityStratum": "medium", "sourceImage": "data/benchmarks/real-architecture/images/gcp-secure-cloud-run.png", "visualization": "crops/E09.png", "visualizationMetadata": {"cropBox": [0, 0, 522, 383], "sourceImageSize": [690, 809], "renderedImageSize": [522, 383]}, "focus": ["component_passthrough", "transitive_shortcut", "fan_in_protection"], "records": [{"inventoryId": "isolated_ground_truth:gcp-secure-cloud-run:predicted:3", "status": "false_positive", "predictedFlow": {"id": "f3", "from": "internet", "to": "armor", "protocol": "unknown", "trustBoundary": true, "crossedBoundaryIds": [], "confidence": 0.757, "inferred": true, "reviewStatus": "pending", "evidence": "segment_graph", "directionEvidence": "semantic_source", "directionConfidence": 0.5, "arrowheadScores": {"internet": 60.0, "armor": 90.0, "classifier": {"internet": 0.0001, "armor": 0.3833, "model": "arrowhead-logistic"}}, "pathPoints": [[97, 210], [294, 210]], "pixelSupport": null, "maximumGap": null, "segmentHops": 1, "routeEfficiency": 0.995}, "predictedFlowText": "internet -> armor", "expectedFlow": null, "expectedFlowText": "nenhum fluxo", "detectedPath": [[97, 210], [294, 210]], "evidence": "segment_graph", "candidateLabels": ["incorrect_bifurcation", "parallel_connectors", "connection_through_component"], "componentsTraversedByPath": ["load_balancer"], "segmentHops": 1, "routeEfficiency": 0.995, "endpointAssociation": {"status": "available", "endpoints": {"internet": {"status": "available", "attachmentPoint": [97.0, 210.0], "assignedComponentDistance": 0.0, "nearestCandidateId": "internet", "nearestCandidateDistance": 0.0, "secondCandidateId": "load_balancer", "secondCandidateDistance": 196.0, "candidateMargin": 196.0}, "armor": {"status": "available", "attachmentPoint": [294.0, 210.0], "assignedComponentDistance": 47.0, "nearestCandidateId": "load_balancer", "nearestCandidateDistance": 0.0, "secondCandidateId": "armor", "secondCandidateDistance": 47.0, "candidateMargin": 47.0}}, "minimumCandidateMargin": 47.0}}], "components": [{"id": "internet", "name": "Internet", "type": "internet", "bbox": [0, 182, 100, 239], "role": "endpoint"}, {"id": "armor", "name": "Google Cloud Armor", "type": "waf", "bbox": [293, 107, 424, 163], "role": "endpoint"}, {"id": "load_balancer", "name": "Cloud Load Balancer", "type": "load_balancer", "bbox": [293, 183, 424, 238], "role": "traversed"}], "automaticHypotheses": ["connection_through_component", "incorrect_bifurcation", "parallel_connectors"], "humanReview": {"decision": null, "primaryCause": null, "contributingCauses": [], "tl004Scope": null, "confidence": null, "observations": "", "expectedStructuralCorrection": "", "newCategory": "", "reviewer": "", "reviewedAt": null}}, {"caseId": "E10", "order": 10, "group": "error", "title": "Load Balancer conectado diretamente ao VPC Connector", "imageId": "gcp-secure-cloud-run", "provider": "gcp", "densityStratum": "medium", "sourceImage": "data/benchmarks/real-architecture/images/gcp-secure-cloud-run.png", "visualization": "crops/E10.png", "visualizationMetadata": {"cropBox": [140, 48, 690, 469], "sourceImageSize": [690, 809], "renderedImageSize": [550, 421]}, "focus": ["component_passthrough", "transitive_shortcut"], "records": [{"inventoryId": "isolated_ground_truth:gcp-secure-cloud-run:predicted:9", "status": "false_positive", "predictedFlow": {"id": "f9", "from": "load_balancer", "to": "vpc_connector", "protocol": "unknown", "trustBoundary": false, "crossedBoundaryIds": [], "confidence": 0.746, "inferred": true, "reviewStatus": "pending", "evidence": "segment_graph", "directionEvidence": "left_to_right", "directionConfidence": 0.5, "arrowheadScores": {"load_balancer": 50.0, "vpc_connector": 40.0, "classifier": {"load_balancer": 0.0, "vpc_connector": 0.0, "model": "arrowhead-logistic"}}, "pathPoints": [[293, 279], [423, 280]], "pixelSupport": null, "maximumGap": null, "segmentHops": 1, "routeEfficiency": 0.756}, "predictedFlowText": "load_balancer -> vpc_connector", "expectedFlow": null, "expectedFlowText": "nenhum fluxo", "detectedPath": [[293, 279], [423, 280]], "evidence": "segment_graph", "candidateLabels": ["incorrect_bifurcation", "connection_through_component"], "componentsTraversedByPath": ["cloud_run"], "segmentHops": 1, "routeEfficiency": 0.756, "endpointAssociation": {"status": "available", "endpoints": {"load_balancer": {"status": "available", "attachmentPoint": [293.0, 279.0], "assignedComponentDistance": 41.0, "nearestCandidateId": "cloud_run", "nearestCandidateDistance": 0.0, "secondCandidateId": "load_balancer", "secondCandidateDistance": 41.0, "candidateMargin": 41.0}, "vpc_connector": {"status": "available", "attachmentPoint": [423.0, 280.0], "assignedComponentDistance": 21.0, "nearestCandidateId": "cloud_run", "nearestCandidateDistance": 0.0, "secondCandidateId": "vpc_connector", "secondCandidateDistance": 21.0, "candidateMargin": 21.0}}, "minimumCandidateMargin": 21.0}}], "components": [{"id": "load_balancer", "name": "Cloud Load Balancer", "type": "load_balancer", "bbox": [293, 183, 424, 238], "role": "endpoint"}, {"id": "cloud_run", "name": "Cloud Run", "type": "compute", "bbox": [293, 278, 424, 334], "role": "traversed"}, {"id": "vpc_connector", "name": "Serverless VPC Access connector", "type": "compute", "bbox": [444, 278, 607, 334], "role": "endpoint"}], "automaticHypotheses": ["connection_through_component", "incorrect_bifurcation"], "humanReview": {"decision": null, "primaryCause": null, "contributingCauses": [], "tl004Scope": null, "confidence": null, "observations": "", "expectedStructuralCorrection": "", "newCategory": "", "reviewer": "", "reviewedAt": null}}, {"caseId": "E11", "order": 11, "group": "error", "title": "Linha do Compute associada ao Database", "imageId": "generic-cloud-api", "provider": "generic", "densityStratum": "high", "sourceImage": "dataset/hybrid_v2/images/test/current_arch_test_0000.jpg", "visualization": "crops/E11.png", "visualizationMetadata": {"cropBox": [258, 33, 800, 453], "sourceImageSize": [800, 600], "renderedImageSize": [542, 420]}, "focus": ["ambiguous_endpoint", "parallel_connectors"], "records": [{"inventoryId": "isolated_ground_truth:generic-cloud-api:predicted:6", "status": "false_positive", "predictedFlow": {"id": "f6", "from": "database", "to": "api", "protocol": "unknown", "trustBoundary": false, "crossedBoundaryIds": [], "confidence": 0.757, "inferred": true, "reviewStatus": "pending", "evidence": "segment_graph", "directionEvidence": "left_to_right", "directionConfidence": 0.5, "arrowheadScores": {"api": 80.0, "database": 80.0, "classifier": {"api": 0.1152, "database": 0.0, "model": "arrowhead-logistic"}}, "pathPoints": [[688, 189], [409, 234]], "pixelSupport": null, "maximumGap": null, "segmentHops": 1, "routeEfficiency": 0.997}, "predictedFlowText": "database -> api", "expectedFlow": null, "expectedFlowText": "nenhum fluxo", "detectedPath": [[688, 189], [409, 234]], "evidence": "segment_graph", "candidateLabels": ["incorrect_bifurcation", "parallel_connectors", "high_density_context"], "componentsTraversedByPath": [], "segmentHops": 1, "routeEfficiency": 0.997, "endpointAssociation": {"status": "available", "endpoints": {"database": {"status": "available", "attachmentPoint": [409.0, 234.0], "assignedComponentDistance": 36.0, "nearestCandidateId": "cdn", "nearestCandidateDistance": 24.0, "secondCandidateId": "database", "secondCandidateDistance": 36.0, "candidateMargin": 12.0}, "api": {"status": "available", "attachmentPoint": [688.0, 189.0], "assignedComponentDistance": 0.0, "nearestCandidateId": "api", "nearestCandidateDistance": 0.0, "secondCandidateId": "storage", "secondCandidateDistance": 81.0, "candidateMargin": 81.0}}, "minimumCandidateMargin": 12.0}}], "components": [{"id": "api", "name": "API Gateway", "type": "api_gateway", "bbox": [688, 144, 784, 210], "role": "endpoint"}, {"id": "database", "name": "Database", "type": "database", "bbox": [352, 270, 448, 342], "role": "endpoint"}], "automaticHypotheses": ["high_density_context", "incorrect_bifurcation", "parallel_connectors"], "humanReview": {"decision": null, "primaryCause": null, "contributingCauses": [], "tl004Scope": null, "confidence": null, "observations": "", "expectedStructuralCorrection": "", "newCategory": "", "reviewer": "", "reviewedAt": null}}, {"caseId": "E12", "order": 12, "group": "error", "title": "Linha vertical de grade interpretada como fluxo", "imageId": "generic-cloud-api", "provider": "generic", "densityStratum": "high", "sourceImage": "dataset/hybrid_v2/images/test/current_arch_test_0000.jpg", "visualization": "crops/E12.png", "visualizationMetadata": {"cropBox": [74, 74, 694, 526], "sourceImageSize": [800, 600], "renderedImageSize": [620, 452]}, "focus": ["crossing", "ambiguous_endpoint", "structural_line"], "records": [{"inventoryId": "isolated_ground_truth:generic-cloud-api:predicted:13", "status": "false_positive", "predictedFlow": {"id": "f13", "from": "monitoring", "to": "cdn", "protocol": "unknown", "trustBoundary": true, "crossedBoundaryIds": ["tb1"], "confidence": 0.744, "inferred": true, "reviewStatus": "pending", "evidence": "segment_graph", "directionEvidence": "supervised_arrowhead", "directionConfidence": 0.943, "arrowheadScores": {"cdn": 100.0, "monitoring": 30.0, "classifier": {"cdn": 0.9768, "monitoring": 0.0, "model": "arrowhead-logistic"}}, "pathPoints": [[320, 242], [321, 358]], "pixelSupport": null, "maximumGap": null, "segmentHops": 1, "routeEfficiency": 0.721}, "predictedFlowText": "monitoring -> cdn", "expectedFlow": null, "expectedFlowText": "nenhum fluxo", "detectedPath": [[320, 242], [321, 358]], "evidence": "segment_graph", "candidateLabels": ["crossing_as_connection", "incorrect_bifurcation", "geometric_proximity", "high_density_context"], "componentsTraversedByPath": [], "segmentHops": 1, "routeEfficiency": 0.721, "endpointAssociation": {"status": "available", "endpoints": {"monitoring": {"status": "available", "attachmentPoint": [321.0, 358.0], "assignedComponentDistance": 49.041, "nearestCandidateId": "database", "nearestCandidateDistance": 34.886, "secondCandidateId": "monitoring", "secondCandidateDistance": 49.041, "candidateMargin": 14.155}, "cdn": {"status": "available", "attachmentPoint": [320.0, 242.0], "assignedComponentDistance": 45.255, "nearestCandidateId": "database", "nearestCandidateDistance": 42.521, "secondCandidateId": "cdn", "secondCandidateDistance": 45.255, "candidateMargin": 2.734}}, "minimumCandidateMargin": 2.734}}], "components": [{"id": "cdn", "name": "CDN", "type": "cdn", "bbox": [352, 144, 448, 210], "role": "endpoint"}, {"id": "monitoring", "name": "Monitoring", "type": "monitoring", "bbox": [352, 396, 448, 456], "role": "endpoint"}], "automaticHypotheses": ["crossing_as_connection", "geometric_proximity", "high_density_context", "incorrect_bifurcation"], "humanReview": {"decision": null, "primaryCause": null, "contributingCauses": [], "tl004Scope": null, "confidence": null, "observations": "", "expectedStructuralCorrection": "", "newCategory": "", "reviewer": "", "reviewedAt": null}}, {"caseId": "E13", "order": 13, "group": "error", "title": "Conta Foundry conectada diretamente ao modelo", "imageId": "azure-ai-foundry", "provider": "azure", "densityStratum": "high", "sourceImage": "dataset/raw_kaggle_selected/azure_sql_database_0007_aug_0.png", "visualization": "crops/E13.png", "visualizationMetadata": {"cropBox": [722, 0, 1323, 793], "sourceImageSize": [1323, 882], "renderedImageSize": [601, 793]}, "focus": ["crossing", "transitive_shortcut", "parallel_connectors"], "records": [{"inventoryId": "isolated_ground_truth:azure-ai-foundry:predicted:4", "status": "false_positive", "predictedFlow": {"id": "f4", "from": "foundry_account", "to": "openai_model", "protocol": "unknown", "trustBoundary": false, "crossedBoundaryIds": [], "confidence": 0.742, "inferred": true, "reviewStatus": "pending", "evidence": "segment_graph", "directionEvidence": "top_to_bottom", "directionConfidence": 0.5, "arrowheadScores": {"foundry_account": 30.0, "openai_model": 60.0, "classifier": {"foundry_account": 0.0, "openai_model": 0.0, "model": "arrowhead-logistic"}}, "pathPoints": [[971, 325], [972, 473]], "pixelSupport": null, "maximumGap": null, "segmentHops": 1, "routeEfficiency": 0.68}, "predictedFlowText": "foundry_account -> openai_model", "expectedFlow": null, "expectedFlowText": "nenhum fluxo", "detectedPath": [[971, 325], [972, 473]], "evidence": "segment_graph", "candidateLabels": ["crossing_as_connection", "parallel_connectors", "high_density_context"], "componentsTraversedByPath": [], "segmentHops": 1, "routeEfficiency": 0.68, "endpointAssociation": {"status": "available", "endpoints": {"foundry_account": {"status": "available", "attachmentPoint": [971.0, 325.0], "assignedComponentDistance": 74.726, "nearestCandidateId": "foundry_agent", "nearestCandidateDistance": 17.0, "secondCandidateId": "foundry_account", "secondCandidateDistance": 74.726, "candidateMargin": 57.726}, "openai_model": {"status": "available", "attachmentPoint": [972.0, 473.0], "assignedComponentDistance": 61.587, "nearestCandidateId": "foundry_agent", "nearestCandidateDistance": 43.081, "secondCandidateId": "openai_model", "secondCandidateDistance": 61.587, "candidateMargin": 18.506}}, "minimumCandidateMargin": 18.506}}], "components": [{"id": "foundry_account", "name": "Azure AI Foundry account", "type": "compute", "bbox": [991, 97, 1094, 253], "role": "endpoint"}, {"id": "openai_model", "name": "Azure OpenAI model", "type": "compute", "bbox": [1005, 525, 1088, 687], "role": "endpoint"}], "automaticHypotheses": ["crossing_as_connection", "high_density_context", "parallel_connectors"], "humanReview": {"decision": null, "primaryCause": null, "contributingCauses": [], "tl004Scope": null, "confidence": null, "observations": "", "expectedStructuralCorrection": "", "newCategory": "", "reviewer": "", "reviewedAt": null}}, {"caseId": "E14", "order": 14, "group": "error", "title": "API Handler conectado diretamente ao Worker", "imageId": "aws-serverless-async", "provider": "aws", "densityStratum": "medium", "sourceImage": "dataset/raw_kaggle_selected/aws_amazon_elastic_container_service_0001_aug_3.png", "visualization": "crops/E14.png", "visualizationMetadata": {"cropBox": [1515, 933, 2491, 1686], "sourceImageSize": [2916, 2316], "renderedImageSize": [976, 753]}, "focus": ["transitive_shortcut", "incorrect_bifurcation"], "records": [{"inventoryId": "isolated_ground_truth:aws-serverless-async:predicted:6", "status": "false_positive", "predictedFlow": {"id": "f6", "from": "api_handler", "to": "worker", "protocol": "unknown", "trustBoundary": true, "crossedBoundaryIds": ["tb1"], "confidence": 0.737, "inferred": true, "reviewStatus": "pending", "evidence": "segment_graph", "directionEvidence": "left_to_right", "directionConfidence": 0.5, "arrowheadScores": {"api_handler": 80.0, "worker": 80.0, "classifier": {"api_handler": 0.0003, "worker": 0.0004, "model": "arrowhead-logistic"}}, "pathPoints": [[1808, 1459], [2045, 1447]], "pixelSupport": null, "maximumGap": null, "segmentHops": 1, "routeEfficiency": 0.563}, "predictedFlowText": "api_handler -> worker", "expectedFlow": null, "expectedFlowText": "nenhum fluxo", "detectedPath": [[1808, 1459], [2045, 1447]], "evidence": "segment_graph", "candidateLabels": ["incorrect_bifurcation"], "componentsTraversedByPath": [], "segmentHops": 1, "routeEfficiency": 0.563, "endpointAssociation": {"status": "available", "endpoints": {"api_handler": {"status": "available", "attachmentPoint": [1808.0, 1459.0], "assignedComponentDistance": 190.213, "nearestCandidateId": "api_handler", "nearestCandidateDistance": 190.213, "secondCandidateId": "worker", "secondCandidateDistance": 396.0, "candidateMargin": 205.787}, "worker": {"status": "available", "attachmentPoint": [2045.0, 1447.0], "assignedComponentDistance": 159.0, "nearestCandidateId": "worker", "nearestCandidateDistance": 159.0, "secondCandidateId": "api_handler", "secondCandidateDistance": 303.645, "candidateMargin": 144.645}}, "minimumCandidateMargin": 144.645}}], "components": [{"id": "api_handler", "name": "API Handler", "type": "compute", "bbox": [1610, 1033, 1799, 1269], "role": "endpoint"}, {"id": "worker", "name": "Worker", "type": "compute", "bbox": [2204, 1357, 2397, 1586], "role": "endpoint"}], "automaticHypotheses": ["incorrect_bifurcation"], "humanReview": {"decision": null, "primaryCause": null, "contributingCauses": [], "tl004Scope": null, "confidence": null, "observations": "", "expectedStructuralCorrection": "", "newCategory": "", "reviewer": "", "reviewedAt": null}}, {"caseId": "C01", "order": 15, "group": "control", "title": "Controle de fan-in no Load Balancer", "imageId": "gcp-secure-cloud-run", "provider": "gcp", "densityStratum": "medium", "sourceImage": "data/benchmarks/real-architecture/images/gcp-secure-cloud-run.png", "visualization": "crops/C01.png", "visualizationMetadata": {"cropBox": [0, 0, 522, 383], "sourceImageSize": [690, 809], "renderedImageSize": [522, 383]}, "focus": ["valid_fan_in", "junction_protection"], "records": [{"inventoryId": "isolated_ground_truth:gcp-secure-cloud-run:predicted:1", "status": "true_positive", "predictedFlow": {"id": "f1", "from": "armor", "to": "load_balancer", "protocol": "unknown", "trustBoundary": false, "crossedBoundaryIds": [], "confidence": 0.81, "inferred": true, "reviewStatus": "pending", "evidence": "pixel_line_support", "directionEvidence": "top_to_bottom", "directionConfidence": 0.5, "arrowheadScores": {"armor": 80.0, "load_balancer": 100.0, "classifier": {"armor": 0.0001, "load_balancer": 0.0512, "model": "arrowhead-logistic"}}, "pathPoints": [[358, 163], [358, 183]], "pixelSupport": 1.0, "maximumGap": 0.0, "segmentHops": null, "routeEfficiency": null}, "predictedFlowText": "armor -> load_balancer", "expectedFlow": {"id": "gcp-2", "from": "armor", "to": "load_balancer", "protocol": "unknown"}, "expectedFlowText": "armor -> load_balancer", "detectedPath": [[358, 163], [358, 183]], "evidence": "pixel_line_support", "candidateLabels": [], "componentsTraversedByPath": [], "segmentHops": null, "routeEfficiency": null, "endpointAssociation": {"status": "available", "endpoints": {"armor": {"status": "available", "attachmentPoint": [358.0, 163.0], "assignedComponentDistance": 0.0, "nearestCandidateId": "armor", "nearestCandidateDistance": 0.0, "secondCandidateId": "load_balancer", "secondCandidateDistance": 20.0, "candidateMargin": 20.0}, "load_balancer": {"status": "available", "attachmentPoint": [358.0, 183.0], "assignedComponentDistance": 0.0, "nearestCandidateId": "load_balancer", "nearestCandidateDistance": 0.0, "secondCandidateId": "armor", "secondCandidateDistance": 20.0, "candidateMargin": 20.0}}, "minimumCandidateMargin": 20.0}}, {"inventoryId": "isolated_ground_truth:gcp-secure-cloud-run:predicted:2", "status": "true_positive", "predictedFlow": {"id": "f2", "from": "internet", "to": "load_balancer", "protocol": "unknown", "trustBoundary": true, "crossedBoundaryIds": [], "confidence": 0.781, "inferred": true, "reviewStatus": "pending", "evidence": "detected_line", "directionEvidence": "semantic_source", "directionConfidence": 0.5, "arrowheadScores": {"internet": 40.0, "load_balancer": 100.0, "classifier": {"internet": 0.0, "load_balancer": 0.0003, "model": "arrowhead-logistic"}}, "pathPoints": [[97, 209], [295, 209]], "pixelSupport": null, "maximumGap": null, "segmentHops": null, "routeEfficiency": null}, "predictedFlowText": "internet -> load_balancer", "expectedFlow": {"id": "gcp-1", "from": "internet", "to": "load_balancer", "protocol": "unknown"}, "expectedFlowText": "internet -> load_balancer", "detectedPath": [[97, 209], [295, 209]], "evidence": "detected_line", "candidateLabels": [], "componentsTraversedByPath": [], "segmentHops": null, "routeEfficiency": null, "endpointAssociation": {"status": "available", "endpoints": {"internet": {"status": "available", "attachmentPoint": [97.0, 209.0], "assignedComponentDistance": 0.0, "nearestCandidateId": "internet", "nearestCandidateDistance": 0.0, "secondCandidateId": "load_balancer", "secondCandidateDistance": 196.0, "candidateMargin": 196.0}, "load_balancer": {"status": "available", "attachmentPoint": [295.0, 209.0], "assignedComponentDistance": 0.0, "nearestCandidateId": "load_balancer", "nearestCandidateDistance": 0.0, "secondCandidateId": "armor", "secondCandidateDistance": 46.0, "candidateMargin": 46.0}}, "minimumCandidateMargin": 46.0}}], "components": [{"id": "internet", "name": "Internet", "type": "internet", "bbox": [0, 182, 100, 239], "role": "endpoint"}, {"id": "armor", "name": "Google Cloud Armor", "type": "waf", "bbox": [293, 107, 424, 163], "role": "endpoint"}, {"id": "load_balancer", "name": "Cloud Load Balancer", "type": "load_balancer", "bbox": [293, 183, 424, 238], "role": "endpoint"}], "automaticHypotheses": [], "humanReview": {"decision": null, "primaryCause": null, "contributingCauses": [], "tl004Scope": null, "confidence": null, "observations": "", "expectedStructuralCorrection": "", "newCategory": "", "reviewer": "", "reviewedAt": null}}, {"caseId": "C02", "order": 16, "group": "control", "title": "Controle de fan-out no API Handler", "imageId": "aws-serverless-async", "provider": "aws", "densityStratum": "medium", "sourceImage": "dataset/raw_kaggle_selected/aws_amazon_elastic_container_service_0001_aug_3.png", "visualization": "crops/C02.png", "visualizationMetadata": {"cropBox": [1466, 828, 2916, 2316], "sourceImageSize": [2916, 2316], "renderedImageSize": [974, 1000]}, "focus": ["valid_fan_out", "shared_trunk_protection"], "records": [{"inventoryId": "isolated_ground_truth:aws-serverless-async:predicted:3", "status": "true_positive", "predictedFlow": {"id": "f3", "from": "api_handler", "to": "queue", "protocol": "unknown", "trustBoundary": false, "crossedBoundaryIds": [], "confidence": 0.75, "inferred": true, "reviewStatus": "pending", "evidence": "segment_graph", "directionEvidence": "visual_arrowhead", "directionConfidence": 0.95, "arrowheadScores": {"api_handler": 0.0, "queue": 80.0, "classifier": {"api_handler": 0.0, "queue": 0.0002, "model": "arrowhead-logistic"}}, "pathPoints": [[1874, 1094], [2104, 1092], [2337, 1077], [2587, 1063]], "pixelSupport": null, "maximumGap": null, "segmentHops": 3, "routeEfficiency": 0.923}, "predictedFlowText": "api_handler -> queue", "expectedFlow": {"id": "async-4", "from": "api_handler", "to": "queue", "protocol": "unknown"}, "expectedFlowText": "api_handler -> queue", "detectedPath": [[1874, 1094], [2104, 1092], [2337, 1077], [2587, 1063]], "evidence": "segment_graph", "candidateLabels": [], "componentsTraversedByPath": [], "segmentHops": 3, "routeEfficiency": 0.923, "endpointAssociation": {"status": "available", "endpoints": {"api_handler": {"status": "available", "attachmentPoint": [1874.0, 1094.0], "assignedComponentDistance": 75.0, "nearestCandidateId": "api_handler", "nearestCandidateDistance": 75.0, "secondCandidateId": "worker", "secondCandidateDistance": 421.982, "candidateMargin": 346.982}, "queue": {"status": "available", "attachmentPoint": [2587.0, 1063.0], "assignedComponentDistance": 62.394, "nearestCandidateId": "queue", "nearestCandidateDistance": 62.394, "secondCandidateId": "worker", "secondCandidateDistance": 350.051, "candidateMargin": 287.658}}, "minimumCandidateMargin": 287.658}}, {"inventoryId": "isolated_ground_truth:aws-serverless-async:predicted:5", "status": "true_positive", "predictedFlow": {"id": "f5", "from": "api_handler", "to": "database", "protocol": "unknown", "trustBoundary": true, "crossedBoundaryIds": ["tb1"], "confidence": 0.742, "inferred": true, "reviewStatus": "pending", "evidence": "segment_graph", "directionEvidence": "top_to_bottom", "directionConfidence": 0.5, "arrowheadScores": {"api_handler": 80.0, "database": 80.0, "classifier": {"api_handler": 0.0003, "database": 0.0003, "model": "arrowhead-logistic"}}, "pathPoints": [[1722, 1422], [1734, 1627], [1738, 1723]], "pixelSupport": null, "maximumGap": null, "segmentHops": 2, "routeEfficiency": 0.667}, "predictedFlowText": "api_handler -> database", "expectedFlow": {"id": "async-8", "from": "api_handler", "to": "database", "protocol": "unknown"}, "expectedFlowText": "api_handler -> database", "detectedPath": [[1722, 1422], [1734, 1627], [1738, 1723]], "evidence": "segment_graph", "candidateLabels": [], "componentsTraversedByPath": [], "segmentHops": 2, "routeEfficiency": 0.667, "endpointAssociation": {"status": "available", "endpoints": {"api_handler": {"status": "available", "attachmentPoint": [1722.0, 1422.0], "assignedComponentDistance": 153.0, "nearestCandidateId": "api_handler", "nearestCandidateDistance": 153.0, "secondCandidateId": "worker", "secondCandidateDistance": 482.0, "candidateMargin": 329.0}, "database": {"status": "available", "attachmentPoint": [1738.0, 1723.0], "assignedComponentDistance": 192.0, "nearestCandidateId": "database", "nearestCandidateDistance": 192.0, "secondCandidateId": "api_handler", "secondCandidateDistance": 454.0, "candidateMargin": 262.0}}, "minimumCandidateMargin": 262.0}}], "components": [{"id": "api_handler", "name": "API Handler", "type": "compute", "bbox": [1610, 1033, 1799, 1269], "role": "endpoint"}, {"id": "queue", "name": "SQS Queue", "type": "queue", "bbox": [2610, 1121, 2808, 1353], "role": "endpoint"}, {"id": "database", "name": "Aurora Serverless Metadata DB", "type": "database", "bbox": [1662, 1915, 1866, 2168], "role": "endpoint"}], "automaticHypotheses": [], "humanReview": {"decision": null, "primaryCause": null, "contributingCauses": [], "tl004Scope": null, "confidence": null, "observations": "", "expectedStructuralCorrection": "", "newCategory": "", "reviewer": "", "reviewedAt": null}}, {"caseId": "C03", "order": 17, "group": "control", "title": "Controle de fan-out no Foundry Agent", "imageId": "azure-ai-foundry", "provider": "azure", "densityStratum": "high", "sourceImage": "dataset/raw_kaggle_selected/azure_sql_database_0007_aug_0.png", "visualization": "crops/C03.png", "visualizationMetadata": {"cropBox": [790, 204, 1323, 882], "sourceImageSize": [1323, 882], "renderedImageSize": [533, 678]}, "focus": ["valid_fan_out", "parallel_branch_protection"], "records": [{"inventoryId": "isolated_ground_truth:azure-ai-foundry:predicted:2", "status": "true_positive", "predictedFlow": {"id": "f2", "from": "foundry_agent", "to": "openai_model", "protocol": "unknown", "trustBoundary": false, "crossedBoundaryIds": [], "confidence": 0.752, "inferred": true, "reviewStatus": "pending", "evidence": "detected_line", "directionEvidence": "visual_arrowhead", "directionConfidence": 0.84, "arrowheadScores": {"openai_model": 90.0, "foundry_agent": 30.0, "classifier": {"openai_model": 0.0001, "foundry_agent": 0.0, "model": "arrowhead-logistic"}}, "pathPoints": [[1036, 533], [1037, 429]], "pixelSupport": null, "maximumGap": null, "segmentHops": null, "routeEfficiency": null}, "predictedFlowText": "foundry_agent -> openai_model", "expectedFlow": {"id": "foundry-4", "from": "foundry_agent", "to": "openai_model", "protocol": "unknown"}, "expectedFlowText": "foundry_agent -> openai_model", "detectedPath": [[1036, 533], [1037, 429]], "evidence": "detected_line", "candidateLabels": [], "componentsTraversedByPath": [], "segmentHops": null, "routeEfficiency": null, "endpointAssociation": {"status": "available", "endpoints": {"foundry_agent": {"status": "available", "attachmentPoint": [1037.0, 429.0], "assignedComponentDistance": 0.0, "nearestCandidateId": "foundry_agent", "nearestCandidateDistance": 0.0, "secondCandidateId": "openai_model", "secondCandidateDistance": 96.0, "candidateMargin": 96.0}, "openai_model": {"status": "available", "attachmentPoint": [1036.0, 533.0], "assignedComponentDistance": 0.0, "nearestCandidateId": "openai_model", "nearestCandidateDistance": 0.0, "secondCandidateId": "foundry_agent", "secondCandidateDistance": 100.0, "candidateMargin": 100.0}}, "minimumCandidateMargin": 96.0}}, {"inventoryId": "isolated_ground_truth:azure-ai-foundry:predicted:3", "status": "true_positive", "predictedFlow": {"id": "f3", "from": "foundry_agent", "to": "ai_search", "protocol": "unknown", "trustBoundary": false, "crossedBoundaryIds": [], "confidence": 0.742, "inferred": true, "reviewStatus": "pending", "evidence": "segment_graph", "directionEvidence": "top_to_bottom", "directionConfidence": 0.5, "arrowheadScores": {"foundry_agent": 60.0, "ai_search": 70.0, "classifier": {"foundry_agent": 0.0446, "ai_search": 0.0, "model": "arrowhead-logistic"}}, "pathPoints": [[1082, 512], [1085, 685]], "pixelSupport": null, "maximumGap": null, "segmentHops": 1, "routeEfficiency": 0.68}, "predictedFlowText": "foundry_agent -> ai_search", "expectedFlow": {"id": "foundry-5", "from": "foundry_agent", "to": "ai_search", "protocol": "unknown"}, "expectedFlowText": "foundry_agent -> ai_search", "detectedPath": [[1082, 512], [1085, 685]], "evidence": "segment_graph", "candidateLabels": [], "componentsTraversedByPath": ["openai_model"], "segmentHops": 1, "routeEfficiency": 0.68, "endpointAssociation": {"status": "available", "endpoints": {"foundry_agent": {"status": "available", "attachmentPoint": [1082.0, 512.0], "assignedComponentDistance": 79.0, "nearestCandidateId": "openai_model", "nearestCandidateDistance": 13.0, "secondCandidateId": "foundry_agent", "secondCandidateDistance": 79.0, "candidateMargin": 66.0}, "ai_search": {"status": "available", "attachmentPoint": [1085.0, 685.0], "assignedComponentDistance": 35.171, "nearestCandidateId": "openai_model", "nearestCandidateDistance": 0.0, "secondCandidateId": "ai_search", "secondCandidateDistance": 35.171, "candidateMargin": 35.171}}, "minimumCandidateMargin": 35.171}}], "components": [{"id": "foundry_agent", "name": "Foundry Agent Service", "type": "compute", "bbox": [988, 304, 1094, 433], "role": "endpoint"}, {"id": "openai_model", "name": "Azure OpenAI model", "type": "compute", "bbox": [1005, 525, 1088, 687], "role": "traversed"}, {"id": "ai_search", "name": "Azure AI Search", "type": "storage", "bbox": [1094, 719, 1212, 858], "role": "endpoint"}], "automaticHypotheses": [], "humanReview": {"decision": null, "primaryCause": null, "contributingCauses": [], "tl004Scope": null, "confidence": null, "observations": "", "expectedStructuralCorrection": "", "newCategory": "", "reviewer": "", "reviewedAt": null}}, {"caseId": "C04", "order": 18, "group": "control", "title": "Controle de juncoes reais no barramento privado", "imageId": "azure-private-ai-platform", "provider": "azure", "densityStratum": "medium", "sourceImage": "dataset/raw_kaggle_selected/aws_amazon_rds_0005_aug_0.png", "visualization": "crops/C04.png", "visualizationMetadata": {"cropBox": [480, 1064, 1290, 1484], "sourceImageSize": [2664, 1776], "renderedImageSize": [810, 420]}, "focus": ["valid_junction", "missing_fan_out", "shared_trunk_protection"], "records": [{"inventoryId": "isolated_ground_truth:azure-private-ai-platform:missed:3", "status": "missed", "predictedFlow": null, "predictedFlowText": "nenhum fluxo", "expectedFlow": {"id": "ai-3", "from": "app_service", "to": "key_vault", "protocol": "unknown"}, "expectedFlowText": "app_service -> key_vault", "detectedPath": [], "evidence": null, "candidateLabels": [], "componentsTraversedByPath": [], "segmentHops": null, "routeEfficiency": null, "endpointAssociation": {}}, {"inventoryId": "isolated_ground_truth:azure-private-ai-platform:missed:4", "status": "missed", "predictedFlow": null, "predictedFlowText": "nenhum fluxo", "expectedFlow": {"id": "ai-4", "from": "app_service", "to": "storage", "protocol": "unknown"}, "expectedFlowText": "app_service -> storage", "detectedPath": [], "evidence": null, "candidateLabels": [], "componentsTraversedByPath": [], "segmentHops": null, "routeEfficiency": null, "endpointAssociation": {}}], "components": [{"id": "app_service", "name": "App Service", "type": "compute", "bbox": [559, 1163, 879, 1385], "role": "endpoint"}, {"id": "key_vault", "name": "Azure Key Vault", "type": "secrets_kms", "bbox": [892, 1163, 1039, 1359], "role": "endpoint"}, {"id": "storage", "name": "Azure Storage", "type": "storage", "bbox": [1079, 1163, 1212, 1359], "role": "endpoint"}], "automaticHypotheses": [], "humanReview": {"decision": null, "primaryCause": null, "contributingCauses": [], "tl004Scope": null, "confidence": null, "observations": "", "expectedStructuralCorrection": "", "newCategory": "", "reviewer": "", "reviewedAt": null}}], "batchAssessment": {"reviewer": "", "completedAt": null, "newRelevantCategoriesFound": null, "newCategories": "", "categoriesNeedingMoreExamples": "", "validInvalidDistinctionResolved": null, "observations": ""}};
+    const reviewNamespace = new URLSearchParams(window.location.search).get("namespace") || "human";
+    const STORAGE_KEY = `threatlens-review:${BATCH.batchId}:${BATCH.schemaVersion}:${reviewNamespace}`;
+    const ROOT_PREFIX = "../../../../";
+    const defaultResponses = Object.fromEntries(
+      BATCH.cases.map((item) => [item.caseId, structuredClone(item.humanReview)])
+    );
+    let state = loadState();
+    let activeIndex = 0;
+
+    function loadState() {
+      try {
+        const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || "null");
+        if (!saved) throw new Error("empty");
+        return {
+          responses: { ...defaultResponses, ...(saved.responses || {}) },
+          batchAssessment: { ...BATCH.batchAssessment, ...(saved.batchAssessment || {}) },
+        };
+      } catch (_) {
+        return { responses: defaultResponses, batchAssessment: structuredClone(BATCH.batchAssessment) };
+      }
+    }
+
+    function saveState() {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+      renderNavigation();
+      renderProgress();
+    }
+
+    function escapeHtml(value) {
+      return String(value ?? "")
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;");
+    }
+
+    function isComplete(response) {
+      return Boolean(response.decision && response.primaryCause && response.tl004Scope && response.confidence);
+    }
+
+    function renderNavigation() {
+      const nav = document.getElementById("case-nav");
+      nav.querySelectorAll(".case-button").forEach((item) => item.remove());
+      BATCH.cases.forEach((item, index) => {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = `case-button${index === activeIndex ? " active" : ""}${isComplete(state.responses[item.caseId]) ? " complete" : ""}`;
+        button.innerHTML = `
+          <span class="case-code">${escapeHtml(item.caseId)}</span>
+          <span class="case-copy"><strong>${escapeHtml(item.title)}</strong><span>${escapeHtml(item.imageId)}</span></span>
+          <span class="status-dot" aria-hidden="true"></span>`;
+        button.addEventListener("click", () => selectCase(index));
+        nav.appendChild(button);
+      });
+    }
+
+    function renderProgress() {
+      const complete = BATCH.cases.filter((item) => isComplete(state.responses[item.caseId])).length;
+      const percent = Math.round((complete / BATCH.cases.length) * 100);
+      document.getElementById("progress-text").textContent = `${complete}/${BATCH.cases.length}`;
+      document.getElementById("progress-bar").style.width = `${percent}%`;
+    }
+
+    function pathText(path) {
+      if (!path || !path.length) return "sem caminho detectado";
+      return path.map((point) => `(${point[0]}, ${point[1]})`).join(" -> ");
+    }
+
+    function renderFlows(item) {
+      const rows = item.records.map((record) => `
+        <tr>
+          <td>${escapeHtml(record.predictedFlowText)}</td>
+          <td>${escapeHtml(record.expectedFlowText)}</td>
+          <td>${escapeHtml(record.evidence || "nao disponivel")}</td>
+          <td>${escapeHtml(pathText(record.detectedPath))}</td>
+          <td>${escapeHtml(record.componentsTraversedByPath.join(", ") || "nenhum")}</td>
+        </tr>`).join("");
+      document.getElementById("flow-content").innerHTML = `
+        <table class="flow-table">
+          <thead><tr><th>Previsto</th><th>Esperado</th><th>Evidencia</th><th>Caminho</th><th>Atravessados</th></tr></thead>
+          <tbody>${rows}</tbody>
+        </table>`;
+    }
+
+    function renderComponents(item) {
+      document.getElementById("component-content").innerHTML = item.components.map((component) => `
+        <div class="component ${escapeHtml(component.role)}">
+          <strong>${escapeHtml(component.id)}</strong>
+          <span>${escapeHtml(component.name)} | ${escapeHtml(component.type)}</span>
+        </div>`).join("");
+    }
+
+    function fillForm(item) {
+      const response = state.responses[item.caseId];
+      document.querySelectorAll('#review-form input[type="radio"]').forEach((input) => {
+        input.checked = response[input.name] === input.value;
+      });
+      document.getElementById("primary-cause").value = response.primaryCause || "";
+      document.querySelectorAll('#contributing-causes input[type="checkbox"]').forEach((input) => {
+        input.checked = (response.contributingCauses || []).includes(input.value);
+      });
+      document.getElementById("new-category").value = response.newCategory || "";
+      document.getElementById("observations").value = response.observations || "";
+      document.getElementById("correction").value = response.expectedStructuralCorrection || "";
+    }
+
+    function renderCase() {
+      const item = BATCH.cases[activeIndex];
+      document.getElementById("case-title").textContent = `${item.caseId} | ${item.title}`;
+      document.getElementById("case-meta").textContent = `${item.group === "error" ? "Erro amostral" : "Controle valido"} | ${item.provider} | densidade ${item.densityStratum}`;
+      document.getElementById("case-tags").innerHTML = [item.group, ...item.focus].map((tag, index) =>
+        `<span class="tag ${index === 0 ? item.group : ""}">${escapeHtml(tag)}</span>`
+      ).join("");
+      document.getElementById("case-image").src = item.visualization;
+      document.getElementById("case-image").alt = `Recorte anotado ${item.caseId}: ${item.title}`;
+      document.getElementById("source-link").href = ROOT_PREFIX + item.sourceImage;
+      document.getElementById("hypotheses").innerHTML = (item.automaticHypotheses.length ? item.automaticHypotheses : ["nenhum rotulo automatico"]) 
+        .map((label) => `<li>${escapeHtml(label)}</li>`).join("");
+      renderFlows(item);
+      renderComponents(item);
+      fillForm(item);
+      document.getElementById("previous-button").disabled = activeIndex === 0;
+      document.getElementById("next-button").textContent = activeIndex === BATCH.cases.length - 1 ? "Ir para avaliacao" : "Proximo caso";
+      renderNavigation();
+    }
+
+    function selectCase(index) {
+      activeIndex = Math.max(0, Math.min(BATCH.cases.length - 1, index));
+      renderCase();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function updateCurrentResponse(event) {
+      const item = BATCH.cases[activeIndex];
+      const response = state.responses[item.caseId];
+      const target = event.target;
+      if (target.type === "checkbox") {
+        response.contributingCauses = Array.from(
+          document.querySelectorAll('#contributing-causes input[type="checkbox"]:checked')
+        ).map((input) => input.value);
+      } else if (target.name) {
+        response[target.name] = target.value || null;
+      }
+      response.reviewedAt = new Date().toISOString();
+      saveState();
+    }
+
+    function renderCauseControls() {
+      const select = document.getElementById("primary-cause");
+      select.innerHTML = '<option value="">Selecione</option>' + BATCH.causeOptions.map((item) =>
+        `<option value="${escapeHtml(item.value)}">${escapeHtml(item.label)}</option>`
+      ).join("");
+      document.getElementById("contributing-causes").innerHTML = BATCH.causeOptions
+        .filter((item) => !["new_category", "inconclusive"].includes(item.value))
+        .map((item) => `<label><input type="checkbox" value="${escapeHtml(item.value)}"><span>${escapeHtml(item.label)}</span></label>`)
+        .join("");
+    }
+
+    function renderAssessment() {
+      document.querySelectorAll("[data-assessment]").forEach((field) => {
+        const key = field.dataset.assessment;
+        const value = state.batchAssessment[key];
+        field.value = typeof value === "boolean" ? String(value) : (value || "");
+        field.addEventListener("input", () => {
+          if (field.value === "true" || field.value === "false") {
+            state.batchAssessment[key] = field.value === "true";
+          } else {
+            state.batchAssessment[key] = field.value || null;
+          }
+          saveState();
+        });
+      });
+    }
+
+    function recommendation() {
+      const responses = Object.values(state.responses);
+      const incomplete = responses.filter((item) => !isComplete(item)).length;
+      const ambiguous = responses.filter((item) => item.decision === "ambiguous" || item.primaryCause === "inconclusive").length;
+      const newCategoryCases = responses.filter((item) => item.primaryCause === "new_category" || item.newCategory).length;
+      if (incomplete) return { action: "complete_current_batch", reason: `${incomplete} casos incompletos` };
+      if (
+        state.batchAssessment.newRelevantCategoriesFound === true ||
+        state.batchAssessment.validInvalidDistinctionResolved === false ||
+        ambiguous > 0 ||
+        newCategoryCases > 0 ||
+        state.batchAssessment.categoriesNeedingMoreExamples
+      ) {
+        return { action: "generate_batch_02", reason: "Ha ambiguidade, nova categoria ou lacuna de cobertura." };
+      }
+      return { action: "no_new_category_streak_1", reason: "Primeiro lote sem nova causa relevante; ainda falta um segundo lote consecutivo para encerrar." };
+    }
+
+    function reviewPayload() {
+      return {
+        schemaVersion: "1.0",
+        batchId: BATCH.batchId,
+        sourceManifest: "review-manifest.json",
+        exportedAt: new Date().toISOString(),
+        split: BATCH.split,
+        responses: BATCH.cases.map((item) => ({
+          caseId: item.caseId,
+          group: item.group,
+          imageId: item.imageId,
+          recordIds: item.records.map((record) => record.inventoryId),
+          review: state.responses[item.caseId],
+        })),
+        batchAssessment: { ...state.batchAssessment, completedAt: new Date().toISOString() },
+        nextStepRecommendation: recommendation(),
+      };
+    }
+
+    function setExportStatus(message) {
+      document.getElementById("export-status").textContent = message;
+      document.getElementById("assessment-submit-status").textContent = message;
+    }
+
+    function exportReview() {
+      const fileName = `${BATCH.batchId}-review-result.json`;
+      const blob = new Blob([JSON.stringify(reviewPayload(), null, 2)], { type: "application/json" });
+      const url = URL.createObjectURL(blob);
+      const anchor = document.createElement("a");
+      anchor.href = url;
+      anchor.download = fileName;
+      anchor.click();
+      URL.revokeObjectURL(url);
+      setExportStatus(`Arquivo enviado para Downloads: ${fileName}`);
+    }
+
+    async function copyReview() {
+      const text = JSON.stringify(reviewPayload(), null, 2);
+      try {
+        if (!navigator.clipboard) throw new Error("clipboard unavailable");
+        await navigator.clipboard.writeText(text);
+        setExportStatus("JSON copiado. Cole-o na conversa ou em um arquivo.");
+      } catch (_) {
+        const recovery = document.getElementById("json-recovery");
+        const output = document.getElementById("json-recovery-text");
+        recovery.hidden = false;
+        output.value = text;
+        output.focus();
+        output.select();
+        let copied = false;
+        try { copied = document.execCommand("copy"); } catch (_) { copied = false; }
+        setExportStatus(copied ? "JSON copiado." : "Selecione e copie o JSON exibido ao final da pagina.");
+        recovery.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }
+
+    async function sendReview() {
+      const buttons = [
+        document.getElementById("send-button"),
+        document.getElementById("assessment-send-button"),
+      ];
+      const endpoint = location.protocol === "file:"
+        ? "http://127.0.0.1:8000/reviews/tl004"
+        : "/api/reviews/tl004";
+      buttons.forEach((button) => { button.disabled = true; });
+      setExportStatus("Enviando e validando a revisao...");
+      try {
+        const response = await fetch(endpoint, {
+          method: "POST",
+          headers: { "Content-Type": "text/plain;charset=UTF-8" },
+          body: JSON.stringify({
+            submissionToken: BATCH.submissionToken,
+            review: reviewPayload(),
+          }),
+        });
+        const result = await response.json();
+        if (!response.ok) throw new Error(result.detail || `Falha HTTP ${response.status}`);
+        setExportStatus(`Enviado: ${result.artifact} | ${result.completedCaseCount} casos`);
+      } catch (error) {
+        setExportStatus(`Envio falhou: ${error.message}. Use Copiar JSON como alternativa.`);
+      } finally {
+        buttons.forEach((button) => { button.disabled = false; });
+      }
+    }
+
+    renderCauseControls();
+    renderAssessment();
+    document.getElementById("batch-label").textContent = `${BATCH.batchId} | ${BATCH.split}`;
+    document.getElementById("footer-copy").textContent = BATCH.selectionPolicy.stopRule;
+    document.getElementById("review-form").addEventListener("input", updateCurrentResponse);
+    document.getElementById("previous-button").addEventListener("click", () => selectCase(activeIndex - 1));
+    document.getElementById("next-button").addEventListener("click", () => {
+      if (activeIndex < BATCH.cases.length - 1) selectCase(activeIndex + 1);
+      else document.querySelector(".batch-assessment").scrollIntoView({ behavior: "smooth" });
+    });
+    document.getElementById("export-button").addEventListener("click", exportReview);
+    document.getElementById("copy-button").addEventListener("click", copyReview);
+    document.getElementById("send-button").addEventListener("click", sendReview);
+    document.getElementById("assessment-send-button").addEventListener("click", sendReview);
+    renderProgress();
+    renderCase();
+  </script>
+</body>
+</html>

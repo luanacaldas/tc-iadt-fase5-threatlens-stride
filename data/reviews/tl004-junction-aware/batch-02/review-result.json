@@ -1,0 +1,221 @@
+{
+  "schemaVersion": "1.0",
+  "batchId": "tl004-junction-review-batch-02",
+  "sourceManifest": "review-manifest.json",
+  "exportedAt": "2026-07-21T14:44:24.801Z",
+  "split": "development_tuning",
+  "responses": [
+    {
+      "caseId": "E15",
+      "group": "error",
+      "imageId": "aws-eks-platform",
+      "recordIds": [
+        "isolated_ground_truth:aws-eks-platform:predicted:13"
+      ],
+      "review": {
+        "decision": "confirmed_false_positive",
+        "primaryCause": "ambiguous_endpoint",
+        "contributingCauses": [
+          "incorrect_bifurcation"
+        ],
+        "tl004Scope": "inside",
+        "confidence": "medium",
+        "observations": "Não existe evidência visual de uma conexão direta entre Functions e DynamoDB. O caminho detectado não toca a borda do componente lambda nem termina no componente dynamo. O segment_graph parece ter selecionado um pequeno ramo horizontal, seguido por um tronco vertical pertencente a outra relação, e associado seus extremos por proximidade aos componentes Functions e DynamoDB. Isso produziu incorretamente o fluxo lambda → dynamo.",
+        "expectedStructuralCorrection": "Remover a relação direta lambda → dynamo. Exigir que os endpoints de um caminho estejam conectados às portas ou bordas reais dos componentes de origem e destino. Em bifurcações, o grafo deve preservar a continuidade do ramo correto e não combinar um braço curto com um tronco pertencente a outra conexão. Caso o caminho pertença a outra relação, ele deve ser associado somente aos componentes realmente tocados.",
+        "newCategory": "",
+        "reviewer": "",
+        "reviewedAt": "2026-07-21T14:34:02.769Z"
+      }
+    },
+    {
+      "caseId": "E16",
+      "group": "error",
+      "imageId": "aws-eks-platform",
+      "recordIds": [
+        "isolated_ground_truth:aws-eks-platform:predicted:12"
+      ],
+      "review": {
+        "decision": "confirmed_false_positive",
+        "primaryCause": "ambiguous_endpoint",
+        "contributingCauses": [
+          "incorrect_bifurcation"
+        ],
+        "tl004Scope": "inside",
+        "confidence": "high",
+        "observations": "Não existe evidência visual de uma conexão direta entre AWS Comprehend e Glue ETL. O caminho detectado começa em uma linha horizontal próxima à fronteira do agrupamento e termina no componente verde localizado entre Functions e Glue. Nenhum dos endpoints toca as bordas de comprehend ou glue. O segment_graph associou o segmento aos componentes vizinhos por proximidade e produziu incorretamente o fluxo comprehend → glue.",
+        "expectedStructuralCorrection": "Remover a relação comprehend → glue. Exigir que os endpoints estejam conectados às portas ou bordas reais dos componentes declarados. O ramo diagonal deve permanecer associado ao componente verde e à linha da qual realmente se origina, sem ser atribuído ao AWS Comprehend ou ao Glue ETL por proximidade.",
+        "newCategory": "",
+        "reviewer": "",
+        "reviewedAt": "2026-07-21T14:35:41.348Z"
+      }
+    },
+    {
+      "caseId": "E17",
+      "group": "error",
+      "imageId": "generic-cloud-api",
+      "recordIds": [
+        "isolated_ground_truth:generic-cloud-api:predicted:14"
+      ],
+      "review": {
+        "decision": "confirmed_false_positive",
+        "primaryCause": "structural_line",
+        "contributingCauses": [
+          "crossing_without_junction",
+          "ambiguous_endpoint"
+        ],
+        "tl004Scope": "partial",
+        "confidence": "high",
+        "observations": "Não existe conexão visual direta entre User e Database. O segmento vertical detectado não toca a borda de nenhum dos dois componentes e cruza diferentes conectores reais sem marcador de junção. Ele parece coincidir com uma linha da grade de fundo. O segment_graph interpretou essa linha estrutural como conector e associou seus extremos por proximidade ao user e ao database, produzindo incorretamente o fluxo user → database.",
+        "expectedStructuralCorrection": "Descartar linhas da grade de fundo como candidatas a conectores. Cruzamentos com conectores reais não devem formar junções sem evidência explícita. Exigir que os endpoints estejam conectados às bordas ou portas dos componentes antes de gerar uma aresta. Remover o falso fluxo user → database e preservar somente as conexões reais do diagrama.",
+        "newCategory": "",
+        "reviewer": "",
+        "reviewedAt": "2026-07-21T14:37:33.891Z"
+      }
+    },
+    {
+      "caseId": "E18",
+      "group": "error",
+      "imageId": "azure-private-ai-platform",
+      "recordIds": [
+        "isolated_ground_truth:azure-private-ai-platform:predicted:10"
+      ],
+      "review": {
+        "decision": "confirmed_false_positive",
+        "primaryCause": "structural_line",
+        "contributingCauses": [
+          "crossing_without_junction",
+          "ambiguous_endpoint"
+        ],
+        "tl004Scope": "partial",
+        "confidence": "high",
+        "observations": "Não existe conexão visual direta entre o Application Gateway with WAF e os Build agents. O caminho detectado acompanha a borda superior azul de várias subnets e atravessa diversas regiões do diagrama sem representar um fluxo funcional. Além disso, o endpoint final está visualmente próximo ao Foundry Agent Service, e não aos Build agents. O segment_graph interpretou uma borda estrutural longa como conector e associou seus extremos por proximidade aos componentes app_gateway e build_agents, gerando o falso fluxo.",
+        "expectedStructuralCorrection": "Descartar bordas de subnets, containers e agrupamentos como candidatas a conectores. Cruzamentos dessas bordas com linhas funcionais não devem formar junções. Exigir que origem e destino estejam ligados às portas ou bordas reais dos componentes. Remover app_gateway → build_agents e não gerar outra relação com o Foundry Agent sem um conector visual explícito.",
+        "newCategory": "",
+        "reviewer": "",
+        "reviewedAt": "2026-07-21T14:38:57.217Z"
+      }
+    },
+    {
+      "caseId": "E19",
+      "group": "error",
+      "imageId": "gcp-secure-cloud-run",
+      "recordIds": [
+        "isolated_ground_truth:gcp-secure-cloud-run:predicted:7"
+      ],
+      "review": {
+        "decision": "confirmed_false_positive",
+        "primaryCause": "structural_line",
+        "contributingCauses": [
+          "crossing_without_junction",
+          "ambiguous_endpoint"
+        ],
+        "tl004Scope": "partial",
+        "confidence": "high",
+        "observations": "Não existe conexão visual direta entre Google Cloud Armor e Artifact Registry. O segmento vertical detectado coincide com a borda esquerda da área “Service project”, não toca a borda de nenhum dos dois componentes e cruza o fluxo horizontal entre Internet e Cloud Load Balancer sem marcador de junção. O segment_graph interpretou essa borda estrutural como conector e associou seus extremos por proximidade ao armor e ao artifact_registry, produzindo incorretamente o fluxo armor → artifact_registry.",
+        "expectedStructuralCorrection": "Descartar bordas de projetos, subnets, containers e áreas arquiteturais como candidatas a conectores. O cruzamento entre uma borda estrutural e um fluxo real não deve gerar nó ou permitir troca de ramo. Exigir que os endpoints alcancem portas ou bordas funcionais dos componentes antes de criar uma aresta. Remover o fluxo armor → artifact_registry e preservar apenas as conexões explicitamente representadas no diagrama.",
+        "newCategory": "",
+        "reviewer": "",
+        "reviewedAt": "2026-07-21T14:40:01.361Z"
+      }
+    },
+    {
+      "caseId": "E20",
+      "group": "error",
+      "imageId": "aws-video-pipeline",
+      "recordIds": [
+        "isolated_ground_truth:aws-video-pipeline:predicted:8"
+      ],
+      "review": {
+        "decision": "confirmed_false_positive",
+        "primaryCause": "structural_line",
+        "contributingCauses": [
+          "crossing_without_junction",
+          "ambiguous_endpoint"
+        ],
+        "tl004Scope": "partial",
+        "confidence": "high",
+        "observations": "Não existe uma conexão visual direta entre Elastic Transcoder e Lake Stage Bucket 3. O caminho detectado coincide com a borda inferior azul tracejada do agrupamento, localizada abaixo dos componentes e separada dos conectores funcionais. O segment_graph interpretou essa borda estrutural como um conector e associou seus extremos por proximidade ao transcoder e ao stage3, produzindo incorretamente o fluxo transcoder → stage3. Próximo ao destino, a borda também cruza uma linha vertical real sem marcador de junção.",
+        "expectedStructuralCorrection": "Descartar bordas de containers, agrupamentos e áreas arquiteturais como candidatas a conectores. Cruzamentos entre essas bordas e linhas funcionais não devem criar nós ou permitir troca de caminho. Exigir que os endpoints alcancem portas ou bordas funcionais dos componentes. Remover o fluxo direto transcoder → stage3 e preservar somente as conexões sequenciais explicitamente representadas pelas setas do diagrama.",
+        "newCategory": "",
+        "reviewer": "",
+        "reviewedAt": "2026-07-21T14:41:02.461Z"
+      }
+    },
+    {
+      "caseId": "C05",
+      "group": "control",
+      "imageId": "generic-cloud-api",
+      "recordIds": [
+        "isolated_ground_truth:generic-cloud-api:predicted:4",
+        "isolated_ground_truth:generic-cloud-api:predicted:8"
+      ],
+      "review": {
+        "decision": "valid_connection",
+        "primaryCause": "valid_junction_or_branch",
+        "contributingCauses": [],
+        "tl004Scope": "inside",
+        "confidence": "high",
+        "observations": "O caso representa um fan-in válido no componente Storage. Existem duas conexões independentes e esperadas: database → storage, por um conector horizontal, e monitoring → storage, por um conector diagonal. Os dois fluxos convergem para o mesmo destino, mas não representam bifurcação incorreta, atalho transitivo ou associação ambígua de endpoints. A região possui outras linhas próximas, porém os caminhos destacados correspondem às conexões reais do diagrama.",
+        "expectedStructuralCorrection": "Nenhuma correção é necessária. Preservar as arestas database → storage e monitoring → storage. A TL-004 não deve remover um dos ramos, combinar os dois caminhos, escolher apenas uma origem ou criar uma conexão adicional entre database e monitoring.",
+        "newCategory": "",
+        "reviewer": "",
+        "reviewedAt": "2026-07-21T14:41:39.314Z"
+      }
+    },
+    {
+      "caseId": "C06",
+      "group": "control",
+      "imageId": "azure-ai-foundry",
+      "recordIds": [
+        "isolated_ground_truth:azure-ai-foundry:predicted:1",
+        "isolated_ground_truth:azure-ai-foundry:predicted:5"
+      ],
+      "review": {
+        "decision": "valid_connection",
+        "primaryCause": "valid_junction_or_branch",
+        "contributingCauses": [],
+        "tl004Scope": "inside",
+        "confidence": "high",
+        "observations": "O caso representa um fan-in válido no Foundry Agent Service. Existem duas conexões independentes e esperadas: app_service → foundry_agent e foundry_account → foundry_agent. Os caminhos partem de componentes diferentes e convergem corretamente para o mesmo destino. A densidade visual e a proximidade de outros elementos não tornam essas relações uma bifurcação incorreta ou uma associação ambígua.",
+        "expectedStructuralCorrection": "Nenhuma correção é necessária. Preservar as arestas app_service → foundry_agent e foundry_account → foundry_agent. A lógica junction-aware não deve remover uma das origens, fundir indevidamente os caminhos nem criar uma conexão direta entre app_service e foundry_account.",
+        "newCategory": "",
+        "reviewer": "",
+        "reviewedAt": "2026-07-21T14:42:09.158Z"
+      }
+    },
+    {
+      "caseId": "C07",
+      "group": "control",
+      "imageId": "aws-video-pipeline",
+      "recordIds": [
+        "isolated_ground_truth:aws-video-pipeline:predicted:1",
+        "isolated_ground_truth:aws-video-pipeline:predicted:41"
+      ],
+      "review": {
+        "decision": "valid_connection",
+        "primaryCause": "valid_junction_or_branch",
+        "contributingCauses": [],
+        "tl004Scope": "inside",
+        "confidence": "high",
+        "observations": "O caso representa um fan-out válido a partir do Mobile Client. Há duas conexões independentes e esperadas: mobile → api e mobile → cognito. O tronco horizontal segue até o API Gateway, enquanto um ramo vertical sobe para o Cognito. Essa bifurcação é legítima e não deve ser tratada como atalho transitivo, bifurcação incorreta ou associação ambígua de endpoints.",
+        "expectedStructuralCorrection": "Nenhuma correção é necessária. Preservar as arestas mobile → api e mobile → cognito. A lógica junction-aware não deve remover um dos ramos, fundir os dois destinos nem criar uma relação indevida entre api e cognito.",
+        "newCategory": "",
+        "reviewer": "",
+        "reviewedAt": "2026-07-21T14:42:56.693Z"
+      }
+    }
+  ],
+  "batchAssessment": {
+    "reviewer": "Luana Caldas",
+    "completedAt": "2026-07-21T14:44:24.801Z",
+    "newRelevantCategoriesFound": false,
+    "newCategories": "Nenhuma. O segundo lote confirmou as categorias já identificadas no primeiro: associação ambígua de endpoints, linhas estruturais ou bordas interpretadas como conectores, cruzamentos sem junção e seleção incorreta de ramos.",
+    "categoriesNeedingMoreExamples": "Não é necessário gerar outro lote neste momento. Mescla de conectores paralelos e bifurcações em regiões densas devem ser aprofundadas por fixtures e experimentos controlados durante a TL-004.",
+    "validInvalidDistinctionResolved": true,
+    "observations": "O segundo lote confirmou os padrões encontrados anteriormente, sem revelar novas causas relevantes. Os falsos fluxos analisados foram explicados principalmente por associação de endpoints apenas por proximidade, uso de bordas de containers ou linhas de grade como conectores e combinação incorreta de segmentos ou ramos.\n\nOs controles C05, C06 e C07 confirmaram que fan-in, fan-out e junções reais continuam distinguíveis dos erros e devem ser preservados. Os dois lotes consecutivos não apresentaram novas categorias, indicando saturação suficiente para encerrar a revisão humana amostral.\n\nA TL-004 pode avançar com estratégia experimental e opt-in, priorizando portas e barreiras de componentes, exclusão de linhas estruturais, diferenciação entre cruzamentos e junções e preservação explícita de fan-in e fan-out válidos. A versão atual deve permanecer como fallback até a validação completa das métricas e dos controles de regressão."
+  },
+  "nextStepRecommendation": {
+    "action": "generate_batch_02",
+    "reason": "Ha ambiguidade, nova categoria ou lacuna de cobertura."
+  }
+}

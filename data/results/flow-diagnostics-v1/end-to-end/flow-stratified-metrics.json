@@ -1,0 +1,1634 @@
+{
+  "schemaVersion": "1.0",
+  "generatedAt": "2026-07-21T01:45:57.498409+00:00",
+  "mode": "end_to_end",
+  "split": "development_tuning",
+  "edgeExistencePrecision": 0.10097719869706841,
+  "edgeExistenceRecall": 0.43661971830985913,
+  "edgeExistenceF1": 0.164021164021164,
+  "directedEdgeF1": 0.12698412698412698,
+  "undirectedEdgeF1": 0.164021164021164,
+  "directionAccuracy": 0.7741935483870968,
+  "predictedEdgeCount": 307,
+  "expectedEdgeCount": 71,
+  "falsePositiveEdgeCount": 276,
+  "missedEdgeCount": 40,
+  "reversedEdgeCount": 7,
+  "falsePositiveCountByEvidence": {
+    "detected_line": 87,
+    "layout_adjacency": 4,
+    "pixel_line_support": 1,
+    "segment_graph": 184
+  },
+  "falsePositiveCountByCandidateLabel": {
+    "crossing_as_connection": 74,
+    "incorrect_bifurcation": 254,
+    "excessive_hops": 0,
+    "geometric_proximity": 119,
+    "parallel_connectors": 216,
+    "connection_through_component": 77,
+    "insufficient_evidence": 15,
+    "ocr_anchor_association_error": 257,
+    "high_density_context": 257,
+    "unclassified": 2
+  },
+  "metricsByProvider": {
+    "aws": {
+      "edgeExistencePrecision": 0.1834862385321101,
+      "edgeExistenceRecall": 0.5714285714285714,
+      "edgeExistenceF1": 0.2777777777777778,
+      "directedEdgeF1": 0.22222222222222224,
+      "undirectedEdgeF1": 0.2777777777777778,
+      "directionAccuracy": 0.8,
+      "predictedEdgeCount": 109,
+      "expectedEdgeCount": 35,
+      "falsePositiveEdgeCount": 89,
+      "missedEdgeCount": 15,
+      "reversedEdgeCount": 4,
+      "imageCount": 3
+    },
+    "azure": {
+      "edgeExistencePrecision": 0.017543859649122806,
+      "edgeExistenceRecall": 0.13043478260869565,
+      "edgeExistenceF1": 0.030927835051546393,
+      "directedEdgeF1": 0.020618556701030927,
+      "undirectedEdgeF1": 0.030927835051546393,
+      "directionAccuracy": 0.6666666666666666,
+      "predictedEdgeCount": 171,
+      "expectedEdgeCount": 23,
+      "falsePositiveEdgeCount": 168,
+      "missedEdgeCount": 20,
+      "reversedEdgeCount": 1,
+      "imageCount": 4
+    },
+    "gcp": {
+      "edgeExistencePrecision": 0.14285714285714285,
+      "edgeExistenceRecall": 0.3333333333333333,
+      "edgeExistenceF1": 0.2,
+      "directedEdgeF1": 0.2,
+      "undirectedEdgeF1": 0.2,
+      "directionAccuracy": 1.0,
+      "predictedEdgeCount": 14,
+      "expectedEdgeCount": 6,
+      "falsePositiveEdgeCount": 12,
+      "missedEdgeCount": 4,
+      "reversedEdgeCount": 0,
+      "imageCount": 1
+    },
+    "generic": {
+      "edgeExistencePrecision": 0.46153846153846156,
+      "edgeExistenceRecall": 0.8571428571428571,
+      "edgeExistenceF1": 0.6,
+      "directedEdgeF1": 0.4,
+      "undirectedEdgeF1": 0.6,
+      "directionAccuracy": 0.6666666666666666,
+      "predictedEdgeCount": 13,
+      "expectedEdgeCount": 7,
+      "falsePositiveEdgeCount": 7,
+      "missedEdgeCount": 1,
+      "reversedEdgeCount": 2,
+      "imageCount": 1
+    }
+  },
+  "metricsByDensityStratum": {
+    "high": {
+      "edgeExistencePrecision": 0.08214285714285714,
+      "edgeExistenceRecall": 0.39655172413793105,
+      "edgeExistenceF1": 0.13609467455621302,
+      "directedEdgeF1": 0.10650887573964496,
+      "undirectedEdgeF1": 0.13609467455621302,
+      "directionAccuracy": 0.782608695652174,
+      "predictedEdgeCount": 280,
+      "expectedEdgeCount": 58,
+      "falsePositiveEdgeCount": 257,
+      "missedEdgeCount": 35,
+      "reversedEdgeCount": 5,
+      "imageCount": 7
+    },
+    "medium": {
+      "edgeExistencePrecision": 0.2962962962962963,
+      "edgeExistenceRecall": 0.6153846153846154,
+      "edgeExistenceF1": 0.4,
+      "directedEdgeF1": 0.3,
+      "undirectedEdgeF1": 0.4,
+      "directionAccuracy": 0.75,
+      "predictedEdgeCount": 27,
+      "expectedEdgeCount": 13,
+      "falsePositiveEdgeCount": 19,
+      "missedEdgeCount": 5,
+      "reversedEdgeCount": 2,
+      "imageCount": 2
+    }
+  },
+  "metricsByHopBucket": {
+    "1": {
+      "predictedEdgeCount": 165,
+      "adjacencyCorrectCount": 5,
+      "correctlyDirectedEdgeCount": 4,
+      "falsePositiveEdgeCount": 160,
+      "reversedEdgeCount": 1,
+      "edgeExistencePrecision": 0.030303030303030304,
+      "directionAccuracy": 0.8,
+      "recallStatus": "not_observable_for_predicted_hop_bucket"
+    },
+    "2-3": {
+      "predictedEdgeCount": 20,
+      "adjacencyCorrectCount": 2,
+      "correctlyDirectedEdgeCount": 1,
+      "falsePositiveEdgeCount": 18,
+      "reversedEdgeCount": 1,
+      "edgeExistencePrecision": 0.1,
+      "directionAccuracy": 0.5,
+      "recallStatus": "not_observable_for_predicted_hop_bucket"
+    },
+    "4-6": {
+      "predictedEdgeCount": 6,
+      "adjacencyCorrectCount": 0,
+      "correctlyDirectedEdgeCount": 0,
+      "falsePositiveEdgeCount": 6,
+      "reversedEdgeCount": 0,
+      "edgeExistencePrecision": 0.0,
+      "directionAccuracy": 0.0,
+      "recallStatus": "not_observable_for_predicted_hop_bucket"
+    },
+    "7+": {
+      "predictedEdgeCount": 0,
+      "adjacencyCorrectCount": 0,
+      "correctlyDirectedEdgeCount": 0,
+      "falsePositiveEdgeCount": 0,
+      "reversedEdgeCount": 0,
+      "edgeExistencePrecision": 0.0,
+      "directionAccuracy": 0.0,
+      "recallStatus": "not_observable_for_predicted_hop_bucket"
+    },
+    "not_available": {
+      "predictedEdgeCount": 116,
+      "adjacencyCorrectCount": 24,
+      "correctlyDirectedEdgeCount": 19,
+      "falsePositiveEdgeCount": 92,
+      "reversedEdgeCount": 5,
+      "edgeExistencePrecision": 0.20689655172413793,
+      "directionAccuracy": 0.7916666666666666,
+      "recallStatus": "not_observable_for_predicted_hop_bucket"
+    }
+  },
+  "unclassifiedRate": 0.007246376811594203,
+  "ambiguousRate": 0.9891304347826086,
+  "legacyMetrics": {
+    "expected": 71,
+    "predicted": 307,
+    "directedTruePositive": 24,
+    "directedPrecision": 0.0781758957654723,
+    "directedRecall": 0.3380281690140845,
+    "directedF1": 0.12698412698412698,
+    "undirectedTruePositive": 31,
+    "undirectedPrecision": 0.10097719869706841,
+    "undirectedRecall": 0.43661971830985913,
+    "undirectedF1": 0.164021164021164,
+    "directionAccuracyOnMatchedEdges": 0.7741935483870968,
+    "falsePositiveEdges": [
+      [
+        "aws-eks-platform::comprehend",
+        "aws-eks-platform::glue"
+      ],
+      [
+        "aws-eks-platform::comprehend",
+        "aws-eks-platform::lambda"
+      ],
+      [
+        "aws-eks-platform::comprehend",
+        "aws-eks-platform::notebook"
+      ],
+      [
+        "aws-eks-platform::comprehend",
+        "aws-eks-platform::sagemaker"
+      ],
+      [
+        "aws-eks-platform::glue",
+        "aws-eks-platform::lambda"
+      ],
+      [
+        "aws-eks-platform::lambda",
+        "aws-eks-platform::unmatched::load_balancer_1"
+      ],
+      [
+        "aws-eks-platform::notebook",
+        "aws-eks-platform::sagemaker"
+      ],
+      [
+        "aws-eks-platform::unmatched::compute_1",
+        "aws-eks-platform::unmatched::load_balancer_1"
+      ],
+      [
+        "aws-eks-platform::unmatched::compute_2",
+        "aws-eks-platform::unmatched::secrets_kms_2"
+      ],
+      [
+        "aws-eks-platform::unmatched::compute_2",
+        "aws-eks-platform::unmatched::storage_ocr_3"
+      ],
+      [
+        "aws-eks-platform::unmatched::database_ocr_2",
+        "aws-eks-platform::unmatched::secrets_kms_2"
+      ],
+      [
+        "aws-eks-platform::unmatched::database_ocr_3",
+        "aws-eks-platform::unmatched::database_ocr_4"
+      ],
+      [
+        "aws-eks-platform::unmatched::database_ocr_4",
+        "aws-eks-platform::unmatched::storage_ocr_2"
+      ],
+      [
+        "aws-eks-platform::unmatched::load_balancer_1",
+        "aws-eks-platform::visualization"
+      ],
+      [
+        "aws-serverless-async::api",
+        "aws-serverless-async::unmatched::identity_provider_1"
+      ],
+      [
+        "aws-serverless-async::api",
+        "aws-serverless-async::unmatched::load_balancer_1"
+      ],
+      [
+        "aws-serverless-async::api",
+        "aws-serverless-async::unmatched::monitoring_ocr_3"
+      ],
+      [
+        "aws-serverless-async::api",
+        "aws-serverless-async::unmatched::waf_ocr_1"
+      ],
+      [
+        "aws-serverless-async::api_handler",
+        "aws-serverless-async::unmatched::compute_1"
+      ],
+      [
+        "aws-serverless-async::api_handler",
+        "aws-serverless-async::unmatched::compute_2"
+      ],
+      [
+        "aws-serverless-async::api_handler",
+        "aws-serverless-async::unmatched::database_4"
+      ],
+      [
+        "aws-serverless-async::api_handler",
+        "aws-serverless-async::worker"
+      ],
+      [
+        "aws-serverless-async::catalog",
+        "aws-serverless-async::unmatched::storage_1"
+      ],
+      [
+        "aws-serverless-async::cloudwatch",
+        "aws-serverless-async::cognito"
+      ],
+      [
+        "aws-serverless-async::cloudwatch",
+        "aws-serverless-async::unmatched::database_1"
+      ],
+      [
+        "aws-serverless-async::cloudwatch",
+        "aws-serverless-async::unmatched::monitoring_ocr_2"
+      ],
+      [
+        "aws-serverless-async::cloudwatch",
+        "aws-serverless-async::unmatched::monitoring_ocr_3"
+      ],
+      [
+        "aws-serverless-async::cognito",
+        "aws-serverless-async::unmatched::identity_provider_1"
+      ],
+      [
+        "aws-serverless-async::cognito",
+        "aws-serverless-async::unmatched::load_balancer_1"
+      ],
+      [
+        "aws-serverless-async::cognito",
+        "aws-serverless-async::unmatched::monitoring_ocr_3"
+      ],
+      [
+        "aws-serverless-async::cognito",
+        "aws-serverless-async::unmatched::waf_ocr_1"
+      ],
+      [
+        "aws-serverless-async::database",
+        "aws-serverless-async::unmatched::database_4"
+      ],
+      [
+        "aws-serverless-async::database",
+        "aws-serverless-async::unmatched::storage_1"
+      ],
+      [
+        "aws-serverless-async::fargate",
+        "aws-serverless-async::unmatched::compute_2"
+      ],
+      [
+        "aws-serverless-async::fargate",
+        "aws-serverless-async::unmatched::database_4"
+      ],
+      [
+        "aws-serverless-async::queue",
+        "aws-serverless-async::unmatched::compute_1"
+      ],
+      [
+        "aws-serverless-async::queue",
+        "aws-serverless-async::unmatched::compute_2"
+      ],
+      [
+        "aws-serverless-async::queue",
+        "aws-serverless-async::unmatched::load_balancer_1"
+      ],
+      [
+        "aws-serverless-async::search_handler",
+        "aws-serverless-async::unmatched::database_1"
+      ],
+      [
+        "aws-serverless-async::search_handler",
+        "aws-serverless-async::unmatched::monitoring_ocr_2"
+      ],
+      [
+        "aws-serverless-async::search_handler",
+        "aws-serverless-async::unmatched::monitoring_ocr_3"
+      ],
+      [
+        "aws-serverless-async::unmatched::compute_1",
+        "aws-serverless-async::unmatched::compute_2"
+      ],
+      [
+        "aws-serverless-async::unmatched::compute_1",
+        "aws-serverless-async::unmatched::load_balancer_1"
+      ],
+      [
+        "aws-serverless-async::unmatched::compute_1",
+        "aws-serverless-async::worker"
+      ],
+      [
+        "aws-serverless-async::unmatched::compute_2",
+        "aws-serverless-async::worker"
+      ],
+      [
+        "aws-serverless-async::unmatched::database_4",
+        "aws-serverless-async::unmatched::storage_1"
+      ],
+      [
+        "aws-serverless-async::unmatched::database_4",
+        "aws-serverless-async::worker"
+      ],
+      [
+        "aws-serverless-async::unmatched::monitoring_ocr_2",
+        "aws-serverless-async::unmatched::monitoring_ocr_3"
+      ],
+      [
+        "aws-video-pipeline::api",
+        "aws-video-pipeline::unmatched::user_ocr_1"
+      ],
+      [
+        "aws-video-pipeline::business1",
+        "aws-video-pipeline::stage1"
+      ],
+      [
+        "aws-video-pipeline::business1",
+        "aws-video-pipeline::transcoder"
+      ],
+      [
+        "aws-video-pipeline::business1",
+        "aws-video-pipeline::trigger1"
+      ],
+      [
+        "aws-video-pipeline::business1",
+        "aws-video-pipeline::unmatched::storage_1"
+      ],
+      [
+        "aws-video-pipeline::business1",
+        "aws-video-pipeline::upload"
+      ],
+      [
+        "aws-video-pipeline::business2",
+        "aws-video-pipeline::stage1"
+      ],
+      [
+        "aws-video-pipeline::business2",
+        "aws-video-pipeline::upload"
+      ],
+      [
+        "aws-video-pipeline::cognito",
+        "aws-video-pipeline::unmatched::user_ocr_1"
+      ],
+      [
+        "aws-video-pipeline::database",
+        "aws-video-pipeline::media"
+      ],
+      [
+        "aws-video-pipeline::database",
+        "aws-video-pipeline::stage3"
+      ],
+      [
+        "aws-video-pipeline::database",
+        "aws-video-pipeline::trigger3"
+      ],
+      [
+        "aws-video-pipeline::database",
+        "aws-video-pipeline::unmatched::compute_2"
+      ],
+      [
+        "aws-video-pipeline::database",
+        "aws-video-pipeline::upload"
+      ],
+      [
+        "aws-video-pipeline::media",
+        "aws-video-pipeline::stage2"
+      ],
+      [
+        "aws-video-pipeline::media",
+        "aws-video-pipeline::trigger1"
+      ],
+      [
+        "aws-video-pipeline::media",
+        "aws-video-pipeline::trigger3"
+      ],
+      [
+        "aws-video-pipeline::stage1",
+        "aws-video-pipeline::transcoder"
+      ],
+      [
+        "aws-video-pipeline::stage1",
+        "aws-video-pipeline::trigger2"
+      ],
+      [
+        "aws-video-pipeline::stage2",
+        "aws-video-pipeline::stage3"
+      ],
+      [
+        "aws-video-pipeline::stage2",
+        "aws-video-pipeline::trigger1"
+      ],
+      [
+        "aws-video-pipeline::stage2",
+        "aws-video-pipeline::unmatched::database_ocr_3"
+      ],
+      [
+        "aws-video-pipeline::stage3",
+        "aws-video-pipeline::transcoder"
+      ],
+      [
+        "aws-video-pipeline::stage3",
+        "aws-video-pipeline::trigger1"
+      ],
+      [
+        "aws-video-pipeline::stage3",
+        "aws-video-pipeline::trigger2"
+      ],
+      [
+        "aws-video-pipeline::stage3",
+        "aws-video-pipeline::unmatched::compute_1"
+      ],
+      [
+        "aws-video-pipeline::stage3",
+        "aws-video-pipeline::unmatched::database_ocr_3"
+      ],
+      [
+        "aws-video-pipeline::transcoder",
+        "aws-video-pipeline::trigger2"
+      ],
+      [
+        "aws-video-pipeline::transcoder",
+        "aws-video-pipeline::unmatched::compute_1"
+      ],
+      [
+        "aws-video-pipeline::transcoder",
+        "aws-video-pipeline::unmatched::database_ocr_3"
+      ],
+      [
+        "aws-video-pipeline::transcoder",
+        "aws-video-pipeline::upload"
+      ],
+      [
+        "aws-video-pipeline::trigger1",
+        "aws-video-pipeline::trigger3"
+      ],
+      [
+        "aws-video-pipeline::trigger1",
+        "aws-video-pipeline::unmatched::compute_2"
+      ],
+      [
+        "aws-video-pipeline::trigger1",
+        "aws-video-pipeline::unmatched::database_ocr_3"
+      ],
+      [
+        "aws-video-pipeline::trigger1",
+        "aws-video-pipeline::upload"
+      ],
+      [
+        "aws-video-pipeline::trigger2",
+        "aws-video-pipeline::unmatched::database_ocr_3"
+      ],
+      [
+        "aws-video-pipeline::trigger2",
+        "aws-video-pipeline::upload"
+      ],
+      [
+        "aws-video-pipeline::unmatched::compute_1",
+        "aws-video-pipeline::unmatched::storage_1"
+      ],
+      [
+        "aws-video-pipeline::unmatched::database_ocr_3",
+        "aws-video-pipeline::unmatched::storage_1"
+      ],
+      [
+        "aws-video-pipeline::unmatched::storage_1",
+        "aws-video-pipeline::upload"
+      ],
+      [
+        "aws-video-pipeline::unmatched::user_ocr_1",
+        "aws-video-pipeline::upload"
+      ],
+      [
+        "azure-ai-foundry::app_service",
+        "azure-ai-foundry::foundry_account"
+      ],
+      [
+        "azure-ai-foundry::app_service",
+        "azure-ai-foundry::unmatched::compute_1"
+      ],
+      [
+        "azure-ai-foundry::app_service",
+        "azure-ai-foundry::unmatched::compute_ocr_4"
+      ],
+      [
+        "azure-ai-foundry::app_service",
+        "azure-ai-foundry::unmatched::database_2"
+      ],
+      [
+        "azure-ai-foundry::foundry_account",
+        "azure-ai-foundry::unmatched::database_1"
+      ],
+      [
+        "azure-ai-foundry::unmatched::compute_1",
+        "azure-ai-foundry::unmatched::compute_ocr_4"
+      ],
+      [
+        "azure-ai-foundry::unmatched::compute_1",
+        "azure-ai-foundry::unmatched::monitoring_ocr_2"
+      ],
+      [
+        "azure-ai-foundry::unmatched::compute_1",
+        "azure-ai-foundry::unmatched::secrets_kms_1"
+      ],
+      [
+        "azure-ai-foundry::unmatched::compute_1",
+        "azure-ai-foundry::user"
+      ],
+      [
+        "azure-ai-foundry::unmatched::compute_2",
+        "azure-ai-foundry::unmatched::database_1"
+      ],
+      [
+        "azure-ai-foundry::unmatched::compute_ocr_4",
+        "azure-ai-foundry::unmatched::database_2"
+      ],
+      [
+        "azure-ai-foundry::unmatched::compute_ocr_4",
+        "azure-ai-foundry::unmatched::database_3"
+      ],
+      [
+        "azure-ai-foundry::unmatched::compute_ocr_4",
+        "azure-ai-foundry::unmatched::monitoring_ocr_2"
+      ],
+      [
+        "azure-ai-foundry::unmatched::compute_ocr_4",
+        "azure-ai-foundry::unmatched::secrets_kms_1"
+      ],
+      [
+        "azure-ai-foundry::unmatched::database_1",
+        "azure-ai-foundry::unmatched::database_2"
+      ],
+      [
+        "azure-ai-foundry::unmatched::database_1",
+        "azure-ai-foundry::unmatched::monitoring_ocr_1"
+      ],
+      [
+        "azure-ai-foundry::unmatched::database_3",
+        "azure-ai-foundry::unmatched::monitoring_ocr_1"
+      ],
+      [
+        "azure-ai-foundry::unmatched::database_3",
+        "azure-ai-foundry::unmatched::monitoring_ocr_2"
+      ],
+      [
+        "azure-ai-foundry::unmatched::database_3",
+        "azure-ai-foundry::unmatched::secrets_kms_1"
+      ],
+      [
+        "azure-ai-foundry::unmatched::monitoring_ocr_1",
+        "azure-ai-foundry::unmatched::monitoring_ocr_2"
+      ],
+      [
+        "azure-container-edge::clients",
+        "azure-container-edge::unmatched::load_balancer_2"
+      ],
+      [
+        "azure-container-edge::unmatched::compute_1",
+        "azure-container-edge::unmatched::load_balancer_1"
+      ],
+      [
+        "azure-container-edge::unmatched::compute_1",
+        "azure-container-edge::unmatched::load_balancer_2"
+      ],
+      [
+        "azure-container-edge::unmatched::load_balancer_1",
+        "azure-container-edge::unmatched::waf_ocr_1"
+      ],
+      [
+        "azure-hub-spoke::bastion",
+        "azure-hub-spoke::unmatched::monitoring_ocr_1"
+      ],
+      [
+        "azure-hub-spoke::firewall",
+        "azure-hub-spoke::unmatched::compute_ocr_20"
+      ],
+      [
+        "azure-hub-spoke::firewall",
+        "azure-hub-spoke::unmatched::monitoring_ocr_1"
+      ],
+      [
+        "azure-hub-spoke::gateway",
+        "azure-hub-spoke::unmatched::compute_4"
+      ],
+      [
+        "azure-hub-spoke::gateway",
+        "azure-hub-spoke::unmatched::compute_ocr_12"
+      ],
+      [
+        "azure-hub-spoke::gateway",
+        "azure-hub-spoke::unmatched::compute_ocr_20"
+      ],
+      [
+        "azure-hub-spoke::gateway",
+        "azure-hub-spoke::unmatched::monitoring_ocr_1"
+      ],
+      [
+        "azure-hub-spoke::gateway",
+        "azure-hub-spoke::unmatched::monitoring_ocr_2"
+      ],
+      [
+        "azure-hub-spoke::nonprod2_vm",
+        "azure-hub-spoke::unmatched::compute_ocr_12"
+      ],
+      [
+        "azure-hub-spoke::nonprod2_vm",
+        "azure-hub-spoke::unmatched::compute_ocr_20"
+      ],
+      [
+        "azure-hub-spoke::nonprod2_vm",
+        "azure-hub-spoke::unmatched::monitoring_ocr_1"
+      ],
+      [
+        "azure-hub-spoke::prod_vm",
+        "azure-hub-spoke::unmatched::compute_ocr_8"
+      ],
+      [
+        "azure-hub-spoke::prod_vm",
+        "azure-hub-spoke::unmatched::database_1"
+      ],
+      [
+        "azure-hub-spoke::unmatched::compute_3",
+        "azure-hub-spoke::unmatched::compute_ocr_10"
+      ],
+      [
+        "azure-hub-spoke::unmatched::compute_3",
+        "azure-hub-spoke::unmatched::compute_ocr_12"
+      ],
+      [
+        "azure-hub-spoke::unmatched::compute_3",
+        "azure-hub-spoke::unmatched::compute_ocr_8"
+      ],
+      [
+        "azure-hub-spoke::unmatched::compute_3",
+        "azure-hub-spoke::unmatched::database_1"
+      ],
+      [
+        "azure-hub-spoke::unmatched::compute_4",
+        "azure-hub-spoke::unmatched::compute_ocr_10"
+      ],
+      [
+        "azure-hub-spoke::unmatched::compute_4",
+        "azure-hub-spoke::unmatched::compute_ocr_13"
+      ],
+      [
+        "azure-hub-spoke::unmatched::compute_4",
+        "azure-hub-spoke::unmatched::compute_ocr_14"
+      ],
+      [
+        "azure-hub-spoke::unmatched::compute_4",
+        "azure-hub-spoke::unmatched::compute_ocr_8"
+      ],
+      [
+        "azure-hub-spoke::unmatched::compute_4",
+        "azure-hub-spoke::unmatched::compute_ocr_9"
+      ],
+      [
+        "azure-hub-spoke::unmatched::compute_4",
+        "azure-hub-spoke::unmatched::monitoring_ocr_1"
+      ],
+      [
+        "azure-hub-spoke::unmatched::compute_4",
+        "azure-hub-spoke::unmatched::monitoring_ocr_2"
+      ],
+      [
+        "azure-hub-spoke::unmatched::compute_ocr_10",
+        "azure-hub-spoke::unmatched::compute_ocr_12"
+      ],
+      [
+        "azure-hub-spoke::unmatched::compute_ocr_10",
+        "azure-hub-spoke::unmatched::compute_ocr_13"
+      ],
+      [
+        "azure-hub-spoke::unmatched::compute_ocr_10",
+        "azure-hub-spoke::unmatched::compute_ocr_8"
+      ],
+      [
+        "azure-hub-spoke::unmatched::compute_ocr_10",
+        "azure-hub-spoke::unmatched::compute_ocr_9"
+      ],
+      [
+        "azure-hub-spoke::unmatched::compute_ocr_10",
+        "azure-hub-spoke::unmatched::database_1"
+      ],
+      [
+        "azure-hub-spoke::unmatched::compute_ocr_12",
+        "azure-hub-spoke::unmatched::compute_ocr_13"
+      ],
+      [
+        "azure-hub-spoke::unmatched::compute_ocr_12",
+        "azure-hub-spoke::unmatched::compute_ocr_14"
+      ],
+      [
+        "azure-hub-spoke::unmatched::compute_ocr_12",
+        "azure-hub-spoke::unmatched::compute_ocr_8"
+      ],
+      [
+        "azure-hub-spoke::unmatched::compute_ocr_12",
+        "azure-hub-spoke::unmatched::compute_ocr_9"
+      ],
+      [
+        "azure-hub-spoke::unmatched::compute_ocr_12",
+        "azure-hub-spoke::unmatched::monitoring_ocr_1"
+      ],
+      [
+        "azure-hub-spoke::unmatched::compute_ocr_13",
+        "azure-hub-spoke::unmatched::compute_ocr_14"
+      ],
+      [
+        "azure-hub-spoke::unmatched::compute_ocr_13",
+        "azure-hub-spoke::unmatched::compute_ocr_8"
+      ],
+      [
+        "azure-hub-spoke::unmatched::compute_ocr_13",
+        "azure-hub-spoke::unmatched::compute_ocr_9"
+      ],
+      [
+        "azure-hub-spoke::unmatched::compute_ocr_14",
+        "azure-hub-spoke::unmatched::compute_ocr_20"
+      ],
+      [
+        "azure-hub-spoke::unmatched::compute_ocr_14",
+        "azure-hub-spoke::unmatched::compute_ocr_9"
+      ],
+      [
+        "azure-hub-spoke::unmatched::compute_ocr_14",
+        "azure-hub-spoke::unmatched::monitoring_ocr_1"
+      ],
+      [
+        "azure-hub-spoke::unmatched::compute_ocr_20",
+        "azure-hub-spoke::unmatched::monitoring_ocr_1"
+      ],
+      [
+        "azure-hub-spoke::unmatched::compute_ocr_8",
+        "azure-hub-spoke::unmatched::compute_ocr_9"
+      ],
+      [
+        "azure-hub-spoke::unmatched::compute_ocr_8",
+        "azure-hub-spoke::unmatched::monitoring_ocr_1"
+      ],
+      [
+        "azure-hub-spoke::unmatched::compute_ocr_8",
+        "azure-hub-spoke::unmatched::monitoring_ocr_2"
+      ],
+      [
+        "azure-hub-spoke::unmatched::compute_ocr_9",
+        "azure-hub-spoke::unmatched::monitoring_ocr_1"
+      ],
+      [
+        "azure-hub-spoke::unmatched::compute_ocr_9",
+        "azure-hub-spoke::unmatched::monitoring_ocr_2"
+      ],
+      [
+        "azure-hub-spoke::unmatched::monitoring_ocr_1",
+        "azure-hub-spoke::unmatched::monitoring_ocr_2"
+      ],
+      [
+        "azure-private-ai-platform::app_gateway",
+        "azure-private-ai-platform::unmatched::api_gateway_ocr_1"
+      ],
+      [
+        "azure-private-ai-platform::app_gateway",
+        "azure-private-ai-platform::unmatched::compute_ocr_13"
+      ],
+      [
+        "azure-private-ai-platform::app_gateway",
+        "azure-private-ai-platform::unmatched::compute_ocr_14"
+      ],
+      [
+        "azure-private-ai-platform::app_gateway",
+        "azure-private-ai-platform::unmatched::compute_ocr_8"
+      ],
+      [
+        "azure-private-ai-platform::app_gateway",
+        "azure-private-ai-platform::unmatched::compute_ocr_9"
+      ],
+      [
+        "azure-private-ai-platform::app_gateway",
+        "azure-private-ai-platform::unmatched::monitoring_ocr_2"
+      ],
+      [
+        "azure-private-ai-platform::app_gateway",
+        "azure-private-ai-platform::unmatched::secrets_kms_ocr_1"
+      ],
+      [
+        "azure-private-ai-platform::app_gateway",
+        "azure-private-ai-platform::unmatched::storage_ocr_3"
+      ],
+      [
+        "azure-private-ai-platform::app_service",
+        "azure-private-ai-platform::unmatched::compute_ocr_13"
+      ],
+      [
+        "azure-private-ai-platform::app_service",
+        "azure-private-ai-platform::unmatched::compute_ocr_8"
+      ],
+      [
+        "azure-private-ai-platform::app_service",
+        "azure-private-ai-platform::unmatched::compute_ocr_9"
+      ],
+      [
+        "azure-private-ai-platform::app_service",
+        "azure-private-ai-platform::unmatched::secrets_kms_ocr_1"
+      ],
+      [
+        "azure-private-ai-platform::app_service",
+        "azure-private-ai-platform::unmatched::secrets_kms_ocr_2"
+      ],
+      [
+        "azure-private-ai-platform::app_service",
+        "azure-private-ai-platform::unmatched::storage_ocr_3"
+      ],
+      [
+        "azure-private-ai-platform::app_service",
+        "azure-private-ai-platform::unmatched::storage_ocr_5"
+      ],
+      [
+        "azure-private-ai-platform::bastion",
+        "azure-private-ai-platform::unmatched::compute_3"
+      ],
+      [
+        "azure-private-ai-platform::bastion",
+        "azure-private-ai-platform::unmatched::compute_ocr_11"
+      ],
+      [
+        "azure-private-ai-platform::bastion",
+        "azure-private-ai-platform::unmatched::compute_ocr_12"
+      ],
+      [
+        "azure-private-ai-platform::bastion",
+        "azure-private-ai-platform::unmatched::compute_ocr_6"
+      ],
+      [
+        "azure-private-ai-platform::bastion",
+        "azure-private-ai-platform::unmatched::compute_ocr_7"
+      ],
+      [
+        "azure-private-ai-platform::unmatched::api_gateway_ocr_1",
+        "azure-private-ai-platform::unmatched::compute_ocr_13"
+      ],
+      [
+        "azure-private-ai-platform::unmatched::api_gateway_ocr_1",
+        "azure-private-ai-platform::unmatched::compute_ocr_8"
+      ],
+      [
+        "azure-private-ai-platform::unmatched::api_gateway_ocr_1",
+        "azure-private-ai-platform::unmatched::database_3"
+      ],
+      [
+        "azure-private-ai-platform::unmatched::api_gateway_ocr_1",
+        "azure-private-ai-platform::user"
+      ],
+      [
+        "azure-private-ai-platform::unmatched::api_gateway_ocr_2",
+        "azure-private-ai-platform::unmatched::api_gateway_ocr_4"
+      ],
+      [
+        "azure-private-ai-platform::unmatched::api_gateway_ocr_2",
+        "azure-private-ai-platform::unmatched::compute_ocr_11"
+      ],
+      [
+        "azure-private-ai-platform::unmatched::api_gateway_ocr_2",
+        "azure-private-ai-platform::unmatched::compute_ocr_13"
+      ],
+      [
+        "azure-private-ai-platform::unmatched::api_gateway_ocr_2",
+        "azure-private-ai-platform::unmatched::compute_ocr_15"
+      ],
+      [
+        "azure-private-ai-platform::unmatched::api_gateway_ocr_2",
+        "azure-private-ai-platform::unmatched::compute_ocr_7"
+      ],
+      [
+        "azure-private-ai-platform::unmatched::api_gateway_ocr_2",
+        "azure-private-ai-platform::unmatched::compute_ocr_8"
+      ],
+      [
+        "azure-private-ai-platform::unmatched::api_gateway_ocr_2",
+        "azure-private-ai-platform::unmatched::database_ocr_5"
+      ],
+      [
+        "azure-private-ai-platform::unmatched::api_gateway_ocr_2",
+        "azure-private-ai-platform::unmatched::database_ocr_6"
+      ],
+      [
+        "azure-private-ai-platform::unmatched::api_gateway_ocr_2",
+        "azure-private-ai-platform::unmatched::storage_ocr_4"
+      ],
+      [
+        "azure-private-ai-platform::unmatched::api_gateway_ocr_2",
+        "azure-private-ai-platform::unmatched::waf_ocr_1"
+      ],
+      [
+        "azure-private-ai-platform::unmatched::api_gateway_ocr_4",
+        "azure-private-ai-platform::unmatched::compute_ocr_15"
+      ],
+      [
+        "azure-private-ai-platform::unmatched::api_gateway_ocr_4",
+        "azure-private-ai-platform::unmatched::compute_ocr_7"
+      ],
+      [
+        "azure-private-ai-platform::unmatched::api_gateway_ocr_4",
+        "azure-private-ai-platform::unmatched::database_ocr_5"
+      ],
+      [
+        "azure-private-ai-platform::unmatched::api_gateway_ocr_4",
+        "azure-private-ai-platform::unmatched::database_ocr_6"
+      ],
+      [
+        "azure-private-ai-platform::unmatched::api_gateway_ocr_4",
+        "azure-private-ai-platform::unmatched::storage_ocr_4"
+      ],
+      [
+        "azure-private-ai-platform::unmatched::compute_1",
+        "azure-private-ai-platform::unmatched::database_1"
+      ],
+      [
+        "azure-private-ai-platform::unmatched::compute_3",
+        "azure-private-ai-platform::unmatched::compute_ocr_12"
+      ],
+      [
+        "azure-private-ai-platform::unmatched::compute_3",
+        "azure-private-ai-platform::unmatched::compute_ocr_6"
+      ],
+      [
+        "azure-private-ai-platform::unmatched::compute_3",
+        "azure-private-ai-platform::unmatched::database_3"
+      ],
+      [
+        "azure-private-ai-platform::unmatched::compute_ocr_11",
+        "azure-private-ai-platform::unmatched::compute_ocr_12"
+      ],
+      [
+        "azure-private-ai-platform::unmatched::compute_ocr_11",
+        "azure-private-ai-platform::unmatched::compute_ocr_6"
+      ],
+      [
+        "azure-private-ai-platform::unmatched::compute_ocr_11",
+        "azure-private-ai-platform::unmatched::compute_ocr_7"
+      ],
+      [
+        "azure-private-ai-platform::unmatched::compute_ocr_11",
+        "azure-private-ai-platform::unmatched::database_ocr_5"
+      ],
+      [
+        "azure-private-ai-platform::unmatched::compute_ocr_12",
+        "azure-private-ai-platform::unmatched::database_4"
+      ],
+      [
+        "azure-private-ai-platform::unmatched::compute_ocr_12",
+        "azure-private-ai-platform::unmatched::internet_ocr_1"
+      ],
+      [
+        "azure-private-ai-platform::unmatched::compute_ocr_12",
+        "azure-private-ai-platform::unmatched::waf_ocr_1"
+      ],
+      [
+        "azure-private-ai-platform::unmatched::compute_ocr_13",
+        "azure-private-ai-platform::unmatched::compute_ocr_14"
+      ],
+      [
+        "azure-private-ai-platform::unmatched::compute_ocr_13",
+        "azure-private-ai-platform::unmatched::compute_ocr_7"
+      ],
+      [
+        "azure-private-ai-platform::unmatched::compute_ocr_13",
+        "azure-private-ai-platform::unmatched::compute_ocr_8"
+      ],
+      [
+        "azure-private-ai-platform::unmatched::compute_ocr_13",
+        "azure-private-ai-platform::unmatched::storage_ocr_3"
+      ],
+      [
+        "azure-private-ai-platform::unmatched::compute_ocr_14",
+        "azure-private-ai-platform::unmatched::compute_ocr_8"
+      ],
+      [
+        "azure-private-ai-platform::unmatched::compute_ocr_14",
+        "azure-private-ai-platform::unmatched::secrets_kms_ocr_2"
+      ],
+      [
+        "azure-private-ai-platform::unmatched::compute_ocr_14",
+        "azure-private-ai-platform::unmatched::storage_ocr_3"
+      ],
+      [
+        "azure-private-ai-platform::unmatched::compute_ocr_15",
+        "azure-private-ai-platform::unmatched::database_ocr_5"
+      ],
+      [
+        "azure-private-ai-platform::unmatched::compute_ocr_15",
+        "azure-private-ai-platform::unmatched::database_ocr_6"
+      ],
+      [
+        "azure-private-ai-platform::unmatched::compute_ocr_15",
+        "azure-private-ai-platform::unmatched::storage_ocr_2"
+      ],
+      [
+        "azure-private-ai-platform::unmatched::compute_ocr_15",
+        "azure-private-ai-platform::unmatched::waf_ocr_1"
+      ],
+      [
+        "azure-private-ai-platform::unmatched::compute_ocr_6",
+        "azure-private-ai-platform::unmatched::database_3"
+      ],
+      [
+        "azure-private-ai-platform::unmatched::compute_ocr_6",
+        "azure-private-ai-platform::unmatched::database_4"
+      ],
+      [
+        "azure-private-ai-platform::unmatched::compute_ocr_7",
+        "azure-private-ai-platform::unmatched::database_ocr_5"
+      ],
+      [
+        "azure-private-ai-platform::unmatched::compute_ocr_7",
+        "azure-private-ai-platform::unmatched::storage_ocr_2"
+      ],
+      [
+        "azure-private-ai-platform::unmatched::compute_ocr_7",
+        "azure-private-ai-platform::unmatched::storage_ocr_4"
+      ],
+      [
+        "azure-private-ai-platform::unmatched::compute_ocr_8",
+        "azure-private-ai-platform::unmatched::compute_ocr_9"
+      ],
+      [
+        "azure-private-ai-platform::unmatched::compute_ocr_8",
+        "azure-private-ai-platform::unmatched::database_3"
+      ],
+      [
+        "azure-private-ai-platform::unmatched::compute_ocr_8",
+        "azure-private-ai-platform::unmatched::monitoring_ocr_2"
+      ],
+      [
+        "azure-private-ai-platform::unmatched::compute_ocr_8",
+        "azure-private-ai-platform::unmatched::secrets_kms_ocr_1"
+      ],
+      [
+        "azure-private-ai-platform::unmatched::compute_ocr_8",
+        "azure-private-ai-platform::unmatched::secrets_kms_ocr_2"
+      ],
+      [
+        "azure-private-ai-platform::unmatched::compute_ocr_8",
+        "azure-private-ai-platform::unmatched::storage_ocr_3"
+      ],
+      [
+        "azure-private-ai-platform::unmatched::compute_ocr_9",
+        "azure-private-ai-platform::unmatched::monitoring_ocr_2"
+      ],
+      [
+        "azure-private-ai-platform::unmatched::database_1",
+        "azure-private-ai-platform::unmatched::database_4"
+      ],
+      [
+        "azure-private-ai-platform::unmatched::database_1",
+        "azure-private-ai-platform::unmatched::storage_ocr_3"
+      ],
+      [
+        "azure-private-ai-platform::unmatched::database_3",
+        "azure-private-ai-platform::unmatched::database_ocr_5"
+      ],
+      [
+        "azure-private-ai-platform::unmatched::database_3",
+        "azure-private-ai-platform::unmatched::storage_ocr_3"
+      ],
+      [
+        "azure-private-ai-platform::unmatched::database_3",
+        "azure-private-ai-platform::unmatched::waf_ocr_1"
+      ],
+      [
+        "azure-private-ai-platform::unmatched::database_ocr_5",
+        "azure-private-ai-platform::unmatched::database_ocr_6"
+      ],
+      [
+        "azure-private-ai-platform::unmatched::database_ocr_5",
+        "azure-private-ai-platform::unmatched::internet_ocr_1"
+      ],
+      [
+        "azure-private-ai-platform::unmatched::database_ocr_5",
+        "azure-private-ai-platform::unmatched::storage_ocr_2"
+      ],
+      [
+        "azure-private-ai-platform::unmatched::database_ocr_5",
+        "azure-private-ai-platform::unmatched::storage_ocr_4"
+      ],
+      [
+        "azure-private-ai-platform::unmatched::database_ocr_5",
+        "azure-private-ai-platform::unmatched::waf_ocr_1"
+      ],
+      [
+        "azure-private-ai-platform::unmatched::database_ocr_6",
+        "azure-private-ai-platform::unmatched::storage_ocr_2"
+      ],
+      [
+        "azure-private-ai-platform::unmatched::database_ocr_6",
+        "azure-private-ai-platform::unmatched::storage_ocr_4"
+      ],
+      [
+        "azure-private-ai-platform::unmatched::database_ocr_6",
+        "azure-private-ai-platform::unmatched::waf_ocr_1"
+      ],
+      [
+        "azure-private-ai-platform::unmatched::internet_ocr_1",
+        "azure-private-ai-platform::unmatched::waf_ocr_1"
+      ],
+      [
+        "azure-private-ai-platform::unmatched::secrets_kms_ocr_1",
+        "azure-private-ai-platform::unmatched::secrets_kms_ocr_2"
+      ],
+      [
+        "azure-private-ai-platform::unmatched::secrets_kms_ocr_1",
+        "azure-private-ai-platform::unmatched::storage_ocr_1"
+      ],
+      [
+        "azure-private-ai-platform::unmatched::secrets_kms_ocr_1",
+        "azure-private-ai-platform::unmatched::storage_ocr_3"
+      ],
+      [
+        "azure-private-ai-platform::unmatched::secrets_kms_ocr_1",
+        "azure-private-ai-platform::unmatched::storage_ocr_5"
+      ],
+      [
+        "azure-private-ai-platform::unmatched::secrets_kms_ocr_2",
+        "azure-private-ai-platform::unmatched::storage_ocr_3"
+      ],
+      [
+        "azure-private-ai-platform::unmatched::storage_ocr_1",
+        "azure-private-ai-platform::unmatched::storage_ocr_3"
+      ],
+      [
+        "azure-private-ai-platform::unmatched::storage_ocr_1",
+        "azure-private-ai-platform::unmatched::storage_ocr_5"
+      ],
+      [
+        "azure-private-ai-platform::unmatched::storage_ocr_2",
+        "azure-private-ai-platform::unmatched::storage_ocr_4"
+      ],
+      [
+        "azure-private-ai-platform::unmatched::storage_ocr_3",
+        "azure-private-ai-platform::unmatched::storage_ocr_5"
+      ],
+      [
+        "azure-private-ai-platform::unmatched::storage_ocr_4",
+        "azure-private-ai-platform::unmatched::waf_ocr_1"
+      ],
+      [
+        "gcp-secure-cloud-run::armor",
+        "gcp-secure-cloud-run::artifact_registry"
+      ],
+      [
+        "gcp-secure-cloud-run::armor",
+        "gcp-secure-cloud-run::cloud_run"
+      ],
+      [
+        "gcp-secure-cloud-run::armor",
+        "gcp-secure-cloud-run::internet"
+      ],
+      [
+        "gcp-secure-cloud-run::armor",
+        "gcp-secure-cloud-run::vpc_connector"
+      ],
+      [
+        "gcp-secure-cloud-run::artifact_registry",
+        "gcp-secure-cloud-run::kms"
+      ],
+      [
+        "gcp-secure-cloud-run::artifact_registry",
+        "gcp-secure-cloud-run::secret_manager"
+      ],
+      [
+        "gcp-secure-cloud-run::artifact_registry",
+        "gcp-secure-cloud-run::vpc_connector"
+      ],
+      [
+        "gcp-secure-cloud-run::cloud_run",
+        "gcp-secure-cloud-run::firewall"
+      ],
+      [
+        "gcp-secure-cloud-run::cloud_run",
+        "gcp-secure-cloud-run::internet"
+      ],
+      [
+        "gcp-secure-cloud-run::cloud_run",
+        "gcp-secure-cloud-run::secret_manager"
+      ],
+      [
+        "gcp-secure-cloud-run::kms",
+        "gcp-secure-cloud-run::secret_manager"
+      ],
+      [
+        "gcp-secure-cloud-run::logging",
+        "gcp-secure-cloud-run::secret_manager"
+      ],
+      [
+        "generic-cloud-api::api",
+        "generic-cloud-api::database"
+      ],
+      [
+        "generic-cloud-api::api",
+        "generic-cloud-api::storage"
+      ],
+      [
+        "generic-cloud-api::cdn",
+        "generic-cloud-api::database"
+      ],
+      [
+        "generic-cloud-api::cdn",
+        "generic-cloud-api::monitoring"
+      ],
+      [
+        "generic-cloud-api::cdn",
+        "generic-cloud-api::user"
+      ],
+      [
+        "generic-cloud-api::compute",
+        "generic-cloud-api::internet"
+      ],
+      [
+        "generic-cloud-api::database",
+        "generic-cloud-api::monitoring"
+      ]
+    ],
+    "missedEdges": [
+      [
+        "aws-eks-platform::dynamo",
+        "aws-eks-platform::microservices"
+      ],
+      [
+        "aws-eks-platform::glue",
+        "aws-eks-platform::processed"
+      ],
+      [
+        "aws-eks-platform::glue",
+        "aws-eks-platform::raw"
+      ],
+      [
+        "aws-eks-platform::lambda",
+        "aws-eks-platform::microservices"
+      ],
+      [
+        "aws-eks-platform::microservices",
+        "aws-eks-platform::rds"
+      ],
+      [
+        "aws-eks-platform::notebook",
+        "aws-eks-platform::raw"
+      ],
+      [
+        "aws-eks-platform::raw",
+        "aws-eks-platform::sagemaker"
+      ],
+      [
+        "aws-eks-platform::rds",
+        "aws-eks-platform::visualization"
+      ],
+      [
+        "aws-eks-platform::sagemaker",
+        "aws-eks-platform::sql"
+      ],
+      [
+        "aws-eks-platform::sagemaker",
+        "aws-eks-platform::warehouse"
+      ],
+      [
+        "aws-serverless-async::api_handler",
+        "aws-serverless-async::queue"
+      ],
+      [
+        "aws-video-pipeline::api",
+        "aws-video-pipeline::business1"
+      ],
+      [
+        "aws-video-pipeline::api",
+        "aws-video-pipeline::mobile"
+      ],
+      [
+        "aws-video-pipeline::api",
+        "aws-video-pipeline::upload"
+      ],
+      [
+        "aws-video-pipeline::cognito",
+        "aws-video-pipeline::mobile"
+      ],
+      [
+        "azure-ai-foundry::ai_search",
+        "azure-ai-foundry::foundry_agent"
+      ],
+      [
+        "azure-ai-foundry::app_service",
+        "azure-ai-foundry::foundry_agent"
+      ],
+      [
+        "azure-ai-foundry::app_service",
+        "azure-ai-foundry::user"
+      ],
+      [
+        "azure-ai-foundry::foundry_account",
+        "azure-ai-foundry::foundry_agent"
+      ],
+      [
+        "azure-ai-foundry::foundry_agent",
+        "azure-ai-foundry::openai_model"
+      ],
+      [
+        "azure-container-edge::application_firewall",
+        "azure-container-edge::azure_firewall"
+      ],
+      [
+        "azure-container-edge::application_firewall",
+        "azure-container-edge::load_balancer"
+      ],
+      [
+        "azure-container-edge::azure_firewall",
+        "azure-container-edge::virtual_machines"
+      ],
+      [
+        "azure-container-edge::clients",
+        "azure-container-edge::load_balancer"
+      ],
+      [
+        "azure-hub-spoke::firewall",
+        "azure-hub-spoke::prod2_vm"
+      ],
+      [
+        "azure-hub-spoke::firewall",
+        "azure-hub-spoke::prod_vm"
+      ],
+      [
+        "azure-hub-spoke::gateway",
+        "azure-hub-spoke::nonprod_vm"
+      ],
+      [
+        "azure-hub-spoke::gateway",
+        "azure-hub-spoke::onprem"
+      ],
+      [
+        "azure-private-ai-platform::ai_search",
+        "azure-private-ai-platform::app_service"
+      ],
+      [
+        "azure-private-ai-platform::app_gateway",
+        "azure-private-ai-platform::app_service"
+      ],
+      [
+        "azure-private-ai-platform::app_service",
+        "azure-private-ai-platform::cosmos"
+      ],
+      [
+        "azure-private-ai-platform::app_service",
+        "azure-private-ai-platform::foundry_agent"
+      ],
+      [
+        "azure-private-ai-platform::app_service",
+        "azure-private-ai-platform::key_vault"
+      ],
+      [
+        "azure-private-ai-platform::app_service",
+        "azure-private-ai-platform::storage"
+      ],
+      [
+        "azure-private-ai-platform::foundry_agent",
+        "azure-private-ai-platform::openai"
+      ],
+      [
+        "gcp-secure-cloud-run::armor",
+        "gcp-secure-cloud-run::load_balancer"
+      ],
+      [
+        "gcp-secure-cloud-run::cloud_run",
+        "gcp-secure-cloud-run::load_balancer"
+      ],
+      [
+        "gcp-secure-cloud-run::firewall",
+        "gcp-secure-cloud-run::resource"
+      ],
+      [
+        "gcp-secure-cloud-run::internet",
+        "gcp-secure-cloud-run::load_balancer"
+      ],
+      [
+        "generic-cloud-api::api",
+        "generic-cloud-api::compute"
+      ]
+    ],
+    "reversedEdges": [
+      [
+        "aws-serverless-async::api",
+        "aws-serverless-async::cognito"
+      ],
+      [
+        "aws-serverless-async::fargate",
+        "aws-serverless-async::database"
+      ],
+      [
+        "aws-serverless-async::queue",
+        "aws-serverless-async::worker"
+      ],
+      [
+        "aws-video-pipeline::trigger3",
+        "aws-video-pipeline::business2"
+      ],
+      [
+        "azure-hub-spoke::gateway",
+        "azure-hub-spoke::firewall"
+      ],
+      [
+        "generic-cloud-api::compute",
+        "generic-cloud-api::database"
+      ],
+      [
+        "generic-cloud-api::user",
+        "generic-cloud-api::internet"
+      ]
+    ]
+  },
+  "metricsByImage": [
+    {
+      "imageId": "azure-container-edge",
+      "provider": "azure",
+      "densityStratum": "high",
+      "edgeExistencePrecision": 0.0,
+      "edgeExistenceRecall": 0.0,
+      "edgeExistenceF1": 0.0,
+      "directedEdgeF1": 0.0,
+      "undirectedEdgeF1": 0.0,
+      "directionAccuracy": 0.0,
+      "predictedEdgeCount": 4,
+      "expectedEdgeCount": 4,
+      "falsePositiveEdgeCount": 4,
+      "missedEdgeCount": 4,
+      "reversedEdgeCount": 0
+    },
+    {
+      "imageId": "azure-ai-foundry",
+      "provider": "azure",
+      "densityStratum": "high",
+      "edgeExistencePrecision": 0.0,
+      "edgeExistenceRecall": 0.0,
+      "edgeExistenceF1": 0.0,
+      "directedEdgeF1": 0.0,
+      "undirectedEdgeF1": 0.0,
+      "directionAccuracy": 0.0,
+      "predictedEdgeCount": 20,
+      "expectedEdgeCount": 5,
+      "falsePositiveEdgeCount": 20,
+      "missedEdgeCount": 5,
+      "reversedEdgeCount": 0
+    },
+    {
+      "imageId": "aws-video-pipeline",
+      "provider": "aws",
+      "densityStratum": "high",
+      "edgeExistencePrecision": 0.22641509433962265,
+      "edgeExistenceRecall": 0.75,
+      "edgeExistenceF1": 0.3478260869565218,
+      "directedEdgeF1": 0.31884057971014496,
+      "undirectedEdgeF1": 0.3478260869565218,
+      "directionAccuracy": 0.9166666666666666,
+      "predictedEdgeCount": 53,
+      "expectedEdgeCount": 16,
+      "falsePositiveEdgeCount": 41,
+      "missedEdgeCount": 4,
+      "reversedEdgeCount": 1
+    },
+    {
+      "imageId": "gcp-secure-cloud-run",
+      "provider": "gcp",
+      "densityStratum": "medium",
+      "edgeExistencePrecision": 0.14285714285714285,
+      "edgeExistenceRecall": 0.3333333333333333,
+      "edgeExistenceF1": 0.2,
+      "directedEdgeF1": 0.2,
+      "undirectedEdgeF1": 0.2,
+      "directionAccuracy": 1.0,
+      "predictedEdgeCount": 14,
+      "expectedEdgeCount": 6,
+      "falsePositiveEdgeCount": 12,
+      "missedEdgeCount": 4,
+      "reversedEdgeCount": 0
+    },
+    {
+      "imageId": "generic-cloud-api",
+      "provider": "generic",
+      "densityStratum": "medium",
+      "edgeExistencePrecision": 0.46153846153846156,
+      "edgeExistenceRecall": 0.8571428571428571,
+      "edgeExistenceF1": 0.6,
+      "directedEdgeF1": 0.4,
+      "undirectedEdgeF1": 0.6,
+      "directionAccuracy": 0.6666666666666666,
+      "predictedEdgeCount": 13,
+      "expectedEdgeCount": 7,
+      "falsePositiveEdgeCount": 7,
+      "missedEdgeCount": 1,
+      "reversedEdgeCount": 2
+    },
+    {
+      "imageId": "aws-serverless-async",
+      "provider": "aws",
+      "densityStratum": "high",
+      "edgeExistencePrecision": 0.19047619047619047,
+      "edgeExistenceRecall": 0.8888888888888888,
+      "edgeExistenceF1": 0.3137254901960784,
+      "directedEdgeF1": 0.196078431372549,
+      "undirectedEdgeF1": 0.3137254901960784,
+      "directionAccuracy": 0.625,
+      "predictedEdgeCount": 42,
+      "expectedEdgeCount": 9,
+      "falsePositiveEdgeCount": 34,
+      "missedEdgeCount": 1,
+      "reversedEdgeCount": 3
+    },
+    {
+      "imageId": "aws-eks-platform",
+      "provider": "aws",
+      "densityStratum": "high",
+      "edgeExistencePrecision": 0.0,
+      "edgeExistenceRecall": 0.0,
+      "edgeExistenceF1": 0.0,
+      "directedEdgeF1": 0.0,
+      "undirectedEdgeF1": 0.0,
+      "directionAccuracy": 0.0,
+      "predictedEdgeCount": 14,
+      "expectedEdgeCount": 10,
+      "falsePositiveEdgeCount": 14,
+      "missedEdgeCount": 10,
+      "reversedEdgeCount": 0
+    },
+    {
+      "imageId": "azure-private-ai-platform",
+      "provider": "azure",
+      "densityStratum": "high",
+      "edgeExistencePrecision": 0.01020408163265306,
+      "edgeExistenceRecall": 0.125,
+      "edgeExistenceF1": 0.018867924528301883,
+      "directedEdgeF1": 0.018867924528301883,
+      "undirectedEdgeF1": 0.018867924528301883,
+      "directionAccuracy": 1.0,
+      "predictedEdgeCount": 98,
+      "expectedEdgeCount": 8,
+      "falsePositiveEdgeCount": 97,
+      "missedEdgeCount": 7,
+      "reversedEdgeCount": 0
+    },
+    {
+      "imageId": "azure-hub-spoke",
+      "provider": "azure",
+      "densityStratum": "high",
+      "edgeExistencePrecision": 0.04081632653061224,
+      "edgeExistenceRecall": 0.3333333333333333,
+      "edgeExistenceF1": 0.07272727272727272,
+      "directedEdgeF1": 0.03636363636363636,
+      "undirectedEdgeF1": 0.07272727272727272,
+      "directionAccuracy": 0.5,
+      "predictedEdgeCount": 49,
+      "expectedEdgeCount": 6,
+      "falsePositiveEdgeCount": 47,
+      "missedEdgeCount": 4,
+      "reversedEdgeCount": 1
+    }
+  ]
+}

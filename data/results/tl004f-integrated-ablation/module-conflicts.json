@@ -1,0 +1,37 @@
+{
+  "schemaVersion": "1.0",
+  "split": "development_tuning",
+  "conflictCount": 2,
+  "conflicts": [
+    {
+      "modules": [
+        "TL-004B",
+        "TL-004E"
+      ],
+      "competingActions": [
+        "block",
+        "redirect"
+      ],
+      "rule": "transitive block outranks endpoint redirect only with high-confidence directed chain; otherwise review",
+      "decisionId": "integrated-6fbdc7ff03d904b7",
+      "candidateId": "f31",
+      "finalAction": "block",
+      "imageId": "aws-video-pipeline"
+    },
+    {
+      "modules": [
+        "TL-004B",
+        "TL-004E"
+      ],
+      "competingActions": [
+        "block",
+        "redirect"
+      ],
+      "rule": "transitive block outranks endpoint redirect only with high-confidence directed chain; otherwise review",
+      "decisionId": "integrated-6f6b05656850ec0d",
+      "candidateId": "f9",
+      "finalAction": "block",
+      "imageId": "gcp-secure-cloud-run"
+    }
+  ]
+}

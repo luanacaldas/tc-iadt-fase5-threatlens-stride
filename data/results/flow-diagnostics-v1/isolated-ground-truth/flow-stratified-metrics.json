@@ -1,0 +1,804 @@
+{
+  "schemaVersion": "1.0",
+  "generatedAt": "2026-07-21T01:45:27.893762+00:00",
+  "mode": "isolated_ground_truth",
+  "split": "development_tuning",
+  "edgeExistencePrecision": 0.36619718309859156,
+  "edgeExistenceRecall": 0.7323943661971831,
+  "edgeExistenceF1": 0.48826291079812206,
+  "directedEdgeF1": 0.4225352112676057,
+  "undirectedEdgeF1": 0.48826291079812206,
+  "directionAccuracy": 0.8653846153846154,
+  "predictedEdgeCount": 142,
+  "expectedEdgeCount": 71,
+  "falsePositiveEdgeCount": 90,
+  "missedEdgeCount": 19,
+  "reversedEdgeCount": 7,
+  "falsePositiveCountByEvidence": {
+    "detected_line": 26,
+    "segment_graph": 64
+  },
+  "falsePositiveCountByCandidateLabel": {
+    "crossing_as_connection": 26,
+    "incorrect_bifurcation": 71,
+    "excessive_hops": 1,
+    "geometric_proximity": 33,
+    "parallel_connectors": 59,
+    "connection_through_component": 13,
+    "insufficient_evidence": 2,
+    "ocr_anchor_association_error": 0,
+    "high_density_context": 31,
+    "unclassified": 2
+  },
+  "metricsByProvider": {
+    "aws": {
+      "edgeExistencePrecision": 0.3424657534246575,
+      "edgeExistenceRecall": 0.7142857142857143,
+      "edgeExistenceF1": 0.46296296296296297,
+      "directedEdgeF1": 0.4074074074074074,
+      "undirectedEdgeF1": 0.46296296296296297,
+      "directionAccuracy": 0.88,
+      "predictedEdgeCount": 73,
+      "expectedEdgeCount": 35,
+      "falsePositiveEdgeCount": 48,
+      "missedEdgeCount": 10,
+      "reversedEdgeCount": 3,
+      "imageCount": 3
+    },
+    "azure": {
+      "edgeExistencePrecision": 0.375,
+      "edgeExistenceRecall": 0.6521739130434783,
+      "edgeExistenceF1": 0.4761904761904762,
+      "directedEdgeF1": 0.4126984126984127,
+      "undirectedEdgeF1": 0.4761904761904762,
+      "directionAccuracy": 0.8666666666666667,
+      "predictedEdgeCount": 40,
+      "expectedEdgeCount": 23,
+      "falsePositiveEdgeCount": 25,
+      "missedEdgeCount": 8,
+      "reversedEdgeCount": 2,
+      "imageCount": 4
+    },
+    "gcp": {
+      "edgeExistencePrecision": 0.4,
+      "edgeExistenceRecall": 1.0,
+      "edgeExistenceF1": 0.5714285714285715,
+      "directedEdgeF1": 0.5714285714285715,
+      "undirectedEdgeF1": 0.5714285714285715,
+      "directionAccuracy": 1.0,
+      "predictedEdgeCount": 15,
+      "expectedEdgeCount": 6,
+      "falsePositiveEdgeCount": 9,
+      "missedEdgeCount": 0,
+      "reversedEdgeCount": 0,
+      "imageCount": 1
+    },
+    "generic": {
+      "edgeExistencePrecision": 0.42857142857142855,
+      "edgeExistenceRecall": 0.8571428571428571,
+      "edgeExistenceF1": 0.5714285714285714,
+      "directedEdgeF1": 0.38095238095238093,
+      "undirectedEdgeF1": 0.5714285714285714,
+      "directionAccuracy": 0.6666666666666666,
+      "predictedEdgeCount": 14,
+      "expectedEdgeCount": 7,
+      "falsePositiveEdgeCount": 8,
+      "missedEdgeCount": 1,
+      "reversedEdgeCount": 2,
+      "imageCount": 1
+    }
+  },
+  "metricsByDensityStratum": {
+    "high": {
+      "edgeExistencePrecision": 0.42592592592592593,
+      "edgeExistenceRecall": 0.71875,
+      "edgeExistenceF1": 0.5348837209302325,
+      "directedEdgeF1": 0.4418604651162791,
+      "undirectedEdgeF1": 0.5348837209302325,
+      "directionAccuracy": 0.8260869565217391,
+      "predictedEdgeCount": 54,
+      "expectedEdgeCount": 32,
+      "falsePositiveEdgeCount": 31,
+      "missedEdgeCount": 9,
+      "reversedEdgeCount": 4,
+      "imageCount": 5
+    },
+    "medium": {
+      "edgeExistencePrecision": 0.32954545454545453,
+      "edgeExistenceRecall": 0.7435897435897436,
+      "edgeExistenceF1": 0.45669291338582674,
+      "directedEdgeF1": 0.4094488188976378,
+      "undirectedEdgeF1": 0.45669291338582674,
+      "directionAccuracy": 0.896551724137931,
+      "predictedEdgeCount": 88,
+      "expectedEdgeCount": 39,
+      "falsePositiveEdgeCount": 59,
+      "missedEdgeCount": 10,
+      "reversedEdgeCount": 3,
+      "imageCount": 4
+    }
+  },
+  "metricsByHopBucket": {
+    "1": {
+      "predictedEdgeCount": 65,
+      "adjacencyCorrectCount": 8,
+      "correctlyDirectedEdgeCount": 7,
+      "falsePositiveEdgeCount": 57,
+      "reversedEdgeCount": 1,
+      "edgeExistencePrecision": 0.12307692307692308,
+      "directionAccuracy": 0.875,
+      "recallStatus": "not_observable_for_predicted_hop_bucket"
+    },
+    "2-3": {
+      "predictedEdgeCount": 6,
+      "adjacencyCorrectCount": 4,
+      "correctlyDirectedEdgeCount": 3,
+      "falsePositiveEdgeCount": 2,
+      "reversedEdgeCount": 1,
+      "edgeExistencePrecision": 0.6666666666666666,
+      "directionAccuracy": 0.75,
+      "recallStatus": "not_observable_for_predicted_hop_bucket"
+    },
+    "4-6": {
+      "predictedEdgeCount": 6,
+      "adjacencyCorrectCount": 1,
+      "correctlyDirectedEdgeCount": 1,
+      "falsePositiveEdgeCount": 5,
+      "reversedEdgeCount": 0,
+      "edgeExistencePrecision": 0.16666666666666666,
+      "directionAccuracy": 1.0,
+      "recallStatus": "not_observable_for_predicted_hop_bucket"
+    },
+    "7+": {
+      "predictedEdgeCount": 1,
+      "adjacencyCorrectCount": 1,
+      "correctlyDirectedEdgeCount": 1,
+      "falsePositiveEdgeCount": 0,
+      "reversedEdgeCount": 0,
+      "edgeExistencePrecision": 1.0,
+      "directionAccuracy": 1.0,
+      "recallStatus": "not_observable_for_predicted_hop_bucket"
+    },
+    "not_available": {
+      "predictedEdgeCount": 64,
+      "adjacencyCorrectCount": 38,
+      "correctlyDirectedEdgeCount": 33,
+      "falsePositiveEdgeCount": 26,
+      "reversedEdgeCount": 5,
+      "edgeExistencePrecision": 0.59375,
+      "directionAccuracy": 0.868421052631579,
+      "recallStatus": "not_observable_for_predicted_hop_bucket"
+    }
+  },
+  "unclassifiedRate": 0.022222222222222223,
+  "ambiguousRate": 0.8333333333333334,
+  "legacyMetrics": {
+    "expected": 71,
+    "predicted": 142,
+    "directedTruePositive": 45,
+    "directedPrecision": 0.31690140845070425,
+    "directedRecall": 0.6338028169014085,
+    "directedF1": 0.4225352112676057,
+    "undirectedTruePositive": 52,
+    "undirectedPrecision": 0.36619718309859156,
+    "undirectedRecall": 0.7323943661971831,
+    "undirectedF1": 0.48826291079812206,
+    "directionAccuracyOnMatchedEdges": 0.8653846153846154,
+    "falsePositiveEdges": [
+      [
+        "aws-eks-platform::comprehend",
+        "aws-eks-platform::glue"
+      ],
+      [
+        "aws-eks-platform::comprehend",
+        "aws-eks-platform::lambda"
+      ],
+      [
+        "aws-eks-platform::comprehend",
+        "aws-eks-platform::microservices"
+      ],
+      [
+        "aws-eks-platform::comprehend",
+        "aws-eks-platform::notebook"
+      ],
+      [
+        "aws-eks-platform::comprehend",
+        "aws-eks-platform::sagemaker"
+      ],
+      [
+        "aws-eks-platform::dynamo",
+        "aws-eks-platform::lambda"
+      ],
+      [
+        "aws-eks-platform::dynamo",
+        "aws-eks-platform::rds"
+      ],
+      [
+        "aws-eks-platform::external",
+        "aws-eks-platform::raw"
+      ],
+      [
+        "aws-eks-platform::external",
+        "aws-eks-platform::sql"
+      ],
+      [
+        "aws-eks-platform::external",
+        "aws-eks-platform::warehouse"
+      ],
+      [
+        "aws-eks-platform::glue",
+        "aws-eks-platform::lambda"
+      ],
+      [
+        "aws-eks-platform::glue",
+        "aws-eks-platform::microservices"
+      ],
+      [
+        "aws-eks-platform::glue",
+        "aws-eks-platform::rds"
+      ],
+      [
+        "aws-eks-platform::lambda",
+        "aws-eks-platform::sagemaker"
+      ],
+      [
+        "aws-eks-platform::notebook",
+        "aws-eks-platform::sagemaker"
+      ],
+      [
+        "aws-eks-platform::processed",
+        "aws-eks-platform::raw"
+      ],
+      [
+        "aws-eks-platform::sql",
+        "aws-eks-platform::warehouse"
+      ],
+      [
+        "aws-serverless-async::api",
+        "aws-serverless-async::waf"
+      ],
+      [
+        "aws-serverless-async::api_handler",
+        "aws-serverless-async::worker"
+      ],
+      [
+        "aws-serverless-async::catalog",
+        "aws-serverless-async::database"
+      ],
+      [
+        "aws-video-pipeline::business1",
+        "aws-video-pipeline::business2"
+      ],
+      [
+        "aws-video-pipeline::business1",
+        "aws-video-pipeline::transcoder"
+      ],
+      [
+        "aws-video-pipeline::business1",
+        "aws-video-pipeline::trigger1"
+      ],
+      [
+        "aws-video-pipeline::business1",
+        "aws-video-pipeline::trigger2"
+      ],
+      [
+        "aws-video-pipeline::business2",
+        "aws-video-pipeline::stage1"
+      ],
+      [
+        "aws-video-pipeline::business2",
+        "aws-video-pipeline::stage3"
+      ],
+      [
+        "aws-video-pipeline::business2",
+        "aws-video-pipeline::trigger1"
+      ],
+      [
+        "aws-video-pipeline::database",
+        "aws-video-pipeline::media"
+      ],
+      [
+        "aws-video-pipeline::database",
+        "aws-video-pipeline::stage3"
+      ],
+      [
+        "aws-video-pipeline::database",
+        "aws-video-pipeline::trigger3"
+      ],
+      [
+        "aws-video-pipeline::database",
+        "aws-video-pipeline::upload"
+      ],
+      [
+        "aws-video-pipeline::media",
+        "aws-video-pipeline::stage2"
+      ],
+      [
+        "aws-video-pipeline::media",
+        "aws-video-pipeline::trigger1"
+      ],
+      [
+        "aws-video-pipeline::media",
+        "aws-video-pipeline::trigger3"
+      ],
+      [
+        "aws-video-pipeline::stage1",
+        "aws-video-pipeline::transcoder"
+      ],
+      [
+        "aws-video-pipeline::stage1",
+        "aws-video-pipeline::trigger2"
+      ],
+      [
+        "aws-video-pipeline::stage2",
+        "aws-video-pipeline::stage3"
+      ],
+      [
+        "aws-video-pipeline::stage2",
+        "aws-video-pipeline::trigger1"
+      ],
+      [
+        "aws-video-pipeline::stage2",
+        "aws-video-pipeline::trigger3"
+      ],
+      [
+        "aws-video-pipeline::stage3",
+        "aws-video-pipeline::transcoder"
+      ],
+      [
+        "aws-video-pipeline::stage3",
+        "aws-video-pipeline::trigger1"
+      ],
+      [
+        "aws-video-pipeline::stage3",
+        "aws-video-pipeline::trigger2"
+      ],
+      [
+        "aws-video-pipeline::transcoder",
+        "aws-video-pipeline::trigger2"
+      ],
+      [
+        "aws-video-pipeline::transcoder",
+        "aws-video-pipeline::trigger3"
+      ],
+      [
+        "aws-video-pipeline::transcoder",
+        "aws-video-pipeline::upload"
+      ],
+      [
+        "aws-video-pipeline::trigger1",
+        "aws-video-pipeline::upload"
+      ],
+      [
+        "aws-video-pipeline::trigger2",
+        "aws-video-pipeline::trigger3"
+      ],
+      [
+        "aws-video-pipeline::trigger2",
+        "aws-video-pipeline::upload"
+      ],
+      [
+        "azure-ai-foundry::ai_search",
+        "azure-ai-foundry::openai_model"
+      ],
+      [
+        "azure-ai-foundry::foundry_account",
+        "azure-ai-foundry::openai_model"
+      ],
+      [
+        "azure-hub-spoke::firewall",
+        "azure-hub-spoke::onprem"
+      ],
+      [
+        "azure-hub-spoke::nonprod2_vm",
+        "azure-hub-spoke::nonprod_vm"
+      ],
+      [
+        "azure-hub-spoke::nonprod2_vm",
+        "azure-hub-spoke::prod2_vm"
+      ],
+      [
+        "azure-hub-spoke::prod2_vm",
+        "azure-hub-spoke::prod_vm"
+      ],
+      [
+        "azure-private-ai-platform::ai_search",
+        "azure-private-ai-platform::bastion"
+      ],
+      [
+        "azure-private-ai-platform::ai_search",
+        "azure-private-ai-platform::cosmos"
+      ],
+      [
+        "azure-private-ai-platform::ai_search",
+        "azure-private-ai-platform::firewall"
+      ],
+      [
+        "azure-private-ai-platform::ai_search",
+        "azure-private-ai-platform::storage"
+      ],
+      [
+        "azure-private-ai-platform::app_gateway",
+        "azure-private-ai-platform::bastion"
+      ],
+      [
+        "azure-private-ai-platform::app_gateway",
+        "azure-private-ai-platform::build_agents"
+      ],
+      [
+        "azure-private-ai-platform::app_gateway",
+        "azure-private-ai-platform::firewall"
+      ],
+      [
+        "azure-private-ai-platform::app_gateway",
+        "azure-private-ai-platform::foundry_agent"
+      ],
+      [
+        "azure-private-ai-platform::bastion",
+        "azure-private-ai-platform::cosmos"
+      ],
+      [
+        "azure-private-ai-platform::bastion",
+        "azure-private-ai-platform::firewall"
+      ],
+      [
+        "azure-private-ai-platform::bastion",
+        "azure-private-ai-platform::foundry_agent"
+      ],
+      [
+        "azure-private-ai-platform::bastion",
+        "azure-private-ai-platform::openai"
+      ],
+      [
+        "azure-private-ai-platform::build_agents",
+        "azure-private-ai-platform::firewall"
+      ],
+      [
+        "azure-private-ai-platform::build_agents",
+        "azure-private-ai-platform::foundry_agent"
+      ],
+      [
+        "azure-private-ai-platform::build_agents",
+        "azure-private-ai-platform::openai"
+      ],
+      [
+        "azure-private-ai-platform::cosmos",
+        "azure-private-ai-platform::firewall"
+      ],
+      [
+        "azure-private-ai-platform::cosmos",
+        "azure-private-ai-platform::storage"
+      ],
+      [
+        "azure-private-ai-platform::firewall",
+        "azure-private-ai-platform::foundry_agent"
+      ],
+      [
+        "azure-private-ai-platform::key_vault",
+        "azure-private-ai-platform::storage"
+      ],
+      [
+        "gcp-secure-cloud-run::armor",
+        "gcp-secure-cloud-run::artifact_registry"
+      ],
+      [
+        "gcp-secure-cloud-run::armor",
+        "gcp-secure-cloud-run::cloud_run"
+      ],
+      [
+        "gcp-secure-cloud-run::armor",
+        "gcp-secure-cloud-run::internet"
+      ],
+      [
+        "gcp-secure-cloud-run::artifact_registry",
+        "gcp-secure-cloud-run::firewall"
+      ],
+      [
+        "gcp-secure-cloud-run::artifact_registry",
+        "gcp-secure-cloud-run::secret_manager"
+      ],
+      [
+        "gcp-secure-cloud-run::artifact_registry",
+        "gcp-secure-cloud-run::vpc_connector"
+      ],
+      [
+        "gcp-secure-cloud-run::cloud_run",
+        "gcp-secure-cloud-run::secret_manager"
+      ],
+      [
+        "gcp-secure-cloud-run::load_balancer",
+        "gcp-secure-cloud-run::vpc_connector"
+      ],
+      [
+        "gcp-secure-cloud-run::logging",
+        "gcp-secure-cloud-run::secret_manager"
+      ],
+      [
+        "generic-cloud-api::api",
+        "generic-cloud-api::database"
+      ],
+      [
+        "generic-cloud-api::api",
+        "generic-cloud-api::storage"
+      ],
+      [
+        "generic-cloud-api::cdn",
+        "generic-cloud-api::database"
+      ],
+      [
+        "generic-cloud-api::cdn",
+        "generic-cloud-api::monitoring"
+      ],
+      [
+        "generic-cloud-api::cdn",
+        "generic-cloud-api::user"
+      ],
+      [
+        "generic-cloud-api::compute",
+        "generic-cloud-api::internet"
+      ],
+      [
+        "generic-cloud-api::database",
+        "generic-cloud-api::monitoring"
+      ],
+      [
+        "generic-cloud-api::database",
+        "generic-cloud-api::user"
+      ]
+    ],
+    "missedEdges": [
+      [
+        "aws-eks-platform::microservices",
+        "aws-eks-platform::rds"
+      ],
+      [
+        "aws-eks-platform::notebook",
+        "aws-eks-platform::raw"
+      ],
+      [
+        "aws-eks-platform::raw",
+        "aws-eks-platform::sagemaker"
+      ],
+      [
+        "aws-eks-platform::rds",
+        "aws-eks-platform::visualization"
+      ],
+      [
+        "aws-eks-platform::sagemaker",
+        "aws-eks-platform::sql"
+      ],
+      [
+        "aws-eks-platform::sagemaker",
+        "aws-eks-platform::warehouse"
+      ],
+      [
+        "aws-serverless-async::cognito",
+        "aws-serverless-async::search_handler"
+      ],
+      [
+        "aws-video-pipeline::api",
+        "aws-video-pipeline::business1"
+      ],
+      [
+        "aws-video-pipeline::api",
+        "aws-video-pipeline::upload"
+      ],
+      [
+        "aws-video-pipeline::business1",
+        "aws-video-pipeline::email"
+      ],
+      [
+        "azure-hub-spoke::firewall",
+        "azure-hub-spoke::prod2_vm"
+      ],
+      [
+        "azure-hub-spoke::firewall",
+        "azure-hub-spoke::prod_vm"
+      ],
+      [
+        "azure-private-ai-platform::ai_search",
+        "azure-private-ai-platform::app_service"
+      ],
+      [
+        "azure-private-ai-platform::app_service",
+        "azure-private-ai-platform::cosmos"
+      ],
+      [
+        "azure-private-ai-platform::app_service",
+        "azure-private-ai-platform::foundry_agent"
+      ],
+      [
+        "azure-private-ai-platform::app_service",
+        "azure-private-ai-platform::key_vault"
+      ],
+      [
+        "azure-private-ai-platform::app_service",
+        "azure-private-ai-platform::storage"
+      ],
+      [
+        "azure-private-ai-platform::foundry_agent",
+        "azure-private-ai-platform::openai"
+      ],
+      [
+        "generic-cloud-api::api",
+        "generic-cloud-api::compute"
+      ]
+    ],
+    "reversedEdges": [
+      [
+        "aws-serverless-async::api",
+        "aws-serverless-async::cognito"
+      ],
+      [
+        "aws-serverless-async::queue",
+        "aws-serverless-async::worker"
+      ],
+      [
+        "aws-video-pipeline::trigger3",
+        "aws-video-pipeline::business2"
+      ],
+      [
+        "azure-hub-spoke::gateway",
+        "azure-hub-spoke::firewall"
+      ],
+      [
+        "azure-hub-spoke::gateway",
+        "azure-hub-spoke::nonprod2_vm"
+      ],
+      [
+        "generic-cloud-api::compute",
+        "generic-cloud-api::database"
+      ],
+      [
+        "generic-cloud-api::user",
+        "generic-cloud-api::internet"
+      ]
+    ]
+  },
+  "metricsByImage": [
+    {
+      "imageId": "azure-container-edge",
+      "provider": "azure",
+      "densityStratum": "high",
+      "edgeExistencePrecision": 1.0,
+      "edgeExistenceRecall": 1.0,
+      "edgeExistenceF1": 1.0,
+      "directedEdgeF1": 1.0,
+      "undirectedEdgeF1": 1.0,
+      "directionAccuracy": 1.0,
+      "predictedEdgeCount": 4,
+      "expectedEdgeCount": 4,
+      "falsePositiveEdgeCount": 0,
+      "missedEdgeCount": 0,
+      "reversedEdgeCount": 0
+    },
+    {
+      "imageId": "azure-ai-foundry",
+      "provider": "azure",
+      "densityStratum": "high",
+      "edgeExistencePrecision": 0.7142857142857143,
+      "edgeExistenceRecall": 1.0,
+      "edgeExistenceF1": 0.8333333333333333,
+      "directedEdgeF1": 0.8333333333333333,
+      "undirectedEdgeF1": 0.8333333333333333,
+      "directionAccuracy": 1.0,
+      "predictedEdgeCount": 7,
+      "expectedEdgeCount": 5,
+      "falsePositiveEdgeCount": 2,
+      "missedEdgeCount": 0,
+      "reversedEdgeCount": 0
+    },
+    {
+      "imageId": "aws-video-pipeline",
+      "provider": "aws",
+      "densityStratum": "medium",
+      "edgeExistencePrecision": 0.3170731707317073,
+      "edgeExistenceRecall": 0.8125,
+      "edgeExistenceF1": 0.45614035087719296,
+      "directedEdgeF1": 0.4210526315789473,
+      "undirectedEdgeF1": 0.45614035087719296,
+      "directionAccuracy": 0.9230769230769231,
+      "predictedEdgeCount": 41,
+      "expectedEdgeCount": 16,
+      "falsePositiveEdgeCount": 28,
+      "missedEdgeCount": 3,
+      "reversedEdgeCount": 1
+    },
+    {
+      "imageId": "gcp-secure-cloud-run",
+      "provider": "gcp",
+      "densityStratum": "medium",
+      "edgeExistencePrecision": 0.4,
+      "edgeExistenceRecall": 1.0,
+      "edgeExistenceF1": 0.5714285714285715,
+      "directedEdgeF1": 0.5714285714285715,
+      "undirectedEdgeF1": 0.5714285714285715,
+      "directionAccuracy": 1.0,
+      "predictedEdgeCount": 15,
+      "expectedEdgeCount": 6,
+      "falsePositiveEdgeCount": 9,
+      "missedEdgeCount": 0,
+      "reversedEdgeCount": 0
+    },
+    {
+      "imageId": "generic-cloud-api",
+      "provider": "generic",
+      "densityStratum": "high",
+      "edgeExistencePrecision": 0.42857142857142855,
+      "edgeExistenceRecall": 0.8571428571428571,
+      "edgeExistenceF1": 0.5714285714285714,
+      "directedEdgeF1": 0.38095238095238093,
+      "undirectedEdgeF1": 0.5714285714285714,
+      "directionAccuracy": 0.6666666666666666,
+      "predictedEdgeCount": 14,
+      "expectedEdgeCount": 7,
+      "falsePositiveEdgeCount": 8,
+      "missedEdgeCount": 1,
+      "reversedEdgeCount": 2
+    },
+    {
+      "imageId": "aws-serverless-async",
+      "provider": "aws",
+      "densityStratum": "medium",
+      "edgeExistencePrecision": 0.7272727272727273,
+      "edgeExistenceRecall": 0.8888888888888888,
+      "edgeExistenceF1": 0.7999999999999999,
+      "directedEdgeF1": 0.6,
+      "undirectedEdgeF1": 0.7999999999999999,
+      "directionAccuracy": 0.75,
+      "predictedEdgeCount": 11,
+      "expectedEdgeCount": 9,
+      "falsePositiveEdgeCount": 3,
+      "missedEdgeCount": 1,
+      "reversedEdgeCount": 2
+    },
+    {
+      "imageId": "aws-eks-platform",
+      "provider": "aws",
+      "densityStratum": "high",
+      "edgeExistencePrecision": 0.19047619047619047,
+      "edgeExistenceRecall": 0.4,
+      "edgeExistenceF1": 0.25806451612903225,
+      "directedEdgeF1": 0.25806451612903225,
+      "undirectedEdgeF1": 0.25806451612903225,
+      "directionAccuracy": 1.0,
+      "predictedEdgeCount": 21,
+      "expectedEdgeCount": 10,
+      "falsePositiveEdgeCount": 17,
+      "missedEdgeCount": 6,
+      "reversedEdgeCount": 0
+    },
+    {
+      "imageId": "azure-private-ai-platform",
+      "provider": "azure",
+      "densityStratum": "medium",
+      "edgeExistencePrecision": 0.09523809523809523,
+      "edgeExistenceRecall": 0.25,
+      "edgeExistenceF1": 0.13793103448275862,
+      "directedEdgeF1": 0.13793103448275862,
+      "undirectedEdgeF1": 0.13793103448275862,
+      "directionAccuracy": 1.0,
+      "predictedEdgeCount": 21,
+      "expectedEdgeCount": 8,
+      "falsePositiveEdgeCount": 19,
+      "missedEdgeCount": 6,
+      "reversedEdgeCount": 0
+    },
+    {
+      "imageId": "azure-hub-spoke",
+      "provider": "azure",
+      "densityStratum": "high",
+      "edgeExistencePrecision": 0.5,
+      "edgeExistenceRecall": 0.6666666666666666,
+      "edgeExistenceF1": 0.5714285714285715,
+      "directedEdgeF1": 0.28571428571428575,
+      "undirectedEdgeF1": 0.5714285714285715,
+      "directionAccuracy": 0.5,
+      "predictedEdgeCount": 8,
+      "expectedEdgeCount": 6,
+      "falsePositiveEdgeCount": 4,
+      "missedEdgeCount": 2,
+      "reversedEdgeCount": 2
+    }
+  ]
+}

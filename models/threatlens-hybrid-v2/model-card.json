@@ -1,0 +1,96 @@
+{
+  "schemaVersion": "1.0",
+  "registeredAt": "2026-07-17T17:53:53.787961+00:00",
+  "status": "qualified",
+  "modelPath": "E:\\Tech Challenge IADT - Fase 5 - Hackathon\\models\\threatlens-hybrid-v2\\weights\\best.pt",
+  "sha256": "2aebcd0611927505d60a10d23ce11d0e5211cf2e91ca0c4394921fac006c865d",
+  "sourceEvaluation": "E:\\Tech Challenge IADT - Fase 5 - Hackathon\\data\\results\\threatlens-final-balanced-replay\\evaluation-summary.json",
+  "dataset": {
+    "yaml": "E:\\Tech Challenge IADT - Fase 5 - Hackathon\\dataset\\hybrid_v2\\architecture.yaml",
+    "yamlSha256": "3b1e6426e5045aa2a379eac5649d7d641e54a356244c52f88e8f8e09649587d1",
+    "split": "test"
+  },
+  "settings": {
+    "device": "cpu",
+    "imgsz": 640,
+    "batch": 4
+  },
+  "aggregate": {
+    "precision": 0.9297158013603284,
+    "recall": 0.841716863626989,
+    "map50": 0.9008780814051148,
+    "map50_95": 0.8666141832419955,
+    "fitness": 0.8666141832419955
+  },
+  "qualityGate": {
+    "passed": true,
+    "checks": [
+      {
+        "name": "aggregate_mAP50",
+        "value": 0.9008780814051148,
+        "minimum": 0.25,
+        "passed": true
+      },
+      {
+        "name": "aggregate_recall",
+        "value": 0.841716863626989,
+        "minimum": 0.25,
+        "passed": true
+      },
+      {
+        "name": "critical_class_ap50:api_gateway",
+        "value": 0.9169824890556597,
+        "minimum": 0.1,
+        "passed": true
+      },
+      {
+        "name": "critical_class_ap50:compute",
+        "value": 0.8139171228491828,
+        "minimum": 0.1,
+        "passed": true
+      },
+      {
+        "name": "critical_class_ap50:database",
+        "value": 0.9320322289923484,
+        "minimum": 0.1,
+        "passed": true
+      },
+      {
+        "name": "critical_class_ap50:internet",
+        "value": 0.995,
+        "minimum": 0.1,
+        "passed": true
+      },
+      {
+        "name": "critical_class_ap50:user",
+        "value": 0.995,
+        "minimum": 0.1,
+        "passed": true
+      }
+    ]
+  },
+  "sourceComparison": "E:\\Tech Challenge IADT - Fase 5 - Hackathon\\data\\results\\threatlens-hybrid-v2-source-slices\\source-comparison.json",
+  "sourceQualityGate": {
+    "passed": true,
+    "checks": [
+      {
+        "name": "source_present:kaggle_unique",
+        "value": 1.0,
+        "minimum": 1.0,
+        "passed": true
+      },
+      {
+        "name": "source_mAP50:kaggle_unique",
+        "value": 0.3597840551861907,
+        "minimum": 0.25,
+        "passed": true
+      },
+      {
+        "name": "source_recall:kaggle_unique",
+        "value": 0.39509620477590257,
+        "minimum": 0.2,
+        "passed": true
+      }
+    ]
+  }
+}

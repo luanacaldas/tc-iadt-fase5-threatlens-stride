@@ -1,0 +1,9 @@
+{
+  "schemaVersion": "1.0",
+  "benchmarkSha256": "846cba6ec308403916f5c4da87b9edb62d6f34768aac8971a5ab3562b4fb8e00",
+  "field": "entries[].annotationStatus",
+  "sealedValue": "human_verified_pre_inference",
+  "correctInterpretation": "ai_assisted_manual_visual_annotation_pre_inference_pending_independent_human_review",
+  "reason": "The annotations were created by Codex visual inspection and were sealed before detector inference, but have not yet been independently verified by a human annotator.",
+  "scoringChanged": false
+}
