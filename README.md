@@ -237,7 +237,6 @@ O runtime não precisa dos datasets usados no treinamento.
 - [Avaliação e métricas](docs/evaluation.md)
 - [Contrato da API](docs/api-contract.md)
 - [Limitações e uso responsável](docs/limitations.md)
-- [Roteiro de apresentação](docs/demo-script.md)
 - [Índice de evidências para entrega e demonstração](docs/submission-evidence.md)
 
 ## Licença e uso dos dados
