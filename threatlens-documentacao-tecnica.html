@@ -1,0 +1,1736 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>ThreatLens AI — Documentação Técnica Completa</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #0a0a10;
+    --bg-alt: #0e0e16;
+    --surface: #14141f;
+    --surface-alt: #191925;
+    --border: #2a2a3a;
+    --border-soft: #22222f;
+    --magenta: #ff2e7e;
+    --magenta-dim: #b3195a;
+    --violet: #7b5cff;
+    --cyan: #37d6c8;
+    --text: #eef0f6;
+    --text-muted: #9a9ab0;
+    --text-faint: #6b6b82;
+    --code-bg: #0c0c14;
+    --ok: #37d6a0;
+    --warn: #ffb347;
+    --bad: #ff5c7a;
+    --font-display: 'Space Grotesk', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+  body{
+    margin:0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 15.5px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a{ color: var(--magenta); text-decoration: none; }
+  a:hover{ text-decoration: underline; }
+
+  ::selection{ background: var(--magenta); color: #fff; }
+
+  /* ---------- COVER ---------- */
+  .cover{
+    min-height: 100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content: space-between;
+    padding: 64px 72px 48px;
+    background:
+      radial-gradient(circle at 85% 8%, rgba(255,46,126,0.20), transparent 45%),
+      radial-gradient(circle at 5% 95%, rgba(123,92,255,0.18), transparent 45%),
+      linear-gradient(180deg, #0a0a10 0%, #0c0c14 60%, #0a0a10 100%);
+    border-bottom: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+  }
+  .cover::before{
+    content:"";
+    position:absolute; inset:0;
+    background-image: linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+                       linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+    background-size: 42px 42px;
+    mask-image: radial-gradient(circle at 50% 30%, black, transparent 75%);
+    pointer-events: none;
+  }
+  .cover-top{ position:relative; display:flex; justify-content:space-between; align-items:flex-start; }
+  .badge-row{ display:flex; gap:10px; flex-wrap:wrap; }
+  .badge{
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 6px 12px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    color: var(--text-muted);
+    background: rgba(255,255,255,0.02);
+  }
+  .badge.accent{ color: var(--magenta); border-color: var(--magenta-dim); background: rgba(255,46,126,0.08); }
+  .status-pill{
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--ok);
+    border: 1px solid rgba(55,214,160,0.4);
+    background: rgba(55,214,160,0.08);
+    padding: 6px 14px;
+    border-radius: 999px;
+    white-space: nowrap;
+    height: fit-content;
+  }
+
+  .cover-mid{ position:relative; margin: 56px 0; max-width: 900px; }
+  .eyebrow{
+    font-family: var(--font-mono);
+    font-size: 13px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--violet);
+    margin-bottom: 18px;
+    display:flex; align-items:center; gap:10px;
+  }
+  .eyebrow::before{ content:""; width:28px; height:1px; background: var(--violet); display:inline-block; }
+  .cover h1{
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 64px;
+    line-height: 1.03;
+    margin: 0 0 20px;
+    letter-spacing: -0.01em;
+    background: linear-gradient(100deg, #ffffff 30%, #ffb9d4 65%, var(--magenta) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .cover .subtitle{
+    font-family: var(--font-mono);
+    font-size: 15px;
+    color: var(--text-muted);
+    max-width: 640px;
+  }
+  .cover .subtitle b{ color: var(--cyan); font-weight: 500; }
+
+  .cover-bottom{ position:relative; }
+  .meta-grid{
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow:hidden;
+    background: rgba(255,255,255,0.015);
+  }
+  .meta-cell{
+    padding: 18px 20px;
+    border-right: 1px solid var(--border);
+  }
+  .meta-cell:last-child{ border-right:none; }
+  .meta-label{
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    margin-bottom: 6px;
+  }
+  .meta-value{ font-size: 14.5px; font-weight: 600; color: var(--text); }
+  .meta-value.small{ font-size: 12.5px; font-weight: 400; color: var(--text-muted); font-family: var(--font-mono); }
+
+  /* ---------- LAYOUT ---------- */
+  .wrap{ max-width: 980px; margin: 0 auto; padding: 0 72px; }
+  .page-section{ padding: 72px 0; border-bottom: 1px solid var(--border-soft); }
+  .page-section:last-of-type{ border-bottom:none; }
+
+  /* Section 0 links — highlighted */
+  .links-hero{
+    background: linear-gradient(135deg, rgba(255,46,126,0.10), rgba(123,92,255,0.08));
+    border: 1px solid var(--magenta-dim);
+    border-radius: 18px;
+    padding: 40px 44px;
+    margin-top: -1px;
+  }
+  .links-hero .eyebrow{ color: var(--magenta); }
+  .links-hero .eyebrow::before{ background: var(--magenta); }
+  .link-cards{ display:grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 26px; }
+  .link-card{
+    display:block;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px 22px;
+    transition: border-color .15s ease, transform .15s ease;
+  }
+  .link-card:hover{ border-color: var(--magenta); transform: translateY(-2px); text-decoration:none; }
+  .link-card .lc-type{
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    display:flex; align-items:center; gap:8px;
+    margin-bottom: 10px;
+  }
+  .lc-icon{
+    width:20px; height:20px; border-radius:6px;
+    display:inline-flex; align-items:center; justify-content:center;
+    font-size: 11px; font-weight:700; font-family: var(--font-mono);
+  }
+  .lc-icon.yt{ background: rgba(255,92,122,0.15); color: var(--bad); }
+  .lc-icon.gh{ background: rgba(123,92,255,0.18); color: var(--violet); }
+  .link-card .lc-url{
+    font-family: var(--font-mono);
+    font-size: 13.5px;
+    color: var(--text);
+    word-break: break-all;
+  }
+  .link-card:hover .lc-url{ color: var(--magenta); }
+
+  /* Section headers */
+  .sec-head{ display:flex; align-items:baseline; gap:18px; margin-bottom: 8px; }
+  .sec-num{
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--magenta);
+    border: 1px solid var(--magenta-dim);
+    border-radius: 8px;
+    padding: 3px 10px;
+    background: rgba(255,46,126,0.06);
+  }
+  h2.sec-title{
+    font-family: var(--font-display);
+    font-size: 30px;
+    font-weight: 700;
+    margin: 0;
+    letter-spacing: -0.01em;
+  }
+  .sec-sub{ color: var(--text-muted); font-size: 14.5px; margin: 10px 0 34px; max-width: 760px; }
+
+  h3{
+    font-family: var(--font-display);
+    font-size: 19px;
+    font-weight: 600;
+    color: #fff;
+    margin: 40px 0 14px;
+    padding-top: 4px;
+  }
+  h3 .h3-tag{
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--cyan);
+    border: 1px solid rgba(55,214,200,0.35);
+    background: rgba(55,214,200,0.06);
+    padding: 2px 8px;
+    border-radius: 6px;
+    margin-right: 10px;
+    vertical-align: middle;
+  }
+  h4{
+    font-family: var(--font-display);
+    font-size: 15.5px;
+    font-weight: 600;
+    color: var(--text);
+    margin: 26px 0 10px;
+  }
+  p{ color: #d3d3e0; margin: 0 0 14px; }
+  strong{ color: #fff; font-weight: 600; }
+  code:not(.blk code){
+    font-family: var(--font-mono);
+    font-size: 0.87em;
+    background: rgba(255,46,126,0.08);
+    color: #ffb0cf;
+    padding: 1px 6px;
+    border-radius: 5px;
+    border: 1px solid rgba(255,46,126,0.18);
+  }
+
+  ul, ol{ color: #d3d3e0; padding-left: 22px; margin: 0 0 16px; }
+  li{ margin-bottom: 6px; }
+  li::marker{ color: var(--magenta); }
+
+  /* Tables */
+  .table-wrap{ overflow-x:auto; margin: 18px 0 26px; border:1px solid var(--border); border-radius: 12px; }
+  table{ border-collapse: collapse; width: 100%; min-width: 560px; background: var(--surface); }
+  thead th{
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--magenta);
+    background: rgba(255,46,126,0.07);
+    text-align:left;
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border);
+    white-space: nowrap;
+  }
+  tbody td{
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border-soft);
+    color: #d3d3e0;
+    font-size: 14px;
+    vertical-align: top;
+  }
+  tbody tr:last-child td{ border-bottom:none; }
+  tbody tr:hover{ background: rgba(255,255,255,0.015); }
+  td.num, th.num{ text-align:right; font-family: var(--font-mono); }
+  td code, th code{ white-space: nowrap; }
+
+  /* Code / terminal blocks */
+  .blk{
+    background: var(--code-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    margin: 18px 0 26px;
+    overflow: hidden;
+  }
+  .blk-head{
+    display:flex; align-items:center; gap:8px;
+    padding: 10px 14px;
+    background: var(--surface-alt);
+    border-bottom: 1px solid var(--border);
+  }
+  .dot{ width:10px; height:10px; border-radius:50%; }
+  .dot.r{ background:#ff5f57; } .dot.y{ background:#febc2e; } .dot.g{ background:#28c840; }
+  .blk-label{
+    margin-left: 8px;
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    color: var(--text-faint);
+  }
+  .blk pre{
+    margin:0;
+    padding: 18px 20px;
+    overflow-x:auto;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    line-height: 1.65;
+    color: #c9e8ff;
+  }
+  .blk pre code{ background:none; border:none; padding:0; color:inherit; }
+  .blk.json pre{ color: #ffd9a0; }
+  .blk.python pre{ color: #b8f0c9; }
+  .blk.bash pre{ color: #9fe6ff; }
+  .blk.md pre{ color: #d8d8ff; }
+  .blk.tree pre{ color: #a8ffd0; }
+
+  .ascii-wrap{
+    background: var(--code-bg);
+    border: 1px dashed var(--border);
+    border-radius: 12px;
+    padding: 20px 22px;
+    margin: 18px 0 26px;
+    overflow-x:auto;
+  }
+  .ascii-wrap pre{
+    margin:0; font-family: var(--font-mono); font-size: 12.3px; line-height: 1.5; color: #9fd8ff; white-space: pre;
+  }
+
+  /* Callouts */
+  .callout{
+    border-left: 3px solid var(--magenta);
+    background: rgba(255,46,126,0.05);
+    border-radius: 0 10px 10px 0;
+    padding: 16px 20px;
+    margin: 18px 0 26px;
+    color: #e6e6f0;
+    font-size: 14.3px;
+  }
+  .callout.violet{ border-color: var(--violet); background: rgba(123,92,255,0.06); }
+  .callout.cyan{ border-color: var(--cyan); background: rgba(55,214,200,0.06); }
+  .callout.warn{ border-color: var(--warn); background: rgba(255,179,71,0.06); }
+  .callout p:last-child{ margin-bottom:0; }
+  .callout-title{
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--magenta);
+    margin-bottom: 8px;
+  }
+  .callout.violet .callout-title{ color: var(--violet); }
+  .callout.cyan .callout-title{ color: var(--cyan); }
+  .callout.warn .callout-title{ color: var(--warn); }
+
+  /* Status chips inline */
+  .chip{ display:inline-flex; align-items:center; gap:6px; font-family: var(--font-mono); font-size: 12.5px; padding: 2px 9px; border-radius: 6px; }
+  .chip.ok{ color: var(--ok); background: rgba(55,214,160,0.1); border: 1px solid rgba(55,214,160,0.3); }
+  .chip.warn{ color: var(--warn); background: rgba(255,179,71,0.1); border: 1px solid rgba(255,179,71,0.3); }
+  .chip.bad{ color: var(--bad); background: rgba(255,92,122,0.1); border: 1px solid rgba(255,92,122,0.3); }
+
+  /* Two-col grid */
+  .grid-2{ display:grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 18px 0 26px; }
+  .card{
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px 22px;
+  }
+  .card h4{ margin-top:0; }
+
+  .kv-list{ display:grid; grid-template-columns: 1fr; gap: 8px; }
+  .kv-row{ display:flex; justify-content:space-between; gap: 12px; padding: 9px 0; border-bottom: 1px dotted var(--border); font-size: 13.8px; }
+  .kv-row:last-child{ border-bottom:none; }
+  .kv-row .k{ color: var(--text-muted); }
+  .kv-row .v{ color: var(--text); font-family: var(--font-mono); text-align:right; }
+
+  .toc{
+    display:grid; grid-template-columns: 1fr 1fr; gap: 10px 32px;
+  }
+  .toc a{
+    display:flex; justify-content:space-between; gap: 10px;
+    padding: 10px 0; border-bottom: 1px solid var(--border-soft);
+    color: var(--text); font-size: 14px;
+  }
+  .toc a:hover{ color: var(--magenta); text-decoration:none; }
+  .toc a span.tn{ font-family: var(--font-mono); color: var(--magenta); margin-right: 10px; }
+  .toc a span.dots{ flex:1; border-bottom: 1px dotted var(--border); margin: 0 8px 5px; }
+
+  footer{
+    padding: 56px 72px 72px;
+    text-align:center;
+    color: var(--text-faint);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    background: var(--bg-alt);
+  }
+  footer .fbrand{ color: var(--magenta); letter-spacing: 0.1em; margin-bottom: 10px; font-size: 12px; }
+
+  .page-num{ position: fixed; bottom: 14px; right: 20px; font-family: var(--font-mono); font-size: 10px; color: var(--text-faint); opacity:.6; }
+
+  @media (max-width: 860px){
+    .cover{ padding: 40px 26px 32px; }
+    .cover h1{ font-size: 38px; }
+    .wrap{ padding: 0 24px; }
+    .meta-grid{ grid-template-columns: 1fr 1fr; }
+    .link-cards{ grid-template-columns: 1fr; }
+    .toc{ grid-template-columns: 1fr; }
+    .grid-2{ grid-template-columns: 1fr; }
+  }
+
+  @media print{
+    body{ background:#0a0a10; }
+    .page-section{ page-break-inside: avoid; }
+    a{ text-decoration: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- =================== COVER =================== -->
+<section class="cover">
+  <div class="cover-top">
+    <div class="badge-row">
+      <span class="badge accent">POS TECH</span>
+      <span class="badge">FASE 5 · SOFTWARE SECURITY</span>
+      <span class="badge">HACKATHON FIAP</span>
+    </div>
+    <span class="status-pill">● MVP VALIDADO — 7/7 REQUISITOS</span>
+  </div>
+
+  <div class="cover-mid">
+    <div class="eyebrow">Documentação técnica de projeto</div>
+    <h1>ThreatLens AI<br>Modelagem de Ameaças<br>Automatizada</h1>
+    <div class="subtitle">
+      Detecção supervisionada de componentes (<b>YOLOv8n</b>) · Reconstrução de fluxos e fronteiras (<b>OpenCV + OCR</b>) ·
+      Quality Gate estrutural fail-closed · Motor <b>STRIDE</b> determinístico · <b>RAG</b> local de contramedidas ·
+      Relatórios em JSON, Markdown e PDF.
+    </div>
+  </div>
+
+  <div class="cover-bottom">
+    <div class="meta-grid">
+      <div class="meta-cell">
+        <div class="meta-label">Desenvolvedora</div>
+        <div class="meta-value">Luana Caldas</div>
+      </div>
+      <div class="meta-cell">
+        <div class="meta-label">Instituição</div>
+        <div class="meta-value small">FIAP — Hackathon Pós‑Tech</div>
+      </div>
+      <div class="meta-cell">
+        <div class="meta-label">Data</div>
+        <div class="meta-value">Julho de 2026</div>
+      </div>
+      <div class="meta-cell">
+        <div class="meta-label">Versão</div>
+        <div class="meta-value">1.0 — Produção</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+
+<!-- =================== 0. LINKS DO PROJETO =================== -->
+<section class="page-section" id="sec-0">
+  <div class="links-hero">
+    <div class="eyebrow">Seção 0</div>
+    <h2 class="sec-title">Links do Projeto</h2>
+    <p style="margin-top:10px;">Acesso direto ao código-fonte versionado e à demonstração em vídeo do ThreatLens AI.</p>
+    <div class="link-cards">
+      <a class="link-card" href="https://www.youtube.com/watch?v=jSh-K-leQz8" target="_blank" rel="noopener">
+        <div class="lc-type"><span class="lc-icon yt">▶</span> Vídeo de Demonstração · YouTube</div>
+        <div class="lc-url">https://www.youtube.com/watch?v=jSh-K-leQz8</div>
+      </a>
+      <a class="link-card" href="https://github.com/luanacaldas/tc-iadt-fase5-threatlens-stride" target="_blank" rel="noopener">
+        <div class="lc-type"><span class="lc-icon gh">⌥</span> Repositório · GitHub</div>
+        <div class="lc-url">github.com/luanacaldas/tc-iadt-fase5-threatlens-stride</div>
+      </a>
+    </div>
+  </div>
+
+  <h3 style="margin-top:48px;">Cabeçalho do documento</h3>
+  <div class="table-wrap">
+    <table>
+      <tbody>
+        <tr><td style="width:220px;"><strong>Projeto</strong></td><td>MVP de Modelagem de Ameaças Automatizada a partir de Diagramas de Arquitetura de Software</td></tr>
+        <tr><td><strong>Evento</strong></td><td>Hackathon Pós-Tech FIAP — Fase 5</td></tr>
+        <tr><td><strong>Empresa Desafiante</strong></td><td>FIAP Software Security</td></tr>
+        <tr><td><strong>Data de Entrega</strong></td><td>Julho de 2026</td></tr>
+        <tr><td><strong>Repositório GitHub</strong></td><td><a href="https://github.com/luanacaldas/tc-iadt-fase5-threatlens-stride" target="_blank">github.com/luanacaldas/tc-iadt-fase5-threatlens-stride</a></td></tr>
+        <tr><td><strong>Vídeo de Demonstração</strong></td><td><a href="https://www.youtube.com/watch?v=jSh-K-leQz8" target="_blank">youtube.com/watch?v=jSh-K-leQz8</a></td></tr>
+        <tr><td><strong>Status Geral</strong></td><td><span class="chip ok">✓ MVP Validado — 7 de 7 Requisitos Atendidos</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Índice</h3>
+  <div class="toc">
+    <a href="#sec-1"><span class="tn">01</span>Matriz de Conformidade e Rastreabilidade<span class="dots"></span></a>
+    <a href="#sec-2"><span class="tn">02</span>Pipeline Técnico de IA e Visão Computacional<span class="dots"></span></a>
+    <a href="#sec-3"><span class="tn">03</span>Mapeamento STRIDE e Contramedidas<span class="dots"></span></a>
+    <a href="#sec-4"><span class="tn">04</span>Pipeline de Geração de Relatório<span class="dots"></span></a>
+    <a href="#sec-5"><span class="tn">05</span>Limitações Técnicas e Engenharia de Produção<span class="dots"></span></a>
+    <a href="#sec-6"><span class="tn">06</span>Segurança e Conformidade<span class="dots"></span></a>
+    <a href="#sec-7"><span class="tn">07</span>Entregáveis Finais<span class="dots"></span></a>
+    <a href="#sec-8"><span class="tn">08</span>Conclusão<span class="dots"></span></a>
+    <a href="#sec-9"><span class="tn">09</span>Contrato da API<span class="dots"></span></a>
+    <a href="#sec-10"><span class="tn">10</span>Desenvolvimento do Modelo Supervisionado<span class="dots"></span></a>
+    <a href="#sec-11"><span class="tn">11</span>Avaliação do MVP<span class="dots"></span></a>
+    <a href="#sec-12"><span class="tn">12</span>Arquitetura — Detalhamento Complementar<span class="dots"></span></a>
+    <a href="#sec-13"><span class="tn">13</span>Evidências para Entrega e Demonstração<span class="dots"></span></a>
+  </div>
+</section>
+
+<!-- =================== 1. MATRIZ DE CONFORMIDADE =================== -->
+<section class="page-section" id="sec-1">
+  <div class="sec-head"><span class="sec-num">01</span><h2 class="sec-title">Matriz de Conformidade e Rastreabilidade de Requisitos</h2></div>
+  <p class="sec-sub">A tabela abaixo mapeia cada requisito oficialmente solicitado no edital do Hackathon com o status de implementação, localização no código e evidência técnica.</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:26%">Requisito do Edital</th><th style="width:8%">Status</th><th>Evidência e Implementação no Projeto</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>1. Detecção e Leitura do Diagrama</strong></td>
+          <td><span class="chip ok">✓ Atendido</span></td>
+          <td><strong>Pipeline de Análise:</strong> a entrada do sistema é uma imagem de diagrama de arquitetura. O fluxo começa em <code>backend/main.py</code> (função <code>analyze_image_and_detect()</code> e <code>POST /analyze/image</code>), que valida a imagem antes de processamento. A detecção de componentes é feita por <code>backend/detector.py</code>, que carrega o modelo registrado em <code>models/threatlens-hybrid-v2/weights/best.pt</code> (YOLOv8n treinado). O OCR local é implementado em <code>backend/ocr.py</code> usando Tesseract para extrair labels, nomes de serviços e protocolos. A reconstrução de fluxos e fronteiras acontece em <code>backend/diagram_structure.py</code> usando OpenCV para análise de linhas, conectores e setas. Resultado: cada componente retorna id, nome, tipo, provider, confiança (0.0–1.0) e bounding box (x, y, w, h).</td>
+        </tr>
+        <tr>
+          <td><strong>2. Dataset de Arquiteturas de Software</strong></td>
+          <td><span class="chip ok">✓ Atendido</span></td>
+          <td><strong>Dataset Híbrido Registrado:</strong> o dataset final é <code>dataset/hybrid_v2</code>, contendo 373 imagens e 3.048 objetos anotados em 14 classes canônicas. Origem: 300 diagramas do projeto + 73 selecionados do Software Architecture Dataset (Kaggle, 8.700 imagens originais). Splits: 265 treino, 69 validação, 39 teste. Configuração oficializada em <code>dataset/architecture.yaml</code> com <code>nc=14</code> e mapeamento de nomes de classes. Diversidade: inclui diagramas de AWS, Azure, GCP e estilos genéricos. Sem vazamento entre splits — a agrupação por arquitetura original garantiu que variantes aumentadas não cruzassem treino/validação/teste.</td>
+        </tr>
+        <tr>
+          <td><strong>3. Anotação de Dados (Rótulos/Labels)</strong></td>
+          <td><span class="chip ok">✓ Atendido</span></td>
+          <td><strong>Processo de Anotação Auditável:</strong> o dataset Kaggle vinha em formato Pascal VOC (.xml). Conversão para YOLO (.txt) em <code>scripts/build_dataset.py</code> com mapeamento para a taxonomia canônica (14 classes). O processo de auditoria de anotações está em <code>scripts/audit_voc_annotations.py</code>, que verifica orfandade, integridade e balanceamento. Dados reais derivados de 9 diagramas de desenvolvimento e 6 blind benchmark foram anotados com <code>scripts/bootstrap_real_benchmark_annotations.py</code>, que registra <code>annotationStatus: "draft_model_proposal"</code> e exige revisão visual explícita (<code>annotationMethod: "YOLO and geometric bootstrap; requires visual review before scoring."</code>). Rastreabilidade completa: cada imagem tem metadados de origem, método e status de validação.</td>
+        </tr>
+        <tr>
+          <td><strong>4. Treinamento do Modelo Supervisionado</strong></td>
+          <td><span class="chip ok">✓ Atendido</span></td>
+          <td><strong>Treinamento YOLOv8n com Reprodutibilidade:</strong> script de treino em <code>scripts/train_yolo.py</code> implementa: (a) carregamento do dataset via <code>dataset/architecture.yaml</code>, (b) uso de YOLOv8n (nano) para eficiência, (c) otimizador AdamW conforme README, (d) resolução 640, (e) replay balanceado entre fontes Kaggle e projeto (55+55 diagramas), (f) validação balanceada (9+9 imagens), (g) epochs configurável (padrão 100), (h) checkpoint automático do melhor peso em <code>models/threatlens-hybrid-v2/weights/best.pt</code>. Hash SHA-256 do peso registrado: <code>2aebcd0611927505d60a10d23ce11d0e5211cf2e91ca0c4394921fac006c865d</code>. Model card completo em <code>models/threatlens-hybrid-v2/model-card.json</code> com métricas, data, versão e hiperparâmetros.</td>
+        </tr>
+        <tr>
+          <td><strong>5. Mapeamento de Ameaças STRIDE e Contramedidas</strong></td>
+          <td><span class="chip ok">✓ Atendido</span></td>
+          <td><strong>Engine STRIDE Determinístico:</strong> <code>backend/stride_engine.py</code> implementa um catálogo de regras rastreáveis por tipo de componente (user, internet, api_gateway, load_balancer, waf, compute, database, storage, queue, identity_provider, monitoring, backup, secrets_kms, cdn). Para cada tipo, há um dicionário <code>COMPONENT_KNOWLEDGE</code> com regras STRIDE (Spoofing, Tampering, Repudiation, Information Disclosure, Denial of Service, Elevation of Privilege). Cada ameaça tem: (a) categoria STRIDE, (b) título, (c) severidade (Critical/High/Medium/Low), (d) confiança calculada a partir da detecção, (e) contramedidas objetivas, (f) referências a CWE, CAPEC, OWASP Top 10 2021 e MITRE ATT&CK. Exemplo: Spoofing em <code>api_gateway</code> → CWE-287 (Improper Authentication), CAPEC-115 (Authentication Bypass), OWASP A07:2021, MITRE T1078 (Valid Accounts). Todas as 6 categorias STRIDE cobertas com referências de segurança verificáveis.</td>
+        </tr>
+        <tr>
+          <td><strong>6. Geração de Relatório STRIDE Consolidado</strong></td>
+          <td><span class="chip ok">✓ Atendido</span></td>
+          <td><strong>Pipeline de Relatório Multicanal:</strong> a saída consolida ameaças, contramedidas e risco em três formatos: (1) JSON estruturado com grafo de arquitetura, ameaças com status de gestão e matriz de risco, (2) Markdown com seções de resumo executivo, ameaças priorizadas e plano de mitigação, (3) PDF profissional gerado por <code>backend/pdf_report.py</code> usando ReportLab. O PDF inclui: página de cobertura, tabela de risco inerente vs. residual, matriz de severidade/status, resumo executivo, 12+ ameaças principais priorizadas por risco, plano de mitigação com responsáveis e datas, rodapé com referências. A geração é determinística — não requer LLM externa por padrão (modo generativo é opcional e desabilitado por padrão). Exemplo de saída em <code>docs/sample-threat-model.md</code> com 15+ ameaças e referências anotadas.</td>
+        </tr>
+        <tr>
+          <td><strong>7. Entregáveis e Documentação Técnica</strong></td>
+          <td><span class="chip ok">✓ Atendido</span></td>
+          <td><strong>Repositório GitHub Versionado + Documentação Completa:</strong> (a) código-fonte 100% disponível e versionado em GitHub com histórico de commits e rastreabilidade; (b) README.md com visão geral, pré-requisitos, instrução de execução (local e Docker) e exemplos; (c) documentação técnica detalhada em <code>docs/architecture.md</code> descrevendo pipeline, componentes, quality gate, STRIDE engine, RAG e segurança; (d) documentação de dataset em <code>docs/dataset-integration-results.md</code> e <code>docs/model-development.md</code> com tabelas, origens e limitações explícitas; (e) documentação de modelo em <code>docs/model-evaluation-and-registration.md</code> com métricas do detector (mAP50 0.9009, Recall 0.8417); (f) índice operacional de demonstração em <code>docs/submission-evidence.md</code> com roteiro passo a passo para banca; (g) esta documentação técnica completa, pronta para exportação em PDF; (h) vídeo de demonstração de até 15 minutos no YouTube com live demo e explicação das decisões de engenharia.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- =================== 2. PIPELINE TÉCNICO =================== -->
+<section class="page-section" id="sec-2">
+  <div class="sec-head"><span class="sec-num">02</span><h2 class="sec-title">Pipeline Técnico de IA e Visão Computacional</h2></div>
+
+  <h3><span class="h3-tag">2.1</span>Arquitetura de Alto Nível</h3>
+  <p>O ThreatLens implementa uma cadeia de processamento com separação clara de responsabilidades:</p>
+
+  <div class="ascii-wrap"><pre>┌─────────────────────┐
+│  ENTRADA: Imagem    │
+│   (PNG/JPEG/WebP)   │
+└──────────┬──────────┘
+           │
+           ▼
+┌─────────────────────────────────────┐
+│  Validação e Pré-processamento      │
+│  - Tamanho, pixels, tipo            │
+│  - Limites de cardinalidade         │
+└──────────┬──────────────────────────┘
+           │
+           ▼
+┌─────────────────────────────────────┐
+│  Detecção Supervisionada (YOLOv8n)  │
+│  - 14 classes canônicas             │
+│  - Confiança 0.0-1.0                │
+│  - Bounding box (x, y, w, h)        │
+└──────────┬──────────────────────────┘
+           │
+           ▼
+┌─────────────────────────────────────┐
+│  OCR Local + Arbitragem Semântica   │
+│  - Tesseract (labels, providers)    │
+│  - Geometry-aware text association  │
+│  - Detection Alternatives (conflitos)│
+└──────────┬──────────────────────────┘
+           │
+           ▼
+┌─────────────────────────────────────┐
+│  Reconstrução de Fluxos & Fronteiras│
+│  - OpenCV para linhas e conectores  │
+│  - Arrowhead classification         │
+│  - Protocolos explícitos            │
+│  - Trust boundaries e gates         │
+└──────────┬──────────────────────────┘
+           │
+           ▼
+┌─────────────────────────────────────┐
+│  Quality Gate Estrutural            │
+│  - Validação fail-closed            │
+│  - Status: reliable/review/rejected │
+└──────────┬──────────────────────────┘
+           │
+      ┌────┴────┬────────────┐
+      │          │            │
+   rejected  review      reliable
+      │       required      │
+      │          │          │
+      ▼          ▼          ▼
+    ┌──┬────────┴─┬──────────┐
+    │  │          │          │
+    │  ▼          ▼          ▼
+    │ Motor    Revisão   Motor STRIDE
+    │Diagnóstico Humana  + RAG Local
+    │                      │
+    │                      ▼
+    │                  Contramedidas
+    │                   + Referências
+    │                      │
+    │  ┌──────────────────┘
+    │  │
+    ▼  ▼
+┌──────────────────────────┐
+│  Relatório (JSON/MD/PDF) │
+│  - Matriz de Risco       │
+│  - 12+ Ameaças Priorit.  │
+│  - Plano de Mitigação    │
+└──────────────────────────┘</pre></div>
+
+  <h3><span class="h3-tag">2.2</span>Detecção Supervisionada de Componentes</h3>
+  <p><strong>Responsável:</strong> <code>backend/detector.py</code></p>
+  <p>O detector carrega o modelo YOLOv8n registrado e o executa sobre a imagem da arquitetura.</p>
+
+  <div class="blk python">
+    <div class="blk-head"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="blk-label">backend/detector.py</span></div>
+    <pre><code># Carregamento do modelo
+model = YOLO("models/threatlens-hybrid-v2/weights/best.pt")
+
+# Detecção
+results = model.predict(source=image_path, conf=YOLO_MIN_DETECTION_CONFIDENCE)
+
+# Processamento de resultados
+for detection in results[0].boxes:
+    class_id = int(detection.cls)
+    confidence = float(detection.conf)
+    bbox = detection.xyxy[0]  # [x1, y1, x2, y2]
+
+    # Calibração de confiança (regressão logística treinada)
+    calibrated_conf = _calibrate_confidence(confidence, area_ratio)</code></pre>
+  </div>
+
+  <h4>Métricas do Detector no Teste Híbrido (39 imagens)</h4>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Métrica</th><th class="num">Valor</th></tr></thead>
+      <tbody>
+        <tr><td>Precisão</td><td class="num">0.9297</td></tr>
+        <tr><td>Recall</td><td class="num">0.8417</td></tr>
+        <tr><td>mAP@50</td><td class="num">0.9009</td></tr>
+        <tr><td>mAP@50-95</td><td class="num">0.8666</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h4>Saída por componente</h4>
+  <div class="blk json">
+    <div class="blk-head"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="blk-label">JSON · componente detectado</span></div>
+    <pre><code>{
+  "id": "api_1",
+  "name": "API Gateway",
+  "type": "api_gateway",
+  "provider": "aws",
+  "confidence": 0.91,
+  "bbox": [120, 80, 220, 180],
+  "detectedBy": "yolov8",
+  "detectionAlternatives": []
+}</code></pre>
+  </div>
+
+  <p><strong>Classes suportadas (14 canônicas):</strong><br>
+  <code>api_gateway</code>, <code>backup</code>, <code>cdn</code>, <code>compute</code>, <code>database</code>, <code>identity_provider</code>, <code>internet</code>, <code>load_balancer</code>, <code>monitoring</code>, <code>queue</code>, <code>secrets_kms</code>, <code>storage</code>, <code>user</code>, <code>waf</code></p>
+
+  <h3><span class="h3-tag">2.3</span>OCR e Reconhecimento de Contexto</h3>
+  <p><strong>Responsável:</strong> <code>backend/ocr.py</code></p>
+  <p>O OCR local usando Tesseract extrai texto diretamente da imagem e associa geometricamente aos componentes detectados.</p>
+
+  <p><strong>Fluxo:</strong></p>
+  <ol>
+    <li><strong>Extração de texto:</strong> Tesseract processa a imagem inteira e retorna linhas de texto com bounding boxes, confiança de cada linha e posição (x, y, w, h).</li>
+    <li><strong>Associação geometry-aware:</strong> o texto é mapeado ao componente mais próximo, considerando distância euclidiana, alinhamento vertical/horizontal e âncora visual preferida (abaixo de ícone, dentro de retângulo, etc.).</li>
+    <li><strong>Arbitragem semântica:</strong> se o OCR detecta tipo ou provider que conflita com a classe YOLO, o conflito é registrado em <code>detectionAlternatives</code>, sem sobrescrever silenciosamente a classe supervisionada; fica disponível para revisão humana. Exemplo: YOLO detecta <code>compute</code>, OCR vê "RDS" → alternativa <code>database</code> registrada.</li>
+  </ol>
+
+  <h4>Exemplo de saída</h4>
+  <div class="blk json">
+    <div class="blk-head"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="blk-label">JSON · evidências textuais e alternativas</span></div>
+    <pre><code>{
+  "id": "db_1",
+  "name": "RDS Primary",
+  "type": "database",
+  "provider": "aws",
+  "textEvidences": [
+    {
+      "text": "RDS Primary",
+      "confidence": 0.87,
+      "bbox": [125, 185, 220, 210],
+      "associationMethod": "geometry_aware_below_icon"
+    }
+  ],
+  "detectionAlternatives": [
+    {
+      "type": "storage",
+      "evidence": "OCR detected 'S3 Bucket' nearby",
+      "confidence": 0.42,
+      "supersededBy": "database"
+    }
+  ]
+}</code></pre>
+  </div>
+
+  <h3><span class="h3-tag">2.4</span>Engine de Qualidade Estrutural (Fail-Closed &amp; Quality Gate)</h3>
+  <p><strong>Responsável:</strong> <code>backend/analysis_quality.py</code></p>
+  <p>O Quality Gate é acionado após a reconstrução e <strong>antes</strong> do cálculo de STRIDE. Seu objetivo é evitar que análises baseadas em diagramas estruturalmente inválidos cheguem a produzir ameaças enganosas.</p>
+
+  <h4>Critérios de validação</h4>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Controle</th><th>Descrição</th><th>Ação se falhar</th></tr></thead>
+      <tbody>
+        <tr><td><strong>C01</strong> — Duplicação de componentes</td><td>Componentes com mesmo id, nome e tipo em posições diferentes (ex: diagramas comparativos AWS vs. Azure lado a lado)</td><td>Sinaliza <code>review_required</code> ou <code>rejected</code></td></tr>
+        <tr><td><strong>C02</strong> — Alinhamento suspeito</td><td>Pares de componentes idênticos alinhados perfeitamente (indicador de comparação não intencional)</td><td>Alerta com motivo e coordenadas</td></tr>
+        <tr><td><strong>C03</strong> — Agrupamentos como componentes</td><td>Labels de "região", "subnet", "cluster" classificadas como componentes isolados</td><td>Marcar para revisão</td></tr>
+        <tr><td><strong>C04</strong> — Inconsistência de provider</td><td>Provider detectado (ex: <code>aws</code>) conflita com evidência textual dominante (ex: "Azure")</td><td>Sinaliza divergência</td></tr>
+        <tr><td><strong>C05</strong> — Self-loops sem confirmação</td><td>Componente conectado a si mesmo sem evidência de ciclo explícito</td><td>Alerta de possível erro de OCR</td></tr>
+        <tr><td><strong>C06</strong> — Arestas duplicadas</td><td>Múltiplos fluxos idênticos entre os mesmos componentes</td><td>Detecta e consolida ou marca como erro</td></tr>
+        <tr><td><strong>C07</strong> — Fronteiras cruzadas anômalas</td><td>Trust boundary que engloba ou corta através de componentes de forma incoerente</td><td>Sinaliza para revisão</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h4>Estados de saída</h4>
+  <div class="blk json">
+    <div class="blk-head"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="blk-label">JSON · analysisQuality</span></div>
+    <pre><code>{
+  "status": "review_required", // reliable | review_required | rejected
+  "score": 0.82, // 0.0-1.0
+  "reasons": [
+    "Possible comparative architecture detected: components 'api_1' and 'api_2' are spatially identical.",
+    "Provider inconsistency: YOLO detected 'aws' but OCR found 'Azure' in labels."
+  ],
+  "recommendedAction": "Review the flagged items before accepting the report."
+}</code></pre>
+  </div>
+
+  <h4>Comportamento por status</h4>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Status</th><th>STRIDE</th><th>Risco</th><th>Relatório</th><th>PDF</th></tr></thead>
+      <tbody>
+        <tr><td><code>reliable</code></td><td><span class="chip ok">✓ Gerado</span></td><td><span class="chip ok">✓ Calculado</span></td><td><span class="chip ok">✓ Completo</span></td><td><span class="chip ok">✓ Exportável</span></td></tr>
+        <tr><td><code>review_required</code></td><td><span class="chip warn">✓ Gerado com alertas</span></td><td><span class="chip ok">✓ Calculado</span></td><td><span class="chip warn">✓ Com avisos</span></td><td><span class="chip ok">✓ Exportável</span></td></tr>
+        <tr><td><code>rejected</code></td><td><span class="chip bad">✗ Não</span></td><td><span class="chip bad">✗ Não</span></td><td><span class="chip bad">✗ Não</span></td><td><span class="chip bad">✗ Bloqueado</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>Quando <code>rejected</code>: a arquitetura detectada permanece acessível (diagnóstico bruto), o JSON pode ser baixado (para análise interna), STRIDE/ameaças/risco/PDF são bloqueados, e <code>reportSuppressed: true</code> aparece na resposta.</p>
+
+  <div class="callout warn">
+    <div class="callout-title">Decisão de design</div>
+    <p>Essa abordagem <strong>fail-closed</strong> é uma decisão deliberada de segurança: melhor não gerar um relatório enganoso do que gerar um falso positivo de segurança.</p>
+  </div>
+</section>
+
+<!-- =================== 3. STRIDE =================== -->
+<section class="page-section" id="sec-3">
+  <div class="sec-head"><span class="sec-num">03</span><h2 class="sec-title">Mapeamento STRIDE e Geração de Contramedidas</h2></div>
+
+  <h3><span class="h3-tag">3.1</span>Catálogo Determinístico de Ameaças</h3>
+  <p><strong>Responsável:</strong> <code>backend/stride_engine.py</code></p>
+  <p>O motor STRIDE não usa LLM para gerar ameaças. Todas as regras são explícitas e rastreáveis. Para cada tipo de componente e padrão arquitetural, há um conjunto de ameaças conhecidas com contramedidas associadas.</p>
+
+  <h4>Estrutura de uma ameaça</h4>
+  <div class="blk python">
+    <div class="blk-head"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="blk-label">backend/stride_engine.py</span></div>
+    <pre><code>{
+    "stride": "Spoofing",              # Categoria STRIDE
+    "title": "User identity can be impersonated",
+    "severity": "Medium",              # Critical | High | Medium | Low
+    "componentId": "user_1",
+    "evidence": "User node detected in architecture without explicit MFA requirement.",
+    "countermeasures": [
+        "Require strong authentication with MFA for privileged flows.",
+        "Use short-lived sessions and secure cookie attributes.",
+        "Bind sensitive actions to re-authentication."
+    ],
+    "confidence": 0.85,                # Baseado em detecção + provider
+    "securityReferences": [
+        {
+            "framework": "CWE",
+            "id": "CWE-287",
+            "title": "Improper Authentication",
+            "url": "https://cwe.mitre.org/data/definitions/287.html"
+        },
+        {
+            "framework": "OWASP",
+            "id": "A07:2021",
+            "title": "Identification and Authentication Failures",
+            "url": "https://owasp.org/Top10/A07_2021-Identification_and_Authentication_Failures/"
+        }
+        // ... CAPEC, MITRE ATT&CK ...
+    ],
+    "management": {
+        "status": "open",              // open | mitigated | accepted | false_positive
+        "owner": null,                 // Nome do responsável
+        "justification": null,         // Texto da decisão
+        "selectedCountermeasure": null,// Qual contramedida foi escolhida
+        "mitigationDate": null,        // Quando será mitigada
+        "residualRisk": null           // Risco após mitigação
+    }
+}</code></pre>
+  </div>
+
+  <h3><span class="h3-tag">3.2</span>Regras por Tipo de Componente</h3>
+
+  <h4>Exemplo 1 — Componente <code>api_gateway</code></h4>
+  <div class="blk tree">
+    <div class="blk-head"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="blk-label">stride_engine · api_gateway</span></div>
+    <pre><code>Ameaça: Spoofing
+├─ Evidência: API endpoint detectado sem autenticação explícita
+├─ Severidade: High
+├─ Contramedidas:
+│  ├─ Validar JWT issuer, audience, expiration, signature
+│  ├─ Usar OAuth2/OIDC para confiabilidade
+│  ├─ Implementar mTLS para service-to-service
+│  └─ Least privilege scopes por endpoint
+└─ Referências: CWE-287, CAPEC-115, OWASP A07:2021, MITRE T1078
+
+Ameaça: Tampering
+├─ Evidência: Payload pode ser alterado antes de chegar ao backend
+├─ Severidade: High
+├─ Contramedidas:
+│  ├─ Validar schema na gateway e no backend
+│  ├─ Rejeitar campos inesperados
+│  └─ Enforcar content-type restrictions
+└─ Referências: CWE-20, CAPEC-153, OWASP A08:2021, MITRE T1565
+
+Ameaça: Denial of Service
+├─ Evidência: Endpoint exposto pode ser sobrecarregado
+├─ Severidade: High
+├─ Contramedidas:
+│  ├─ Throttling e quotas
+│  ├─ Circuit breakers
+│  ├─ Request size limits
+│  └─ Alertas de latência e volume anômalo
+└─ Referências: CWE-400, CAPEC-125, OWASP API4:2023, MITRE T1499</code></pre>
+  </div>
+
+  <h4>Exemplo 2 — Componente <code>database</code></h4>
+  <div class="blk tree">
+    <div class="blk-head"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="blk-label">stride_engine · database</span></div>
+    <pre><code>Ameaça: Information Disclosure
+├─ Evidência: Banco de dados pode expor registros sensíveis
+├─ Severidade: Critical ⚠️
+├─ Contramedidas:
+│  ├─ Criptografia em repouso com chaves gerenciadas
+│  ├─ Acesso de rede restrito
+│  ├─ Least privilege em roles do banco
+│  ├─ Masking ou tokenização de dados sensíveis
+│  └─ Auditoria de acesso
+└─ Referências: CWE-200, CAPEC-118, OWASP A02:2021, MITRE T1530
+
+Ameaça: Tampering
+├─ Evidência: Dados podem ser alterados sem controles de integridade
+├─ Severidade: High
+├─ Contramedidas:
+│  ├─ Transações e constraints
+│  ├─ Audit trail para tabelas sensíveis
+│  ├─ Change history
+│  └─ Monitoramento de volume de writes anômalo
+└─ Referências: CWE-20, CAPEC-153, OWASP A08:2021, MITRE T1565</code></pre>
+  </div>
+
+  <h3><span class="h3-tag">3.3</span>Matriz de Risco Inerente vs. Residual</h3>
+  <p>Após STRIDE, o motor calcula dois scores:</p>
+
+  <div class="grid-2">
+    <div class="card">
+      <h4>Risco Inerente (antes de mitigação)</h4>
+      <p style="font-family:var(--font-mono); font-size:13px; color:var(--cyan); margin:0;">weighted_sum(severity_weight[ameaça] × confiança[ameaça]) / total_ameaças</p>
+      <p style="margin-top:10px;">Escala: 0–100 (Low / Medium / High / Critical)</p>
+    </div>
+    <div class="card">
+      <h4>Risco Residual (após decisões de mitigação)</h4>
+      <p style="font-family:var(--font-mono); font-size:13px; color:var(--cyan); margin:0;">weighted_sum(severity_weight[ameaça] × confiança[ameaça] × factor_mitigação) / total_ameaças</p>
+      <p style="margin-top:10px;">Fator de mitigação: 1.0 (open) · 0.5 (mitigated) · 0.1 (accepted)</p>
+    </div>
+  </div>
+
+  <h4>Exemplo</h4>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Ameaça</th><th>Severidade</th><th class="num">Confiança</th><th class="num">Fator Inerente</th><th class="num">Fator Residual</th></tr></thead>
+      <tbody>
+        <tr><td>API sem autenticação</td><td>High (8)</td><td class="num">0.9</td><td class="num">7.2</td><td class="num">3.6 (mitigated)</td></tr>
+        <tr><td>DB sem backup</td><td>High (8)</td><td class="num">0.7</td><td class="num">5.6</td><td class="num">0.56 (accepted)</td></tr>
+        <tr><td>Log sem imutabilidade</td><td>Medium (5)</td><td class="num">0.6</td><td class="num">3.0</td><td class="num">3.0 (open)</td></tr>
+        <tr><td><strong>Total</strong></td><td></td><td></td><td class="num"><strong>15.8</strong></td><td class="num"><strong>7.16</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout cyan">
+    <div class="callout-title">Interpretação</div>
+    <p>Risco inerente: 15.8 → <strong>High</strong>. Risco residual: 7.16 → <strong>Medium</strong>. Redução: 55% de mitigação implementada.</p>
+  </div>
+
+  <h3><span class="h3-tag">3.4</span>Rastreabilidade de Referências de Segurança</h3>
+  <p>Toda ameaça conecta-se a bases de segurança externas:</p>
+  <ul>
+    <li><strong>CWE</strong> (Common Weakness Enumeration): fraqueza de software subjacente</li>
+    <li><strong>CAPEC</strong> (Common Attack Pattern Expression Language): padrão de ataque que explora a fraqueza</li>
+    <li><strong>OWASP Top 10 2021</strong>: top vulnerabilidades em aplicações web e APIs</li>
+    <li><strong>MITRE ATT&amp;CK</strong>: tática e técnica de ataque conhecida</li>
+  </ul>
+
+  <h4>Exemplo completo</h4>
+  <div class="blk tree">
+    <div class="blk-head"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="blk-label">rastreabilidade · threat trace</span></div>
+    <pre><code>Ameaça: "Spoofing — User identity can be impersonated"
+
+Rastreabilidade:
+├─ Componente: user_1 (tipo: user)
+├─ Fluxo relacionado: user_1 → api_1 (sem TLS)
+├─ Evidência: Usuário detectado comunicando com API sem evidência de autenticação
+├─ Referências:
+│  ├─ CWE-287 → Improper Authentication
+│  │   URL: https://cwe.mitre.org/data/definitions/287.html
+│  ├─ CAPEC-115 → Authentication Bypass
+│  │   URL: https://capec.mitre.org/data/definitions/115.html
+│  ├─ OWASP-A07:2021 → Identification and Authentication Failures
+│  │   URL: https://owasp.org/Top10/A07_2021-Identification_and_Authentication_Failures/
+│  └─ MITRE-T1078 → Valid Accounts
+│      URL: https://attack.mitre.org/techniques/T1078/
+└─ Contramedidas com mapeamento direto a esses controles</code></pre>
+  </div>
+</section>
+
+<!-- =================== 4. RELATÓRIO =================== -->
+<section class="page-section" id="sec-4">
+  <div class="sec-head"><span class="sec-num">04</span><h2 class="sec-title">Pipeline de Geração de Relatório</h2></div>
+
+  <h3><span class="h3-tag">4.1</span>Formato de Saída: Multicanal</h3>
+  <p>Após STRIDE e RAG, a análise é exportável em três formatos:</p>
+
+  <h4>4.1.1 — JSON Estruturado</h4>
+  <p>Contém grafo completo de arquitetura, todas as ameaças com status de gestão, matriz de risco e metadados de qualidade.</p>
+  <div class="blk json">
+    <div class="blk-head"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="blk-label">JSON · relatório completo (trecho)</span></div>
+    <pre><code>{
+  "analysisId": "tl-2026-07-22-abc123",
+  "timestamp": "2026-07-22T14:30:00Z",
+  "analysisQuality": {
+    "status": "review_required",
+    "score": 0.82,
+    "reasons": ["Possible comparative architecture detected."]
+  },
+  "architecture": {
+    "components": [
+      {
+        "id": "api_1",
+        "name": "API Gateway",
+        "type": "api_gateway",
+        "provider": "aws",
+        "confidence": 0.91,
+        "bbox": [120, 80, 220, 180]
+      }
+    ],
+    "flows": [
+      {
+        "id": "flow_1",
+        "from": "user_1",
+        "to": "api_1",
+        "protocol": "HTTPS",
+        "isEncrypted": true,
+        "confidence": 0.84
+      }
+    ]
+  },
+  "threats": [
+    {
+      "id": "threat_1",
+      "stride": "Spoofing",
+      "title": "User identity can be impersonated",
+      "severity": "Medium",
+      "componentId": "api_1",
+      "evidence": "API endpoint without explicit authentication.",
+      "countermeasures": ["Require MFA", "Use short-lived sessions"],
+      "confidence": 0.85,
+      "securityReferences": [
+        {
+          "framework": "CWE",
+          "id": "CWE-287",
+          "url": "https://cwe.mitre.org/data/definitions/287.html"
+        }
+      ],
+      "management": {
+        "status": "open",
+        "owner": null,
+        "justification": null
+      }
+    }
+  ],
+  "score": {
+    "value": 65,
+    "label": "High",
+    "summary": "Architecture has significant security gaps requiring immediate mitigation."
+  },
+  "riskComparison": {
+    "inherent": { "value": 75, "label": "High" },
+    "residual": { "value": 42, "label": "Medium" },
+    "reduction": 44
+  }
+}</code></pre>
+  </div>
+
+  <h4>4.1.2 — Markdown Estruturado</h4>
+  <p>Versão legível para documentação e integração em wikis:</p>
+  <div class="blk md">
+    <div class="blk-head"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="blk-label">Markdown · sample-threat-model.md (trecho)</span></div>
+    <pre><code># Threat Analysis Report
+
+## Architecture Overview
+
+| Metric           | Value |
+| ---------------- | ----- |
+| Components       | 12    |
+| Flows            | 18    |
+| Trust Boundaries | 3     |
+
+## Executive Summary
+
+The analyzed architecture contains **18 threats**, with **8 Critical/High severity**. Immediate actions:
+
+1. Implement authentication on exposed APIs
+2. Enable encryption on sensitive data flows
+3. Configure database backups and monitoring
+
+## Threats Prioritized by Risk
+
+### 1. Database Information Disclosure (Critical)
+
+- **Component:** database_1
+- **Severity:** Critical
+- **Evidence:** Database detected without encryption at rest
+- **Countermeasures:**
+  - Enable encryption with managed keys
+  - Restrict network access
+  - Apply least privilege roles
+- **References:** CWE-200, OWASP-A02:2021
+
+[... 11+ ameaças ordenadas por risco ...]</code></pre>
+  </div>
+
+  <h4>4.1.3 — PDF Profissional</h4>
+  <p>Gerado por <code>backend/pdf_report.py</code> usando ReportLab. Inclui:</p>
+  <ol>
+    <li><strong>Página de cobertura:</strong> logo, data, identificador da análise</li>
+    <li><strong>Sumário executivo:</strong> risco inerente vs. residual, recomendações</li>
+    <li><strong>Matriz de risco:</strong> severidade × status (open/mitigated/accepted/false_positive)</li>
+    <li><strong>12+ ameaças priorizadas:</strong> cada uma com evidência, contramedidas e referências</li>
+    <li><strong>Plano de mitigação:</strong> roadmap de ações, responsáveis, datas esperadas</li>
+    <li><strong>Apêndice:</strong> detalhes técnicos, componentes completos, fluxos</li>
+  </ol>
+</section>
+
+<!-- =================== 5. LIMITAÇÕES =================== -->
+<section class="page-section" id="sec-5">
+  <div class="sec-head"><span class="sec-num">05</span><h2 class="sec-title">Limitações Técnicas Assumidas e Engenharia de Produção</h2></div>
+
+  <h3><span class="h3-tag">5.1</span>Domain Shift e Generalização</h3>
+  <p>O detector foi treinado em 373 imagens de origens específicas (Kaggle + projeto). Isso não significa que funcionará perfeitamente em <strong>todos</strong> os diagramas de arquitetura do mundo.</p>
+
+  <h4>Limitações documentadas</h4>
+  <ol>
+    <li><strong>Diagramas densos:</strong> linhas muito próximas, componentes sobrepostos ou linhas fragmentadas podem levar a fluxos extras (falsos positivos de conectividade), fluxos ausentes (falsos negativos) e ambiguidade em direção (arrowheads pequenos ou múltiplos possíveis).</li>
+    <li><strong>Estilos visuais não vistos:</strong> o modelo viu principalmente icons AWS, Azure, GCP e genéricos; layouts de diagrama único, sem comparativas (até os holdouts); cores e fontes padrão em ferramentas como Lucidchart, Draw.io e Visio. <strong>Risco:</strong> um novo estilo visual (ex: estilo customizado Miro, Mural ou design próprio) pode reduzir a confiança.</li>
+    <li><strong>Texto pequeno ou rotacionado:</strong> o OCR tem dificuldade com labels dentro de ícones minúsculos, texto rotacionado ou em ângulos estranhos e baixo contraste.</li>
+    <li><strong>Componentes fora da taxonomia:</strong> se o diagrama usar componentes não mapeados (ex: "custom middleware", "IoT gateway", "quantum processor"), o detector falhará ou classificará como a classe mais próxima.</li>
+  </ol>
+
+  <h4>Evidência no projeto</h4>
+  <div class="blk bash">
+    <div class="blk-head"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="blk-label">benchmark real</span></div>
+    <pre><code>Benchmark real (9 imagens de desenvolvimento + 6 blind):
+  - F1 de fluxos: 0.4225 (estrutural) a 0.5296 (v15 com arbitragem)
+  - Recall tipado: 0.6786
+  - Domain shift em Kaggle Subset (9 imagens): mAP50 0.3598 (alarm)</code></pre>
+  </div>
+
+  <h3><span class="h3-tag">5.2</span>Mecanismo de Proteção: Quality Gate e Abstention</h3>
+  <p>Para evitar que análises ruins sejam apresentadas como fatos:</p>
+  <ol>
+    <li><strong>Quality Gate Estrutural:</strong> valida antes de STRIDE. Se <code>rejected</code>: sem ameaças, sem PDF, sem relatório. Se <code>review_required</code>: ameaças são geradas com alertas. Se <code>reliable</code>: fluxo normal.</li>
+    <li><strong>Abstention e confiança calibrada:</strong> detecções com confiança &lt; 0.90 são abstraídas (não geram ameaças sozinhas) e aparecem em <code>detectionAlternatives</code> para revisão. OCR conflitante também vai para alternativas, sem substituir silenciosamente.</li>
+    <li><strong>Fail-closed para PDF:</strong> se a análise é <code>rejected</code>, o PDF não é gerado — impede relatório enganoso.</li>
+  </ol>
+
+  <h3><span class="h3-tag">5.3</span>Transparência sobre Desenvolvimento vs. Generalização</h3>
+  <p>O projeto separa claramente:</p>
+  <ul>
+    <li><strong>Desenvolvimento (<code>development_tuning</code>):</strong> resultados usados para ajuste de hiperparâmetros e seleção de estratégia</li>
+    <li><strong>Holdout Prospectivo (<code>prospective_holdout</code>):</strong> resultado selado antes da abertura, prova de não viés</li>
+    <li><strong>Holdout Blind Inicial:</strong> 6 imagens anotadas post-hoc, não usadas para treino</li>
+  </ul>
+  <div class="callout warn">
+    <div class="callout-title">Métrica de desenvolvimento v15</div>
+    <p>F1 0.5296, Recall 0.6786. Essa métrica é compartilhada para transparência, mas <strong>não</strong> é apresentada como evidência de generalização universal. A metodologia está documentada em <code>docs/final-technical-evidence.md</code>.</p>
+  </div>
+
+  <h3><span class="h3-tag">5.4</span>Configuração de Confiança e Limiares</h3>
+  <div class="blk bash">
+    <div class="blk-head"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="blk-label">.env</span></div>
+    <pre><code># Arquivo: .env
+YOLO_MIN_DETECTION_CONFIDENCE=0.30    # Confiança mínima bruta do YOLO
+YOLO_CONFIDENCE_THRESHOLD=0.90        # Limiar de aceitação após calibração
+FLOW_STRATEGY=legacy                  # ou junction_aware_controlled</code></pre>
+  </div>
+  <p><strong>Comportamento:</strong> se <code>YOLO_CONFIDENCE_THRESHOLD</code> é 0.90, apenas detecções calibradas &gt; 0.90 geram ameaças. Se <code>YOLO_MIN_DETECTION_CONFIDENCE</code> é 0.30, até 0.30 bruta é considerada para alternativas. Esse design permite trade-off entre recall (mais ameaças) e precisão (menos falsos positivos).</p>
+
+  <h3><span class="h3-tag">5.5</span>Roadmap de Melhoria</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Limitação</th><th>Estratégia de Melhoria</th></tr></thead>
+      <tbody>
+        <tr><td>Domain shift em estilos novos</td><td>Active learning com mais diagramas reais</td></tr>
+        <tr><td>Fluxos em diagramas densos</td><td>Classificador supervisionado de arestas</td></tr>
+        <tr><td>Arrowhead ambíguo</td><td>Calibração separada de direção</td></tr>
+        <tr><td>OCR em texto pequeno</td><td>Modelo de OCR treinado ou pré-processamento adaptativo</td></tr>
+        <tr><td>Componentes fora da taxonomia</td><td>Extensão de classes (15+) com retraining</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3><span class="h3-tag">5.6</span>Limitações e Uso Responsável — Síntese Operacional</h3>
+  <p>Consolidação complementar do documento <code>limitations.md</code>, com foco em uso responsável durante avaliação e operação:</p>
+  <ul>
+    <li><strong>Diagramas densos:</strong> cruzamentos, linhas longas, cotovelos, bordas de grupos e conectores paralelos ainda podem produzir fluxos extras ou ausentes.</li>
+    <li><strong>Setas:</strong> arrowheads pequenos, borrados ou sobrepostos reduzem a confiança da direção.</li>
+    <li><strong>Endpoints:</strong> proximidade geométrica pode associar uma linha ao componente incorreto.</li>
+    <li><strong><code>review_only</code>:</strong> sinais incompletos são apresentados para revisão e nunca bloqueados automaticamente pela estratégia controlada.</li>
+    <li><strong>Caso C04:</strong> a junção densa supervisionada exige proteção explícita e não sustenta uma regra geral de redirecionamento de endpoints.</li>
+    <li><strong>Revisão humana:</strong> componentes pendentes, conflitos OCR, fluxos inferidos, protocolos desconhecidos e fronteiras candidatas devem ser confirmados antes de decisões reais.</li>
+    <li><strong>Generalização:</strong> a estratégia controlada foi validada apenas em <code>development_tuning</code>; nenhum holdout foi executado em <code>DELIVERY-001</code>.</li>
+    <li><strong>Estratégia padrão:</strong> <code>junction_aware_controlled</code> é experimental e opt-in. <code>legacy</code> permanece padrão e reversível por configuração.</li>
+    <li><strong>Taxonomia:</strong> o detector cobre 14 classes canônicas; serviços fora dessas classes são aproximados, abstidos ou encaminhados para revisão.</li>
+    <li><strong>Segurança:</strong> o relatório modela ameaças, mas não substitui teste de invasão, revisão de configuração cloud, análise de código ou validação de controles em produção.</li>
+    <li><strong>RAG e LLM:</strong> o modo local é determinístico. Recursos remotos são opcionais, exigem configuração explícita e não devem receber diagramas confidenciais sem autorização.</li>
+  </ul>
+</section>
+
+<!-- =================== 6. SEGURANÇA =================== -->
+<section class="page-section" id="sec-6">
+  <div class="sec-head"><span class="sec-num">06</span><h2 class="sec-title">Segurança e Conformidade</h2></div>
+
+  <h3><span class="h3-tag">6.1</span>Princípios de Design</h3>
+  <ol>
+    <li><strong>Zero Trust na Entrada:</strong> toda entrada é não confiável até validação</li>
+    <li><strong>Separation of Concerns:</strong> cada etapa é auditável isoladamente</li>
+    <li><strong>Fail-Closed:</strong> melhor não gerar ameaça enganosa do que gerar uma falsa</li>
+    <li><strong>Local-First:</strong> sem chamadas remotas obrigatórias</li>
+    <li><strong>Transparência:</strong> todas as decisões são rastreáveis</li>
+  </ol>
+
+  <h3><span class="h3-tag">6.2</span>Fronteiras de Confiança na Arquitetura</h3>
+  <div class="ascii-wrap"><pre>┌──────────────────────────────────────────────────────────────┐
+│                     ThreatLens MVP                           │
+│                                                              │
+│  ┌──────────────────────────────────────────────────────┐   │
+│  │ Entrada Não Confiável (User Upload)                │   │
+│  │ - Validação de tipo, tamanho, pixels               │   │
+│  │ - Rate limiting, CSP headers                       │   │
+│  └──────────────────────────────────────────────────────┘   │
+│           │                                                  │
+│           ▼                                                  │
+│  ┌──────────────────────────────────────────────────────┐   │
+│  │ Processamento Local Confiável                       │   │
+│  │ - YOLO (modelo treinado verificado)                │   │
+│  │ - OCR (Tesseract sandbox)                          │   │
+│  │ - OpenCV (sem rede)                                │   │
+│  │ - STRIDE engine (determinístico)                   │   │
+│  └──────────────────────────────────────────────────────┘   │
+│           │                                                  │
+│           ▼                                                  │
+│  ┌──────────────────────────────────────────────────────┐   │
+│  │ Revisão Humana (Fronteira decisória)               │   │
+│  │ - Componentes questionáveis                        │   │
+│  │ - Fluxos com baixa confiança                       │   │
+│  │ - Quality gate warnings                            │   │
+│  └──────────────────────────────────────────────────────┘   │
+│           │                                                  │
+│           ▼                                                  │
+│  ┌──────────────────────────────────────────────────────┐   │
+│  │ Saída (JSON/PDF/Markdown)                          │   │
+│  │ - Rastreável até a origem visual                   │   │
+│  │ - Sem dados de treinamento inclusos                │   │
+│  │ - Pronto para integração em SOAR/SIEM             │   │
+│  └──────────────────────────────────────────────────────┘   │
+└──────────────────────────────────────────────────────────────┘</pre></div>
+
+  <h3><span class="h3-tag">6.3</span>Serviços Remotos Opcionais</h3>
+  <p>Por padrão, <strong>todas</strong> as chamadas remotas estão <strong>desabilitadas</strong>:</p>
+  <div class="blk bash">
+    <div class="blk-head"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="blk-label">.env</span></div>
+    <pre><code>ENABLE_GENERATIVE_REPORTS=false   # Sem Gemini obrigatório
+ENABLE_REMOTE_VALIDATION=false    # Sem Groq para validação
+ENABLE_VISION_FALLBACK=false      # Sem Gemini Vision fallback</code></pre>
+  </div>
+
+  <p>Isso significa:</p>
+  <div class="kv-list">
+    <div class="kv-row"><span class="k">Detector</span><span class="v chip ok">✓ Local</span></div>
+    <div class="kv-row"><span class="k">OCR</span><span class="v chip ok">✓ Local (Tesseract)</span></div>
+    <div class="kv-row"><span class="k">STRIDE</span><span class="v chip ok">✓ Local (determinístico)</span></div>
+    <div class="kv-row"><span class="k">RAG</span><span class="v chip ok">✓ Local (embeddings + lexical fallback)</span></div>
+    <div class="kv-row"><span class="k">PDF</span><span class="v chip ok">✓ Local (ReportLab)</span></div>
+  </div>
+
+  <p>Se quiser LLM generativo para enriquecer o relatório: deve ativar explicitamente <code>ENABLE_GENERATIVE_REPORTS=true</code> <strong>e</strong> fornecer <code>GEMINI_API_KEY</code>. O relatório base permanece determinístico sem isso.</p>
+</section>
+
+<!-- =================== 7. ENTREGÁVEIS =================== -->
+<section class="page-section" id="sec-7">
+  <div class="sec-head"><span class="sec-num">07</span><h2 class="sec-title">Entregáveis Finais</h2></div>
+  <p class="sec-sub">Este documento é parte de um conjunto de entregáveis para o Hackathon.</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Entregável</th><th>Localização</th><th>Formato</th><th>Propósito</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Código-Fonte</strong></td><td>GitHub</td><td><code>.git</code> repository</td><td>Implementação completa e versionada</td></tr>
+        <tr><td><strong>README</strong></td><td><code>README.md</code></td><td>Markdown</td><td>Visão geral, setup e exemplos</td></tr>
+        <tr><td><strong>Documentação Técnica</strong></td><td>Este arquivo</td><td>Markdown + PDF</td><td>Detalhamento arquitetural</td></tr>
+        <tr><td><strong>Documentação de Dataset</strong></td><td><code>docs/dataset-*.md</code></td><td>Markdown</td><td>Origens, splits, anotações</td></tr>
+        <tr><td><strong>Documentação de Modelo</strong></td><td><code>docs/model-*.md</code></td><td>Markdown</td><td>Métricas, treino, limitações</td></tr>
+        <tr><td><strong>Índice Operacional</strong></td><td><code>docs/submission-evidence.md</code></td><td>Markdown</td><td>Roteiro de demonstração para banca</td></tr>
+        <tr><td><strong>Vídeo Demonstrativo</strong></td><td>YouTube</td><td>15 min vídeo</td><td>Live demo + explicações técnicas</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- =================== 8. CONCLUSÃO =================== -->
+<section class="page-section" id="sec-8">
+  <div class="sec-head"><span class="sec-num">08</span><h2 class="sec-title">Conclusão</h2></div>
+  <p>O ThreatLens AI implementa um MVP robusto de modelagem automática de ameaças STRIDE. A solução:</p>
+  <ul>
+    <li><span class="chip ok">✓</span>&nbsp; Atende todos os 7 requisitos oficiais do hackathon</li>
+    <li><span class="chip ok">✓</span>&nbsp; Implementa defesas contra alucinações (quality gate, fail-closed)</li>
+    <li><span class="chip ok">✓</span>&nbsp; Mantém rastreabilidade completa de detecção até ameaça</li>
+    <li><span class="chip ok">✓</span>&nbsp; Oferece múltiplos canais de saída (JSON, Markdown, PDF)</li>
+    <li><span class="chip ok">✓</span>&nbsp; Usa referências externas verificáveis (CWE, CAPEC, OWASP, MITRE)</li>
+    <li><span class="chip ok">✓</span>&nbsp; Transparência sobre limitações e domain shift</li>
+    <li><span class="chip ok">✓</span>&nbsp; Código aberto, documentação completa, reprodutível</li>
+  </ul>
+
+  <h4>Recomendações para uso em produção</h4>
+  <ol>
+    <li>Expandir dataset com mais diagramas reais e estilos visuais</li>
+    <li>Implementar active learning com falsos positivos reais</li>
+    <li>Adicionar classificador supervisionado de existência de arestas</li>
+    <li>Integrar com workflow corporativo de aprovação de riscos</li>
+    <li>Realizar nova avaliação prospectiva com holdout ainda não observado</li>
+  </ol>
+</section>
+
+<!-- =================== 9. API CONTRACT =================== -->
+<section class="page-section" id="sec-9">
+  <div class="sec-head"><span class="sec-num">09</span><h2 class="sec-title">Contrato da API</h2></div>
+  <p class="sec-sub">Versão: <code>1.0.0-mvp</code>. O backend FastAPI escuta por padrão em <code>127.0.0.1:8000</code>; no pacote Docker, o proxy Node expõe a API em <code>http://127.0.0.1:4173/api</code>.</p>
+
+  <h3><span class="h3-tag">GET</span>/health</h3>
+  <p>Sonda leve de processo. Não carrega o detector, não executa inferência e não abre benchmarks.</p>
+  <div class="blk json">
+    <div class="blk-head"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="blk-label">GET /health · 200</span></div>
+    <pre><code>{"status":"ok","version":"1.0.0-mvp","flowStrategy":"legacy"}</code></pre>
+  </div>
+  <p>O objeto adicional <code>flowStrategies</code> informa a estratégia selecionada, o padrão e as opções. <code>GET /ready</code> é a sonda profunda: verifica detector, calibração e RAG, e pode retornar 503.</p>
+
+  <h3><span class="h3-tag">POST</span>/analyze/image</h3>
+  <p>Entrada <code>multipart/form-data</code>, campo obrigatório <code>image</code>. Tipos aceitos: PNG, JPEG e WebP. O limite padrão é 25 MB e 40 milhões de pixels. A resposta é a arquitetura detectada com <code>components</code>, <code>flows</code>, <code>trustBoundaries</code>, <code>detectionAlternatives</code>, <code>flowStrategy</code>, <code>flowStrategyTrace</code> e <code>analysisQuality</code>. Não gera o relatório STRIDE.</p>
+
+  <h3><span class="h3-tag">POST</span>/analyze/json</h3>
+  <p>Entrada JSON com <code>components</code>, <code>flows</code> e, opcionalmente, <code>trustBoundaries</code>, metadados e decisões de mitigação. Limites padrão: 2 MB, 200 componentes, 1.000 fluxos e 100 fronteiras. A resposta contém <code>architecture</code>, <code>threats</code>, <code>score</code>, <code>riskComparison</code>, <code>graph</code>, <code>coverage</code>, <code>reportMarkdown</code>, rastreabilidade e <code>pipeline</code>.</p>
+
+  <h3><span class="h3-tag">·</span>Qualidade estrutural</h3>
+  <p>Todas as respostas de análise expõem <code>analysisQuality</code>:</p>
+  <div class="blk json">
+    <div class="blk-head"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="blk-label">analysisQuality</span></div>
+    <pre><code>{
+  "analysisQuality": {
+    "status": "reliable",
+    "score": 1.0,
+    "reasons": [],
+    "recommendedAction": "A estrutura passou pelo gate automático; mantenha a revisão humana antes da aprovação final."
+  }
+}</code></pre>
+  </div>
+  <p>Os status aceitos são <code>reliable</code>, <code>review_required</code> e <code>rejected</code>. Uma rejeição impede STRIDE, RAG, risco e relatório; a resposta usa <code>reportSuppressed: true</code>, <code>threats: []</code> e <code>score: null</code>, preservando a arquitetura e as razões para diagnóstico. <code>/report/pdf</code> recusa resultados rejeitados com 422.</p>
+
+  <h3><span class="h3-tag">POST</span>/analyze/full</h3>
+  <p>Entrada <code>multipart/form-data</code> com <code>image</code>, <code>architecture_json</code> ou ambos. A imagem é prioritária; o JSON funciona como fallback quando a detecção falha. Executa detecção, estratégia de fluxo, STRIDE, RAG e relatório. <code>pipeline.flowStrategy</code> e <code>pipeline.flowStrategyTrace</code> registram a estratégia e as decisões aplicadas.</p>
+
+  <h3><span class="h3-tag">·</span>Estratégias</h3>
+  <p><code>FLOW_STRATEGY</code> é lida na inicialização. Sem a variável, o sistema usa <code>legacy</code>. <code>junction_aware_controlled</code> é experimental, reversível, não redireciona endpoints e não aplica automaticamente decisões <code>review_only</code>. Valor desconhecido falha fechado com 422 quando a análise tenta aplicar a estratégia.</p>
+
+  <h3><span class="h3-tag">·</span>Códigos e erros</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th class="num">Código</th><th>Significado</th></tr></thead>
+      <tbody>
+        <tr><td class="num">200</td><td>Requisição concluída</td></tr>
+        <tr><td class="num">400</td><td>Imagem corrompida ou payload inválido em nível de conteúdo</td></tr>
+        <tr><td class="num">413</td><td>Corpo ou imagem acima do limite</td></tr>
+        <tr><td class="num">415</td><td>Tipo de imagem não suportado</td></tr>
+        <tr><td class="num">422</td><td>Estrutura, IDs, bbox, estratégia ou formulário inválido</td></tr>
+        <tr><td class="num">503</td><td>Detector supervisionado indisponível e fallback visual desativado</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Erros são JSON no formato <code>{"detail":"mensagem"}</code> e as respostas recebem <code>X-Request-ID</code> para correlação.</p>
+</section>
+
+<!-- =================== 10. MODEL DEVELOPMENT =================== -->
+<section class="page-section" id="sec-10">
+  <div class="sec-head"><span class="sec-num">10</span><h2 class="sec-title">Desenvolvimento do Modelo Supervisionado</h2></div>
+
+  <h3><span class="h3-tag">10.1</span>Escopo</h3>
+  <p>O modelo supervisionado detecta componentes de arquitetura. Fluxos, direção, fronteiras, STRIDE e risco são etapas separadas; não foram usados como rótulos do detector.</p>
+
+  <h3><span class="h3-tag">10.2</span>Dados e Origem</h3>
+  <p>O baseline <code>dataset/hybrid_v2</code> reúne 300 diagramas do conjunto complementar do projeto e 73 arquiteturas independentes selecionadas do Software Architecture Dataset público no Kaggle. O inventário remoto encontrou 8.700 imagens PNG, 8.700 XMLs Pascal VOC e 852 grupos de arquiteturas originais. Foi mantida apenas uma variante por grupo Kaggle porque as demais eram augmentations da mesma arquitetura.</p>
+  <p>As anotações Kaggle em Pascal VOC foram convertidas para YOLO e mapeadas para a taxonomia canônica. Objetos fora do escopo foram preservados na auditoria, mas não convertidos em rótulos artificiais.</p>
+
+  <h3><span class="h3-tag">10.3</span>Classes e Divisões</h3>
+  <p>O conjunto final possui 373 imagens e 3.048 objetos anotados:</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Split</th><th class="num">Imagens</th><th class="num">Labels</th></tr></thead>
+      <tbody>
+        <tr><td>Treino</td><td class="num">265</td><td class="num">265</td></tr>
+        <tr><td>Validação</td><td class="num">69</td><td class="num">69</td></tr>
+        <tr><td>Teste</td><td class="num">39</td><td class="num">39</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>As 14 classes são <code>api_gateway</code>, <code>backup</code>, <code>cdn</code>, <code>compute</code>, <code>database</code>, <code>identity_provider</code>, <code>internet</code>, <code>load_balancer</code>, <code>monitoring</code>, <code>queue</code>, <code>secrets_kms</code>, <code>storage</code>, <code>user</code> e <code>waf</code>. Todas aparecem nos três splits. A auditoria não encontrou imagens ou labels órfãos nem famílias Kaggle atravessando splits.</p>
+
+  <h3><span class="h3-tag">10.4</span>Treinamento e Registro</h3>
+  <p>O detector registrado é um YOLOv8n em <code>models/threatlens-hybrid-v2/weights/best.pt</code>. A etapa final utilizou replay balanceado de 55 diagramas Kaggle e 55 diagramas da fonte anterior, validação balanceada de 9 + 9 imagens, resolução 640 e AdamW. O hash SHA-256 registrado do peso é <code>2aebcd0611927505d60a10d23ce11d0e5211cf2e91ca0c4394921fac006c865d</code>.</p>
+
+  <h3><span class="h3-tag">10.5</span>Métricas Reais do Detector</h3>
+  <p>No teste híbrido de 39 imagens:</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Métrica</th><th class="num">Valor</th></tr></thead>
+      <tbody>
+        <tr><td>Precisão</td><td class="num">0.9297</td></tr>
+        <tr><td>Recall</td><td class="num">0.8417</td></tr>
+        <tr><td>mAP50</td><td class="num">0.9009</td></tr>
+        <tr><td>mAP50-95</td><td class="num">0.8666</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="callout warn">
+    <div class="callout-title">Alarme de domain shift</div>
+    <p>Na fatia de 9 diagramas Kaggle, o modelo final alcançou mAP50 0.3598 e recall 0.3951. Essa fatia é pequena e é tratada como alarme de domain shift, não como prova de cobertura universal.</p>
+  </div>
+
+  <h3><span class="h3-tag">10.6</span>Prevenção de Vazamento</h3>
+  <ul>
+    <li>A unidade de agrupamento Kaggle é a arquitetura original, não a imagem aumentada.</li>
+    <li>Variantes da mesma arquitetura não cruzam treino, validação e teste.</li>
+    <li>O replay usa manifestos explícitos e mantém o teste híbrido inalterado.</li>
+    <li>Os holdouts end-to-end não foram executados durante <code>DELIVERY-001</code>.</li>
+  </ul>
+
+  <h3><span class="h3-tag">10.7</span>Limitações</h3>
+  <p>O dataset é pequeno, contém uma fração relevante de diagramas gerados e cobre apenas 14 classes canônicas. Ícones desconhecidos, novos estilos visuais, texto pequeno e diagramas densamente conectados podem reduzir o desempenho. As métricas do detector não medem a qualidade dos fluxos ou do relatório STRIDE.</p>
+  <p style="font-size:13px; color:var(--text-faint);">Evidências detalhadas: <code>docs/dataset-integration-results.md</code>, <code>docs/model-evaluation-and-registration.md</code> e <code>models/threatlens-hybrid-v2/model-card.json</code>.</p>
+</section>
+
+<!-- =================== 11. AVALIAÇÃO =================== -->
+<section class="page-section" id="sec-11">
+  <div class="sec-head"><span class="sec-num">11</span><h2 class="sec-title">Avaliação do MVP</h2></div>
+
+  <h3><span class="h3-tag">11.1</span>Reconstrução de Fluxos em <code>development_tuning</code></h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Estratégia</th><th class="num">Corretos</th><th class="num">Falsos Positivos</th><th class="num">Ausentes</th><th class="num">Recall</th><th class="num">F1</th><th class="num">Acurácia de Direção</th></tr></thead>
+      <tbody>
+        <tr><td><code>legacy</code></td><td class="num">52</td><td class="num">90</td><td class="num">19</td><td class="num">0.7324</td><td class="num">0.4883</td><td class="num">0.8654</td></tr>
+        <tr><td><code>junction_aware_controlled</code></td><td class="num">52</td><td class="num">75</td><td class="num">19</td><td class="num">0.7324</td><td class="num">0.5253</td><td class="num">0.8654</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>A configuração controlada corresponde a <code>full_without_endpoint_redirect + structural_line_gate</code>. Ela bloqueou 15 falsos fluxos, sem bloquear verdadeiros positivos na amostra de desenvolvimento, e preservou os controles humanos C01–C07.</p>
+
+  <h3><span class="h3-tag">11.2</span>Interpretação Correta</h3>
+  <p>Os números acima foram obtidos somente no split <code>development_tuning</code> e com apoio das revisões humanas da TL-004. Eles validam integração controlada e reversível, mas não são evidência de generalização. A estratégia permanece opt-in e <code>legacy</code> continua padrão.</p>
+  <p>O detector de componentes tem avaliação separada no teste híbrido de 39 imagens: precisão 0.9297, recall 0.8417, mAP50 0.9009 e mAP50-95 0.8666. Essas métricas não devem ser confundidas com F1 de fluxos ou F1 de ameaças.</p>
+
+  <h3><span class="h3-tag">11.3</span>Evidências Preservadas</h3>
+  <ul>
+    <li>Gate v15: F1 0.5296, precisão 0.4343, recall 0.6786, 152 ameaças corretas e 198 extras.</li>
+    <li>Auditoria prospectiva v12: cadeia hash-selada verificada separadamente.</li>
+    <li>Snapshot <code>legacy</code>: 142 fluxos no contrato de promoção, mantido imutável.</li>
+    <li><code>DELIVERY-001</code>: não executa <code>blind_holdout</code> nem <code>prospective_holdout</code>.</li>
+  </ul>
+  <p style="font-size:13px; color:var(--text-faint);">Os resultados históricos permanecem em <code>data/results/</code>; o manifesto de reprodutibilidade registra hashes, versões e seeds.</p>
+</section>
+
+<!-- =================== 12. ARQUITETURA COMPLEMENTAR =================== -->
+<section class="page-section" id="sec-12">
+  <div class="sec-head"><span class="sec-num">12</span><h2 class="sec-title">Arquitetura — Detalhamento Complementar</h2></div>
+  <p class="sec-sub">Complemento de <code>docs/architecture.md</code> com detalhes de fluxo, portas, estratégias e trabalhos futuros que aprofundam as seções 2 e 6.</p>
+
+  <h3><span class="h3-tag">12.1</span>Objetivo Técnico e Separação de Responsabilidades</h3>
+  <p>O ThreatLens AI implementa um pipeline de modelagem de ameaças assistida por IA. A entrada é uma imagem de arquitetura; a saída é uma representação estruturada acompanhada de ameaças STRIDE, contramedidas, referências de segurança e relatório exportável. A solução separa cinco responsabilidades: (1) detecção visual de componentes; (2) reconstrução de conectividade e fronteiras; (3) avaliação de qualidade estrutural; (4) inferência determinística de ameaças; (5) recuperação de conhecimento e geração do relatório. Essa divisão reduz alucinações e permite testar e auditar cada etapa isoladamente.</p>
+
+  <h4>Fluxo principal (visão resumida)</h4>
+  <div class="ascii-wrap"><pre>Imagem
+-> validação e pré-processamento
+-> detecção supervisionada de componentes
+-> OCR e evidências visuais
+-> reconstrução de fluxos e fronteiras
+-> quality gate estrutural
+-> representação JSON e grafo
+-> revisão humana
+-> motor STRIDE
+-> RAG local de vulnerabilidades e controles
+-> contramedidas, referências e relatório</pre></div>
+
+  <h3><span class="h3-tag">12.2</span>Serviços e Portas</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Serviço</th><th class="num">Porta padrão</th><th>Responsabilidade</th></tr></thead>
+      <tbody>
+        <tr><td>FastAPI</td><td class="num">8000</td><td>Detecção, análise, health, readiness e PDF</td></tr>
+        <tr><td>Node.js</td><td class="num">4173</td><td>Frontend estático e proxy <code>/api</code></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p><code>backend/main.py</code> expõe a API FastAPI. A camada de entrada valida tipo, bytes, quantidade de pixels, cardinalidade e estrutura dos payloads. PNG, JPEG e WebP são aceitos; entradas inválidas falham antes da inferência. O middleware gera um <code>X-Request-ID</code> por requisição. O proxy em <code>server.mjs</code> publica a API sob <code>/api</code>, serve o frontend e aplica Content Security Policy e demais cabeçalhos de segurança. <code>GET /health</code> é uma sonda leve; <code>GET /ready</code> valida detector, calibração e base RAG.</p>
+
+  <h3><span class="h3-tag">12.3</span>Reconstrução de Estrutura e Estratégias de Fluxo</h3>
+  <p><code>backend/diagram_structure.py</code> usa OpenCV para extrair segmentos, linhas e regiões retangulares. A etapa reconstrói linhas fragmentadas e cotovelos; associação de endpoints a componentes; direção por arrowheads; protocolos explícitos próximos aos conectores; fronteiras de confiança candidatas; cruzamentos, bifurcações e troncos compartilhados; barreiras e portas de componentes; atalhos transitivos e linhas estruturais.</p>
+  <p><code>backend/flow_strategy.py</code> permite selecionar:</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Estratégia</th><th>Comportamento</th></tr></thead>
+      <tbody>
+        <tr><td><code>legacy</code></td><td>Padrão estável e baseline preservada.</td></tr>
+        <tr><td><code>junction_aware_controlled</code></td><td>Estratégia experimental e reversível com validações junction-aware.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>A estratégia controlada combina <code>full_without_endpoint_redirect</code> com <code>structural_line_gate</code>. Ela não reativa redirecionamento automático de endpoints e não aplica decisões <code>review_only</code> como fatos. No conjunto <code>development_tuning</code>, a estratégia preservou 52 conexões corretas e reduziu falsos fluxos de 90 para 75, elevando o F1 de 0.4883 para 0.5253 sem perda de recall.</p>
+
+  <h3><span class="h3-tag">12.4</span>RAG e Geração de Relatório</h3>
+  <p><code>backend/rag.py</code> consulta documentos versionados em <code>backend/knowledge</code>. A recuperação é orientada por componentes e categorias STRIDE, com embeddings locais quando disponíveis e fallback lexical determinístico. O caminho padrão não exige cloud nem custos externos. Enriquecimento generativo e validação remota são opt-in. Mesmo quando habilitada, a camada generativa não pode criar componentes ou fluxos ausentes da arquitetura analisada. <code>backend/pdf_report.py</code> gera o PDF nativo. A interface também permite baixar o JSON completo e imprimir a visualização executiva.</p>
+
+  <h3><span class="h3-tag">12.5</span>Reprodutibilidade e Avaliação — Controles Adicionais</h3>
+  <p>O projeto registra hashes do modelo, datasets, configurações, código e artefatos no manifesto <code>data/manifests/reproducibility.json</code>. Controles disponíveis:</p>
+  <ul>
+    <li>Gate automático da baseline v15</li>
+    <li>Auditoria hash-selada da cadeia prospectiva v12</li>
+    <li>Benchmark real com AWS, Azure, GCP, diagramas genéricos e estilos FIAP</li>
+    <li>Benchmark estrutural e golden set STRIDE</li>
+    <li>Testes unitários, integração, frontend e regressão</li>
+    <li>350 testes aprovados e verificador global em estado <code>PASS</code></li>
+  </ul>
+  <p>As métricas do detector, de fluxos e de ameaças são tratadas separadamente. Resultados de desenvolvimento não são apresentados como evidência cega de generalização.</p>
+
+  <h3><span class="h3-tag">12.6</span>Limitações Atuais (Síntese de Arquitetura)</h3>
+  <ul>
+    <li>Diagramas densos ainda podem produzir fluxos extras ou ausentes;</li>
+    <li>arrowheads pequenos, borrados ou sobrepostos reduzem a confiança de direção;</li>
+    <li>bordas, grades e elementos internos de ícones podem parecer conectores;</li>
+    <li>o detector cobre 14 classes canônicas;</li>
+    <li>a diversidade de diagramas reais ainda é limitada;</li>
+    <li>réplicas perfeitamente alinhadas podem exigir revisão do quality gate;</li>
+    <li>as métricas do detector não medem diretamente a qualidade do relatório STRIDE;</li>
+    <li>o resultado é assistência técnica e requer validação humana.</li>
+  </ul>
+
+  <h3><span class="h3-tag">12.7</span>Trabalhos Futuros</h3>
+  <ul>
+    <li>Active learning com falsos positivos reais;</li>
+    <li>classificador supervisionado de existência de arestas;</li>
+    <li>calibração separada de OCR, existência de fluxo e direção;</li>
+    <li>maior cobertura de diagramas reais e estilos visuais;</li>
+    <li>OCR para labels pequenos, rotacionados e de baixo contraste;</li>
+    <li>fronteiras de confiança hierárquicas;</li>
+    <li>integração com backlog corporativo de riscos e workflow de aprovação;</li>
+    <li>nova avaliação prospectiva com diagramas ainda não observados.</li>
+  </ul>
+</section>
+
+<!-- =================== 13. EVIDÊNCIAS PARA ENTREGA =================== -->
+<section class="page-section" id="sec-13">
+  <div class="sec-head"><span class="sec-num">13</span><h2 class="sec-title">Evidências para Entrega e Demonstração</h2></div>
+  <p class="sec-sub">Índice operacional da entrega, com foco em evitar execução de treinamento, holdouts ou Docker durante a apresentação para a banca.</p>
+
+  <div class="callout violet">
+    <div class="callout-title">Mensagem central</div>
+    <p>O ThreatLens não gera ameaças diretamente da imagem. Ele detecta componentes com um modelo supervisionado, reconstrói uma arquitetura revisável, aplica um gate de qualidade e somente então executa regras STRIDE e recuperação local de contramedidas.</p>
+  </div>
+
+  <h3><span class="h3-tag">13.1</span>Matriz dos Requisitos (Roteiro de Demonstração)</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Requisito do Hackathon</th><th>Evidência Demonstrável</th></tr></thead>
+      <tbody>
+        <tr><td>Interpretar um diagrama em imagem</td><td><code>data/sample-diagrams/02-mixed-components.jpg</code> e dashboard</td></tr>
+        <tr><td>Identificar componentes</td><td>boxes, classes, provider, confiança e <code>bbox</code> na resposta da API</td></tr>
+        <tr><td>Dataset de arquiteturas</td><td><code>docs/dataset-integration-results.md</code> e manifestos em <code>data/manifests/</code></td></tr>
+        <tr><td>Dataset anotado</td><td>373 imagens, 3.048 objetos e 14 classes documentados no <code>README.md</code></td></tr>
+        <tr><td>Modelo supervisionado treinado</td><td><code>docs/model-development.md</code> e model card registrado</td></tr>
+        <tr><td>Relatório STRIDE</td><td><code>docs/sample-threat-model.md</code> e JSON de amostra</td></tr>
+        <tr><td>Vulnerabilidades e contramedidas</td><td>referências CWE, CAPEC, OWASP e MITRE ATT&amp;CK no dashboard e PDF</td></tr>
+        <tr><td>Documentação do fluxo</td><td><code>docs/architecture.md</code></td></tr>
+        <tr><td>Mais de uma visualização</td><td>dashboard, JSON, Markdown e PDF</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3><span class="h3-tag">13.2</span>Evidências Quantitativas Oficiais</h3>
+
+  <h4>Detector supervisionado</h4>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Métrica</th><th class="num">Valor</th></tr></thead>
+      <tbody>
+        <tr><td>Precisão</td><td class="num">0,9297</td></tr>
+        <tr><td>Recall</td><td class="num">0,8417</td></tr>
+        <tr><td>mAP@50</td><td class="num">0,9009</td></tr>
+        <tr><td>mAP@50-95</td><td class="num">0,8666</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="font-size:13px; color:var(--text-faint);">Fonte: model card e resultados registrados de <code>threatlens-hybrid-v2</code>.</p>
+
+  <h4>Gate de regressão v15</h4>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Métrica</th><th class="num">Valor</th></tr></thead>
+      <tbody>
+        <tr><td>F1</td><td class="num">0,5296</td></tr>
+        <tr><td>Precisão</td><td class="num">0,4343</td></tr>
+        <tr><td>Recall</td><td class="num">0,6786</td></tr>
+        <tr><td>Ameaças corretas</td><td class="num">152</td></tr>
+        <tr><td>Falsos positivos</td><td class="num">198</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="font-size:13px; color:var(--text-faint);">Evidência: <code>data/results/v15-regression-gate/</code>. Esses valores pertencem ao split <code>development_tuning</code>; não devem ser apresentados como novo resultado cego.</p>
+
+  <h4>Estratégia junction-aware controlada</h4>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Métrica</th><th class="num">Valor</th></tr></thead>
+      <tbody>
+        <tr><td>Conexões corretas</td><td class="num">52</td></tr>
+        <tr><td>Falsos fluxos</td><td class="num">75</td></tr>
+        <tr><td>Fluxos ausentes</td><td class="num">19</td></tr>
+        <tr><td>Recall</td><td class="num">0,7324</td></tr>
+        <tr><td>F1</td><td class="num">0,5253</td></tr>
+        <tr><td>Acurácia de direção</td><td class="num">0,8654</td></tr>
+        <tr><td>Verdadeiros positivos bloqueados</td><td class="num">0</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="font-size:13px; color:var(--text-faint);">Evidências: <code>data/results/tl004f-integrated-ablation/</code> e <code>data/results/tl-struct-001a-final-gate/</code>. A estratégia é experimental, opt-in e validada somente em desenvolvimento; <code>legacy</code> permanece o padrão.</p>
+
+  <h4>Qualidade e engenharia</h4>
+  <ul>
+    <li>350 testes automatizados aprovados.</li>
+    <li>Verificador global: <span class="chip ok">PASS</span></li>
+    <li>Auditoria prospectiva v12: <span class="chip ok">PASS</span></li>
+    <li>Controles C01–C07: <span class="chip ok">PASS</span></li>
+    <li>Manifesto com hashes em <code>data/manifests/reproducibility.json</code>.</li>
+  </ul>
+  <p style="font-size:13px; color:var(--text-faint);">Os 85 testes encontrados em artefatos históricos são a baseline mínima preservada pela TL-001, não o total atual da suíte.</p>
+
+  <h3><span class="h3-tag">13.3</span>Rota de Demonstração sem Docker</h3>
+
+  <h4>Preparação</h4>
+  <p>Na raiz do projeto:</p>
+  <div class="blk bash">
+    <div class="blk-head"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="blk-label">PowerShell</span></div>
+    <pre><code>.venv\Scripts\python.exe -c "import cv2, fastapi, ultralytics; print('Dependências OK')"
+npm.cmd run verify
+npm.cmd run report:sample-pdf
+npm.cmd run dev</code></pre>
+  </div>
+  <p>Abra <code>http://127.0.0.1:4173</code> e mantenha o terminal aberto.</p>
+
+  <h4>Caso principal</h4>
+  <ol>
+    <li>Selecione <code>data/sample-diagrams/02-mixed-components.jpg</code>.</li>
+    <li>Mostre componentes detectados, confianças e bounding boxes.</li>
+    <li>Mostre fluxos, protocolos, fronteiras e itens pendentes de revisão.</li>
+    <li>Confirme a arquitetura revisada.</li>
+    <li>Gere STRIDE e abra a rastreabilidade de uma ameaça.</li>
+    <li>Mostre regra, componente ou fluxo de origem, fonte RAG e contramedida.</li>
+    <li>Exporte JSON, Markdown e PDF.</li>
+  </ol>
+
+  <h4>Caso de segurança fail-closed</h4>
+  <ol>
+    <li>Envie <code>E:\teste_aws.png</code>, se disponível.</li>
+    <li>Mostre que o sistema identifica uma entrada comparativa ou estruturalmente inconsistente.</li>
+    <li>Destaque o status <code>rejected</code>, as razões e a ação recomendada.</li>
+    <li>Confirme que STRIDE, risco, contramedidas e PDF foram bloqueados.</li>
+  </ol>
+  <p style="font-size:13px; color:var(--text-faint);">Evidência de contingência: <code>data/results/mvp-hardening-001/external-image-quality.json</code>.</p>
+
+  <h3><span class="h3-tag">13.4</span>Plano de Contingência</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Falha Durante a Apresentação</th><th>Ação</th></tr></thead>
+      <tbody>
+        <tr><td>Docker indisponível</td><td>Use <code>npm.cmd run dev</code>; Docker não faz parte da rota necessária.</td></tr>
+        <tr><td>Detector demora</td><td>Use <code>data/results/web-mvp-001/sample-analysis-report.json</code>.</td></tr>
+        <tr><td>Backend não inicia</td><td>Mostre <code>docs/sample-threat-model.md</code> e o PDF previamente gerado.</td></tr>
+        <tr><td>Arquivo externo indisponível</td><td>Abra <code>data/results/mvp-hardening-001/external-image-quality.json</code>.</td></tr>
+        <tr><td>Sem internet</td><td>Continue normalmente; detector, RAG e relatório base são locais.</td></tr>
+        <tr><td>Pergunta sobre generalização</td><td>Diferencie desenvolvimento, holdouts selados e resultados pós-hoc.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3><span class="h3-tag">13.5</span>Evidências para Deixar Abertas Antes da Banca</h3>
+  <ol>
+    <li>Dashboard em <code>http://127.0.0.1:4173</code>.</li>
+    <li><code>docs/sample-threat-model.md</code>.</li>
+    <li><code>data/results/web-mvp-001/sample-analysis-report.json</code>.</li>
+    <li><code>data/results/mvp-hardening-001/external-image-quality.json</code>.</li>
+    <li><code>data/results/v15-regression-gate/</code> com o relatório mais recente.</li>
+    <li><code>data/manifests/reproducibility.json</code>.</li>
+    <li><code>output/pdf/threatlens-sample-report.pdf</code>.</li>
+  </ol>
+
+  <h3><span class="h3-tag">13.6</span>Frases de Defesa Técnica</h3>
+  <div class="grid-2">
+    <div class="card"><p style="margin:0;">"O supervisionado detecta componentes; o STRIDE é aplicado sobre o grafo revisado."</p></div>
+    <div class="card"><p style="margin:0;">"A estratégia experimental não substituiu silenciosamente a baseline legacy."</p></div>
+    <div class="card"><p style="margin:0;">"Resultado de desenvolvimento não é apresentado como generalização."</p></div>
+    <div class="card"><p style="margin:0;">"Uma análise rejeitada preserva o diagnóstico, mas não produz risco ou ameaças enganosas."</p></div>
+  </div>
+  <div class="callout">
+    <p style="margin:0;">"Ausência de alerta não significa ausência de risco; o produto apoia, mas não substitui revisão de segurança."</p>
+  </div>
+
+  <h3><span class="h3-tag">13.7</span>O que Não Executar na Apresentação</h3>
+  <ul>
+    <li>treinamento ou fine-tuning;</li>
+    <li><code>blind_holdout</code> ou <code>prospective_holdout</code>;</li>
+    <li>atualização de baseline ou manifesto;</li>
+    <li>download de modelos ou datasets;</li>
+    <li>alteração de thresholds ou de <code>FLOW_STRATEGY</code>;</li>
+    <li>instalação ou diagnóstico do Docker.</li>
+  </ul>
+
+  <h3><span class="h3-tag">13.8</span>Critério de Prontidão</h3>
+  <div class="callout cyan">
+    <p style="margin:0;">A demonstração está pronta quando o frontend abre, <code>/api/ready</code> responde com sucesso, o caso de amostra gera análise, o PDF de contingência existe e os quatro artefatos principais deste índice podem ser abertos sem rede.</p>
+  </div>
+</section>
+
+<h3 style="margin-top:0;">Links de Referência</h3>
+<div class="table-wrap" style="margin-bottom:64px;">
+  <table>
+    <tbody>
+      <tr><td style="width:280px;">CWE (Common Weakness Enumeration)</td><td><a href="https://cwe.mitre.org" target="_blank">cwe.mitre.org</a></td></tr>
+      <tr><td>CAPEC (Common Attack Pattern Expression Language)</td><td><a href="https://capec.mitre.org" target="_blank">capec.mitre.org</a></td></tr>
+      <tr><td>OWASP Top 10 2021</td><td><a href="https://owasp.org/Top10" target="_blank">owasp.org/Top10</a></td></tr>
+      <tr><td>MITRE ATT&amp;CK</td><td><a href="https://attack.mitre.org" target="_blank">attack.mitre.org</a></td></tr>
+      <tr><td>STRIDE (Microsoft)</td><td><a href="https://learn.microsoft.com/en-us/azure/security/develop/threat-modeling-tool-threats" target="_blank">learn.microsoft.com</a></td></tr>
+      <tr><td>YOLOv8 Documentation</td><td><a href="https://docs.ultralytics.com" target="_blank">docs.ultralytics.com</a></td></tr>
+      <tr><td>Tesseract OCR</td><td><a href="https://github.com/UB-Mannheim/tesseract" target="_blank">github.com/UB-Mannheim/tesseract</a></td></tr>
+      <tr><td>FastAPI</td><td><a href="https://fastapi.tiangolo.com" target="_blank">fastapi.tiangolo.com</a></td></tr>
+      <tr><td>ReportLab (PDF)</td><td><a href="https://www.reportlab.com/" target="_blank">reportlab.com</a></td></tr>
+    </tbody>
+  </table>
+</div>
+
+</div><!-- /wrap -->
+
+<footer>
+  <div class="fbrand">THREATLENS AI · POS TECH FIAP</div>
+  <div>Documento preparado em Julho de 2026 · Versão 1.0 — Entrega Final</div>
+  <div style="margin-top:6px;">Status: Pronto para Exportação em PDF e Submissão à Banca</div>
+</footer>
+
+</body>
+</html>
